@@ -2,18 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>http://nolleh.github.io/</loc>
     <lastmod>2017-07-04T00:45:55+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/managed_cb_to_unmanaged/</loc>
+    <loc>http://nolleh.github.io/post/managed_cb_to_unmanaged/</loc>
     <lastmod>2017-07-04T00:45:55+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/good-to-great/</loc>
+    <loc>http://nolleh.github.io/post/good-to-great/</loc>
     <lastmod>2017-07-03T23:44:54+09:00</lastmod>
   </url>
   
