@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2017-07-04T00:45:55+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/post/managed_cb_to_unmanaged/</loc>
+    <lastmod>2017-07-04T00:45:55+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/post/good-to-great/</loc>
+    <lastmod>2017-07-03T23:44:54+09:00</lastmod>
+  </url>
+  
+</urlset>

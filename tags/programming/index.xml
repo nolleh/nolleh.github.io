@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Programming on The Computer Programmer, Nolleh</title>
+    <link>http://localhost:1313/tags/programming/</link>
+    <description>Recent content in Programming on The Computer Programmer, Nolleh</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 04 Jul 2017 00:45:55 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    
+      
+        
+          <item>
+            <title>C&#43;&#43;/CLI 에서managed 콜백을 unmanaged 로 전달하기</title>
+            <link>http://localhost:1313/post/managed_cb_to_unmanaged/</link>
+            <pubDate>Tue, 04 Jul 2017 00:45:55 +0900</pubDate>
+            
+            <guid>http://localhost:1313/post/managed_cb_to_unmanaged/</guid>
+            <description>&lt;p&gt;파라미터가 없다면 DelegateToPointer 로 마샬링해서 전달하면되는데,&lt;br /&gt;
+이러면 파라미터를 마샬링할 기회가 주어지지 않는다는게 문제다.&lt;br /&gt;
+좀 구글링을 해봤는데,&lt;br /&gt;
+이런 포스트가 있었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/questions/32386851/managed-to-unmanaged-callback-with-managed-parameters&#34;&gt;스택오버플로-파라미터와 함께 unmanaged 콜백으로 변환하기&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;채택된 답변을 살펴보면 클래스 구조는 대략 다음과 같다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;NativeCallbackHandler - msclr::gcroot&lt;OutputManaged^&gt; m_owner (OutputLogManaged) 를 멤버로 보유.&lt;/li&gt;
+&lt;li&gt;OutputLogManaged - native OutputLog* (m_nativeOutputLog) / 1의 Holder 를 보유 (m_nativeHandler)] / 그리고 managed 콜백을 보유&lt;/li&gt;
+&lt;li&gt;OutputLog - Native Callback 과 void* UserData 를 멤버로 보유.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;이해하는데 주요한 클래스는 위 내용 정도인 듯.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Main 함수에서는 managed 로거와 native 에 적당한 콜백을 등록해 두고(OnError/GetNative()), Test 함수를 통해 콜백을 호출한다.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;OutputLogManaged 에는 생성시에 1의 NativeCallbackHandler 가 생성되며 native Callback 이 등록된 상태이며,&lt;br /&gt;
+동시에 NativeCallbackHandler 를 this 로 해서 함께 UserData 라는 객체로 OutputLog 의 멤버로 등록을 한 상태이다.&lt;br /&gt;
+(다시 말해 OutputLog 의 UserData 에는 1의 인스턴스가,NativeCallback 에는 그 인스턴스의 함수가 등록이 되어있다.)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;따라서 1의 콜백이 호출이 되는데 (등록해두었던 umanaged 콜백이 호출되는 단순한 전개라 하겠다.)&lt;br /&gt;
+이때 콜백의 내부에서 파라미터로 함께 전달된 userData 를 통해 현재 콜백 등록 당시의 NativeCallbackHandler 의 인스턴스를 얻어온다 (물론, 콜백을 여러개 등록할수있으므로.)&lt;br /&gt;
+이 인스턴스의 멤버인 m_owner 를 통해 OutputLogManaged 의 managed 콜백을 호출한다.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;내용을 말로 설명하려고하니 불필요하게 복잡해진 느낌인데,&lt;br /&gt;
+정리하면 다음과 같다.&lt;/p&gt;
+
+&lt;p&gt;unmanged 에서 Managed 의 객체를 들고 있다가 unmanaged 의 콜백이 호출될때 마샬링하여 Managed 의 콜백을 호출한다.&lt;/p&gt;
+
+&lt;p&gt;C++/CLR 을 처음 접하고 필요에 따라 구글링으로 작업을 하다보니 managed 와 unmanged 사이에서 서로 멤버로 두려고 하면 컴파일 에러가 나길래
+안되는 거구나..했는데.. 이런 기능이 있었나보다&amp;hellip;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;msclr::gcroot&amp;lt;...&amp;gt; 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;약간 허무하군.. (그래 안되면 어떻게 쓰겠냐만서도.. )&lt;/p&gt;
+</description>
+          </item>
+        
+      
+    
+  </channel>
+</rss>
