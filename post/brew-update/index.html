@@ -7,7 +7,7 @@
 
     <meta name="description" content="개발 환경 - Brew">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.24.1" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="Brew Install 이 구버전만 설치할 때 &middot; The Computer Programmer, Nolleh">
@@ -21,10 +21,10 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
 
-    <link rel="stylesheet" href="http://localhost:1313//css/all.min.css">
+    <link rel="stylesheet" href="http://nolleh.github.io:80//css/all.min.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
-    <link rel="alternate" type="application/rss+xml" title="The Computer Programmer, Nolleh" href="http://localhost:1313//index.xml" />
+    <link rel="alternate" type="application/rss+xml" title="The Computer Programmer, Nolleh" href="http://nolleh.github.io:80//index.xml" />
 </head>
 <body>
 
@@ -33,7 +33,7 @@
     <div class="sidebar pure-u-1 pure-u-md-1-4">
     <div class="header">
         <hgroup>
-            <h1 class="brand-title"><a href="http://localhost:1313/">The Computer Programmer, Nolleh</a></h1>
+            <h1 class="brand-title"><a href="http://nolleh.github.io:80/">The Computer Programmer, Nolleh</a></h1>
             <h2 class="brand-tagline"></h2>
         </hgroup>
 
@@ -46,7 +46,7 @@
                 </li>
                 
                 <li class="nav-item">
-                    <a class="pure-button" href="http://localhost:1313//index.xml"><i class="fa fa-rss"></i> rss</a>
+                    <a class="pure-button" href="http://nolleh.github.io:80//index.xml"><i class="fa fa-rss"></i> rss</a>
                 </li>
             </ul>
         </nav>
@@ -62,14 +62,14 @@
                 <section class="post">
                     <header class="post-header">
 
-                        <a href="http://localhost:1313/post/brew-update/" class="post-title">Brew Install 이 구버전만 설치할 때</a>
+                        <a href="http://nolleh.github.io:80/post/brew-update/" class="post-title">Brew Install 이 구버전만 설치할 때</a>
 
                         <p class="post-meta">
                             
                             
                                 under 
                                 
-                                <a class="post-category post-category-DevEnv" href="http://localhost:1313//categories/devenv">DevEnv</a><a class="post-category post-category-Mac" href="http://localhost:1313//categories/mac">Mac</a>
+                                <a class="post-category post-category-DevEnv" href="http://nolleh.github.io:80//categories/devenv">DevEnv</a><a class="post-category post-category-MacOS" href="http://nolleh.github.io:80//categories/macos">MacOS</a>
                             
                         </p>
                     </header>
@@ -87,7 +87,7 @@
                     <div class="post-description">
                         
 
-<h2 id="let-s-사족:f1ae1a70716df7cdf0e7fcb47f5c9166">Let&rsquo;s 사족</h2>
+<h2 id="let-s-사족">Let&rsquo;s 사족</h2>
 
 <p>처음 회사에 입사 했을 때 자리에는 Mac PC 만이 덩그러니 있었고, Mac 을 사용해본적 없던 꼬꼬마는
 자연스럽게 윈도우 CD 를 인사팀에서 받아와서 깔고 있었드랬다.</p>
@@ -101,7 +101,7 @@
 
 <p>이때가, Mac OS 와의 첫 만남이었드랬다.</p>
 
-<h2 id="brew:f1ae1a70716df7cdf0e7fcb47f5c9166">Brew</h2>
+<h2 id="brew">Brew</h2>
 
 <p>뭐 전혀 관계 없는 얘기로 포스트를 열었지만.<br />
 어쨌거나 그때부터 Mac 을 수년간 사용하면서 - 그때 쓰던 회사 Mac 은 여전히 내 사무실 책상의 한켠을 차지하고 있다 -<br />
@@ -115,7 +115,7 @@ Mac 을 비롯한 Linux 계통에서 Windows 를 압도하는 장점을 들자�
 Mac 에서는 그 역할을 충실히 하는 요소 중에 하나가 &ldquo;HomeBrew&rdquo; 라 하겠고.<br />
 <a href="http://docs.brew.sh/">HomeBrew</a></p>
 
-<h3 id="brew-설치:f1ae1a70716df7cdf0e7fcb47f5c9166">Brew 설치</h3>
+<h3 id="brew-설치">Brew 설치</h3>
 
 <blockquote>
 <p>다음 라인을 터미널에서 실행하자. brew 설치 자체도 이렇게 간편하다니.. Linux 계통은 보통 이렇게 one line 으로 다 해결이 된다.</p>
@@ -124,24 +124,26 @@ Mac 에서는 그 역할을 충실히 하는 요소 중에 하나가 &ldquo;Home
 <pre><code class="language-Bash">mkdir homebrew &amp;&amp; curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
 </code></pre>
 
-<h3 id="brew-를-통해-설치하기:f1ae1a70716df7cdf0e7fcb47f5c9166">Brew 를 통해 설치하기</h3>
+<h3 id="brew-를-통해-설치하기">Brew 를 통해 설치하기</h3>
 
 <p>Formular 라고 지칭하고 있는게 맞는지는 잘 모르겠지만.<br />
 brew 를 통해 프로그램/binary 를 설치할 경우 다음과 같이 실행</p>
 
-<h4 id="최초-설치:f1ae1a70716df7cdf0e7fcb47f5c9166">최초 설치</h4>
+<h4 id="최초-설치">최초 설치</h4>
 
 <pre><code class="language-Bash">$ Brew install ${Formula}
 </code></pre>
 
-<h4 id="업데이트:f1ae1a70716df7cdf0e7fcb47f5c9166">업데이트</h4>
+<h4 id="업데이트">업데이트</h4>
 
 <pre><code class="language-Bash">$ Brew upgrade ${Formula}
 </code></pre>
 
-<h3 id="brew-install-이-구-버전만-다운로드-받을-때:f1ae1a70716df7cdf0e7fcb47f5c9166">Brew Install 이 구 버전만 다운로드 받을 때</h3>
+<h3 id="brew-install-이-구-버전만-다운로드-받을-때">Brew Install 이 구 버전만 다운로드 받을 때</h3>
 
-<p>이건.. 맥을 사용한 지금까지 잘 모르고 있었던 건데, Brew 자체를 업데이트해서 formular 를 갱신할 필요가 있나보다. 다음을 통한다.</p>
+<p>이건.. 맥을 사용한 지금까지 잘 모르고 있었던 건데,<br />
+Brew 자체를 업데이트해서 formular 를 갱신할 필요가 있나보다.<br />
+다음을 통한다.</p>
 
 <pre><code class="language-Bash">$ Brew update
 </code></pre>
@@ -150,9 +152,9 @@ brew 를 통해 프로그램/binary 를 설치할 경우 다음과 같이 실행
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'nolleh-github-io';
-    var disqus_identifier = 'http:\/\/localhost:1313\/post\/brew-update\/';
+    var disqus_identifier = 'http:\/\/nolleh.github.io:80\/post\/brew-update\/';
     var disqus_title = 'Brew Install 이 구버전만 설치할 때';
-    var disqus_url = 'http:\/\/localhost:1313\/post\/brew-update\/';
+    var disqus_url = 'http:\/\/nolleh.github.io:80\/post\/brew-update\/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -171,7 +173,7 @@ brew 를 통해 프로그램/binary 를 설치할 경우 다음과 같이 실행
         </ul>
     </div>
 </div>
-<script src="http://localhost:1313//js/all.min.js"></script>
+<script src="http://nolleh.github.io:80//js/all.min.js"></script>
 
         </div>
     </div>
@@ -189,5 +191,5 @@ ga('send', 'pageview');
 
 </script>
 
-</body>
+<script data-no-instant>document.write('<script src="/livereload.js?port=80&mindelay=10"></' + 'script>')</script></body>
 </html>

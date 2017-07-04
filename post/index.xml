@@ -2,248 +2,69 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on The Computer Programmer, Nolleh</title>
-    <link>http://localhost:1313/post/</link>
+    <link>http://nolleh.github.io:80/post/</link>
     <description>Recent content in Posts on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 04 Jul 2017 22:31:23 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://nolleh.github.io:80/post/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Brew Install 이 구버전만 설치할 때</title>
-      <link>http://localhost:1313/post/brew-update/</link>
+      <link>http://nolleh.github.io:80/post/brew-update/</link>
       <pubDate>Tue, 04 Jul 2017 22:31:23 +0900</pubDate>
       
-      <guid>http://localhost:1313/post/brew-update/</guid>
-      <description>
-
-&lt;h2 id=&#34;let-s-사족:f1ae1a70716df7cdf0e7fcb47f5c9166&#34;&gt;Let&amp;rsquo;s 사족&lt;/h2&gt;
-
-&lt;p&gt;처음 회사에 입사 했을 때 자리에는 Mac PC 만이 덩그러니 있었고, Mac 을 사용해본적 없던 꼬꼬마는
-자연스럽게 윈도우 CD 를 인사팀에서 받아와서 깔고 있었드랬다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&amp;ldquo;기껏 좋은 컴퓨터 줬더니 넌 뭘하고 있는거니?&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;라는 선배의 말을 듣고 그제야 맥에서도 안드로이드 개발이 되는거구나.. (이때는 현업 안드로이드 개발자였다.)&lt;br /&gt;
-하곤 윈도우 설치페이지를 취소하고 다시 맥 OS 를 부팅했었지.&lt;/p&gt;
-
-&lt;p&gt;이때가, Mac OS 와의 첫 만남이었드랬다.&lt;/p&gt;
-
-&lt;h2 id=&#34;brew:f1ae1a70716df7cdf0e7fcb47f5c9166&#34;&gt;Brew&lt;/h2&gt;
-
-&lt;p&gt;뭐 전혀 관계 없는 얘기로 포스트를 열었지만.&lt;br /&gt;
-어쨌거나 그때부터 Mac 을 수년간 사용하면서 - 그때 쓰던 회사 Mac 은 여전히 내 사무실 책상의 한켠을 차지하고 있다 -&lt;br /&gt;
-Mac 을 비롯한 Linux 계통에서 Windows 를 압도하는 장점을 들자면,&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;개발자를 위한 환경 설정이 간편하다&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;가 되겠다.&lt;br /&gt;
-Mac 에서는 그 역할을 충실히 하는 요소 중에 하나가 &amp;ldquo;HomeBrew&amp;rdquo; 라 하겠고.&lt;br /&gt;
-&lt;a href=&#34;http://docs.brew.sh/&#34;&gt;HomeBrew&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;brew-설치:f1ae1a70716df7cdf0e7fcb47f5c9166&#34;&gt;Brew 설치&lt;/h3&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;다음 라인을 터미널에서 실행하자. brew 설치 자체도 이렇게 간편하다니.. Linux 계통은 보통 이렇게 one line 으로 다 해결이 된다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt;mkdir homebrew &amp;amp;&amp;amp; curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;brew-를-통해-설치하기:f1ae1a70716df7cdf0e7fcb47f5c9166&#34;&gt;Brew 를 통해 설치하기&lt;/h3&gt;
-
-&lt;p&gt;Formular 라고 지칭하고 있는게 맞는지는 잘 모르겠지만.&lt;br /&gt;
-brew 를 통해 프로그램/binary 를 설치할 경우 다음과 같이 실행&lt;/p&gt;
-
-&lt;h4 id=&#34;최초-설치:f1ae1a70716df7cdf0e7fcb47f5c9166&#34;&gt;최초 설치&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt;$ Brew install ${Formula}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;업데이트:f1ae1a70716df7cdf0e7fcb47f5c9166&#34;&gt;업데이트&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt;$ Brew upgrade ${Formula}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;brew-install-이-구-버전만-다운로드-받을-때:f1ae1a70716df7cdf0e7fcb47f5c9166&#34;&gt;Brew Install 이 구 버전만 다운로드 받을 때&lt;/h3&gt;
-
-&lt;p&gt;이건.. 맥을 사용한 지금까지 잘 모르고 있었던 건데, Brew 자체를 업데이트해서 formular 를 갱신할 필요가 있나보다. 다음을 통한다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt;$ Brew update
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <guid>http://nolleh.github.io:80/post/brew-update/</guid>
+      <description>Let&amp;rsquo;s 사족 처음 회사에 입사 했을 때 자리에는 Mac PC 만이 덩그러니 있었고, Mac 을 사용해본적 없던 꼬꼬마는 자연스럽게 윈도우 CD 를 인사팀에서 받아와서 깔고 있었드랬다.
+ &amp;ldquo;기껏 좋은 컴퓨터 줬더니 넌 뭘하고 있는거니?&amp;rdquo;
+ 라는 선배의 말을 듣고 그제야 맥에서도 안드로이드 개발이 되는거구나.. (이때는 현업 안드로이드 개발자였다.)
+하곤 윈도우 설치페이지를 취소하고 다시 맥 OS 를 부팅했었지.
+이때가, Mac OS 와의 첫 만남이었드랬다.
+Brew 뭐 전혀 관계 없는 얘기로 포스트를 열었지만.</description>
     </item>
     
     <item>
       <title>markDown 문법</title>
-      <link>http://localhost:1313/post/mark-down-syntax/</link>
+      <link>http://nolleh.github.io:80/post/mark-down-syntax/</link>
       <pubDate>Tue, 04 Jul 2017 22:13:52 +0900</pubDate>
       
-      <guid>http://localhost:1313/post/mark-down-syntax/</guid>
-      <description>
-
-&lt;p&gt;마크다운으로 포스팅하는 Git 페이지를 생성하였으니, 자주 사용되는 대표 문법 정리&lt;br /&gt;
-&lt;a href=&#34;https://confluence.atlassian.com/bitbucketserver/markdown-syntax-guide-776639995.html#Markdownsyntaxguide-Listinlist&#34;&gt;마크다운 문법&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;heading:a3250e2358178cd6938deca855bad0a4&#34;&gt;Heading&lt;/h2&gt;
-
-&lt;p&gt;&amp;rsquo;#&amp;rsquo; 으로 처리하며, 단계별로 더 많은 &amp;lsquo;#&amp;rsquo; 을 사용한다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# Title
-## Heading 1
-### Heading 2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;결과&lt;/p&gt;
-
-&lt;h1 id=&#34;title:a3250e2358178cd6938deca855bad0a4&#34;&gt;Title&lt;/h1&gt;
-
-&lt;h2 id=&#34;heading-1:a3250e2358178cd6938deca855bad0a4&#34;&gt;Heading 1&lt;/h2&gt;
-
-&lt;h3 id=&#34;heading-2:a3250e2358178cd6938deca855bad0a4&#34;&gt;Heading 2&lt;/h3&gt;
-
-&lt;h2 id=&#34;listing:a3250e2358178cd6938deca855bad0a4&#34;&gt;Listing&lt;/h2&gt;
-
-&lt;p&gt;Asterisk (*) 를 사용하여 순서 없는 목록을, 숫자를 사용하여 순서 있는 목록을 나타낸다.&lt;/p&gt;
-
-&lt;h3 id=&#34;순서-없는-경우:a3250e2358178cd6938deca855bad0a4&#34;&gt;순서 없는 경우&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;이거닷&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;이거 중요해!&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;순서가-있는-경우:a3250e2358178cd6938deca855bad0a4&#34;&gt;순서가 있는 경우&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;첫번째 순서&lt;/li&gt;
-&lt;li&gt;두번째~&lt;/li&gt;
-&lt;li&gt;셋!!&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;fonts:a3250e2358178cd6938deca855bad0a4&#34;&gt;Fonts&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;**Bold** _Italic_ ~~CANCEL_LINE~~
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;Bold&lt;/strong&gt; &lt;em&gt;Italic&lt;/em&gt; &lt;del&gt;CANCEL_LINE&lt;/del&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;src:a3250e2358178cd6938deca855bad0a4&#34;&gt;SRC&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;![Alt](경로 &amp;quot;Optional Tooltip MSG&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;table:a3250e2358178cd6938deca855bad0a4&#34;&gt;TABLE&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;| Day     | Meal    | Price |
-| --------|---------|-------|
-| Monday  | pasta   | $6    |
-| Tuesday | chicken | $8    |
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Day&lt;/th&gt;
-&lt;th&gt;Meal&lt;/th&gt;
-&lt;th&gt;Price&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Monday&lt;/td&gt;
-&lt;td&gt;pasta&lt;/td&gt;
-&lt;td&gt;$6&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Tuesday&lt;/td&gt;
-&lt;td&gt;chicken&lt;/td&gt;
-&lt;td&gt;$8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-</description>
+      <guid>http://nolleh.github.io:80/post/mark-down-syntax/</guid>
+      <description>마크다운으로 포스팅하는 Git 페이지를 생성하였으니, 자주 사용되는 대표 문법 정리
+마크다운 문법
+Heading &amp;rsquo;#&amp;rsquo; 으로 처리하며, 단계별로 더 많은 &amp;lsquo;#&amp;rsquo; 을 사용한다.
+# Title ## Heading 1 ### Heading 2  결과
+Title Heading 1 Heading 2 Listing Asterisk (*) 를 사용하여 순서 없는 목록을, 숫자를 사용하여 순서 있는 목록을 나타낸다.
+순서 없는 경우  이거닷
+ 이거 중요해!
+  순서가 있는 경우  첫번째 순서 두번째~ 셋!!  Fonts **Bold** _Italic_ ~~CANCEL_LINE~~  Bold Italic CANCEL_LINE</description>
     </item>
     
     <item>
       <title>C&#43;&#43;/CLI 에서managed 콜백을 unmanaged 로 전달하기</title>
-      <link>http://localhost:1313/post/managed_cb_to_unmanaged/</link>
+      <link>http://nolleh.github.io:80/post/managed_cb_to_unmanaged/</link>
       <pubDate>Tue, 04 Jul 2017 00:45:55 +0900</pubDate>
       
-      <guid>http://localhost:1313/post/managed_cb_to_unmanaged/</guid>
-      <description>
-
-&lt;p&gt;파라미터가 없다면 DelegateToPointer 로 마샬링해서 전달하면되는데,&lt;br /&gt;
-이러면 파라미터를 마샬링할 기회가 주어지지 않는다는게 문제다.&lt;br /&gt;
-좀 구글링을 해봤는데,&lt;br /&gt;
-이런 포스트가 있었다.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/questions/32386851/managed-to-unmanaged-callback-with-managed-parameters&#34;&gt;스택오버플로-파라미터와 함께 unmanaged 콜백으로 변환하기&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;채택된 답변을 살펴보면 클래스 구조는 대략 다음과 같다.&lt;/p&gt;
-
-&lt;h4 id=&#34;클래스-구조:422549317a280b3a5e7a7fc769d31d22&#34;&gt;클래스 구조&lt;/h4&gt;
-
-&lt;blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;NativeCallbackHandler - msclr::gcroot&lt;OutputManaged^&gt; m_owner (OutputLogManaged) 를 멤버로 보유.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;OutputLogManaged - native OutputLog* (m_nativeOutputLog) / 1의 Holder 를 보유 (m_nativeHandler)] / 그리고 managed 콜백을 보유&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;OutputLog - Native Callback 과 void* UserData 를 멤버로 보유.&lt;br /&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;이해하는데 주요한 클래스는 위 내용 정도인 듯.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Main 함수에서는 managed 로거와 native 에 적당한 콜백을 등록해 두고(OnError/GetNative()), Test 함수를 통해 콜백을 호출한다.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;OutputLogManaged 에는 생성시에 1의 NativeCallbackHandler 가 생성되며 여기에 정의된 native callback 을 OutputLog 의 Callback 멤버변수에 세팅한다.
-동시에 NativeCallbackHandler 를 this 로 해서 함께 UserData 라는 객체로 OutputLog 의 멤버로 등록을 한 상태이다.&lt;br /&gt;
-(다시 말해 OutputLog 의 UserData 에는 1의 인스턴스가, 같은 객체의 멤버 변수인 NativeCallback 타입에는 그 인스턴스의 함수가 등록이 되어있다.)&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;1의 콜백을 지닌 3 의 객체의 함수를 등록해두었고, 이 함수에서 1의 콜백을 호출하고 있으므로 1의 콜백이 호출이 되는데 (등록해두었던 umanaged 콜백이 호출되는 단순한 전개라 하겠다.)&lt;br /&gt;
-이때 OutputLog(3) 의 객체의 멤버함수(최초로 호출되는 콜백)에서 멤버변수로 보유한 NativeCallbackHandler(1) 객체를 1의 콜백의 파라미터로 전달, 콜백 등록 당시의 NativeCallbackHandler(1) 의 인스턴스를 얻어온다 (물론, 콜백을 여러개 등록할 수 있으므로. 각 인스턴스를 별도로 두는 것이 자연스럽다.)&lt;br /&gt;
-이 인스턴스의 멤버인 m_owner 를 통해 OutputLogManaged 의 managed 콜백을 호출한다.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;내용을 말로 설명하려고하니 불필요하게 복잡해진 느낌인데,&lt;br /&gt;
-정리하면 다음과 같다.&lt;/p&gt;
-
-&lt;h4 id=&#34;summary:422549317a280b3a5e7a7fc769d31d22&#34;&gt;Summary&lt;/h4&gt;
-
-&lt;p&gt;unmanged 에서 Managed 의 객체를 들고 있다가 unmanaged 의 콜백이 호출될때 마샬링하여 Managed 의 콜백을 호출한다.&lt;/p&gt;
-
-&lt;p&gt;C++/CLR 을 처음 접하고 필요에 따라 구글링으로 작업을 하다보니 managed 와 unmanged 사이에서 서로 멤버로 두려고 하면 컴파일 에러가 나길래
-안되는 거구나..했는데.. 이런 기능이 있었나보다&amp;hellip;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;msclr::gcroot&amp;lt;...&amp;gt; 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;gcroot 는 unmanaged 에서 managed 를 참조하는 방법이며, interop 에서는 레퍼런스 카운트를 하나 증가시킨다.&lt;br /&gt;
-&lt;a href=&#34;https://stackoverflow.com/questions/8458886/what-is-a-rooted-reference&#34;&gt;참고 - gcroot 의 역할&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;약간 허무하군.. (그래 안되면 어떻게 쓰겠냐만서도.. )&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://msdn.microsoft.com/en-us//library/481fa11f.aspx&#34;&gt;참고 - MSDN / How to: Declare Handles in Native Types&lt;/a&gt;&lt;/p&gt;
-</description>
+      <guid>http://nolleh.github.io:80/post/managed_cb_to_unmanaged/</guid>
+      <description>파라미터가 없다면 DelegateToPointer 로 마샬링해서 전달하면되는데,
+이러면 파라미터를 마샬링할 기회가 주어지지 않는다는게 문제다.
+좀 구글링을 해봤는데,
+이런 포스트가 있었다.
+스택오버플로-파라미터와 함께 unmanaged 콜백으로 변환하기
+채택된 답변을 살펴보면 클래스 구조는 대략 다음과 같다.
+클래스 구조   NativeCallbackHandler - msclr::gcroot m_owner (OutputLogManaged) 를 멤버로 보유.
+ OutputLogManaged - native OutputLog* (m_nativeOutputLog) / 1의 Holder 를 보유 (m_nativeHandler)] / 그리고 managed 콜백을 보유
+ OutputLog - Native Callback 과 void* UserData 를 멤버로 보유.</description>
     </item>
     
     <item>
       <title>Hello, Git Pages!</title>
-      <link>http://localhost:1313/post/good-to-great/</link>
+      <link>http://nolleh.github.io:80/post/good-to-great/</link>
       <pubDate>Mon, 03 Jul 2017 23:44:54 +0900</pubDate>
       
-      <guid>http://localhost:1313/post/good-to-great/</guid>
-      <description>&lt;p&gt;Hello World!&lt;/p&gt;
-</description>
+      <guid>http://nolleh.github.io:80/post/good-to-great/</guid>
+      <description>Hello World!</description>
     </item>
     
   </channel>

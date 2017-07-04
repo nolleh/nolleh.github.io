@@ -2,104 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Editor on The Computer Programmer, Nolleh</title>
-    <link>http://localhost:1313/tags/editor/</link>
+    <link>http://nolleh.github.io:80/tags/editor/</link>
     <description>Recent content in Editor on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 04 Jul 2017 22:13:52 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/editor/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://nolleh.github.io:80/tags/editor/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>markDown 문법</title>
-      <link>http://localhost:1313/post/mark-down-syntax/</link>
+      <link>http://nolleh.github.io:80/post/mark-down-syntax/</link>
       <pubDate>Tue, 04 Jul 2017 22:13:52 +0900</pubDate>
       
-      <guid>http://localhost:1313/post/mark-down-syntax/</guid>
-      <description>
-
-&lt;p&gt;마크다운으로 포스팅하는 Git 페이지를 생성하였으니, 자주 사용되는 대표 문법 정리&lt;br /&gt;
-&lt;a href=&#34;https://confluence.atlassian.com/bitbucketserver/markdown-syntax-guide-776639995.html#Markdownsyntaxguide-Listinlist&#34;&gt;마크다운 문법&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;heading:a3250e2358178cd6938deca855bad0a4&#34;&gt;Heading&lt;/h2&gt;
-
-&lt;p&gt;&amp;rsquo;#&amp;rsquo; 으로 처리하며, 단계별로 더 많은 &amp;lsquo;#&amp;rsquo; 을 사용한다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# Title
-## Heading 1
-### Heading 2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;결과&lt;/p&gt;
-
-&lt;h1 id=&#34;title:a3250e2358178cd6938deca855bad0a4&#34;&gt;Title&lt;/h1&gt;
-
-&lt;h2 id=&#34;heading-1:a3250e2358178cd6938deca855bad0a4&#34;&gt;Heading 1&lt;/h2&gt;
-
-&lt;h3 id=&#34;heading-2:a3250e2358178cd6938deca855bad0a4&#34;&gt;Heading 2&lt;/h3&gt;
-
-&lt;h2 id=&#34;listing:a3250e2358178cd6938deca855bad0a4&#34;&gt;Listing&lt;/h2&gt;
-
-&lt;p&gt;Asterisk (*) 를 사용하여 순서 없는 목록을, 숫자를 사용하여 순서 있는 목록을 나타낸다.&lt;/p&gt;
-
-&lt;h3 id=&#34;순서-없는-경우:a3250e2358178cd6938deca855bad0a4&#34;&gt;순서 없는 경우&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;이거닷&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;이거 중요해!&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;순서가-있는-경우:a3250e2358178cd6938deca855bad0a4&#34;&gt;순서가 있는 경우&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;첫번째 순서&lt;/li&gt;
-&lt;li&gt;두번째~&lt;/li&gt;
-&lt;li&gt;셋!!&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;fonts:a3250e2358178cd6938deca855bad0a4&#34;&gt;Fonts&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;**Bold** _Italic_ ~~CANCEL_LINE~~
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;Bold&lt;/strong&gt; &lt;em&gt;Italic&lt;/em&gt; &lt;del&gt;CANCEL_LINE&lt;/del&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;src:a3250e2358178cd6938deca855bad0a4&#34;&gt;SRC&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;![Alt](경로 &amp;quot;Optional Tooltip MSG&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;table:a3250e2358178cd6938deca855bad0a4&#34;&gt;TABLE&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;| Day     | Meal    | Price |
-| --------|---------|-------|
-| Monday  | pasta   | $6    |
-| Tuesday | chicken | $8    |
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Day&lt;/th&gt;
-&lt;th&gt;Meal&lt;/th&gt;
-&lt;th&gt;Price&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Monday&lt;/td&gt;
-&lt;td&gt;pasta&lt;/td&gt;
-&lt;td&gt;$6&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Tuesday&lt;/td&gt;
-&lt;td&gt;chicken&lt;/td&gt;
-&lt;td&gt;$8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-</description>
+      <guid>http://nolleh.github.io:80/post/mark-down-syntax/</guid>
+      <description>마크다운으로 포스팅하는 Git 페이지를 생성하였으니, 자주 사용되는 대표 문법 정리
+마크다운 문법
+Heading &amp;rsquo;#&amp;rsquo; 으로 처리하며, 단계별로 더 많은 &amp;lsquo;#&amp;rsquo; 을 사용한다.
+# Title ## Heading 1 ### Heading 2  결과
+Title Heading 1 Heading 2 Listing Asterisk (*) 를 사용하여 순서 없는 목록을, 숫자를 사용하여 순서 있는 목록을 나타낸다.
+순서 없는 경우  이거닷
+ 이거 중요해!
+  순서가 있는 경우  첫번째 순서 두번째~ 셋!!  Fonts **Bold** _Italic_ ~~CANCEL_LINE~~  Bold Italic CANCEL_LINE</description>
     </item>
     
   </channel>

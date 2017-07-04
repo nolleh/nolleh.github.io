@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on The Computer Programmer, Nolleh</title>
+    <link>http://nolleh.github.io:80/tags/</link>
+    <description>Recent content in Tags on The Computer Programmer, Nolleh</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 04 Jul 2017 00:45:55 +0900</lastBuildDate>
+    
+	<atom:link href="http://nolleh.github.io:80/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>C&#43;&#43;/Cli</title>
+      <link>http://nolleh.github.io:80/tags/c&#43;&#43;/cli/</link>
+      <pubDate>Tue, 04 Jul 2017 00:45:55 +0900</pubDate>
+      
+      <guid>http://nolleh.github.io:80/tags/c&#43;&#43;/cli/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Editor</title>
+      <link>http://nolleh.github.io:80/tags/editor/</link>
+      <pubDate>Tue, 04 Jul 2017 22:13:52 +0900</pubDate>
+      
+      <guid>http://nolleh.github.io:80/tags/editor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programming</title>
+      <link>http://nolleh.github.io:80/tags/programming/</link>
+      <pubDate>Tue, 04 Jul 2017 22:13:52 +0900</pubDate>
+      
+      <guid>http://nolleh.github.io:80/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
