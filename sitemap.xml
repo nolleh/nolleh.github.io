@@ -41,25 +41,13 @@
   </url>
   
   <url>
-    <loc>https://nolleh.github.io/categories/devenv/</loc>
-    <lastmod>2017-07-04T22:31:23+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://nolleh.github.io/tags/editor/</loc>
     <lastmod>2017-07-04T22:13:52+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://nolleh.github.io/categories/editor/</loc>
-    <lastmod>2017-07-04T22:13:52+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://nolleh.github.io/categories/macos/</loc>
+    <loc>https://nolleh.github.io/tags/macos/</loc>
     <lastmod>2017-07-04T22:31:23+09:00</lastmod>
     <priority>0</priority>
   </url>
@@ -77,12 +65,6 @@
   </url>
   
   <url>
-    <loc>https://nolleh.github.io/categories/programming/</loc>
-    <lastmod>2017-07-04T22:13:52+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://nolleh.github.io/tags/</loc>
     <lastmod>2017-07-04T00:45:55+09:00</lastmod>
     <priority>0</priority>
@@ -90,6 +72,12 @@
   
   <url>
     <loc>https://nolleh.github.io/</loc>
+    <lastmod>2017-07-04T22:31:23+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nolleh.github.io/categories/%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD---environment/</loc>
     <lastmod>2017-07-04T22:31:23+09:00</lastmod>
     <priority>0</priority>
   </url>
