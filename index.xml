@@ -6,10 +6,27 @@
     <description>Recent content on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Tue, 04 Jul 2017 22:31:23 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 07 Jul 2017 21:22:50 +0900</lastBuildDate>
     
 	<atom:link href="https://nolleh.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How To Make Git Page</title>
+      <link>https://nolleh.github.io/post/how-to-make-git-page/</link>
+      <pubDate>Fri, 07 Jul 2017 21:22:50 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/post/how-to-make-git-page/</guid>
+      <description>GitHub-Page 이런게 있다더라 ~ 라고 주변으로부터 처음 들은건 1~2년전이었던것 같은데
+갑자기 꽂혀서 git page 를 만들었다. (!!)
+github 에서는 1계정당 1 호스트를 제공하는 것 같고
+&amp;lt;ID&amp;gt;.github.com
+뭐 이런식? github 의 제공 영역은 repo 에 존재하는 index.html 을 repo 에 지정된 1 도메인과
+연결해주는 정도인 것 같다.
+Repository git 을 사용해 본 적이 있다면 간단하다.
+그렇다면 다음 절로 넘어가고, 그렇지 않다면, 다음을 따라하자.
+github 가입 이 항목에 있어 더 이상의 자세한 설명은 생략한다.</description>
+    </item>
     
     <item>
       <title>Brew Install 이 구버전만 설치할 때</title>

@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://nolleh.github.io/post/how-to-make-git-page/</loc>
+    <lastmod>2017-07-07T21:22:50+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://nolleh.github.io/post/brew-update/</loc>
     <lastmod>2017-07-04T22:31:23+09:00</lastmod>
   </url>
@@ -42,7 +47,13 @@
   
   <url>
     <loc>https://nolleh.github.io/tags/editor/</loc>
-    <lastmod>2017-07-04T22:13:52+09:00</lastmod>
+    <lastmod>2017-07-07T21:22:50+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nolleh.github.io/tags/github-page/</loc>
+    <lastmod>2017-07-07T21:22:50+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -54,13 +65,13 @@
   
   <url>
     <loc>https://nolleh.github.io/post/</loc>
-    <lastmod>2017-07-04T22:31:23+09:00</lastmod>
+    <lastmod>2017-07-07T21:22:50+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://nolleh.github.io/tags/programming/</loc>
-    <lastmod>2017-07-04T22:13:52+09:00</lastmod>
+    <lastmod>2017-07-04T00:45:55+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -72,13 +83,13 @@
   
   <url>
     <loc>https://nolleh.github.io/</loc>
-    <lastmod>2017-07-04T22:31:23+09:00</lastmod>
+    <lastmod>2017-07-07T21:22:50+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://nolleh.github.io/categories/%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD---environment/</loc>
-    <lastmod>2017-07-04T22:31:23+09:00</lastmod>
+    <loc>https://nolleh.github.io/categories/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD/</loc>
+    <lastmod>2017-07-07T21:22:50+09:00</lastmod>
     <priority>0</priority>
   </url>
   
