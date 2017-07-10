@@ -38,6 +38,165 @@
       </div>
 
 
+  <a href="https://nolleh.github.io/post/brew-update/">
+  <div class="post-title">
+    <img src="/images/post-title-icon.png" />
+    <div class="post-meta">
+      <time>04 Jul 2017, 22:31</time>
+      <h1>Brew Install 이 구버전만 설치할 때</h1>
+    </div>
+  </div>
+</a>
+
+<div class="post-toc">
+  <span class="title">
+    Table of contents
+  </span>
+  <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#let-s-사족">Let&rsquo;s 사족</a></li>
+<li><a href="#brew">Brew</a>
+<ul>
+<li><a href="#brew-설치">Brew 설치</a></li>
+<li><a href="#brew-를-통해-설치하기">Brew 를 통해 설치하기</a>
+<ul>
+<li><a href="#최초-설치">최초 설치</a></li>
+<li><a href="#업데이트">업데이트</a></li>
+</ul></li>
+<li><a href="#brew-install-이-구-버전만-다운로드-받을-때">Brew Install 이 구 버전만 다운로드 받을 때</a></li>
+<li><a href="#업데이트시-다음-에러-노출시">업데이트시 다음 에러 노출시</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+</div>
+
+<section class="post-content">
+  
+
+<h2 id="let-s-사족">Let&rsquo;s 사족</h2>
+
+<p>처음 회사에 입사 했을 때 자리에는 Mac PC 만이 덩그러니 있었고, Mac 을 사용해본적 없던 꼬꼬마는
+자연스럽게 윈도우 CD 를 인사팀에서 받아와서 깔고 있었드랬다.</p>
+
+<blockquote>
+<p>&ldquo;기껏 좋은 컴퓨터 줬더니 넌 뭘하고 있는거니?&rdquo;</p>
+</blockquote>
+
+<p>라는 선배의 말을 듣고 그제야 맥에서도 안드로이드 개발이 되는거구나.. (이때는 현업 안드로이드 개발자였다.)<br />
+하곤 윈도우 설치페이지를 취소하고 다시 맥 OS 를 부팅했었지.</p>
+
+<p>이때가, Mac OS 와의 첫 만남이었드랬다.</p>
+
+<h2 id="brew">Brew</h2>
+
+<p>뭐 전혀 관계 없는 얘기로 포스트를 열었지만.<br />
+어쨌거나 그때부터 Mac 을 수년간 사용하면서 - 그때 쓰던 회사 Mac 은 여전히 내 사무실 책상의 한켠을 차지하고 있다 -<br />
+Mac 을 비롯한 Linux 계통에서 Windows 를 압도하는 장점을 들자면,</p>
+
+<blockquote>
+<p>개발자를 위한 환경 설정이 간편하다</p>
+</blockquote>
+
+<p>가 되겠다.<br />
+Mac 에서는 그 역할을 충실히 하는 요소 중에 하나가 &ldquo;HomeBrew&rdquo; 라 하겠고.<br />
+<a href="http://docs.brew.sh/">HomeBrew</a></p>
+
+<h3 id="brew-설치">Brew 설치</h3>
+
+<blockquote>
+<p>다음 라인을 터미널에서 실행하자. brew 설치 자체도 이렇게 간편하다니.. Linux 계통은 보통 이렇게 one line 으로 다 해결이 된다.</p>
+</blockquote>
+
+<pre><code class="language-Bash">mkdir homebrew &amp;&amp; curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
+</code></pre>
+
+<h3 id="brew-를-통해-설치하기">Brew 를 통해 설치하기</h3>
+
+<p>Formula 라고 지칭하고 있는게 맞는지는 잘 모르겠지만.<br />
+brew 를 통해 프로그램/binary 를 설치할 경우 다음과 같이 실행</p>
+
+<h4 id="최초-설치">최초 설치</h4>
+
+<pre><code class="language-Bash">$ Brew install ${Formula}
+</code></pre>
+
+<h4 id="업데이트">업데이트</h4>
+
+<pre><code class="language-Bash">$ Brew upgrade ${Formula}
+</code></pre>
+
+<h3 id="brew-install-이-구-버전만-다운로드-받을-때">Brew Install 이 구 버전만 다운로드 받을 때</h3>
+
+<p>이건.. 맥을 사용한 지금까지 잘 모르고 있었던 건데,<br />
+Brew 자체를 업데이트해서 formular 를 갱신할 필요가 있나보다.<br />
+다음을 통한다.</p>
+
+<pre><code class="language-Bash">$ Brew update
+</code></pre>
+
+<h3 id="업데이트시-다음-에러-노출시">업데이트시 다음 에러 노출시</h3>
+
+<pre><code class="language-Bash">$ Error: /usr/local must be writable!
+</code></pre>
+
+<p>다음 실행</p>
+
+<pre><code class="language-Bash">sudo chown -R $(whoami) /usr/local
+</code></pre>
+
+</section>
+
+<div class="share">
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fpost%2fbrew-update%2f&t=Brew%20Install%20%ec%9d%b4%20%ea%b5%ac%eb%b2%84%ec%a0%84%eb%a7%8c%20%ec%84%a4%ec%b9%98%ed%95%a0%20%eb%95%8c" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fpost%2fbrew-update%2f&text=Brew%20Install%20%ec%9d%b4%20%ea%b5%ac%eb%b2%84%ec%a0%84%eb%a7%8c%20%ec%84%a4%ec%b9%98%ed%95%a0%20%eb%95%8c&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fpost%2fbrew-update%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fpost%2fbrew-update%2f&title=Brew%20Install%20%ec%9d%b4%20%ea%b5%ac%eb%b2%84%ec%a0%84%eb%a7%8c%20%ec%84%a4%ec%b9%98%ed%95%a0%20%eb%95%8c" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+</div>
+
+<div class="post-meta-code">
+  <div class="desc">
+    public string description() {
+    <div class="desc">val author = "
+    
+        <a href="mailto:"></a>
+    ";
+    </div>
+    
+    <div class="desc">
+      val categories = [
+      
+      
+      <a href="https://nolleh.github.io//categories/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD">"개발환경"</a>
+      
+      ];
+    </div>
+    
+    }
+  </div>
+</div>
+<div class="post-meta-code">
+  <div class="desc">
+    public string tags() {
+      <div class="desc">
+        val tags = [
+        
+          
+          <a href="https://nolleh.github.io/tags/macos">"MacOS"</a>
+          
+        
+        ];
+      </div>
+    }
+  </div>
+</div>
+
+  <div class="seperator">
+    <img src="/images/seperator.png" />
+  </div>
+
   <a href="https://nolleh.github.io/post/mark-down-syntax/">
   <div class="post-title">
     <img src="/images/post-title-icon.png" />
@@ -203,147 +362,6 @@
           <a href="https://nolleh.github.io/tags/github-page">"GitHub-Page"</a>
           
           <a href="https://nolleh.github.io/tags/editor">"Editor"</a>
-          
-        
-        ];
-      </div>
-    }
-  </div>
-</div>
-
-  <div class="seperator">
-    <img src="/images/seperator.png" />
-  </div>
-
-  <a href="https://nolleh.github.io/post/managed_cb_to_unmanaged/">
-  <div class="post-title">
-    <img src="/images/post-title-icon.png" />
-    <div class="post-meta">
-      <time>04 Jul 2017, 00:45</time>
-      <h1>C&#43;&#43;/CLI 에서managed 콜백을 unmanaged 로 전달하기</h1>
-    </div>
-  </div>
-</a>
-
-<div class="post-toc">
-  <span class="title">
-    Table of contents
-  </span>
-  <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#클래스-구조">클래스 구조</a></li>
-<li><a href="#summary">Summary</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
-</nav>
-</div>
-
-<section class="post-content">
-  
-
-<p>파라미터가 없다면 DelegateToPointer 로 마샬링해서 전달하면되는데,<br />
-이러면 파라미터를 마샬링할 기회가 주어지지 않는다는게 문제다.<br />
-좀 구글링을 해봤는데,<br />
-이런 포스트가 있었다.</p>
-
-<p><a href="https://stackoverflow.com/questions/32386851/managed-to-unmanaged-callback-with-managed-parameters">스택오버플로-파라미터와 함께 unmanaged 콜백으로 변환하기</a></p>
-
-<p>채택된 답변을 살펴보면 클래스 구조는 대략 다음과 같다.</p>
-
-<h4 id="클래스-구조">클래스 구조</h4>
-
-<blockquote>
-<ol>
-<li>NativeCallbackHandler - msclr::gcroot<OutputManaged^> m_owner (OutputLogManaged) 를 멤버로 보유.<br /></li>
-<li>OutputLogManaged - native OutputLog* (m_nativeOutputLog) / 1의 Holder 를 보유 (m_nativeHandler)] / 그리고 managed 콜백을 보유<br /></li>
-<li>OutputLog - Native Callback 과 void* UserData 를 멤버로 보유.<br /></li>
-</ol>
-</blockquote>
-
-<p>이해하는데 주요한 클래스는 위 내용 정도인 듯.</p>
-
-<ul>
-<li><p>Main 함수에서는 managed 로거와 native 에 적당한 콜백을 등록해 두고(OnError/GetNative()), Test 함수를 통해 콜백을 호출한다.</p></li>
-
-<li><p>OutputLogManaged 에는 생성시에 1의 NativeCallbackHandler 가 생성되며 여기에 정의된 native callback 을 OutputLog 의 Callback 멤버변수에 세팅한다.
-동시에 NativeCallbackHandler 를 this 로 해서 함께 UserData 라는 객체로 OutputLog 의 멤버로 등록을 한 상태이다.<br />
-(다시 말해 OutputLog 의 UserData 에는 1의 인스턴스가, 같은 객체의 멤버 변수인 NativeCallback 타입에는 그 인스턴스의 함수가 등록이 되어있다.)</p></li>
-
-<li><p>1의 콜백을 지닌 3 의 객체의 함수를 등록해두었고, 이 함수에서 1의 콜백을 호출하고 있으므로 1의 콜백이 호출이 되는데 (등록해두었던 umanaged 콜백이 호출되는 단순한 전개라 하겠다.)<br />
-이때 OutputLog(3) 의 객체의 멤버함수(최초로 호출되는 콜백)에서 멤버변수로 보유한 NativeCallbackHandler(1) 객체를 1의 콜백의 파라미터로 전달, 콜백 등록 당시의 NativeCallbackHandler(1) 의 인스턴스를 얻어온다 (물론, 콜백을 여러개 등록할 수 있으므로. 각 인스턴스를 별도로 두는 것이 자연스럽다.)<br />
-이 인스턴스의 멤버인 m_owner 를 통해 OutputLogManaged 의 managed 콜백을 호출한다.</p></li>
-</ul>
-
-<p>내용을 말로 설명하려고하니 불필요하게 복잡해진 느낌인데,<br />
-정리하면 다음과 같다.</p>
-
-<h4 id="summary">Summary</h4>
-
-<p>unmanged 에서 Managed 의 객체를 들고 있다가 unmanaged 의 콜백이 호출될때 마샬링하여 Managed 의 콜백을 호출한다.</p>
-
-<p>C++/CLR 을 처음 접하고 필요에 따라 구글링으로 작업을 하다보니 managed 와 unmanged 사이에서 서로 멤버로 두려고 하면 컴파일 에러가 나길래
-안되는 거구나..했는데.. 이런 기능이 있었나보다&hellip;</p>
-
-<pre><code class="language-cpp">msclr::gcroot&lt;...&gt; 
-</code></pre>
-
-<blockquote>
-<p>gcroot 는 unmanaged 에서 managed 를 참조하는 방법이며, interop 에서는 레퍼런스 카운트를 하나 증가시킨다.<br />
-<a href="https://stackoverflow.com/questions/8458886/what-is-a-rooted-reference">참고 - gcroot 의 역할</a></p>
-</blockquote>
-
-<p>약간 허무하군.. (그래 안되면 어떻게 쓰겠냐만서도.. )</p>
-
-<p><a href="https://msdn.microsoft.com/en-us//library/481fa11f.aspx">참고 - MSDN / How to: Declare Handles in Native Types</a></p>
-
-</section>
-
-<div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fpost%2fmanaged_cb_to_unmanaged%2f&t=C%2b%2b%2fCLI%20%ec%97%90%ec%84%9cmanaged%20%ec%bd%9c%eb%b0%b1%ec%9d%84%20unmanaged%20%eb%a1%9c%20%ec%a0%84%eb%8b%ac%ed%95%98%ea%b8%b0" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fpost%2fmanaged_cb_to_unmanaged%2f&text=C%2b%2b%2fCLI%20%ec%97%90%ec%84%9cmanaged%20%ec%bd%9c%eb%b0%b1%ec%9d%84%20unmanaged%20%eb%a1%9c%20%ec%a0%84%eb%8b%ac%ed%95%98%ea%b8%b0&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fpost%2fmanaged_cb_to_unmanaged%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fpost%2fmanaged_cb_to_unmanaged%2f&title=C%2b%2b%2fCLI%20%ec%97%90%ec%84%9cmanaged%20%ec%bd%9c%eb%b0%b1%ec%9d%84%20unmanaged%20%eb%a1%9c%20%ec%a0%84%eb%8b%ac%ed%95%98%ea%b8%b0" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
-</div>
-
-<div class="post-meta-code">
-  <div class="desc">
-    public string description() {
-    <div class="desc">val author = "
-    
-        <a href="mailto:"></a>
-    ";
-    </div>
-    
-    <div class="desc">
-      val categories = [
-      
-      
-      <a href="https://nolleh.github.io//categories/c&#43;&#43;/cli">"C&#43;&#43;/CLI"</a>
-      
-      ];
-    </div>
-    
-    }
-  </div>
-</div>
-<div class="post-meta-code">
-  <div class="desc">
-    public string tags() {
-      <div class="desc">
-        val tags = [
-        
-          
-          <a href="https://nolleh.github.io/tags/c&#43;&#43;/cli">"C&#43;&#43;/CLI"</a>
-          
-          <a href="https://nolleh.github.io/tags/programming">"Programming"</a>
           
         
         ];

@@ -6,10 +6,24 @@
     <description>Recent content in Posts on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Fri, 07 Jul 2017 21:22:50 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 10 Jul 2017 22:57:57 +0900</lastBuildDate>
     
 	<atom:link href="https://nolleh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Concurrent Idiom 1 - Stack</title>
+      <link>https://nolleh.github.io/post/concurrent-idiom-1-stack/</link>
+      <pubDate>Mon, 10 Jul 2017 22:57:57 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/post/concurrent-idiom-1-stack/</guid>
+      <description>concurrent 프로그램을 작성할 때 고려해야할 몇가지 사항. 그리고 idiom.
+여러 서적에서 발췌하였으며, 정리 차원에서 작성한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.
+어쩌면 작성자의 부사수를 위한 자재가 될지도 모르겠&amp;hellip;(..)
+ Concurrent ISSUE - Stack 이번엔 스택.
+if (!s.empty()) { item = s.top(); s.pop(); }  인터페이스상의 문제이기 때문에 empty 와 top 사이의 safety 를 보장할 수 없다.
+top() / pop() 도 마찬가지 -&amp;gt;&amp;gt; 조회되지 못하는 아이템이 있을 수 있다.</description>
+    </item>
     
     <item>
       <title>How To Make Git Page</title>
