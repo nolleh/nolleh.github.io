@@ -6,10 +6,22 @@
     <description>Recent content on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Mon, 10 Jul 2017 22:57:57 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 17 Jul 2017 00:25:28 +0900</lastBuildDate>
     
 	<atom:link href="https://nolleh.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>파일 버퍼링</title>
+      <link>https://nolleh.github.io/post/file-buffering/</link>
+      <pubDate>Mon, 17 Jul 2017 00:25:28 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/post/file-buffering/</guid>
+      <description>다음에서 발췌, 번역 - https://msdn.mirosoft.com/eu-er/library/windows/descktop/cc644950(v=vs.85).aspx
+ File Buffering 파일버퍼링 - unbuffered file I/O. 본문에선 시스템에 의해 캐싱되지 않는 (buffered) 데이터를 어떻게 유저 모드의 응용프로그램에서 데이터를 활용할 수 (interact) 있을지에 대해 다룬다.
+FILE_FLAG_NO_BUFFERING 플래그를 통해 CreateFile 을 Open 하면, 파일을 읽거나 쓸때 시스템의 캐싱을 비활성화 하도록 제어할 수 있다. I/O 버퍼링을 사용한것과 같은 효과를 내려면, 데이터 alignment 가 반드시 고려되어야 한다.
+Note 파일에 대해 Seeking 과 위치포인터, offsets 의 개념을 사용하는 파일에 대해 alignment 정보가 고려될 필요가 있다.</description>
+    </item>
     
     <item>
       <title>Concurrent Idiom 1 - Stack</title>
@@ -34,7 +46,7 @@ top() / pop() 도 마찬가지 -&amp;gt;&amp;gt; 조회되지 못하는 아이�
       <description>GitHub-Page 이런게 있다더라 ~ 라고 주변으로부터 처음 들은건 1~2년전이었던것 같은데
 갑자기 꽂혀서 git page 를 만들었다. (!!)
 github 에서는 1계정당 1 호스트를 제공하는 것 같고
-&amp;lt;ID&amp;gt;.github.com
+&amp;lt;ID&amp;gt;.github.io
 뭐 이런식? github 의 제공 영역은 repo 에 존재하는 index.html 을 repo 에 지정된 1 도메인과
 연결해주는 정도인 것 같다.
 Repository git 을 사용해 본 적이 있다면 간단하다.
@@ -73,7 +85,7 @@ Title Heading 1 Heading 2 Listing Asterisk (*) 를 사용하여 순서 없는 �
     </item>
     
     <item>
-      <title>C&#43;&#43;/CLI 에서managed 콜백을 unmanaged 로 전달하기</title>
+      <title>C&#43;&#43;/CLI 에서 managed 콜백을 unmanaged 로 전달하기</title>
       <link>https://nolleh.github.io/post/managed_cb_to_unmanaged/</link>
       <pubDate>Tue, 04 Jul 2017 00:45:55 +0900</pubDate>
       
