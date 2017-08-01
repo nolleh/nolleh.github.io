@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<meta name="generator" content="Hugo 0.24.1" />
+	<meta name="generator" content="Hugo 0.26-DEV" />
     <base href="https://nolleh.github.io/">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <title>The Computer Programmer, Nolleh </title>
@@ -37,6 +37,246 @@
         <div class="logo-title">hello, world!</div>
       </div>
 
+
+  <a href="https://nolleh.github.io/post/how-to-make-git-page/">
+  <div class="post-title">
+    <img src="/images/post-title-icon.png" />
+    <div class="post-meta">
+      <time>07 Jul 2017, 21:22</time>
+      <h1>How To Make Git Page</h1>
+    </div>
+  </div>
+</a>
+
+<div class="post-toc">
+  <span class="title">
+    Table of contents
+  </span>
+  <nav id="TableOfContents">
+<ul>
+<li><a href="#github-page">GitHub-Page</a></li>
+<li><a href="#repository">Repository</a>
+<ul>
+<li><a href="#github-가입">github 가입</a></li>
+<li><a href="#sshkey">sshKey</a></li>
+<li><a href="#github-repo-생성">github repo 생성</a></li>
+<li><a href="#내-repo-를-githubpage-로-지정하기">내 Repo 를 GithubPage 로 지정하기</a></li>
+</ul></li>
+<li><a href="#markdown-to-html">MarkDown-To-HTML</a>
+<ul>
+<li><a href="#hugo">Hugo</a>
+<ul>
+<li><a href="#hugo-onestep">Hugo OneStep</a></li>
+<li><a href="#hugo-사이트-꾸미기">Hugo - 사이트 꾸미기</a>
+<ul>
+<li><a href="#hugo-가-올바르게-generate-하기-위한-설정-값-지정">hugo 가 올바르게 generate 하기 위한 설정 값 지정</a></li>
+<li><a href="#hugo-의-테마">hugo 의 테마</a></li>
+</ul></li>
+<li><a href="#hugo-generate">Hugo - Generate</a></li>
+<li><a href="#deploy">Deploy</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+</div>
+
+<section class="post-content">
+  
+
+<h1 id="github-page">GitHub-Page</h1>
+
+<p>이런게 있다더라 ~ 라고 주변으로부터 처음 들은건 1~2년전이었던것 같은데<br />
+갑자기 꽂혀서 git page 를 만들었다. (!!)<br />
+github 에서는 1계정당 1 호스트를 제공하는 것 같고</p>
+
+<p><code>&lt;ID&gt;.github.io</code></p>
+
+<p>뭐 이런식? github 의 제공 영역은 repo 에 존재하는 index.html 을 repo 에 지정된 1 도메인과<br />
+연결해주는 정도인 것 같다.</p>
+
+<h1 id="repository">Repository</h1>
+
+<p>git 을 사용해 본 적이 있다면 간단하다.<br />
+그렇다면 다음 절로 넘어가고, 그렇지 않다면, 다음을 따라하자.</p>
+
+<h2 id="github-가입">github 가입</h2>
+
+<p>이 항목에 있어 더 이상의 자세한 설명은 생략한다.<br />
+<a href="https://github.com">github</a></p>
+
+<h2 id="sshkey">sshKey</h2>
+
+<p>여기를 따라하자.<br />
+<a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/">github-gen-sshkey</a></p>
+
+<h2 id="github-repo-생성">github repo 생성</h2>
+
+<ul>
+<li>github 본인 메인 페이지에서 Repositories</li>
+<li>New 버튼</li>
+<li>안내에 따라 따라하기
+
+<ul>
+<li>즉, 로컬의 git repo 대상 폴더에서 git init</li>
+<li>git add -A</li>
+<li>git commit -m &ldquo;some-message&rdquo;</li>
+<li>git remote add origin git@github.com:<ID>/<Repo>.git</li>
+<li>git push -u origin master</li>
+</ul></li>
+</ul>
+
+<p>이제 github 에 repository 를 올릴수 있게 되었다!</p>
+
+<h2 id="내-repo-를-githubpage-로-지정하기">내 Repo 를 GithubPage 로 지정하기</h2>
+
+<p>본 repo 에서 <ID>.github.com 의 index.html 을 찾도록 github 에 알려주자.</p>
+
+<p><img src="./images/github-setting.png" width="664" height="220"/></p>
+
+<h1 id="markdown-to-html">MarkDown-To-HTML</h1>
+
+<p>잘은 모르겠지만.. github 페이지에서는 유독 MarkDown 을 통해<br />
+html 을 작성하는게 잘 권장? 되어있는거 같고,<br />
+- 아마도 git page 의 최초 제공 목적 자체가 블로그가 아니라 위키 정리와 같은 마크업 언어로 간단하게 문서를 작성하는 데에 있었기 때문일거다 -</p>
+
+<p>jekyll 이나 hugo 를 통해 MarkDown 으로 작성된 문서를 자동으로 html 로 생성할 수 있다.</p>
+
+<h2 id="hugo">Hugo</h2>
+
+<p>사실 jekyll 을 많이들 쓰고 있는 것 같고 공식적으로 지원? 하는 것 같은데
+내 맥 PC 의 버전으로 ruby 가 잘 설치가 안되서 괴로워하던 중에 지인이 hugo 를 사용하는 것을 보고 그냥 hugo 를 선택했다. 나름 괜찮은 듯.<br />
+공식 가이드는 다음을 살펴보면 되고,<br />
+<a href="https://gohugo.io/overview/quickstart/">Quick-Start</a></p>
+
+<p>내가 따라가면서 확인한 주요한 내용은 다음과 같다.</p>
+
+<h3 id="hugo-onestep">Hugo OneStep</h3>
+
+<pre><code class="language-Bash"># 휴고 설치
+$ brew install hugo
+
+# 사이트 생성
+this/is/my/github/repo$ hugo new site
+
+# 포스트 생성
+this/is/my/github/repo$ hugo new post/hello-world.md
+
+# 포스트 수정
+this/is/my/github/repo$ vim content/post/hello-world.md
+
+# 로컬에서 확인하기
+this/is/my/github/repo$ hugo server ## http://localhost:1313 에서 확인
+
+</code></pre>
+
+<h3 id="hugo-사이트-꾸미기">Hugo - 사이트 꾸미기</h3>
+
+<h4 id="hugo-가-올바르게-generate-하기-위한-설정-값-지정">hugo 가 올바르게 generate 하기 위한 설정 값 지정</h4>
+
+<pre><code class="language-Bash">this/is/my/github/repo$ vim config.toml
+
+### .... config.toml
+baseurl = &quot;https://nolleh.github.io&quot;
+languageCode = &quot;ko-KR&quot;
+title = &quot;The Computer Programmer, Nolleh&quot;
+theme = &quot;hello-programmer&quot;
+Paginate    = 2                    # the number of posts per page
+disqusShortname = &quot;your-disqus-short-name&quot;
+
+[params]
+    author = &quot;nolleh&quot;
+    locale = &quot;ko-KR&quot;
+
+</code></pre>
+
+<h4 id="hugo-의-테마">hugo 의 테마</h4>
+
+<p>페이지를 예쁘게 구성하기 위해, 많은 개발자들이 오픈소스로 공개한 테마를 활용할 수 있다.</p>
+
+<ol>
+<li><a href="http://themes.gohugo.io/">Hugo-Theme-ShowCase</a><br /></li>
+<li><a href="https://github.com/dim0627/hugoThemes">All-Themes-Github</a></li>
+</ol>
+
+<p>1 에서 각 테마의 섬네일을,<br />
+2 에서 각 테마의 repository 를 확인하여 clone 받을 수 있다.<br />
+본인의 gitpage repo root/themes 로 이동하여 2의 repo 를 clone,
+위에서 기술한 config.toml 의 theme 항목을 지정하는 것으로 테마를 변경 할 수 있다.</p>
+
+<h3 id="hugo-generate">Hugo - Generate</h3>
+
+<p>앞서 기술한 hugo - onestep 의 마지막 라인의 hugo server 라인을 통해 html 파일을 생성, <a href="http://localhost:1313">http://localhost:1313</a> 에서 확인할 수 있지만 이 html 들을 repo 에 올리면 css 파일을 찾지 못해  원하는 대로 페이지가 렌더링 되지 않는다.<br />
+css 파일을 서버에서 찾을 수 있도록<br />
+hugo server 실행시 추가 파라메터를 제공, 로컬이 아니라 배포용의 html 을 생성할 수 있도록 하자.
+- 이것때문에 얼마나 삽질을 했던지!</p>
+
+<pre><code class="language-Bash">$ sudo hugo server --baseUrl=https://nolleh.github.io --destination=public/ --port=80 --appendPort=false
+</code></pre>
+
+<h3 id="deploy">Deploy</h3>
+
+<p>Generate 할때, destination 을 public 으로 지정하였으므로 public 디렉토리에 생성된다.
+이 폴더 전체를 다시 github repo 를 생성해서 올려두자.</p>
+
+<pre><code class="language-Bash">this/is/my/github/repo/public$ git init 
+this/is/my/github/repo/public$ git add -A
+this/is/my/github/repo/public$ git commit -m &quot;my awesome site&quot;
+this/is/my/github/repo/public$ git push ...
+</code></pre>
+
+<p><strong>끝!</strong></p>
+
+</section>
+
+<div class="share">
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fpost%2fhow-to-make-git-page%2f&t=How%20To%20Make%20Git%20Page" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fpost%2fhow-to-make-git-page%2f&text=How%20To%20Make%20Git%20Page&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fpost%2fhow-to-make-git-page%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fpost%2fhow-to-make-git-page%2f&title=How%20To%20Make%20Git%20Page" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+</div>
+
+<div class="post-meta-code">
+  <div class="desc">
+    public string description() {
+    <div class="desc">val author = "
+    
+        nolleh
+    ";
+    </div>
+    
+    <div class="desc">
+      val categories = [
+      
+      
+      <a href="https://nolleh.github.io//categories/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD">"개발환경"</a>
+      
+      ];
+    </div>
+    
+    }
+  </div>
+</div>
+<div class="post-meta-code">
+  <div class="desc">
+    public string tags() {
+      <div class="desc">
+        val tags = [
+        
+          
+          <a href="https://nolleh.github.io/tags/github-page">"GitHub-Page"</a>
+          
+          <a href="https://nolleh.github.io/tags/editor">"Editor"</a>
+          
+        
+        ];
+      </div>
+    }
+  </div>
+</div>
+
+  <div class="seperator">
+    <img src="/images/seperator.png" />
+  </div>
 
   <a href="https://nolleh.github.io/post/brew-update/">
   <div class="post-title">
@@ -197,183 +437,6 @@ Brew 자체를 업데이트해서 formular 를 갱신할 필요가 있나보다.
     <img src="/images/seperator.png" />
   </div>
 
-  <a href="https://nolleh.github.io/post/mark-down-syntax/">
-  <div class="post-title">
-    <img src="/images/post-title-icon.png" />
-    <div class="post-meta">
-      <time>04 Jul 2017, 22:13</time>
-      <h1>markDown 문법</h1>
-    </div>
-  </div>
-</a>
-
-<div class="post-toc">
-  <span class="title">
-    Table of contents
-  </span>
-  <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#heading">Heading</a></li>
-</ul></li>
-<li><a href="#title">Title</a>
-<ul>
-<li><a href="#heading-1">Heading 1</a>
-<ul>
-<li><a href="#heading-2">Heading 2</a></li>
-</ul></li>
-<li><a href="#listing">Listing</a>
-<ul>
-<li><a href="#순서-없는-경우">순서 없는 경우</a></li>
-<li><a href="#순서가-있는-경우">순서가 있는 경우</a></li>
-</ul></li>
-<li><a href="#fonts">Fonts</a></li>
-<li><a href="#src">SRC</a></li>
-<li><a href="#table">TABLE</a></li>
-</ul></li>
-</ul>
-</nav>
-</div>
-
-<section class="post-content">
-  
-
-<p>마크다운으로 포스팅하는 Git 페이지를 생성하였으니, 자주 사용되는 대표 문법 정리<br />
-<a href="https://confluence.atlassian.com/bitbucketserver/markdown-syntax-guide-776639995.html#Markdownsyntaxguide-Listinlist">마크다운 문법</a></p>
-
-<h2 id="heading">Heading</h2>
-
-<p>&rsquo;#&rsquo; 으로 처리하며, 단계별로 더 많은 &lsquo;#&rsquo; 을 사용한다.</p>
-
-<pre><code class="language-bash"># Title
-## Heading 1
-### Heading 2
-</code></pre>
-
-<p>결과</p>
-
-<h1 id="title">Title</h1>
-
-<h2 id="heading-1">Heading 1</h2>
-
-<h3 id="heading-2">Heading 2</h3>
-
-<h2 id="listing">Listing</h2>
-
-<p>Asterisk (*) 를 사용하여 순서 없는 목록을, 숫자를 사용하여 순서 있는 목록을 나타낸다.</p>
-
-<h3 id="순서-없는-경우">순서 없는 경우</h3>
-
-<ul>
-<li>이거닷<br /></li>
-<li>이거 중요해!<br /></li>
-</ul>
-
-<h3 id="순서가-있는-경우">순서가 있는 경우</h3>
-
-<ol>
-<li>첫번째 순서</li>
-<li>두번째~</li>
-<li>셋!!</li>
-</ol>
-
-<h2 id="fonts">Fonts</h2>
-
-<pre><code class="language-bash">**Bold** _Italic_ ~~CANCEL_LINE~~
-</code></pre>
-
-<p><strong>Bold</strong> <em>Italic</em> <del>CANCEL_LINE</del></p>
-
-<h2 id="src">SRC</h2>
-
-<pre><code>![Alt](경로 &quot;Optional Tooltip MSG&quot;)
-</code></pre>
-
-<h2 id="table">TABLE</h2>
-
-<pre><code class="language-bash">| Day     | Meal    | Price |
-| --------|---------|-------|
-| Monday  | pasta   | $6    |
-| Tuesday | chicken | $8    |
-</code></pre>
-
-<table>
-<thead>
-<tr>
-<th>Day</th>
-<th>Meal</th>
-<th>Price</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>Monday</td>
-<td>pasta</td>
-<td>$6</td>
-</tr>
-
-<tr>
-<td>Tuesday</td>
-<td>chicken</td>
-<td>$8</td>
-</tr>
-</tbody>
-</table>
-
-</section>
-
-<div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fpost%2fmark-down-syntax%2f&t=markDown%20%eb%ac%b8%eb%b2%95" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fpost%2fmark-down-syntax%2f&text=markDown%20%eb%ac%b8%eb%b2%95&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fpost%2fmark-down-syntax%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fpost%2fmark-down-syntax%2f&title=markDown%20%eb%ac%b8%eb%b2%95" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
-</div>
-
-<div class="post-meta-code">
-  <div class="desc">
-    public string description() {
-    <div class="desc">val author = "
-    
-        nolleh
-    ";
-    </div>
-    
-    <div class="desc">
-      val categories = [
-      
-      
-      <a href="https://nolleh.github.io//categories/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD">"개발환경"</a>
-      
-      ];
-    </div>
-    
-    }
-  </div>
-</div>
-<div class="post-meta-code">
-  <div class="desc">
-    public string tags() {
-      <div class="desc">
-        val tags = [
-        
-          
-          <a href="https://nolleh.github.io/tags/github-page">"GitHub-Page"</a>
-          
-          <a href="https://nolleh.github.io/tags/editor">"Editor"</a>
-          
-        
-        ];
-      </div>
-    }
-  </div>
-</div>
-
-  <div class="seperator">
-    <img src="/images/seperator.png" />
-  </div>
-
 
 <div class="paging">
   
@@ -382,7 +445,7 @@ Brew 자체를 업데이트해서 formular 를 갱신할 필요가 있나보다.
   </a>
   
 
-  PAGE 3 / 4
+  PAGE 3 / 5
 
   
   <a href="/page/4/" rel="next">
