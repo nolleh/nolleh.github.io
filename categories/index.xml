@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on The Computer Programmer, Nolleh</title>
+    <link>https://nolleh.github.io/categories/</link>
+    <description>Recent content in Categories on The Computer Programmer, Nolleh</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <lastBuildDate>Tue, 04 Jul 2017 00:45:55 +0900</lastBuildDate>
+    
+	<atom:link href="https://nolleh.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>C&#43;&#43;/Cli</title>
+      <link>https://nolleh.github.io/categories/c&#43;&#43;/cli/</link>
+      <pubDate>Tue, 04 Jul 2017 00:45:55 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/categories/c&#43;&#43;/cli/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spring</title>
+      <link>https://nolleh.github.io/categories/spring/</link>
+      <pubDate>Wed, 26 Jul 2017 23:11:14 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/categories/spring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Unix Network Programming</title>
+      <link>https://nolleh.github.io/categories/unix-network-programming/</link>
+      <pubDate>Tue, 01 Aug 2017 22:54:19 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/categories/unix-network-programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>개발환경</title>
+      <link>https://nolleh.github.io/categories/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD/</link>
+      <pubDate>Fri, 07 Jul 2017 21:22:50 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/categories/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>서버개발지식</title>
+      <link>https://nolleh.github.io/categories/%EC%84%9C%EB%B2%84%EA%B0%9C%EB%B0%9C%EC%A7%80%EC%8B%9D/</link>
+      <pubDate>Mon, 10 Jul 2017 22:57:57 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/categories/%EC%84%9C%EB%B2%84%EA%B0%9C%EB%B0%9C%EC%A7%80%EC%8B%9D/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>운영체제</title>
+      <link>https://nolleh.github.io/categories/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/</link>
+      <pubDate>Mon, 17 Jul 2017 00:25:28 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/categories/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

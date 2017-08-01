@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Programming on The Computer Programmer, Nolleh</title>
+    <link>https://nolleh.github.io/tags/programming/</link>
+    <description>Recent content in Programming on The Computer Programmer, Nolleh</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <lastBuildDate>Wed, 26 Jul 2017 23:11:14 +0900</lastBuildDate>
+    
+	<atom:link href="https://nolleh.github.io/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>스프링 기본 용어/정리</title>
+      <link>https://nolleh.github.io/post/fund-spring/</link>
+      <pubDate>Wed, 26 Jul 2017 23:11:14 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/post/fund-spring/</guid>
+      <description>어쩌다보니 그동안 손댈 일이 없던 웹서버에 좀 손을 대게 되서 (게임서버, 클라이언트, 그리고 웹서버..정녕 풀스택 개발자가 되는것인가..ㅋ), 예전 선배님이 버리고 간(?) 스프링 책을 꺼내서 읽어 보며 정리한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.
+ Spring Bean 객체 스프링에서 생성하여 관리하여 주는 스프링 빈 객체 혹은 빈 객체라고 부른다. res/applicationContext.xml 에  태그로 선언할 수도 있다. 이렇게 선언한경우, 리플렉션을 활용하여 bean id 클래스의 인스턴스를 지정한 세부 태그의 속성으로 메서드를 호출하여 객체를 초기화한다.</description>
+    </item>
+    
+    <item>
+      <title>파일 버퍼링</title>
+      <link>https://nolleh.github.io/post/file-buffering/</link>
+      <pubDate>Mon, 17 Jul 2017 00:25:28 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/post/file-buffering/</guid>
+      <description>다음에서 발췌, 번역
+- https://msdn.microsoft.com/en-gb/library/windows/desktop/cc644950(v=vs.85).aspx
+ File Buffering 파일버퍼링 - unbuffered file I/O.
+본문에선 시스템에 의해 캐싱되지 않는 (buffered) 데이터를
+어떻게 유저 모드의 응용프로그램에서 데이터를 활용할 수 (interact) 있을지에 대해 다룬다.
+FILE_FLAG_NO_BUFFERING 플래그를 통해 CreateFile 을 Open 하면,
+파일을 읽거나 쓸때 시스템의 캐싱을 비활성화 하도록 제어할 수 있다.
+I/O 버퍼링을 사용한것과 같은 효과를 내려면, 데이터 alignment 가 반드시 고려되어야 한다.
+Note 파일에 대해 Seeking 과 위치포인터, offsets 의 개념을 사용하는 파일에 대해 alignment 정보가 고려될 필요가 있다.</description>
+    </item>
+    
+    <item>
+      <title>Concurrent Idiom 1 - Stack</title>
+      <link>https://nolleh.github.io/post/concurrent-idiom-1-stack/</link>
+      <pubDate>Mon, 10 Jul 2017 22:57:57 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/post/concurrent-idiom-1-stack/</guid>
+      <description>concurrent 프로그램을 작성할 때 고려해야할 몇가지 사항. 그리고 idiom.
+여러 서적에서 발췌하였으며, 정리 차원에서 작성한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.
+어쩌면 작성자의 부사수를 위한 자재가 될지도 모르겠&amp;hellip;(..)
+ Concurrent ISSUE - Stack 이번엔 스택.
+if (!s.empty()) { item = s.top(); s.pop(); }  인터페이스상의 문제이기 때문에 empty 와 top 사이의 safety 를 보장할 수 없다.
+top() / pop() 도 마찬가지 -&amp;gt;&amp;gt; 조회되지 못하는 아이템이 있을 수 있다.</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;/CLI 에서 managed 콜백을 unmanaged 로 전달하기</title>
+      <link>https://nolleh.github.io/post/managed_cb_to_unmanaged/</link>
+      <pubDate>Tue, 04 Jul 2017 00:45:55 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/post/managed_cb_to_unmanaged/</guid>
+      <description>파라미터가 없다면 DelegateToPointer 로 마샬링해서 전달하면되는데,
+이러면 파라미터를 마샬링할 기회가 주어지지 않는다는게 문제다.
+좀 구글링을 해봤는데,
+이런 포스트가 있었다.
+스택오버플로-파라미터와 함께 unmanaged 콜백으로 변환하기
+채택된 답변을 살펴보면 클래스 구조는 대략 다음과 같다.
+클래스 구조   NativeCallbackHandler - msclr::gcroot m_owner (OutputLogManaged) 를 멤버로 보유.
+ OutputLogManaged - native OutputLog* (m_nativeOutputLog) / 1의 Holder 를 보유 (m_nativeHandler)] / 그리고 managed 콜백을 보유
+ OutputLog - Native Callback 과 void* UserData 를 멤버로 보유.</description>
+    </item>
+    
+  </channel>
+</rss>
