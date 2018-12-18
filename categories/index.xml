@@ -8,19 +8,10 @@
     <language>ko-KR</language>
     <managingEditor>nolleh7707@gmail.com (nolleh)</managingEditor>
     <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
-    <lastBuildDate>Tue, 18 Dec 2018 11:08:53 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 04 Jul 2017 00:45:55 +0900</lastBuildDate>
     
 	<atom:link href="https://nolleh.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>C#</title>
-      <link>https://nolleh.github.io/categories/c/</link>
-      <pubDate>Tue, 18 Dec 2018 11:08:53 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
-      <guid>https://nolleh.github.io/categories/c/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>C&#43;&#43;/Cli</title>
@@ -28,6 +19,15 @@
       <pubDate>Tue, 04 Jul 2017 00:45:55 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/categories/c&#43;&#43;-cli/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Csharp</title>
+      <link>https://nolleh.github.io/categories/csharp/</link>
+      <pubDate>Tue, 18 Dec 2018 13:47:33 +0900</pubDate>
+      <author>nolleh7707@gmail.com (nolleh)</author>
+      <guid>https://nolleh.github.io/categories/csharp/</guid>
       <description></description>
     </item>
     

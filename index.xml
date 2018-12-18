@@ -8,17 +8,17 @@
     <language>ko-KR</language>
     <managingEditor>nolleh7707@gmail.com (nolleh)</managingEditor>
     <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
-    <lastBuildDate>Tue, 18 Dec 2018 11:08:53 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 18 Dec 2018 13:47:33 +0900</lastBuildDate>
     
 	<atom:link href="https://nolleh.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Async Await</title>
-      <link>https://nolleh.github.io/c#/async-await/</link>
-      <pubDate>Tue, 18 Dec 2018 11:08:53 +0900</pubDate>
+      <link>https://nolleh.github.io/csharp/async-await/</link>
+      <pubDate>Tue, 18 Dec 2018 13:47:33 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
-      <guid>https://nolleh.github.io/c#/async-await/</guid>
+      <guid>https://nolleh.github.io/csharp/async-await/</guid>
       <description>NeoSmart.AsyncLock 라이브러리에 관하여  다음에서 발췌, 번역 - Neosmart Docs.
  개요 semaporeslim 은 reentrance 를 지원하지 않는다. 따라서, recursion 에서 적절히 사용되지 않으면 데드락이 발생한다.
 asynclock 은 reentrance 기능을 semaphoreslim 에 추가한거.
