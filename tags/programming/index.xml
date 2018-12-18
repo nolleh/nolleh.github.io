@@ -6,6 +6,8 @@
     <description>Recent content in Programming on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
+    <managingEditor>nolleh7707@gmail.com (nolleh)</managingEditor>
+    <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
     <lastBuildDate>Tue, 24 Apr 2018 21:43:04 +0900</lastBuildDate>
     
 	<atom:link href="https://nolleh.github.io/tags/programming/index.xml" rel="self" type="application/rss+xml" />
@@ -15,7 +17,7 @@
       <title>Nancy Introduction</title>
       <link>https://nolleh.github.io/nancy/introduction/</link>
       <pubDate>Tue, 24 Apr 2018 21:43:04 +0900</pubDate>
-      
+      <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/nancy/introduction/</guid>
       <description>Nancy 에 대한 문서 번역 #1. By Nolleh
  Introduction 가장 먼저, Nancy 의 세계에 온것을 환영합니다!
@@ -29,7 +31,7 @@ NancyFx 는 모든 컴포넌트들을 포함하는 umbrella project 입니다. (
       <title>스프링 기본 용어/정리</title>
       <link>https://nolleh.github.io/post/fund-spring/</link>
       <pubDate>Wed, 26 Jul 2017 23:11:14 +0900</pubDate>
-      
+      <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/post/fund-spring/</guid>
       <description>어쩌다보니 그동안 손댈 일이 없던 웹서버에 좀 손을 대게 되서 (게임서버, 클라이언트, 그리고 웹서버..정녕 풀스택 개발자가 되는것인가..ㅋ), 예전 선배님이 버리고 간(?) 스프링 책을 꺼내서 읽어 보며 정리한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.
  Spring Bean 객체 스프링에서 생성하여 관리하여 주는 스프링 빈 객체 혹은 빈 객체라고 부른다. res/applicationContext.xml 에  태그로 선언할 수도 있다. 이렇게 선언한경우, 리플렉션을 활용하여 bean id 클래스의 인스턴스를 지정한 세부 태그의 속성으로 메서드를 호출하여 객체를 초기화한다.</description>
@@ -39,7 +41,7 @@ NancyFx 는 모든 컴포넌트들을 포함하는 umbrella project 입니다. (
       <title>파일 버퍼링</title>
       <link>https://nolleh.github.io/post/file-buffering/</link>
       <pubDate>Mon, 17 Jul 2017 00:25:28 +0900</pubDate>
-      
+      <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/post/file-buffering/</guid>
       <description>다음에서 발췌, 번역
 - https://msdn.microsoft.com/en-gb/library/windows/desktop/cc644950(v=vs.85).aspx
@@ -56,7 +58,7 @@ Note 파일에 대해 Seeking 과 위치포인터, offsets 의 개념을 사용�
       <title>Concurrent Idiom 1 - Stack</title>
       <link>https://nolleh.github.io/post/concurrent-idiom-1-stack/</link>
       <pubDate>Mon, 10 Jul 2017 22:57:57 +0900</pubDate>
-      
+      <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/post/concurrent-idiom-1-stack/</guid>
       <description>concurrent 프로그램을 작성할 때 고려해야할 몇가지 사항. 그리고 idiom.
 여러 서적에서 발췌하였으며, 정리 차원에서 작성한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.
@@ -70,7 +72,7 @@ top() / pop() 도 마찬가지 -&amp;gt;&amp;gt; 조회되지 못하는 아이�
       <title>C&#43;&#43;/CLI 에서 managed 콜백을 unmanaged 로 전달하기</title>
       <link>https://nolleh.github.io/post/managed_cb_to_unmanaged/</link>
       <pubDate>Tue, 04 Jul 2017 00:45:55 +0900</pubDate>
-      
+      <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/post/managed_cb_to_unmanaged/</guid>
       <description>파라미터가 없다면 DelegateToPointer 로 마샬링해서 전달하면되는데,
 이러면 파라미터를 마샬링할 기회가 주어지지 않는다는게 문제다.

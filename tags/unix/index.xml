@@ -6,6 +6,8 @@
     <description>Recent content in Unix on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
+    <managingEditor>nolleh7707@gmail.com (nolleh)</managingEditor>
+    <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
     <lastBuildDate>Tue, 01 Aug 2017 22:54:19 +0900</lastBuildDate>
     
 	<atom:link href="https://nolleh.github.io/tags/unix/index.xml" rel="self" type="application/rss+xml" />
@@ -15,7 +17,7 @@
       <title>Unix 01 Intro</title>
       <link>https://nolleh.github.io/post/unix-01-intro/</link>
       <pubDate>Tue, 01 Aug 2017 22:54:19 +0900</pubDate>
-      
+      <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/post/unix-01-intro/</guid>
       <description>네트워킹의 바이블이라 할 수 있는 Unix Network Programming 의 내용 정리
  Books Introduction Socket 을 통해 통신하는 프로그램을 작성하는 개발자를 위해 쓰여진 책.

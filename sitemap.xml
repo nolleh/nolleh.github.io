@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://nolleh.github.io/c#/async-await/</loc>
+    <lastmod>2018-12-18T11:08:53+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://nolleh.github.io/nancy/introduction/</loc>
     <lastmod>2018-04-24T21:43:04+09:00</lastmod>
   </url>
@@ -53,26 +58,44 @@
   </url>
   
   <url>
-    <loc>https://nolleh.github.io/tags/c#/</loc>
+    <loc>https://nolleh.github.io/tags/c/</loc>
     <lastmod>2018-04-24T21:43:04+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://nolleh.github.io/tags/c&#43;&#43;/cli/</loc>
+    <loc>https://nolleh.github.io/categories/c/</loc>
+    <lastmod>2018-12-18T11:08:53+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nolleh.github.io/tags/c-asynclock-await-async-programming/</loc>
+    <lastmod>2018-12-18T11:08:53+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nolleh.github.io/c/</loc>
+    <lastmod>2018-12-18T11:08:53+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nolleh.github.io/tags/c&#43;&#43;-cli/</loc>
     <lastmod>2017-07-04T00:45:55+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://nolleh.github.io/categories/c&#43;&#43;/cli/</loc>
+    <loc>https://nolleh.github.io/categories/c&#43;&#43;-cli/</loc>
     <lastmod>2017-07-04T00:45:55+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://nolleh.github.io/categories/</loc>
-    <lastmod>2017-07-04T00:45:55+09:00</lastmod>
+    <lastmod>2018-12-18T11:08:53+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -162,7 +185,7 @@
   
   <url>
     <loc>https://nolleh.github.io/</loc>
-    <lastmod>2018-04-24T21:43:04+09:00</lastmod>
+    <lastmod>2018-12-18T11:08:53+09:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -6,6 +6,8 @@
     <description>Recent content in Macos on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
+    <managingEditor>nolleh7707@gmail.com (nolleh)</managingEditor>
+    <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
     <lastBuildDate>Tue, 04 Jul 2017 22:31:23 +0900</lastBuildDate>
     
 	<atom:link href="https://nolleh.github.io/tags/macos/index.xml" rel="self" type="application/rss+xml" />
@@ -15,7 +17,7 @@
       <title>Brew Install 이 구버전만 설치할 때</title>
       <link>https://nolleh.github.io/post/brew-update/</link>
       <pubDate>Tue, 04 Jul 2017 22:31:23 +0900</pubDate>
-      
+      <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/post/brew-update/</guid>
       <description>Let&amp;rsquo;s 사족 처음 회사에 입사 했을 때 자리에는 Mac PC 만이 덩그러니 있었고, Mac 을 사용해본적 없던 꼬꼬마는 자연스럽게 윈도우 CD 를 인사팀에서 받아와서 깔고 있었드랬다.
  &amp;ldquo;기껏 좋은 컴퓨터 줬더니 넌 뭘하고 있는거니?&amp;rdquo;

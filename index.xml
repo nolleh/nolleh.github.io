@@ -6,16 +6,32 @@
     <description>Recent content on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Tue, 24 Apr 2018 21:43:04 +0900</lastBuildDate>
+    <managingEditor>nolleh7707@gmail.com (nolleh)</managingEditor>
+    <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
+    <lastBuildDate>Tue, 18 Dec 2018 11:08:53 +0900</lastBuildDate>
     
 	<atom:link href="https://nolleh.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Async Await</title>
+      <link>https://nolleh.github.io/c#/async-await/</link>
+      <pubDate>Tue, 18 Dec 2018 11:08:53 +0900</pubDate>
+      <author>nolleh7707@gmail.com (nolleh)</author>
+      <guid>https://nolleh.github.io/c#/async-await/</guid>
+      <description>NeoSmart.AsyncLock 라이브러리에 관하여  다음에서 발췌, 번역 - Neosmart Docs.
+ 개요 semaporeslim 은 reentrance 를 지원하지 않는다. 따라서, recursion 에서 적절히 사용되지 않으면 데드락이 발생한다.
+asynclock 은 reentrance 기능을 semaphoreslim 에 추가한거.
+대안 간단한 방법은 semaphoreslim 으로 교체하고, recursion 인 경우를 스레드 아이디로 확인 하는 것.
+이 경우의 문제는
+async / await 의 가장 기본적인 목적인 ui 의 불필요한 블럭킹 없이 작업의 완료를 기다린다는 문제를 그대로 안고 있다.</description>
+    </item>
+    
+    <item>
       <title>Nancy Introduction</title>
       <link>https://nolleh.github.io/nancy/introduction/</link>
       <pubDate>Tue, 24 Apr 2018 21:43:04 +0900</pubDate>
-      
+      <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/nancy/introduction/</guid>
       <description>Nancy 에 대한 문서 번역 #1. By Nolleh
  Introduction 가장 먼저, Nancy 의 세계에 온것을 환영합니다!
@@ -29,7 +45,7 @@ NancyFx 는 모든 컴포넌트들을 포함하는 umbrella project 입니다. (
       <title>Unix 01 Intro</title>
       <link>https://nolleh.github.io/post/unix-01-intro/</link>
       <pubDate>Tue, 01 Aug 2017 22:54:19 +0900</pubDate>
-      
+      <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/post/unix-01-intro/</guid>
       <description>네트워킹의 바이블이라 할 수 있는 Unix Network Programming 의 내용 정리
  Books Introduction Socket 을 통해 통신하는 프로그램을 작성하는 개발자를 위해 쓰여진 책.
@@ -43,7 +59,7 @@ NancyFx 는 모든 컴포넌트들을 포함하는 umbrella project 입니다. (
       <title>스프링 기본 용어/정리</title>
       <link>https://nolleh.github.io/post/fund-spring/</link>
       <pubDate>Wed, 26 Jul 2017 23:11:14 +0900</pubDate>
-      
+      <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/post/fund-spring/</guid>
       <description>어쩌다보니 그동안 손댈 일이 없던 웹서버에 좀 손을 대게 되서 (게임서버, 클라이언트, 그리고 웹서버..정녕 풀스택 개발자가 되는것인가..ㅋ), 예전 선배님이 버리고 간(?) 스프링 책을 꺼내서 읽어 보며 정리한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.
  Spring Bean 객체 스프링에서 생성하여 관리하여 주는 스프링 빈 객체 혹은 빈 객체라고 부른다. res/applicationContext.xml 에  태그로 선언할 수도 있다. 이렇게 선언한경우, 리플렉션을 활용하여 bean id 클래스의 인스턴스를 지정한 세부 태그의 속성으로 메서드를 호출하여 객체를 초기화한다.</description>
@@ -53,7 +69,7 @@ NancyFx 는 모든 컴포넌트들을 포함하는 umbrella project 입니다. (
       <title>파일 버퍼링</title>
       <link>https://nolleh.github.io/post/file-buffering/</link>
       <pubDate>Mon, 17 Jul 2017 00:25:28 +0900</pubDate>
-      
+      <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/post/file-buffering/</guid>
       <description>다음에서 발췌, 번역
 - https://msdn.microsoft.com/en-gb/library/windows/desktop/cc644950(v=vs.85).aspx
@@ -70,7 +86,7 @@ Note 파일에 대해 Seeking 과 위치포인터, offsets 의 개념을 사용�
       <title>Concurrent Idiom 1 - Stack</title>
       <link>https://nolleh.github.io/post/concurrent-idiom-1-stack/</link>
       <pubDate>Mon, 10 Jul 2017 22:57:57 +0900</pubDate>
-      
+      <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/post/concurrent-idiom-1-stack/</guid>
       <description>concurrent 프로그램을 작성할 때 고려해야할 몇가지 사항. 그리고 idiom.
 여러 서적에서 발췌하였으며, 정리 차원에서 작성한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.
@@ -84,24 +100,19 @@ top() / pop() 도 마찬가지 -&amp;gt;&amp;gt; 조회되지 못하는 아이�
       <title>How To Make Git Page</title>
       <link>https://nolleh.github.io/post/how-to-make-git-page/</link>
       <pubDate>Fri, 07 Jul 2017 21:22:50 +0900</pubDate>
-      
+      <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/post/how-to-make-git-page/</guid>
       <description>GitHub-Page 이런게 있다더라 ~ 라고 주변으로부터 처음 들은건 1~2년전이었던것 같은데
 갑자기 꽂혀서 git page 를 만들었다. (!!)
 github 에서는 1계정당 1 호스트를 제공하는 것 같고
-&amp;lt;ID&amp;gt;.github.io
-뭐 이런식? github 의 제공 영역은 repo 에 존재하는 index.html 을 repo 에 지정된 1 도메인과
-연결해주는 정도인 것 같다.
-Repository git 을 사용해 본 적이 있다면 간단하다.
-그렇다면 다음 절로 넘어가고, 그렇지 않다면, 다음을 따라하자.
-github 가입 이 항목에 있어 더 이상의 자세한 설명은 생략한다.</description>
+뭐 이런식? github 의 제공 영역은 repo 에 존재하는 index.html 을 repo 에 지정된 1 도메인과 연결해주는 정도인 것 같다. # Repository git 을 사용해 본 적이 있다면 간단하다. 그렇다면 다음 절로 넘어가고, 그렇지 않다면, 다음을 따라하자. ## github 가입 이 항목에 있어 더 이상의 자세한 설명은 생략한다.</description>
     </item>
     
     <item>
       <title>Brew Install 이 구버전만 설치할 때</title>
       <link>https://nolleh.github.io/post/brew-update/</link>
       <pubDate>Tue, 04 Jul 2017 22:31:23 +0900</pubDate>
-      
+      <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/post/brew-update/</guid>
       <description>Let&amp;rsquo;s 사족 처음 회사에 입사 했을 때 자리에는 Mac PC 만이 덩그러니 있었고, Mac 을 사용해본적 없던 꼬꼬마는 자연스럽게 윈도우 CD 를 인사팀에서 받아와서 깔고 있었드랬다.
  &amp;ldquo;기껏 좋은 컴퓨터 줬더니 넌 뭘하고 있는거니?&amp;rdquo;
@@ -115,7 +126,7 @@ Brew 뭐 전혀 관계 없는 얘기로 포스트를 열었지만.</description>
       <title>markDown 문법</title>
       <link>https://nolleh.github.io/post/mark-down-syntax/</link>
       <pubDate>Tue, 04 Jul 2017 22:13:52 +0900</pubDate>
-      
+      <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/post/mark-down-syntax/</guid>
       <description>마크다운으로 포스팅하는 Git 페이지를 생성하였으니, 자주 사용되는 대표 문법 정리
 마크다운 문법
@@ -131,7 +142,7 @@ Title Heading 1 Heading 2 Listing Asterisk (*) 를 사용하여 순서 없는 �
       <title>C&#43;&#43;/CLI 에서 managed 콜백을 unmanaged 로 전달하기</title>
       <link>https://nolleh.github.io/post/managed_cb_to_unmanaged/</link>
       <pubDate>Tue, 04 Jul 2017 00:45:55 +0900</pubDate>
-      
+      <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/post/managed_cb_to_unmanaged/</guid>
       <description>파라미터가 없다면 DelegateToPointer 로 마샬링해서 전달하면되는데,
 이러면 파라미터를 마샬링할 기회가 주어지지 않는다는게 문제다.
@@ -148,7 +159,7 @@ Title Heading 1 Heading 2 Listing Asterisk (*) 를 사용하여 순서 없는 �
       <title>Hello, Git Pages!</title>
       <link>https://nolleh.github.io/post/good-to-great/</link>
       <pubDate>Mon, 03 Jul 2017 23:44:54 +0900</pubDate>
-      
+      <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/post/good-to-great/</guid>
       <description>Hello World!</description>
     </item>

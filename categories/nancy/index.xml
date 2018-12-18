@@ -6,6 +6,8 @@
     <description>Recent content in Nancy on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
+    <managingEditor>nolleh7707@gmail.com (nolleh)</managingEditor>
+    <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
     <lastBuildDate>Tue, 24 Apr 2018 21:43:04 +0900</lastBuildDate>
     
 	<atom:link href="https://nolleh.github.io/categories/nancy/index.xml" rel="self" type="application/rss+xml" />
@@ -15,7 +17,7 @@
       <title>Nancy Introduction</title>
       <link>https://nolleh.github.io/nancy/introduction/</link>
       <pubDate>Tue, 24 Apr 2018 21:43:04 +0900</pubDate>
-      
+      <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/nancy/introduction/</guid>
       <description>Nancy 에 대한 문서 번역 #1. By Nolleh
  Introduction 가장 먼저, Nancy 의 세계에 온것을 환영합니다!

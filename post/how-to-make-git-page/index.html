@@ -51,19 +51,10 @@
   </span>
   <nav id="TableOfContents">
 <ul>
-<li><a href="#github-page">GitHub-Page</a></li>
-<li><a href="#repository">Repository</a>
+<li><a href="#github-page">GitHub-Page</a>
 <ul>
-<li><a href="#github-가입">github 가입</a></li>
-<li><a href="#sshkey">sshKey</a></li>
-<li><a href="#github-repo-생성">github repo 생성</a></li>
-<li><a href="#내-repo-를-githubpage-로-지정하기">내 Repo 를 GithubPage 로 지정하기</a></li>
-</ul></li>
-<li><a href="#markdown-to-html">MarkDown-To-HTML</a>
+<li>
 <ul>
-<li><a href="#hugo">Hugo</a>
-<ul>
-<li><a href="#hugo-onestep">Hugo OneStep</a></li>
 <li><a href="#hugo-사이트-꾸미기">Hugo - 사이트 꾸미기</a>
 <ul>
 <li><a href="#hugo-가-올바르게-generate-하기-위한-설정-값-지정">hugo 가 올바르게 generate 하기 위한 설정 값 지정</a></li>
@@ -86,70 +77,57 @@
 갑자기 꽂혀서 git page 를 만들었다. (!!)<br />
 github 에서는 1계정당 1 호스트를 제공하는 것 같고</p>
 
-<p><code>&lt;ID&gt;.github.io</code></p>
+<pre><code class="language-&lt;ID&gt;.github.io">  
+뭐 이런식? github 의 제공 영역은 repo 에 존재하는 index.html 을 repo 에 지정된 1 도메인과   
+연결해주는 정도인 것 같다. 
 
-<p>뭐 이런식? github 의 제공 영역은 repo 에 존재하는 index.html 을 repo 에 지정된 1 도메인과<br />
-연결해주는 정도인 것 같다.</p>
+# Repository
+git 을 사용해 본 적이 있다면 간단하다.  
+그렇다면 다음 절로 넘어가고, 그렇지 않다면, 다음을 따라하자.   
 
-<h1 id="repository">Repository</h1>
+## github 가입
+이 항목에 있어 더 이상의 자세한 설명은 생략한다.  
+[github](https://github.com)
 
-<p>git 을 사용해 본 적이 있다면 간단하다.<br />
-그렇다면 다음 절로 넘어가고, 그렇지 않다면, 다음을 따라하자.</p>
+## sshKey
+여기를 따라하자.  
+[github-gen-sshkey](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
 
-<h2 id="github-가입">github 가입</h2>
+## github repo 생성
+* github 본인 메인 페이지에서 Repositories
+* New 버튼
+* 안내에 따라 따라하기
+    - 즉, 로컬의 git repo 대상 폴더에서 git init
+    - git add -A
+    - git commit -m &quot;some-message&quot;
+    - git remote add origin git@github.com:&lt;ID&gt;/&lt;Repo&gt;.git
+    - git push -u origin master
 
-<p>이 항목에 있어 더 이상의 자세한 설명은 생략한다.<br />
-<a href="https://github.com">github</a></p>
+이제 github 에 repository 를 올릴수 있게 되었다! 
 
-<h2 id="sshkey">sshKey</h2>
+## 내 Repo 를 GithubPage 로 지정하기  
+본 repo 에서 &lt;ID&gt;.github.com 의 index.html 을 찾도록 github 에 알려주자.  
 
-<p>여기를 따라하자.<br />
-<a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/">github-gen-sshkey</a></p>
+&lt;img src=&quot;./images/github-setting.png&quot; width=&quot;664&quot; height=&quot;220&quot;/&gt;  
 
-<h2 id="github-repo-생성">github repo 생성</h2>
+# MarkDown-To-HTML
+잘은 모르겠지만.. github 페이지에서는 유독 MarkDown 을 통해  
+html 을 작성하는게 잘 권장? 되어있는거 같고,  
+- 아마도 git page 의 최초 제공 목적 자체가 블로그가 아니라 위키 정리와 같은 마크업 언어로 간단하게 문서를 작성하는 데에 있었기 때문일거다 -  
 
-<ul>
-<li>github 본인 메인 페이지에서 Repositories</li>
-<li>New 버튼</li>
-<li>안내에 따라 따라하기
+jekyll 이나 hugo 를 통해 MarkDown 으로 작성된 문서를 자동으로 html 로 생성할 수 있다.  
 
-<ul>
-<li>즉, 로컬의 git repo 대상 폴더에서 git init</li>
-<li>git add -A</li>
-<li>git commit -m &ldquo;some-message&rdquo;</li>
-<li>git remote add origin git@github.com:<ID>/<Repo>.git</li>
-<li>git push -u origin master</li>
-</ul></li>
-</ul>
 
-<p>이제 github 에 repository 를 올릴수 있게 되었다!</p>
+## Hugo 
+사실 jekyll 을 많이들 쓰고 있는 것 같고 공식적으로 지원? 하는 것 같은데 
+내 맥 PC 의 버전으로 ruby 가 잘 설치가 안되서 괴로워하던 중에 지인이 hugo 를 사용하는 것을 보고 그냥 hugo 를 선택했다. 나름 괜찮은 듯.  
+공식 가이드는 다음을 살펴보면 되고,  
+[Quick-Start](https://gohugo.io/overview/quickstart/)
 
-<h2 id="내-repo-를-githubpage-로-지정하기">내 Repo 를 GithubPage 로 지정하기</h2>
-
-<p>본 repo 에서 <ID>.github.com 의 index.html 을 찾도록 github 에 알려주자.</p>
-
-<p><img src="./images/github-setting.png" width="664" height="220"/></p>
-
-<h1 id="markdown-to-html">MarkDown-To-HTML</h1>
-
-<p>잘은 모르겠지만.. github 페이지에서는 유독 MarkDown 을 통해<br />
-html 을 작성하는게 잘 권장? 되어있는거 같고,<br />
-- 아마도 git page 의 최초 제공 목적 자체가 블로그가 아니라 위키 정리와 같은 마크업 언어로 간단하게 문서를 작성하는 데에 있었기 때문일거다 -</p>
-
-<p>jekyll 이나 hugo 를 통해 MarkDown 으로 작성된 문서를 자동으로 html 로 생성할 수 있다.</p>
-
-<h2 id="hugo">Hugo</h2>
-
-<p>사실 jekyll 을 많이들 쓰고 있는 것 같고 공식적으로 지원? 하는 것 같은데
-내 맥 PC 의 버전으로 ruby 가 잘 설치가 안되서 괴로워하던 중에 지인이 hugo 를 사용하는 것을 보고 그냥 hugo 를 선택했다. 나름 괜찮은 듯.<br />
-공식 가이드는 다음을 살펴보면 되고,<br />
-<a href="https://gohugo.io/overview/quickstart/">Quick-Start</a></p>
-
-<p>내가 따라가면서 확인한 주요한 내용은 다음과 같다.</p>
-
-<h3 id="hugo-onestep">Hugo OneStep</h3>
-
-<pre><code class="language-Bash"># 휴고 설치
+내가 따라가면서 확인한 주요한 내용은 다음과 같다.  
+### Hugo OneStep 
+```Bash
+# 휴고 설치
 $ brew install hugo
 
 # 사이트 생성
@@ -275,7 +253,7 @@ this/is/my/github/repo/public$ git push ...
 <div class="share"></div>
 
 <div id="disqus_thread"></div>
-<script>
+<script type="application/javascript">
     var disqus_config = function () {
     
     
@@ -292,8 +270,8 @@ this/is/my/github/repo/public$ git push ...
         (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 <div class="paging post-paging">
   
@@ -319,12 +297,16 @@ this/is/my/github/repo/public$ git push ...
 </footer>
 
 
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-102565363-1', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-102565363-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 <script data-no-instant>document.write('<script src="/livereload.js?port=80&mindelay=10"></' + 'script>')</script></body>
