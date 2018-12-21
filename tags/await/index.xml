@@ -14,7 +14,7 @@
     
     
     <item>
-      <title>Async Control Flow Msdn</title>
+      <title>비동기 프로그램의 제어 흐름</title>
       <link>https://nolleh.github.io/csharp/async-control-flow-msdn/</link>
       <pubDate>Fri, 21 Dec 2018 22:02:13 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
@@ -25,7 +25,7 @@
     </item>
     
     <item>
-      <title>Async Await Msdn</title>
+      <title>Async Await 을 사용한 비동기 프로그래밍</title>
       <link>https://nolleh.github.io/csharp/async-await-msdn/</link>
       <pubDate>Fri, 21 Dec 2018 21:41:08 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
