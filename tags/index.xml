@@ -8,26 +8,35 @@
     <language>ko-KR</language>
     <managingEditor>nolleh7707@gmail.com (nolleh)</managingEditor>
     <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
-    <lastBuildDate>Tue, 24 Apr 2018 21:43:04 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 21 Dec 2018 22:02:13 +0900</lastBuildDate>
     
 	<atom:link href="https://nolleh.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>C#</title>
-      <link>https://nolleh.github.io/tags/c/</link>
-      <pubDate>Tue, 24 Apr 2018 21:43:04 +0900</pubDate>
+      <title>Async</title>
+      <link>https://nolleh.github.io/tags/async/</link>
+      <pubDate>Fri, 21 Dec 2018 22:02:13 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
-      <guid>https://nolleh.github.io/tags/c/</guid>
+      <guid>https://nolleh.github.io/tags/async/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>C# Programming Async Await</title>
-      <link>https://nolleh.github.io/tags/c-programming-async-await/</link>
-      <pubDate>Tue, 18 Dec 2018 13:47:33 +0900</pubDate>
+      <title>Await</title>
+      <link>https://nolleh.github.io/tags/await/</link>
+      <pubDate>Fri, 21 Dec 2018 22:02:13 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
-      <guid>https://nolleh.github.io/tags/c-programming-async-await/</guid>
+      <guid>https://nolleh.github.io/tags/await/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C#</title>
+      <link>https://nolleh.github.io/tags/c/</link>
+      <pubDate>Fri, 21 Dec 2018 22:02:13 +0900</pubDate>
+      <author>nolleh7707@gmail.com (nolleh)</author>
+      <guid>https://nolleh.github.io/tags/c/</guid>
       <description></description>
     </item>
     
@@ -106,7 +115,7 @@
     <item>
       <title>Programming</title>
       <link>https://nolleh.github.io/tags/programming/</link>
-      <pubDate>Tue, 24 Apr 2018 21:43:04 +0900</pubDate>
+      <pubDate>Fri, 21 Dec 2018 22:02:13 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/tags/programming/</guid>
       <description></description>

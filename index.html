@@ -38,12 +38,12 @@
       </div>
 
 
-  <a href="https://nolleh.github.io/csharp/async-await/">
+  <a href="https://nolleh.github.io/csharp/async-control-flow-msdn/">
   <div class="post-title">
     <img src="/images/post-title-icon.png" />
     <div class="post-meta">
-      <time>18 Dec 2018, 13:47</time>
-      <h1>Async Await</h1>
+      <time>21 Dec 2018, 22:02</time>
+      <h1>Async Control Flow Msdn</h1>
     </div>
   </div>
 </a>
@@ -54,12 +54,8 @@
   </span>
   <nav id="TableOfContents">
 <ul>
-<li><a href="#neosmart-asynclock-라이브러리에-관하여">NeoSmart.AsyncLock 라이브러리에 관하여</a>
-<ul>
 <li><a href="#개요">개요</a></li>
-<li><a href="#대안">대안</a></li>
-<li><a href="#asynclock">AsyncLock</a></li>
-</ul></li>
+<li><a href="#코드">코드</a></li>
 </ul>
 </nav>
 </div>
@@ -67,172 +63,58 @@
 <section class="post-content">
   
 
-<h1 id="neosmart-asynclock-라이브러리에-관하여">NeoSmart.AsyncLock 라이브러리에 관하여</h1>
+<h1 id="개요">개요</h1>
+
+<hr />
 
 <blockquote>
-<p>다음에서 발췌, 번역 - <a href="https://neosmart.net/blog/2017/asynclock-an-asyncawait-friendly-locking-library-for-c-and-net/">Neosmart Docs.</a></p>
+<p>다음에서 발췌<br />
+<a href="https://docs.microsoft.com/ko-kr/dotnet/csharp/programming-guide/concepts/async/control-flow-in-async-programs">비동기 프로그램의 제어 흐름</a></p>
 </blockquote>
 
-<h2 id="개요">개요</h2>
+<h1 id="코드">코드</h1>
 
-<hr />
-
-<p>semaporeslim 은 reentrance 를 지원하지 않는다. 따라서,
-recursion 에서 적절히 사용되지 않으면 데드락이 발생한다.<br />
-asynclock 은 reentrance 기능을 semaphoreslim 에 추가한거.</p>
-
-<h2 id="대안">대안</h2>
-
-<hr />
-
-<p>간단한 방법은  semaphoreslim 으로 교체하고, recursion 인 경우를 스레드 아이디로 확인 하는 것.<br />
-이 경우의 문제는<br />
-    async / await 의 가장 기본적인 목적인 ui 의 불필요한 블럭킹 없이 작업의 완료를 기다린다는 문제를 그대로 안고 있다.</p>
-
-<p>await 코드를 넣어도 다른 코드가 실행 될 수 없다.</p>
-
-<pre><code>class ThreadIdConflict
+<pre><code class="language-csharp">public partial class MainWindow : Window
 {
-    BadAsyncLock _lock = new BadAsyncLock();
-
-    async void Button1_Click()
+    // . . .
+    private async void startButton_Click(object sender, RoutedEventArgs e)
     {
-        using (_lock.Lock())
-        {
-            await Task.Delay(-1); //at this point, control goes back to the UI thread
-        }
+        // ONE
+        Task&lt;int&gt; getLengthTask = AccessTheWebAsync();
+
+        // FOUR
+        int contentLength = await getLengthTask;
+
+        // SIX
+        resultsTextBox.Text +=
+            $&quot;\r\nLength of the downloaded string: {contentLength}.\r\n&quot;;
     }
 
-    async void Button2_Click()
+    async Task&lt;int&gt; AccessTheWebAsync()
     {
-        using (_lock.Lock())
-        {
-            await Task.Delay(-1); //at this point, control goes back to the UI thread
-        }
+        // TWO
+        HttpClient client = new HttpClient();
+        Task&lt;string&gt; getStringTask =
+            client.GetStringAsync(&quot;https://msdn.microsoft.com&quot;);
+
+        // THREE
+        string urlContents = await getStringTask;
+
+        // FIVE
+        return urlContents.Length;
     }
 }
 </code></pre>
 
-<p>원래 메인스레드는 메시지 펌핑을 하면서 콜백을 호출해주는 구조로 되어 있고,</p>
-
-<p>&ldquo;hard&rdquo; await 을 마주쳐서 메인 ui 로 돌아갈때도<br />
-이벤트 핸들러의 실행을 일시 정지하지만 실제 스레드가 동작을 멈추지는 않는다.<br />
-await 이 완료 되고 나면, continuation 이 다시 main 스레드에서 실행된다.</p>
-
-<p>여기에서 중요한 것은, 항상 같은 스레드가 실행된다는 것이다. (non- awaited async 함수 호출을 제외하고.) <B> <code>Button1_Click() 을 실행한 스레드가 await 을 만나 동작을 정지하고, 이후 Button2_cllick 을 호출한다.</code> </b><br />
-Button1_click() 의 남은 코드는 옆에 놓여지는거지, 실제로 정지 되는것이 아니다. 이 의미는, Button2_click 이 실행되어야할 때 Button1_click() 은 세마포어를 통해 상호 배제적인 접근을 하고 있으므로 접근 불가해야하나, owningthreadId 가 같으므로 두 메소드가 동시에 실행된다.</p>
-
-<h2 id="asynclock">AsyncLock</h2>
-
-<hr />
-
-<p>그럼 어떻게 해야하는가? recursion 을 체크하기위해 뭔가 다른 방법을 찾아야한다.
-<code>Envrionment</code> 클래스를 통해 스택 트레이스에 접근 할 수 있다.
-이를 락을 얻기 위한 요건으로 사용할 수 있지 않을까 ?</p>
-
-<blockquote>
-<p>Update 5/25/2017 (AsyncLock 은 이제는 taskid 를 통해 확인하고 있다. )</p>
-</blockquote>
-
-<pre><code class="language-csharp">List _stackTraces = new List();
-async Task Lock()
-{
-    if (!lock.locked)
-    {
-        _stackTraces.Add(Environment.StackTrace);
-        lock.Wait();
-        return true;
-    }
-    else if (_stackTraces.Peek().IsParentOf(Environment.StackTrace))
-    {
-        _stackTraces.Add(Environment.StackTrace);
-        return true;
-    }
-    else
-    {
-        //wait for the lock to become available somehow
-        return true;
-    }
-}
-</code></pre>
-
-<p>Lock() 의 호출이 스택추적을 낭비하지 않는다고 가정하면,(?) isParentOf 메소드가 현재 호출이 저장된 스택트레이스의 자식인지 확인한다.</p>
-
-<p>하지만 이런 접근은 첫번째 솔루션으로는 쉽게 해결 됐을 다음 코드를 처리하지 못한다.</p>
-
-<pre><code class="language-csharp">class StackTraceConflict
-{
-    BadAsyncLock _lock = new BadAsyncLock();
-
-    async void DoSomething()
-    {
-        using (_lock.Lock())
-        {
-            await Task.Delay(-1);
-        }
-    }
-
-    void DoManySomethings()
-    {
-        while(true)
-        {
-            DoSomething(); //no wait here!
-        }
-    }
-}
-</code></pre>
-
-<p>모두 같은 지점에서 실행되기 때문에 다른 스레드에서 같은 스택트레이스를 갖게 되고 완벽하게 실패하게 된다!</p>
-
-<p>따라서 적절한 솔루션은, 두 솔루션을 결합하는 것이다.</p>
-
-<pre><code class="language-csharp">class AsyncLockTest
-{
-    AsyncLock _lock = new AsyncLock();
-    void Test()
-    {
-        //the code below will be run immediately (and asynchronously, in a new thread)
-        Task.Run(async () =&gt;
-        {
-            //this first call to LockAsync() will obtain the lock without blocking
-            using (await _lock.LockAsync())
-            {
-                //this second call to LockAsync() will be recognized as being a reëntrant call and go through
-                using (await _lock.LockAsync())
-                {
-                    //we now hold the lock exclusively and no one else can use it for 1 minute
-                    await Task.Delay(TimeSpan.FromMinutes(1));
-                }
-            }
-        }).Wait(TimeSpan.FromSeconds(30));
-
-        //this call to obtain the lock is synchronously made from the main thread
-        //It will, however, block until the asynchronous code which obtained the lock above finishes
-        using (_lock.Lock())
-        {
-            //now we have obtained exclusive access
-        }
-    }
-}
-</code></pre>
-
-<p>task 가 먼저 실행되도록 하기위해 30 초를 대기했다가 평범하게 락을 건다.<br />
-첫번째 락은 평범하게 얻어진 뒤에, 다시 reentrant call 이 발생하고, 이것 또한 넘어가게 된다. (# await 실행된 스레드아이디 + 실행된 콜스택의 부모)</p>
-
-<p>Task.Delay 를 마주쳐서 스레드는 pause 상태로 전환되고, <em>이 시간동안 공유되는 리소스에 대해 배제적 접근을 하게 된다.</em></p>
-
-<p>30 초 뒤에 lock 을 얻으려고 시도할때, 이 시도는 실패하게 되고<br />
-다시 30초 뒤에 task 가 완료되어 lock 을 release 하게 되면 메인스레드가 락을 얻어 동작이 재개 된다.</p>
-
-<p>이 코드 조각은 두개의 락 옵션을 사용하고 있다. Lock() 과 LockAsync() 인데, 이들은 둘다 기본 개념은 같고, async 메소드는 async/ await 패러다임을 품어 이 실행이 lock 이 사용 가능할때에 새로 얻을 수 있도록 한 개념이다. 이렇게 해서 await lock.LockAsync() 가 블러킹 되지 않도록 한 것이다.</p>
+<p>Three 에서 yield 되어 Four.</p>
 
 </section>
 
 <div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-await%2f&t=Async%20Await" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-await%2f&text=Async%20Await&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-await%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-await%2f&title=Async%20Await" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-control-flow-msdn%2f&t=Async%20Control%20Flow%20Msdn" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-control-flow-msdn%2f&text=Async%20Control%20Flow%20Msdn&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-control-flow-msdn%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-control-flow-msdn%2f&title=Async%20Control%20Flow%20Msdn" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
 </div>
 
 <div class="post-meta-code">
@@ -263,7 +145,13 @@ async Task Lock()
         val tags = [
         
           
-          <a href="https://nolleh.github.io/tags/c#-programming-async-await">"C#, Programming, async, await"</a>
+          <a href="https://nolleh.github.io/tags/c">"C#"</a>
+          
+          <a href="https://nolleh.github.io/tags/programming">"Programming"</a>
+          
+          <a href="https://nolleh.github.io/tags/async">"async"</a>
+          
+          <a href="https://nolleh.github.io/tags/await">"await"</a>
           
         
         ];
@@ -276,12 +164,12 @@ async Task Lock()
     <img src="/images/seperator.png" />
   </div>
 
-  <a href="https://nolleh.github.io/nancy/introduction/">
+  <a href="https://nolleh.github.io/csharp/async-await-msdn/">
   <div class="post-title">
     <img src="/images/post-title-icon.png" />
     <div class="post-meta">
-      <time>24 Apr 2018, 21:43</time>
-      <h1>Nancy Introduction</h1>
+      <time>21 Dec 2018, 21:41</time>
+      <h1>Async Await Msdn</h1>
     </div>
   </div>
 </a>
@@ -292,14 +180,10 @@ async Task Lock()
   </span>
   <nav id="TableOfContents">
 <ul>
-<li>
-<ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#built-to-run-anywhere">Built to run anywhere</a></li>
-<li><a href="#the-super-duper-happy-path">The super-duper-happy-path</a></li>
-<li><a href="#creating-your-first-nancy-application">Creating your first Nancy application</a></li>
-<li><a href="#more-info">More Info</a></li>
-</ul></li>
+<li><a href="#개요">개요</a></li>
+<li><a href="#반응성을-향상시키는-비동기">반응성을 향상시키는 비동기</a></li>
+<li><a href="#작성이-간편한-비동기-메서드">작성이 간편한 비동기 메서드</a></li>
+<li><a href="#스레드">스레드</a></li>
 </ul>
 </nav>
 </div>
@@ -307,111 +191,55 @@ async Task Lock()
 <section class="post-content">
   
 
+<h1 id="개요">개요</h1>
+
+<hr />
+
 <blockquote>
-<p><a href="https://github.com/NancyFx/Nancy/wiki/Introduction">Nancy 에 대한 문서 번역 #1</a>. By Nolleh</p>
+<p>다음에서 발췌 <a href="https://docs.microsoft.com/ko-kr/dotnet/csharp/programming-guide/concepts/async/">MSDN</a></p>
 </blockquote>
 
-<h2 id="introduction">Introduction</h2>
+<h1 id="반응성을-향상시키는-비동기">반응성을 향상시키는 비동기</h1>
 
 <hr />
 
-<p>가장 먼저, Nancy 의 세계에 온것을 환영합니다!<br />
-루비의 sinatra 프레임워크에 영감을 받아 Nancy 라는 이름을 붙이게 되었습니다. (Frank Sinatra 의 딸이름이 Nancy 니까요!)<br />
-NancyFx 의 Fx 에 대해 많은 사람들이 궁금해하여 여기에 붙입니다만, framework 라는 뜻입니다 :)<br />
-NancyFx 는 모든 컴포넌트들을 포함하는 umbrella project 입니다. (#역자주: 우산효과의 우산처럼, 포괄적인 프로젝트라는 의미로 쓴게 아닐까? )</p>
+<p>잠재적인 차단 작업 완료 될때까지 다른 작업을 게속 수행</p>
 
-<p>이 가이드는 앞으로 개괄적이고 빠르게 Nancy 의 특징들을 살펴 독자 스스로 Nancy 의 세계를 탐험해 볼 수 있는 시야를 제공할겁니다.</p>
+<h1 id="작성이-간편한-비동기-메서드">작성이 간편한 비동기 메서드</h1>
 
-<p>Nancy 는 가볍고, 적은 준비의식(#역자주: 라이브러리를 쓰기 위한 선제 작업)의 HTTP 기반의 서비스를 개발할 수 있는 .Net 과 <a href="http://mono-project.com/">Mono</a> 기반 프레임 워크입니다.<br />
-이 프레임워크의 목적은 모든 상호 통신(ineractions)을 신경쓰지 않으면서도 동시에 슈퍼-엄청-행복한 방법으로-(super-duper-happy-path) 제공하는 것입니다.</p>
+<p>반환 형식은 다음 중 하나<br />
+- Task<TResult><br />
+- Task<br />
+- void - 비동기 이벤트 처리기 작성<br />
+- GetAwaiter 포함 모든 기타 형식</p>
 
-<p>이 말은 Nancy 를 통한 모든 것들이 당신을 개고생하게 만드는 설정 지옥에서 벗어날 수 있도록 관습적이고/기본적인 설정 값을 적극 활용하는 것을 의미합니다.<br />
-Nancy 와 함께라면 아무것도 없는 상태에서 수 분안에 웹사이트를 만들 수 있습니다. 문자 그대로요!!</p>
-
-<p>Nancy 는 DELETE, GET, HEAD, OPTIONS, POST, PUT, PATH 요청을 단순하고 우아한 <a href="http://en.wikipedia.org/wiki/Domain-specific_language">Domain Specific Language (DSL)</a> 을 몇번의 타이핑만으로 응답으로 전달하도록 디자인 되어 있어 당신은 다른 좀 더 중요한 <strong>당신의</strong> 코드, <strong>당신의</strong> 어플리케이션에 집중 할 수 있도록 하였습니다.</p>
-
-<p>이 모든 것들은 <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a> 의 오픈 소스 입니다.</p>
-
-<p><a href="http://teamcity.codebetter.com/project.html?projectId=project112&amp;tab=projectOverview&amp;guest=true">Nuget, our TeamCity Server</a> 와 <a href="http://nancyfx.org/">github repository</a> 로부터 살펴 보실 수 있습니다.</p>
-
-<h2 id="built-to-run-anywhere">Built to run anywhere</h2>
-
-<hr />
-
-<p>원하는 곳 어디에서든 빌드되고 실행될 수 있습니다.<br />
-Nancy 는 어떤 존재하는 프레임워크에도 의존성이 없도록 디자인 되었습니다.<br />
-request / response 객체 전부 자체에 포함되어 있으므로, <a href="http://msdn.microsoft.com/en-us/library/cc656912.aspx">.NET framework client profile</a> 을 통해 빌드하여 Nancy 는 당신이 원하는 곳 어디에서든 사용될 수 있습니다.</p>
-
-<p>Nancy 의 핵심 개념중의 하나로 hosts 가 있습니다. 하나의 호스트는 nancy 와 호스팅 환경의 어댑터로서 동작하게 되므로 Nancy 를 기존의 존재하는 - ASP.Net, WCF, OWIN, 다른 통합 응용프로그램 - 기술에서 활용해보십시오.</p>
-
-<p>특정 호스트 구현은 Nancy 프레임워크의 핵심 기능을 제공하지 않을 수 있습니다. 이런 추가기능들 - 인증과 같은- 은 개별로 제공됩니다.<br />
-Nancy 응용 프로그램을 빌드하는 것은 웹프레임워크의 buffet 으로부터 가장 좋아하는 부분을 뽑아내는 것과 같습니다!  Nancy 서비스를 빌드하는데 사용할 최소한의 부분은 핵심 프레임워크와 host 가 될 것입니다.</p>
-
-<h2 id="the-super-duper-happy-path">The super-duper-happy-path</h2>
-
-<hr />
-
-<p>그 &ldquo;super-duper-happy-path&rdquo; (말을 줄이길 좋아하는 요새 사람들을 따르자면 <strong>SDHP</strong> 랄까요?) 란, Nancy 의 정신을 바로 짚는 용어라 하겠습니다;동시에 Nancy 의 API 를 이용하는 동안 &ldquo;슈퍼-엄청-행복한-길&rdquo; 에 대한 경험을 당신에게 제공하는 것이라 할 수도 있겠네요.</p>
-
-<p>결국에는 대단히 감정적 용어이기때문에 정확히 어떤 것인지 짚어보기 전에 이 배후의 아이디어를 살펴보도록합시다.</p>
+<p><img src="https://docs.microsoft.com/ko-kr/dotnet/csharp/programming-guide/concepts/async/media/navigationtrace.png" alt="navigation-trace" /></p>
 
 <ul>
-<li><p>&ldquo;그냥 동작해&rdquo; - 이것 저것 할것 없이 하나 집어서 사용하면 됩니다. 새로운 모듈을 추가한다? 이것들은 다 당신을 위해 자동으로 이뤄집니다. 새로운 뷰 엔진을 쓴다? 당신은 아무것도 할 것 없이, 미리 준비되어 있습니다. 당신 모듈에 새로운 의존성을 추가하는 것마저 자동으로 injection 해줄겁니다! - 설정노노해!-</p></li>
+<li>await 을 만나면 yield 함 (호출자로 제어가 돌아감)<br />
 
-<li><p>&ldquo;쉬운 커스터 마이즈&rdquo; - &ldquo;그냥 동작해&rdquo; 와 같은 기능이 커스터마이즈를 어렵게 할 것 같지만 그렇지 않습니다. 다른 컨테이너를 원하세요? 문제 없어요! 라우딩 되는 다른 경로를 원하세요 ? 하세요! 우리의 bootstrapper 가 이 모든 것들을 누워서 떡먹게 해줍니다.</p></li>
-
-<li><p>&ldquo;적은 준비 의식&rdquo; - 당신의 응용 프로그램을 위한 Nancy code 의 양은 아주 적습니다. Nancy 응용프로그램의 중요한 부분은 당신의 코드입니다. 실제 동작하는 Nancy 어플리케이션이 다음의 <a href="https://twitter.com/Grumpydev/statuses/83495940048166912">한 개의 트위터 글</a>로 작성될 수 있다는 게 바로 그 증거죠.</p></li>
-
-<li><p>&ldquo;적은 마찰&rdquo; - Nancy 로 소프트웨어를 빌드할때 API 들이 도와줄 것입니다. 이름은 명확하고 요구되는 설정은 최소한이지만 강력한 성능과 확장성은 당신이 필요로 할 때 여전히 그 자리에 있어 줄 겁니다 :)</p></li>
+<ul>
+<li>이때, Task<int> 가 호출자에게 반환되고 이는 언젠가 다운로드된 문자열의 길이가 반환된다는 약속 (future) 을 의미한다.<br /></li>
+<li>await 전에 작업이 완료된다면 제어가 돌아가지 않는다.<br /></li>
+</ul></li>
 </ul>
 
-<p>위 내용들을 종합해 볼때, Nancy 로 응용프로그램을 작성하는 것은 즐겁고 재밌을거예요! 하지만 응용프로그램이 성장할 수록 성능이나 확장성을 포기해야할 때가 올 수도 있죠..</p>
+<h1 id="스레드">스레드</h1>
 
-<h2 id="creating-your-first-nancy-application">Creating your first Nancy application</h2>
+<p>비동기 메서드의 await 식은 대기한 작업이 실행되는 동안 현재 스레드를 차단하지 않는다.
+대신, 메서드의 나머지를 연속으로 등록하고 비동기 메서드 호출자에 반환.</p>
 
-<hr />
-
-<p>이야기는 이제 충분합니다. 이제 코드를 봅시다! Nuget (혹은 Mono) 은 설치되어 있을 것이라 가정하겠습니다.<br />
-(우리곁의 어디에나 있는) 유비쿼터스 &ldquo;Hello World&rdquo; 응용프로그램을 Nancy 와 Nancy 의 ASP.NET 호스팅으로 빌드해보겠습니다.</p>
-
-<ol>
-<li><p>visual studio 2012 이상이라면 <a href="http://sidewaffle.com/">SideWaffle Template Pack for Visual Studio</a> 을, 2010 사용자라면 <a href="http://visualstudiogallery.msdn.microsoft.com/f1e29f61-4dff-4b1e-a14b-6bd0d307611a">Nancy project templates</a> 을 설치합시다.</p></li>
-
-<li><p><code>Nancy empty project with ASP.NET host</code> 메뉴 (sidewaffle) / <code>Nancy Empty Web Application with ASP.NET Hosting</code> 메뉴 (Nancy project template) 를 선택합니다.</p></li>
-
-<li><p><code>Nancy Module</code> 을 C# 클래스로 추가하고 root url 에 라우트 핸들러를 생성자에 작은 코드를 넣어 정의합니다:</p></li>
-
-<li><p>Compile and run to see result !</p></li>
-
-<li><p>강제하진 않지만 권장하는 내용으로, 새로운 업데이트를 체크하기 위해 Nuget Package Manager 를 사용해보세요.</p></li>
-</ol>
-
-<p>The HelloModule.cs code</p>
-
-<pre><code class="language-C#">public class HelloModule : NancyModule
-{
-    public HelloModule()
-    {
-        Get[&quot;/&quot;] = parameters =&gt; &quot;Hello World&quot;;
-    }
-}
-</code></pre>
-
-<p>모듈을 public 으로 선언하지 않으면 NancyFx 가 찾을 수 없으므로, 잊지마세요!</p>
-
-<h2 id="more-info">More Info</h2>
-
-<hr />
-
-<p><a href="http://blog.jonathanchannon.com/2012/12/19/why-use-nancyfx/">- Why use NancyFX?</a></p>
+<p>async / await 으로 인해 스레드가 추가로 생성되지 않는다.<br />
+비동기 메서드는 자체 스레드에서 실행되지 않고 <code>현재 동기화 컨텍스트</code>에서 실행되며,<br />
+활성화된 경우에만 스레드에서 시간을 사용.</p>
 
 </section>
 
 <div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fnancy%2fintroduction%2f&t=Nancy%20Introduction" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fnancy%2fintroduction%2f&text=Nancy%20Introduction&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fnancy%2fintroduction%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fnancy%2fintroduction%2f&title=Nancy%20Introduction" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-await-msdn%2f&t=Async%20Await%20Msdn" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-await-msdn%2f&text=Async%20Await%20Msdn&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-await-msdn%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-await-msdn%2f&title=Async%20Await%20Msdn" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
 </div>
 
 <div class="post-meta-code">
@@ -427,7 +255,7 @@ Nancy 응용 프로그램을 빌드하는 것은 웹프레임워크의 buffet �
       val categories = [
       
       
-      <a href="https://nolleh.github.io//categories/nancy">"Nancy"</a>
+      <a href="https://nolleh.github.io//categories/csharp">"csharp"</a>
       
       ];
     </div>
@@ -442,9 +270,13 @@ Nancy 응용 프로그램을 빌드하는 것은 웹프레임워크의 buffet �
         val tags = [
         
           
+          <a href="https://nolleh.github.io/tags/c">"C#"</a>
+          
           <a href="https://nolleh.github.io/tags/programming">"Programming"</a>
           
-          <a href="https://nolleh.github.io/tags/c">"C#"</a>
+          <a href="https://nolleh.github.io/tags/async">"async"</a>
+          
+          <a href="https://nolleh.github.io/tags/await">"await"</a>
           
         
         ];
@@ -461,7 +293,7 @@ Nancy 응용 프로그램을 빌드하는 것은 웹프레임워크의 buffet �
 <div class="paging">
   
 
-  PAGE 1 / 6
+  PAGE 1 / 7
 
   
   <a href="/page/2/" rel="next">
@@ -487,7 +319,7 @@ if (!doNotTrack) {
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
-<script data-no-instant>document.write('<script src="/livereload.js?port=5135&mindelay=10"></' + 'script>')</script></body>
+<script data-no-instant>document.write('<script src="/livereload.js?port=80&mindelay=10"></' + 'script>')</script></body>
 
 </html>
 

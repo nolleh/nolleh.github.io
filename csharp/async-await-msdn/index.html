@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <base href="https://nolleh.github.io/">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Async Await Msdn  &middot; The Computer Programmer, Nolleh</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://nolleh.github.io/csharp/async-await-msdn/">
+    
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="/">HOME</a></li>
+            <li><a href="/categories">CATEGORIES</a></li>
+            <li><a href="/project">PROJECTS</a></li>
+        </ul>
+    </div>
+    <div class="container">
+      <div class="title">
+        <div>
+          <a href="/">
+            <img src="/images/logo.png" />
+          </a>
+        </div>
+        <div><img src="/images/seperator.png" /></div>
+        <div class="logo-title">hello, world!</div>
+      </div>
+
+
+<a href="https://nolleh.github.io/csharp/async-await-msdn/">
+  <div class="post-title">
+    <img src="/images/post-title-icon.png" />
+    <div class="post-meta">
+      <time>21 Dec 2018, 21:41</time>
+      <h1>Async Await Msdn</h1>
+    </div>
+  </div>
+</a>
+
+<div class="post-toc">
+  <span class="title">
+    Table of contents
+  </span>
+  <nav id="TableOfContents">
+<ul>
+<li><a href="#개요">개요</a></li>
+<li><a href="#반응성을-향상시키는-비동기">반응성을 향상시키는 비동기</a></li>
+<li><a href="#작성이-간편한-비동기-메서드">작성이 간편한 비동기 메서드</a></li>
+<li><a href="#스레드">스레드</a></li>
+</ul>
+</nav>
+</div>
+
+<section class="post-content">
+  
+
+<h1 id="개요">개요</h1>
+
+<hr />
+
+<blockquote>
+<p>다음에서 발췌 <a href="https://docs.microsoft.com/ko-kr/dotnet/csharp/programming-guide/concepts/async/">MSDN</a></p>
+</blockquote>
+
+<h1 id="반응성을-향상시키는-비동기">반응성을 향상시키는 비동기</h1>
+
+<hr />
+
+<p>잠재적인 차단 작업 완료 될때까지 다른 작업을 게속 수행</p>
+
+<h1 id="작성이-간편한-비동기-메서드">작성이 간편한 비동기 메서드</h1>
+
+<p>반환 형식은 다음 중 하나<br />
+- Task<TResult><br />
+- Task<br />
+- void - 비동기 이벤트 처리기 작성<br />
+- GetAwaiter 포함 모든 기타 형식</p>
+
+<p><img src="https://docs.microsoft.com/ko-kr/dotnet/csharp/programming-guide/concepts/async/media/navigationtrace.png" alt="navigation-trace" /></p>
+
+<ul>
+<li>await 을 만나면 yield 함 (호출자로 제어가 돌아감)<br />
+
+<ul>
+<li>이때, Task<int> 가 호출자에게 반환되고 이는 언젠가 다운로드된 문자열의 길이가 반환된다는 약속 (future) 을 의미한다.<br /></li>
+<li>await 전에 작업이 완료된다면 제어가 돌아가지 않는다.<br /></li>
+</ul></li>
+</ul>
+
+<h1 id="스레드">스레드</h1>
+
+<p>비동기 메서드의 await 식은 대기한 작업이 실행되는 동안 현재 스레드를 차단하지 않는다.
+대신, 메서드의 나머지를 연속으로 등록하고 비동기 메서드 호출자에 반환.</p>
+
+<p>async / await 으로 인해 스레드가 추가로 생성되지 않는다.<br />
+비동기 메서드는 자체 스레드에서 실행되지 않고 <code>현재 동기화 컨텍스트</code>에서 실행되며,<br />
+활성화된 경우에만 스레드에서 시간을 사용.</p>
+
+</section>
+
+<div class="share">
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-await-msdn%2f&t=Async%20Await%20Msdn" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-await-msdn%2f&text=Async%20Await%20Msdn&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-await-msdn%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-await-msdn%2f&title=Async%20Await%20Msdn" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+</div>
+
+<div class="post-meta-code">
+  <div class="desc">
+    public string description() {
+    <div class="desc">val author = "
+    
+        nolleh
+    ";
+    </div>
+    
+    <div class="desc">
+      val categories = [
+      
+      
+      <a href="https://nolleh.github.io//categories/csharp">"csharp"</a>
+      
+      ];
+    </div>
+    
+    }
+  </div>
+</div>
+<div class="post-meta-code">
+  <div class="desc">
+    public string tags() {
+      <div class="desc">
+        val tags = [
+        
+          
+          <a href="https://nolleh.github.io/tags/c">"C#"</a>
+          
+          <a href="https://nolleh.github.io/tags/programming">"Programming"</a>
+          
+          <a href="https://nolleh.github.io/tags/async">"async"</a>
+          
+          <a href="https://nolleh.github.io/tags/await">"await"</a>
+          
+        
+        ];
+      </div>
+    }
+  </div>
+</div>
+
+
+<div class="share"></div>
+
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "nolleh-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<div class="paging post-paging">
+  
+  <a class="left" href="https://nolleh.github.io/csharp/async-control-flow-msdn/" rel="prev">
+    <i class="fa fa-caret-left" aria-hidden="true"></i> <span>Async Control Flow Msdn</span>
+  </a>
+  
+  
+  <a class="right" href="https://nolleh.github.io/csharp/async-await/" rel="next">
+    <span>Async Await</span> <i class="fa fa-caret-right" aria-hidden="true"></i>
+  </a>
+  
+</div>
+
+<div class="share"></div>
+
+<div class="seperator">
+  <img src="/images/seperator.png" />
+</div>
+
+<footer class="footer">
+    COPYRIGHT (C) <a href="http://blog.lulab.net">DONGGEUN,BANG</a>. ALL RIGHTS RESERVED.
+</footer>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-102565363-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script data-no-instant>document.write('<script src="/livereload.js?port=80&mindelay=10"></' + 'script>')</script></body>
+
+</html>
+

@@ -8,10 +8,38 @@
     <language>ko-KR</language>
     <managingEditor>nolleh7707@gmail.com (nolleh)</managingEditor>
     <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
-    <lastBuildDate>Tue, 18 Dec 2018 13:47:33 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 21 Dec 2018 22:02:13 +0900</lastBuildDate>
     
 	<atom:link href="https://nolleh.github.io/categories/csharp/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Async Control Flow Msdn</title>
+      <link>https://nolleh.github.io/csharp/async-control-flow-msdn/</link>
+      <pubDate>Fri, 21 Dec 2018 22:02:13 +0900</pubDate>
+      <author>nolleh7707@gmail.com (nolleh)</author>
+      <guid>https://nolleh.github.io/csharp/async-control-flow-msdn/</guid>
+      <description>개요  다음에서 발췌
+비동기 프로그램의 제어 흐름
+ 코드 public partial class MainWindow : Window { // . . . private async void startButton_Click(object sender, RoutedEventArgs e) { // ONE Task&amp;lt;int&amp;gt; getLengthTask = AccessTheWebAsync(); // FOUR int contentLength = await getLengthTask; // SIX resultsTextBox.Text += $&amp;quot;\r\nLength of the downloaded string: {contentLength}.\r\n&amp;quot;; } async Task&amp;lt;int&amp;gt; AccessTheWebAsync() { // TWO HttpClient client = new HttpClient(); Task&amp;lt;string&amp;gt; getStringTask = client.GetStringAsync(&amp;quot;https://msdn.microsoft.com&amp;quot;); // THREE string urlContents = await getStringTask; // FIVE return urlContents.</description>
+    </item>
+    
+    <item>
+      <title>Async Await Msdn</title>
+      <link>https://nolleh.github.io/csharp/async-await-msdn/</link>
+      <pubDate>Fri, 21 Dec 2018 21:41:08 +0900</pubDate>
+      <author>nolleh7707@gmail.com (nolleh)</author>
+      <guid>https://nolleh.github.io/csharp/async-await-msdn/</guid>
+      <description>개요  다음에서 발췌 MSDN
+ 반응성을 향상시키는 비동기 잠재적인 차단 작업 완료 될때까지 다른 작업을 게속 수행
+작성이 간편한 비동기 메서드 반환 형식은 다음 중 하나
+- Task
+- Task
+- void - 비동기 이벤트 처리기 작성
+- GetAwaiter 포함 모든 기타 형식
+ await 을 만나면 yield 함 (호출자로 제어가 돌아감)
+ 이때, Task 가 호출자에게 반환되고 이는 언젠가 다운로드된 문자열의 길이가 반환된다는 약속 (future) 을 의미한다.</description>
+    </item>
     
     <item>
       <title>Async Await</title>
