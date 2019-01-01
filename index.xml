@@ -8,10 +8,22 @@
     <language>ko-KR</language>
     <managingEditor>nolleh7707@gmail.com (nolleh)</managingEditor>
     <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
-    <lastBuildDate>Tue, 01 Jan 2019 15:56:51 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 01 Jan 2019 16:36:28 +0900</lastBuildDate>
     
 	<atom:link href="https://nolleh.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>EOSIO - 노드 시작하고 설정하기</title>
+      <link>https://nolleh.github.io/block-chain/1.4-startyournodeandsetup/</link>
+      <pubDate>Tue, 01 Jan 2019 16:36:28 +0900</pubDate>
+      <author>nolleh7707@gmail.com (nolleh)</author>
+      <guid>https://nolleh.github.io/block-chain/1.4-startyournodeandsetup/</guid>
+      <description>다음에서 발췌 - [](https://developers.eos.io/eosio-home/docs/getting-the-software)
+ Step 1: Boot Node And Wallet Step 1.1: Start keosd 먼저 keosd 를 시작한다.
+keosd &amp;amp;  다음과 유사한 결과를 얻게 된다.
+info 2018-11-26T06:54:24.789 thread-0 wallet_plugin.cpp:42 plugin_initialize ] initializing wallet plugin info 2018-11-26T06:54:24.795 thread-0 http_plugin.cpp:554 add_handler ] add api url: /v1/keosd/stop info 2018-11-26T06:54:24.796 thread-0 wallet_api_plugin.cpp:73 plugin_startup ] starting wallet_api_plugin info 2018-11-26T06:54:24.796 thread-0 http_plugin.cpp:554 add_handler ] add api url: /v1/wallet/create info 2018-11-26T06:54:24.796 thread-0 http_plugin.cpp:554 add_handler ] add api url: /v1/wallet/create_key info 2018-11-26T06:54:24.</description>
+    </item>
     
     <item>
       <title>EOSIO - 스택에 대해</title>
