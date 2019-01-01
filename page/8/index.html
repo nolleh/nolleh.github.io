@@ -38,12 +38,12 @@
       </div>
 
 
-  <a href="https://nolleh.github.io/post/how-to-make-git-page/">
+  <a href="https://nolleh.github.io/post/file-buffering/">
   <div class="post-title">
     <img src="/images/post-title-icon.png" />
     <div class="post-meta">
-      <time>07 Jul 2017, 21:22</time>
-      <h1>How To Make Git Page</h1>
+      <time>17 Jul 2017, 00:25</time>
+      <h1>파일 버퍼링</h1>
     </div>
   </div>
 </a>
@@ -54,19 +54,8 @@
   </span>
   <nav id="TableOfContents">
 <ul>
-<li><a href="#github-page">GitHub-Page</a>
-<ul>
-<li>
-<ul>
-<li><a href="#hugo-사이트-꾸미기">Hugo - 사이트 꾸미기</a>
-<ul>
-<li><a href="#hugo-가-올바르게-generate-하기-위한-설정-값-지정">hugo 가 올바르게 generate 하기 위한 설정 값 지정</a></li>
-<li><a href="#hugo-의-테마">hugo 의 테마</a></li>
-</ul></li>
-<li><a href="#hugo-generate">Hugo - Generate</a></li>
-<li><a href="#deploy">Deploy</a></li>
-</ul></li>
-</ul></li>
+<li><a href="#file-buffering">File Buffering</a></li>
+<li><a href="#alignment-and-file-access-requirement">Alignment and File Access Requirement</a></li>
 </ul>
 </nav>
 </div>
@@ -74,143 +63,82 @@
 <section class="post-content">
   
 
-<h1 id="github-page">GitHub-Page</h1>
+<blockquote>
+<p>다음에서 발췌, 번역<br />
+- <a href="https://msdn.microsoft.com/en-gb/library/windows/desktop/cc644950(v=vs.85).aspx">https://msdn.microsoft.com/en-gb/library/windows/desktop/cc644950(v=vs.85).aspx</a></p>
+</blockquote>
 
-<p>이런게 있다더라 ~ 라고 주변으로부터 처음 들은건 1~2년전이었던것 같은데<br />
-갑자기 꽂혀서 git page 를 만들었다. (!!)<br />
-github 에서는 1계정당 1 호스트를 제공하는 것 같고</p>
+<h1 id="file-buffering">File Buffering</h1>
 
-<pre><code class="language-&lt;ID&gt;.github.io">  
-뭐 이런식? github 의 제공 영역은 repo 에 존재하는 index.html 을 repo 에 지정된 1 도메인과   
-연결해주는 정도인 것 같다. 
+<p>파일버퍼링 - unbuffered file I/O.<br />
+본문에선 시스템에 의해 캐싱되지 않는 (buffered) 데이터를<br />
+어떻게 유저 모드의 응용프로그램에서 데이터를 활용할 수 (interact) 있을지에 대해 다룬다.</p>
 
-# Repository
-git 을 사용해 본 적이 있다면 간단하다.  
-그렇다면 다음 절로 넘어가고, 그렇지 않다면, 다음을 따라하자.   
+<p>FILE_FLAG_NO_BUFFERING 플래그를 통해 CreateFile 을 Open 하면,<br />
+파일을 읽거나 쓸때 시스템의 캐싱을 비활성화 하도록 제어할 수 있다.<br />
+I/O 버퍼링을 사용한것과 같은 효과를 내려면, 데이터 alignment 가 반드시 고려되어야 한다.</p>
 
-## github 가입
-이 항목에 있어 더 이상의 자세한 설명은 생략한다.  
-[github](https://github.com)
-
-## sshKey
-여기를 따라하자.  
-[github-gen-sshkey](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
-
-## github repo 생성
-* github 본인 메인 페이지에서 Repositories
-* New 버튼
-* 안내에 따라 따라하기
-    - 즉, 로컬의 git repo 대상 폴더에서 git init
-    - git add -A
-    - git commit -m &quot;some-message&quot;
-    - git remote add origin git@github.com:&lt;ID&gt;/&lt;Repo&gt;.git
-    - git push -u origin master
-
-이제 github 에 repository 를 올릴수 있게 되었다! 
-
-## 내 Repo 를 GithubPage 로 지정하기  
-본 repo 에서 &lt;ID&gt;.github.com 의 index.html 을 찾도록 github 에 알려주자.  
-
-&lt;img src=&quot;./images/github-setting.png&quot; width=&quot;664&quot; height=&quot;220&quot;/&gt;  
-
-# MarkDown-To-HTML
-잘은 모르겠지만.. github 페이지에서는 유독 MarkDown 을 통해  
-html 을 작성하는게 잘 권장? 되어있는거 같고,  
-- 아마도 git page 의 최초 제공 목적 자체가 블로그가 아니라 위키 정리와 같은 마크업 언어로 간단하게 문서를 작성하는 데에 있었기 때문일거다 -  
-
-jekyll 이나 hugo 를 통해 MarkDown 으로 작성된 문서를 자동으로 html 로 생성할 수 있다.  
-
-
-## Hugo 
-사실 jekyll 을 많이들 쓰고 있는 것 같고 공식적으로 지원? 하는 것 같은데 
-내 맥 PC 의 버전으로 ruby 가 잘 설치가 안되서 괴로워하던 중에 지인이 hugo 를 사용하는 것을 보고 그냥 hugo 를 선택했다. 나름 괜찮은 듯.  
-공식 가이드는 다음을 살펴보면 되고,  
-[Quick-Start](https://gohugo.io/overview/quickstart/)
-
-내가 따라가면서 확인한 주요한 내용은 다음과 같다.  
-### Hugo OneStep 
-```Bash
-# 휴고 설치
-$ brew install hugo
-
-# 사이트 생성
-this/is/my/github/repo$ hugo new site
-
-# 포스트 생성
-this/is/my/github/repo$ hugo new post/hello-world.md
-
-# 포스트 수정
-this/is/my/github/repo$ vim content/post/hello-world.md
-
-# 로컬에서 확인하기
-this/is/my/github/repo$ hugo server ## http://localhost:1313 에서 확인
-
+<pre><code>Note 파일에 대해 Seeking 과 위치포인터,  
+offsets 의 개념을 사용하는 파일에 대해 alignment 정보가 고려될 필요가 있다. 
 </code></pre>
 
-<h3 id="hugo-사이트-꾸미기">Hugo - 사이트 꾸미기</h3>
+<p>물리 디스크와 파일 시스템 저장소의 계층에서 write 연산은 alignment 기준을 맞추지 못한다면 실패 할 것이다.</p>
 
-<h4 id="hugo-가-올바르게-generate-하기-위한-설정-값-지정">hugo 가 올바르게 generate 하기 위한 설정 값 지정</h4>
+<h1 id="alignment-and-file-access-requirement">Alignment and File Access Requirement</h1>
 
-<pre><code class="language-Bash">this/is/my/github/repo$ vim config.toml
+<p>다음을 만족시켜야한다.</p>
 
-### .... config.toml
-baseurl = &quot;https://nolleh.github.io&quot;
-languageCode = &quot;ko-KR&quot;
-title = &quot;The Computer Programmer, Nolleh&quot;
-theme = &quot;hello-programmer&quot;
-Paginate    = 2                    # the number of posts per page
-disqusShortname = &quot;your-disqus-short-name&quot;
+<ul>
+<li>파일 접근 사이즈. OVERLAPPED 구조체의 offset 을 포함해서,<br />
+지정된다면 volume 의 섹터사이즈의 정수배로 지정되어야한다.</li>
+<li>읽기/쓰기 연산의 버퍼주소는 물리적 섹터에 aligned 되어있어야 한다.<br />
+즉, 물리 섹터 사이즈의 정수배로 메모리가 주소에 정렬되어 있어야함을 의미한다.<br />
+디스크에 따라 강제사항이 아닐 수도 있다.</li>
+</ul>
 
-[params]
-    author = &quot;nolleh&quot;
-    locale = &quot;ko-KR&quot;
+<p>4096 byte 의 미디어 섹터사이즈가 시장에 나온 것을 고려해야하는데,<br />
+일시적인 방안으로, ATA / SCSI 명령어를 통해 일반적인 512 바이트의 섹터 저장소가<br />
+에뮬레이트 되도록 할 수 있다.</p>
 
+<p>이 에뮬레이트를 사용할때, 다음 두 가지를 알아야한다.</p>
+
+<ul>
+<li>논리섹터: 미디어에 접근할때 사용되는 논리 블럭의 단위. 이 부분이 바로 &ldquo;emulation&rdquo;<br /></li>
+<li>물리섹터: 읽기/쓰기가 하나의 연산으로 이뤄지는 단위. 최적의 성능과 신뢰성을 위해 unbuffered I/O 가 aligned 되어야하는 단위이기도 하다.<br /></li>
+</ul>
+
+<p>IOCTL_DISK_GET_DRIVE_GEOMETRY 와 GetDiskFreeSpace 를 통해 논리 섹터사이즈를 알 수 있으며,<br />
+IOCTL_STORAGE_QUERY_PROPERTY 제어코드와<br />
+STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR 구조체의<br />
+BytesPerPhysicalSector 멤버의 사용을 통해 물리 섹터 사이즈를 구할 수 있다.</p>
+
+<pre><code>Windows Server 2003 과 XP 에서는  
+STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR 가 지원되지 않는다.
 </code></pre>
 
-<h4 id="hugo-의-테마">hugo 의 테마</h4>
+<p>섹터 align 버퍼를 얻기 위해 VirtualAlloc 함수를 사용할 수 있다.</p>
 
-<p>페이지를 예쁘게 구성하기 위해, 많은 개발자들이 오픈소스로 공개한 테마를 활용할 수 있다.</p>
+<ul>
+<li>VertualAlloc 은 메모리를 시스템페이지의 정수배의 사이즈로 align 되도록 메모리를 할당한다.<br />
+x64 나 x86 에서는 4,096 바이트이며, Itanium-기반 시스템에서는 8,192 이다.<br />
+더 자세한 정보는 GetSystemInfo 함수를 통해 얻을 수 있다.</li>
+<li>직접 접근하는 저장소의 일반적인 섹터사이즈는 512 ~ 4,096 byte 이며, CD-ROM 에서는 2,048 바이트.</li>
+<li>페이지/섹터사이즈 모두 2의 거듭제곱.</li>
+</ul>
 
-<ol>
-<li><a href="http://themes.gohugo.io/">Hugo-Theme-ShowCase</a><br /></li>
-<li><a href="https://github.com/dim0627/hugoThemes">All-Themes-Github</a></li>
-</ol>
+<p>섹터사이즈가 페이지사이즈보다 큰 경우는 적기 때문에,<br />
+대부분의 경우 page 에 align 된 메모리는 sector 에 대해서도 align 되어있다.</p>
 
-<p>1 에서 각 테마의 섬네일을,<br />
-2 에서 각 테마의 repository 를 확인하여 clone 받을 수 있다.<br />
-본인의 gitpage repo root/themes 로 이동하여 2의 repo 를 clone,
-위에서 기술한 config.toml 의 theme 항목을 지정하는 것으로 테마를 변경 할 수 있다.</p>
-
-<h3 id="hugo-generate">Hugo - Generate</h3>
-
-<p>앞서 기술한 hugo - onestep 의 마지막 라인의 hugo server 라인을 통해 html 파일을 생성, <a href="http://localhost:1313">http://localhost:1313</a> 에서 확인할 수 있지만 이 html 들을 repo 에 올리면 css 파일을 찾지 못해  원하는 대로 페이지가 렌더링 되지 않는다.<br />
-css 파일을 서버에서 찾을 수 있도록<br />
-hugo server 실행시 추가 파라메터를 제공, 로컬이 아니라 배포용의 html 을 생성할 수 있도록 하자.
-- 이것때문에 얼마나 삽질을 했던지!</p>
-
-<pre><code class="language-Bash">$ sudo hugo server --baseUrl=https://nolleh.github.io --destination=public/ --port=80 --appendPort=false
-</code></pre>
-
-<h3 id="deploy">Deploy</h3>
-
-<p>Generate 할때, destination 을 public 으로 지정하였으므로 public 디렉토리에 생성된다.
-이 폴더 전체를 다시 github repo 를 생성해서 올려두자.</p>
-
-<pre><code class="language-Bash">this/is/my/github/repo/public$ git init 
-this/is/my/github/repo/public$ git add -A
-this/is/my/github/repo/public$ git commit -m &quot;my awesome site&quot;
-this/is/my/github/repo/public$ git push ...
-</code></pre>
-
-<p><strong>끝!</strong></p>
+<p>수동으로 align 된 메모리버퍼를 얻는 또하나의 방법은 _aligned_malloc 함수를 사용하는 것이다.<br />
+수동으로 align 된 버퍼를 사용하는 방법은 WriteFile 절의 예제코드를 살펴보라.</p>
 
 </section>
 
 <div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fpost%2fhow-to-make-git-page%2f&t=How%20To%20Make%20Git%20Page" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fpost%2fhow-to-make-git-page%2f&text=How%20To%20Make%20Git%20Page&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fpost%2fhow-to-make-git-page%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fpost%2fhow-to-make-git-page%2f&title=How%20To%20Make%20Git%20Page" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fpost%2ffile-buffering%2f&t=%ed%8c%8c%ec%9d%bc%20%eb%b2%84%ed%8d%bc%eb%a7%81" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fpost%2ffile-buffering%2f&text=%ed%8c%8c%ec%9d%bc%20%eb%b2%84%ed%8d%bc%eb%a7%81&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fpost%2ffile-buffering%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fpost%2ffile-buffering%2f&title=%ed%8c%8c%ec%9d%bc%20%eb%b2%84%ed%8d%bc%eb%a7%81" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
 </div>
 
 <div class="post-meta-code">
@@ -226,7 +154,7 @@ this/is/my/github/repo/public$ git push ...
       val categories = [
       
       
-      <a href="https://nolleh.github.io//categories/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD">"개발환경"</a>
+      <a href="https://nolleh.github.io//categories/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C">"운영체제"</a>
       
       ];
     </div>
@@ -241,9 +169,11 @@ this/is/my/github/repo/public$ git push ...
         val tags = [
         
           
-          <a href="https://nolleh.github.io/tags/github-page">"GitHub-Page"</a>
+          <a href="https://nolleh.github.io/tags/kernel">"Kernel"</a>
           
-          <a href="https://nolleh.github.io/tags/editor">"Editor"</a>
+          <a href="https://nolleh.github.io/tags/os">"OS"</a>
+          
+          <a href="https://nolleh.github.io/tags/programming">"Programming"</a>
           
         
         ];
@@ -256,12 +186,12 @@ this/is/my/github/repo/public$ git push ...
     <img src="/images/seperator.png" />
   </div>
 
-  <a href="https://nolleh.github.io/post/brew-update/">
+  <a href="https://nolleh.github.io/post/concurrent-idiom-1-stack/">
   <div class="post-title">
     <img src="/images/post-title-icon.png" />
     <div class="post-meta">
-      <time>04 Jul 2017, 22:31</time>
-      <h1>Brew Install 이 구버전만 설치할 때</h1>
+      <time>10 Jul 2017, 22:57</time>
+      <h1>Concurrent Idiom 1 - Stack</h1>
     </div>
   </div>
 </a>
@@ -272,19 +202,14 @@ this/is/my/github/repo/public$ git push ...
   </span>
   <nav id="TableOfContents">
 <ul>
-<li>
+<li><a href="#concurrent-issue-stack">Concurrent ISSUE - Stack</a>
 <ul>
-<li><a href="#let-s-사족">Let&rsquo;s 사족</a></li>
-<li><a href="#brew">Brew</a>
+<li><a href="#options">Options</a>
 <ul>
-<li><a href="#brew-설치">Brew 설치</a></li>
-<li><a href="#brew-를-통해-설치하기">Brew 를 통해 설치하기</a>
-<ul>
-<li><a href="#최초-설치">최초 설치</a></li>
-<li><a href="#업데이트">업데이트</a></li>
-</ul></li>
-<li><a href="#brew-install-이-구-버전만-다운로드-받을-때">Brew Install 이 구 버전만 다운로드 받을 때</a></li>
-<li><a href="#업데이트시-다음-에러-노출시">업데이트시 다음 에러 노출시</a></li>
+<li><a href="#reference">Reference</a></li>
+<li><a href="#move">Move</a></li>
+<li><a href="#pointer">Pointer</a></li>
+<li><a href="#compounded-options">Compounded Options</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -294,84 +219,56 @@ this/is/my/github/repo/public$ git push ...
 <section class="post-content">
   
 
-<h2 id="let-s-사족">Let&rsquo;s 사족</h2>
-
-<p>처음 회사에 입사 했을 때 자리에는 Mac PC 만이 덩그러니 있었고, Mac 을 사용해본적 없던 꼬꼬마는
-자연스럽게 윈도우 CD 를 인사팀에서 받아와서 깔고 있었드랬다.</p>
-
 <blockquote>
-<p>&ldquo;기껏 좋은 컴퓨터 줬더니 넌 뭘하고 있는거니?&rdquo;</p>
+<p>concurrent 프로그램을 작성할 때 고려해야할 몇가지 사항. 그리고 idiom.<br />
+여러 서적에서 발췌하였으며, 정리 차원에서 작성한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.<br />
+어쩌면 작성자의 부사수를 위한 자재가 될지도 모르겠&hellip;(..)</p>
 </blockquote>
 
-<p>라는 선배의 말을 듣고 그제야 맥에서도 안드로이드 개발이 되는거구나.. (이때는 현업 안드로이드 개발자였다.)<br />
-하곤 윈도우 설치페이지를 취소하고 다시 맥 OS 를 부팅했었지.</p>
+<h1 id="concurrent-issue-stack">Concurrent ISSUE - Stack</h1>
 
-<p>이때가, Mac OS 와의 첫 만남이었드랬다.</p>
+<p>이번엔 스택.</p>
 
-<h2 id="brew">Brew</h2>
-
-<p>뭐 전혀 관계 없는 얘기로 포스트를 열었지만.<br />
-어쨌거나 그때부터 Mac 을 수년간 사용하면서 - 그때 쓰던 회사 Mac 은 여전히 내 사무실 책상의 한켠을 차지하고 있다 -<br />
-Mac 을 비롯한 Linux 계통에서 Windows 를 압도하는 장점을 들자면,</p>
-
-<blockquote>
-<p>개발자를 위한 환경 설정이 간편하다</p>
-</blockquote>
-
-<p>가 되겠다.<br />
-Mac 에서는 그 역할을 충실히 하는 요소 중에 하나가 &ldquo;HomeBrew&rdquo; 라 하겠고.<br />
-<a href="http://docs.brew.sh/">HomeBrew</a></p>
-
-<h3 id="brew-설치">Brew 설치</h3>
-
-<blockquote>
-<p>다음 라인을 터미널에서 실행하자. brew 설치 자체도 이렇게 간편하다니.. Linux 계통은 보통 이렇게 one line 으로 다 해결이 된다.</p>
-</blockquote>
-
-<pre><code class="language-Bash">mkdir homebrew &amp;&amp; curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
+<pre><code class="language-cpp">if (!s.empty())
+{
+    item = s.top();
+    s.pop();
+}
 </code></pre>
 
-<h3 id="brew-를-통해-설치하기">Brew 를 통해 설치하기</h3>
+<p>인터페이스상의 문제이기 때문에 empty 와 top 사이의 safety 를 보장할 수 없다.<br />
+top() / pop() 도 마찬가지 -&gt;&gt; 조회되지 못하는 아이템이 있을 수 있다. (생각해보자.)<br />
+해결을 위해 ?? -&gt; Returning Pop ? &ndash;&gt;&gt; 역시, 생각해보자. (Hint. Exception)</p>
 
-<p>Formula 라고 지칭하고 있는게 맞는지는 잘 모르겠지만.<br />
-brew 를 통해 프로그램/binary 를 설치할 경우 다음과 같이 실행</p>
+<h2 id="options">Options</h2>
 
-<h4 id="최초-설치">최초 설치</h4>
+<h3 id="reference">Reference</h3>
 
-<pre><code class="language-Bash">$ Brew install ${Formula}
-</code></pre>
+<p>호출전 인스턴스 생성 필요. 생성자의 인자가 항상 제공 가능한 경우가 아닐때도.<br />
+그리고 assign 필요. (Q. 이것이 무엇을 의미하는가? - C++ 개발지식이 있다면 대답할 수 있어야 한다.)</p>
 
-<h4 id="업데이트">업데이트</h4>
+<h3 id="move">Move</h3>
 
-<pre><code class="language-Bash">$ Brew upgrade ${Formula}
-</code></pre>
+<p>Exception 만이 문제라면 이 선택으로 회피 가능할 수 있지 않은가.<br />
+하지만.. 위와 마찬가지. (Q. 역시, 대답할 수 있어야 한다. )</p>
 
-<h3 id="brew-install-이-구-버전만-다운로드-받을-때">Brew Install 이 구 버전만 다운로드 받을 때</h3>
+<h3 id="pointer">Pointer</h3>
 
-<p>이건.. 맥을 사용한 지금까지 잘 모르고 있었던 건데,<br />
-Brew 자체를 업데이트해서 formular 를 갱신할 필요가 있나보다.<br />
-다음을 통한다.</p>
+<p>유저에게 메모리 관리 작업을 맡기는 것. (Q. 이게 문제라면, 어떻게 해결할 수 있겠는가?) 간단한 타입에 대해서는 오버헤드.</p>
 
-<pre><code class="language-Bash">$ Brew update
-</code></pre>
+<h3 id="compounded-options">Compounded Options</h3>
 
-<h3 id="업데이트시-다음-에러-노출시">업데이트시 다음 에러 노출시</h3>
+<p>말그대로, 결합.</p>
 
-<pre><code class="language-Bash">$ Error: /usr/local must be writable!
-</code></pre>
-
-<p>다음 실행</p>
-
-<pre><code class="language-Bash">sudo chown -R $(whoami) /usr/local
-</code></pre>
+<p><strong>끝</strong></p>
 
 </section>
 
 <div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fpost%2fbrew-update%2f&t=Brew%20Install%20%ec%9d%b4%20%ea%b5%ac%eb%b2%84%ec%a0%84%eb%a7%8c%20%ec%84%a4%ec%b9%98%ed%95%a0%20%eb%95%8c" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fpost%2fbrew-update%2f&text=Brew%20Install%20%ec%9d%b4%20%ea%b5%ac%eb%b2%84%ec%a0%84%eb%a7%8c%20%ec%84%a4%ec%b9%98%ed%95%a0%20%eb%95%8c&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fpost%2fbrew-update%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fpost%2fbrew-update%2f&title=Brew%20Install%20%ec%9d%b4%20%ea%b5%ac%eb%b2%84%ec%a0%84%eb%a7%8c%20%ec%84%a4%ec%b9%98%ed%95%a0%20%eb%95%8c" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fpost%2fconcurrent-idiom-1-stack%2f&t=Concurrent%20Idiom%201%20-%20Stack" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fpost%2fconcurrent-idiom-1-stack%2f&text=Concurrent%20Idiom%201%20-%20Stack&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fpost%2fconcurrent-idiom-1-stack%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fpost%2fconcurrent-idiom-1-stack%2f&title=Concurrent%20Idiom%201%20-%20Stack" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
 </div>
 
 <div class="post-meta-code">
@@ -387,7 +284,7 @@ Brew 자체를 업데이트해서 formular 를 갱신할 필요가 있나보다.
       val categories = [
       
       
-      <a href="https://nolleh.github.io//categories/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD">"개발환경"</a>
+      <a href="https://nolleh.github.io//categories/%EC%84%9C%EB%B2%84%EA%B0%9C%EB%B0%9C%EC%A7%80%EC%8B%9D">"서버개발지식"</a>
       
       ];
     </div>
@@ -402,7 +299,13 @@ Brew 자체를 업데이트해서 formular 를 갱신할 필요가 있나보다.
         val tags = [
         
           
-          <a href="https://nolleh.github.io/tags/macos">"MacOS"</a>
+          <a href="https://nolleh.github.io/tags/concurrent-programming">"Concurrent Programming"</a>
+          
+          <a href="https://nolleh.github.io/tags/programming">"Programming"</a>
+          
+          <a href="https://nolleh.github.io/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8">"생각하는 프로그래머"</a>
+          
+          <a href="https://nolleh.github.io/tags/note">"Note"</a>
           
         
         ];
@@ -423,7 +326,7 @@ Brew 자체를 업데이트해서 formular 를 갱신할 필요가 있나보다.
   </a>
   
 
-  PAGE 8 / 10
+  PAGE 8 / 11
 
   
   <a href="/page/9/" rel="next">
