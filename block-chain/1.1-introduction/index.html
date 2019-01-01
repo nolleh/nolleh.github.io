@@ -2,14 +2,11 @@
 <html>
 
 <head>
-	<meta name="generator" content="Hugo 0.52" />
     <base href="https://nolleh.github.io/">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>The Computer Programmer, Nolleh </title>
+    <title>EOSIO - 소개  &middot; The Computer Programmer, Nolleh</title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="canonical" href="https://nolleh.github.io/">
-    
-    <link href="https://nolleh.github.io/index.xml" rel="alternate" type="application/rss+xml" title="The Computer Programmer, Nolleh" />
+    <link rel="canonical" href="https://nolleh.github.io/block-chain/1.1-introduction/">
     
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -38,7 +35,7 @@
       </div>
 
 
-  <a href="https://nolleh.github.io/block-chain/1.1-introduction/">
+<a href="https://nolleh.github.io/block-chain/1.1-introduction/">
   <div class="post-title">
     <img src="/images/post-title-icon.png" />
     <div class="post-meta">
@@ -200,153 +197,47 @@ WASM 은 구글, 마이크로소프트, 애플, 그리고 다른 주요 업체�
   </div>
 </div>
 
-  <div class="seperator">
-    <img src="/images/seperator.png" />
-  </div>
 
-  <a href="https://nolleh.github.io/csharp/async-control-flow-msdn/">
-  <div class="post-title">
-    <img src="/images/post-title-icon.png" />
-    <div class="post-meta">
-      <time>21 Dec 2018, 22:02</time>
-      <h1>비동기 프로그램의 제어 흐름</h1>
-    </div>
-  </div>
-</a>
+<div class="share"></div>
 
-<div class="post-toc">
-  <span class="title">
-    Table of contents
-  </span>
-  <nav id="TableOfContents">
-<ul>
-<li><a href="#개요">개요</a></li>
-<li><a href="#코드">코드</a></li>
-</ul>
-</nav>
-</div>
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "nolleh-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-<section class="post-content">
+<div class="paging post-paging">
   
-
-<h1 id="개요">개요</h1>
-
-<hr />
-
-<blockquote>
-<p>다음에서 발췌<br />
-<a href="https://docs.microsoft.com/ko-kr/dotnet/csharp/programming-guide/concepts/async/control-flow-in-async-programs">비동기 프로그램의 제어 흐름</a></p>
-</blockquote>
-
-<h1 id="코드">코드</h1>
-
-<hr />
-
-<pre><code class="language-csharp">public partial class MainWindow : Window
-{
-    // . . .
-    private async void startButton_Click(object sender, RoutedEventArgs e)
-    {
-        // ONE
-        Task&lt;int&gt; getLengthTask = AccessTheWebAsync();
-
-        // FOUR
-        int contentLength = await getLengthTask;
-
-        // SIX
-        resultsTextBox.Text +=
-            $&quot;\r\nLength of the downloaded string: {contentLength}.\r\n&quot;;
-    }
-
-    async Task&lt;int&gt; AccessTheWebAsync()
-    {
-        // TWO
-        HttpClient client = new HttpClient();
-        Task&lt;string&gt; getStringTask =
-            client.GetStringAsync(&quot;https://msdn.microsoft.com&quot;);
-
-        // THREE
-        string urlContents = await getStringTask;
-
-        // FIVE
-        return urlContents.Length;
-    }
-}
-</code></pre>
-
-<p>Three 에서 yield 되어 Four.</p>
-
-</section>
-
-<div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-control-flow-msdn%2f&t=%eb%b9%84%eb%8f%99%ea%b8%b0%20%ed%94%84%eb%a1%9c%ea%b7%b8%eb%9e%a8%ec%9d%98%20%ec%a0%9c%ec%96%b4%20%ed%9d%90%eb%a6%84" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-control-flow-msdn%2f&text=%eb%b9%84%eb%8f%99%ea%b8%b0%20%ed%94%84%eb%a1%9c%ea%b7%b8%eb%9e%a8%ec%9d%98%20%ec%a0%9c%ec%96%b4%20%ed%9d%90%eb%a6%84&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-control-flow-msdn%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-control-flow-msdn%2f&title=%eb%b9%84%eb%8f%99%ea%b8%b0%20%ed%94%84%eb%a1%9c%ea%b7%b8%eb%9e%a8%ec%9d%98%20%ec%a0%9c%ec%96%b4%20%ed%9d%90%eb%a6%84" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
-</div>
-
-<div class="post-meta-code">
-  <div class="desc">
-    public string description() {
-    <div class="desc">val author = "
-    
-        nolleh
-    ";
-    </div>
-    
-    <div class="desc">
-      val categories = [
-      
-      
-      <a href="https://nolleh.github.io//categories/csharp">"csharp"</a>
-      
-      ];
-    </div>
-    
-    }
-  </div>
-</div>
-<div class="post-meta-code">
-  <div class="desc">
-    public string tags() {
-      <div class="desc">
-        val tags = [
-        
-          
-          <a href="https://nolleh.github.io/tags/c">"C#"</a>
-          
-          <a href="https://nolleh.github.io/tags/programming">"Programming"</a>
-          
-          <a href="https://nolleh.github.io/tags/async">"async"</a>
-          
-          <a href="https://nolleh.github.io/tags/await">"await"</a>
-          
-        
-        ];
-      </div>
-    }
-  </div>
-</div>
-
-  <div class="seperator">
-    <img src="/images/seperator.png" />
-  </div>
-
-
-<div class="paging">
-  
-  <a href="/" rel="prev">
-    <i class="fa fa-caret-left" aria-hidden="true"></i>
+  <a class="left" href="https://nolleh.github.io/block-chain/1.2-beforeyoubegin/" rel="prev">
+    <i class="fa fa-caret-left" aria-hidden="true"></i> <span>EOSIO - 시작하기 전에</span>
   </a>
   
-
-  PAGE 2 / 8
-
   
-  <a href="/page/3/" rel="next">
-    <i class="fa fa-caret-right" aria-hidden="true"></i>
+  <a class="right" href="https://nolleh.github.io/csharp/async-control-flow-msdn/" rel="next">
+    <span>비동기 프로그램의 제어 흐름</span> <i class="fa fa-caret-right" aria-hidden="true"></i>
   </a>
   
+</div>
+
+<div class="share"></div>
+
+<div class="seperator">
+  <img src="/images/seperator.png" />
 </div>
 
 <footer class="footer">

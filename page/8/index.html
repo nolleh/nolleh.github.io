@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="generator" content="Hugo 0.52" />
+    <base href="https://nolleh.github.io/">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>The Computer Programmer, Nolleh </title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://nolleh.github.io/">
+    
+    <link href="https://nolleh.github.io/index.xml" rel="alternate" type="application/rss+xml" title="The Computer Programmer, Nolleh" />
+    
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="/">HOME</a></li>
+            <li><a href="/categories">CATEGORIES</a></li>
+            <li><a href="/project">PROJECTS</a></li>
+        </ul>
+    </div>
+    <div class="container">
+      <div class="title">
+        <div>
+          <a href="/">
+            <img src="/images/logo.png" />
+          </a>
+        </div>
+        <div><img src="/images/seperator.png" /></div>
+        <div class="logo-title">hello, world!</div>
+      </div>
+
+
+  <a href="https://nolleh.github.io/post/managed_cb_to_unmanaged/">
+  <div class="post-title">
+    <img src="/images/post-title-icon.png" />
+    <div class="post-meta">
+      <time>04 Jul 2017, 00:45</time>
+      <h1>C&#43;&#43;/CLI 에서 managed 콜백을 unmanaged 로 전달하기</h1>
+    </div>
+  </div>
+</a>
+
+<div class="post-toc">
+  <span class="title">
+    Table of contents
+  </span>
+  <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#클래스-구조">클래스 구조</a></li>
+<li><a href="#summary">Summary</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+</div>
+
+<section class="post-content">
+  
+
+<p>파라미터가 없다면 DelegateToPointer 로 마샬링해서 전달하면되는데,<br />
+이러면 파라미터를 마샬링할 기회가 주어지지 않는다는게 문제다.<br />
+좀 구글링을 해봤는데,<br />
+이런 포스트가 있었다.</p>
+
+<p><a href="https://stackoverflow.com/questions/32386851/managed-to-unmanaged-callback-with-managed-parameters">스택오버플로-파라미터와 함께 unmanaged 콜백으로 변환하기</a></p>
+
+<p>채택된 답변을 살펴보면 클래스 구조는 대략 다음과 같다.</p>
+
+<h4 id="클래스-구조">클래스 구조</h4>
+
+<blockquote>
+<ol>
+<li>NativeCallbackHandler - msclr::gcroot<OutputManaged^> m_owner (OutputLogManaged) 를 멤버로 보유.<br /></li>
+<li>OutputLogManaged - native OutputLog* (m_nativeOutputLog) / 1의 Holder 를 보유 (m_nativeHandler)] / 그리고 managed 콜백을 보유<br /></li>
+<li>OutputLog - Native Callback 과 void* UserData 를 멤버로 보유.<br /></li>
+</ol>
+</blockquote>
+
+<p>이해하는데 주요한 클래스는 위 내용 정도인 듯.</p>
+
+<ul>
+<li><p>Main 함수에서는 managed 로거와 native 에 적당한 콜백을 등록해 두고(OnError/GetNative()), Test 함수를 통해 콜백을 호출한다.</p></li>
+
+<li><p>OutputLogManaged 에는 생성시에 1의 NativeCallbackHandler 가 생성되며 여기에 정의된 native callback 을 OutputLog 의 Callback 멤버변수에 세팅한다.
+동시에 NativeCallbackHandler 를 this 로 해서 함께 UserData 라는 객체로 OutputLog 의 멤버로 등록을 한 상태이다.<br />
+(다시 말해 OutputLog 의 UserData 에는 1의 인스턴스가, 같은 객체의 멤버 변수인 NativeCallback 타입에는 그 인스턴스의 함수가 등록이 되어있다.)</p></li>
+
+<li><p>1의 콜백을 지닌 3 의 객체의 함수를 등록해두었고, 이 함수에서 1의 콜백을 호출하고 있으므로 1의 콜백이 호출이 되는데 (등록해두었던 umanaged 콜백이 호출되는 단순한 전개라 하겠다.)<br />
+이때 OutputLog(3) 의 객체의 멤버함수(최초로 호출되는 콜백)에서 멤버변수로 보유한 NativeCallbackHandler(1) 객체를 1의 콜백의 파라미터로 전달, 콜백 등록 당시의 NativeCallbackHandler(1) 의 인스턴스를 얻어온다 (물론, 콜백을 여러개 등록할 수 있으므로. 각 인스턴스를 별도로 두는 것이 자연스럽다.)<br />
+이 인스턴스의 멤버인 m_owner 를 통해 OutputLogManaged 의 managed 콜백을 호출한다.</p></li>
+</ul>
+
+<p>내용을 말로 설명하려고하니 불필요하게 복잡해진 느낌인데,<br />
+정리하면 다음과 같다.</p>
+
+<h4 id="summary">Summary</h4>
+
+<p>unmanged 에서 Managed 의 객체를 들고 있다가 unmanaged 의 콜백이 호출될때 마샬링하여 Managed 의 콜백을 호출한다.</p>
+
+<p>C++/CLR 을 처음 접하고 필요에 따라 구글링으로 작업을 하다보니 managed 와 unmanged 사이에서 서로 멤버로 두려고 하면 컴파일 에러가 나길래
+안되는 거구나..했는데.. 이런 기능이 있었나보다&hellip;</p>
+
+<pre><code class="language-cpp">msclr::gcroot&lt;...&gt; 
+</code></pre>
+
+<blockquote>
+<p>gcroot 는 unmanaged 에서 managed 를 참조하는 방법이며, interop 에서는 레퍼런스 카운트를 하나 증가시킨다.<br />
+<a href="https://stackoverflow.com/questions/8458886/what-is-a-rooted-reference">참고 - gcroot 의 역할</a></p>
+</blockquote>
+
+<p>약간 허무하군.. (그래 안되면 어떻게 쓰겠냐만서도.. )</p>
+
+<p><a href="https://msdn.microsoft.com/en-us//library/481fa11f.aspx">참고 - MSDN / How to: Declare Handles in Native Types</a></p>
+
+</section>
+
+<div class="share">
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fpost%2fmanaged_cb_to_unmanaged%2f&t=C%2b%2b%2fCLI%20%ec%97%90%ec%84%9c%20managed%20%ec%bd%9c%eb%b0%b1%ec%9d%84%20unmanaged%20%eb%a1%9c%20%ec%a0%84%eb%8b%ac%ed%95%98%ea%b8%b0" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fpost%2fmanaged_cb_to_unmanaged%2f&text=C%2b%2b%2fCLI%20%ec%97%90%ec%84%9c%20managed%20%ec%bd%9c%eb%b0%b1%ec%9d%84%20unmanaged%20%eb%a1%9c%20%ec%a0%84%eb%8b%ac%ed%95%98%ea%b8%b0&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fpost%2fmanaged_cb_to_unmanaged%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fpost%2fmanaged_cb_to_unmanaged%2f&title=C%2b%2b%2fCLI%20%ec%97%90%ec%84%9c%20managed%20%ec%bd%9c%eb%b0%b1%ec%9d%84%20unmanaged%20%eb%a1%9c%20%ec%a0%84%eb%8b%ac%ed%95%98%ea%b8%b0" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+</div>
+
+<div class="post-meta-code">
+  <div class="desc">
+    public string description() {
+    <div class="desc">val author = "
+    
+        nolleh
+    ";
+    </div>
+    
+    <div class="desc">
+      val categories = [
+      
+      
+      <a href="https://nolleh.github.io//categories/c&#43;&#43;/cli">"C&#43;&#43;/CLI"</a>
+      
+      ];
+    </div>
+    
+    }
+  </div>
+</div>
+<div class="post-meta-code">
+  <div class="desc">
+    public string tags() {
+      <div class="desc">
+        val tags = [
+        
+          
+          <a href="https://nolleh.github.io/tags/c&#43;&#43;/cli">"C&#43;&#43;/CLI"</a>
+          
+          <a href="https://nolleh.github.io/tags/programming">"Programming"</a>
+          
+        
+        ];
+      </div>
+    }
+  </div>
+</div>
+
+  <div class="seperator">
+    <img src="/images/seperator.png" />
+  </div>
+
+  <a href="https://nolleh.github.io/post/good-to-great/">
+  <div class="post-title">
+    <img src="/images/post-title-icon.png" />
+    <div class="post-meta">
+      <time>03 Jul 2017, 23:44</time>
+      <h1>Hello, Git Pages!</h1>
+    </div>
+  </div>
+</a>
+
+<div class="post-toc">
+  <span class="title">
+    Table of contents
+  </span>
+  
+</div>
+
+<section class="post-content">
+  <p>Hello World!</p>
+
+</section>
+
+<div class="share">
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fpost%2fgood-to-great%2f&t=Hello%2c%20Git%20Pages%21" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fpost%2fgood-to-great%2f&text=Hello%2c%20Git%20Pages%21&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fpost%2fgood-to-great%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fpost%2fgood-to-great%2f&title=Hello%2c%20Git%20Pages%21" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+</div>
+
+<div class="post-meta-code">
+  <div class="desc">
+    public string description() {
+    <div class="desc">val author = "
+    
+        nolleh
+    ";
+    </div>
+    
+    }
+  </div>
+</div>
+<div class="post-meta-code">
+  <div class="desc">
+    public string tags() {
+      <div class="desc">
+        val tags = [
+        
+        ];
+      </div>
+    }
+  </div>
+</div>
+
+  <div class="seperator">
+    <img src="/images/seperator.png" />
+  </div>
+
+
+<div class="paging">
+  
+  <a href="/page/7/" rel="prev">
+    <i class="fa fa-caret-left" aria-hidden="true"></i>
+  </a>
+  
+
+  PAGE 8 / 8
+
+  
+</div>
+
+<footer class="footer">
+    COPYRIGHT (C) <a href="http://blog.lulab.net">DONGGEUN,BANG</a>. ALL RIGHTS RESERVED.
+</footer>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-102565363-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script data-no-instant>document.write('<script src="/livereload.js?port=80&mindelay=10"></' + 'script>')</script></body>
+
+</html>
+
