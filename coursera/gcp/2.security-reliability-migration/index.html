@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <base href="https://nolleh.github.io/">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>2.Security-Reliability-Migration  &middot; The Computer Programmer, Nolleh</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://nolleh.github.io/coursera/gcp/2.security-reliability-migration/">
+    
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="/">HOME</a></li>
+            <li><a href="/categories">CATEGORIES</a></li>
+            <li><a href="/project">PROJECTS</a></li>
+        </ul>
+    </div>
+    <div class="container">
+      <div class="title">
+        <div>
+          <a href="/">
+            <img src="/images/logo.png" />
+          </a>
+        </div>
+        <div><img src="/images/seperator.png" /></div>
+        <div class="logo-title">hello, world!</div>
+      </div>
+
+
+<a href="https://nolleh.github.io/coursera/gcp/2.security-reliability-migration/">
+  <div class="post-title">
+    <img src="/images/post-title-icon.png" />
+    <div class="post-meta">
+      <time>12 Mar 2019, 21:52</time>
+      <h1>2.Security-Reliability-Migration</h1>
+    </div>
+  </div>
+</a>
+
+<div class="post-toc">
+  <span class="title">
+    Table of contents
+  </span>
+  <nav id="TableOfContents">
+<ul>
+<li><a href="#3-security-reliablitiy-and-migration">3. Security, Reliablitiy, and Migration</a>
+<ul>
+<li><a href="#implement-health-check-endpoint">Implement health-check endpoint</a></li>
+<li><a href="#로깅과-모니터를-어플리케이션의-성능에-대해-두라">로깅과 모니터를 어플리케이션의 성능에 대해 두라.</a></li>
+<li><a href="#사소한-에러와-오래-지속되는-에러를-우아하게-다뤄라">사소한 에러와 오래 지속되는 에러를 우아하게 다뤄라.</a></li>
+<li><a href="#데이터-sovereignnty-와-compliance-요구사항을-고려하라">데이터 sovereignnty 와 compliance 요구사항을 고려하라.</a></li>
+<li><a href="#가능한-테스팅과-재앙으로부터-복구계획을-구상하고-어플을-테스트하라">가능한 테스팅과 재앙으로부터 복구계획을 구상하고 어플을 테스트하라.</a></li>
+<li><a href="#계속되는-통합모델-ci-을-구현하고-파이프라인으로-배송하라-cd">계속되는 통합모델 (CI) 을 구현하고 파이프라인으로 배송하라. (CD)</a></li>
+<li><a href="#strangler-패턴을-새로-어플리케이션을-구조화하는데-사용하라">Strangler 패턴을 새로 어플리케이션을 구조화하는데 사용하라.</a></li>
+</ul></li>
+</ul>
+</nav>
+</div>
+
+<section class="post-content">
+  
+
+<h1 id="3-security-reliablitiy-and-migration">3. Security, Reliablitiy, and Migration</h1>
+
+<p>Use federated identity management
+firebase authentication~
+외부의 identity provider 를 통해 ..</p>
+
+<h2 id="implement-health-check-endpoint">Implement health-check endpoint</h2>
+
+<p>Stackdriver monitoring (helth monitoring agent) -&gt; /health upcheck.
+어디에 ? storage / database, network connection, 다른 의존들 ..
+실패하면 자동으로 알림을 준다.</p>
+
+<h2 id="로깅과-모니터를-어플리케이션의-성능에-대해-두라">로깅과 모니터를 어플리케이션의 성능에 대해 두라.</h2>
+
+<p>로그를 이벤트 스트림으로 취급하라. 어플리케이션에서는 건들지 말고 stdout 등으로 노출되는 데이터를 다른애가 후처리 해라 .
+구글의 스택드라이버를 통해 어플리케이션을 디버그할 수 있고, 에러 모니터링을 설정할 수 있다.</p>
+
+<h2 id="사소한-에러와-오래-지속되는-에러를-우아하게-다뤄라">사소한 에러와 오래 지속되는 에러를 우아하게 다뤄라.</h2>
+
+<p>trasient erros:
+지수적으로 backoff 하여 재시도 해라.
+구글클라이언트 클라이언트라이브러리는 재시도에 대해 자동적으로 수행한다.</p>
+
+<p>서비스 가용성 에러:
+서킷브레이커를 구현해라. 유저에게 에러를 매번 노출하는 것은 피하는 것노출하는 것도 고려. .</p>
+
+<h2 id="데이터-sovereignnty-와-compliance-요구사항을-고려하라">데이터 sovereignnty 와 compliance 요구사항을 고려하라.</h2>
+
+<p>어떤 나라에서 데이터보관에 대해 어떻게 규정하고 있는지&hellip;</p>
+
+<h2 id="가능한-테스팅과-재앙으로부터-복구계획을-구상하고-어플을-테스트하라">가능한 테스팅과 재앙으로부터 복구계획을 구상하고 어플을 테스트하라.</h2>
+
+<p>실패시나리오의 예:
+    연결 실패
+    데이터 센터나 클라우드 제공자의 실패
+    GCP 존이나 리전 실패
+    배포 롤백
+    네트워크나 어플리케이션 이슈의 데이터 파괴</p>
+
+<h2 id="계속되는-통합모델-ci-을-구현하고-파이프라인으로-배송하라-cd">계속되는 통합모델 (CI) 을 구현하고 파이프라인으로 배송하라. (CD)</h2>
+
+<p>강력한 devops 모델을 구현하라.</p>
+
+<p>코드 저장소 -&gt; 빌드시스템 (배포아티팩트빌드/유닛테스트 실행) -&gt; 배포시스템 (실환경과 테스트환경에 아티팩트를 배포) -&gt; 1. 테스트환경 (통합테스트, 보안, 퍼포먼스 테스트.) / 2. 실환경 (성능 관찰)</p>
+
+<p>큰 수정이 있을때 배포하는 것이 아니라 작은 수정이 이씅ㄹ때마다 배포가 자동화되어 regression 의 리스크를 줄이며 디버그를 재빨리 하며, 이전 테이블의 빌드로 쉽게 롤백할 수 있게한다.</p>
+
+<h2 id="strangler-패턴을-새로-어플리케이션을-구조화하는데-사용하라">Strangler 패턴을 새로 어플리케이션을 구조화하는데 사용하라.</h2>
+
+<p>이패턴: 구버전의 어플리케이션을 조금씩 새로운 서비스의 컴포넌트로 교체해 나가는것.</p>
+
+</section>
+
+<div class="share">
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f2.security-reliability-migration%2f&t=2.Security-Reliability-Migration" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f2.security-reliability-migration%2f&text=2.Security-Reliability-Migration&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f2.security-reliability-migration%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f2.security-reliability-migration%2f&title=2.Security-Reliability-Migration" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+</div>
+
+<div class="post-meta-code">
+  <div class="desc">
+    public string description() {
+    <div class="desc">val author = "
+    
+        nolleh
+    ";
+    </div>
+    
+    <div class="desc">
+      val categories = [
+      
+      
+      <a href="https://nolleh.github.io//categories/google-cloud-service">"Google Cloud Service"</a>
+      
+      ];
+    </div>
+    
+    }
+  </div>
+</div>
+<div class="post-meta-code">
+  <div class="desc">
+    public string tags() {
+      <div class="desc">
+        val tags = [
+        
+          
+          <a href="https://nolleh.github.io/tags/coursera">"coursera"</a>
+          
+          <a href="https://nolleh.github.io/tags/google-cloud-service">"Google Cloud Service"</a>
+          
+        
+        ];
+      </div>
+    }
+  </div>
+</div>
+
+
+<div class="share"></div>
+
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "nolleh-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<div class="paging post-paging">
+  
+  <a class="left" href="https://nolleh.github.io/coursera/gcp/1-1.12-tips/" rel="prev">
+    <i class="fa fa-caret-left" aria-hidden="true"></i> <span>1-1. 계정관리를 위한 12 tips</span>
+  </a>
+  
+  
+  <a class="right" href="https://nolleh.github.io/coursera/gcp/1.msaandapigateway/" rel="next">
+    <span>1.MSA and ApiGateway</span> <i class="fa fa-caret-right" aria-hidden="true"></i>
+  </a>
+  
+</div>
+
+<div class="share"></div>
+
+<div class="seperator">
+  <img src="/images/seperator.png" />
+</div>
+
+<footer class="footer">
+    COPYRIGHT (C) <a href="http://blog.lulab.net">DONGGEUN,BANG</a>. ALL RIGHTS RESERVED.
+</footer>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-102565363-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script data-no-instant>document.write('<script src="/livereload.js?port=80&mindelay=10"></' + 'script>')</script></body>
+
+</html>
+

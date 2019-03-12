@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://nolleh.github.io/coursera/gcp/1-1.12-tips/</loc>
+    <lastmod>2019-03-12T21:52:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nolleh.github.io/coursera/gcp/2.security-reliability-migration/</loc>
+    <lastmod>2019-03-12T21:52:02+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nolleh.github.io/coursera/gcp/1.msaandapigateway/</loc>
+    <lastmod>2019-03-12T21:51:32+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://nolleh.github.io/block-chain-youtube/building-distributed-app/</loc>
     <lastmod>2019-01-23T20:32:59+09:00</lastmod>
   </url>
@@ -178,6 +193,18 @@
   </url>
   
   <url>
+    <loc>https://nolleh.github.io/tags/coursera/</loc>
+    <lastmod>2019-03-12T21:52:58+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nolleh.github.io/coursera/</loc>
+    <lastmod>2019-03-12T21:52:58+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://nolleh.github.io/categories/csharp/</loc>
     <lastmod>2018-12-21T22:02:13+09:00</lastmod>
     <priority>0</priority>
@@ -216,6 +243,18 @@
   <url>
     <loc>https://nolleh.github.io/tags/github-page/</loc>
     <lastmod>2017-07-07T21:22:50+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nolleh.github.io/tags/google-cloud-service/</loc>
+    <lastmod>2019-03-12T21:52:58+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nolleh.github.io/categories/google-cloud-service/</loc>
+    <lastmod>2019-03-12T21:52:58+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -287,7 +326,7 @@
   
   <url>
     <loc>https://nolleh.github.io/</loc>
-    <lastmod>2019-01-23T20:32:59+09:00</lastmod>
+    <lastmod>2019-03-12T21:52:58+09:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Google Cloud Service on The Computer Programmer, Nolleh</title>
+    <link>https://nolleh.github.io/categories/google-cloud-service/</link>
+    <description>Recent content in Google Cloud Service on The Computer Programmer, Nolleh</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <managingEditor>nolleh7707@gmail.com (nolleh)</managingEditor>
+    <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
+    <lastBuildDate>Tue, 12 Mar 2019 21:52:58 +0900</lastBuildDate>
+    
+	<atom:link href="https://nolleh.github.io/categories/google-cloud-service/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>1-1. 계정관리를 위한 12 tips</title>
+      <link>https://nolleh.github.io/coursera/gcp/1-1.12-tips/</link>
+      <pubDate>Tue, 12 Mar 2019 21:52:58 +0900</pubDate>
+      <author>nolleh7707@gmail.com (nolleh)</author>
+      <guid>https://nolleh.github.io/coursera/gcp/1-1.12-tips/</guid>
+      <description>12 Best Practices for user saccount https://cloud.google.com/blog/products/gcp/12-best-practices-for-user-account GCP 에서는 유저 계정에 대한 안전한 핸들링과 인증을 위한 툴을 게공한다. 웹사이트가 구글 쿠버네티스엔진에 호스트 되는 웹사이트를 담당하든, apigee 의 api 를 담당하든, firebase 를 사용하든, 어떤 다른 서비스를 통해 유저를 인증하든, 이 포스트는 좋은 연습을 제공해서, 안전하고 확장가능하고 쓸만한 계정 인증 시스템을 사용할 수 있게 도와줄 것이다.
+1. 패스워드를 해시하라. 패스워드를 포함해서, 예민한 개인정보를 어떻게 저장할 것인가가 계정관리의 가장 중요한 규칙이다. 이 데이터를 신성하게 다뤄야한다.</description>
+    </item>
+    
+    <item>
+      <title>2.Security-Reliability-Migration</title>
+      <link>https://nolleh.github.io/coursera/gcp/2.security-reliability-migration/</link>
+      <pubDate>Tue, 12 Mar 2019 21:52:02 +0900</pubDate>
+      <author>nolleh7707@gmail.com (nolleh)</author>
+      <guid>https://nolleh.github.io/coursera/gcp/2.security-reliability-migration/</guid>
+      <description>3. Security, Reliablitiy, and Migration Use federated identity management firebase authentication~ 외부의 identity provider 를 통해 ..
+Implement health-check endpoint Stackdriver monitoring (helth monitoring agent) -&amp;gt; /health upcheck. 어디에 ? storage / database, network connection, 다른 의존들 .. 실패하면 자동으로 알림을 준다.
+로깅과 모니터를 어플리케이션의 성능에 대해 두라. 로그를 이벤트 스트림으로 취급하라. 어플리케이션에서는 건들지 말고 stdout 등으로 노출되는 데이터를 다른애가 후처리 해라 . 구글의 스택드라이버를 통해 어플리케이션을 디버그할 수 있고, 에러 모니터링을 설정할 수 있다.</description>
+    </item>
+    
+    <item>
+      <title>1.MSA and ApiGateway</title>
+      <link>https://nolleh.github.io/coursera/gcp/1.msaandapigateway/</link>
+      <pubDate>Tue, 12 Mar 2019 21:51:32 +0900</pubDate>
+      <author>nolleh7707@gmail.com (nolleh)</author>
+      <guid>https://nolleh.github.io/coursera/gcp/1.msaandapigateway/</guid>
+      <description>Loosely Coupled Microservices and API gateway 모놀리틱에서는 기본 코드가 부풀게 되서, 어디를 고쳐야하는지 알기가 어렵다. 패키지들의 의존성들이 얼키고 설킨다.
+작은 기본 코드를 고쳐도 전체 프로그램이 배포되어 테스트될 필요가 있다.
+원격지에 의한 제어는 비동기 처리를 하자.
+가능한한 이벤트 드리븐 처리를 하자. -&amp;gt; 예를들어 구글 클라우드서비스에 이미지를 업데이트하고~ 이 이벤트에 반응하여 동작하는 어플리케이션을 만들 수 있다.
+커플링을 줄이기 위해 메시지 큐 등을 사용할 수 있다. 토픽에 대해 발송, 받아 처리.
+Cache content 반응성을 위해 컨텐츠를 캐싱해서, TTL 이 지나기전의 캐쉬 데이터를 준다.</description>
+    </item>
+    
+  </channel>
+</rss>
