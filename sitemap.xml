@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://nolleh.github.io/coursera/gcp/3.sdk/</loc>
+    <lastmod>2019-03-12T23:37:51+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://nolleh.github.io/coursera/gcp/1-1.12-tips/</loc>
     <lastmod>2019-03-12T21:52:58+09:00</lastmod>
   </url>
@@ -194,13 +199,13 @@
   
   <url>
     <loc>https://nolleh.github.io/tags/coursera/</loc>
-    <lastmod>2019-03-12T21:52:58+09:00</lastmod>
+    <lastmod>2019-03-12T23:37:51+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://nolleh.github.io/coursera/</loc>
-    <lastmod>2019-03-12T21:52:58+09:00</lastmod>
+    <lastmod>2019-03-12T23:37:51+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -248,13 +253,13 @@
   
   <url>
     <loc>https://nolleh.github.io/tags/google-cloud-service/</loc>
-    <lastmod>2019-03-12T21:52:58+09:00</lastmod>
+    <lastmod>2019-03-12T23:37:51+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://nolleh.github.io/categories/google-cloud-service/</loc>
-    <lastmod>2019-03-12T21:52:58+09:00</lastmod>
+    <lastmod>2019-03-12T23:37:51+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -326,7 +331,7 @@
   
   <url>
     <loc>https://nolleh.github.io/</loc>
-    <lastmod>2019-03-12T21:52:58+09:00</lastmod>
+    <lastmod>2019-03-12T23:37:51+09:00</lastmod>
     <priority>0</priority>
   </url>
   

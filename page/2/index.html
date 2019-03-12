@@ -38,6 +38,142 @@
       </div>
 
 
+  <a href="https://nolleh.github.io/coursera/gcp/2.security-reliability-migration/">
+  <div class="post-title">
+    <img src="/images/post-title-icon.png" />
+    <div class="post-meta">
+      <time>12 Mar 2019, 21:52</time>
+      <h1>2.Security-Reliability-Migration</h1>
+    </div>
+  </div>
+</a>
+
+<div class="post-toc">
+  <span class="title">
+    Table of contents
+  </span>
+  <nav id="TableOfContents">
+<ul>
+<li><a href="#3-security-reliablitiy-and-migration">3. Security, Reliablitiy, and Migration</a>
+<ul>
+<li><a href="#implement-health-check-endpoint">Implement health-check endpoint</a></li>
+<li><a href="#로깅과-모니터를-어플리케이션의-성능에-대해-두라">로깅과 모니터를 어플리케이션의 성능에 대해 두라.</a></li>
+<li><a href="#사소한-에러와-오래-지속되는-에러를-우아하게-다뤄라">사소한 에러와 오래 지속되는 에러를 우아하게 다뤄라.</a></li>
+<li><a href="#데이터-sovereignnty-와-compliance-요구사항을-고려하라">데이터 sovereignnty 와 compliance 요구사항을 고려하라.</a></li>
+<li><a href="#가능한-테스팅과-재앙으로부터-복구계획을-구상하고-어플을-테스트하라">가능한 테스팅과 재앙으로부터 복구계획을 구상하고 어플을 테스트하라.</a></li>
+<li><a href="#계속되는-통합모델-ci-을-구현하고-파이프라인으로-배송하라-cd">계속되는 통합모델 (CI) 을 구현하고 파이프라인으로 배송하라. (CD)</a></li>
+<li><a href="#strangler-패턴을-새로-어플리케이션을-구조화하는데-사용하라">Strangler 패턴을 새로 어플리케이션을 구조화하는데 사용하라.</a></li>
+</ul></li>
+</ul>
+</nav>
+</div>
+
+<section class="post-content">
+  
+
+<h1 id="3-security-reliablitiy-and-migration">3. Security, Reliablitiy, and Migration</h1>
+
+<p>Use federated identity management
+firebase authentication~
+외부의 identity provider 를 통해 ..</p>
+
+<h2 id="implement-health-check-endpoint">Implement health-check endpoint</h2>
+
+<p>Stackdriver monitoring (helth monitoring agent) -&gt; /health upcheck.
+어디에 ? storage / database, network connection, 다른 의존들 ..
+실패하면 자동으로 알림을 준다.</p>
+
+<h2 id="로깅과-모니터를-어플리케이션의-성능에-대해-두라">로깅과 모니터를 어플리케이션의 성능에 대해 두라.</h2>
+
+<p>로그를 이벤트 스트림으로 취급하라. 어플리케이션에서는 건들지 말고 stdout 등으로 노출되는 데이터를 다른애가 후처리 해라 .
+구글의 스택드라이버를 통해 어플리케이션을 디버그할 수 있고, 에러 모니터링을 설정할 수 있다.</p>
+
+<h2 id="사소한-에러와-오래-지속되는-에러를-우아하게-다뤄라">사소한 에러와 오래 지속되는 에러를 우아하게 다뤄라.</h2>
+
+<p>trasient erros:
+지수적으로 backoff 하여 재시도 해라.
+구글클라이언트 클라이언트라이브러리는 재시도에 대해 자동적으로 수행한다.</p>
+
+<p>서비스 가용성 에러:
+서킷브레이커를 구현해라. 유저에게 에러를 매번 노출하는 것은 피하는 것노출하는 것도 고려. .</p>
+
+<h2 id="데이터-sovereignnty-와-compliance-요구사항을-고려하라">데이터 sovereignnty 와 compliance 요구사항을 고려하라.</h2>
+
+<p>어떤 나라에서 데이터보관에 대해 어떻게 규정하고 있는지&hellip;</p>
+
+<h2 id="가능한-테스팅과-재앙으로부터-복구계획을-구상하고-어플을-테스트하라">가능한 테스팅과 재앙으로부터 복구계획을 구상하고 어플을 테스트하라.</h2>
+
+<p>실패시나리오의 예:
+    연결 실패
+    데이터 센터나 클라우드 제공자의 실패
+    GCP 존이나 리전 실패
+    배포 롤백
+    네트워크나 어플리케이션 이슈의 데이터 파괴</p>
+
+<h2 id="계속되는-통합모델-ci-을-구현하고-파이프라인으로-배송하라-cd">계속되는 통합모델 (CI) 을 구현하고 파이프라인으로 배송하라. (CD)</h2>
+
+<p>강력한 devops 모델을 구현하라.</p>
+
+<p>코드 저장소 -&gt; 빌드시스템 (배포아티팩트빌드/유닛테스트 실행) -&gt; 배포시스템 (실환경과 테스트환경에 아티팩트를 배포) -&gt; 1. 테스트환경 (통합테스트, 보안, 퍼포먼스 테스트.) / 2. 실환경 (성능 관찰)</p>
+
+<p>큰 수정이 있을때 배포하는 것이 아니라 작은 수정이 이씅ㄹ때마다 배포가 자동화되어 regression 의 리스크를 줄이며 디버그를 재빨리 하며, 이전 테이블의 빌드로 쉽게 롤백할 수 있게한다.</p>
+
+<h2 id="strangler-패턴을-새로-어플리케이션을-구조화하는데-사용하라">Strangler 패턴을 새로 어플리케이션을 구조화하는데 사용하라.</h2>
+
+<p>이패턴: 구버전의 어플리케이션을 조금씩 새로운 서비스의 컴포넌트로 교체해 나가는것.</p>
+
+</section>
+
+<div class="share">
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f2.security-reliability-migration%2f&t=2.Security-Reliability-Migration" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f2.security-reliability-migration%2f&text=2.Security-Reliability-Migration&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f2.security-reliability-migration%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f2.security-reliability-migration%2f&title=2.Security-Reliability-Migration" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+</div>
+
+<div class="post-meta-code">
+  <div class="desc">
+    public string description() {
+    <div class="desc">val author = "
+    
+        nolleh
+    ";
+    </div>
+    
+    <div class="desc">
+      val categories = [
+      
+      
+      <a href="https://nolleh.github.io//categories/google-cloud-service">"Google Cloud Service"</a>
+      
+      ];
+    </div>
+    
+    }
+  </div>
+</div>
+<div class="post-meta-code">
+  <div class="desc">
+    public string tags() {
+      <div class="desc">
+        val tags = [
+        
+          
+          <a href="https://nolleh.github.io/tags/coursera">"coursera"</a>
+          
+          <a href="https://nolleh.github.io/tags/google-cloud-service">"Google Cloud Service"</a>
+          
+        
+        ];
+      </div>
+    }
+  </div>
+</div>
+
+  <div class="seperator">
+    <img src="/images/seperator.png" />
+  </div>
+
   <a href="https://nolleh.github.io/coursera/gcp/1.msaandapigateway/">
   <div class="post-title">
     <img src="/images/post-title-icon.png" />
@@ -82,7 +218,7 @@
 없거나 만료됐으면 새로 계산(이후 캐시에 저장)
 멤캐시나 레디스에 저장한다.</p>
 
-<p>Implement API gateway, 컨슈머 어플리케이션에 백엔드 기능이 동작할수 있도록..</p>
+<p>Implement API gateway, 컨슈머 어플리케이션에 백엔드 기능이 동작할 수 있도록..</p>
 
 </section>
 
@@ -136,175 +272,6 @@
     <img src="/images/seperator.png" />
   </div>
 
-  <a href="https://nolleh.github.io/block-chain-youtube/building-distributed-app/">
-  <div class="post-title">
-    <img src="/images/post-title-icon.png" />
-    <div class="post-meta">
-      <time>23 Jan 2019, 20:32</time>
-      <h1>Building Distributed App</h1>
-    </div>
-  </div>
-</a>
-
-<div class="post-toc">
-  <span class="title">
-    Table of contents
-  </span>
-  <nav id="TableOfContents">
-<ul>
-<li><a href="#smart-contract">Smart Contract</a></li>
-<li><a href="#intro-smart-contracts">Intro Smart Contracts</a></li>
-</ul>
-</nav>
-</div>
-
-<section class="post-content">
-  
-
-<blockquote>
-<p>다음에서 발췌 ()[]</p>
-</blockquote>
-
-<h1 id="smart-contract">Smart Contract</h1>
-
-<ul>
-<li>블록은 트랜잭션을 포함한다.</li>
-<li>트랜잭션은 액션의 기록이다.</li>
-<li>액션은 컨트랙트의 동작이다.</li>
-</ul>
-
-<p>스마트컨트랙트의 사용
-* eos.io 의 컨트랙트는 abi 로 표현된다.
-* 어플리케이션 코드는 json data 를 이용한 http 를 통해 contract 를 트리거 한다.
-* EOS.IO 는 컨트랙트를 간단히 스크립팅하거나 테스팅하기위한 커맨드라인 인터페이스를 제공한다.</p>
-
-<h1 id="intro-smart-contracts">Intro Smart Contracts</h1>
-
-<ul>
-<li><p>EOS.IO 스마트 컨트랙트는 WebAssembly 로 구동된다. (WASM)</p>
-
-<ul>
-<li>web 표준으로 떠오르는중</li>
-<li>c/c++ 로부터 clang/llvm 을 통해 생성된다.</li>
-<li>다른 언어들도 언젠가 지원될 것</li>
-</ul></li>
-
-<li><p>Transaction - 실행되는 하나이상의 액션의 집합.</p>
-
-<ul>
-<li>하나의 액션이라도 실패하면 모든 트랜잭션이 실패한다</li>
-</ul></li>
-
-<li><p>Action - 스마트컨트랙트를 실행하는 고수준의 함수</p>
-
-<ul>
-<li>데이터를 컨트랙트에 전송하기 위해서는 payload 를 포함해야한다.</li>
-</ul></li>
-</ul>
-
-<p>cloes 는 http 를 호출하는 syntatic sugar~</p>
-
-<p>transaction json 을 살펴보면.
-signature 가 있고, 이 특정한 트랜잭션의 시그니쳐를 표현한다.</p>
-
-<p>action json 은 이런 형태</p>
-
-<p><code>
-actions : [{
-    &quot;account&quot;: &quot;eosio&quot;, // 액션을 실행하는 계정의 이름 (스마트 컨트랙트가 올라가있는 계정. 어떻게 action 을 실행할지에 대해 알고있다.)
-    &quot;name&quot;: &quot;newaccount&quot;, // 
-    &quot;authroization&quot;: [{ // 어떤 시그니쳐가 필요한지 나타낸다.
-        &quot;actor&quot;: &quot;eosio&quot;,
-        &quot;permission&quot;: &quot;acitve&quot;
-    }],
-    &quot;Data&quot;: &quot;000000000ea30550 .. 000a8ed32320100&quot; // hex 로 표현된값 
-}]
-</code></p>
-
-<p>table 을 업데이트할때, payer 에 대해 0 를 전달하면 이전 payer 를 그대로 사용한다.</p>
-
-<p>unittest
-    - test_api -&gt; tests directories .
-    - api_tests.cpp</p>
-
-<p>``cpp
-#include <boost/test/unit_test.hpp>
-#inclue <eosio.token/eosio.token.wast.hpp>
-abi.hpp&gt;</p>
-
-<p>BOOST_AUTO_TEST_SUITE(dice_tests)
-BOOST_FIXTURE_TEST_CASE(dice_test, dice_tester) try {
-    create_accounts( {N(eosio.token), N(dice), N(alice), N(bob), false});
-    set_code(N(eosio.token), eosio_token_wast);
-    set_abi(N(eosio.token), eosio_token_abi);
-    push_action(N(eosio.token), N(create), N(eosio.toekn), mvo() (&ldquo;issuer&rdquo;, &ldquo;eosio.token&rdquo;))
-}</p>
-
-<p>``</p>
-
-<p>load balcancing 을 담당하는 릴레이노드 /
-producer node 가 별개로 있다</p>
-
-<p>특정노드에 컨트랙트를 전송 ?
-host 지정 하면 된다.</p>
-
-<p>context free action 를 어디서배우면 되나~ //</p>
-
-<p>transaction 을 트랙킹하기위해 플러그인을 사용해도 된다.
-mongodb plugin 등.</p>
-
-</section>
-
-<div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fblock-chain-youtube%2fbuilding-distributed-app%2f&t=Building%20Distributed%20App" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fblock-chain-youtube%2fbuilding-distributed-app%2f&text=Building%20Distributed%20App&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fblock-chain-youtube%2fbuilding-distributed-app%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fblock-chain-youtube%2fbuilding-distributed-app%2f&title=Building%20Distributed%20App" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
-</div>
-
-<div class="post-meta-code">
-  <div class="desc">
-    public string description() {
-    <div class="desc">val author = "
-    
-        nolleh
-    ";
-    </div>
-    
-    <div class="desc">
-      val categories = [
-      
-      
-      <a href="https://nolleh.github.io//categories/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8-%EA%B0%9C%EB%85%90">"블록체인-개념"</a>
-      
-      ];
-    </div>
-    
-    }
-  </div>
-</div>
-<div class="post-meta-code">
-  <div class="desc">
-    public string tags() {
-      <div class="desc">
-        val tags = [
-        
-          
-          <a href="https://nolleh.github.io/tags/eos">"EOS"</a>
-          
-          <a href="https://nolleh.github.io/tags/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8">"블록체인"</a>
-          
-        
-        ];
-      </div>
-    }
-  </div>
-</div>
-
-  <div class="seperator">
-    <img src="/images/seperator.png" />
-  </div>
-
 
 <div class="paging">
   
@@ -313,7 +280,7 @@ mongodb plugin 등.</p>
   </a>
   
 
-  PAGE 2 / 13
+  PAGE 2 / 14
 
   
   <a href="/page/3/" rel="next">

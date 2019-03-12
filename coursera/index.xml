@@ -8,10 +8,27 @@
     <language>ko-KR</language>
     <managingEditor>nolleh7707@gmail.com (nolleh)</managingEditor>
     <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
-    <lastBuildDate>Tue, 12 Mar 2019 21:52:58 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 12 Mar 2019 23:37:51 +0900</lastBuildDate>
     
 	<atom:link href="https://nolleh.github.io/coursera/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>3.SDK</title>
+      <link>https://nolleh.github.io/coursera/gcp/3.sdk/</link>
+      <pubDate>Tue, 12 Mar 2019 23:37:51 +0900</pubDate>
+      <author>nolleh7707@gmail.com (nolleh)</author>
+      <guid>https://nolleh.github.io/coursera/gcp/3.sdk/</guid>
+      <description>What are the Google Cloud Client Libraries? 관용적인 코드를 각각의 랭귀지에 대해 제공 gRPC 에서 성능 효과를 보는 라이브러리도 있다.
+github repo
+gcloud - 커맨드 라인툴, gcp를 위한.
+GC cloud 빅쿼리를 위한 커맨드라인 툴
+gsuitl 버킷이랑 통신하기 위한 커맨드라인 툴
+gcloud init (initialize )
+Cloud Shell 브라우저 베이스 커맨드라인툴. 일시적인 vm에 대한 접근을 제공. 5GB 디스크 SDK 에 이미 설치되어있음
+구글클라우드 콘솔프로젝트에대한 authorization /리소스 제공
+코드 에디터가 포함 (beta)</description>
+    </item>
     
     <item>
       <title>1-1. 계정관리를 위한 12 tips</title>

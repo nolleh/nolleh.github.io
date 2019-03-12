@@ -38,6 +38,234 @@
       </div>
 
 
+  <a href="https://nolleh.github.io/block-chain/2.1-helloworld/">
+  <div class="post-title">
+    <img src="/images/post-title-icon.png" />
+    <div class="post-meta">
+      <time>01 Jan 2019, 20:17</time>
+      <h1>EOSIO - 2.1/Hello World!</h1>
+    </div>
+  </div>
+</a>
+
+<div class="post-toc">
+  <span class="title">
+    Table of contents
+  </span>
+  
+</div>
+
+<section class="post-content">
+  <p>hello 라는 이름의 디렉토리를 contracts directory 에 생성하자.</p>
+
+<pre><code class="language-shell">cd CONTRACTS_DIR
+mkdir hello
+cd hello
+</code></pre>
+
+<p>hello.cpp 를 생성하고 에디터로 열자.</p>
+
+<pre><code class="language-shell">touch hello.cpp
+</code></pre>
+
+<p>필요한 라이브러리를 이 파일에 include 한다.</p>
+
+<pre><code class="language-c++">#include &lt;eosiolib/eosio.hpp&gt;
+#include &lt;eosiolib/print.hpp&gt;
+</code></pre>
+
+<p>코드를 간결하게 해줄 eosio 네임스페이스를 contract 에 추가한다.</p>
+
+<pre><code class="language-c++">using namespace eosio;
+</code></pre>
+
+<ul>
+<li>eosiolib/eosio.hpp 가 EOSIO C 와 C++ API 를 당신의 contract 스코프에 로드한다.</li>
+</ul>
+
+<p>표준 C++11 클래스를 생성한다. 이 contract class 는 eosio::contract 를 확장해야한다.</p>
+
+<pre><code class="language-c++">#include &lt;eosiolib/eosio.hpp&gt;
+#include &lt;eosiolib/print.hpp&gt;
+
+using namespace eosio;
+
+class hello : public contract {};
+</code></pre>
+
+<p>비어있는 contract 는 좋지 않으니, public 접근 지정자와 using 선언을 추가하자. 이 using 선언은 좀 더 간결한 코드를 쓸 수 있도록 도움을 줄것이다.</p>
+
+<p>이제 contract 는 어떤 작업을 하도록 구성한다. hello world 의 정신을 받아 &ldquo;name&rdquo; 파라메터를 수신하고, 파라메터를 출력하는 작업을 해보자.</p>
+
+<pre><code class="language-c++">#include &lt;eosiolib/eosio.hpp&gt;
+#include &lt;eosiolib/print.hpp&gt;
+
+using namespace eosio;
+
+class hello : public contract {
+  public:
+      using contract::contract;
+  
+      [[eosio::action]]
+      void hi( name user ) {
+         print( &quot;Hello, &quot;, name{user});
+      }
+};
+</code></pre>
+
+<p>위의 동작은 user 라는 이름의 파라메터를 name type 으로 전달 받는다.<br />
+EOSIO 는 몇개의 typedef 를 선언하고 있는데, 이 중에 흔한 하나가 바로 이 <code>name</code> 이다.<br />
+<code>eosio::print</code>를 사용함으로써, 문자열을 user 파라미터와 붙여 출력한다.<br />
+괄호를 이용한 초기화 <code>name{user}</code> 는 <code>user</code> 파라메터가 출력될 수 있도록 해준다.</p>
+
+<p>eosio.cdt 의 abi 생성자는 atttrubite 없이는 hi() 의 동작을 알 수 없다. c++11 스타일의 attribute 를 action 의 상위에 추가하여 abi generator 가 신뢰 할 수 있는 출력을 할 수 있도록 한다.</p>
+
+<pre><code class="language-c++">#include &lt;eosiolib/eosio.hpp&gt;
+#include &lt;eosiolib/print.hpp&gt;
+
+using namespace eosio;
+
+class hello : public contract {
+  public:
+      using contract::contract;
+
+      [[eosio::action]]
+      void hi( name user ) {
+         print( &quot;Hello, &quot;, user);
+      }
+};
+
+EOSIO_DISPATCH( hello, (hi))
+</code></pre>
+
+<p>마지막으로, EOSIO_DISPATCH 매크로를 추가하여 hello contract 의 dispatch 액션을 처리하도록 한다.</p>
+
+<p>이제 web assembly 를 통해 컴파일해보자.</p>
+
+<pre><code class="language-shell">eosio-cpp -o hello.wasm hello.cpp --abigen
+</code></pre>
+
+<p>contract 가 배포되면, 계정으로 배포되어 이 계정이 contract 의 인터페이스가 된다.<br />
+이 튜토리얼의 이전에 언급하였듯, 같은 public key 를 모든계정에서 사용하여 간단히 할 수 있다.</p>
+
+<pre><code class="language-shell">cleos wallet keys
+</code></pre>
+
+<p>이 contract 를 위한 계정을 생성하기 위해 cleos create account 를 사용한다.</p>
+
+<pre><code class="language-shell">cleos create account eosio hello YOUR_PUBLIC_KEY -p eosio@active
+</code></pre>
+
+<p>컴파일된 wasm 을 cleos set contract 를 통해 블록체인으로 broadcast 한다.</p>
+
+<pre><code class="language-shell">cleos set contract hello CONTRACTS_DIR/hello -p hello@active
+</code></pre>
+
+<p>훌륭하다! 이제 contract 가 설정 되었고, action 을 push 해보자.</p>
+
+<pre><code class="language-shell">cleos push action hello hi '[&quot;bob&quot;]' -p bob@active
+</code></pre>
+
+<pre><code class="language-shell">executed transaction: 28d92256c8ffd8b0255be324e4596b7c745f50f85722d0c4400471bc184b9a16  244 bytes  1000 cycles
+#    hello.code &lt;= hello.code::hi               {&quot;user&quot;:&quot;bob&quot;}
+&gt;&gt; Hello, bob
+</code></pre>
+
+<p>예상했던대로 hello, bob 이 출력된다.</p>
+
+<p>이번 경우, &ldquo;alice&rdquo; 가 권한이 있고 <code>user</code> 는 단순한 argument 이다. contract 를 수정하여 권한이 있는 유저가 &ldquo;hi&rdquo; 를 받을 유저와 동일한 경우에만 동작하도록 해보자.<br />
+<code>require_auth</code> 메소드를 사용한다.<br />
+이 메소드는 <code>name</code> 을 파라메터로 받아서 action 을 수행하는 사용자가 제공된 파라메터와 일치하는지 확인한다.</p>
+
+<pre><code class="language-c++">void hi( name user ) {
+   require_auth( user );
+   print( &quot;Hello, &quot;, name{user} );
+}
+</code></pre>
+
+<p>다시 컴파일 한다.</p>
+
+<pre><code class="language-shell">eosio-cpp -o hello.wasm hello.cpp --abigen
+</code></pre>
+
+<p>그리고 update 한다.</p>
+
+<pre><code class="language-shell">cleos set contract hello CONTRACTS_DIR/hello -p hello@active
+</code></pre>
+
+<p>실행하되, 이번에는 권한이 일치 않도록 한다.</p>
+
+<pre><code class="language-shell">cleos push action hello hi '[&quot;bob&quot;]' -p alice@active
+</code></pre>
+
+<pre><code class="language-shell">Error 3090004: Missing required authority
+Ensure that you have the related authority inside your transaction!;
+If you are currently using 'cleos push action' command, try to add the [relevant](**http://google.com**) authority using -p option.
+</code></pre>
+
+<p>우리의 contract 수정으로, 제공된 <code>name user</code> 가 승인 유저와 동일한지 확인한다.<br />
+다시 실행하되, 이번엔 alice account 의 권한으로 실행해보자.</p>
+
+<pre><code class="language-shell">cleos push action hello hi '[&quot;alice&quot;]' -p alice@active
+</code></pre>
+
+<pre><code class="language-shell">executed transaction: 235bd766c2097f4a698cfb948eb2e709532df8d18458b92c9c6aae74ed8e4518  244 bytes  1000 cycles
+#    hello &lt;= hello::hi               {&quot;user&quot;:&quot;alice&quot;}
+&gt;&gt; Hello, alice
+</code></pre>
+
+</section>
+
+<div class="share">
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f2.1-helloworld%2f&t=EOSIO%20-%202.1%2fHello%20World%21" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f2.1-helloworld%2f&text=EOSIO%20-%202.1%2fHello%20World%21&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f2.1-helloworld%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f2.1-helloworld%2f&title=EOSIO%20-%202.1%2fHello%20World%21" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+</div>
+
+<div class="post-meta-code">
+  <div class="desc">
+    public string description() {
+    <div class="desc">val author = "
+    
+        nolleh
+    ";
+    </div>
+    
+    <div class="desc">
+      val categories = [
+      
+      
+      <a href="https://nolleh.github.io//categories/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8">"블록체인"</a>
+      
+      ];
+    </div>
+    
+    }
+  </div>
+</div>
+<div class="post-meta-code">
+  <div class="desc">
+    public string tags() {
+      <div class="desc">
+        val tags = [
+        
+          
+          <a href="https://nolleh.github.io/tags/block-chain">"block-chain"</a>
+          
+          <a href="https://nolleh.github.io/tags/eosio">"EOSIO"</a>
+          
+        
+        ];
+      </div>
+    }
+  </div>
+</div>
+
+  <div class="seperator">
+    <img src="/images/seperator.png" />
+  </div>
+
   <a href="https://nolleh.github.io/block-chain/1.7-createtestaccount/">
   <div class="post-title">
     <img src="/images/post-title-icon.png" />
@@ -152,187 +380,6 @@ EOSIO has a unique authorization structure that has added security for you accou
     <img src="/images/seperator.png" />
   </div>
 
-  <a href="https://nolleh.github.io/block-chain/1.6-createdevelopmentwallet/">
-  <div class="post-title">
-    <img src="/images/post-title-icon.png" />
-    <div class="post-meta">
-      <time>01 Jan 2019, 17:10</time>
-      <h1>EOSIO - 1.6/개발 Wallet 생성하기</h1>
-    </div>
-  </div>
-</a>
-
-<div class="post-toc">
-  <span class="title">
-    Table of contents
-  </span>
-  <nav id="TableOfContents">
-<ul>
-<li><a href="#step-1-wallet-생성하기">Step 1: Wallet 생성하기</a></li>
-<li><a href="#step2-open-the-wallet">Step2: Open the wallet</a></li>
-<li><a href="#step-3-unlock-it">Step 3: Unlock it</a></li>
-<li><a href="#step-4-import-keys-into-your-wallet">Step 4: Import keys into your wallet</a></li>
-<li><a href="#step-5-follow-this-tutorial-series-more-easily">Step 5: Follow this tutorial series more easily</a></li>
-<li><a href="#step-6-import-the-development-key">Step 6:Import the Development Key</a></li>
-</ul>
-</nav>
-</div>
-
-<section class="post-content">
-  
-
-<h1 id="step-1-wallet-생성하기">Step 1: Wallet 생성하기</h1>
-
-<hr />
-
-<p>먼저 wallet 을 생성한다. cleos wallet create 를 통해 기본 wallet 을 <code>--to-console</code> 옵션을 사용하여 간단하게 생성한다.<br />
-cleos 를 production 환경에서 사용한다면, 대신 <code>--to-file</code> 옵션을 사용하여 wallet 의 패스워드를 배쉬 기록에 남지않도록 한다.<br />
-개발 목적으로 사용하는 production 환경의 키가 아니기때문에 &ndash;to-console 으로 보안 위협없이 사용할 수 있다.</p>
-
-<pre><code class="language-shell">cleos wallet create --to-console
-</code></pre>
-
-<p>cleos 는 패스워드를 반환하며, 이 패스워드를 다음 튜토리얼에서 이용할 수 있도록 저장하자.</p>
-
-<pre><code class="language-shell">Creating wallet: default
-Save password to use in the future to unlock this wallet.
-Without password imported keys will not be retrievable.
-&quot;PW5Kewn9L76X8Fpd....................t42S9XCw2&quot;
-</code></pre>
-
-<blockquote>
-<p>wallet 에 대해
-wallet 의 암호 해독성에 대한 흔한 오해중의 하나는 토큰을 저장할 것이라는 것이다.  wallet 은 토큰을 저장하지 않는다.  wallet 은 private key 를 암호화된 파일에 저장하고 사이닝 트랜젝션에 활용한다.</p>
-
-<p>유저는 주로 인터페이스를 통해 트랜잭션 오브젝트를 빌드하고, 그 오브젝트를 서명될 수 있도록 wallet 에 전송하여, wallet 이 이후 시그니쳐와 함께 오브젝트를 네트워크를 통해 반환한다. 네트워크가 트랜잭션을 유효하다고 판단하면, 이를 블록체인의 블록에 포함시킨다.</p>
-</blockquote>
-
-<h1 id="step2-open-the-wallet">Step2: Open the wallet</h1>
-
-<hr />
-
-<p>keosd 인스턴스를 시작하고 다면 wallet은 닫히게 된다. 실행시키고 싶다면 다음 명령어를 활용한다.</p>
-
-<pre><code class="language-shell">cleos wallet open
-</code></pre>
-
-<p>다시 리스트를 조회해보면</p>
-
-<pre><code class="language-shell">cleos wallet list
-</code></pre>
-
-<p>다음과 같이 반환된다.</p>
-
-<pre><code class="language-shell">Wallets:
-[
-  &quot;default&quot;
-]
-</code></pre>
-
-<h1 id="step-3-unlock-it">Step 3: Unlock it</h1>
-
-<hr />
-
-<p>keosd wallet 은 열려있지만 여전히 잠겨있다. 좀전에 비밀번호를 제공받았으므로, 이를 이제 사용한다.</p>
-
-<pre><code class="language-shell">cleos wallet unlock
-</code></pre>
-
-<p>비밀번호를 입력하고 다시 리스트를 조회해보면</p>
-
-<pre><code class="language-shell">Wallets:
-[
-  &quot;default *&quot;
-]
-</code></pre>
-
-<p>열렸음을 의미하는 * 가 붙어있다.</p>
-
-<h1 id="step-4-import-keys-into-your-wallet">Step 4: Import keys into your wallet</h1>
-
-<hr />
-
-<p>private key 를 생성하기 위한 cleos 명령어가 있다.</p>
-
-<pre><code class="language-shell">cleos wallet create_key
-</code></pre>
-
-<h1 id="step-5-follow-this-tutorial-series-more-easily">Step 5: Follow this tutorial series more easily</h1>
-
-<hr />
-
-<p>얻은 public key 를 입력하자.</p>
-
-<h1 id="step-6-import-the-development-key">Step 6:Import the Development Key</h1>
-
-<hr />
-
-<p>새로운 EOSIO 체인마다 &ldquo;eosio&rdquo; 라 불리는 기본적인 &ldquo;system&rdquo; 유저를 보유한다.<br />
-이 계정은 시스템 contracts 들을 로딩함으로써 governance 와 EOSIO 체인의 컨센서스를 지휘하는 체인을 설정하는데 사용된다.<br />
-모든 EOSIO 체인은 development key 와 함께 제공되는데, 모두 동일하다. 이 키를 로드하여 시스템유저(eosio) 대신 트랜잭션을 서명해보자.</p>
-
-<pre><code class="language-shell">cleos wallet import
-</code></pre>
-
-<p>private key 를 질의 할텐데, 다음을 입력한다.</p>
-
-<pre><code class="language-shell">5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
-</code></pre>
-
-<p>이제 default wallet 이 해금되고 key 로 load 되었으니, 다음을 진행 할 수 있게 되었다.</p>
-
-</section>
-
-<div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.6-createdevelopmentwallet%2f&t=EOSIO%20-%201.6%2f%ea%b0%9c%eb%b0%9c%20Wallet%20%ec%83%9d%ec%84%b1%ed%95%98%ea%b8%b0" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.6-createdevelopmentwallet%2f&text=EOSIO%20-%201.6%2f%ea%b0%9c%eb%b0%9c%20Wallet%20%ec%83%9d%ec%84%b1%ed%95%98%ea%b8%b0&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.6-createdevelopmentwallet%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.6-createdevelopmentwallet%2f&title=EOSIO%20-%201.6%2f%ea%b0%9c%eb%b0%9c%20Wallet%20%ec%83%9d%ec%84%b1%ed%95%98%ea%b8%b0" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
-</div>
-
-<div class="post-meta-code">
-  <div class="desc">
-    public string description() {
-    <div class="desc">val author = "
-    
-        nolleh
-    ";
-    </div>
-    
-    <div class="desc">
-      val categories = [
-      
-      
-      <a href="https://nolleh.github.io//categories/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8">"블록체인"</a>
-      
-      ];
-    </div>
-    
-    }
-  </div>
-</div>
-<div class="post-meta-code">
-  <div class="desc">
-    public string tags() {
-      <div class="desc">
-        val tags = [
-        
-          
-          <a href="https://nolleh.github.io/tags/block-chain">"block-chain"</a>
-          
-          <a href="https://nolleh.github.io/tags/eosio">"EOSIO"</a>
-          
-        
-        ];
-      </div>
-    }
-  </div>
-</div>
-
-  <div class="seperator">
-    <img src="/images/seperator.png" />
-  </div>
-
 
 <div class="paging">
   
@@ -341,7 +388,7 @@ wallet 의 암호 해독성에 대한 흔한 오해중의 하나는 토큰을 �
   </a>
   
 
-  PAGE 4 / 13
+  PAGE 4 / 14
 
   
   <a href="/page/5/" rel="next">
