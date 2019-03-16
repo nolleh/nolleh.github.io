@@ -49,11 +49,202 @@
   <span class="title">
     Table of contents
   </span>
-  
+  <nav id="TableOfContents">
+<ul>
+<li><a href="#cloud-datastore-concepts-and-indexes">Cloud Datastore Concepts and Indexes</a>
+<ul>
+<li><a href="#cloud-data-store-concepts">Cloud Data Store concepts</a></li>
+<li><a href="#datastore-has-two-types-of-indexes">Datastore has two types of indexes</a></li>
+</ul></li>
+<li><a href="#design-considerations-sharding">Design Considerations &amp; Sharding</a>
+<ul>
+<li><a href="#design-your-application-for-scale">Design Your application for scale</a></li>
+<li><a href="#when-sharding-remember">When sharding, remember:</a></li>
+<li><a href="#shared-counters-to-avoid-contention-with-high-writes">Shared counters to avoid contention with high writes</a></li>
+</ul></li>
+<li><a href="#replicaion-query-types-transactions-and-handling-errors">Replicaion, Query Types, Transactions, and Handling Errors</a>
+<ul>
+<li><a href="#use-replication-to-read-a-portion-of-the-key-range">Use replication to read a portion of the key range</a></li>
+<li><a href="#use-qurey-types-based-on-your-needs">Use qurey types based on your needs</a></li>
+<li><a href="#improve-your-query-latency-by-using-cursors-instead-of-offsets">Improve Your query latency by using cursors instead of offsets</a></li>
+</ul></li>
+<li><a href="#demo-use-cloud-dataflow-to-bulk-load-data-into-cloud-data-store">Demo: Use Cloud Dataflow to bulk-load data into Cloud data store</a></li>
+<li><a href="#lab">lab</a></li>
+<li><a href="#summary">Summary</a></li>
+</ul>
+</nav>
 </div>
 
 <section class="post-content">
   
+
+<h1 id="cloud-datastore-concepts-and-indexes">Cloud Datastore Concepts and Indexes</h1>
+
+<hr />
+
+<h2 id="cloud-data-store-concepts">Cloud Data Store concepts</h2>
+
+<ul>
+<li>데이터 오브젝트는 엔터티라고 불림</li>
+<li>엔터티들은 하나이상의 프로퍼티로 구성됨</li>
+<li>프로퍼티들은 하나이상의 값(values) 를 가질수 있음</li>
+<li>각각의 엔터티는 구분되는 하나의 키를 가지고 있는데, 다음으로 구성 된다.
+
+<ul>
+<li>네임스페이스</li>
+<li>엔터티 Kind</li>
+<li>식별자 (스트링 or 숫자)</li>
+<li>부모 ID</li>
+</ul></li>
+<li>하나 이상의 엔터티에 대한 동작은 트랜잭션으로 불린다.</li>
+</ul>
+
+<h2 id="datastore-has-two-types-of-indexes">Datastore has two types of indexes</h2>
+
+<table>
+<thead>
+<tr>
+<th>Built-in indexes</th>
+<th>Composite indexes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>각각의 엔터티 Kind의 각각의 프로퍼티에 대해 자동으로 정의</td>
+<td>인덱싱된 엔터티에 대해 다중의 프로퍼티 값을 인덱스함</td>
+</tr>
+
+<tr>
+<td>간단한 쿼리에 적합</td>
+<td>컴플렉스 쿼리에 적합</td>
+</tr>
+
+<tr>
+<td></td>
+<td>인덱스 설정파일에 정의</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>concept</th>
+<th>cloud datastore</th>
+<th>relational database</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>오브젝트 카테고리</td>
+<td>Kind</td>
+<td>Table</td>
+</tr>
+
+<tr>
+<td>한개 오브젝트</td>
+<td>entity</td>
+<td>row</td>
+</tr>
+
+<tr>
+<td>하나의 오브젝트를 위한 개별 데이터</td>
+<td>프로퍼티</td>
+<td>field</td>
+</tr>
+
+<tr>
+<td>유니크 ID</td>
+<td>Key</td>
+<td>PrimaryKey</td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="design-considerations-sharding">Design Considerations &amp; Sharding</h1>
+
+<hr />
+
+<h2 id="design-your-application-for-scale">Design Your application for scale</h2>
+
+<ul>
+<li>엔터티 그룹에 대한 최대 쓰기율은 1/초</li>
+<li>사전적으로 가까운 키에 대한 읽기와 쓰기를 너무 자주하지 말것.
+구글의 noSQL 데이터베이스 Bigtable 을 이용해서 구현되어있는데
+확장할때 로우들을 별도 테이블로 샤딩하는데 이 로우들이
+키에 대해 사전적으로 정렬되어있기 때문.</li>
+<li>점진적으로 ramp up traffic 을 새로운 클라우드 데이터 스토어에..
+빅테이블이 테이블을 분리하기에 충분할 시간을 주도록..</li>
+<li>클라우드 데이터스토어의 엔터티를 적은 범위의 키로 삭제하는 동작을 피해라
+컴팩션(삭제된 엔트리를 제거하고 데이터를 재구성하여 읽기와 쓰기가 더 효율적으로 동작하도록 주기적으로 테이블을 다시쓰는 작업) 타임스탬프가 비슷해서 함께 있을 엔터티들을 많이 삭제하면, 이에 대한 쿼리가 컴팩션이 완료되기 전까지 늦을 수 있다.</li>
+<li>핫 클라우드 데이터 스토어 키들에 대해 :
+
+<ul>
+<li>use sharding, 쓰기가 빈번한 키 range 에.</li>
+<li>use replication, 읽기가 빈번한 키 range.</li>
+</ul></li>
+</ul>
+
+<h2 id="when-sharding-remember">When sharding, remember:</h2>
+
+<ul>
+<li>트랜잭션 스루풋은 1 write/sec per entity group</li>
+<li>복수의 kinds 에 걸쳐 자주 업데이트 되는 엔터티는 분리하라.</li>
+</ul>
+
+<h2 id="shared-counters-to-avoid-contention-with-high-writes">Shared counters to avoid contention with high writes</h2>
+
+<p>contention 을 줄이기 위해:</p>
+
+<ul>
+<li>sharded counter 를 구축하라 (카운터를 N 개의 다른 카운터로 쪼개라) - 카운터를 올리기 위해 임의의 샤드를 선택하여 올린다 - 전체 카운트를 알기위해, 모든 샤드카운터를 읽어서 더해라.
+샤드의 넘버를 올리는 것은 스루풋을 올리는 것..
+increasing the number of shards will increase the throughput you will have for increments on you counter.</li>
+</ul>
+
+<h1 id="replicaion-query-types-transactions-and-handling-errors">Replicaion, Query Types, Transactions, and Handling Errors</h1>
+
+<hr />
+
+<h2 id="use-replication-to-read-a-portion-of-the-key-range">Use replication to read a portion of the key range</h2>
+
+<p>읽기 비율이 높은데에 사용.
+엔터티에 대한 사본을 N 개에 대해 두면, 읽기 연산에 대해 N 배 빠르다.</p>
+
+<p>Devices -&gt; Cloud Load Balance -&gt; Front end App (AppEngine - auto scailiing)</p>
+
+<h2 id="use-qurey-types-based-on-your-needs">Use qurey types based on your needs</h2>
+
+<ol>
+<li>Keys-only</li>
+<li>Projection (엔터티에서 프로퍼티를 얻어옴.)</li>
+<li>Ancester - 쿼리의 강한 일관성을 요할때.
+select * from task where <code>__key__</code> has ancestor key(TaskList, &lsquo;default&rsquo;)</li>
+<li>Entity
+select * from task where done = FALSE</li>
+</ol>
+
+<h2 id="improve-your-query-latency-by-using-cursors-instead-of-offsets">Improve Your query latency by using cursors instead of offsets</h2>
+
+<h1 id="demo-use-cloud-dataflow-to-bulk-load-data-into-cloud-data-store">Demo: Use Cloud Dataflow to bulk-load data into Cloud data store</h1>
+
+<hr />
+
+<p>pip install apache-beam</p>
+
+<h1 id="lab">lab</h1>
+
+<p>git clone <a href="https://github.com/GoogleCloudPlatform/training-data-analyst">https://github.com/GoogleCloudPlatform/training-data-analyst</a></p>
+
+<h1 id="summary">Summary</h1>
+
+<p>조상을 지정하는 것으로 엔터티 그룹을 설정할수 있다.<br />
+이렇게 해서 모든 관계된 엔터티들이 하나의 트랜잭션으로 업데이트 될 수 있다.
+트래픽 램프업을 위해 555 룰을 따라라.
+처음엔 초당 500 정도를 쓰다가 5분마다 50퍼센트씩 증가 시키는 것.</p>
+
 </section>
 
 <div class="share">
@@ -127,6 +318,10 @@
 <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 <div class="paging post-paging">
+  
+  <a class="left" href="https://nolleh.github.io/coursera/gcp/6.datastorage/" rel="prev">
+    <i class="fa fa-caret-left" aria-hidden="true"></i> <span>6. DataStorage</span>
+  </a>
   
   
   <a class="right" href="https://nolleh.github.io/coursera/gcp/4.db-overview/" rel="next">

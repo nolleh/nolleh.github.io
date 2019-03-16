@@ -61,6 +61,8 @@
 <li><a href="#cloud-bigtable">Cloud Bigtable</a></li>
 <li><a href="#cloud-sql">Cloud SQL</a></li>
 <li><a href="#cloud-spanner">Cloud Spanner</a></li>
+<li><a href="#bigquery">BigQuery</a></li>
+<li><a href="#run-microsoft-sql-server-on-gcp">Run Microsoft SQL Server on GCP</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -72,6 +74,8 @@
 <h2 id="cloud-storage">Cloud Storage</h2>
 
 <hr />
+
+<p>크고 자주 사용되지 않은 비구조화된 데이터</p>
 
 <table>
 <thead>
@@ -109,6 +113,8 @@
 <h2 id="cloud-datastore">Cloud Datastore</h2>
 
 <hr />
+
+<p>관계형이나 데이터 분석에는 적합하지 않고 GAE 앱이나 구조화된 순수 제공 사용례에 적합한 구조화된 제공을 위한 스케일러블 저장소.</p>
 
 <table>
 <thead>
@@ -150,6 +156,8 @@
 
 <hr />
 
+<p>고구조화 / 트랜잭셔널 데이터에는 적합하지 않고, flat 하고 많은 read/write 연산이나 분석을 위한 데이터에 적합한 큰 용량의 저지연 데이터베이스.</p>
+
 <table>
 <thead>
 <tr>
@@ -185,6 +193,8 @@
 
 <hr />
 
+<p>확장성/분석/큰 쓰기 연산에는 적합하지 않은, 웹 프레임워크의 기존에 존재하는 어플리케이션에 적용 가능한 잘알려진 VM 용 RDBMS</p>
+
 <table>
 <thead>
 <tr>
@@ -219,6 +229,8 @@
 <h2 id="cloud-spanner">Cloud Spanner</h2>
 
 <hr />
+
+<p>분석적인 데이터에는 적합하지 않고, 저 지연의 트랜잭션적 시스템의 관계형 DB service</p>
 
 <table>
 <thead>
@@ -260,6 +272,65 @@
 </tr>
 </tbody>
 </table>
+
+<h2 id="bigquery">BigQuery</h2>
+
+<hr />
+
+<p>빠른 앱 빌딩에는 적합하지 않고, 정적 데이터 집합과의 분석을 위한 데에 사용되는 오토스케일링 분석 데이터 저장소</p>
+
+<table>
+<thead>
+<tr>
+<th>Overview</th>
+<th>ideal for</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>저 비용의 엔터프라이즈 데이터 창고</td>
+<td>온라인 분석 처리 (OLAP) 워크로드</td>
+</tr>
+
+<tr>
+<td>완전히 관리됨</td>
+<td>빅 데이터 탐색과 처리</td>
+</tr>
+
+<tr>
+<td>페타바이트 스케일</td>
+<td>비지니스 지능 툴을 통한 리포팅</td>
+</tr>
+
+<tr>
+<td>빠른 응답성</td>
+<td></td>
+</tr>
+
+<tr>
+<td>서버리스</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="run-microsoft-sql-server-on-gcp">Run Microsoft SQL Server on GCP</h2>
+
+<hr />
+
+<ul>
+<li>구글 컴퓨트 엔진에서 SQL 서버 이미지 선택가능.</li>
+<li>컴퓨트 엔진 VM 에 SQL Server 를 프리로드 할수있음</li>
+<li>라이센싱은 자동으로 포함됨</li>
+<li>지원 버전은
+
+<ul>
+<li>SQL Server Standard</li>
+<li>SQL Server Web</li>
+<li>SQL Server Enterprise</li>
+</ul></li>
+</ul>
 
 </section>
 

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Google Cloud Platform on The Computer Programmer, Nolleh</title>
+    <link>https://nolleh.github.io/categories/google-cloud-platform/</link>
+    <description>Recent content in Google Cloud Platform on The Computer Programmer, Nolleh</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <managingEditor>nolleh7707@gmail.com (nolleh)</managingEditor>
+    <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
+    <lastBuildDate>Sat, 16 Mar 2019 23:02:25 +0900</lastBuildDate>
+    
+	<atom:link href="https://nolleh.github.io/categories/google-cloud-platform/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>6. DataStorage</title>
+      <link>https://nolleh.github.io/coursera/gcp/6.datastorage/</link>
+      <pubDate>Sat, 16 Mar 2019 23:02:25 +0900</pubDate>
+      <author>nolleh7707@gmail.com (nolleh)</author>
+      <guid>https://nolleh.github.io/coursera/gcp/6.datastorage/</guid>
+      <description>Best Practices for Using Cloud Storage 버킷에 변화가 있을때 반응하게 할 수 있다. https://cloud.google.com/storage/docs/pubsub-notifications
+Demo coldline 은 일년에 한번 접근하는것과 같은 문제발생시 복구하는 용도로 사용하면 좋다..
+https://cloud.google.com/storage/docs/managing-lifecycles
+Demo2 - Cors cors - https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS cross-origin-resource sharing
+instance 만들고 / apache 깔고 / cors 설정 여는 데모..
+Best Practices for cloud Storage request rate 가 초당 1000 쓰기 요청 이나 5000 읽기 요청을 넘어가면 ..
+ 이 기준 요청량내에서 요청을 시작해서 20 분마다 요청을 두배로 해라.</description>
+    </item>
+    
+  </channel>
+</rss>

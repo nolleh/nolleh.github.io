@@ -38,6 +38,355 @@
       </div>
 
 
+  <a href="https://nolleh.github.io/coursera/gcp/4.db-overview/">
+  <div class="post-title">
+    <img src="/images/post-title-icon.png" />
+    <div class="post-meta">
+      <time>16 Mar 2019, 11:33</time>
+      <h1>4.Cloud Storage, Cloud Datastore, Cloud Bigtable, Cloud SQL, and Cloud Spanner</h1>
+    </div>
+  </div>
+</a>
+
+<div class="post-toc">
+  <span class="title">
+    Table of contents
+  </span>
+  <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#cloud-storage">Cloud Storage</a>
+<ul>
+<li><a href="#ideal-for">Ideal for</a></li>
+</ul></li>
+<li><a href="#cloud-datastore">Cloud Datastore</a></li>
+<li><a href="#cloud-bigtable">Cloud Bigtable</a></li>
+<li><a href="#cloud-sql">Cloud SQL</a></li>
+<li><a href="#cloud-spanner">Cloud Spanner</a></li>
+<li><a href="#bigquery">BigQuery</a></li>
+<li><a href="#run-microsoft-sql-server-on-gcp">Run Microsoft SQL Server on GCP</a></li>
+</ul></li>
+</ul>
+</nav>
+</div>
+
+<section class="post-content">
+  
+
+<h2 id="cloud-storage">Cloud Storage</h2>
+
+<hr />
+
+<p>크고 자주 사용되지 않은 비구조화된 데이터</p>
+
+<table>
+<thead>
+<tr>
+<th>Overview</th>
+<th>ideal for</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>완전히 관리되고 고 신뢰가능</td>
+<td>이미지와 비디오</td>
+</tr>
+
+<tr>
+<td>비용절감. 확장가능한 오브젝트/블롭 저장</td>
+<td>오브젝트와 블롭</td>
+</tr>
+
+<tr>
+<td>http 로 접근</td>
+<td>구조화되어있지 않은 데이터</td>
+</tr>
+
+<tr>
+<td>오브젝트 이름이 키</td>
+<td>정적 웹사이트 호스팅</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="ideal-for">Ideal for</h3>
+
+<h2 id="cloud-datastore">Cloud Datastore</h2>
+
+<hr />
+
+<p>관계형이나 데이터 분석에는 적합하지 않고 GAE 앱이나 구조화된 순수 제공 사용례에 적합한 구조화된 제공을 위한 스케일러블 저장소.</p>
+
+<table>
+<thead>
+<tr>
+<th>OverView</th>
+<th>ideal for</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>NoSQL 도큐먼트 데이터베이스</td>
+<td>세미구조의 어플리케이션 데이터</td>
+</tr>
+
+<tr>
+<td>확장가능</td>
+<td>내구성이 필요한 키 밸류 데이터</td>
+</tr>
+
+<tr>
+<td></td>
+<td>계층구조 데이터</td>
+</tr>
+
+<tr>
+<td></td>
+<td>복수 인덱스 매니징</td>
+</tr>
+
+<tr>
+<td></td>
+<td>트랜잭션</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="cloud-bigtable">Cloud Bigtable</h2>
+
+<hr />
+
+<p>고구조화 / 트랜잭셔널 데이터에는 적합하지 않고, flat 하고 많은 read/write 연산이나 분석을 위한 데이터에 적합한 큰 용량의 저지연 데이터베이스.</p>
+
+<table>
+<thead>
+<tr>
+<th>Overview</th>
+<th>ideal for</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>고성능의 wide 컬럼의 NoSQL</td>
+<td>동작가능한 어플리케이션</td>
+</tr>
+
+<tr>
+<td>성긴 테이블</td>
+<td>분석적 어플리케이션</td>
+</tr>
+
+<tr>
+<td>백억의 로우, 수천컬럼으로 확장가능</td>
+<td>단일키의 데이터가 크다</td>
+</tr>
+
+<tr>
+<td>TB 나 PB 데이터 저장가능</td>
+<td>맵리듀스 동작</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="cloud-sql">Cloud SQL</h2>
+
+<hr />
+
+<p>확장성/분석/큰 쓰기 연산에는 적합하지 않은, 웹 프레임워크의 기존에 존재하는 어플리케이션에 적용 가능한 잘알려진 VM 용 RDBMS</p>
+
+<table>
+<thead>
+<tr>
+<th>Overview</th>
+<th>idealfor</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>관리되는 서비스 (복제/페일오버/백업)</td>
+<td>웹프레임워크</td>
+</tr>
+
+<tr>
+<td>MySQL 과 PostgreSQL</td>
+<td>구조화된 데이터</td>
+</tr>
+
+<tr>
+<td>RDBMS</td>
+<td>OLTP 워크로드</td>
+</tr>
+
+<tr>
+<td>프록시가 안전한 second 생성 인스턴스에 접근하도록 해줌(화이트리스팅없이.)</td>
+<td>MySQL/PGS 를 사용하는 어플리케이션</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="cloud-spanner">Cloud Spanner</h2>
+
+<hr />
+
+<p>분석적인 데이터에는 적합하지 않고, 저 지연의 트랜잭션적 시스템의 관계형 DB service</p>
+
+<table>
+<thead>
+<tr>
+<th>Overview</th>
+<th>ideal for</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>미션 크리티컬 DB</td>
+<td>미션크리티컬 어플리케이션</td>
+</tr>
+
+<tr>
+<td>트랜잭션 일관성</td>
+<td>높은 트랜잭션</td>
+</tr>
+
+<tr>
+<td>글로벌 확장</td>
+<td>확장과 일관성있는 요구사항들</td>
+</tr>
+
+<tr>
+<td>고 사용성</td>
+<td></td>
+</tr>
+
+<tr>
+<td>멀티리젼 복제</td>
+<td></td>
+</tr>
+
+<tr>
+<td>99.999% SLA</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="bigquery">BigQuery</h2>
+
+<hr />
+
+<p>빠른 앱 빌딩에는 적합하지 않고, 정적 데이터 집합과의 분석을 위한 데에 사용되는 오토스케일링 분석 데이터 저장소</p>
+
+<table>
+<thead>
+<tr>
+<th>Overview</th>
+<th>ideal for</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>저 비용의 엔터프라이즈 데이터 창고</td>
+<td>온라인 분석 처리 (OLAP) 워크로드</td>
+</tr>
+
+<tr>
+<td>완전히 관리됨</td>
+<td>빅 데이터 탐색과 처리</td>
+</tr>
+
+<tr>
+<td>페타바이트 스케일</td>
+<td>비지니스 지능 툴을 통한 리포팅</td>
+</tr>
+
+<tr>
+<td>빠른 응답성</td>
+<td></td>
+</tr>
+
+<tr>
+<td>서버리스</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="run-microsoft-sql-server-on-gcp">Run Microsoft SQL Server on GCP</h2>
+
+<hr />
+
+<ul>
+<li>구글 컴퓨트 엔진에서 SQL 서버 이미지 선택가능.</li>
+<li>컴퓨트 엔진 VM 에 SQL Server 를 프리로드 할수있음</li>
+<li>라이센싱은 자동으로 포함됨</li>
+<li>지원 버전은
+
+<ul>
+<li>SQL Server Standard</li>
+<li>SQL Server Web</li>
+<li>SQL Server Enterprise</li>
+</ul></li>
+</ul>
+
+</section>
+
+<div class="share">
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f4.db-overview%2f&t=4.Cloud%20Storage%2c%20Cloud%20Datastore%2c%20Cloud%20Bigtable%2c%20Cloud%20SQL%2c%20and%20Cloud%20Spanner" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f4.db-overview%2f&text=4.Cloud%20Storage%2c%20Cloud%20Datastore%2c%20Cloud%20Bigtable%2c%20Cloud%20SQL%2c%20and%20Cloud%20Spanner&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f4.db-overview%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f4.db-overview%2f&title=4.Cloud%20Storage%2c%20Cloud%20Datastore%2c%20Cloud%20Bigtable%2c%20Cloud%20SQL%2c%20and%20Cloud%20Spanner" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+</div>
+
+<div class="post-meta-code">
+  <div class="desc">
+    public string description() {
+    <div class="desc">val author = "
+    
+        nolleh
+    ";
+    </div>
+    
+    <div class="desc">
+      val categories = [
+      
+      
+      <a href="https://nolleh.github.io//categories/google-cloud-service">"Google Cloud Service"</a>
+      
+      ];
+    </div>
+    
+    }
+  </div>
+</div>
+<div class="post-meta-code">
+  <div class="desc">
+    public string tags() {
+      <div class="desc">
+        val tags = [
+        
+          
+          <a href="https://nolleh.github.io/tags/cousera">"Cousera"</a>
+          
+          <a href="https://nolleh.github.io/tags/google-cloud-service">"Google Cloud Service"</a>
+          
+        
+        ];
+      </div>
+    }
+  </div>
+</div>
+
+  <div class="seperator">
+    <img src="/images/seperator.png" />
+  </div>
+
   <a href="https://nolleh.github.io/coursera/gcp/3.sdk/">
   <div class="post-title">
     <img src="/images/post-title-icon.png" />
@@ -106,128 +455,6 @@ GCP Service 의 스크립트 작성 : Google Cloud SDK</p>
   <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f3.sdk%2f&text=3.SDK&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
   <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f3.sdk%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
   <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f3.sdk%2f&title=3.SDK" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
-</div>
-
-<div class="post-meta-code">
-  <div class="desc">
-    public string description() {
-    <div class="desc">val author = "
-    
-        nolleh
-    ";
-    </div>
-    
-    <div class="desc">
-      val categories = [
-      
-      
-      <a href="https://nolleh.github.io//categories/google-cloud-service">"Google Cloud Service"</a>
-      
-      ];
-    </div>
-    
-    }
-  </div>
-</div>
-<div class="post-meta-code">
-  <div class="desc">
-    public string tags() {
-      <div class="desc">
-        val tags = [
-        
-          
-          <a href="https://nolleh.github.io/tags/coursera">"Coursera"</a>
-          
-          <a href="https://nolleh.github.io/tags/google-cloud-service">"Google Cloud Service"</a>
-          
-        
-        ];
-      </div>
-    }
-  </div>
-</div>
-
-  <div class="seperator">
-    <img src="/images/seperator.png" />
-  </div>
-
-  <a href="https://nolleh.github.io/coursera/gcp/1-1.12-tips/">
-  <div class="post-title">
-    <img src="/images/post-title-icon.png" />
-    <div class="post-meta">
-      <time>12 Mar 2019, 21:52</time>
-      <h1>1-1. 계정관리를 위한 12 tips</h1>
-    </div>
-  </div>
-</a>
-
-<div class="post-toc">
-  <span class="title">
-    Table of contents
-  </span>
-  <nav id="TableOfContents">
-<ul>
-<li><a href="#12-best-practices-for-user-saccount">12 Best Practices for user saccount</a>
-<ul>
-<li><a href="#1-패스워드를-해시하라">1. 패스워드를 해시하라.</a></li>
-<li><a href="#2-서드파티-식별-제공자를-허락하자">2. 서드파티 식별 제공자를 허락하자.</a></li>
-<li><a href="#3-유저-식별의-개념을-유저-계정의-개념과-분리하라">3. 유저 식별의 개념을 유저 계정의 개념과 분리하라.</a></li>
-<li><a href="#4-하나의-계정에-복수의-정체성을-허용할-수-있도록-제공하라">4. 하나의 계정에 복수의 정체성을 허용할 수 있도록 제공하라.</a></li>
-<li><a href="#5-길거나-복잡한-패스워드를-막지-말자">5. 길거나 복잡한 패스워드를 막지 말자.</a></li>
-<li><a href="#6-user-name-에-타당치-않은-규칙을-강요하지-마라">6. user name 에 타당치 않은 규칙을 강요하지 마라</a></li>
-</ul></li>
-</ul>
-</nav>
-</div>
-
-<section class="post-content">
-  
-
-<h1 id="12-best-practices-for-user-saccount">12 Best Practices for user saccount</h1>
-
-<p><a href="https://cloud.google.com/blog/products/gcp/12-best-practices-for-user-account">https://cloud.google.com/blog/products/gcp/12-best-practices-for-user-account</a>
-GCP 에서는 유저 계정에 대한 안전한 핸들링과 인증을 위한 툴을 게공한다.
-웹사이트가 구글 쿠버네티스엔진에 호스트 되는 웹사이트를 담당하든, apigee 의 api 를 담당하든, firebase 를 사용하든, 어떤 다른 서비스를 통해 유저를 인증하든, 이 포스트는 좋은 연습을 제공해서, 안전하고 확장가능하고 쓸만한 계정 인증 시스템을 사용할 수 있게 도와줄 것이다.</p>
-
-<h2 id="1-패스워드를-해시하라">1. 패스워드를 해시하라.</h2>
-
-<p>패스워드를 포함해서, 예민한 개인정보를 어떻게 저장할 것인가가 계정관리의 가장 중요한 규칙이다. 이 데이터를 신성하게 다뤄야한다.
-다시 reverse 될 수 없는 강력한 해쉬로되어야한다. 예를들면, PBKDF2, Argon2, Scripy, Bcrypt .. 또한, 이 해쉬는 <a href="https://www.owasp.org/index.php/Password_Storage_Cheat_Sheet#Use_a_cryptographically_strong_credential-specific_salt">salted</a> 되어야 한다. MD5 나 SHA1 같은 deprecate 된 해쉬기술은 사용하면 안되며, revirsiable 될 수 있는 인크립션을 사용해야하는 상황은 어디에도 없으며, <a href="https://www.schneier.com/blog/archives/2011/04/schneiers_law.html">직접 해쉬 알고리즘을 개발할 필요도 없다.</a> 라고 생각하자.</p>
-
-<h2 id="2-서드파티-식별-제공자를-허락하자">2. 서드파티 식별 제공자를 허락하자.</h2>
-
-<p>믿을수 있게한다. 구글, 페이스북, 트위터등이 흔히 사용된다. <a href="https://firebase.google.com/docs/auth/">firebase Auth</a> 시스템을 통해 인증처리를 할 수도 있다. -다른 사례들을 보면, 반나절만에 적용하고 그렇다. fabulas?</p>
-
-<h2 id="3-유저-식별의-개념을-유저-계정의-개념과-분리하라">3. 유저 식별의 개념을 유저 계정의 개념과 분리하라.</h2>
-
-<p>유저는 이메일 어드레스도, 핸드폰 번호도, OAUTH 응답의 unique ID 도 아니다.
-유저 유저는 유일성의 최고점에 있으며, 당신 서비스의 개인화된 데이터와 경험이다.
-잘 디자인된 유저관리 체계는 low 커플링 되어있으며, 고수준으로 응집되어있다.</p>
-
-<p>유저 계정과 보안을 분리하는 개념을 고수하는 것은 서드파티의 식별제공자를 구현하는 과정을 크게 단순화 할 수 있다. 유저는 유저 이름이나 다중의 정체성을 하나의 유저 계정에 연결 할 수도 있게 된다. 실제 용어로 옮기면, 내부의 전역 식별자를 모든 유저와 그들의 프로필과, 인증에 연결할 수도 있다.</p>
-
-<h2 id="4-하나의-계정에-복수의-정체성을-허용할-수-있도록-제공하라">4. 하나의 계정에 복수의 정체성을 허용할 수 있도록 제공하라.</h2>
-
-<p>한 유저는 유저명과 패스워드를 사용하여 인증한후에, 이 과정이 계정을 생성할 수 있는지 모르고 구글 사이닝을 선택할 수있다. 유사하게, 어떤 유저는 복수의 이메일 주서를 당신의 서비스에 연결할 이유가 있었을 수도 있습니다. 만약 유저 식별과 인증을 분리해 두었다면, <a href="https://firebase.google.com/docs/auth/web/account-linking">하나의 유저에 대해 다양한 식별 정보를 연결하는게 간단하다.</a></p>
-
-<p>사용자가 기존 계정에 연결되지 않은 서드파티 아이디를 사용하고 있다는 것을 깨닫기전에 새로 가입하는 프로세스를 수행할 수 있는 가능성을 고려해야 한다. 흔한 식별 정보를 제공하도록 묻는것 만으로도 해결될 수 있다. 이메일어드레스, 폰이나 유저명 등.. 시스템에 존재한다면, 인증 후 새로운 아이디를 존재하는 계정에 연결하자.</p>
-
-<h2 id="5-길거나-복잡한-패스워드를-막지-말자">5. 길거나 복잡한 패스워드를 막지 말자.</h2>
-
-<p>NIST 는 최근에 패스워드 복잡도와 강인함에 대해 <a href="https://pages.nist.gov/800-63-3/sp800-63b.html#appendix-astrength-of-memorized-secrets">가이드라인</a>을 제공했다.
-패스워드 길이를 막아서 얻을 수 있는건 POST 사이즈 뿐.. (끽해봐야 1MB?)</p>
-
-<p>해쉬된 패스워드는 알려진 적은 ASCII문자의 선택으로 압축될 수 있고, 그렇지 않으면 그냥 바이너리 해쉬를 <a href="https://en.wikipedia.org/wiki/Base64">Base64</a> 로 변경해도 된다.</p>
-
-<h2 id="6-user-name-에-타당치-않은-규칙을-강요하지-마라">6. user name 에 타당치 않은 규칙을 강요하지 마라</h2>
-
-</section>
-
-<div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f1-1.12-tips%2f&t=1-1.%20%ea%b3%84%ec%a0%95%ea%b4%80%eb%a6%ac%eb%a5%bc%20%ec%9c%84%ed%95%9c%2012%20tips" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f1-1.12-tips%2f&text=1-1.%20%ea%b3%84%ec%a0%95%ea%b4%80%eb%a6%ac%eb%a5%bc%20%ec%9c%84%ed%95%9c%2012%20tips&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f1-1.12-tips%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f1-1.12-tips%2f&title=1-1.%20%ea%b3%84%ec%a0%95%ea%b4%80%eb%a6%ac%eb%a5%bc%20%ec%9c%84%ed%95%9c%2012%20tips" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
 </div>
 
 <div class="post-meta-code">

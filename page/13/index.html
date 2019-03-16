@@ -38,6 +38,138 @@
       </div>
 
 
+  <a href="https://nolleh.github.io/post/concurrent-idiom-1-stack/">
+  <div class="post-title">
+    <img src="/images/post-title-icon.png" />
+    <div class="post-meta">
+      <time>10 Jul 2017, 22:57</time>
+      <h1>Concurrent Idiom 1 - Stack</h1>
+    </div>
+  </div>
+</a>
+
+<div class="post-toc">
+  <span class="title">
+    Table of contents
+  </span>
+  <nav id="TableOfContents">
+<ul>
+<li><a href="#concurrent-issue-stack">Concurrent ISSUE - Stack</a>
+<ul>
+<li><a href="#options">Options</a>
+<ul>
+<li><a href="#reference">Reference</a></li>
+<li><a href="#move">Move</a></li>
+<li><a href="#pointer">Pointer</a></li>
+<li><a href="#compounded-options">Compounded Options</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+</div>
+
+<section class="post-content">
+  
+
+<blockquote>
+<p>concurrent 프로그램을 작성할 때 고려해야할 몇가지 사항. 그리고 idiom.<br />
+여러 서적에서 발췌하였으며, 정리 차원에서 작성한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.<br />
+어쩌면 작성자의 부사수를 위한 자재가 될지도 모르겠&hellip;(..)</p>
+</blockquote>
+
+<h1 id="concurrent-issue-stack">Concurrent ISSUE - Stack</h1>
+
+<p>이번엔 스택.</p>
+
+<pre><code class="language-cpp">if (!s.empty())
+{
+    item = s.top();
+    s.pop();
+}
+</code></pre>
+
+<p>인터페이스상의 문제이기 때문에 empty 와 top 사이의 safety 를 보장할 수 없다.<br />
+top() / pop() 도 마찬가지 -&gt;&gt; 조회되지 못하는 아이템이 있을 수 있다. (생각해보자.)<br />
+해결을 위해 ?? -&gt; Returning Pop ? &ndash;&gt;&gt; 역시, 생각해보자. (Hint. Exception)</p>
+
+<h2 id="options">Options</h2>
+
+<h3 id="reference">Reference</h3>
+
+<p>호출전 인스턴스 생성 필요. 생성자의 인자가 항상 제공 가능한 경우가 아닐때도.<br />
+그리고 assign 필요. (Q. 이것이 무엇을 의미하는가? - C++ 개발지식이 있다면 대답할 수 있어야 한다.)</p>
+
+<h3 id="move">Move</h3>
+
+<p>Exception 만이 문제라면 이 선택으로 회피 가능할 수 있지 않은가.<br />
+하지만.. 위와 마찬가지. (Q. 역시, 대답할 수 있어야 한다. )</p>
+
+<h3 id="pointer">Pointer</h3>
+
+<p>유저에게 메모리 관리 작업을 맡기는 것. (Q. 이게 문제라면, 어떻게 해결할 수 있겠는가?) 간단한 타입에 대해서는 오버헤드.</p>
+
+<h3 id="compounded-options">Compounded Options</h3>
+
+<p>말그대로, 결합.</p>
+
+<p><strong>끝</strong></p>
+
+</section>
+
+<div class="share">
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fpost%2fconcurrent-idiom-1-stack%2f&t=Concurrent%20Idiom%201%20-%20Stack" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fpost%2fconcurrent-idiom-1-stack%2f&text=Concurrent%20Idiom%201%20-%20Stack&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fpost%2fconcurrent-idiom-1-stack%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fpost%2fconcurrent-idiom-1-stack%2f&title=Concurrent%20Idiom%201%20-%20Stack" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+</div>
+
+<div class="post-meta-code">
+  <div class="desc">
+    public string description() {
+    <div class="desc">val author = "
+    
+        nolleh
+    ";
+    </div>
+    
+    <div class="desc">
+      val categories = [
+      
+      
+      <a href="https://nolleh.github.io//categories/%EC%84%9C%EB%B2%84%EA%B0%9C%EB%B0%9C%EC%A7%80%EC%8B%9D">"서버개발지식"</a>
+      
+      ];
+    </div>
+    
+    }
+  </div>
+</div>
+<div class="post-meta-code">
+  <div class="desc">
+    public string tags() {
+      <div class="desc">
+        val tags = [
+        
+          
+          <a href="https://nolleh.github.io/tags/concurrent-programming">"Concurrent Programming"</a>
+          
+          <a href="https://nolleh.github.io/tags/programming">"Programming"</a>
+          
+          <a href="https://nolleh.github.io/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8">"생각하는 프로그래머"</a>
+          
+          <a href="https://nolleh.github.io/tags/note">"Note"</a>
+          
+        
+        ];
+      </div>
+    }
+  </div>
+</div>
+
+  <div class="seperator">
+    <img src="/images/seperator.png" />
+  </div>
+
   <a href="https://nolleh.github.io/post/how-to-make-git-page/">
   <div class="post-title">
     <img src="/images/post-title-icon.png" />
@@ -244,165 +376,6 @@ this/is/my/github/repo/public$ git push ...
           <a href="https://nolleh.github.io/tags/github-page">"GitHub-Page"</a>
           
           <a href="https://nolleh.github.io/tags/editor">"Editor"</a>
-          
-        
-        ];
-      </div>
-    }
-  </div>
-</div>
-
-  <div class="seperator">
-    <img src="/images/seperator.png" />
-  </div>
-
-  <a href="https://nolleh.github.io/post/brew-update/">
-  <div class="post-title">
-    <img src="/images/post-title-icon.png" />
-    <div class="post-meta">
-      <time>04 Jul 2017, 22:31</time>
-      <h1>Brew Install 이 구버전만 설치할 때</h1>
-    </div>
-  </div>
-</a>
-
-<div class="post-toc">
-  <span class="title">
-    Table of contents
-  </span>
-  <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#let-s-사족">Let&rsquo;s 사족</a></li>
-<li><a href="#brew">Brew</a>
-<ul>
-<li><a href="#brew-설치">Brew 설치</a></li>
-<li><a href="#brew-를-통해-설치하기">Brew 를 통해 설치하기</a>
-<ul>
-<li><a href="#최초-설치">최초 설치</a></li>
-<li><a href="#업데이트">업데이트</a></li>
-</ul></li>
-<li><a href="#brew-install-이-구-버전만-다운로드-받을-때">Brew Install 이 구 버전만 다운로드 받을 때</a></li>
-<li><a href="#업데이트시-다음-에러-노출시">업데이트시 다음 에러 노출시</a></li>
-</ul></li>
-</ul></li>
-</ul>
-</nav>
-</div>
-
-<section class="post-content">
-  
-
-<h2 id="let-s-사족">Let&rsquo;s 사족</h2>
-
-<p>처음 회사에 입사 했을 때 자리에는 Mac PC 만이 덩그러니 있었고, Mac 을 사용해본적 없던 꼬꼬마는
-자연스럽게 윈도우 CD 를 인사팀에서 받아와서 깔고 있었드랬다.</p>
-
-<blockquote>
-<p>&ldquo;기껏 좋은 컴퓨터 줬더니 넌 뭘하고 있는거니?&rdquo;</p>
-</blockquote>
-
-<p>라는 선배의 말을 듣고 그제야 맥에서도 안드로이드 개발이 되는거구나.. (이때는 현업 안드로이드 개발자였다.)<br />
-하곤 윈도우 설치페이지를 취소하고 다시 맥 OS 를 부팅했었지.</p>
-
-<p>이때가, Mac OS 와의 첫 만남이었드랬다.</p>
-
-<h2 id="brew">Brew</h2>
-
-<p>뭐 전혀 관계 없는 얘기로 포스트를 열었지만.<br />
-어쨌거나 그때부터 Mac 을 수년간 사용하면서 - 그때 쓰던 회사 Mac 은 여전히 내 사무실 책상의 한켠을 차지하고 있다 -<br />
-Mac 을 비롯한 Linux 계통에서 Windows 를 압도하는 장점을 들자면,</p>
-
-<blockquote>
-<p>개발자를 위한 환경 설정이 간편하다</p>
-</blockquote>
-
-<p>가 되겠다.<br />
-Mac 에서는 그 역할을 충실히 하는 요소 중에 하나가 &ldquo;HomeBrew&rdquo; 라 하겠고.<br />
-<a href="http://docs.brew.sh/">HomeBrew</a></p>
-
-<h3 id="brew-설치">Brew 설치</h3>
-
-<blockquote>
-<p>다음 라인을 터미널에서 실행하자. brew 설치 자체도 이렇게 간편하다니.. Linux 계통은 보통 이렇게 one line 으로 다 해결이 된다.</p>
-</blockquote>
-
-<pre><code class="language-Bash">mkdir homebrew &amp;&amp; curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
-</code></pre>
-
-<h3 id="brew-를-통해-설치하기">Brew 를 통해 설치하기</h3>
-
-<p>Formula 라고 지칭하고 있는게 맞는지는 잘 모르겠지만.<br />
-brew 를 통해 프로그램/binary 를 설치할 경우 다음과 같이 실행</p>
-
-<h4 id="최초-설치">최초 설치</h4>
-
-<pre><code class="language-Bash">$ Brew install ${Formula}
-</code></pre>
-
-<h4 id="업데이트">업데이트</h4>
-
-<pre><code class="language-Bash">$ Brew upgrade ${Formula}
-</code></pre>
-
-<h3 id="brew-install-이-구-버전만-다운로드-받을-때">Brew Install 이 구 버전만 다운로드 받을 때</h3>
-
-<p>이건.. 맥을 사용한 지금까지 잘 모르고 있었던 건데,<br />
-Brew 자체를 업데이트해서 formular 를 갱신할 필요가 있나보다.<br />
-다음을 통한다.</p>
-
-<pre><code class="language-Bash">$ Brew update
-</code></pre>
-
-<h3 id="업데이트시-다음-에러-노출시">업데이트시 다음 에러 노출시</h3>
-
-<pre><code class="language-Bash">$ Error: /usr/local must be writable!
-</code></pre>
-
-<p>다음 실행</p>
-
-<pre><code class="language-Bash">sudo chown -R $(whoami) /usr/local
-</code></pre>
-
-</section>
-
-<div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fpost%2fbrew-update%2f&t=Brew%20Install%20%ec%9d%b4%20%ea%b5%ac%eb%b2%84%ec%a0%84%eb%a7%8c%20%ec%84%a4%ec%b9%98%ed%95%a0%20%eb%95%8c" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fpost%2fbrew-update%2f&text=Brew%20Install%20%ec%9d%b4%20%ea%b5%ac%eb%b2%84%ec%a0%84%eb%a7%8c%20%ec%84%a4%ec%b9%98%ed%95%a0%20%eb%95%8c&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fpost%2fbrew-update%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fpost%2fbrew-update%2f&title=Brew%20Install%20%ec%9d%b4%20%ea%b5%ac%eb%b2%84%ec%a0%84%eb%a7%8c%20%ec%84%a4%ec%b9%98%ed%95%a0%20%eb%95%8c" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
-</div>
-
-<div class="post-meta-code">
-  <div class="desc">
-    public string description() {
-    <div class="desc">val author = "
-    
-        nolleh
-    ";
-    </div>
-    
-    <div class="desc">
-      val categories = [
-      
-      
-      <a href="https://nolleh.github.io//categories/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD">"개발환경"</a>
-      
-      ];
-    </div>
-    
-    }
-  </div>
-</div>
-<div class="post-meta-code">
-  <div class="desc">
-    public string tags() {
-      <div class="desc">
-        val tags = [
-        
-          
-          <a href="https://nolleh.github.io/tags/macos">"MacOS"</a>
           
         
         ];

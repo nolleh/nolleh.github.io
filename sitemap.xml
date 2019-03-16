@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://nolleh.github.io/coursera/gcp/6.datastorage/</loc>
+    <lastmod>2019-03-16T23:02:25+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://nolleh.github.io/coursera/gcp/5.datastore/</loc>
     <lastmod>2019-03-16T11:34:29+09:00</lastmod>
   </url>
@@ -184,13 +189,13 @@
   </url>
   
   <url>
-    <loc>https://nolleh.github.io/categories/c&#43;&#43;-cli/</loc>
+    <loc>https://nolleh.github.io/tags/c&#43;&#43;-cli/</loc>
     <lastmod>2017-07-04T00:45:55+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://nolleh.github.io/tags/c&#43;&#43;-cli/</loc>
+    <loc>https://nolleh.github.io/categories/c&#43;&#43;-cli/</loc>
     <lastmod>2017-07-04T00:45:55+09:00</lastmod>
     <priority>0</priority>
   </url>
@@ -209,13 +214,13 @@
   
   <url>
     <loc>https://nolleh.github.io/tags/coursera/</loc>
-    <lastmod>2019-03-16T11:34:29+09:00</lastmod>
+    <lastmod>2019-03-16T23:02:25+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://nolleh.github.io/coursera/</loc>
-    <lastmod>2019-03-16T11:34:29+09:00</lastmod>
+    <lastmod>2019-03-16T23:02:25+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -268,13 +273,25 @@
   </url>
   
   <url>
-    <loc>https://nolleh.github.io/categories/google-cloud-service/</loc>
-    <lastmod>2019-03-16T11:34:29+09:00</lastmod>
+    <loc>https://nolleh.github.io/tags/google-cloud-platform/</loc>
+    <lastmod>2019-03-16T23:02:25+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nolleh.github.io/categories/google-cloud-platform/</loc>
+    <lastmod>2019-03-16T23:02:25+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://nolleh.github.io/tags/google-cloud-service/</loc>
+    <lastmod>2019-03-16T11:34:29+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nolleh.github.io/categories/google-cloud-service/</loc>
     <lastmod>2019-03-16T11:34:29+09:00</lastmod>
     <priority>0</priority>
   </url>
@@ -328,13 +345,13 @@
   </url>
   
   <url>
-    <loc>https://nolleh.github.io/categories/spring/</loc>
+    <loc>https://nolleh.github.io/tags/spring/</loc>
     <lastmod>2017-07-26T23:11:14+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://nolleh.github.io/tags/spring/</loc>
+    <loc>https://nolleh.github.io/categories/spring/</loc>
     <lastmod>2017-07-26T23:11:14+09:00</lastmod>
     <priority>0</priority>
   </url>
@@ -347,7 +364,7 @@
   
   <url>
     <loc>https://nolleh.github.io/</loc>
-    <lastmod>2019-03-16T11:34:29+09:00</lastmod>
+    <lastmod>2019-03-16T23:02:25+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -376,14 +393,14 @@
   </url>
   
   <url>
-    <loc>https://nolleh.github.io/categories/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8/</loc>
-    <lastmod>2019-01-01T20:17:59+09:00</lastmod>
+    <loc>https://nolleh.github.io/tags/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8/</loc>
+    <lastmod>2019-01-23T20:32:59+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://nolleh.github.io/tags/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8/</loc>
-    <lastmod>2019-01-23T20:32:59+09:00</lastmod>
+    <loc>https://nolleh.github.io/categories/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8/</loc>
+    <lastmod>2019-01-01T20:17:59+09:00</lastmod>
     <priority>0</priority>
   </url>
   

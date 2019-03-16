@@ -38,6 +38,120 @@
       </div>
 
 
+  <a href="https://nolleh.github.io/block-chain/1.7-createtestaccount/">
+  <div class="post-title">
+    <img src="/images/post-title-icon.png" />
+    <div class="post-meta">
+      <time>01 Jan 2019, 20:02</time>
+      <h1>EOSIO - 1.7/Test 계정 생성하기</h1>
+    </div>
+  </div>
+</a>
+
+<div class="post-toc">
+  <span class="title">
+    Table of contents
+  </span>
+  <nav id="TableOfContents">
+<ul>
+<li><a href="#what-is-an-account">What is an account?</a></li>
+<li><a href="#step-1-create-test-accounts">Step 1: Create Test Accounts</a></li>
+</ul>
+</nav>
+</div>
+
+<section class="post-content">
+  
+
+<blockquote>
+<p>다음에서 발췌 <a href="https://developers.eos.io/eosio-home/docs/accounts-1">EOSIO - 1.7 Create Test Accounts</a></p>
+</blockquote>
+
+<h1 id="what-is-an-account">What is an account?</h1>
+
+<hr />
+
+<p>블록체인에 저장되어 송신자와 수신자를 구분하는데 사용되는 승인의 집합체라 할 수 있다.  유연한 권한 승인 구조를 가질 수 있는데, 권한이 어떻게 설정되느냐에 따른 개인이나 그룹에 의해 소유될 수 있다.<br />
+하나의 계정은 블록체인의 트랜잭션을 보내거나 받기 위해 요구된다.</p>
+
+<p>이 튜토리얼에서는 두개의 user 계정, bob 과 alice, 그리고 설정을 위한 기본 eosio 계정을 사용한다.  추가로 계정들은 다양한 contracts 를 위해 이 튜토리얼 시리즈에서 만들어 질 수 있다.</p>
+
+<h1 id="step-1-create-test-accounts">Step 1: Create Test Accounts</h1>
+
+<hr />
+
+<p>이전 단계에서, wallet 과 개발키 쌍을 생성하였다. form 에 public key 를 지정하도록 요청받았지만, 이 단계를 넘기거나 쿠키를 사용하지 않도록 설정하였을 수있다. 생성된 publickey 를 YOUR_PUBLIC_KEY 에 기입하여 진행하자.</p>
+
+<p>이 튜토리얼동안 유저 bob 가 alice 가 사용된다. 두 계정은 cleos create accounts 를 통해 생성된다.</p>
+
+<pre><code class="language-shell">cleos create account eosio bob YOUR_PUBLIC_KEY 
+cleos create account eosio alice YOUR_PUBLIC_KEY
+</code></pre>
+
+<p>트랜잭션이 발송 되었음을 나타내는 다음과 같은 메시지가 노출된다.</p>
+
+<pre><code class="language-shell">executed transaction: 40c605006de...  200 bytes  153 us
+#         eosio &lt;= eosio::newaccount            {&quot;creator&quot;:&quot;eosio&quot;,&quot;name&quot;:&quot;alice&quot;,&quot;owner&quot;:{&quot;threshold&quot;:1,&quot;keys&quot;:[{&quot;key&quot;:&quot;EOS5rti4LTL53xptjgQBXv9HxyU...
+warning: transaction executed locally, but may not be confirmed by the network yet    ]
+</code></pre>
+
+<blockquote>
+<p>Using Different Keys for Active/Owner on a PRODUCTION Network
+EOSIO has a unique authorization structure that has added security for you account. You can minimize the exposure of your account by keeping the owner key cold, while using the key associated with your active permission. This way, if your active key were every compromised, you could regain control over your account with your owner key.</p>
+</blockquote>
+
+</section>
+
+<div class="share">
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.7-createtestaccount%2f&t=EOSIO%20-%201.7%2fTest%20%ea%b3%84%ec%a0%95%20%ec%83%9d%ec%84%b1%ed%95%98%ea%b8%b0" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.7-createtestaccount%2f&text=EOSIO%20-%201.7%2fTest%20%ea%b3%84%ec%a0%95%20%ec%83%9d%ec%84%b1%ed%95%98%ea%b8%b0&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.7-createtestaccount%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.7-createtestaccount%2f&title=EOSIO%20-%201.7%2fTest%20%ea%b3%84%ec%a0%95%20%ec%83%9d%ec%84%b1%ed%95%98%ea%b8%b0" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+</div>
+
+<div class="post-meta-code">
+  <div class="desc">
+    public string description() {
+    <div class="desc">val author = "
+    
+        nolleh
+    ";
+    </div>
+    
+    <div class="desc">
+      val categories = [
+      
+      
+      <a href="https://nolleh.github.io//categories/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8">"블록체인"</a>
+      
+      ];
+    </div>
+    
+    }
+  </div>
+</div>
+<div class="post-meta-code">
+  <div class="desc">
+    public string tags() {
+      <div class="desc">
+        val tags = [
+        
+          
+          <a href="https://nolleh.github.io/tags/block-chain">"block-chain"</a>
+          
+          <a href="https://nolleh.github.io/tags/eosio">"EOSIO"</a>
+          
+        
+        ];
+      </div>
+    }
+  </div>
+</div>
+
+  <div class="seperator">
+    <img src="/images/seperator.png" />
+  </div>
+
   <a href="https://nolleh.github.io/block-chain/1.6-createdevelopmentwallet/">
   <div class="post-title">
     <img src="/images/post-title-icon.png" />
@@ -174,109 +288,6 @@ wallet 의 암호 해독성에 대한 흔한 오해중의 하나는 토큰을 �
   <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.6-createdevelopmentwallet%2f&text=EOSIO%20-%201.6%2f%ea%b0%9c%eb%b0%9c%20Wallet%20%ec%83%9d%ec%84%b1%ed%95%98%ea%b8%b0&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
   <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.6-createdevelopmentwallet%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
   <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.6-createdevelopmentwallet%2f&title=EOSIO%20-%201.6%2f%ea%b0%9c%eb%b0%9c%20Wallet%20%ec%83%9d%ec%84%b1%ed%95%98%ea%b8%b0" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
-</div>
-
-<div class="post-meta-code">
-  <div class="desc">
-    public string description() {
-    <div class="desc">val author = "
-    
-        nolleh
-    ";
-    </div>
-    
-    <div class="desc">
-      val categories = [
-      
-      
-      <a href="https://nolleh.github.io//categories/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8">"블록체인"</a>
-      
-      ];
-    </div>
-    
-    }
-  </div>
-</div>
-<div class="post-meta-code">
-  <div class="desc">
-    public string tags() {
-      <div class="desc">
-        val tags = [
-        
-          
-          <a href="https://nolleh.github.io/tags/block-chain">"block-chain"</a>
-          
-          <a href="https://nolleh.github.io/tags/eosio">"EOSIO"</a>
-          
-        
-        ];
-      </div>
-    }
-  </div>
-</div>
-
-  <div class="seperator">
-    <img src="/images/seperator.png" />
-  </div>
-
-  <a href="https://nolleh.github.io/block-chain/1.5-installthecdt/">
-  <div class="post-title">
-    <img src="/images/post-title-icon.png" />
-    <div class="post-meta">
-      <time>01 Jan 2019, 16:57</time>
-      <h1>EOSIO - 1.5/CDT 설치하기</h1>
-    </div>
-  </div>
-</a>
-
-<div class="post-toc">
-  <span class="title">
-    Table of contents
-  </span>
-  <nav id="TableOfContents">
-<ul>
-<li><a href="#homebrew-mac-os-x">HomeBrew (Mac OS X)</a>
-<ul>
-<li><a href="#install">Install</a></li>
-<li><a href="#uninstall">Uninstall</a></li>
-</ul></li>
-</ul>
-</nav>
-</div>
-
-<section class="post-content">
-  
-
-<blockquote>
-<p>다음에서 발췌 - <a href="https://developers.eos.io/eosio-home/docs/installing-the-contract-development-toolkit">EOSIO - 1.5 Install The CDT</a></p>
-</blockquote>
-
-<p>EOSIO Contract Development Toolkit, CDT 는 contract 컴파일을 위한 툴의 집합이다.   뒤따를 튜토리얼들은 contract 들을 컴파일하고 ABI 를 생성하는 주요 CDT 를 사용한다.</p>
-
-<p>1.3.x 버전부터, CDT 는 Mac OS X brew, linux debian 과 RPM 패키지들을 지원한다. 설치하기 위한 가장쉬운 선택지는 이 패키지 시스템들을 이용하는 것이다. 하나의 방법을 선택하자.</p>
-
-<h1 id="homebrew-mac-os-x">HomeBrew (Mac OS X)</h1>
-
-<hr />
-
-<h2 id="install">Install</h2>
-
-<pre><code class="language-shell">brew tap eosio/eosio.cdt
-brew install eosio.cdt
-</code></pre>
-
-<h2 id="uninstall">Uninstall</h2>
-
-<pre><code class="language-shell">brew remove eosio.cdt
-</code></pre>
-
-</section>
-
-<div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.5-installthecdt%2f&t=EOSIO%20-%201.5%2fCDT%20%ec%84%a4%ec%b9%98%ed%95%98%ea%b8%b0" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.5-installthecdt%2f&text=EOSIO%20-%201.5%2fCDT%20%ec%84%a4%ec%b9%98%ed%95%98%ea%b8%b0&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.5-installthecdt%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.5-installthecdt%2f&title=EOSIO%20-%201.5%2fCDT%20%ec%84%a4%ec%b9%98%ed%95%98%ea%b8%b0" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
 </div>
 
 <div class="post-meta-code">
