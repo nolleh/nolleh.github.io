@@ -8,19 +8,10 @@
     <language>ko-KR</language>
     <managingEditor>nolleh7707@gmail.com (nolleh)</managingEditor>
     <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
-    <lastBuildDate>Sat, 16 Mar 2019 11:34:29 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 21 Dec 2018 22:02:13 +0900</lastBuildDate>
     
 	<atom:link href="https://nolleh.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title></title>
-      <link>https://nolleh.github.io/tags/</link>
-      <pubDate>Sat, 16 Mar 2019 11:34:29 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
-      <guid>https://nolleh.github.io/tags/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>Async</title>
@@ -79,7 +70,7 @@
     <item>
       <title>Coursera</title>
       <link>https://nolleh.github.io/tags/coursera/</link>
-      <pubDate>Tue, 12 Mar 2019 23:37:51 +0900</pubDate>
+      <pubDate>Sat, 16 Mar 2019 11:34:29 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/tags/coursera/</guid>
       <description></description>
@@ -133,7 +124,7 @@
     <item>
       <title>Google Cloud Service</title>
       <link>https://nolleh.github.io/tags/google-cloud-service/</link>
-      <pubDate>Sat, 16 Mar 2019 11:33:59 +0900</pubDate>
+      <pubDate>Sat, 16 Mar 2019 11:34:29 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/tags/google-cloud-service/</guid>
       <description></description>

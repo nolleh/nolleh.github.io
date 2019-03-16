@@ -8,10 +8,19 @@
     <language>ko-KR</language>
     <managingEditor>nolleh7707@gmail.com (nolleh)</managingEditor>
     <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
-    <lastBuildDate>Tue, 12 Mar 2019 23:37:51 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 16 Mar 2019 11:34:29 +0900</lastBuildDate>
     
 	<atom:link href="https://nolleh.github.io/tags/coursera/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>5. Cloud DataStore Concepts and Indexes</title>
+      <link>https://nolleh.github.io/coursera/gcp/5.datastore/</link>
+      <pubDate>Sat, 16 Mar 2019 11:34:29 +0900</pubDate>
+      <author>nolleh7707@gmail.com (nolleh)</author>
+      <guid>https://nolleh.github.io/coursera/gcp/5.datastore/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>3.SDK</title>

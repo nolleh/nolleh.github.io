@@ -14,7 +14,7 @@
     
     
     <item>
-      <title>5</title>
+      <title>5. Cloud DataStore Concepts and Indexes</title>
       <link>https://nolleh.github.io/coursera/gcp/5.datastore/</link>
       <pubDate>Sat, 16 Mar 2019 11:34:29 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
@@ -28,7 +28,7 @@
       <pubDate>Sat, 16 Mar 2019 11:33:59 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/coursera/gcp/4.db-overview/</guid>
-      <description>Cloud Storage    Overview ideal for     완전히 관리되고 고 신뢰가능 이미지와 비디오   비용절감. 확장가능한 오브젝트/블롭 저장 오브젝트와 블롭   http 로 접근 구조화되어있지 않은 데이터   오브젝트 이름이 키 정적 웹사이트 호스팅    Ideal for Cloud Datastore    OverView ideal for     NoSQL 도큐먼트 데이터베이스 세미구조의 어플리케이션 데이터   확장가능 내구성이 필요한 키 밸류 데이터    계층구조 데이터    복수 인덱스 매니징    트랜잭션    Cloud Bigtable    Overview ideal for      | 고성능의 wide 컬럼의 NoSQL 성긴 테이블 백억의 로우, 수천컬럼으로 확장가능 TB 나 PB 데이터 저장가능 | 동작가능한 어플리케이션</description>
+      <description>Cloud Storage    Overview ideal for     완전히 관리되고 고 신뢰가능 이미지와 비디오   비용절감. 확장가능한 오브젝트/블롭 저장 오브젝트와 블롭   http 로 접근 구조화되어있지 않은 데이터   오브젝트 이름이 키 정적 웹사이트 호스팅    Ideal for Cloud Datastore    OverView ideal for     NoSQL 도큐먼트 데이터베이스 세미구조의 어플리케이션 데이터   확장가능 내구성이 필요한 키 밸류 데이터    계층구조 데이터    복수 인덱스 매니징    트랜잭션    Cloud Bigtable    Overview ideal for     고성능의 wide 컬럼의 NoSQL 동작가능한 어플리케이션   성긴 테이블 분석적 어플리케이션   백억의 로우, 수천컬럼으로 확장가능 단일키의 데이터가 크다   TB 나 PB 데이터 저장가능 맵리듀스 동작    Cloud SQL    Overview idealfor     관리되는 서비스 (복제/페일오버/백업) 웹프레임워크   MySQL 과 PostgreSQL 구조화된 데이터   RDBMS OLTP 워크로드   프록시가 안전한 second 생성 인스턴스에 접근하도록 해줌(화이트리스팅없이.</description>
     </item>
     
     <item>
@@ -90,8 +90,8 @@ Cache content 반응성을 위해 컨텐츠를 캐싱해서, TTL 이 지나기�
       <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/block-chain-youtube/building-distributed-app/</guid>
       <description>다음에서 발췌 ()[]
- Smart Contract  블록은 트랜잭션을 포함한다. 트랜잭션은 액션의 기록이다. 액션은 컨트랙트의 동작이다.  스마트컨트랙트의 사용 * eos.io 의 컨트랙트는 abi 로 표현된다. * 어플리케이션 코드는 json data 를 이용한 http 를 통해 contract 를 트리거 한다. * EOS.IO 는 컨트랙트를 간단히 스크립팅하거나 테스팅하기위한 커맨드라인 인터페이스를 제공한다.
-Intro Smart Contracts  EOS.IO 스마트 컨트랙트는 WebAssembly 로 구동된다. (WASM)
+ Smart Contract  블록은 트랜잭션을 포함한다. 트랜잭션은 액션의 기록이다. 액션은 컨트랙트의 동작이다.  스마트컨트랙트의 사용
+ eos.io 의 컨트랙트는 abi 로 표현된다. 어플리케이션 코드는 json data 를 이용한 http 를 통해 contract 를 트리거 한다. EOS.IO 는 컨트랙트를 간단히 스크립팅하거나 테스팅하기위한 커맨드라인 인터페이스를 제공한다.  Intro Smart Contracts  EOS.IO 스마트 컨트랙트는 WebAssembly 로 구동된다. (WASM)
  web 표준으로 떠오르는중 c/c++ 로부터 clang/llvm 을 통해 생성된다.</description>
     </item>
     
