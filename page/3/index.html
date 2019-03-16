@@ -38,12 +38,12 @@
       </div>
 
 
-  <a href="https://nolleh.github.io/block-chain-youtube/building-distributed-app/">
+  <a href="https://nolleh.github.io/coursera/gcp/2.security-reliability-migration/">
   <div class="post-title">
     <img src="/images/post-title-icon.png" />
     <div class="post-meta">
-      <time>23 Jan 2019, 20:32</time>
-      <h1>Building Distributed App</h1>
+      <time>12 Mar 2019, 21:52</time>
+      <h1>2.Security-Reliability-Migration</h1>
     </div>
   </div>
 </a>
@@ -54,8 +54,16 @@
   </span>
   <nav id="TableOfContents">
 <ul>
-<li><a href="#smart-contract">Smart Contract</a></li>
-<li><a href="#intro-smart-contracts">Intro Smart Contracts</a></li>
+<li><a href="#3-security-reliablitiy-and-migration">3. Security, Reliablitiy, and Migration</a>
+<ul>
+<li><a href="#implement-health-check-endpoint">Implement health-check endpoint</a></li>
+<li><a href="#로깅과-모니터를-어플리케이션의-성능에-대해-두라">로깅과 모니터를 어플리케이션의 성능에 대해 두라.</a></li>
+<li><a href="#사소한-에러와-오래-지속되는-에러를-우아하게-다뤄라">사소한 에러와 오래 지속되는 에러를 우아하게 다뤄라.</a></li>
+<li><a href="#데이터-sovereignnty-와-compliance-요구사항을-고려하라">데이터 sovereignnty 와 compliance 요구사항을 고려하라.</a></li>
+<li><a href="#가능한-테스팅과-재앙으로부터-복구계획을-구상하고-어플을-테스트하라">가능한 테스팅과 재앙으로부터 복구계획을 구상하고 어플을 테스트하라.</a></li>
+<li><a href="#계속되는-통합모델-ci-을-구현하고-파이프라인으로-배송하라-cd">계속되는 통합모델 (CI) 을 구현하고 파이프라인으로 배송하라. (CD)</a></li>
+<li><a href="#strangler-패턴을-새로-어플리케이션을-구조화하는데-사용하라">Strangler 패턴을 새로 어플리케이션을 구조화하는데 사용하라.</a></li>
+</ul></li>
 </ul>
 </nav>
 </div>
@@ -63,105 +71,64 @@
 <section class="post-content">
   
 
-<blockquote>
-<p>다음에서 발췌 ()[]</p>
-</blockquote>
+<h1 id="3-security-reliablitiy-and-migration">3. Security, Reliablitiy, and Migration</h1>
 
-<h1 id="smart-contract">Smart Contract</h1>
+<p>Use federated identity management
+firebase authentication~
+외부의 identity provider 를 통해 ..</p>
 
-<ul>
-<li>블록은 트랜잭션을 포함한다.</li>
-<li>트랜잭션은 액션의 기록이다.</li>
-<li>액션은 컨트랙트의 동작이다.</li>
-</ul>
+<h2 id="implement-health-check-endpoint">Implement health-check endpoint</h2>
 
-<p>스마트컨트랙트의 사용
-* eos.io 의 컨트랙트는 abi 로 표현된다.
-* 어플리케이션 코드는 json data 를 이용한 http 를 통해 contract 를 트리거 한다.
-* EOS.IO 는 컨트랙트를 간단히 스크립팅하거나 테스팅하기위한 커맨드라인 인터페이스를 제공한다.</p>
+<p>Stackdriver monitoring (helth monitoring agent) -&gt; /health upcheck.
+어디에 ? storage / database, network connection, 다른 의존들 ..
+실패하면 자동으로 알림을 준다.</p>
 
-<h1 id="intro-smart-contracts">Intro Smart Contracts</h1>
+<h2 id="로깅과-모니터를-어플리케이션의-성능에-대해-두라">로깅과 모니터를 어플리케이션의 성능에 대해 두라.</h2>
 
-<ul>
-<li><p>EOS.IO 스마트 컨트랙트는 WebAssembly 로 구동된다. (WASM)</p>
+<p>로그를 이벤트 스트림으로 취급하라. 어플리케이션에서는 건들지 말고 stdout 등으로 노출되는 데이터를 다른애가 후처리 해라 .
+구글의 스택드라이버를 통해 어플리케이션을 디버그할 수 있고, 에러 모니터링을 설정할 수 있다.</p>
 
-<ul>
-<li>web 표준으로 떠오르는중</li>
-<li>c/c++ 로부터 clang/llvm 을 통해 생성된다.</li>
-<li>다른 언어들도 언젠가 지원될 것</li>
-</ul></li>
+<h2 id="사소한-에러와-오래-지속되는-에러를-우아하게-다뤄라">사소한 에러와 오래 지속되는 에러를 우아하게 다뤄라.</h2>
 
-<li><p>Transaction - 실행되는 하나이상의 액션의 집합.</p>
+<p>trasient erros:
+지수적으로 backoff 하여 재시도 해라.
+구글클라이언트 클라이언트라이브러리는 재시도에 대해 자동적으로 수행한다.</p>
 
-<ul>
-<li>하나의 액션이라도 실패하면 모든 트랜잭션이 실패한다</li>
-</ul></li>
+<p>서비스 가용성 에러:
+서킷브레이커를 구현해라. 유저에게 에러를 매번 노출하는 것은 피하는 것노출하는 것도 고려. .</p>
 
-<li><p>Action - 스마트컨트랙트를 실행하는 고수준의 함수</p>
+<h2 id="데이터-sovereignnty-와-compliance-요구사항을-고려하라">데이터 sovereignnty 와 compliance 요구사항을 고려하라.</h2>
 
-<ul>
-<li>데이터를 컨트랙트에 전송하기 위해서는 payload 를 포함해야한다.</li>
-</ul></li>
-</ul>
+<p>어떤 나라에서 데이터보관에 대해 어떻게 규정하고 있는지&hellip;</p>
 
-<p>cloes 는 http 를 호출하는 syntatic sugar~</p>
+<h2 id="가능한-테스팅과-재앙으로부터-복구계획을-구상하고-어플을-테스트하라">가능한 테스팅과 재앙으로부터 복구계획을 구상하고 어플을 테스트하라.</h2>
 
-<p>transaction json 을 살펴보면.
-signature 가 있고, 이 특정한 트랜잭션의 시그니쳐를 표현한다.</p>
+<p>실패시나리오의 예:
+    연결 실패
+    데이터 센터나 클라우드 제공자의 실패
+    GCP 존이나 리전 실패
+    배포 롤백
+    네트워크나 어플리케이션 이슈의 데이터 파괴</p>
 
-<p>action json 은 이런 형태</p>
+<h2 id="계속되는-통합모델-ci-을-구현하고-파이프라인으로-배송하라-cd">계속되는 통합모델 (CI) 을 구현하고 파이프라인으로 배송하라. (CD)</h2>
 
-<p><code>
-actions : [{
-    &quot;account&quot;: &quot;eosio&quot;, // 액션을 실행하는 계정의 이름 (스마트 컨트랙트가 올라가있는 계정. 어떻게 action 을 실행할지에 대해 알고있다.)
-    &quot;name&quot;: &quot;newaccount&quot;, // 
-    &quot;authroization&quot;: [{ // 어떤 시그니쳐가 필요한지 나타낸다.
-        &quot;actor&quot;: &quot;eosio&quot;,
-        &quot;permission&quot;: &quot;acitve&quot;
-    }],
-    &quot;Data&quot;: &quot;000000000ea30550 .. 000a8ed32320100&quot; // hex 로 표현된값 
-}]
-</code></p>
+<p>강력한 devops 모델을 구현하라.</p>
 
-<p>table 을 업데이트할때, payer 에 대해 0 를 전달하면 이전 payer 를 그대로 사용한다.</p>
+<p>코드 저장소 -&gt; 빌드시스템 (배포아티팩트빌드/유닛테스트 실행) -&gt; 배포시스템 (실환경과 테스트환경에 아티팩트를 배포) -&gt; 1. 테스트환경 (통합테스트, 보안, 퍼포먼스 테스트.) / 2. 실환경 (성능 관찰)</p>
 
-<p>unittest
-    - test_api -&gt; tests directories .
-    - api_tests.cpp</p>
+<p>큰 수정이 있을때 배포하는 것이 아니라 작은 수정이 이씅ㄹ때마다 배포가 자동화되어 regression 의 리스크를 줄이며 디버그를 재빨리 하며, 이전 테이블의 빌드로 쉽게 롤백할 수 있게한다.</p>
 
-<p>``cpp
-#include <boost/test/unit_test.hpp>
-#inclue <eosio.token/eosio.token.wast.hpp>
-abi.hpp&gt;</p>
+<h2 id="strangler-패턴을-새로-어플리케이션을-구조화하는데-사용하라">Strangler 패턴을 새로 어플리케이션을 구조화하는데 사용하라.</h2>
 
-<p>BOOST_AUTO_TEST_SUITE(dice_tests)
-BOOST_FIXTURE_TEST_CASE(dice_test, dice_tester) try {
-    create_accounts( {N(eosio.token), N(dice), N(alice), N(bob), false});
-    set_code(N(eosio.token), eosio_token_wast);
-    set_abi(N(eosio.token), eosio_token_abi);
-    push_action(N(eosio.token), N(create), N(eosio.toekn), mvo() (&ldquo;issuer&rdquo;, &ldquo;eosio.token&rdquo;))
-}</p>
-
-<p>``</p>
-
-<p>load balcancing 을 담당하는 릴레이노드 /
-producer node 가 별개로 있다</p>
-
-<p>특정노드에 컨트랙트를 전송 ?
-host 지정 하면 된다.</p>
-
-<p>context free action 를 어디서배우면 되나~ //</p>
-
-<p>transaction 을 트랙킹하기위해 플러그인을 사용해도 된다.
-mongodb plugin 등.</p>
+<p>이패턴: 구버전의 어플리케이션을 조금씩 새로운 서비스의 컴포넌트로 교체해 나가는것.</p>
 
 </section>
 
 <div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fblock-chain-youtube%2fbuilding-distributed-app%2f&t=Building%20Distributed%20App" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fblock-chain-youtube%2fbuilding-distributed-app%2f&text=Building%20Distributed%20App&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fblock-chain-youtube%2fbuilding-distributed-app%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fblock-chain-youtube%2fbuilding-distributed-app%2f&title=Building%20Distributed%20App" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f2.security-reliability-migration%2f&t=2.Security-Reliability-Migration" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f2.security-reliability-migration%2f&text=2.Security-Reliability-Migration&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f2.security-reliability-migration%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f2.security-reliability-migration%2f&title=2.Security-Reliability-Migration" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
 </div>
 
 <div class="post-meta-code">
@@ -177,7 +144,7 @@ mongodb plugin 등.</p>
       val categories = [
       
       
-      <a href="https://nolleh.github.io//categories/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8-%EA%B0%9C%EB%85%90">"블록체인-개념"</a>
+      <a href="https://nolleh.github.io//categories/google-cloud-service">"Google Cloud Service"</a>
       
       ];
     </div>
@@ -192,9 +159,9 @@ mongodb plugin 등.</p>
         val tags = [
         
           
-          <a href="https://nolleh.github.io/tags/eos">"EOS"</a>
+          <a href="https://nolleh.github.io/tags/coursera">"Coursera"</a>
           
-          <a href="https://nolleh.github.io/tags/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8">"블록체인"</a>
+          <a href="https://nolleh.github.io/tags/google-cloud-service">"Google Cloud Service"</a>
           
         
         ];
@@ -207,12 +174,12 @@ mongodb plugin 등.</p>
     <img src="/images/seperator.png" />
   </div>
 
-  <a href="https://nolleh.github.io/distributed-systems/1.highlevel/">
+  <a href="https://nolleh.github.io/coursera/gcp/1.msaandapigateway/">
   <div class="post-title">
     <img src="/images/post-title-icon.png" />
     <div class="post-meta">
-      <time>21 Jan 2019, 22:58</time>
-      <h1>고수준의 분산 시스템</h1>
+      <time>12 Mar 2019, 21:51</time>
+      <h1>1.MSA and ApiGateway</h1>
     </div>
   </div>
 </a>
@@ -223,7 +190,7 @@ mongodb plugin 등.</p>
   </span>
   <nav id="TableOfContents">
 <ul>
-<li><a href="#1-distributed-systems-at-a-highlevel">1. Distributed systems at a highlevel</a></li>
+<li><a href="#loosely-coupled-microservices-and-api-gateway">Loosely Coupled Microservices and API gateway</a></li>
 </ul>
 </nav>
 </div>
@@ -231,41 +198,35 @@ mongodb plugin 등.</p>
 <section class="post-content">
   
 
-<blockquote>
-<p>다음에서 발췌
-<a href="http://book.mixu.net/distsys/intro.html">http://book.mixu.net/distsys/intro.html</a></p>
-</blockquote>
+<h1 id="loosely-coupled-microservices-and-api-gateway">Loosely Coupled Microservices and API gateway</h1>
 
-<h1 id="1-distributed-systems-at-a-highlevel">1. Distributed systems at a highlevel</h1>
+<p>모놀리틱에서는 기본 코드가 부풀게 되서, 어디를 고쳐야하는지 알기가 어렵다.
+패키지들의 의존성들이 얼키고 설킨다.</p>
 
-<ul>
-<li>분산 프로그래밍은 같은 문제를 하나의 컴퓨터에서 해결할 수 있는 문제를 여러 컴퓨터에서 해결하는 예술이다.</li>
-</ul>
+<p>작은 기본 코드를 고쳐도 전체 프로그램이 배포되어 테스트될 필요가 있다.</p>
 
-<p>컴퓨터 시스템이라면 해결해야 하는 두개의 문제가 있습니다.</p>
+<p>원격지에 의한 제어는 비동기 처리를 하자.</p>
 
-<ul>
-<li>저장소</li>
-<li>연산</li>
-</ul>
+<p>가능한한 이벤트 드리븐 처리를 하자.
+-&gt; 예를들어 구글 클라우드서비스에 이미지를 업데이트하고~ 이 이벤트에 반응하여 동작하는 어플리케이션을 만들 수 있다.</p>
 
-<p>분산 프로그래밍은 하나의 컴퓨터에서 해결할 수 있는 문제를 여러 컴퓨터를 통해 해결하는 예술입니다. 보통 하나의 컴퓨터에서 해결하기에는 적합하지 않은 문제를 위해서입니다.</p>
+<p>커플링을 줄이기 위해 메시지 큐 등을 사용할 수 있다.
+토픽에 대해 발송, 받아 처리.</p>
 
-<p>실세계에서의 어떤것도 분산시스템을 요구하지는 않습니다. 무한한 돈과 무한한 실시간 연구 시간이 있다면, 분산시스템은 필요없습니다. 모든 연산과 모든 저장소는 매직박스 안에서 실행 될 수 있습니다 - 하나의, 믿을 수 없을정도로 빠르고, 믿을 수 없을정도로 신뢰할 수 있는 시스템은 누군가에게 돈을 지불하거나 당신이 직접 디자인할 필요가 있겟죠.</p>
+<p>Cache content
+반응성을 위해 컨텐츠를 캐싱해서, TTL 이 지나기전의 캐쉬 데이터를 준다.
+없거나 만료됐으면 새로 계산(이후 캐시에 저장)
+멤캐시나 레디스에 저장한다.</p>
 
-<p>하지만, 그렇게 무한한 자원을 가지고 있는 사람은 별로 없습니다. 때문에, 그들은 좋은 장소와실제 세계에서, 비용적인 ㅈ측면에서 고려할 수 있는 적합한 실세계 의 장소를 찾아야 합니다. 작은 사이즈 에서는 하드웨어를 업그레이드 하는 것은 필ㅅ적인 전략입니다. 하지만, 문제의 사이즈가 커짐에 따라 싱글 노드의 하드웨어 업그레이드 만으로는 문제를 해결할수 없거나, 비용적으로 막히는 지점이 오게 됩니다. 이 포인트에서, 분산 시스템으로 오신것을 환영할 때가 된것 같네요!</p>
-
-<p>이것은 현재의 현실이고 어떤 현실이냐면 가장 가치있는 중앙 범위, 상업적인 소프트웨어 - 유지보수 비용이 문제가 발생했을때도 괜찮은 소프트웨어로 유지될 수 있도록 해줍니다.</p>
-
-<p>연산은 일반적으로</p>
+<p>Implement API gateway, 컨슈머 어플리케이션에 백엔드 기능이 동작할 수 있도록..</p>
 
 </section>
 
 <div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fdistributed-systems%2f1.highlevel%2f&t=%ea%b3%a0%ec%88%98%ec%a4%80%ec%9d%98%20%eb%b6%84%ec%82%b0%20%ec%8b%9c%ec%8a%a4%ed%85%9c" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fdistributed-systems%2f1.highlevel%2f&text=%ea%b3%a0%ec%88%98%ec%a4%80%ec%9d%98%20%eb%b6%84%ec%82%b0%20%ec%8b%9c%ec%8a%a4%ed%85%9c&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fdistributed-systems%2f1.highlevel%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fdistributed-systems%2f1.highlevel%2f&title=%ea%b3%a0%ec%88%98%ec%a4%80%ec%9d%98%20%eb%b6%84%ec%82%b0%20%ec%8b%9c%ec%8a%a4%ed%85%9c" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f1.msaandapigateway%2f&t=1.MSA%20and%20ApiGateway" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f1.msaandapigateway%2f&text=1.MSA%20and%20ApiGateway&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f1.msaandapigateway%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f1.msaandapigateway%2f&title=1.MSA%20and%20ApiGateway" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
 </div>
 
 <div class="post-meta-code">
@@ -281,7 +242,7 @@ mongodb plugin 등.</p>
       val categories = [
       
       
-      <a href="https://nolleh.github.io//categories/%EC%84%9C%EB%B2%84%EA%B0%9C%EB%B0%9C%EC%A7%80%EC%8B%9D">"서버개발지식"</a>
+      <a href="https://nolleh.github.io//categories/google-cloud-service">"Google Cloud Service"</a>
       
       ];
     </div>
@@ -296,9 +257,9 @@ mongodb plugin 등.</p>
         val tags = [
         
           
-          <a href="https://nolleh.github.io/tags/programming">"Programming"</a>
+          <a href="https://nolleh.github.io/tags/coursera">"Coursera"</a>
           
-          <a href="https://nolleh.github.io/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8">"생각하는 프로그래머"</a>
+          <a href="https://nolleh.github.io/tags/google-cloud-service">"Google Cloud Service"</a>
           
         
         ];
@@ -319,7 +280,7 @@ mongodb plugin 등.</p>
   </a>
   
 
-  PAGE 3 / 14
+  PAGE 3 / 15
 
   
   <a href="/page/4/" rel="next">
