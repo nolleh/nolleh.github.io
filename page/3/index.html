@@ -3,13 +3,13 @@
 
 <head>
 	<meta name="generator" content="Hugo 0.52" />
-    <base href="https://nolleh.github.io/">
+    <base href="http://localhost/">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <title>The Computer Programmer, Nolleh </title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="canonical" href="https://nolleh.github.io/">
+    <link rel="canonical" href="http://localhost/">
     
-    <link href="https://nolleh.github.io/index.xml" rel="alternate" type="application/rss+xml" title="The Computer Programmer, Nolleh" />
+    <link href="http://localhost/index.xml" rel="alternate" type="application/rss+xml" title="The Computer Programmer, Nolleh" />
     
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -38,12 +38,12 @@
       </div>
 
 
-  <a href="https://nolleh.github.io/post/file-buffering/">
+  <a href="http://localhost/coursera/gcp/1-1.12-tips/">
   <div class="post-title">
     <img src="/images/post-title-icon.png" />
     <div class="post-meta">
-      <time>17 Jul 2017, 00:25</time>
-      <h1>파일 버퍼링</h1>
+      <time>12 Mar 2019, 21:52</time>
+      <h1>1-1. 계정관리를 위한 12 tips</h1>
     </div>
   </div>
 </a>
@@ -54,8 +54,15 @@
   </span>
   <nav id="TableOfContents">
 <ul>
-<li><a href="#file-buffering">File Buffering</a></li>
-<li><a href="#alignment-and-file-access-requirement">Alignment and File Access Requirement</a></li>
+<li><a href="#12-best-practices-for-user-saccount">12 Best Practices for user saccount</a>
+<ul>
+<li><a href="#1-패스워드를-해시하라">1. 패스워드를 해시하라.</a></li>
+<li><a href="#2-서드파티-식별-제공자를-허락하자">2. 서드파티 식별 제공자를 허락하자.</a></li>
+<li><a href="#3-유저-식별의-개념을-유저-계정의-개념과-분리하라">3. 유저 식별의 개념을 유저 계정의 개념과 분리하라.</a></li>
+<li><a href="#4-하나의-계정에-복수의-정체성을-허용할-수-있도록-제공하라">4. 하나의 계정에 복수의 정체성을 허용할 수 있도록 제공하라.</a></li>
+<li><a href="#5-길거나-복잡한-패스워드를-막지-말자">5. 길거나 복잡한 패스워드를 막지 말자.</a></li>
+<li><a href="#6-user-name-에-타당치-않은-규칙을-강요하지-마라">6. user name 에 타당치 않은 규칙을 강요하지 마라</a></li>
+</ul></li>
 </ul>
 </nav>
 </div>
@@ -63,82 +70,51 @@
 <section class="post-content">
   
 
-<blockquote>
-<p>다음에서 발췌, 번역<br />
-- <a href="https://msdn.microsoft.com/en-gb/library/windows/desktop/cc644950(v=vs.85).aspx">https://msdn.microsoft.com/en-gb/library/windows/desktop/cc644950(v=vs.85).aspx</a></p>
-</blockquote>
+<h1 id="12-best-practices-for-user-saccount">12 Best Practices for user saccount</h1>
 
-<h1 id="file-buffering">File Buffering</h1>
+<p><a href="https://cloud.google.com/blog/products/gcp/12-best-practices-for-user-account">https://cloud.google.com/blog/products/gcp/12-best-practices-for-user-account</a>
+GCP 에서는 유저 계정에 대한 안전한 핸들링과 인증을 위한 툴을 게공한다.
+웹사이트가 구글 쿠버네티스엔진에 호스트 되는 웹사이트를 담당하든, apigee 의 api 를 담당하든, firebase 를 사용하든, 어떤 다른 서비스를 통해 유저를 인증하든, 이 포스트는 좋은 연습을 제공해서, 안전하고 확장가능하고 쓸만한 계정 인증 시스템을 사용할 수 있게 도와줄 것이다.</p>
 
-<p>파일버퍼링 - unbuffered file I/O.<br />
-본문에선 시스템에 의해 캐싱되지 않는 (buffered) 데이터를<br />
-어떻게 유저 모드의 응용프로그램에서 데이터를 활용할 수 (interact) 있을지에 대해 다룬다.</p>
+<h2 id="1-패스워드를-해시하라">1. 패스워드를 해시하라.</h2>
 
-<p>FILE_FLAG_NO_BUFFERING 플래그를 통해 CreateFile 을 Open 하면,<br />
-파일을 읽거나 쓸때 시스템의 캐싱을 비활성화 하도록 제어할 수 있다.<br />
-I/O 버퍼링을 사용한것과 같은 효과를 내려면, 데이터 alignment 가 반드시 고려되어야 한다.</p>
+<p>패스워드를 포함해서, 예민한 개인정보를 어떻게 저장할 것인가가 계정관리의 가장 중요한 규칙이다. 이 데이터를 신성하게 다뤄야한다.
+다시 reverse 될 수 없는 강력한 해쉬로되어야한다. 예를들면, PBKDF2, Argon2, Scripy, Bcrypt .. 또한, 이 해쉬는 <a href="https://www.owasp.org/index.php/Password_Storage_Cheat_Sheet#Use_a_cryptographically_strong_credential-specific_salt">salted</a> 되어야 한다. MD5 나 SHA1 같은 deprecate 된 해쉬기술은 사용하면 안되며, revirsiable 될 수 있는 인크립션을 사용해야하는 상황은 어디에도 없으며, <a href="https://www.schneier.com/blog/archives/2011/04/schneiers_law.html">직접 해쉬 알고리즘을 개발할 필요도 없다.</a> 라고 생각하자.</p>
 
-<pre><code>Note 파일에 대해 Seeking 과 위치포인터,  
-offsets 의 개념을 사용하는 파일에 대해 alignment 정보가 고려될 필요가 있다. 
-</code></pre>
+<h2 id="2-서드파티-식별-제공자를-허락하자">2. 서드파티 식별 제공자를 허락하자.</h2>
 
-<p>물리 디스크와 파일 시스템 저장소의 계층에서 write 연산은 alignment 기준을 맞추지 못한다면 실패 할 것이다.</p>
+<p>믿을수 있게한다. 구글, 페이스북, 트위터등이 흔히 사용된다. <a href="https://firebase.google.com/docs/auth/">firebase Auth</a> 시스템을 통해 인증처리를 할 수도 있다. -다른 사례들을 보면, 반나절만에 적용하고 그렇다. fabulas?</p>
 
-<h1 id="alignment-and-file-access-requirement">Alignment and File Access Requirement</h1>
+<h2 id="3-유저-식별의-개념을-유저-계정의-개념과-분리하라">3. 유저 식별의 개념을 유저 계정의 개념과 분리하라.</h2>
 
-<p>다음을 만족시켜야한다.</p>
+<p>유저는 이메일 어드레스도, 핸드폰 번호도, OAUTH 응답의 unique ID 도 아니다.
+유저 유저는 유일성의 최고점에 있으며, 당신 서비스의 개인화된 데이터와 경험이다.
+잘 디자인된 유저관리 체계는 low 커플링 되어있으며, 고수준으로 응집되어있다.</p>
 
-<ul>
-<li>파일 접근 사이즈. OVERLAPPED 구조체의 offset 을 포함해서,<br />
-지정된다면 volume 의 섹터사이즈의 정수배로 지정되어야한다.</li>
-<li>읽기/쓰기 연산의 버퍼주소는 물리적 섹터에 aligned 되어있어야 한다.<br />
-즉, 물리 섹터 사이즈의 정수배로 메모리가 주소에 정렬되어 있어야함을 의미한다.<br />
-디스크에 따라 강제사항이 아닐 수도 있다.</li>
-</ul>
+<p>유저 계정과 보안을 분리하는 개념을 고수하는 것은 서드파티의 식별제공자를 구현하는 과정을 크게 단순화 할 수 있다. 유저는 유저 이름이나 다중의 정체성을 하나의 유저 계정에 연결 할 수도 있게 된다. 실제 용어로 옮기면, 내부의 전역 식별자를 모든 유저와 그들의 프로필과, 인증에 연결할 수도 있다.</p>
 
-<p>4096 byte 의 미디어 섹터사이즈가 시장에 나온 것을 고려해야하는데,<br />
-일시적인 방안으로, ATA / SCSI 명령어를 통해 일반적인 512 바이트의 섹터 저장소가<br />
-에뮬레이트 되도록 할 수 있다.</p>
+<h2 id="4-하나의-계정에-복수의-정체성을-허용할-수-있도록-제공하라">4. 하나의 계정에 복수의 정체성을 허용할 수 있도록 제공하라.</h2>
 
-<p>이 에뮬레이트를 사용할때, 다음 두 가지를 알아야한다.</p>
+<p>한 유저는 유저명과 패스워드를 사용하여 인증한후에, 이 과정이 계정을 생성할 수 있는지 모르고 구글 사이닝을 선택할 수있다. 유사하게, 어떤 유저는 복수의 이메일 주서를 당신의 서비스에 연결할 이유가 있었을 수도 있습니다. 만약 유저 식별과 인증을 분리해 두었다면, <a href="https://firebase.google.com/docs/auth/web/account-linking">하나의 유저에 대해 다양한 식별 정보를 연결하는게 간단하다.</a></p>
 
-<ul>
-<li>논리섹터: 미디어에 접근할때 사용되는 논리 블럭의 단위. 이 부분이 바로 &ldquo;emulation&rdquo;<br /></li>
-<li>물리섹터: 읽기/쓰기가 하나의 연산으로 이뤄지는 단위. 최적의 성능과 신뢰성을 위해 unbuffered I/O 가 aligned 되어야하는 단위이기도 하다.<br /></li>
-</ul>
+<p>사용자가 기존 계정에 연결되지 않은 서드파티 아이디를 사용하고 있다는 것을 깨닫기전에 새로 가입하는 프로세스를 수행할 수 있는 가능성을 고려해야 한다. 흔한 식별 정보를 제공하도록 묻는것 만으로도 해결될 수 있다. 이메일어드레스, 폰이나 유저명 등.. 시스템에 존재한다면, 인증 후 새로운 아이디를 존재하는 계정에 연결하자.</p>
 
-<p>IOCTL_DISK_GET_DRIVE_GEOMETRY 와 GetDiskFreeSpace 를 통해 논리 섹터사이즈를 알 수 있으며,<br />
-IOCTL_STORAGE_QUERY_PROPERTY 제어코드와<br />
-STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR 구조체의<br />
-BytesPerPhysicalSector 멤버의 사용을 통해 물리 섹터 사이즈를 구할 수 있다.</p>
+<h2 id="5-길거나-복잡한-패스워드를-막지-말자">5. 길거나 복잡한 패스워드를 막지 말자.</h2>
 
-<pre><code>Windows Server 2003 과 XP 에서는  
-STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR 가 지원되지 않는다.
-</code></pre>
+<p>NIST 는 최근에 패스워드 복잡도와 강인함에 대해 <a href="https://pages.nist.gov/800-63-3/sp800-63b.html#appendix-astrength-of-memorized-secrets">가이드라인</a>을 제공했다.
+패스워드 길이를 막아서 얻을 수 있는건 POST 사이즈 뿐.. (끽해봐야 1MB?)</p>
 
-<p>섹터 align 버퍼를 얻기 위해 VirtualAlloc 함수를 사용할 수 있다.</p>
+<p>해쉬된 패스워드는 알려진 적은 ASCII문자의 선택으로 압축될 수 있고, 그렇지 않으면 그냥 바이너리 해쉬를 <a href="https://en.wikipedia.org/wiki/Base64">Base64</a> 로 변경해도 된다.</p>
 
-<ul>
-<li>VertualAlloc 은 메모리를 시스템페이지의 정수배의 사이즈로 align 되도록 메모리를 할당한다.<br />
-x64 나 x86 에서는 4,096 바이트이며, Itanium-기반 시스템에서는 8,192 이다.<br />
-더 자세한 정보는 GetSystemInfo 함수를 통해 얻을 수 있다.</li>
-<li>직접 접근하는 저장소의 일반적인 섹터사이즈는 512 ~ 4,096 byte 이며, CD-ROM 에서는 2,048 바이트.</li>
-<li>페이지/섹터사이즈 모두 2의 거듭제곱.</li>
-</ul>
-
-<p>섹터사이즈가 페이지사이즈보다 큰 경우는 적기 때문에,<br />
-대부분의 경우 page 에 align 된 메모리는 sector 에 대해서도 align 되어있다.</p>
-
-<p>수동으로 align 된 메모리버퍼를 얻는 또하나의 방법은 _aligned_malloc 함수를 사용하는 것이다.<br />
-수동으로 align 된 버퍼를 사용하는 방법은 WriteFile 절의 예제코드를 살펴보라.</p>
+<h2 id="6-user-name-에-타당치-않은-규칙을-강요하지-마라">6. user name 에 타당치 않은 규칙을 강요하지 마라</h2>
 
 </section>
 
 <div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fpost%2ffile-buffering%2f&t=%ed%8c%8c%ec%9d%bc%20%eb%b2%84%ed%8d%bc%eb%a7%81" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fpost%2ffile-buffering%2f&text=%ed%8c%8c%ec%9d%bc%20%eb%b2%84%ed%8d%bc%eb%a7%81&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fpost%2ffile-buffering%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fpost%2ffile-buffering%2f&title=%ed%8c%8c%ec%9d%bc%20%eb%b2%84%ed%8d%bc%eb%a7%81" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=http%3a%2f%2flocalhost%2fcoursera%2fgcp%2f1-1.12-tips%2f&t=1-1.%20%ea%b3%84%ec%a0%95%ea%b4%80%eb%a6%ac%eb%a5%bc%20%ec%9c%84%ed%95%9c%2012%20tips" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=http%3a%2f%2flocalhost%2fcoursera%2fgcp%2f1-1.12-tips%2f&text=1-1.%20%ea%b3%84%ec%a0%95%ea%b4%80%eb%a6%ac%eb%a5%bc%20%ec%9c%84%ed%95%9c%2012%20tips&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=http%3a%2f%2flocalhost%2fcoursera%2fgcp%2f1-1.12-tips%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=http%3a%2f%2flocalhost%2fcoursera%2fgcp%2f1-1.12-tips%2f&title=1-1.%20%ea%b3%84%ec%a0%95%ea%b4%80%eb%a6%ac%eb%a5%bc%20%ec%9c%84%ed%95%9c%2012%20tips" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
 </div>
 
 <div class="post-meta-code">
@@ -154,7 +130,7 @@ x64 나 x86 에서는 4,096 바이트이며, Itanium-기반 시스템에서는 8
       val categories = [
       
       
-      <a href="https://nolleh.github.io//categories/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C">"운영체제"</a>
+      <a href="http://localhost//categories/google-cloud-service">"Google Cloud Service"</a>
       
       ];
     </div>
@@ -169,11 +145,9 @@ x64 나 x86 에서는 4,096 바이트이며, Itanium-기반 시스템에서는 8
         val tags = [
         
           
-          <a href="https://nolleh.github.io/tags/kernel">"Kernel"</a>
+          <a href="http://localhost/tags/coursera">"Coursera"</a>
           
-          <a href="https://nolleh.github.io/tags/os">"OS"</a>
-          
-          <a href="https://nolleh.github.io/tags/programming">"Programming"</a>
+          <a href="http://localhost/tags/google-cloud-service">"Google Cloud Service"</a>
           
         
         ];
@@ -186,12 +160,12 @@ x64 나 x86 에서는 4,096 바이트이며, Itanium-기반 시스템에서는 8
     <img src="/images/seperator.png" />
   </div>
 
-  <a href="https://nolleh.github.io/post/concurrent-idiom-1-stack/">
+  <a href="http://localhost/coursera/gcp/2.security-reliability-migration/">
   <div class="post-title">
     <img src="/images/post-title-icon.png" />
     <div class="post-meta">
-      <time>10 Jul 2017, 22:57</time>
-      <h1>Concurrent Idiom 1 - Stack</h1>
+      <time>12 Mar 2019, 21:52</time>
+      <h1>2.Security-Reliability-Migration</h1>
     </div>
   </div>
 </a>
@@ -202,15 +176,15 @@ x64 나 x86 에서는 4,096 바이트이며, Itanium-기반 시스템에서는 8
   </span>
   <nav id="TableOfContents">
 <ul>
-<li><a href="#concurrent-issue-stack">Concurrent ISSUE - Stack</a>
+<li><a href="#3-security-reliablitiy-and-migration">3. Security, Reliablitiy, and Migration</a>
 <ul>
-<li><a href="#options">Options</a>
-<ul>
-<li><a href="#reference">Reference</a></li>
-<li><a href="#move">Move</a></li>
-<li><a href="#pointer">Pointer</a></li>
-<li><a href="#compounded-options">Compounded Options</a></li>
-</ul></li>
+<li><a href="#implement-health-check-endpoint">Implement health-check endpoint</a></li>
+<li><a href="#로깅과-모니터를-어플리케이션의-성능에-대해-두라">로깅과 모니터를 어플리케이션의 성능에 대해 두라.</a></li>
+<li><a href="#사소한-에러와-오래-지속되는-에러를-우아하게-다뤄라">사소한 에러와 오래 지속되는 에러를 우아하게 다뤄라.</a></li>
+<li><a href="#데이터-sovereignnty-와-compliance-요구사항을-고려하라">데이터 sovereignnty 와 compliance 요구사항을 고려하라.</a></li>
+<li><a href="#가능한-테스팅과-재앙으로부터-복구계획을-구상하고-어플을-테스트하라">가능한 테스팅과 재앙으로부터 복구계획을 구상하고 어플을 테스트하라.</a></li>
+<li><a href="#계속되는-통합모델-ci-을-구현하고-파이프라인으로-배송하라-cd">계속되는 통합모델 (CI) 을 구현하고 파이프라인으로 배송하라. (CD)</a></li>
+<li><a href="#strangler-패턴을-새로-어플리케이션을-구조화하는데-사용하라">Strangler 패턴을 새로 어플리케이션을 구조화하는데 사용하라.</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -219,56 +193,64 @@ x64 나 x86 에서는 4,096 바이트이며, Itanium-기반 시스템에서는 8
 <section class="post-content">
   
 
-<blockquote>
-<p>concurrent 프로그램을 작성할 때 고려해야할 몇가지 사항. 그리고 idiom.<br />
-여러 서적에서 발췌하였으며, 정리 차원에서 작성한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.<br />
-어쩌면 작성자의 부사수를 위한 자재가 될지도 모르겠&hellip;(..)</p>
-</blockquote>
+<h1 id="3-security-reliablitiy-and-migration">3. Security, Reliablitiy, and Migration</h1>
 
-<h1 id="concurrent-issue-stack">Concurrent ISSUE - Stack</h1>
+<p>Use federated identity management
+firebase authentication~
+외부의 identity provider 를 통해 ..</p>
 
-<p>이번엔 스택.</p>
+<h2 id="implement-health-check-endpoint">Implement health-check endpoint</h2>
 
-<pre><code class="language-cpp">if (!s.empty())
-{
-    item = s.top();
-    s.pop();
-}
-</code></pre>
+<p>Stackdriver monitoring (helth monitoring agent) -&gt; /health upcheck.
+어디에 ? storage / database, network connection, 다른 의존들 ..
+실패하면 자동으로 알림을 준다.</p>
 
-<p>인터페이스상의 문제이기 때문에 empty 와 top 사이의 safety 를 보장할 수 없다.<br />
-top() / pop() 도 마찬가지 -&gt;&gt; 조회되지 못하는 아이템이 있을 수 있다. (생각해보자.)<br />
-해결을 위해 ?? -&gt; Returning Pop ? &ndash;&gt;&gt; 역시, 생각해보자. (Hint. Exception)</p>
+<h2 id="로깅과-모니터를-어플리케이션의-성능에-대해-두라">로깅과 모니터를 어플리케이션의 성능에 대해 두라.</h2>
 
-<h2 id="options">Options</h2>
+<p>로그를 이벤트 스트림으로 취급하라. 어플리케이션에서는 건들지 말고 stdout 등으로 노출되는 데이터를 다른애가 후처리 해라 .
+구글의 스택드라이버를 통해 어플리케이션을 디버그할 수 있고, 에러 모니터링을 설정할 수 있다.</p>
 
-<h3 id="reference">Reference</h3>
+<h2 id="사소한-에러와-오래-지속되는-에러를-우아하게-다뤄라">사소한 에러와 오래 지속되는 에러를 우아하게 다뤄라.</h2>
 
-<p>호출전 인스턴스 생성 필요. 생성자의 인자가 항상 제공 가능한 경우가 아닐때도.<br />
-그리고 assign 필요. (Q. 이것이 무엇을 의미하는가? - C++ 개발지식이 있다면 대답할 수 있어야 한다.)</p>
+<p>trasient erros:
+지수적으로 backoff 하여 재시도 해라.
+구글클라이언트 클라이언트라이브러리는 재시도에 대해 자동적으로 수행한다.</p>
 
-<h3 id="move">Move</h3>
+<p>서비스 가용성 에러:
+서킷브레이커를 구현해라. 유저에게 에러를 매번 노출하는 것은 피하는 것노출하는 것도 고려. .</p>
 
-<p>Exception 만이 문제라면 이 선택으로 회피 가능할 수 있지 않은가.<br />
-하지만.. 위와 마찬가지. (Q. 역시, 대답할 수 있어야 한다. )</p>
+<h2 id="데이터-sovereignnty-와-compliance-요구사항을-고려하라">데이터 sovereignnty 와 compliance 요구사항을 고려하라.</h2>
 
-<h3 id="pointer">Pointer</h3>
+<p>어떤 나라에서 데이터보관에 대해 어떻게 규정하고 있는지&hellip;</p>
 
-<p>유저에게 메모리 관리 작업을 맡기는 것. (Q. 이게 문제라면, 어떻게 해결할 수 있겠는가?) 간단한 타입에 대해서는 오버헤드.</p>
+<h2 id="가능한-테스팅과-재앙으로부터-복구계획을-구상하고-어플을-테스트하라">가능한 테스팅과 재앙으로부터 복구계획을 구상하고 어플을 테스트하라.</h2>
 
-<h3 id="compounded-options">Compounded Options</h3>
+<p>실패시나리오의 예:
+    연결 실패
+    데이터 센터나 클라우드 제공자의 실패
+    GCP 존이나 리전 실패
+    배포 롤백
+    네트워크나 어플리케이션 이슈의 데이터 파괴</p>
 
-<p>말그대로, 결합.</p>
+<h2 id="계속되는-통합모델-ci-을-구현하고-파이프라인으로-배송하라-cd">계속되는 통합모델 (CI) 을 구현하고 파이프라인으로 배송하라. (CD)</h2>
 
-<p><strong>끝</strong></p>
+<p>강력한 devops 모델을 구현하라.</p>
+
+<p>코드 저장소 -&gt; 빌드시스템 (배포아티팩트빌드/유닛테스트 실행) -&gt; 배포시스템 (실환경과 테스트환경에 아티팩트를 배포) -&gt; 1. 테스트환경 (통합테스트, 보안, 퍼포먼스 테스트.) / 2. 실환경 (성능 관찰)</p>
+
+<p>큰 수정이 있을때 배포하는 것이 아니라 작은 수정이 이씅ㄹ때마다 배포가 자동화되어 regression 의 리스크를 줄이며 디버그를 재빨리 하며, 이전 테이블의 빌드로 쉽게 롤백할 수 있게한다.</p>
+
+<h2 id="strangler-패턴을-새로-어플리케이션을-구조화하는데-사용하라">Strangler 패턴을 새로 어플리케이션을 구조화하는데 사용하라.</h2>
+
+<p>이패턴: 구버전의 어플리케이션을 조금씩 새로운 서비스의 컴포넌트로 교체해 나가는것.</p>
 
 </section>
 
 <div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fpost%2fconcurrent-idiom-1-stack%2f&t=Concurrent%20Idiom%201%20-%20Stack" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fpost%2fconcurrent-idiom-1-stack%2f&text=Concurrent%20Idiom%201%20-%20Stack&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fpost%2fconcurrent-idiom-1-stack%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fpost%2fconcurrent-idiom-1-stack%2f&title=Concurrent%20Idiom%201%20-%20Stack" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=http%3a%2f%2flocalhost%2fcoursera%2fgcp%2f2.security-reliability-migration%2f&t=2.Security-Reliability-Migration" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=http%3a%2f%2flocalhost%2fcoursera%2fgcp%2f2.security-reliability-migration%2f&text=2.Security-Reliability-Migration&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=http%3a%2f%2flocalhost%2fcoursera%2fgcp%2f2.security-reliability-migration%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=http%3a%2f%2flocalhost%2fcoursera%2fgcp%2f2.security-reliability-migration%2f&title=2.Security-Reliability-Migration" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
 </div>
 
 <div class="post-meta-code">
@@ -284,7 +266,7 @@ top() / pop() 도 마찬가지 -&gt;&gt; 조회되지 못하는 아이템이 있
       val categories = [
       
       
-      <a href="https://nolleh.github.io//categories/%EC%84%9C%EB%B2%84%EA%B0%9C%EB%B0%9C%EC%A7%80%EC%8B%9D">"서버개발지식"</a>
+      <a href="http://localhost//categories/google-cloud-service">"Google Cloud Service"</a>
       
       ];
     </div>
@@ -299,13 +281,9 @@ top() / pop() 도 마찬가지 -&gt;&gt; 조회되지 못하는 아이템이 있
         val tags = [
         
           
-          <a href="https://nolleh.github.io/tags/concurrent-programming">"Concurrent Programming"</a>
+          <a href="http://localhost/tags/coursera">"Coursera"</a>
           
-          <a href="https://nolleh.github.io/tags/programming">"Programming"</a>
-          
-          <a href="https://nolleh.github.io/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8">"생각하는 프로그래머"</a>
-          
-          <a href="https://nolleh.github.io/tags/note">"Note"</a>
+          <a href="http://localhost/tags/google-cloud-service">"Google Cloud Service"</a>
           
         
         ];
@@ -326,7 +304,7 @@ top() / pop() 도 마찬가지 -&gt;&gt; 조회되지 못하는 아이템이 있
   </a>
   
 
-  PAGE 3 / 6
+  PAGE 3 / 15
 
   
   <a href="/page/4/" rel="next">
@@ -352,7 +330,7 @@ if (!doNotTrack) {
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
-<script data-no-instant>document.write('<script src="/livereload.js?port=5135&mindelay=10"></' + 'script>')</script></body>
+<script data-no-instant>document.write('<script src="/livereload.js?port=80&mindelay=10"></' + 'script>')</script></body>
 
 </html>
 

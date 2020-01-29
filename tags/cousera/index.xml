@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cousera on The Computer Programmer, Nolleh</title>
+    <link>http://localhost/tags/cousera/</link>
+    <description>Recent content in Cousera on The Computer Programmer, Nolleh</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <managingEditor>nolleh7707@gmail.com (nolleh)</managingEditor>
+    <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
+    <lastBuildDate>Sat, 16 Mar 2019 11:33:59 +0900</lastBuildDate>
+    
+	<atom:link href="http://localhost/tags/cousera/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>4.Cloud Storage, Cloud Datastore, Cloud Bigtable, Cloud SQL, and Cloud Spanner</title>
+      <link>http://localhost/coursera/gcp/4.db-overview/</link>
+      <pubDate>Sat, 16 Mar 2019 11:33:59 +0900</pubDate>
+      <author>nolleh7707@gmail.com (nolleh)</author>
+      <guid>http://localhost/coursera/gcp/4.db-overview/</guid>
+      <description>Cloud Storage 크고 자주 사용되지 않은 비구조화된 데이터
+   Overview ideal for     완전히 관리되고 고 신뢰가능 이미지와 비디오   비용절감. 확장가능한 오브젝트/블롭 저장 오브젝트와 블롭   http 로 접근 구조화되어있지 않은 데이터   오브젝트 이름이 키 정적 웹사이트 호스팅    Ideal for Cloud Datastore 관계형이나 데이터 분석에는 적합하지 않고 GAE 앱이나 구조화된 순수 제공 사용례에 적합한 구조화된 제공을 위한 스케일러블 저장소.</description>
+    </item>
+    
+  </channel>
+</rss>

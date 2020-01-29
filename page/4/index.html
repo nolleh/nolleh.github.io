@@ -3,13 +3,13 @@
 
 <head>
 	<meta name="generator" content="Hugo 0.52" />
-    <base href="https://nolleh.github.io/">
+    <base href="http://localhost/">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <title>The Computer Programmer, Nolleh </title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="canonical" href="https://nolleh.github.io/">
+    <link rel="canonical" href="http://localhost/">
     
-    <link href="https://nolleh.github.io/index.xml" rel="alternate" type="application/rss+xml" title="The Computer Programmer, Nolleh" />
+    <link href="http://localhost/index.xml" rel="alternate" type="application/rss+xml" title="The Computer Programmer, Nolleh" />
     
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -38,12 +38,12 @@
       </div>
 
 
-  <a href="https://nolleh.github.io/post/how-to-make-git-page/">
+  <a href="http://localhost/coursera/gcp/1.msaandapigateway/">
   <div class="post-title">
     <img src="/images/post-title-icon.png" />
     <div class="post-meta">
-      <time>07 Jul 2017, 21:22</time>
-      <h1>How To Make Git Page</h1>
+      <time>12 Mar 2019, 21:51</time>
+      <h1>1.MSA and ApiGateway</h1>
     </div>
   </div>
 </a>
@@ -54,19 +54,7 @@
   </span>
   <nav id="TableOfContents">
 <ul>
-<li><a href="#github-page">GitHub-Page</a>
-<ul>
-<li>
-<ul>
-<li><a href="#hugo-사이트-꾸미기">Hugo - 사이트 꾸미기</a>
-<ul>
-<li><a href="#hugo-가-올바르게-generate-하기-위한-설정-값-지정">hugo 가 올바르게 generate 하기 위한 설정 값 지정</a></li>
-<li><a href="#hugo-의-테마">hugo 의 테마</a></li>
-</ul></li>
-<li><a href="#hugo-generate">Hugo - Generate</a></li>
-<li><a href="#deploy">Deploy</a></li>
-</ul></li>
-</ul></li>
+<li><a href="#loosely-coupled-microservices-and-api-gateway">Loosely Coupled Microservices and API gateway</a></li>
 </ul>
 </nav>
 </div>
@@ -74,143 +62,35 @@
 <section class="post-content">
   
 
-<h1 id="github-page">GitHub-Page</h1>
+<h1 id="loosely-coupled-microservices-and-api-gateway">Loosely Coupled Microservices and API gateway</h1>
 
-<p>이런게 있다더라 ~ 라고 주변으로부터 처음 들은건 1~2년전이었던것 같은데<br />
-갑자기 꽂혀서 git page 를 만들었다. (!!)<br />
-github 에서는 1계정당 1 호스트를 제공하는 것 같고</p>
+<p>모놀리틱에서는 기본 코드가 부풀게 되서, 어디를 고쳐야하는지 알기가 어렵다.
+패키지들의 의존성들이 얼키고 설킨다.</p>
 
-<pre><code class="language-&lt;ID&gt;.github.io">  
-뭐 이런식? github 의 제공 영역은 repo 에 존재하는 index.html 을 repo 에 지정된 1 도메인과   
-연결해주는 정도인 것 같다. 
+<p>작은 기본 코드를 고쳐도 전체 프로그램이 배포되어 테스트될 필요가 있다.</p>
 
-# Repository
-git 을 사용해 본 적이 있다면 간단하다.  
-그렇다면 다음 절로 넘어가고, 그렇지 않다면, 다음을 따라하자.   
+<p>원격지에 의한 제어는 비동기 처리를 하자.</p>
 
-## github 가입
-이 항목에 있어 더 이상의 자세한 설명은 생략한다.  
-[github](https://github.com)
+<p>가능한한 이벤트 드리븐 처리를 하자.
+-&gt; 예를들어 구글 클라우드서비스에 이미지를 업데이트하고~ 이 이벤트에 반응하여 동작하는 어플리케이션을 만들 수 있다.</p>
 
-## sshKey
-여기를 따라하자.  
-[github-gen-sshkey](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
+<p>커플링을 줄이기 위해 메시지 큐 등을 사용할 수 있다.
+토픽에 대해 발송, 받아 처리.</p>
 
-## github repo 생성
-* github 본인 메인 페이지에서 Repositories
-* New 버튼
-* 안내에 따라 따라하기
-    - 즉, 로컬의 git repo 대상 폴더에서 git init
-    - git add -A
-    - git commit -m &quot;some-message&quot;
-    - git remote add origin git@github.com:&lt;ID&gt;/&lt;Repo&gt;.git
-    - git push -u origin master
+<p>Cache content
+반응성을 위해 컨텐츠를 캐싱해서, TTL 이 지나기전의 캐쉬 데이터를 준다.
+없거나 만료됐으면 새로 계산(이후 캐시에 저장)
+멤캐시나 레디스에 저장한다.</p>
 
-이제 github 에 repository 를 올릴수 있게 되었다! 
-
-## 내 Repo 를 GithubPage 로 지정하기  
-본 repo 에서 &lt;ID&gt;.github.com 의 index.html 을 찾도록 github 에 알려주자.  
-
-&lt;img src=&quot;./images/github-setting.png&quot; width=&quot;664&quot; height=&quot;220&quot;/&gt;  
-
-# MarkDown-To-HTML
-잘은 모르겠지만.. github 페이지에서는 유독 MarkDown 을 통해  
-html 을 작성하는게 잘 권장? 되어있는거 같고,  
-- 아마도 git page 의 최초 제공 목적 자체가 블로그가 아니라 위키 정리와 같은 마크업 언어로 간단하게 문서를 작성하는 데에 있었기 때문일거다 -  
-
-jekyll 이나 hugo 를 통해 MarkDown 으로 작성된 문서를 자동으로 html 로 생성할 수 있다.  
-
-
-## Hugo 
-사실 jekyll 을 많이들 쓰고 있는 것 같고 공식적으로 지원? 하는 것 같은데 
-내 맥 PC 의 버전으로 ruby 가 잘 설치가 안되서 괴로워하던 중에 지인이 hugo 를 사용하는 것을 보고 그냥 hugo 를 선택했다. 나름 괜찮은 듯.  
-공식 가이드는 다음을 살펴보면 되고,  
-[Quick-Start](https://gohugo.io/overview/quickstart/)
-
-내가 따라가면서 확인한 주요한 내용은 다음과 같다.  
-### Hugo OneStep 
-```Bash
-# 휴고 설치
-$ brew install hugo
-
-# 사이트 생성
-this/is/my/github/repo$ hugo new site
-
-# 포스트 생성
-this/is/my/github/repo$ hugo new post/hello-world.md
-
-# 포스트 수정
-this/is/my/github/repo$ vim content/post/hello-world.md
-
-# 로컬에서 확인하기
-this/is/my/github/repo$ hugo server ## http://localhost:1313 에서 확인
-
-</code></pre>
-
-<h3 id="hugo-사이트-꾸미기">Hugo - 사이트 꾸미기</h3>
-
-<h4 id="hugo-가-올바르게-generate-하기-위한-설정-값-지정">hugo 가 올바르게 generate 하기 위한 설정 값 지정</h4>
-
-<pre><code class="language-Bash">this/is/my/github/repo$ vim config.toml
-
-### .... config.toml
-baseurl = &quot;https://nolleh.github.io&quot;
-languageCode = &quot;ko-KR&quot;
-title = &quot;The Computer Programmer, Nolleh&quot;
-theme = &quot;hello-programmer&quot;
-Paginate    = 2                    # the number of posts per page
-disqusShortname = &quot;your-disqus-short-name&quot;
-
-[params]
-    author = &quot;nolleh&quot;
-    locale = &quot;ko-KR&quot;
-
-</code></pre>
-
-<h4 id="hugo-의-테마">hugo 의 테마</h4>
-
-<p>페이지를 예쁘게 구성하기 위해, 많은 개발자들이 오픈소스로 공개한 테마를 활용할 수 있다.</p>
-
-<ol>
-<li><a href="http://themes.gohugo.io/">Hugo-Theme-ShowCase</a><br /></li>
-<li><a href="https://github.com/dim0627/hugoThemes">All-Themes-Github</a></li>
-</ol>
-
-<p>1 에서 각 테마의 섬네일을,<br />
-2 에서 각 테마의 repository 를 확인하여 clone 받을 수 있다.<br />
-본인의 gitpage repo root/themes 로 이동하여 2의 repo 를 clone,
-위에서 기술한 config.toml 의 theme 항목을 지정하는 것으로 테마를 변경 할 수 있다.</p>
-
-<h3 id="hugo-generate">Hugo - Generate</h3>
-
-<p>앞서 기술한 hugo - onestep 의 마지막 라인의 hugo server 라인을 통해 html 파일을 생성, <a href="http://localhost:1313">http://localhost:1313</a> 에서 확인할 수 있지만 이 html 들을 repo 에 올리면 css 파일을 찾지 못해  원하는 대로 페이지가 렌더링 되지 않는다.<br />
-css 파일을 서버에서 찾을 수 있도록<br />
-hugo server 실행시 추가 파라메터를 제공, 로컬이 아니라 배포용의 html 을 생성할 수 있도록 하자.
-- 이것때문에 얼마나 삽질을 했던지!</p>
-
-<pre><code class="language-Bash">$ sudo hugo server --baseUrl=https://nolleh.github.io --destination=public/ --port=80 --appendPort=false
-</code></pre>
-
-<h3 id="deploy">Deploy</h3>
-
-<p>Generate 할때, destination 을 public 으로 지정하였으므로 public 디렉토리에 생성된다.
-이 폴더 전체를 다시 github repo 를 생성해서 올려두자.</p>
-
-<pre><code class="language-Bash">this/is/my/github/repo/public$ git init 
-this/is/my/github/repo/public$ git add -A
-this/is/my/github/repo/public$ git commit -m &quot;my awesome site&quot;
-this/is/my/github/repo/public$ git push ...
-</code></pre>
-
-<p><strong>끝!</strong></p>
+<p>Implement API gateway, 컨슈머 어플리케이션에 백엔드 기능이 동작할 수 있도록..</p>
 
 </section>
 
 <div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fpost%2fhow-to-make-git-page%2f&t=How%20To%20Make%20Git%20Page" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fpost%2fhow-to-make-git-page%2f&text=How%20To%20Make%20Git%20Page&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fpost%2fhow-to-make-git-page%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fpost%2fhow-to-make-git-page%2f&title=How%20To%20Make%20Git%20Page" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=http%3a%2f%2flocalhost%2fcoursera%2fgcp%2f1.msaandapigateway%2f&t=1.MSA%20and%20ApiGateway" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=http%3a%2f%2flocalhost%2fcoursera%2fgcp%2f1.msaandapigateway%2f&text=1.MSA%20and%20ApiGateway&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=http%3a%2f%2flocalhost%2fcoursera%2fgcp%2f1.msaandapigateway%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=http%3a%2f%2flocalhost%2fcoursera%2fgcp%2f1.msaandapigateway%2f&title=1.MSA%20and%20ApiGateway" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
 </div>
 
 <div class="post-meta-code">
@@ -226,7 +106,7 @@ this/is/my/github/repo/public$ git push ...
       val categories = [
       
       
-      <a href="https://nolleh.github.io//categories/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD">"개발환경"</a>
+      <a href="http://localhost//categories/google-cloud-service">"Google Cloud Service"</a>
       
       ];
     </div>
@@ -241,9 +121,9 @@ this/is/my/github/repo/public$ git push ...
         val tags = [
         
           
-          <a href="https://nolleh.github.io/tags/github-page">"GitHub-Page"</a>
+          <a href="http://localhost/tags/coursera">"Coursera"</a>
           
-          <a href="https://nolleh.github.io/tags/editor">"Editor"</a>
+          <a href="http://localhost/tags/google-cloud-service">"Google Cloud Service"</a>
           
         
         ];
@@ -256,12 +136,12 @@ this/is/my/github/repo/public$ git push ...
     <img src="/images/seperator.png" />
   </div>
 
-  <a href="https://nolleh.github.io/post/brew-update/">
+  <a href="http://localhost/block-chain-youtube/building-distributed-app/">
   <div class="post-title">
     <img src="/images/post-title-icon.png" />
     <div class="post-meta">
-      <time>04 Jul 2017, 22:31</time>
-      <h1>Brew Install 이 구버전만 설치할 때</h1>
+      <time>23 Jan 2019, 20:32</time>
+      <h1>Building Distributed App</h1>
     </div>
   </div>
 </a>
@@ -272,21 +152,8 @@ this/is/my/github/repo/public$ git push ...
   </span>
   <nav id="TableOfContents">
 <ul>
-<li>
-<ul>
-<li><a href="#let-s-사족">Let&rsquo;s 사족</a></li>
-<li><a href="#brew">Brew</a>
-<ul>
-<li><a href="#brew-설치">Brew 설치</a></li>
-<li><a href="#brew-를-통해-설치하기">Brew 를 통해 설치하기</a>
-<ul>
-<li><a href="#최초-설치">최초 설치</a></li>
-<li><a href="#업데이트">업데이트</a></li>
-</ul></li>
-<li><a href="#brew-install-이-구-버전만-다운로드-받을-때">Brew Install 이 구 버전만 다운로드 받을 때</a></li>
-<li><a href="#업데이트시-다음-에러-노출시">업데이트시 다음 에러 노출시</a></li>
-</ul></li>
-</ul></li>
+<li><a href="#smart-contract">Smart Contract</a></li>
+<li><a href="#intro-smart-contracts">Intro Smart Contracts</a></li>
 </ul>
 </nav>
 </div>
@@ -294,84 +161,103 @@ this/is/my/github/repo/public$ git push ...
 <section class="post-content">
   
 
-<h2 id="let-s-사족">Let&rsquo;s 사족</h2>
-
-<p>처음 회사에 입사 했을 때 자리에는 Mac PC 만이 덩그러니 있었고, Mac 을 사용해본적 없던 꼬꼬마는
-자연스럽게 윈도우 CD 를 인사팀에서 받아와서 깔고 있었드랬다.</p>
-
 <blockquote>
-<p>&ldquo;기껏 좋은 컴퓨터 줬더니 넌 뭘하고 있는거니?&rdquo;</p>
+<p>다음에서 발췌 ()[]</p>
 </blockquote>
 
-<p>라는 선배의 말을 듣고 그제야 맥에서도 안드로이드 개발이 되는거구나.. (이때는 현업 안드로이드 개발자였다.)<br />
-하곤 윈도우 설치페이지를 취소하고 다시 맥 OS 를 부팅했었지.</p>
+<h1 id="smart-contract">Smart Contract</h1>
 
-<p>이때가, Mac OS 와의 첫 만남이었드랬다.</p>
+<ul>
+<li>블록은 트랜잭션을 포함한다.</li>
+<li>트랜잭션은 액션의 기록이다.</li>
+<li>액션은 컨트랙트의 동작이다.</li>
+</ul>
 
-<h2 id="brew">Brew</h2>
+<p>스마트컨트랙트의 사용</p>
 
-<p>뭐 전혀 관계 없는 얘기로 포스트를 열었지만.<br />
-어쨌거나 그때부터 Mac 을 수년간 사용하면서 - 그때 쓰던 회사 Mac 은 여전히 내 사무실 책상의 한켠을 차지하고 있다 -<br />
-Mac 을 비롯한 Linux 계통에서 Windows 를 압도하는 장점을 들자면,</p>
+<ul>
+<li>eos.io 의 컨트랙트는 abi 로 표현된다.</li>
+<li>어플리케이션 코드는 json data 를 이용한 http 를 통해 contract 를 트리거 한다.</li>
+<li>EOS.IO 는 컨트랙트를 간단히 스크립팅하거나 테스팅하기위한 커맨드라인 인터페이스를 제공한다.</li>
+</ul>
+
+<h1 id="intro-smart-contracts">Intro Smart Contracts</h1>
+
+<ul>
+<li><p>EOS.IO 스마트 컨트랙트는 WebAssembly 로 구동된다. (WASM)</p>
+
+<ul>
+<li>web 표준으로 떠오르는중</li>
+<li>c/c++ 로부터 clang/llvm 을 통해 생성된다.</li>
+<li>다른 언어들도 언젠가 지원될 것</li>
+</ul></li>
+
+<li><p>Transaction - 실행되는 하나이상의 액션의 집합.</p>
+
+<ul>
+<li>하나의 액션이라도 실패하면 모든 트랜잭션이 실패한다</li>
+</ul></li>
+
+<li><p>Action - 스마트컨트랙트를 실행하는 고수준의 함수</p>
+
+<ul>
+<li>데이터를 컨트랙트에 전송하기 위해서는 payload 를 포함해야한다.</li>
+</ul></li>
+</ul>
+
+<p>cloes 는 http 를 호출하는 syntatic sugar~</p>
+
+<p>transaction json 을 살펴보면.
+signature 가 있고, 이 특정한 트랜잭션의 시그니쳐를 표현한다.</p>
+
+<p>action json 은 이런 형태</p>
+
+<p><code>actions : [{ &quot;account&quot;: &quot;eosio&quot;, &quot;name&quot;: &quot;newaccount&quot;,&quot;actor&quot;: &quot;eosio&quot;, &quot;permission&quot;: &quot;acitve&quot; }], &quot;Data&quot;: &quot;000000000ea30550 .. 000a8ed32320100&quot; }]</code></p>
 
 <blockquote>
-<p>개발자를 위한 환경 설정이 간편하다</p>
+<ul>
+<li>account : 액션을 실행하는 계정의 이름 (스마트 컨트랙트가 올라가있는 계정. 어떻게 action 을 실행할지에 대해 알고있다.)</li>
+<li>name : &ldquo;authroization&rdquo;: [{ // 어떤 시그니쳐가 필요한지 나타낸다.</li>
+<li>data : hex 로 표현된 값</li>
+</ul>
 </blockquote>
 
-<p>가 되겠다.<br />
-Mac 에서는 그 역할을 충실히 하는 요소 중에 하나가 &ldquo;HomeBrew&rdquo; 라 하겠고.<br />
-<a href="http://docs.brew.sh/">HomeBrew</a></p>
+<p>table 을 업데이트할때, payer 에 대해 0 를 전달하면 이전 payer 를 그대로 사용한다.</p>
 
-<h3 id="brew-설치">Brew 설치</h3>
+<p>unittest - test_api -&gt; tests directories . - api_tests.cpp</p>
 
-<blockquote>
-<p>다음 라인을 터미널에서 실행하자. brew 설치 자체도 이렇게 간편하다니.. Linux 계통은 보통 이렇게 one line 으로 다 해결이 된다.</p>
-</blockquote>
+<pre><code class="language-cpp">#include &lt;boost/test/unit_test.hpp&gt;
+#inclue &lt;eosio.token/eosio.token.wast.hpp&gt;
+abi.hpp&gt;
 
-<pre><code class="language-Bash">mkdir homebrew &amp;&amp; curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
+BOOST_AUTO_TEST_SUITE(dice_tests)
+BOOST_FIXTURE_TEST_CASE(dice_test, dice_tester) try {
+create_accounts( {N(eosio.token), N(dice), N(alice), N(bob), false});
+set_code(N(eosio.token), eosio_token_wast);
+set_abi(N(eosio.token), eosio_token_abi);
+push_action(N(eosio.token), N(create), N(eosio.toekn), mvo() (&quot;issuer&quot;, &quot;eosio.token&quot;))
+}
+
 </code></pre>
 
-<h3 id="brew-를-통해-설치하기">Brew 를 통해 설치하기</h3>
+<p>load balcancing 을 담당하는 릴레이노드 /
+producer node 가 별개로 있다</p>
 
-<p>Formula 라고 지칭하고 있는게 맞는지는 잘 모르겠지만.<br />
-brew 를 통해 프로그램/binary 를 설치할 경우 다음과 같이 실행</p>
+<p>특정노드에 컨트랙트를 전송 ?
+host 지정 하면 된다.</p>
 
-<h4 id="최초-설치">최초 설치</h4>
+<p>context free action 를 어디서배우면 되나~ //</p>
 
-<pre><code class="language-Bash">$ Brew install ${Formula}
-</code></pre>
-
-<h4 id="업데이트">업데이트</h4>
-
-<pre><code class="language-Bash">$ Brew upgrade ${Formula}
-</code></pre>
-
-<h3 id="brew-install-이-구-버전만-다운로드-받을-때">Brew Install 이 구 버전만 다운로드 받을 때</h3>
-
-<p>이건.. 맥을 사용한 지금까지 잘 모르고 있었던 건데,<br />
-Brew 자체를 업데이트해서 formular 를 갱신할 필요가 있나보다.<br />
-다음을 통한다.</p>
-
-<pre><code class="language-Bash">$ Brew update
-</code></pre>
-
-<h3 id="업데이트시-다음-에러-노출시">업데이트시 다음 에러 노출시</h3>
-
-<pre><code class="language-Bash">$ Error: /usr/local must be writable!
-</code></pre>
-
-<p>다음 실행</p>
-
-<pre><code class="language-Bash">sudo chown -R $(whoami) /usr/local
-</code></pre>
+<p>transaction 을 트랙킹하기위해 플러그인을 사용해도 된다.
+mongodb plugin 등.</p>
 
 </section>
 
 <div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fpost%2fbrew-update%2f&t=Brew%20Install%20%ec%9d%b4%20%ea%b5%ac%eb%b2%84%ec%a0%84%eb%a7%8c%20%ec%84%a4%ec%b9%98%ed%95%a0%20%eb%95%8c" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fpost%2fbrew-update%2f&text=Brew%20Install%20%ec%9d%b4%20%ea%b5%ac%eb%b2%84%ec%a0%84%eb%a7%8c%20%ec%84%a4%ec%b9%98%ed%95%a0%20%eb%95%8c&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fpost%2fbrew-update%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fpost%2fbrew-update%2f&title=Brew%20Install%20%ec%9d%b4%20%ea%b5%ac%eb%b2%84%ec%a0%84%eb%a7%8c%20%ec%84%a4%ec%b9%98%ed%95%a0%20%eb%95%8c" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=http%3a%2f%2flocalhost%2fblock-chain-youtube%2fbuilding-distributed-app%2f&t=Building%20Distributed%20App" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=http%3a%2f%2flocalhost%2fblock-chain-youtube%2fbuilding-distributed-app%2f&text=Building%20Distributed%20App&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=http%3a%2f%2flocalhost%2fblock-chain-youtube%2fbuilding-distributed-app%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=http%3a%2f%2flocalhost%2fblock-chain-youtube%2fbuilding-distributed-app%2f&title=Building%20Distributed%20App" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
 </div>
 
 <div class="post-meta-code">
@@ -387,7 +273,7 @@ Brew 자체를 업데이트해서 formular 를 갱신할 필요가 있나보다.
       val categories = [
       
       
-      <a href="https://nolleh.github.io//categories/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD">"개발환경"</a>
+      <a href="http://localhost//categories/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8-%EA%B0%9C%EB%85%90">"블록체인-개념"</a>
       
       ];
     </div>
@@ -402,7 +288,9 @@ Brew 자체를 업데이트해서 formular 를 갱신할 필요가 있나보다.
         val tags = [
         
           
-          <a href="https://nolleh.github.io/tags/macos">"MacOS"</a>
+          <a href="http://localhost/tags/eos">"EOS"</a>
+          
+          <a href="http://localhost/tags/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8">"블록체인"</a>
           
         
         ];
@@ -423,7 +311,7 @@ Brew 자체를 업데이트해서 formular 를 갱신할 필요가 있나보다.
   </a>
   
 
-  PAGE 4 / 6
+  PAGE 4 / 15
 
   
   <a href="/page/5/" rel="next">
@@ -449,7 +337,7 @@ if (!doNotTrack) {
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
-<script data-no-instant>document.write('<script src="/livereload.js?port=5135&mindelay=10"></' + 'script>')</script></body>
+<script data-no-instant>document.write('<script src="/livereload.js?port=80&mindelay=10"></' + 'script>')</script></body>
 
 </html>
 

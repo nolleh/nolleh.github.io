@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <base href="http://localhost/">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Dispose  &middot; The Computer Programmer, Nolleh</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="http://localhost/csharp/dispose/">
+    
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="/">HOME</a></li>
+            <li><a href="/categories">CATEGORIES</a></li>
+            <li><a href="/project">PROJECTS</a></li>
+        </ul>
+    </div>
+    <div class="container">
+      <div class="title">
+        <div>
+          <a href="/">
+            <img src="/images/logo.png" />
+          </a>
+        </div>
+        <div><img src="/images/seperator.png" /></div>
+        <div class="logo-title">hello, world!</div>
+      </div>
+
+
+<a href="http://localhost/csharp/dispose/">
+  <div class="post-title">
+    <img src="/images/post-title-icon.png" />
+    <div class="post-meta">
+      <time>19 Dec 2018, 10:18</time>
+      <h1>Dispose</h1>
+    </div>
+  </div>
+</a>
+
+<div class="post-toc">
+  <span class="title">
+    Table of contents
+  </span>
+  <nav id="TableOfContents">
+<ul>
+<li><a href="#dispose-에-대한-여러가지">Dispose 에 대한 여러가지</a>
+<ul>
+<li><a href="#msdn">MSDN</a></li>
+<li><a href="#threadsafety">threadSafety</a></li>
+</ul></li>
+</ul>
+</nav>
+</div>
+
+<section class="post-content">
+  
+
+<h1 id="dispose-에-대한-여러가지">Dispose 에 대한 여러가지</h1>
+
+<h2 id="msdn">MSDN</h2>
+
+<blockquote>
+<p><a href="https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-dispose#Y754">Implementing a Dispose method</a></p>
+</blockquote>
+
+<h2 id="threadsafety">threadSafety</h2>
+
+<blockquote>
+<p><a href="https://stackoverflow.com/questions/5024883/thread-safety-of-dispose-methods">stackoverflow</a> dispose 의 threadsafety</p>
+</blockquote>
+
+<p>많은 경우 어떤 스레드든지 다른 스레드가 dispose 를 시작했을때 오브젝트에 대해 작업을 하고 있을 수 있기 때문에, interlocked.Exchange 를 통해 배제하는게 옳아 보인다.</p>
+
+<p>물론, 좋은 생각이고 표준 dispose 패턴의 일부가 되어야 한다고 생각한다.<br />
+(champareExchange가 base class 에 봉인됨으로써 derived class 에서 private 한 disposed flag 를 사용하는 것을 피해야한다.)<br />
+하지만 불행히도, dispose 가 정확히 어떤것을 하는지 생각해보면 문제는 좀 더 복잡해진다.</p>
+
+<p>Dispose 의 진짜 목적은 그 오브젝트가 버려지게 하는 목적이라기보다, 그 오브젝트가 들고 있는 레퍼런스를 비우는데 목적이 있다.<br />
+이 엔터티 들은 managed objects 일 수도 있고, system object 일수도 있고, 다른 어떤 것일 수도 있다; 심지어 같은 컴퓨터에 존재하지 않을 수도 있다.</p>
+
+<p>thread-safe 하려면, 이 Dispose 가 정리하는 동시에 다른 스레드가 이를 가지고 다른 일을 할 수 있도록 다른 엔티티들이 허용해야한다.<br />
+어떤 객체들은 이렇게 할 수 있지만, 그렇지 않은 객체들도 있다.</p>
+
+<p>짜증나는 예를 들어보자: 객체들은 thread-safe 하지 않은 RemoveHandler 이벤트를 갖도록 허용되어있다. 결과적으로, 구독이 이루어졌던 그 스레드에서만 Dispose 를 호출하도록 해야한다.</p>
+
+</section>
+
+<div class="share">
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=http%3a%2f%2flocalhost%2fcsharp%2fdispose%2f&t=Dispose" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=http%3a%2f%2flocalhost%2fcsharp%2fdispose%2f&text=Dispose&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=http%3a%2f%2flocalhost%2fcsharp%2fdispose%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=http%3a%2f%2flocalhost%2fcsharp%2fdispose%2f&title=Dispose" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+</div>
+
+<div class="post-meta-code">
+  <div class="desc">
+    public string description() {
+    <div class="desc">val author = "
+    
+        nolleh
+    ";
+    </div>
+    
+    <div class="desc">
+      val categories = [
+      
+      
+      <a href="http://localhost//categories/csharp">"csharp"</a>
+      
+      ];
+    </div>
+    
+    }
+  </div>
+</div>
+<div class="post-meta-code">
+  <div class="desc">
+    public string tags() {
+      <div class="desc">
+        val tags = [
+        
+          
+          <a href="http://localhost/tags/c">"C#"</a>
+          
+          <a href="http://localhost/tags/programming">"Programming"</a>
+          
+        
+        ];
+      </div>
+    }
+  </div>
+</div>
+
+
+<div class="share"></div>
+
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "nolleh-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<div class="paging post-paging">
+  
+  <a class="left" href="http://localhost/csharp/async-await-msdn/" rel="prev">
+    <i class="fa fa-caret-left" aria-hidden="true"></i> <span>Async Await 을 사용한 비동기 프로그래밍</span>
+  </a>
+  
+  
+  <a class="right" href="http://localhost/csharp/async-await/" rel="next">
+    <span>Async Await</span> <i class="fa fa-caret-right" aria-hidden="true"></i>
+  </a>
+  
+</div>
+
+<div class="share"></div>
+
+<div class="seperator">
+  <img src="/images/seperator.png" />
+</div>
+
+<footer class="footer">
+    COPYRIGHT (C) <a href="http://blog.lulab.net">DONGGEUN,BANG</a>. ALL RIGHTS RESERVED.
+</footer>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-102565363-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script data-no-instant>document.write('<script src="/livereload.js?port=80&mindelay=10"></' + 'script>')</script></body>
+
+</html>
+

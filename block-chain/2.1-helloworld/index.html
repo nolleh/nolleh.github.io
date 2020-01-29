@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <base href="http://localhost/">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>EOSIO - 2.1/Hello World!  &middot; The Computer Programmer, Nolleh</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="http://localhost/block-chain/2.1-helloworld/">
+    
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="/">HOME</a></li>
+            <li><a href="/categories">CATEGORIES</a></li>
+            <li><a href="/project">PROJECTS</a></li>
+        </ul>
+    </div>
+    <div class="container">
+      <div class="title">
+        <div>
+          <a href="/">
+            <img src="/images/logo.png" />
+          </a>
+        </div>
+        <div><img src="/images/seperator.png" /></div>
+        <div class="logo-title">hello, world!</div>
+      </div>
+
+
+<a href="http://localhost/block-chain/2.1-helloworld/">
+  <div class="post-title">
+    <img src="/images/post-title-icon.png" />
+    <div class="post-meta">
+      <time>01 Jan 2019, 20:17</time>
+      <h1>EOSIO - 2.1/Hello World!</h1>
+    </div>
+  </div>
+</a>
+
+<div class="post-toc">
+  <span class="title">
+    Table of contents
+  </span>
+  
+</div>
+
+<section class="post-content">
+  <p>hello 라는 이름의 디렉토리를 contracts directory 에 생성하자.</p>
+
+<pre><code class="language-shell">cd CONTRACTS_DIR
+mkdir hello
+cd hello
+</code></pre>
+
+<p>hello.cpp 를 생성하고 에디터로 열자.</p>
+
+<pre><code class="language-shell">touch hello.cpp
+</code></pre>
+
+<p>필요한 라이브러리를 이 파일에 include 한다.</p>
+
+<pre><code class="language-c++">#include &lt;eosiolib/eosio.hpp&gt;
+#include &lt;eosiolib/print.hpp&gt;
+</code></pre>
+
+<p>코드를 간결하게 해줄 eosio 네임스페이스를 contract 에 추가한다.</p>
+
+<pre><code class="language-c++">using namespace eosio;
+</code></pre>
+
+<ul>
+<li>eosiolib/eosio.hpp 가 EOSIO C 와 C++ API 를 당신의 contract 스코프에 로드한다.</li>
+</ul>
+
+<p>표준 C++11 클래스를 생성한다. 이 contract class 는 eosio::contract 를 확장해야한다.</p>
+
+<pre><code class="language-c++">#include &lt;eosiolib/eosio.hpp&gt;
+#include &lt;eosiolib/print.hpp&gt;
+
+using namespace eosio;
+
+class hello : public contract {};
+</code></pre>
+
+<p>비어있는 contract 는 좋지 않으니, public 접근 지정자와 using 선언을 추가하자. 이 using 선언은 좀 더 간결한 코드를 쓸 수 있도록 도움을 줄것이다.</p>
+
+<p>이제 contract 는 어떤 작업을 하도록 구성한다. hello world 의 정신을 받아 &ldquo;name&rdquo; 파라메터를 수신하고, 파라메터를 출력하는 작업을 해보자.</p>
+
+<pre><code class="language-c++">#include &lt;eosiolib/eosio.hpp&gt;
+#include &lt;eosiolib/print.hpp&gt;
+
+using namespace eosio;
+
+class hello : public contract {
+  public:
+      using contract::contract;
+  
+      [[eosio::action]]
+      void hi( name user ) {
+         print( &quot;Hello, &quot;, name{user});
+      }
+};
+</code></pre>
+
+<p>위의 동작은 user 라는 이름의 파라메터를 name type 으로 전달 받는다.<br />
+EOSIO 는 몇개의 typedef 를 선언하고 있는데, 이 중에 흔한 하나가 바로 이 <code>name</code> 이다.<br />
+<code>eosio::print</code>를 사용함으로써, 문자열을 user 파라미터와 붙여 출력한다.<br />
+괄호를 이용한 초기화 <code>name{user}</code> 는 <code>user</code> 파라메터가 출력될 수 있도록 해준다.</p>
+
+<p>eosio.cdt 의 abi 생성자는 atttrubite 없이는 hi() 의 동작을 알 수 없다. c++11 스타일의 attribute 를 action 의 상위에 추가하여 abi generator 가 신뢰 할 수 있는 출력을 할 수 있도록 한다.</p>
+
+<pre><code class="language-c++">#include &lt;eosiolib/eosio.hpp&gt;
+#include &lt;eosiolib/print.hpp&gt;
+
+using namespace eosio;
+
+class hello : public contract {
+  public:
+      using contract::contract;
+
+      [[eosio::action]]
+      void hi( name user ) {
+         print( &quot;Hello, &quot;, user);
+      }
+};
+
+EOSIO_DISPATCH( hello, (hi))
+</code></pre>
+
+<p>마지막으로, EOSIO_DISPATCH 매크로를 추가하여 hello contract 의 dispatch 액션을 처리하도록 한다.</p>
+
+<p>이제 web assembly 를 통해 컴파일해보자.</p>
+
+<pre><code class="language-shell">eosio-cpp -o hello.wasm hello.cpp --abigen
+</code></pre>
+
+<p>contract 가 배포되면, 계정으로 배포되어 이 계정이 contract 의 인터페이스가 된다.<br />
+이 튜토리얼의 이전에 언급하였듯, 같은 public key 를 모든계정에서 사용하여 간단히 할 수 있다.</p>
+
+<pre><code class="language-shell">cleos wallet keys
+</code></pre>
+
+<p>이 contract 를 위한 계정을 생성하기 위해 cleos create account 를 사용한다.</p>
+
+<pre><code class="language-shell">cleos create account eosio hello YOUR_PUBLIC_KEY -p eosio@active
+</code></pre>
+
+<p>컴파일된 wasm 을 cleos set contract 를 통해 블록체인으로 broadcast 한다.</p>
+
+<pre><code class="language-shell">cleos set contract hello CONTRACTS_DIR/hello -p hello@active
+</code></pre>
+
+<p>훌륭하다! 이제 contract 가 설정 되었고, action 을 push 해보자.</p>
+
+<pre><code class="language-shell">cleos push action hello hi '[&quot;bob&quot;]' -p bob@active
+</code></pre>
+
+<pre><code class="language-shell">executed transaction: 28d92256c8ffd8b0255be324e4596b7c745f50f85722d0c4400471bc184b9a16  244 bytes  1000 cycles
+#    hello.code &lt;= hello.code::hi               {&quot;user&quot;:&quot;bob&quot;}
+&gt;&gt; Hello, bob
+</code></pre>
+
+<p>예상했던대로 hello, bob 이 출력된다.</p>
+
+<p>이번 경우, &ldquo;alice&rdquo; 가 권한이 있고 <code>user</code> 는 단순한 argument 이다. contract 를 수정하여 권한이 있는 유저가 &ldquo;hi&rdquo; 를 받을 유저와 동일한 경우에만 동작하도록 해보자.<br />
+<code>require_auth</code> 메소드를 사용한다.<br />
+이 메소드는 <code>name</code> 을 파라메터로 받아서 action 을 수행하는 사용자가 제공된 파라메터와 일치하는지 확인한다.</p>
+
+<pre><code class="language-c++">void hi( name user ) {
+   require_auth( user );
+   print( &quot;Hello, &quot;, name{user} );
+}
+</code></pre>
+
+<p>다시 컴파일 한다.</p>
+
+<pre><code class="language-shell">eosio-cpp -o hello.wasm hello.cpp --abigen
+</code></pre>
+
+<p>그리고 update 한다.</p>
+
+<pre><code class="language-shell">cleos set contract hello CONTRACTS_DIR/hello -p hello@active
+</code></pre>
+
+<p>실행하되, 이번에는 권한이 일치 않도록 한다.</p>
+
+<pre><code class="language-shell">cleos push action hello hi '[&quot;bob&quot;]' -p alice@active
+</code></pre>
+
+<pre><code class="language-shell">Error 3090004: Missing required authority
+Ensure that you have the related authority inside your transaction!;
+If you are currently using 'cleos push action' command, try to add the [relevant](**http://google.com**) authority using -p option.
+</code></pre>
+
+<p>우리의 contract 수정으로, 제공된 <code>name user</code> 가 승인 유저와 동일한지 확인한다.<br />
+다시 실행하되, 이번엔 alice account 의 권한으로 실행해보자.</p>
+
+<pre><code class="language-shell">cleos push action hello hi '[&quot;alice&quot;]' -p alice@active
+</code></pre>
+
+<pre><code class="language-shell">executed transaction: 235bd766c2097f4a698cfb948eb2e709532df8d18458b92c9c6aae74ed8e4518  244 bytes  1000 cycles
+#    hello &lt;= hello::hi               {&quot;user&quot;:&quot;alice&quot;}
+&gt;&gt; Hello, alice
+</code></pre>
+
+</section>
+
+<div class="share">
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=http%3a%2f%2flocalhost%2fblock-chain%2f2.1-helloworld%2f&t=EOSIO%20-%202.1%2fHello%20World%21" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=http%3a%2f%2flocalhost%2fblock-chain%2f2.1-helloworld%2f&text=EOSIO%20-%202.1%2fHello%20World%21&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=http%3a%2f%2flocalhost%2fblock-chain%2f2.1-helloworld%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=http%3a%2f%2flocalhost%2fblock-chain%2f2.1-helloworld%2f&title=EOSIO%20-%202.1%2fHello%20World%21" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+</div>
+
+<div class="post-meta-code">
+  <div class="desc">
+    public string description() {
+    <div class="desc">val author = "
+    
+        nolleh
+    ";
+    </div>
+    
+    <div class="desc">
+      val categories = [
+      
+      
+      <a href="http://localhost//categories/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8">"블록체인"</a>
+      
+      ];
+    </div>
+    
+    }
+  </div>
+</div>
+<div class="post-meta-code">
+  <div class="desc">
+    public string tags() {
+      <div class="desc">
+        val tags = [
+        
+          
+          <a href="http://localhost/tags/block-chain">"block-chain"</a>
+          
+          <a href="http://localhost/tags/eosio">"EOSIO"</a>
+          
+        
+        ];
+      </div>
+    }
+  </div>
+</div>
+
+
+<div class="share"></div>
+
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "nolleh-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<div class="paging post-paging">
+  
+  <a class="left" href="http://localhost/distributed-systems/1.highlevel/" rel="prev">
+    <i class="fa fa-caret-left" aria-hidden="true"></i> <span>고수준의 분산 시스템</span>
+  </a>
+  
+  
+  <a class="right" href="http://localhost/block-chain/1.7-createtestaccount/" rel="next">
+    <span>EOSIO - 1.7/Test 계정 생성하기</span> <i class="fa fa-caret-right" aria-hidden="true"></i>
+  </a>
+  
+</div>
+
+<div class="share"></div>
+
+<div class="seperator">
+  <img src="/images/seperator.png" />
+</div>
+
+<footer class="footer">
+    COPYRIGHT (C) <a href="http://blog.lulab.net">DONGGEUN,BANG</a>. ALL RIGHTS RESERVED.
+</footer>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-102565363-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script data-no-instant>document.write('<script src="/livereload.js?port=80&mindelay=10"></' + 'script>')</script></body>
+
+</html>
+

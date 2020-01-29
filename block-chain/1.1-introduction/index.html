@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <base href="http://localhost/">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>EOSIO - 1.1/소개  &middot; The Computer Programmer, Nolleh</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="http://localhost/block-chain/1.1-introduction/">
+    
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="/">HOME</a></li>
+            <li><a href="/categories">CATEGORIES</a></li>
+            <li><a href="/project">PROJECTS</a></li>
+        </ul>
+    </div>
+    <div class="container">
+      <div class="title">
+        <div>
+          <a href="/">
+            <img src="/images/logo.png" />
+          </a>
+        </div>
+        <div><img src="/images/seperator.png" /></div>
+        <div class="logo-title">hello, world!</div>
+      </div>
+
+
+<a href="http://localhost/block-chain/1.1-introduction/">
+  <div class="post-title">
+    <img src="/images/post-title-icon.png" />
+    <div class="post-meta">
+      <time>01 Jan 2019, 14:41</time>
+      <h1>EOSIO - 1.1/소개</h1>
+    </div>
+  </div>
+</a>
+
+<div class="post-toc">
+  <span class="title">
+    Table of contents
+  </span>
+  <nav id="TableOfContents">
+<ul>
+<li><a href="#배울-수-있는-것">배울 수 있는 것</a></li>
+<li><a href="#c-c-경험">C / C++ 경험</a></li>
+<li><a href="#linux-mac-os-experience">Linux / Mac OS Experience</a></li>
+<li><a href="#command-line-knowlege">Command Line Knowlege</a></li>
+<li><a href="#c-environment-setup">C++ Environment Setup</a></li>
+<li><a href="#potential-editors-and-ides">Potential Editors and IDEs</a></li>
+<li><a href="#operating-system-of-development-enviornment">Operating System of Development Enviornment</a>
+<ul>
+<li><a href="#windows">Windows</a></li>
+</ul></li>
+</ul>
+</nav>
+</div>
+
+<section class="post-content">
+  
+
+<blockquote>
+<p>발췌 <a href="https://developers.eos.io/eosio-home/docs/introduction">EOSIO - 1.1 Introduction</a></p>
+</blockquote>
+
+<h1 id="배울-수-있는-것">배울 수 있는 것</h1>
+
+<hr />
+
+<ul>
+<li>노드로 얼마나 빨리 갖고 놀 수 있는가</li>
+<li>Wallet 과 Key 를 어떻게 관리할 수 있는가</li>
+<li>계정을 만드는 법</li>
+<li>contract 작성법</li>
+<li>컴파일과 ABI</li>
+<li>contract 배포</li>
+</ul>
+
+<h1 id="c-c-경험">C / C++ 경험</h1>
+
+<hr />
+
+<p>EOSIO 기반 블록체인은 WebAssembly 를 이용하여 유저가 생성한 어플리케이션과 코드를 실행한다.<br />
+WASM 은 구글, 마이크로소프트, 애플, 그리고 다른 주요 업체의 지원을 받는 떠오르는 웹 표준이다.</p>
+
+<p>오늘날 WASM 을 빌드하기위해 사용되는 성숙된 도구는 C/C++ 컴파일러를 통한 clang/llvm 이다.<br />
+최고의 호환성을 위해, EOSIO C++ 툴체인을 사용하도록 권장한다.</p>
+
+<p>서드파티에 의해 개발중인 다른 툴체인들은 다음과 같다: Rust, Python, Solidity. 이들의 언어는 단순해 보이지만, 성능은 당신이 빌드하는 어플리케이션의 규모에 따라 다르다. C++ 가 가장 안전하고 고성능일 것이라고 기대한다.</p>
+
+<h1 id="linux-mac-os-experience">Linux / Mac OS Experience</h1>
+
+<hr />
+
+<ul>
+<li>Amazon 2017.09</li>
+<li>CentOS 7</li>
+<li>Fedora 25</li>
+<li>Mint 18</li>
+<li>Ubuntu 16.04 (16.10 추천)</li>
+<li>Ubuntu 18.04</li>
+<li>MacOS Darwin 10.12+ (10.13 추천)</li>
+</ul>
+
+<h1 id="command-line-knowlege">Command Line Knowlege</h1>
+
+<hr />
+
+<p>EOSIO 의 다양한 툴을 이용하기 위해서는 기본적인 커맨드라인 지식이 필요하다.</p>
+
+<h1 id="c-environment-setup">C++ Environment Setup</h1>
+
+<hr />
+
+<p>C++ 문법 하이라이팅을 지원하는 어떤 텍스트 에디터를 사용해도 되지만 주요한 에디터는 Sublime Text, Atom 이 있다. 다른 선택지는 철학적인 코드 완성과 개발 경험이 더 많은 철학적인 IDE 를 선택해서 사용하면된다. 개인 선호에 따라 작업하면 되지만, 확신이 없다면 다음 선택지 중에서 살펴보면 된다.</p>
+
+<h1 id="potential-editors-and-ides">Potential Editors and IDEs</h1>
+
+<hr />
+
+<ul>
+<li>Sublime Text</li>
+<li>Atom Editor</li>
+<li>CLion</li>
+<li>Eclips</li>
+<li>Visual Studio Code</li>
+</ul>
+
+<h1 id="operating-system-of-development-enviornment">Operating System of Development Enviornment</h1>
+
+<hr />
+
+<p>linux 향의 OS 를 사용한다면 튜토리얼을 따를 수 있다. 다음을 포함하지만, 여기에 제한된건 아니다.
+- Mac OS
+- Ubuntu
+- Debian
+- Fedora</p>
+
+<h2 id="windows">Windows</h2>
+
+<p>현재는 powershell 포트등에 대해 지원하지 않는다. 미래에는 powershell 명령어를 지원할 계획이지만, 그전까지는 Ubuntu VM 을 활용하여 개발환경을 구성하는 편이 최선이다. Linux 명령에 익숙한 개발자라면 적은 어려움 만이 있을 것이다.</p>
+
+</section>
+
+<div class="share">
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=http%3a%2f%2flocalhost%2fblock-chain%2f1.1-introduction%2f&t=EOSIO%20-%201.1%2f%ec%86%8c%ea%b0%9c" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=http%3a%2f%2flocalhost%2fblock-chain%2f1.1-introduction%2f&text=EOSIO%20-%201.1%2f%ec%86%8c%ea%b0%9c&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=http%3a%2f%2flocalhost%2fblock-chain%2f1.1-introduction%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=http%3a%2f%2flocalhost%2fblock-chain%2f1.1-introduction%2f&title=EOSIO%20-%201.1%2f%ec%86%8c%ea%b0%9c" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+</div>
+
+<div class="post-meta-code">
+  <div class="desc">
+    public string description() {
+    <div class="desc">val author = "
+    
+        nolleh
+    ";
+    </div>
+    
+    <div class="desc">
+      val categories = [
+      
+      
+      <a href="http://localhost//categories/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8">"블록체인"</a>
+      
+      ];
+    </div>
+    
+    }
+  </div>
+</div>
+<div class="post-meta-code">
+  <div class="desc">
+    public string tags() {
+      <div class="desc">
+        val tags = [
+        
+          
+          <a href="http://localhost/tags/block-chain">"block-chain"</a>
+          
+          <a href="http://localhost/tags/eosio">"EOSIO"</a>
+          
+        
+        ];
+      </div>
+    }
+  </div>
+</div>
+
+
+<div class="share"></div>
+
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "nolleh-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<div class="paging post-paging">
+  
+  <a class="left" href="http://localhost/block-chain/1.2-beforeyoubegin/" rel="prev">
+    <i class="fa fa-caret-left" aria-hidden="true"></i> <span>EOSIO - 1.2/시작하기 전에</span>
+  </a>
+  
+  
+  <a class="right" href="http://localhost/csharp/async-control-flow-msdn/" rel="next">
+    <span>비동기 프로그램의 제어 흐름</span> <i class="fa fa-caret-right" aria-hidden="true"></i>
+  </a>
+  
+</div>
+
+<div class="share"></div>
+
+<div class="seperator">
+  <img src="/images/seperator.png" />
+</div>
+
+<footer class="footer">
+    COPYRIGHT (C) <a href="http://blog.lulab.net">DONGGEUN,BANG</a>. ALL RIGHTS RESERVED.
+</footer>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-102565363-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script data-no-instant>document.write('<script src="/livereload.js?port=80&mindelay=10"></' + 'script>')</script></body>
+
+</html>
+

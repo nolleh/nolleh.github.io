@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Macos on The Computer Programmer, Nolleh</title>
-    <link>https://nolleh.github.io/tags/macos/</link>
+    <link>http://localhost/tags/macos/</link>
     <description>Recent content in Macos on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
@@ -10,15 +10,15 @@
     <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
     <lastBuildDate>Tue, 04 Jul 2017 22:31:23 +0900</lastBuildDate>
     
-	<atom:link href="https://nolleh.github.io/tags/macos/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://localhost/tags/macos/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Brew Install 이 구버전만 설치할 때</title>
-      <link>https://nolleh.github.io/post/brew-update/</link>
+      <link>http://localhost/env/brew-update/</link>
       <pubDate>Tue, 04 Jul 2017 22:31:23 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
-      <guid>https://nolleh.github.io/post/brew-update/</guid>
+      <guid>http://localhost/env/brew-update/</guid>
       <description>Let&amp;rsquo;s 사족 처음 회사에 입사 했을 때 자리에는 Mac PC 만이 덩그러니 있었고, Mac 을 사용해본적 없던 꼬꼬마는 자연스럽게 윈도우 CD 를 인사팀에서 받아와서 깔고 있었드랬다.
  &amp;ldquo;기껏 좋은 컴퓨터 줬더니 넌 뭘하고 있는거니?&amp;rdquo;
  라는 선배의 말을 듣고 그제야 맥에서도 안드로이드 개발이 되는거구나.. (이때는 현업 안드로이드 개발자였다.)
