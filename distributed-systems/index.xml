@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Distributed-systems on The Computer Programmer, Nolleh</title>
-    <link>http://localhost/distributed-systems/</link>
+    <link>https://nolleh.github.io/distributed-systems/</link>
     <description>Recent content in Distributed-systems on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
@@ -10,15 +10,15 @@
     <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
     <lastBuildDate>Mon, 21 Jan 2019 22:58:23 +0900</lastBuildDate>
     
-	<atom:link href="http://localhost/distributed-systems/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://nolleh.github.io/distributed-systems/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>고수준의 분산 시스템</title>
-      <link>http://localhost/distributed-systems/1.highlevel/</link>
+      <link>https://nolleh.github.io/distributed-systems/1.highlevel/</link>
       <pubDate>Mon, 21 Jan 2019 22:58:23 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
-      <guid>http://localhost/distributed-systems/1.highlevel/</guid>
+      <guid>https://nolleh.github.io/distributed-systems/1.highlevel/</guid>
       <description>다음에서 발췌 http://book.mixu.net/distsys/intro.html
  1. Distributed systems at a highlevel  분산 프로그래밍은 같은 문제를 하나의 컴퓨터에서 해결할 수 있는 문제를 여러 컴퓨터에서 해결하는 예술이다.  컴퓨터 시스템이라면 해결해야 하는 두개의 문제가 있습니다.
  저장소 연산  분산 프로그래밍은 하나의 컴퓨터에서 해결할 수 있는 문제를 여러 컴퓨터를 통해 해결하는 예술입니다. 보통 하나의 컴퓨터에서 해결하기에는 적합하지 않은 문제를 위해서입니다.

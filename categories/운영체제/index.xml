@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>운영체제 on The Computer Programmer, Nolleh</title>
-    <link>http://localhost/categories/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/</link>
+    <link>https://nolleh.github.io/categories/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/</link>
     <description>Recent content in 운영체제 on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
@@ -10,15 +10,15 @@
     <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
     <lastBuildDate>Mon, 17 Jul 2017 00:25:28 +0900</lastBuildDate>
     
-	<atom:link href="http://localhost/categories/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://nolleh.github.io/categories/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>파일 버퍼링</title>
-      <link>http://localhost/operating-system/file-buffering/</link>
+      <link>https://nolleh.github.io/operating-system/file-buffering/</link>
       <pubDate>Mon, 17 Jul 2017 00:25:28 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
-      <guid>http://localhost/operating-system/file-buffering/</guid>
+      <guid>https://nolleh.github.io/operating-system/file-buffering/</guid>
       <description>다음에서 발췌, 번역
 - https://msdn.microsoft.com/en-gb/library/windows/desktop/cc644950(v=vs.85).aspx
  File Buffering 파일버퍼링 - unbuffered file I/O.

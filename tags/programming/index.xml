@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Programming on The Computer Programmer, Nolleh</title>
-    <link>http://localhost/tags/programming/</link>
+    <link>https://nolleh.github.io/tags/programming/</link>
     <description>Recent content in Programming on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
@@ -10,15 +10,15 @@
     <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
     <lastBuildDate>Mon, 21 Jan 2019 22:58:23 +0900</lastBuildDate>
     
-	<atom:link href="http://localhost/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://nolleh.github.io/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>고수준의 분산 시스템</title>
-      <link>http://localhost/distributed-systems/1.highlevel/</link>
+      <link>https://nolleh.github.io/distributed-systems/1.highlevel/</link>
       <pubDate>Mon, 21 Jan 2019 22:58:23 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
-      <guid>http://localhost/distributed-systems/1.highlevel/</guid>
+      <guid>https://nolleh.github.io/distributed-systems/1.highlevel/</guid>
       <description>다음에서 발췌 http://book.mixu.net/distsys/intro.html
  1. Distributed systems at a highlevel  분산 프로그래밍은 같은 문제를 하나의 컴퓨터에서 해결할 수 있는 문제를 여러 컴퓨터에서 해결하는 예술이다.  컴퓨터 시스템이라면 해결해야 하는 두개의 문제가 있습니다.
  저장소 연산  분산 프로그래밍은 하나의 컴퓨터에서 해결할 수 있는 문제를 여러 컴퓨터를 통해 해결하는 예술입니다. 보통 하나의 컴퓨터에서 해결하기에는 적합하지 않은 문제를 위해서입니다.
@@ -27,10 +27,10 @@
     
     <item>
       <title>비동기 프로그램의 제어 흐름</title>
-      <link>http://localhost/csharp/async-control-flow-msdn/</link>
+      <link>https://nolleh.github.io/csharp/async-control-flow-msdn/</link>
       <pubDate>Fri, 21 Dec 2018 22:02:13 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
-      <guid>http://localhost/csharp/async-control-flow-msdn/</guid>
+      <guid>https://nolleh.github.io/csharp/async-control-flow-msdn/</guid>
       <description>개요  다음에서 발췌
 비동기 프로그램의 제어 흐름
  코드 public partial class MainWindow : Window { // . . . private async void startButton_Click(object sender, RoutedEventArgs e) { // ONE Task&amp;lt;int&amp;gt; getLengthTask = AccessTheWebAsync(); // FOUR int contentLength = await getLengthTask; // SIX resultsTextBox.Text += $&amp;quot;\r\nLength of the downloaded string: {contentLength}.\r\n&amp;quot;; } async Task&amp;lt;int&amp;gt; AccessTheWebAsync() { // TWO HttpClient client = new HttpClient(); Task&amp;lt;string&amp;gt; getStringTask = client.GetStringAsync(&amp;quot;https://msdn.microsoft.com&amp;quot;); // THREE string urlContents = await getStringTask; // FIVE return urlContents.</description>
@@ -38,10 +38,10 @@
     
     <item>
       <title>Async Await 을 사용한 비동기 프로그래밍</title>
-      <link>http://localhost/csharp/async-await-msdn/</link>
+      <link>https://nolleh.github.io/csharp/async-await-msdn/</link>
       <pubDate>Fri, 21 Dec 2018 21:41:08 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
-      <guid>http://localhost/csharp/async-await-msdn/</guid>
+      <guid>https://nolleh.github.io/csharp/async-await-msdn/</guid>
       <description>개요  다음에서 발췌 MSDN
  반응성을 향상시키는 비동기 잠재적인 차단 작업 완료 될때까지 다른 작업을 게속 수행
 작성이 간편한 비동기 메서드 반환 형식은 다음 중 하나
@@ -55,10 +55,10 @@
     
     <item>
       <title>Dispose</title>
-      <link>http://localhost/csharp/dispose/</link>
+      <link>https://nolleh.github.io/csharp/dispose/</link>
       <pubDate>Wed, 19 Dec 2018 10:18:25 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
-      <guid>http://localhost/csharp/dispose/</guid>
+      <guid>https://nolleh.github.io/csharp/dispose/</guid>
       <description>Dispose 에 대한 여러가지 MSDN  Implementing a Dispose method
  threadSafety  stackoverflow dispose 의 threadsafety
  많은 경우 어떤 스레드든지 다른 스레드가 dispose 를 시작했을때 오브젝트에 대해 작업을 하고 있을 수 있기 때문에, interlocked.Exchange 를 통해 배제하는게 옳아 보인다.
@@ -69,10 +69,10 @@
     
     <item>
       <title>Async Await</title>
-      <link>http://localhost/csharp/async-await/</link>
+      <link>https://nolleh.github.io/csharp/async-await/</link>
       <pubDate>Tue, 18 Dec 2018 13:47:33 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
-      <guid>http://localhost/csharp/async-await/</guid>
+      <guid>https://nolleh.github.io/csharp/async-await/</guid>
       <description>NeoSmart.AsyncLock 라이브러리에 관하여  다음에서 발췌, 번역 - Neosmart Docs.
  개요 semaporeslim 은 reentrance 를 지원하지 않는다. 따라서, recursion 에서 적절히 사용되지 않으면 데드락이 발생한다.
 asynclock 은 reentrance 기능을 semaphoreslim 에 추가한거.
@@ -83,10 +83,10 @@ async / await 의 가장 기본적인 목적인 ui 의 불필요한 블럭킹 �
     
     <item>
       <title>Nancy Introduction</title>
-      <link>http://localhost/nancy/introduction/</link>
+      <link>https://nolleh.github.io/nancy/introduction/</link>
       <pubDate>Tue, 24 Apr 2018 21:43:04 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
-      <guid>http://localhost/nancy/introduction/</guid>
+      <guid>https://nolleh.github.io/nancy/introduction/</guid>
       <description>Nancy 에 대한 문서 번역 #1. By Nolleh
  Introduction 가장 먼저, Nancy 의 세계에 온것을 환영합니다!
 루비의 sinatra 프레임워크에 영감을 받아 Nancy 라는 이름을 붙이게 되었습니다. (Frank Sinatra 의 딸이름이 Nancy 니까요!)
@@ -97,20 +97,20 @@ NancyFx 는 모든 컴포넌트들을 포함하는 umbrella project 입니다. (
     
     <item>
       <title>스프링 기본 용어/정리</title>
-      <link>http://localhost/web/fund-spring/</link>
+      <link>https://nolleh.github.io/web/fund-spring/</link>
       <pubDate>Wed, 26 Jul 2017 23:11:14 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
-      <guid>http://localhost/web/fund-spring/</guid>
+      <guid>https://nolleh.github.io/web/fund-spring/</guid>
       <description>어쩌다보니 그동안 손댈 일이 없던 웹서버에 좀 손을 대게 되서 (게임서버, 클라이언트, 그리고 웹서버..정녕 풀스택 개발자가 되는것인가..ㅋ), 예전 선배님이 버리고 간(?) 스프링 책을 꺼내서 읽어 보며 정리한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.
  Spring Bean 객체 스프링에서 생성하여 관리하여 주는 스프링 빈 객체 혹은 빈 객체라고 부른다. res/applicationContext.xml 에  태그로 선언할 수도 있다. 이렇게 선언한경우, 리플렉션을 활용하여 bean id 클래스의 인스턴스를 지정한 세부 태그의 속성으로 메서드를 호출하여 객체를 초기화한다.</description>
     </item>
     
     <item>
       <title>파일 버퍼링</title>
-      <link>http://localhost/operating-system/file-buffering/</link>
+      <link>https://nolleh.github.io/operating-system/file-buffering/</link>
       <pubDate>Mon, 17 Jul 2017 00:25:28 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
-      <guid>http://localhost/operating-system/file-buffering/</guid>
+      <guid>https://nolleh.github.io/operating-system/file-buffering/</guid>
       <description>다음에서 발췌, 번역
 - https://msdn.microsoft.com/en-gb/library/windows/desktop/cc644950(v=vs.85).aspx
  File Buffering 파일버퍼링 - unbuffered file I/O.
@@ -124,10 +124,10 @@ Note 파일에 대해 Seeking 과 위치포인터, offsets 의 개념을 사용�
     
     <item>
       <title>Concurrent Idiom 1 - Stack</title>
-      <link>http://localhost/concurrency/concurrent-idiom-1-stack/</link>
+      <link>https://nolleh.github.io/concurrency/concurrent-idiom-1-stack/</link>
       <pubDate>Mon, 10 Jul 2017 22:57:57 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
-      <guid>http://localhost/concurrency/concurrent-idiom-1-stack/</guid>
+      <guid>https://nolleh.github.io/concurrency/concurrent-idiom-1-stack/</guid>
       <description>concurrent 프로그램을 작성할 때 고려해야할 몇가지 사항. 그리고 idiom.
 여러 서적에서 발췌하였으며, 정리 차원에서 작성한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.
 어쩌면 작성자의 부사수를 위한 자재가 될지도 모르겠&amp;hellip;(..)
@@ -138,10 +138,10 @@ top() / pop() 도 마찬가지 -&amp;gt;&amp;gt; 조회되지 못하는 아이�
     
     <item>
       <title>C&#43;&#43; CLI 에서 managed 콜백을 unmanaged 로 전달하기</title>
-      <link>http://localhost/etc/managed_cb_to_unmanaged/</link>
+      <link>https://nolleh.github.io/etc/managed_cb_to_unmanaged/</link>
       <pubDate>Tue, 04 Jul 2017 00:45:55 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
-      <guid>http://localhost/etc/managed_cb_to_unmanaged/</guid>
+      <guid>https://nolleh.github.io/etc/managed_cb_to_unmanaged/</guid>
       <description>파라미터가 없다면 DelegateToPointer 로 마샬링해서 전달하면되는데,
 이러면 파라미터를 마샬링할 기회가 주어지지 않는다는게 문제다.
 좀 구글링을 해봤는데,

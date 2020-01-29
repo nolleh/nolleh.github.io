@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Nancies on The Computer Programmer, Nolleh</title>
-    <link>http://localhost/nancy/</link>
+    <link>https://nolleh.github.io/nancy/</link>
     <description>Recent content in Nancies on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
@@ -10,15 +10,15 @@
     <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
     <lastBuildDate>Tue, 24 Apr 2018 21:43:04 +0900</lastBuildDate>
     
-	<atom:link href="http://localhost/nancy/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://nolleh.github.io/nancy/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Nancy Introduction</title>
-      <link>http://localhost/nancy/introduction/</link>
+      <link>https://nolleh.github.io/nancy/introduction/</link>
       <pubDate>Tue, 24 Apr 2018 21:43:04 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
-      <guid>http://localhost/nancy/introduction/</guid>
+      <guid>https://nolleh.github.io/nancy/introduction/</guid>
       <description>Nancy 에 대한 문서 번역 #1. By Nolleh
  Introduction 가장 먼저, Nancy 의 세계에 온것을 환영합니다!
 루비의 sinatra 프레임워크에 영감을 받아 Nancy 라는 이름을 붙이게 되었습니다. (Frank Sinatra 의 딸이름이 Nancy 니까요!)
