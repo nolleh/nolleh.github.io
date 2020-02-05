@@ -38,12 +38,12 @@
       </div>
 
 
-  <a href="https://nolleh.github.io/coursera/gcp/4.db-overview/">
+  <a href="https://nolleh.github.io/crypto/ecdsa/">
   <div class="post-title">
     <img src="/images/post-title-icon.png" />
     <div class="post-meta">
-      <time>16 Mar 2019, 11:33</time>
-      <h1>4.Cloud Storage, Cloud Datastore, Cloud Bigtable, Cloud SQL, and Cloud Spanner</h1>
+      <time>30 Jan 2020, 18:28</time>
+      <h1>ECDSA</h1>
     </div>
   </div>
 </a>
@@ -54,18 +54,16 @@
   </span>
   <nav id="TableOfContents">
 <ul>
-<li>
+<li><a href="#ecdsa">ECDSA</a>
 <ul>
-<li><a href="#cloud-storage">Cloud Storage</a>
+<li><a href="#terms">Terms</a></li>
+<li><a href="#ecc-의-privatekey-와-publickey">ECC 의 privateKey 와 publicKey</a></li>
+<li><a href="#ecdsa-와-secp256k1">ECDSA 와 secp256k1</a>
 <ul>
-<li><a href="#ideal-for">Ideal for</a></li>
+<li><a href="#domain-parameter">Domain Parameter</a></li>
 </ul></li>
-<li><a href="#cloud-datastore">Cloud Datastore</a></li>
-<li><a href="#cloud-bigtable">Cloud Bigtable</a></li>
-<li><a href="#cloud-sql">Cloud SQL</a></li>
-<li><a href="#cloud-spanner">Cloud Spanner</a></li>
-<li><a href="#bigquery">BigQuery</a></li>
-<li><a href="#run-microsoft-sql-server-on-gcp">Run Microsoft SQL Server on GCP</a></li>
+<li><a href="#서명은-어떻게-이루어지는가">서명은 어떻게 이루어지는가 ?</a></li>
+<li><a href="#ecdsa-시그니쳐에서-어떻게-public-key-를-복원할-수-있는가">ECDSA 시그니쳐에서 어떻게 public key 를 복원할 수 있는가 ?</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -74,274 +72,177 @@
 <section class="post-content">
   
 
-<h2 id="cloud-storage">Cloud Storage</h2>
+<h1 id="ecdsa">ECDSA</h1>
 
-<hr />
+<p>ref. <a href="https://m.blog.naver.com/aepkoreanet/221178375642">https://m.blog.naver.com/aepkoreanet/221178375642</a></p>
 
-<p>크고 자주 사용되지 않은 비구조화된 데이터</p>
+<p>ec (타원곡선) 을 이용한 기술들의 집합 - ECC,<br />
+이중에 디지털서명 관련 기술이 ECDSA</p>
 
-<table>
-<thead>
-<tr>
-<th>Overview</th>
-<th>ideal for</th>
-</tr>
-</thead>
+<h2 id="terms">Terms</h2>
 
-<tbody>
-<tr>
-<td>완전히 관리되고 고 신뢰가능</td>
-<td>이미지와 비디오</td>
-</tr>
-
-<tr>
-<td>비용절감. 확장가능한 오브젝트/블롭 저장</td>
-<td>오브젝트와 블롭</td>
-</tr>
-
-<tr>
-<td>http 로 접근</td>
-<td>구조화되어있지 않은 데이터</td>
-</tr>
-
-<tr>
-<td>오브젝트 이름이 키</td>
-<td>정적 웹사이트 호스팅</td>
-</tr>
-</tbody>
-</table>
-
-<h3 id="ideal-for">Ideal for</h3>
-
-<h2 id="cloud-datastore">Cloud Datastore</h2>
-
-<hr />
-
-<p>관계형이나 데이터 분석에는 적합하지 않고 GAE 앱이나 구조화된 순수 제공 사용례에 적합한 구조화된 제공을 위한 스케일러블 저장소.</p>
-
-<table>
-<thead>
-<tr>
-<th>OverView</th>
-<th>ideal for</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>NoSQL 도큐먼트 데이터베이스</td>
-<td>세미구조의 어플리케이션 데이터</td>
-</tr>
-
-<tr>
-<td>확장가능</td>
-<td>내구성이 필요한 키 밸류 데이터</td>
-</tr>
-
-<tr>
-<td></td>
-<td>계층구조 데이터</td>
-</tr>
-
-<tr>
-<td></td>
-<td>복수 인덱스 매니징</td>
-</tr>
-
-<tr>
-<td></td>
-<td>트랜잭션</td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="cloud-bigtable">Cloud Bigtable</h2>
-
-<hr />
-
-<p>고구조화 / 트랜잭셔널 데이터에는 적합하지 않고, flat 하고 많은 read/write 연산이나 분석을 위한 데이터에 적합한 큰 용량의 저지연 데이터베이스.</p>
-
-<table>
-<thead>
-<tr>
-<th>Overview</th>
-<th>ideal for</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>고성능의 wide 컬럼의 NoSQL</td>
-<td>동작가능한 어플리케이션</td>
-</tr>
-
-<tr>
-<td>성긴 테이블</td>
-<td>분석적 어플리케이션</td>
-</tr>
-
-<tr>
-<td>백억의 로우, 수천컬럼으로 확장가능</td>
-<td>단일키의 데이터가 크다</td>
-</tr>
-
-<tr>
-<td>TB 나 PB 데이터 저장가능</td>
-<td>맵리듀스 동작</td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="cloud-sql">Cloud SQL</h2>
-
-<hr />
-
-<p>확장성/분석/큰 쓰기 연산에는 적합하지 않은, 웹 프레임워크의 기존에 존재하는 어플리케이션에 적용 가능한 잘알려진 VM 용 RDBMS</p>
-
-<table>
-<thead>
-<tr>
-<th>Overview</th>
-<th>idealfor</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>관리되는 서비스 (복제/페일오버/백업)</td>
-<td>웹프레임워크</td>
-</tr>
-
-<tr>
-<td>MySQL 과 PostgreSQL</td>
-<td>구조화된 데이터</td>
-</tr>
-
-<tr>
-<td>RDBMS</td>
-<td>OLTP 워크로드</td>
-</tr>
-
-<tr>
-<td>프록시가 안전한 second 생성 인스턴스에 접근하도록 해줌(화이트리스팅없이.)</td>
-<td>MySQL/PGS 를 사용하는 어플리케이션</td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="cloud-spanner">Cloud Spanner</h2>
-
-<hr />
-
-<p>분석적인 데이터에는 적합하지 않고, 저 지연의 트랜잭션적 시스템의 관계형 DB service</p>
-
-<table>
-<thead>
-<tr>
-<th>Overview</th>
-<th>ideal for</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>미션 크리티컬 DB</td>
-<td>미션크리티컬 어플리케이션</td>
-</tr>
-
-<tr>
-<td>트랜잭션 일관성</td>
-<td>높은 트랜잭션</td>
-</tr>
-
-<tr>
-<td>글로벌 확장</td>
-<td>확장과 일관성있는 요구사항들</td>
-</tr>
-
-<tr>
-<td>고 사용성</td>
-<td></td>
-</tr>
-
-<tr>
-<td>멀티리젼 복제</td>
-<td></td>
-</tr>
-
-<tr>
-<td>99.999% SLA</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="bigquery">BigQuery</h2>
-
-<hr />
-
-<p>빠른 앱 빌딩에는 적합하지 않고, 정적 데이터 집합과의 분석을 위한 데에 사용되는 오토스케일링 분석 데이터 저장소</p>
-
-<table>
-<thead>
-<tr>
-<th>Overview</th>
-<th>ideal for</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>저 비용의 엔터프라이즈 데이터 창고</td>
-<td>온라인 분석 처리 (OLAP) 워크로드</td>
-</tr>
-
-<tr>
-<td>완전히 관리됨</td>
-<td>빅 데이터 탐색과 처리</td>
-</tr>
-
-<tr>
-<td>페타바이트 스케일</td>
-<td>비지니스 지능 툴을 통한 리포팅</td>
-</tr>
-
-<tr>
-<td>빠른 응답성</td>
-<td></td>
-</tr>
-
-<tr>
-<td>서버리스</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="run-microsoft-sql-server-on-gcp">Run Microsoft SQL Server on GCP</h2>
-
-<hr />
+<blockquote>
+<ul>
+<li>유한체<br />
+집합에 속해있는 원소의 수가 한정되어 있고 덧셈, 곱셈에 대해 닫혀있는 집합
 
 <ul>
-<li>구글 컴퓨트 엔진에서 SQL 서버 이미지 선택가능.</li>
-<li>컴퓨트 엔진 VM 에 SQL Server 를 프리로드 할수있음</li>
-<li>라이센싱은 자동으로 포함됨</li>
-<li>지원 버전은
-
-<ul>
-<li>SQL Server Standard</li>
-<li>SQL Server Web</li>
-<li>SQL Server Enterprise</li>
+<li>유한체 F 표기법<br />
+원소의 개수가 p 인 유한체 F 는 <code>Fp</code> 혹은 <code>GF(p)</code> 로 표기</li>
+<li>유한체 상에 정의된 타원 곡선<br />
+<code>E(Fp)</code></li>
+<li>암호학에서 사용되는 유한체</li>
 </ul></li>
 </ul>
+</blockquote>
+
+<pre><code>    - Prime Field
+    원소의 개수가 소수
+</code></pre>
+
+<p>ECC 사용시 타원 곡선을 정의하는 domain parameter 를 정의해야함.
+(p, a, b, G, n, h) 를 정의해야하는건데, 여러 표준단체에서 Field Size 에 맞는 타원곡선에 대한 파라미터 발표.</p>
+
+<ul>
+<li>p : Modulo Prime Number</li>
+<li>a : 타원곡선 방정식에서 사용되는 계수</li>
+<li>b : 타원곡선 방정식에서 사용되는 계수</li>
+<li>Base point 또는 Generator Point, G 는 <code>E(Fp)</code> 에 속해있는 point</li>
+<li>n : the order of point G (G 를 n번 더하면 무한원점이 되는값 : nG = ∞)</li>
+<li>H : cofactor</li>
+</ul>
+
+<p>타원 곡선이란, 타원 곡선 방정식을 만족하는 집합을 곡선 그래프로 표시한 것</p>
+
+<p>y^2 = x^3 + ax + b</p>
+
+<p>secp256k1 곡선의 경우 a = 0, b = 7 을 사용</p>
+
+<p><img src="https://mblogthumb-phinf.pstatic.net/MjAxODAxMDVfMjA3/MDAxNTE1MTIwNzU2Mzg4.-O3OYGeOa7qhb3XL4zNeyVTUu-QztZOTNCB5usfDlzsg.WQ_YS2FHvXxbrzIKQ0FBFvJBdf90Zj7x5JuNwEVKWH8g.JPEG.aepkoreanet/secpcurve.jpg?type=w2" alt="" /></p>
+
+<h2 id="ecc-의-privatekey-와-publickey">ECC 의 privateKey 와 publicKey</h2>
+
+<blockquote>
+<ul>
+<li>Private Key d : P 보다 적은 소수 (Prime) 로, 난수 생성기로 생성</li>
+<li>Public Key Q : Q(x, y) = d x G(x0, y0)</li>
+</ul>
+</blockquote>
+
+<h2 id="ecdsa-와-secp256k1">ECDSA 와 secp256k1</h2>
+
+<p>ECDSA 의 파라메터로 secp256k1 curve 를 사용
+secp256k1</p>
+
+<p>sec - standard for Efficient Cryptography<br />
+p - parameter p over Fp<br />
+256 - field size p 의 bit 수<br />
+k - koblitz curve 변형<br />
+1 - sequence number</p>
+
+<h3 id="domain-parameter">Domain Parameter</h3>
+
+<pre><code>T = (p,a,b,G,n,h)
+
+p :  FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFC2F
+
+a :  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+
+b :  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000007
+
+G :  02 79BE667E F9DCBBAC 55A06295 CE870B07 029BFCDB 2DCE28D9 59F2815B 16F81798
+
+  또는
+
+G : 04 79BE667E F9DCBBAC 55A06295 CE870B07 029BFCDB 2DCE28D9 59F2815B 16F81798 483ADA77 26A3C465 5DA4FBFC 0E1108A8 FD17B448 A6855419 9C47D08F FB10D4B8
+
+N :  FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFE BAAEDCE6 AF48A03B BFD25E8C D0364141
+
+h : 01
+</code></pre>
+
+<h2 id="서명은-어떻게-이루어지는가">서명은 어떻게 이루어지는가 ?</h2>
+
+<p><a href="https://ko.wikipedia.org/wiki/%ED%83%80%EC%9B%90%EA%B3%A1%EC%84%A0_DSA">https://ko.wikipedia.org/wiki/%ED%83%80%EC%9B%90%EA%B3%A1%EC%84%A0_DSA</a></p>
+
+<p>domain parameter 로 (CURVE, g, n) 을 사용한다.</p>
+
+<ul>
+<li>Curve : 타원곡선의 체 (field) 와 여기 사용된 수식.</li>
+<li>g : 타원 곡선의 기준점 (base point). 해당 타원곡선의 생성원(generator) 이다.</li>
+<li>n : g 의 차수이다. n X g = 0 이며, 반드시 소수여야한다. 보통 충분히 큰 소수를 사용한다.</li>
+</ul>
+
+<p>privateKey, d 생성. - RNG 로 생성된 무작위로 선택된 1~ n-1 사이의 정수<br />
+publicKey, Q 생성 - Q = dg 를 만족하는 정수. (g 를 d 번 더한 값)</p>
+
+<p>서명 프로세스</p>
+
+<p>필요한 것: <code>E(Fp)</code>, d, Q, m</p>
+
+<pre><code>1. e = H(m). 메시지를 해쉬하고 이를 e 라고 한다.
+2. z = Ln(e) e 의 binary 값에서 왼쪽으로부터 n 번째 까지 잘라낸 값을 z 라고 한다. (left most n'th bit)
+3. 암호학적으로 안전한 난수 k 를 [1, n-1] 사이에서 무작위로 선택한다.
+4. 곡선 위의 점 (x1, y1) = k * g 를 계산한다.
+    - 타원곡선에서의 덧셈은, 결국 다시 점이 된다.
+    - 위 k * g 는 g 를 k 번 더하는 것을 의미하고, 결국 점이 된다.
+5. r = x1 (mod n) 을 계산 한다. r 이 0 인 경우, k 를 다시 선택한다.
+6. s = k^(-1)(z + rd) (mod n) 을 계산. s = 0 이면 3 으로 되돌아가 다른 k 를 선택, 순서대로 진행한다.
+
+완성된 서명은 (r, s) 이다.
+</code></pre>
+
+<p><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d2ae87d5c9d298c4339595d4308963c17257e228" alt="" /></p>
+
+<p>검증 프로세스</p>
+
+<p>필요한 것: <code>E(Fp)</code>, (r,s), m</p>
+
+<pre><code>- 곡선위의 점 인증
+1. Q =/= O (identity element)
+2. Q 가 곡선 위의 점인지
+3. n x Q = O 인지 확인
+
+- 서명 유효성 인증
+1. r,s 가 1부터 n-1 사이의 정수인지 확인.
+2. e = H(m) 을 계산.
+3. z 계산
+4. w = s^(-1)(mod n) 계산, u1 = zw, u2 = rw (mod n) 계산
+5. shamir's trick 을 사용해서 (x1, y1) = u1 x g + u2 x Q 를 계산. (x1, y1) = O 이면 무효
+6. r = x1 (mod n) 일때만 유효.
+</code></pre>
+
+<p>즉, 서명 프로세스는 타원 곡선에서 새로운 k 와 (x1, y1) 을 구한 후</p>
+
+<h2 id="ecdsa-시그니쳐에서-어떻게-public-key-를-복원할-수-있는가">ECDSA 시그니쳐에서 어떻게 public key 를 복원할 수 있는가 ?</h2>
+
+<p><a href="https://crypto.stackexchange.com/questions/18105/how-does-recovering-the-public-key-from-an-ecdsa-signature-work">stack exchange link</a></p>
+
+<p>ECDSA signature (r,s)</p>
+
+<p>사실 곡선과 사용된 해쉬 함수, 서명된 메시지 원본을 알고 있더라도
+signature 로부터 public key 를 recover 하는 것은 불가능하다.</p>
+
+<p>그러나, signature 와 원본 메시지, 곡선에 대한 정보로 두개의 public key 를 생성하는게 가능하다.
+(이 중에 private key 가 사용된 public key 가 있을 것)</p>
+
+<p>동작 원리는 다음과 같다.</p>
+
+<ul>
+<li>R 과 R&rsquo; x 좌표로 r 값을 갖는 좌표를 찾는다.</li>
+<li>r^-1 을 연산하는데, 이는 시그니쳐의 r 의 곱셈 역원이다. (mod n)</li>
+<li>z 메시지 해쉬의 하위 n bit 인 z 를 연산한다.</li>
+</ul>
+
+<p>public key 는 <code>r^(−1)(sR−zG) and r^(−1)(sR′−zG)</code> 가 된다.</p>
 
 </section>
 
 <div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f4.db-overview%2f&t=4.Cloud%20Storage%2c%20Cloud%20Datastore%2c%20Cloud%20Bigtable%2c%20Cloud%20SQL%2c%20and%20Cloud%20Spanner" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f4.db-overview%2f&text=4.Cloud%20Storage%2c%20Cloud%20Datastore%2c%20Cloud%20Bigtable%2c%20Cloud%20SQL%2c%20and%20Cloud%20Spanner&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f4.db-overview%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f4.db-overview%2f&title=4.Cloud%20Storage%2c%20Cloud%20Datastore%2c%20Cloud%20Bigtable%2c%20Cloud%20SQL%2c%20and%20Cloud%20Spanner" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fcrypto%2fecdsa%2f&t=ECDSA" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fcrypto%2fecdsa%2f&text=ECDSA&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fcrypto%2fecdsa%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fcrypto%2fecdsa%2f&title=ECDSA" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
 </div>
 
 <div class="post-meta-code">
@@ -357,7 +258,7 @@
       val categories = [
       
       
-      <a href="https://nolleh.github.io//categories/google-cloud-service">"Google Cloud Service"</a>
+      <a href="https://nolleh.github.io//categories/%EC%95%94%ED%98%B8%ED%95%99">"암호학"</a>
       
       ];
     </div>
@@ -372,9 +273,9 @@
         val tags = [
         
           
-          <a href="https://nolleh.github.io/tags/cousera">"Cousera"</a>
+          <a href="https://nolleh.github.io/tags/%EC%95%94%ED%98%B8%ED%95%99">"암호학"</a>
           
-          <a href="https://nolleh.github.io/tags/google-cloud-service">"Google Cloud Service"</a>
+          <a href="https://nolleh.github.io/tags/crypto">"CRYPTO"</a>
           
         
         ];
@@ -387,12 +288,12 @@
     <img src="/images/seperator.png" />
   </div>
 
-  <a href="https://nolleh.github.io/coursera/gcp/3.sdk/">
+  <a href="https://nolleh.github.io/coursera/gcp/6.datastorage/">
   <div class="post-title">
     <img src="/images/post-title-icon.png" />
     <div class="post-meta">
-      <time>12 Mar 2019, 23:37</time>
-      <h1>3.SDK</h1>
+      <time>16 Mar 2019, 23:02</time>
+      <h1>6. DataStorage</h1>
     </div>
   </div>
 </a>
@@ -403,11 +304,10 @@
   </span>
   <nav id="TableOfContents">
 <ul>
-<li><a href="#what-are-the-google-cloud-client-libraries">What are the Google Cloud Client Libraries?</a>
-<ul>
-<li><a href="#cloud-shell">Cloud Shell</a></li>
-<li><a href="#module-review">Module Review</a></li>
-</ul></li>
+<li><a href="#best-practices-for-using-cloud-storage">Best Practices for Using Cloud Storage</a></li>
+<li><a href="#demo">Demo</a></li>
+<li><a href="#demo2-cors">Demo2 - Cors</a></li>
+<li><a href="#best-practices-for-cloud-storage">Best Practices for cloud Storage</a></li>
 </ul>
 </nav>
 </div>
@@ -415,46 +315,48 @@
 <section class="post-content">
   
 
-<h1 id="what-are-the-google-cloud-client-libraries">What are the Google Cloud Client Libraries?</h1>
+<h1 id="best-practices-for-using-cloud-storage">Best Practices for Using Cloud Storage</h1>
 
-<p>관용적인 코드를 각각의 랭귀지에 대해 제공
-gRPC 에서 성능 효과를 보는 라이브러리도 있다.</p>
+<hr />
 
-<p><a href="https://cloud.google.com/apis/docs/cloud-client-libraries">github repo</a></p>
+<p>버킷에 변화가 있을때 반응하게 할 수 있다.
+<a href="https://cloud.google.com/storage/docs/pubsub-notifications">https://cloud.google.com/storage/docs/pubsub-notifications</a></p>
 
-<p>gcloud - 커맨드 라인툴, gcp를 위한.</p>
+<h1 id="demo">Demo</h1>
 
-<p><a href="https://cloud.google.com/sdk/gcloud/reference/">GC cloud</a>
-빅쿼리를 위한 커맨드라인 툴</p>
+<hr />
 
-<p>gsuitl 버킷이랑 통신하기 위한 커맨드라인 툴</p>
+<p>coldline 은 일년에 한번 접근하는것과 같은 문제발생시 복구하는 용도로 사용하면 좋다..</p>
 
-<p>gcloud init (initialize )</p>
+<p><a href="https://cloud.google.com/storage/docs/managing-lifecycles">https://cloud.google.com/storage/docs/managing-lifecycles</a></p>
 
-<h2 id="cloud-shell">Cloud Shell</h2>
+<h1 id="demo2-cors">Demo2 - Cors</h1>
 
-<p>브라우저 베이스 커맨드라인툴.
-일시적인 vm에 대한 접근을 제공.
-    5GB 디스크
-    SDK 에 이미 설치되어있음</p>
+<hr />
 
-<p>구글클라우드 콘솔프로젝트에대한 authorization /리소스 제공</p>
+<p>cors - <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS</a>
+cross-origin-resource sharing</p>
 
-<p>코드 에디터가 포함 (beta)</p>
+<p>instance 만들고 / apache 깔고 / cors 설정 여는 데모..</p>
 
-<h2 id="module-review">Module Review</h2>
+<h1 id="best-practices-for-cloud-storage">Best Practices for cloud Storage</h1>
 
-<p>Api Explore: google cloud api 를 테스트하기위한 샌드박스로 사용
-Google Cloud Client Library : GCP 서비스와 커뮤니케이션
-GCP Service 의 스크립트 작성 : Google Cloud SDK</p>
+<hr />
+
+<p>request rate 가 초당 1000 쓰기 요청 이나 5000 읽기 요청을 넘어가면 ..</p>
+
+<ul>
+<li>이 기준 요청량내에서 요청을 시작해서</li>
+<li>20 분마다 요청을 두배로 해라.</li>
+</ul>
 
 </section>
 
 <div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f3.sdk%2f&t=3.SDK" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f3.sdk%2f&text=3.SDK&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f3.sdk%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f3.sdk%2f&title=3.SDK" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f6.datastorage%2f&t=6.%20DataStorage" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f6.datastorage%2f&text=6.%20DataStorage&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f6.datastorage%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f6.datastorage%2f&title=6.%20DataStorage" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
 </div>
 
 <div class="post-meta-code">
@@ -508,7 +410,7 @@ GCP Service 의 스크립트 작성 : Google Cloud SDK</p>
   </a>
   
 
-  PAGE 2 / 15
+  PAGE 2 / 17
 
   
   <a href="/page/3/" rel="next">

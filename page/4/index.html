@@ -38,12 +38,12 @@
       </div>
 
 
-  <a href="https://nolleh.github.io/coursera/gcp/1.msaandapigateway/">
+  <a href="https://nolleh.github.io/coursera/gcp/3.sdk/">
   <div class="post-title">
     <img src="/images/post-title-icon.png" />
     <div class="post-meta">
-      <time>12 Mar 2019, 21:51</time>
-      <h1>1.MSA and ApiGateway</h1>
+      <time>12 Mar 2019, 23:37</time>
+      <h1>3.SDK</h1>
     </div>
   </div>
 </a>
@@ -54,7 +54,11 @@
   </span>
   <nav id="TableOfContents">
 <ul>
-<li><a href="#loosely-coupled-microservices-and-api-gateway">Loosely Coupled Microservices and API gateway</a></li>
+<li><a href="#what-are-the-google-cloud-client-libraries">What are the Google Cloud Client Libraries?</a>
+<ul>
+<li><a href="#cloud-shell">Cloud Shell</a></li>
+<li><a href="#module-review">Module Review</a></li>
+</ul></li>
 </ul>
 </nav>
 </div>
@@ -62,35 +66,46 @@
 <section class="post-content">
   
 
-<h1 id="loosely-coupled-microservices-and-api-gateway">Loosely Coupled Microservices and API gateway</h1>
+<h1 id="what-are-the-google-cloud-client-libraries">What are the Google Cloud Client Libraries?</h1>
 
-<p>모놀리틱에서는 기본 코드가 부풀게 되서, 어디를 고쳐야하는지 알기가 어렵다.
-패키지들의 의존성들이 얼키고 설킨다.</p>
+<p>관용적인 코드를 각각의 랭귀지에 대해 제공
+gRPC 에서 성능 효과를 보는 라이브러리도 있다.</p>
 
-<p>작은 기본 코드를 고쳐도 전체 프로그램이 배포되어 테스트될 필요가 있다.</p>
+<p><a href="https://cloud.google.com/apis/docs/cloud-client-libraries">github repo</a></p>
 
-<p>원격지에 의한 제어는 비동기 처리를 하자.</p>
+<p>gcloud - 커맨드 라인툴, gcp를 위한.</p>
 
-<p>가능한한 이벤트 드리븐 처리를 하자.
--&gt; 예를들어 구글 클라우드서비스에 이미지를 업데이트하고~ 이 이벤트에 반응하여 동작하는 어플리케이션을 만들 수 있다.</p>
+<p><a href="https://cloud.google.com/sdk/gcloud/reference/">GC cloud</a>
+빅쿼리를 위한 커맨드라인 툴</p>
 
-<p>커플링을 줄이기 위해 메시지 큐 등을 사용할 수 있다.
-토픽에 대해 발송, 받아 처리.</p>
+<p>gsuitl 버킷이랑 통신하기 위한 커맨드라인 툴</p>
 
-<p>Cache content
-반응성을 위해 컨텐츠를 캐싱해서, TTL 이 지나기전의 캐쉬 데이터를 준다.
-없거나 만료됐으면 새로 계산(이후 캐시에 저장)
-멤캐시나 레디스에 저장한다.</p>
+<p>gcloud init (initialize )</p>
 
-<p>Implement API gateway, 컨슈머 어플리케이션에 백엔드 기능이 동작할 수 있도록..</p>
+<h2 id="cloud-shell">Cloud Shell</h2>
+
+<p>브라우저 베이스 커맨드라인툴.
+일시적인 vm에 대한 접근을 제공.
+    5GB 디스크
+    SDK 에 이미 설치되어있음</p>
+
+<p>구글클라우드 콘솔프로젝트에대한 authorization /리소스 제공</p>
+
+<p>코드 에디터가 포함 (beta)</p>
+
+<h2 id="module-review">Module Review</h2>
+
+<p>Api Explore: google cloud api 를 테스트하기위한 샌드박스로 사용
+Google Cloud Client Library : GCP 서비스와 커뮤니케이션
+GCP Service 의 스크립트 작성 : Google Cloud SDK</p>
 
 </section>
 
 <div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f1.msaandapigateway%2f&t=1.MSA%20and%20ApiGateway" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f1.msaandapigateway%2f&text=1.MSA%20and%20ApiGateway&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f1.msaandapigateway%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f1.msaandapigateway%2f&title=1.MSA%20and%20ApiGateway" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f3.sdk%2f&t=3.SDK" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f3.sdk%2f&text=3.SDK&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f3.sdk%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f3.sdk%2f&title=3.SDK" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
 </div>
 
 <div class="post-meta-code">
@@ -136,12 +151,12 @@
     <img src="/images/seperator.png" />
   </div>
 
-  <a href="https://nolleh.github.io/block-chain-youtube/building-distributed-app/">
+  <a href="https://nolleh.github.io/coursera/gcp/1-1.12-tips/">
   <div class="post-title">
     <img src="/images/post-title-icon.png" />
     <div class="post-meta">
-      <time>23 Jan 2019, 20:32</time>
-      <h1>Building Distributed App</h1>
+      <time>12 Mar 2019, 21:52</time>
+      <h1>1-1. 계정관리를 위한 12 tips</h1>
     </div>
   </div>
 </a>
@@ -152,8 +167,15 @@
   </span>
   <nav id="TableOfContents">
 <ul>
-<li><a href="#smart-contract">Smart Contract</a></li>
-<li><a href="#intro-smart-contracts">Intro Smart Contracts</a></li>
+<li><a href="#12-best-practices-for-user-saccount">12 Best Practices for user saccount</a>
+<ul>
+<li><a href="#1-패스워드를-해시하라">1. 패스워드를 해시하라.</a></li>
+<li><a href="#2-서드파티-식별-제공자를-허락하자">2. 서드파티 식별 제공자를 허락하자.</a></li>
+<li><a href="#3-유저-식별의-개념을-유저-계정의-개념과-분리하라">3. 유저 식별의 개념을 유저 계정의 개념과 분리하라.</a></li>
+<li><a href="#4-하나의-계정에-복수의-정체성을-허용할-수-있도록-제공하라">4. 하나의 계정에 복수의 정체성을 허용할 수 있도록 제공하라.</a></li>
+<li><a href="#5-길거나-복잡한-패스워드를-막지-말자">5. 길거나 복잡한 패스워드를 막지 말자.</a></li>
+<li><a href="#6-user-name-에-타당치-않은-규칙을-강요하지-마라">6. user name 에 타당치 않은 규칙을 강요하지 마라</a></li>
+</ul></li>
 </ul>
 </nav>
 </div>
@@ -161,103 +183,51 @@
 <section class="post-content">
   
 
-<blockquote>
-<p>다음에서 발췌 ()[]</p>
-</blockquote>
+<h1 id="12-best-practices-for-user-saccount">12 Best Practices for user saccount</h1>
 
-<h1 id="smart-contract">Smart Contract</h1>
+<p><a href="https://cloud.google.com/blog/products/gcp/12-best-practices-for-user-account">https://cloud.google.com/blog/products/gcp/12-best-practices-for-user-account</a>
+GCP 에서는 유저 계정에 대한 안전한 핸들링과 인증을 위한 툴을 게공한다.
+웹사이트가 구글 쿠버네티스엔진에 호스트 되는 웹사이트를 담당하든, apigee 의 api 를 담당하든, firebase 를 사용하든, 어떤 다른 서비스를 통해 유저를 인증하든, 이 포스트는 좋은 연습을 제공해서, 안전하고 확장가능하고 쓸만한 계정 인증 시스템을 사용할 수 있게 도와줄 것이다.</p>
 
-<ul>
-<li>블록은 트랜잭션을 포함한다.</li>
-<li>트랜잭션은 액션의 기록이다.</li>
-<li>액션은 컨트랙트의 동작이다.</li>
-</ul>
+<h2 id="1-패스워드를-해시하라">1. 패스워드를 해시하라.</h2>
 
-<p>스마트컨트랙트의 사용</p>
+<p>패스워드를 포함해서, 예민한 개인정보를 어떻게 저장할 것인가가 계정관리의 가장 중요한 규칙이다. 이 데이터를 신성하게 다뤄야한다.
+다시 reverse 될 수 없는 강력한 해쉬로되어야한다. 예를들면, PBKDF2, Argon2, Scripy, Bcrypt .. 또한, 이 해쉬는 <a href="https://www.owasp.org/index.php/Password_Storage_Cheat_Sheet#Use_a_cryptographically_strong_credential-specific_salt">salted</a> 되어야 한다. MD5 나 SHA1 같은 deprecate 된 해쉬기술은 사용하면 안되며, revirsiable 될 수 있는 인크립션을 사용해야하는 상황은 어디에도 없으며, <a href="https://www.schneier.com/blog/archives/2011/04/schneiers_law.html">직접 해쉬 알고리즘을 개발할 필요도 없다.</a> 라고 생각하자.</p>
 
-<ul>
-<li>eos.io 의 컨트랙트는 abi 로 표현된다.</li>
-<li>어플리케이션 코드는 json data 를 이용한 http 를 통해 contract 를 트리거 한다.</li>
-<li>EOS.IO 는 컨트랙트를 간단히 스크립팅하거나 테스팅하기위한 커맨드라인 인터페이스를 제공한다.</li>
-</ul>
+<h2 id="2-서드파티-식별-제공자를-허락하자">2. 서드파티 식별 제공자를 허락하자.</h2>
 
-<h1 id="intro-smart-contracts">Intro Smart Contracts</h1>
+<p>믿을수 있게한다. 구글, 페이스북, 트위터등이 흔히 사용된다. <a href="https://firebase.google.com/docs/auth/">firebase Auth</a> 시스템을 통해 인증처리를 할 수도 있다. -다른 사례들을 보면, 반나절만에 적용하고 그렇다. fabulas?</p>
 
-<ul>
-<li><p>EOS.IO 스마트 컨트랙트는 WebAssembly 로 구동된다. (WASM)</p>
+<h2 id="3-유저-식별의-개념을-유저-계정의-개념과-분리하라">3. 유저 식별의 개념을 유저 계정의 개념과 분리하라.</h2>
 
-<ul>
-<li>web 표준으로 떠오르는중</li>
-<li>c/c++ 로부터 clang/llvm 을 통해 생성된다.</li>
-<li>다른 언어들도 언젠가 지원될 것</li>
-</ul></li>
+<p>유저는 이메일 어드레스도, 핸드폰 번호도, OAUTH 응답의 unique ID 도 아니다.
+유저 유저는 유일성의 최고점에 있으며, 당신 서비스의 개인화된 데이터와 경험이다.
+잘 디자인된 유저관리 체계는 low 커플링 되어있으며, 고수준으로 응집되어있다.</p>
 
-<li><p>Transaction - 실행되는 하나이상의 액션의 집합.</p>
+<p>유저 계정과 보안을 분리하는 개념을 고수하는 것은 서드파티의 식별제공자를 구현하는 과정을 크게 단순화 할 수 있다. 유저는 유저 이름이나 다중의 정체성을 하나의 유저 계정에 연결 할 수도 있게 된다. 실제 용어로 옮기면, 내부의 전역 식별자를 모든 유저와 그들의 프로필과, 인증에 연결할 수도 있다.</p>
 
-<ul>
-<li>하나의 액션이라도 실패하면 모든 트랜잭션이 실패한다</li>
-</ul></li>
+<h2 id="4-하나의-계정에-복수의-정체성을-허용할-수-있도록-제공하라">4. 하나의 계정에 복수의 정체성을 허용할 수 있도록 제공하라.</h2>
 
-<li><p>Action - 스마트컨트랙트를 실행하는 고수준의 함수</p>
+<p>한 유저는 유저명과 패스워드를 사용하여 인증한후에, 이 과정이 계정을 생성할 수 있는지 모르고 구글 사이닝을 선택할 수있다. 유사하게, 어떤 유저는 복수의 이메일 주서를 당신의 서비스에 연결할 이유가 있었을 수도 있습니다. 만약 유저 식별과 인증을 분리해 두었다면, <a href="https://firebase.google.com/docs/auth/web/account-linking">하나의 유저에 대해 다양한 식별 정보를 연결하는게 간단하다.</a></p>
 
-<ul>
-<li>데이터를 컨트랙트에 전송하기 위해서는 payload 를 포함해야한다.</li>
-</ul></li>
-</ul>
+<p>사용자가 기존 계정에 연결되지 않은 서드파티 아이디를 사용하고 있다는 것을 깨닫기전에 새로 가입하는 프로세스를 수행할 수 있는 가능성을 고려해야 한다. 흔한 식별 정보를 제공하도록 묻는것 만으로도 해결될 수 있다. 이메일어드레스, 폰이나 유저명 등.. 시스템에 존재한다면, 인증 후 새로운 아이디를 존재하는 계정에 연결하자.</p>
 
-<p>cloes 는 http 를 호출하는 syntatic sugar~</p>
+<h2 id="5-길거나-복잡한-패스워드를-막지-말자">5. 길거나 복잡한 패스워드를 막지 말자.</h2>
 
-<p>transaction json 을 살펴보면.
-signature 가 있고, 이 특정한 트랜잭션의 시그니쳐를 표현한다.</p>
+<p>NIST 는 최근에 패스워드 복잡도와 강인함에 대해 <a href="https://pages.nist.gov/800-63-3/sp800-63b.html#appendix-astrength-of-memorized-secrets">가이드라인</a>을 제공했다.
+패스워드 길이를 막아서 얻을 수 있는건 POST 사이즈 뿐.. (끽해봐야 1MB?)</p>
 
-<p>action json 은 이런 형태</p>
+<p>해쉬된 패스워드는 알려진 적은 ASCII문자의 선택으로 압축될 수 있고, 그렇지 않으면 그냥 바이너리 해쉬를 <a href="https://en.wikipedia.org/wiki/Base64">Base64</a> 로 변경해도 된다.</p>
 
-<p><code>actions : [{ &quot;account&quot;: &quot;eosio&quot;, &quot;name&quot;: &quot;newaccount&quot;,&quot;actor&quot;: &quot;eosio&quot;, &quot;permission&quot;: &quot;acitve&quot; }], &quot;Data&quot;: &quot;000000000ea30550 .. 000a8ed32320100&quot; }]</code></p>
-
-<blockquote>
-<ul>
-<li>account : 액션을 실행하는 계정의 이름 (스마트 컨트랙트가 올라가있는 계정. 어떻게 action 을 실행할지에 대해 알고있다.)</li>
-<li>name : &ldquo;authroization&rdquo;: [{ // 어떤 시그니쳐가 필요한지 나타낸다.</li>
-<li>data : hex 로 표현된 값</li>
-</ul>
-</blockquote>
-
-<p>table 을 업데이트할때, payer 에 대해 0 를 전달하면 이전 payer 를 그대로 사용한다.</p>
-
-<p>unittest - test_api -&gt; tests directories . - api_tests.cpp</p>
-
-<pre><code class="language-cpp">#include &lt;boost/test/unit_test.hpp&gt;
-#inclue &lt;eosio.token/eosio.token.wast.hpp&gt;
-abi.hpp&gt;
-
-BOOST_AUTO_TEST_SUITE(dice_tests)
-BOOST_FIXTURE_TEST_CASE(dice_test, dice_tester) try {
-create_accounts( {N(eosio.token), N(dice), N(alice), N(bob), false});
-set_code(N(eosio.token), eosio_token_wast);
-set_abi(N(eosio.token), eosio_token_abi);
-push_action(N(eosio.token), N(create), N(eosio.toekn), mvo() (&quot;issuer&quot;, &quot;eosio.token&quot;))
-}
-
-</code></pre>
-
-<p>load balcancing 을 담당하는 릴레이노드 /
-producer node 가 별개로 있다</p>
-
-<p>특정노드에 컨트랙트를 전송 ?
-host 지정 하면 된다.</p>
-
-<p>context free action 를 어디서배우면 되나~ //</p>
-
-<p>transaction 을 트랙킹하기위해 플러그인을 사용해도 된다.
-mongodb plugin 등.</p>
+<h2 id="6-user-name-에-타당치-않은-규칙을-강요하지-마라">6. user name 에 타당치 않은 규칙을 강요하지 마라</h2>
 
 </section>
 
 <div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fblock-chain-youtube%2fbuilding-distributed-app%2f&t=Building%20Distributed%20App" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fblock-chain-youtube%2fbuilding-distributed-app%2f&text=Building%20Distributed%20App&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fblock-chain-youtube%2fbuilding-distributed-app%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fblock-chain-youtube%2fbuilding-distributed-app%2f&title=Building%20Distributed%20App" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f1-1.12-tips%2f&t=1-1.%20%ea%b3%84%ec%a0%95%ea%b4%80%eb%a6%ac%eb%a5%bc%20%ec%9c%84%ed%95%9c%2012%20tips" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f1-1.12-tips%2f&text=1-1.%20%ea%b3%84%ec%a0%95%ea%b4%80%eb%a6%ac%eb%a5%bc%20%ec%9c%84%ed%95%9c%2012%20tips&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f1-1.12-tips%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f1-1.12-tips%2f&title=1-1.%20%ea%b3%84%ec%a0%95%ea%b4%80%eb%a6%ac%eb%a5%bc%20%ec%9c%84%ed%95%9c%2012%20tips" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
 </div>
 
 <div class="post-meta-code">
@@ -273,7 +243,7 @@ mongodb plugin 등.</p>
       val categories = [
       
       
-      <a href="https://nolleh.github.io//categories/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8-%EA%B0%9C%EB%85%90">"블록체인-개념"</a>
+      <a href="https://nolleh.github.io//categories/google-cloud-service">"Google Cloud Service"</a>
       
       ];
     </div>
@@ -288,9 +258,9 @@ mongodb plugin 등.</p>
         val tags = [
         
           
-          <a href="https://nolleh.github.io/tags/eos">"EOS"</a>
+          <a href="https://nolleh.github.io/tags/coursera">"Coursera"</a>
           
-          <a href="https://nolleh.github.io/tags/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8">"블록체인"</a>
+          <a href="https://nolleh.github.io/tags/google-cloud-service">"Google Cloud Service"</a>
           
         
         ];
@@ -311,7 +281,7 @@ mongodb plugin 등.</p>
   </a>
   
 
-  PAGE 4 / 15
+  PAGE 4 / 17
 
   
   <a href="/page/5/" rel="next">

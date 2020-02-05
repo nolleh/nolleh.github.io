@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cryptos on The Computer Programmer, Nolleh</title>
+    <link>https://nolleh.github.io/crypto/</link>
+    <description>Recent content in Cryptos on The Computer Programmer, Nolleh</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <managingEditor>nolleh7707@gmail.com (nolleh)</managingEditor>
+    <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
+    <lastBuildDate>Thu, 30 Jan 2020 18:29:58 +0900</lastBuildDate>
+    
+	<atom:link href="https://nolleh.github.io/crypto/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SSL</title>
+      <link>https://nolleh.github.io/crypto/ssl/</link>
+      <pubDate>Thu, 30 Jan 2020 18:29:58 +0900</pubDate>
+      <author>nolleh7707@gmail.com (nolleh)</author>
+      <guid>https://nolleh.github.io/crypto/ssl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ECDSA</title>
+      <link>https://nolleh.github.io/crypto/ecdsa/</link>
+      <pubDate>Thu, 30 Jan 2020 18:28:50 +0900</pubDate>
+      <author>nolleh7707@gmail.com (nolleh)</author>
+      <guid>https://nolleh.github.io/crypto/ecdsa/</guid>
+      <description>ECDSA ref. https://m.blog.naver.com/aepkoreanet/221178375642
+ec (타원곡선) 을 이용한 기술들의 집합 - ECC,
+이중에 디지털서명 관련 기술이 ECDSA
+Terms   유한체
+집합에 속해있는 원소의 수가 한정되어 있고 덧셈, 곱셈에 대해 닫혀있는 집합  유한체 F 표기법
+원소의 개수가 p 인 유한체 F 는 Fp 혹은 GF(p) 로 표기 유한체 상에 정의된 타원 곡선
+E(Fp) 암호학에서 사용되는 유한체     - Prime Field 원소의 개수가 소수  ECC 사용시 타원 곡선을 정의하는 domain parameter 를 정의해야함.</description>
+    </item>
+    
+  </channel>
+</rss>

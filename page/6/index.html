@@ -38,12 +38,12 @@
       </div>
 
 
-  <a href="https://nolleh.github.io/block-chain/1.7-createtestaccount/">
+  <a href="https://nolleh.github.io/block-chain-youtube/building-distributed-app/">
   <div class="post-title">
     <img src="/images/post-title-icon.png" />
     <div class="post-meta">
-      <time>01 Jan 2019, 20:02</time>
-      <h1>EOSIO - 1.7/Test 계정 생성하기</h1>
+      <time>23 Jan 2019, 20:32</time>
+      <h1>Building Distributed App</h1>
     </div>
   </div>
 </a>
@@ -54,8 +54,8 @@
   </span>
   <nav id="TableOfContents">
 <ul>
-<li><a href="#what-is-an-account">What is an account?</a></li>
-<li><a href="#step-1-create-test-accounts">Step 1: Create Test Accounts</a></li>
+<li><a href="#smart-contract">Smart Contract</a></li>
+<li><a href="#intro-smart-contracts">Intro Smart Contracts</a></li>
 </ul>
 </nav>
 </div>
@@ -64,49 +64,102 @@
   
 
 <blockquote>
-<p>다음에서 발췌 <a href="https://developers.eos.io/eosio-home/docs/accounts-1">EOSIO - 1.7 Create Test Accounts</a></p>
+<p>다음에서 발췌 ()[]</p>
 </blockquote>
 
-<h1 id="what-is-an-account">What is an account?</h1>
+<h1 id="smart-contract">Smart Contract</h1>
 
-<hr />
+<ul>
+<li>블록은 트랜잭션을 포함한다.</li>
+<li>트랜잭션은 액션의 기록이다.</li>
+<li>액션은 컨트랙트의 동작이다.</li>
+</ul>
 
-<p>블록체인에 저장되어 송신자와 수신자를 구분하는데 사용되는 승인의 집합체라 할 수 있다.  유연한 권한 승인 구조를 가질 수 있는데, 권한이 어떻게 설정되느냐에 따른 개인이나 그룹에 의해 소유될 수 있다.<br />
-하나의 계정은 블록체인의 트랜잭션을 보내거나 받기 위해 요구된다.</p>
+<p>스마트컨트랙트의 사용</p>
 
-<p>이 튜토리얼에서는 두개의 user 계정, bob 과 alice, 그리고 설정을 위한 기본 eosio 계정을 사용한다.  추가로 계정들은 다양한 contracts 를 위해 이 튜토리얼 시리즈에서 만들어 질 수 있다.</p>
+<ul>
+<li>eos.io 의 컨트랙트는 abi 로 표현된다.</li>
+<li>어플리케이션 코드는 json data 를 이용한 http 를 통해 contract 를 트리거 한다.</li>
+<li>EOS.IO 는 컨트랙트를 간단히 스크립팅하거나 테스팅하기위한 커맨드라인 인터페이스를 제공한다.</li>
+</ul>
 
-<h1 id="step-1-create-test-accounts">Step 1: Create Test Accounts</h1>
+<h1 id="intro-smart-contracts">Intro Smart Contracts</h1>
 
-<hr />
+<ul>
+<li><p>EOS.IO 스마트 컨트랙트는 WebAssembly 로 구동된다. (WASM)</p>
 
-<p>이전 단계에서, wallet 과 개발키 쌍을 생성하였다. form 에 public key 를 지정하도록 요청받았지만, 이 단계를 넘기거나 쿠키를 사용하지 않도록 설정하였을 수있다. 생성된 publickey 를 YOUR_PUBLIC_KEY 에 기입하여 진행하자.</p>
+<ul>
+<li>web 표준으로 떠오르는중</li>
+<li>c/c++ 로부터 clang/llvm 을 통해 생성된다.</li>
+<li>다른 언어들도 언젠가 지원될 것</li>
+</ul></li>
 
-<p>이 튜토리얼동안 유저 bob 가 alice 가 사용된다. 두 계정은 cleos create accounts 를 통해 생성된다.</p>
+<li><p>Transaction - 실행되는 하나이상의 액션의 집합.</p>
 
-<pre><code class="language-shell">cleos create account eosio bob YOUR_PUBLIC_KEY 
-cleos create account eosio alice YOUR_PUBLIC_KEY
-</code></pre>
+<ul>
+<li>하나의 액션이라도 실패하면 모든 트랜잭션이 실패한다</li>
+</ul></li>
 
-<p>트랜잭션이 발송 되었음을 나타내는 다음과 같은 메시지가 노출된다.</p>
+<li><p>Action - 스마트컨트랙트를 실행하는 고수준의 함수</p>
 
-<pre><code class="language-shell">executed transaction: 40c605006de...  200 bytes  153 us
-#         eosio &lt;= eosio::newaccount            {&quot;creator&quot;:&quot;eosio&quot;,&quot;name&quot;:&quot;alice&quot;,&quot;owner&quot;:{&quot;threshold&quot;:1,&quot;keys&quot;:[{&quot;key&quot;:&quot;EOS5rti4LTL53xptjgQBXv9HxyU...
-warning: transaction executed locally, but may not be confirmed by the network yet    ]
-</code></pre>
+<ul>
+<li>데이터를 컨트랙트에 전송하기 위해서는 payload 를 포함해야한다.</li>
+</ul></li>
+</ul>
+
+<p>cloes 는 http 를 호출하는 syntatic sugar~</p>
+
+<p>transaction json 을 살펴보면.
+signature 가 있고, 이 특정한 트랜잭션의 시그니쳐를 표현한다.</p>
+
+<p>action json 은 이런 형태</p>
+
+<p><code>actions : [{ &quot;account&quot;: &quot;eosio&quot;, &quot;name&quot;: &quot;newaccount&quot;,&quot;actor&quot;: &quot;eosio&quot;, &quot;permission&quot;: &quot;acitve&quot; }], &quot;Data&quot;: &quot;000000000ea30550 .. 000a8ed32320100&quot; }]</code></p>
 
 <blockquote>
-<p>Using Different Keys for Active/Owner on a PRODUCTION Network
-EOSIO has a unique authorization structure that has added security for you account. You can minimize the exposure of your account by keeping the owner key cold, while using the key associated with your active permission. This way, if your active key were every compromised, you could regain control over your account with your owner key.</p>
+<ul>
+<li>account : 액션을 실행하는 계정의 이름 (스마트 컨트랙트가 올라가있는 계정. 어떻게 action 을 실행할지에 대해 알고있다.)</li>
+<li>name : &ldquo;authroization&rdquo;: [{ // 어떤 시그니쳐가 필요한지 나타낸다.</li>
+<li>data : hex 로 표현된 값</li>
+</ul>
 </blockquote>
+
+<p>table 을 업데이트할때, payer 에 대해 0 를 전달하면 이전 payer 를 그대로 사용한다.</p>
+
+<p>unittest - test_api -&gt; tests directories . - api_tests.cpp</p>
+
+<pre><code class="language-cpp">#include &lt;boost/test/unit_test.hpp&gt;
+#inclue &lt;eosio.token/eosio.token.wast.hpp&gt;
+abi.hpp&gt;
+
+BOOST_AUTO_TEST_SUITE(dice_tests)
+BOOST_FIXTURE_TEST_CASE(dice_test, dice_tester) try {
+create_accounts( {N(eosio.token), N(dice), N(alice), N(bob), false});
+set_code(N(eosio.token), eosio_token_wast);
+set_abi(N(eosio.token), eosio_token_abi);
+push_action(N(eosio.token), N(create), N(eosio.toekn), mvo() (&quot;issuer&quot;, &quot;eosio.token&quot;))
+}
+
+</code></pre>
+
+<p>load balcancing 을 담당하는 릴레이노드 /
+producer node 가 별개로 있다</p>
+
+<p>특정노드에 컨트랙트를 전송 ?
+host 지정 하면 된다.</p>
+
+<p>context free action 를 어디서배우면 되나~ //</p>
+
+<p>transaction 을 트랙킹하기위해 플러그인을 사용해도 된다.
+mongodb plugin 등.</p>
 
 </section>
 
 <div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.7-createtestaccount%2f&t=EOSIO%20-%201.7%2fTest%20%ea%b3%84%ec%a0%95%20%ec%83%9d%ec%84%b1%ed%95%98%ea%b8%b0" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.7-createtestaccount%2f&text=EOSIO%20-%201.7%2fTest%20%ea%b3%84%ec%a0%95%20%ec%83%9d%ec%84%b1%ed%95%98%ea%b8%b0&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.7-createtestaccount%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.7-createtestaccount%2f&title=EOSIO%20-%201.7%2fTest%20%ea%b3%84%ec%a0%95%20%ec%83%9d%ec%84%b1%ed%95%98%ea%b8%b0" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fblock-chain-youtube%2fbuilding-distributed-app%2f&t=Building%20Distributed%20App" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fblock-chain-youtube%2fbuilding-distributed-app%2f&text=Building%20Distributed%20App&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fblock-chain-youtube%2fbuilding-distributed-app%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fblock-chain-youtube%2fbuilding-distributed-app%2f&title=Building%20Distributed%20App" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
 </div>
 
 <div class="post-meta-code">
@@ -122,7 +175,7 @@ EOSIO has a unique authorization structure that has added security for you accou
       val categories = [
       
       
-      <a href="https://nolleh.github.io//categories/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8">"블록체인"</a>
+      <a href="https://nolleh.github.io//categories/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8-%EA%B0%9C%EB%85%90">"블록체인-개념"</a>
       
       ];
     </div>
@@ -137,9 +190,9 @@ EOSIO has a unique authorization structure that has added security for you accou
         val tags = [
         
           
-          <a href="https://nolleh.github.io/tags/block-chain">"block-chain"</a>
+          <a href="https://nolleh.github.io/tags/eos">"EOS"</a>
           
-          <a href="https://nolleh.github.io/tags/eosio">"EOSIO"</a>
+          <a href="https://nolleh.github.io/tags/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8">"블록체인"</a>
           
         
         ];
@@ -152,12 +205,12 @@ EOSIO has a unique authorization structure that has added security for you accou
     <img src="/images/seperator.png" />
   </div>
 
-  <a href="https://nolleh.github.io/block-chain/1.6-createdevelopmentwallet/">
+  <a href="https://nolleh.github.io/distributed-systems/1.highlevel/">
   <div class="post-title">
     <img src="/images/post-title-icon.png" />
     <div class="post-meta">
-      <time>01 Jan 2019, 17:10</time>
-      <h1>EOSIO - 1.6/개발 Wallet 생성하기</h1>
+      <time>21 Jan 2019, 22:58</time>
+      <h1>고수준의 분산 시스템</h1>
     </div>
   </div>
 </a>
@@ -168,12 +221,7 @@ EOSIO has a unique authorization structure that has added security for you accou
   </span>
   <nav id="TableOfContents">
 <ul>
-<li><a href="#step-1-wallet-생성하기">Step 1: Wallet 생성하기</a></li>
-<li><a href="#step2-open-the-wallet">Step2: Open the wallet</a></li>
-<li><a href="#step-3-unlock-it">Step 3: Unlock it</a></li>
-<li><a href="#step-4-import-keys-into-your-wallet">Step 4: Import keys into your wallet</a></li>
-<li><a href="#step-5-follow-this-tutorial-series-more-easily">Step 5: Follow this tutorial series more easily</a></li>
-<li><a href="#step-6-import-the-development-key">Step 6:Import the Development Key</a></li>
+<li><a href="#1-distributed-systems-at-a-highlevel">1. Distributed systems at a highlevel</a></li>
 </ul>
 </nav>
 </div>
@@ -181,113 +229,41 @@ EOSIO has a unique authorization structure that has added security for you accou
 <section class="post-content">
   
 
-<h1 id="step-1-wallet-생성하기">Step 1: Wallet 생성하기</h1>
-
-<hr />
-
-<p>먼저 wallet 을 생성한다. cleos wallet create 를 통해 기본 wallet 을 <code>--to-console</code> 옵션을 사용하여 간단하게 생성한다.<br />
-cleos 를 production 환경에서 사용한다면, 대신 <code>--to-file</code> 옵션을 사용하여 wallet 의 패스워드를 배쉬 기록에 남지않도록 한다.<br />
-개발 목적으로 사용하는 production 환경의 키가 아니기때문에 &ndash;to-console 으로 보안 위협없이 사용할 수 있다.</p>
-
-<pre><code class="language-shell">cleos wallet create --to-console
-</code></pre>
-
-<p>cleos 는 패스워드를 반환하며, 이 패스워드를 다음 튜토리얼에서 이용할 수 있도록 저장하자.</p>
-
-<pre><code class="language-shell">Creating wallet: default
-Save password to use in the future to unlock this wallet.
-Without password imported keys will not be retrievable.
-&quot;PW5Kewn9L76X8Fpd....................t42S9XCw2&quot;
-</code></pre>
-
 <blockquote>
-<p>wallet 에 대해
-wallet 의 암호 해독성에 대한 흔한 오해중의 하나는 토큰을 저장할 것이라는 것이다.  wallet 은 토큰을 저장하지 않는다.  wallet 은 private key 를 암호화된 파일에 저장하고 사이닝 트랜젝션에 활용한다.</p>
-
-<p>유저는 주로 인터페이스를 통해 트랜잭션 오브젝트를 빌드하고, 그 오브젝트를 서명될 수 있도록 wallet 에 전송하여, wallet 이 이후 시그니쳐와 함께 오브젝트를 네트워크를 통해 반환한다. 네트워크가 트랜잭션을 유효하다고 판단하면, 이를 블록체인의 블록에 포함시킨다.</p>
+<p>다음에서 발췌
+<a href="http://book.mixu.net/distsys/intro.html">http://book.mixu.net/distsys/intro.html</a></p>
 </blockquote>
 
-<h1 id="step2-open-the-wallet">Step2: Open the wallet</h1>
+<h1 id="1-distributed-systems-at-a-highlevel">1. Distributed systems at a highlevel</h1>
 
-<hr />
+<ul>
+<li>분산 프로그래밍은 같은 문제를 하나의 컴퓨터에서 해결할 수 있는 문제를 여러 컴퓨터에서 해결하는 예술이다.</li>
+</ul>
 
-<p>keosd 인스턴스를 시작하고 다면 wallet은 닫히게 된다. 실행시키고 싶다면 다음 명령어를 활용한다.</p>
+<p>컴퓨터 시스템이라면 해결해야 하는 두개의 문제가 있습니다.</p>
 
-<pre><code class="language-shell">cleos wallet open
-</code></pre>
+<ul>
+<li>저장소</li>
+<li>연산</li>
+</ul>
 
-<p>다시 리스트를 조회해보면</p>
+<p>분산 프로그래밍은 하나의 컴퓨터에서 해결할 수 있는 문제를 여러 컴퓨터를 통해 해결하는 예술입니다. 보통 하나의 컴퓨터에서 해결하기에는 적합하지 않은 문제를 위해서입니다.</p>
 
-<pre><code class="language-shell">cleos wallet list
-</code></pre>
+<p>실세계에서의 어떤것도 분산시스템을 요구하지는 않습니다. 무한한 돈과 무한한 실시간 연구 시간이 있다면, 분산시스템은 필요없습니다. 모든 연산과 모든 저장소는 매직박스 안에서 실행 될 수 있습니다 - 하나의, 믿을 수 없을정도로 빠르고, 믿을 수 없을정도로 신뢰할 수 있는 시스템은 누군가에게 돈을 지불하거나 당신이 직접 디자인할 필요가 있겟죠.</p>
 
-<p>다음과 같이 반환된다.</p>
+<p>하지만, 그렇게 무한한 자원을 가지고 있는 사람은 별로 없습니다. 때문에, 그들은 좋은 장소와실제 세계에서, 비용적인 ㅈ측면에서 고려할 수 있는 적합한 실세계 의 장소를 찾아야 합니다. 작은 사이즈 에서는 하드웨어를 업그레이드 하는 것은 필ㅅ적인 전략입니다. 하지만, 문제의 사이즈가 커짐에 따라 싱글 노드의 하드웨어 업그레이드 만으로는 문제를 해결할수 없거나, 비용적으로 막히는 지점이 오게 됩니다. 이 포인트에서, 분산 시스템으로 오신것을 환영할 때가 된것 같네요!</p>
 
-<pre><code class="language-shell">Wallets:
-[
-  &quot;default&quot;
-]
-</code></pre>
+<p>이것은 현재의 현실이고 어떤 현실이냐면 가장 가치있는 중앙 범위, 상업적인 소프트웨어 - 유지보수 비용이 문제가 발생했을때도 괜찮은 소프트웨어로 유지될 수 있도록 해줍니다.</p>
 
-<h1 id="step-3-unlock-it">Step 3: Unlock it</h1>
-
-<hr />
-
-<p>keosd wallet 은 열려있지만 여전히 잠겨있다. 좀전에 비밀번호를 제공받았으므로, 이를 이제 사용한다.</p>
-
-<pre><code class="language-shell">cleos wallet unlock
-</code></pre>
-
-<p>비밀번호를 입력하고 다시 리스트를 조회해보면</p>
-
-<pre><code class="language-shell">Wallets:
-[
-  &quot;default *&quot;
-]
-</code></pre>
-
-<p>열렸음을 의미하는 * 가 붙어있다.</p>
-
-<h1 id="step-4-import-keys-into-your-wallet">Step 4: Import keys into your wallet</h1>
-
-<hr />
-
-<p>private key 를 생성하기 위한 cleos 명령어가 있다.</p>
-
-<pre><code class="language-shell">cleos wallet create_key
-</code></pre>
-
-<h1 id="step-5-follow-this-tutorial-series-more-easily">Step 5: Follow this tutorial series more easily</h1>
-
-<hr />
-
-<p>얻은 public key 를 입력하자.</p>
-
-<h1 id="step-6-import-the-development-key">Step 6:Import the Development Key</h1>
-
-<hr />
-
-<p>새로운 EOSIO 체인마다 &ldquo;eosio&rdquo; 라 불리는 기본적인 &ldquo;system&rdquo; 유저를 보유한다.<br />
-이 계정은 시스템 contracts 들을 로딩함으로써 governance 와 EOSIO 체인의 컨센서스를 지휘하는 체인을 설정하는데 사용된다.<br />
-모든 EOSIO 체인은 development key 와 함께 제공되는데, 모두 동일하다. 이 키를 로드하여 시스템유저(eosio) 대신 트랜잭션을 서명해보자.</p>
-
-<pre><code class="language-shell">cleos wallet import
-</code></pre>
-
-<p>private key 를 질의 할텐데, 다음을 입력한다.</p>
-
-<pre><code class="language-shell">5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
-</code></pre>
-
-<p>이제 default wallet 이 해금되고 key 로 load 되었으니, 다음을 진행 할 수 있게 되었다.</p>
+<p>연산은 일반적으로</p>
 
 </section>
 
 <div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.6-createdevelopmentwallet%2f&t=EOSIO%20-%201.6%2f%ea%b0%9c%eb%b0%9c%20Wallet%20%ec%83%9d%ec%84%b1%ed%95%98%ea%b8%b0" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.6-createdevelopmentwallet%2f&text=EOSIO%20-%201.6%2f%ea%b0%9c%eb%b0%9c%20Wallet%20%ec%83%9d%ec%84%b1%ed%95%98%ea%b8%b0&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.6-createdevelopmentwallet%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.6-createdevelopmentwallet%2f&title=EOSIO%20-%201.6%2f%ea%b0%9c%eb%b0%9c%20Wallet%20%ec%83%9d%ec%84%b1%ed%95%98%ea%b8%b0" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fdistributed-systems%2f1.highlevel%2f&t=%ea%b3%a0%ec%88%98%ec%a4%80%ec%9d%98%20%eb%b6%84%ec%82%b0%20%ec%8b%9c%ec%8a%a4%ed%85%9c" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fdistributed-systems%2f1.highlevel%2f&text=%ea%b3%a0%ec%88%98%ec%a4%80%ec%9d%98%20%eb%b6%84%ec%82%b0%20%ec%8b%9c%ec%8a%a4%ed%85%9c&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fdistributed-systems%2f1.highlevel%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fdistributed-systems%2f1.highlevel%2f&title=%ea%b3%a0%ec%88%98%ec%a4%80%ec%9d%98%20%eb%b6%84%ec%82%b0%20%ec%8b%9c%ec%8a%a4%ed%85%9c" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
 </div>
 
 <div class="post-meta-code">
@@ -303,7 +279,7 @@ wallet 의 암호 해독성에 대한 흔한 오해중의 하나는 토큰을 �
       val categories = [
       
       
-      <a href="https://nolleh.github.io//categories/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8">"블록체인"</a>
+      <a href="https://nolleh.github.io//categories/%EC%84%9C%EB%B2%84%EA%B0%9C%EB%B0%9C%EC%A7%80%EC%8B%9D">"서버개발지식"</a>
       
       ];
     </div>
@@ -318,9 +294,9 @@ wallet 의 암호 해독성에 대한 흔한 오해중의 하나는 토큰을 �
         val tags = [
         
           
-          <a href="https://nolleh.github.io/tags/block-chain">"block-chain"</a>
+          <a href="https://nolleh.github.io/tags/programming">"Programming"</a>
           
-          <a href="https://nolleh.github.io/tags/eosio">"EOSIO"</a>
+          <a href="https://nolleh.github.io/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8">"생각하는 프로그래머"</a>
           
         
         ];
@@ -341,7 +317,7 @@ wallet 의 암호 해독성에 대한 흔한 오해중의 하나는 토큰을 �
   </a>
   
 
-  PAGE 6 / 15
+  PAGE 6 / 17
 
   
   <a href="/page/7/" rel="next">

@@ -8,10 +8,45 @@
     <language>ko-KR</language>
     <managingEditor>nolleh7707@gmail.com (nolleh)</managingEditor>
     <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
-    <lastBuildDate>Sat, 16 Mar 2019 23:02:25 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 05 Feb 2020 18:44:37 +0900</lastBuildDate>
     
 	<atom:link href="https://nolleh.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Clustering Guide</title>
+      <link>https://nolleh.github.io/rabbitmq/clustering-guide/</link>
+      <pubDate>Wed, 05 Feb 2020 18:44:37 +0900</pubDate>
+      <author>nolleh7707@gmail.com (nolleh)</author>
+      <guid>https://nolleh.github.io/rabbitmq/clustering-guide/</guid>
+      <description>한개 이상의 노드들의 논리적인 그룹을 의미하며, 각각은 유저와, 가상 호스트, 큐, exchanges, bindings 을 공유한다.
+Cluster Formation 다음 방법들로 구성 가능
+ Declaratively by listing cluster nodes in config file Declaratively using DNS-based discovery Declaratively using AWS (EC2) instance discovery (via a plugin) Declaratively using Kubernetes discovery (via a plugin) Declaratively using Consul-based discovery (via a plugin) Declaratively using etcd-based discovery (via a plugin) Manually with rabbitmqctl  구성은 동적으로 변경 될수 있고, 모든 RabbitMQ 브로커는 하나의 노드로부터 시작해서 클러스터에 참여시키거나, 다시 개별의 브로커로 돌아갈 수 있다.</description>
+    </item>
+    
+    <item>
+      <title>SSL</title>
+      <link>https://nolleh.github.io/crypto/ssl/</link>
+      <pubDate>Thu, 30 Jan 2020 18:29:58 +0900</pubDate>
+      <author>nolleh7707@gmail.com (nolleh)</author>
+      <guid>https://nolleh.github.io/crypto/ssl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ECDSA</title>
+      <link>https://nolleh.github.io/crypto/ecdsa/</link>
+      <pubDate>Thu, 30 Jan 2020 18:28:50 +0900</pubDate>
+      <author>nolleh7707@gmail.com (nolleh)</author>
+      <guid>https://nolleh.github.io/crypto/ecdsa/</guid>
+      <description>ECDSA ref. https://m.blog.naver.com/aepkoreanet/221178375642
+ec (타원곡선) 을 이용한 기술들의 집합 - ECC,
+이중에 디지털서명 관련 기술이 ECDSA
+Terms   유한체
+집합에 속해있는 원소의 수가 한정되어 있고 덧셈, 곱셈에 대해 닫혀있는 집합  유한체 F 표기법
+원소의 개수가 p 인 유한체 F 는 Fp 혹은 GF(p) 로 표기 유한체 상에 정의된 타원 곡선
+E(Fp) 암호학에서 사용되는 유한체     - Prime Field 원소의 개수가 소수  ECC 사용시 타원 곡선을 정의하는 domain parameter 를 정의해야함.</description>
+    </item>
     
     <item>
       <title>6. DataStorage</title>

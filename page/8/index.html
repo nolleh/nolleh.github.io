@@ -38,12 +38,12 @@
       </div>
 
 
-  <a href="https://nolleh.github.io/block-chain/1.3-aboutthestack/">
+  <a href="https://nolleh.github.io/block-chain/1.6-createdevelopmentwallet/">
   <div class="post-title">
     <img src="/images/post-title-icon.png" />
     <div class="post-meta">
-      <time>01 Jan 2019, 15:56</time>
-      <h1>EOSIO - 1.3/스택에 대해</h1>
+      <time>01 Jan 2019, 17:10</time>
+      <h1>EOSIO - 1.6/개발 Wallet 생성하기</h1>
     </div>
   </div>
 </a>
@@ -52,35 +52,128 @@
   <span class="title">
     Table of contents
   </span>
-  
+  <nav id="TableOfContents">
+<ul>
+<li><a href="#step-1-wallet-생성하기">Step 1: Wallet 생성하기</a></li>
+<li><a href="#step2-open-the-wallet">Step2: Open the wallet</a></li>
+<li><a href="#step-3-unlock-it">Step 3: Unlock it</a></li>
+<li><a href="#step-4-import-keys-into-your-wallet">Step 4: Import keys into your wallet</a></li>
+<li><a href="#step-5-follow-this-tutorial-series-more-easily">Step 5: Follow this tutorial series more easily</a></li>
+<li><a href="#step-6-import-the-development-key">Step 6:Import the Development Key</a></li>
+</ul>
+</nav>
 </div>
 
 <section class="post-content">
-  <blockquote>
-<p>발췌 - <a href="https://developers.eos.io/eosio-home/docs/how-it-all-fits-together">EOSIO - 1.3 About The Stack</a></p>
+  
+
+<h1 id="step-1-wallet-생성하기">Step 1: Wallet 생성하기</h1>
+
+<hr />
+
+<p>먼저 wallet 을 생성한다. cleos wallet create 를 통해 기본 wallet 을 <code>--to-console</code> 옵션을 사용하여 간단하게 생성한다.<br />
+cleos 를 production 환경에서 사용한다면, 대신 <code>--to-file</code> 옵션을 사용하여 wallet 의 패스워드를 배쉬 기록에 남지않도록 한다.<br />
+개발 목적으로 사용하는 production 환경의 키가 아니기때문에 &ndash;to-console 으로 보안 위협없이 사용할 수 있다.</p>
+
+<pre><code class="language-shell">cleos wallet create --to-console
+</code></pre>
+
+<p>cleos 는 패스워드를 반환하며, 이 패스워드를 다음 튜토리얼에서 이용할 수 있도록 저장하자.</p>
+
+<pre><code class="language-shell">Creating wallet: default
+Save password to use in the future to unlock this wallet.
+Without password imported keys will not be retrievable.
+&quot;PW5Kewn9L76X8Fpd....................t42S9XCw2&quot;
+</code></pre>
+
+<blockquote>
+<p>wallet 에 대해
+wallet 의 암호 해독성에 대한 흔한 오해중의 하나는 토큰을 저장할 것이라는 것이다.  wallet 은 토큰을 저장하지 않는다.  wallet 은 private key 를 암호화된 파일에 저장하고 사이닝 트랜젝션에 활용한다.</p>
+
+<p>유저는 주로 인터페이스를 통해 트랜잭션 오브젝트를 빌드하고, 그 오브젝트를 서명될 수 있도록 wallet 에 전송하여, wallet 이 이후 시그니쳐와 함께 오브젝트를 네트워크를 통해 반환한다. 네트워크가 트랜잭션을 유효하다고 판단하면, 이를 블록체인의 블록에 포함시킨다.</p>
 </blockquote>
 
-<p>방금 설치한 툴들을 시작하기 전에, 각각의 컴포넌트들이 어떻게 상호작용하는지 이해하는게 좋다.</p>
+<h1 id="step2-open-the-wallet">Step2: Open the wallet</h1>
 
-<ul>
-<li><p>nodeos (node + eos = nodeos) - 노드를 실행하기 위한 플러그인들로 설정될 수 있는 Core EOSIO 데몬.  예제는 로컬개발과 API 종단점을 위해 블록제품을 사용한다.</p></li>
+<hr />
 
-<li><p>cleos (cli + eos = cleos) - 블록 체인과 상호작용하고 wallet 을 관리하기위한 커맨드 라인 인터페이스.</p></li>
+<p>keosd 인스턴스를 시작하고 다면 wallet은 닫히게 된다. 실행시키고 싶다면 다음 명령어를 활용한다.</p>
 
-<li><p>keosd (key + eos = keosd) - wallet 안의 EOSIO key 를 안전하게 저장 하기 위한 컴포넌트</p></li>
+<pre><code class="language-shell">cleos wallet open
+</code></pre>
 
-<li><p>eosio-cpp - eosio.cdt 의 일부로, C++ 코드를 WASM 로 컴파일하고 ABI 들을 생성한다.</p></li>
-</ul>
+<p>다시 리스트를 조회해보면</p>
 
-<p><img src="https://files.readme.io/582e059-411_DevRelations_NodeosGraphic_Option3.png" alt="EOSIO Architecture" /></p>
+<pre><code class="language-shell">cleos wallet list
+</code></pre>
+
+<p>다음과 같이 반환된다.</p>
+
+<pre><code class="language-shell">Wallets:
+[
+  &quot;default&quot;
+]
+</code></pre>
+
+<h1 id="step-3-unlock-it">Step 3: Unlock it</h1>
+
+<hr />
+
+<p>keosd wallet 은 열려있지만 여전히 잠겨있다. 좀전에 비밀번호를 제공받았으므로, 이를 이제 사용한다.</p>
+
+<pre><code class="language-shell">cleos wallet unlock
+</code></pre>
+
+<p>비밀번호를 입력하고 다시 리스트를 조회해보면</p>
+
+<pre><code class="language-shell">Wallets:
+[
+  &quot;default *&quot;
+]
+</code></pre>
+
+<p>열렸음을 의미하는 * 가 붙어있다.</p>
+
+<h1 id="step-4-import-keys-into-your-wallet">Step 4: Import keys into your wallet</h1>
+
+<hr />
+
+<p>private key 를 생성하기 위한 cleos 명령어가 있다.</p>
+
+<pre><code class="language-shell">cleos wallet create_key
+</code></pre>
+
+<h1 id="step-5-follow-this-tutorial-series-more-easily">Step 5: Follow this tutorial series more easily</h1>
+
+<hr />
+
+<p>얻은 public key 를 입력하자.</p>
+
+<h1 id="step-6-import-the-development-key">Step 6:Import the Development Key</h1>
+
+<hr />
+
+<p>새로운 EOSIO 체인마다 &ldquo;eosio&rdquo; 라 불리는 기본적인 &ldquo;system&rdquo; 유저를 보유한다.<br />
+이 계정은 시스템 contracts 들을 로딩함으로써 governance 와 EOSIO 체인의 컨센서스를 지휘하는 체인을 설정하는데 사용된다.<br />
+모든 EOSIO 체인은 development key 와 함께 제공되는데, 모두 동일하다. 이 키를 로드하여 시스템유저(eosio) 대신 트랜잭션을 서명해보자.</p>
+
+<pre><code class="language-shell">cleos wallet import
+</code></pre>
+
+<p>private key 를 질의 할텐데, 다음을 입력한다.</p>
+
+<pre><code class="language-shell">5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+</code></pre>
+
+<p>이제 default wallet 이 해금되고 key 로 load 되었으니, 다음을 진행 할 수 있게 되었다.</p>
 
 </section>
 
 <div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.3-aboutthestack%2f&t=EOSIO%20-%201.3%2f%ec%8a%a4%ed%83%9d%ec%97%90%20%eb%8c%80%ed%95%b4" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.3-aboutthestack%2f&text=EOSIO%20-%201.3%2f%ec%8a%a4%ed%83%9d%ec%97%90%20%eb%8c%80%ed%95%b4&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.3-aboutthestack%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.3-aboutthestack%2f&title=EOSIO%20-%201.3%2f%ec%8a%a4%ed%83%9d%ec%97%90%20%eb%8c%80%ed%95%b4" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.6-createdevelopmentwallet%2f&t=EOSIO%20-%201.6%2f%ea%b0%9c%eb%b0%9c%20Wallet%20%ec%83%9d%ec%84%b1%ed%95%98%ea%b8%b0" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.6-createdevelopmentwallet%2f&text=EOSIO%20-%201.6%2f%ea%b0%9c%eb%b0%9c%20Wallet%20%ec%83%9d%ec%84%b1%ed%95%98%ea%b8%b0&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.6-createdevelopmentwallet%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.6-createdevelopmentwallet%2f&title=EOSIO%20-%201.6%2f%ea%b0%9c%eb%b0%9c%20Wallet%20%ec%83%9d%ec%84%b1%ed%95%98%ea%b8%b0" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
 </div>
 
 <div class="post-meta-code">
@@ -126,12 +219,12 @@
     <img src="/images/seperator.png" />
   </div>
 
-  <a href="https://nolleh.github.io/block-chain/1.2-beforeyoubegin/">
+  <a href="https://nolleh.github.io/block-chain/1.5-installthecdt/">
   <div class="post-title">
     <img src="/images/post-title-icon.png" />
     <div class="post-meta">
-      <time>01 Jan 2019, 15:27</time>
-      <h1>EOSIO - 1.2/시작하기 전에</h1>
+      <time>01 Jan 2019, 16:57</time>
+      <h1>EOSIO - 1.5/CDT 설치하기</h1>
     </div>
   </div>
 </a>
@@ -142,9 +235,11 @@
   </span>
   <nav id="TableOfContents">
 <ul>
-<li><a href="#step-1-install-binaries">Step 1: Install Binaries</a></li>
-<li><a href="#step-2-setup-a-development-directory-stick-to-it">Step 2: Setup a development directory, stick to it</a></li>
-<li><a href="#step-3-enter-your-local-directory-below">Step 3: Enter your local directory below.</a></li>
+<li><a href="#homebrew-mac-os-x">HomeBrew (Mac OS X)</a>
+<ul>
+<li><a href="#install">Install</a></li>
+<li><a href="#uninstall">Uninstall</a></li>
+</ul></li>
 </ul>
 </nav>
 </div>
@@ -153,52 +248,35 @@
   
 
 <blockquote>
-<p>발췌 - (EOSIO - 1.2 Before You Begin)[<a href="https://developers.eos.io/eosio-home/docs/setting-up-your-environment">https://developers.eos.io/eosio-home/docs/setting-up-your-environment</a>]</p>
+<p>다음에서 발췌 - <a href="https://developers.eos.io/eosio-home/docs/installing-the-contract-development-toolkit">EOSIO - 1.5 Install The CDT</a></p>
 </blockquote>
 
-<h1 id="step-1-install-binaries">Step 1: Install Binaries</h1>
+<p>EOSIO Contract Development Toolkit, CDT 는 contract 컴파일을 위한 툴의 집합이다.   뒤따를 튜토리얼들은 contract 들을 컴파일하고 ABI 를 생성하는 주요 CDT 를 사용한다.</p>
+
+<p>1.3.x 버전부터, CDT 는 Mac OS X brew, linux debian 과 RPM 패키지들을 지원한다. 설치하기 위한 가장쉬운 선택지는 이 패키지 시스템들을 이용하는 것이다. 하나의 방법을 선택하자.</p>
+
+<h1 id="homebrew-mac-os-x">HomeBrew (Mac OS X)</h1>
 
 <hr />
 
-<p>이 튜토리얼은 선빌드된 바이너리를 사용한다.<br />
-가장 빨리 시작하는 방법은 이게 가장 좋은 선택지 일것이다. 소스로부터 빌드하는 것도 하나의 선택지이지만, 한시간 이상 걸릴 수 도 있으며 빌드 에러가 발생 할 수도 있다.</p>
+<h2 id="install">Install</h2>
 
-<p>아래의 명령어들이 각각의 OS 에서 바이너리를 다운로드 할 것이다.</p>
-
-<pre><code class="language-shell">brew tap eosio/eosio
-brew install eosio
+<pre><code class="language-shell">brew tap eosio/eosio.cdt
+brew install eosio.cdt
 </code></pre>
 
-<h1 id="step-2-setup-a-development-directory-stick-to-it">Step 2: Setup a development directory, stick to it</h1>
+<h2 id="uninstall">Uninstall</h2>
 
-<hr />
-
-<p>작업을 진행할 디렉토리를 선택할 필요가 있다.<br />
-<code>contracts</code> 폴더를 로컬드라이브 어딘가에 생성하는 것을 추천한다.</p>
-
-<pre><code class="language-shell">mkdir contracts
-cd contracts
+<pre><code class="language-shell">brew remove eosio.cdt
 </code></pre>
-
-<h1 id="step-3-enter-your-local-directory-below">Step 3: Enter your local directory below.</h1>
-
-<hr />
-
-<p>그 폴더의 경로를 얻어 저장해둬서 필요할 때 사용 할 수 있도록 다음 명령어를 통하면 된다.</p>
-
-<pre><code class="language-shell">pwd
-</code></pre>
-
-<p>절대 경로를 아래에 기입하면 문서의 내용에 반영, 더 읽기 편하게 만들어 줄 것이다.
-이 기능은 쿠키를 사용한다.</p>
 
 </section>
 
 <div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.2-beforeyoubegin%2f&t=EOSIO%20-%201.2%2f%ec%8b%9c%ec%9e%91%ed%95%98%ea%b8%b0%20%ec%a0%84%ec%97%90" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.2-beforeyoubegin%2f&text=EOSIO%20-%201.2%2f%ec%8b%9c%ec%9e%91%ed%95%98%ea%b8%b0%20%ec%a0%84%ec%97%90&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.2-beforeyoubegin%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.2-beforeyoubegin%2f&title=EOSIO%20-%201.2%2f%ec%8b%9c%ec%9e%91%ed%95%98%ea%b8%b0%20%ec%a0%84%ec%97%90" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.5-installthecdt%2f&t=EOSIO%20-%201.5%2fCDT%20%ec%84%a4%ec%b9%98%ed%95%98%ea%b8%b0" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.5-installthecdt%2f&text=EOSIO%20-%201.5%2fCDT%20%ec%84%a4%ec%b9%98%ed%95%98%ea%b8%b0&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.5-installthecdt%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.5-installthecdt%2f&title=EOSIO%20-%201.5%2fCDT%20%ec%84%a4%ec%b9%98%ed%95%98%ea%b8%b0" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
 </div>
 
 <div class="post-meta-code">
@@ -252,7 +330,7 @@ cd contracts
   </a>
   
 
-  PAGE 8 / 15
+  PAGE 8 / 17
 
   
   <a href="/page/9/" rel="next">
