@@ -38,12 +38,12 @@
       </div>
 
 
-  <a href="https://nolleh.github.io/coursera/gcp/3.sdk/">
+  <a href="https://nolleh.github.io/crypto/ecdsa/">
   <div class="post-title">
     <img src="/images/post-title-icon.png" />
     <div class="post-meta">
-      <time>12 Mar 2019, 23:37</time>
-      <h1>3.SDK</h1>
+      <time>30 Jan 2020, 18:28</time>
+      <h1>ECDSA</h1>
     </div>
   </div>
 </a>
@@ -54,10 +54,16 @@
   </span>
   <nav id="TableOfContents">
 <ul>
-<li><a href="#what-are-the-google-cloud-client-libraries">What are the Google Cloud Client Libraries?</a>
+<li><a href="#ecdsa">ECDSA</a>
 <ul>
-<li><a href="#cloud-shell">Cloud Shell</a></li>
-<li><a href="#module-review">Module Review</a></li>
+<li><a href="#terms">Terms</a></li>
+<li><a href="#ecc-의-privatekey-와-publickey">ECC 의 privateKey 와 publicKey</a></li>
+<li><a href="#ecdsa-와-secp256k1">ECDSA 와 secp256k1</a>
+<ul>
+<li><a href="#domain-parameter">Domain Parameter</a></li>
+</ul></li>
+<li><a href="#서명은-어떻게-이루어지는가">서명은 어떻게 이루어지는가 ?</a></li>
+<li><a href="#ecdsa-시그니쳐에서-어떻게-public-key-를-복원할-수-있는가">ECDSA 시그니쳐에서 어떻게 public key 를 복원할 수 있는가 ?</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -66,46 +72,177 @@
 <section class="post-content">
   
 
-<h1 id="what-are-the-google-cloud-client-libraries">What are the Google Cloud Client Libraries?</h1>
+<h1 id="ecdsa">ECDSA</h1>
 
-<p>관용적인 코드를 각각의 랭귀지에 대해 제공
-gRPC 에서 성능 효과를 보는 라이브러리도 있다.</p>
+<p>ref. <a href="https://m.blog.naver.com/aepkoreanet/221178375642">https://m.blog.naver.com/aepkoreanet/221178375642</a></p>
 
-<p><a href="https://cloud.google.com/apis/docs/cloud-client-libraries">github repo</a></p>
+<p>ec (타원곡선) 을 이용한 기술들의 집합 - ECC,<br />
+이중에 디지털서명 관련 기술이 ECDSA</p>
 
-<p>gcloud - 커맨드 라인툴, gcp를 위한.</p>
+<h2 id="terms">Terms</h2>
 
-<p><a href="https://cloud.google.com/sdk/gcloud/reference/">GC cloud</a>
-빅쿼리를 위한 커맨드라인 툴</p>
+<blockquote>
+<ul>
+<li>유한체<br />
+집합에 속해있는 원소의 수가 한정되어 있고 덧셈, 곱셈에 대해 닫혀있는 집합
 
-<p>gsuitl 버킷이랑 통신하기 위한 커맨드라인 툴</p>
+<ul>
+<li>유한체 F 표기법<br />
+원소의 개수가 p 인 유한체 F 는 <code>Fp</code> 혹은 <code>GF(p)</code> 로 표기</li>
+<li>유한체 상에 정의된 타원 곡선<br />
+<code>E(Fp)</code></li>
+<li>암호학에서 사용되는 유한체</li>
+</ul></li>
+</ul>
+</blockquote>
 
-<p>gcloud init (initialize )</p>
+<pre><code>    - Prime Field
+    원소의 개수가 소수
+</code></pre>
 
-<h2 id="cloud-shell">Cloud Shell</h2>
+<p>ECC 사용시 타원 곡선을 정의하는 domain parameter 를 정의해야함.
+(p, a, b, G, n, h) 를 정의해야하는건데, 여러 표준단체에서 Field Size 에 맞는 타원곡선에 대한 파라미터 발표.</p>
 
-<p>브라우저 베이스 커맨드라인툴.
-일시적인 vm에 대한 접근을 제공.
-    5GB 디스크
-    SDK 에 이미 설치되어있음</p>
+<ul>
+<li>p : Modulo Prime Number</li>
+<li>a : 타원곡선 방정식에서 사용되는 계수</li>
+<li>b : 타원곡선 방정식에서 사용되는 계수</li>
+<li>Base point 또는 Generator Point, G 는 <code>E(Fp)</code> 에 속해있는 point</li>
+<li>n : the order of point G (G 를 n번 더하면 무한원점이 되는값 : nG = ∞)</li>
+<li>H : cofactor</li>
+</ul>
 
-<p>구글클라우드 콘솔프로젝트에대한 authorization /리소스 제공</p>
+<p>타원 곡선이란, 타원 곡선 방정식을 만족하는 집합을 곡선 그래프로 표시한 것</p>
 
-<p>코드 에디터가 포함 (beta)</p>
+<p>y^2 = x^3 + ax + b</p>
 
-<h2 id="module-review">Module Review</h2>
+<p>secp256k1 곡선의 경우 a = 0, b = 7 을 사용</p>
 
-<p>Api Explore: google cloud api 를 테스트하기위한 샌드박스로 사용
-Google Cloud Client Library : GCP 서비스와 커뮤니케이션
-GCP Service 의 스크립트 작성 : Google Cloud SDK</p>
+<p><img src="https://mblogthumb-phinf.pstatic.net/MjAxODAxMDVfMjA3/MDAxNTE1MTIwNzU2Mzg4.-O3OYGeOa7qhb3XL4zNeyVTUu-QztZOTNCB5usfDlzsg.WQ_YS2FHvXxbrzIKQ0FBFvJBdf90Zj7x5JuNwEVKWH8g.JPEG.aepkoreanet/secpcurve.jpg?type=w2" alt="" /></p>
+
+<h2 id="ecc-의-privatekey-와-publickey">ECC 의 privateKey 와 publicKey</h2>
+
+<blockquote>
+<ul>
+<li>Private Key d : P 보다 적은 소수 (Prime) 로, 난수 생성기로 생성</li>
+<li>Public Key Q : Q(x, y) = d x G(x0, y0)</li>
+</ul>
+</blockquote>
+
+<h2 id="ecdsa-와-secp256k1">ECDSA 와 secp256k1</h2>
+
+<p>ECDSA 의 파라메터로 secp256k1 curve 를 사용
+secp256k1</p>
+
+<p>sec - standard for Efficient Cryptography<br />
+p - parameter p over Fp<br />
+256 - field size p 의 bit 수<br />
+k - koblitz curve 변형<br />
+1 - sequence number</p>
+
+<h3 id="domain-parameter">Domain Parameter</h3>
+
+<pre><code>T = (p,a,b,G,n,h)
+
+p :  FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFC2F
+
+a :  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+
+b :  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000007
+
+G :  02 79BE667E F9DCBBAC 55A06295 CE870B07 029BFCDB 2DCE28D9 59F2815B 16F81798
+
+  또는
+
+G : 04 79BE667E F9DCBBAC 55A06295 CE870B07 029BFCDB 2DCE28D9 59F2815B 16F81798 483ADA77 26A3C465 5DA4FBFC 0E1108A8 FD17B448 A6855419 9C47D08F FB10D4B8
+
+N :  FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFE BAAEDCE6 AF48A03B BFD25E8C D0364141
+
+h : 01
+</code></pre>
+
+<h2 id="서명은-어떻게-이루어지는가">서명은 어떻게 이루어지는가 ?</h2>
+
+<p><a href="https://ko.wikipedia.org/wiki/%ED%83%80%EC%9B%90%EA%B3%A1%EC%84%A0_DSA">https://ko.wikipedia.org/wiki/%ED%83%80%EC%9B%90%EA%B3%A1%EC%84%A0_DSA</a></p>
+
+<p>domain parameter 로 (CURVE, g, n) 을 사용한다.</p>
+
+<ul>
+<li>Curve : 타원곡선의 체 (field) 와 여기 사용된 수식.</li>
+<li>g : 타원 곡선의 기준점 (base point). 해당 타원곡선의 생성원(generator) 이다.</li>
+<li>n : g 의 차수이다. n X g = 0 이며, 반드시 소수여야한다. 보통 충분히 큰 소수를 사용한다.</li>
+</ul>
+
+<p>privateKey, d 생성. - RNG 로 생성된 무작위로 선택된 1~ n-1 사이의 정수<br />
+publicKey, Q 생성 - Q = dg 를 만족하는 정수. (g 를 d 번 더한 값)</p>
+
+<p>서명 프로세스</p>
+
+<p>필요한 것: <code>E(Fp)</code>, d, Q, m</p>
+
+<pre><code>1. e = H(m). 메시지를 해쉬하고 이를 e 라고 한다.
+2. z = Ln(e) e 의 binary 값에서 왼쪽으로부터 n 번째 까지 잘라낸 값을 z 라고 한다. (left most n'th bit)
+3. 암호학적으로 안전한 난수 k 를 [1, n-1] 사이에서 무작위로 선택한다.
+4. 곡선 위의 점 (x1, y1) = k * g 를 계산한다.
+    - 타원곡선에서의 덧셈은, 결국 다시 점이 된다.
+    - 위 k * g 는 g 를 k 번 더하는 것을 의미하고, 결국 점이 된다.
+5. r = x1 (mod n) 을 계산 한다. r 이 0 인 경우, k 를 다시 선택한다.
+6. s = k^(-1)(z + rd) (mod n) 을 계산. s = 0 이면 3 으로 되돌아가 다른 k 를 선택, 순서대로 진행한다.
+
+완성된 서명은 (r, s) 이다.
+</code></pre>
+
+<p><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d2ae87d5c9d298c4339595d4308963c17257e228" alt="" /></p>
+
+<p>검증 프로세스</p>
+
+<p>필요한 것: <code>E(Fp)</code>, (r,s), m</p>
+
+<pre><code>- 곡선위의 점 인증
+1. Q =/= O (identity element)
+2. Q 가 곡선 위의 점인지
+3. n x Q = O 인지 확인
+
+- 서명 유효성 인증
+1. r,s 가 1부터 n-1 사이의 정수인지 확인.
+2. e = H(m) 을 계산.
+3. z 계산
+4. w = s^(-1)(mod n) 계산, u1 = zw, u2 = rw (mod n) 계산
+5. shamir's trick 을 사용해서 (x1, y1) = u1 x g + u2 x Q 를 계산. (x1, y1) = O 이면 무효
+6. r = x1 (mod n) 일때만 유효.
+</code></pre>
+
+<p>즉, 서명 프로세스는 타원 곡선에서 새로운 k 와 (x1, y1) 을 구한 후</p>
+
+<h2 id="ecdsa-시그니쳐에서-어떻게-public-key-를-복원할-수-있는가">ECDSA 시그니쳐에서 어떻게 public key 를 복원할 수 있는가 ?</h2>
+
+<p><a href="https://crypto.stackexchange.com/questions/18105/how-does-recovering-the-public-key-from-an-ecdsa-signature-work">stack exchange link</a></p>
+
+<p>ECDSA signature (r,s)</p>
+
+<p>사실 곡선과 사용된 해쉬 함수, 서명된 메시지 원본을 알고 있더라도
+signature 로부터 public key 를 recover 하는 것은 불가능하다.</p>
+
+<p>그러나, signature 와 원본 메시지, 곡선에 대한 정보로 두개의 public key 를 생성하는게 가능하다.
+(이 중에 private key 가 사용된 public key 가 있을 것)</p>
+
+<p>동작 원리는 다음과 같다.</p>
+
+<ul>
+<li>R 과 R&rsquo; x 좌표로 r 값을 갖는 좌표를 찾는다.</li>
+<li>r^-1 을 연산하는데, 이는 시그니쳐의 r 의 곱셈 역원이다. (mod n)</li>
+<li>z 메시지 해쉬의 하위 n bit 인 z 를 연산한다.</li>
+</ul>
+
+<p>public key 는 <code>r^(−1)(sR−zG) and r^(−1)(sR′−zG)</code> 가 된다.</p>
 
 </section>
 
 <div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f3.sdk%2f&t=3.SDK" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f3.sdk%2f&text=3.SDK&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f3.sdk%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f3.sdk%2f&title=3.SDK" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fcrypto%2fecdsa%2f&t=ECDSA" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fcrypto%2fecdsa%2f&text=ECDSA&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fcrypto%2fecdsa%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fcrypto%2fecdsa%2f&title=ECDSA" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
 </div>
 
 <div class="post-meta-code">
@@ -121,7 +258,7 @@ GCP Service 의 스크립트 작성 : Google Cloud SDK</p>
       val categories = [
       
       
-      <a href="https://nolleh.github.io//categories/google-cloud-service">"Google Cloud Service"</a>
+      <a href="https://nolleh.github.io//categories/%EC%95%94%ED%98%B8%ED%95%99">"암호학"</a>
       
       ];
     </div>
@@ -136,9 +273,9 @@ GCP Service 의 스크립트 작성 : Google Cloud SDK</p>
         val tags = [
         
           
-          <a href="https://nolleh.github.io/tags/coursera">"Coursera"</a>
+          <a href="https://nolleh.github.io/tags/%EC%95%94%ED%98%B8%ED%95%99">"암호학"</a>
           
-          <a href="https://nolleh.github.io/tags/google-cloud-service">"Google Cloud Service"</a>
+          <a href="https://nolleh.github.io/tags/crypto">"CRYPTO"</a>
           
         
         ];
@@ -151,12 +288,12 @@ GCP Service 의 스크립트 작성 : Google Cloud SDK</p>
     <img src="/images/seperator.png" />
   </div>
 
-  <a href="https://nolleh.github.io/coursera/gcp/1-1.12-tips/">
+  <a href="https://nolleh.github.io/coursera/gcp/6.datastorage/">
   <div class="post-title">
     <img src="/images/post-title-icon.png" />
     <div class="post-meta">
-      <time>12 Mar 2019, 21:52</time>
-      <h1>1-1. 계정관리를 위한 12 tips</h1>
+      <time>16 Mar 2019, 23:02</time>
+      <h1>6. DataStorage</h1>
     </div>
   </div>
 </a>
@@ -167,15 +304,10 @@ GCP Service 의 스크립트 작성 : Google Cloud SDK</p>
   </span>
   <nav id="TableOfContents">
 <ul>
-<li><a href="#12-best-practices-for-user-saccount">12 Best Practices for user saccount</a>
-<ul>
-<li><a href="#1-패스워드를-해시하라">1. 패스워드를 해시하라.</a></li>
-<li><a href="#2-서드파티-식별-제공자를-허락하자">2. 서드파티 식별 제공자를 허락하자.</a></li>
-<li><a href="#3-유저-식별의-개념을-유저-계정의-개념과-분리하라">3. 유저 식별의 개념을 유저 계정의 개념과 분리하라.</a></li>
-<li><a href="#4-하나의-계정에-복수의-정체성을-허용할-수-있도록-제공하라">4. 하나의 계정에 복수의 정체성을 허용할 수 있도록 제공하라.</a></li>
-<li><a href="#5-길거나-복잡한-패스워드를-막지-말자">5. 길거나 복잡한 패스워드를 막지 말자.</a></li>
-<li><a href="#6-user-name-에-타당치-않은-규칙을-강요하지-마라">6. user name 에 타당치 않은 규칙을 강요하지 마라</a></li>
-</ul></li>
+<li><a href="#best-practices-for-using-cloud-storage">Best Practices for Using Cloud Storage</a></li>
+<li><a href="#demo">Demo</a></li>
+<li><a href="#demo2-cors">Demo2 - Cors</a></li>
+<li><a href="#best-practices-for-cloud-storage">Best Practices for cloud Storage</a></li>
 </ul>
 </nav>
 </div>
@@ -183,51 +315,48 @@ GCP Service 의 스크립트 작성 : Google Cloud SDK</p>
 <section class="post-content">
   
 
-<h1 id="12-best-practices-for-user-saccount">12 Best Practices for user saccount</h1>
+<h1 id="best-practices-for-using-cloud-storage">Best Practices for Using Cloud Storage</h1>
 
-<p><a href="https://cloud.google.com/blog/products/gcp/12-best-practices-for-user-account">https://cloud.google.com/blog/products/gcp/12-best-practices-for-user-account</a>
-GCP 에서는 유저 계정에 대한 안전한 핸들링과 인증을 위한 툴을 게공한다.
-웹사이트가 구글 쿠버네티스엔진에 호스트 되는 웹사이트를 담당하든, apigee 의 api 를 담당하든, firebase 를 사용하든, 어떤 다른 서비스를 통해 유저를 인증하든, 이 포스트는 좋은 연습을 제공해서, 안전하고 확장가능하고 쓸만한 계정 인증 시스템을 사용할 수 있게 도와줄 것이다.</p>
+<hr />
 
-<h2 id="1-패스워드를-해시하라">1. 패스워드를 해시하라.</h2>
+<p>버킷에 변화가 있을때 반응하게 할 수 있다.
+<a href="https://cloud.google.com/storage/docs/pubsub-notifications">https://cloud.google.com/storage/docs/pubsub-notifications</a></p>
 
-<p>패스워드를 포함해서, 예민한 개인정보를 어떻게 저장할 것인가가 계정관리의 가장 중요한 규칙이다. 이 데이터를 신성하게 다뤄야한다.
-다시 reverse 될 수 없는 강력한 해쉬로되어야한다. 예를들면, PBKDF2, Argon2, Scripy, Bcrypt .. 또한, 이 해쉬는 <a href="https://www.owasp.org/index.php/Password_Storage_Cheat_Sheet#Use_a_cryptographically_strong_credential-specific_salt">salted</a> 되어야 한다. MD5 나 SHA1 같은 deprecate 된 해쉬기술은 사용하면 안되며, revirsiable 될 수 있는 인크립션을 사용해야하는 상황은 어디에도 없으며, <a href="https://www.schneier.com/blog/archives/2011/04/schneiers_law.html">직접 해쉬 알고리즘을 개발할 필요도 없다.</a> 라고 생각하자.</p>
+<h1 id="demo">Demo</h1>
 
-<h2 id="2-서드파티-식별-제공자를-허락하자">2. 서드파티 식별 제공자를 허락하자.</h2>
+<hr />
 
-<p>믿을수 있게한다. 구글, 페이스북, 트위터등이 흔히 사용된다. <a href="https://firebase.google.com/docs/auth/">firebase Auth</a> 시스템을 통해 인증처리를 할 수도 있다. -다른 사례들을 보면, 반나절만에 적용하고 그렇다. fabulas?</p>
+<p>coldline 은 일년에 한번 접근하는것과 같은 문제발생시 복구하는 용도로 사용하면 좋다..</p>
 
-<h2 id="3-유저-식별의-개념을-유저-계정의-개념과-분리하라">3. 유저 식별의 개념을 유저 계정의 개념과 분리하라.</h2>
+<p><a href="https://cloud.google.com/storage/docs/managing-lifecycles">https://cloud.google.com/storage/docs/managing-lifecycles</a></p>
 
-<p>유저는 이메일 어드레스도, 핸드폰 번호도, OAUTH 응답의 unique ID 도 아니다.
-유저 유저는 유일성의 최고점에 있으며, 당신 서비스의 개인화된 데이터와 경험이다.
-잘 디자인된 유저관리 체계는 low 커플링 되어있으며, 고수준으로 응집되어있다.</p>
+<h1 id="demo2-cors">Demo2 - Cors</h1>
 
-<p>유저 계정과 보안을 분리하는 개념을 고수하는 것은 서드파티의 식별제공자를 구현하는 과정을 크게 단순화 할 수 있다. 유저는 유저 이름이나 다중의 정체성을 하나의 유저 계정에 연결 할 수도 있게 된다. 실제 용어로 옮기면, 내부의 전역 식별자를 모든 유저와 그들의 프로필과, 인증에 연결할 수도 있다.</p>
+<hr />
 
-<h2 id="4-하나의-계정에-복수의-정체성을-허용할-수-있도록-제공하라">4. 하나의 계정에 복수의 정체성을 허용할 수 있도록 제공하라.</h2>
+<p>cors - <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS</a>
+cross-origin-resource sharing</p>
 
-<p>한 유저는 유저명과 패스워드를 사용하여 인증한후에, 이 과정이 계정을 생성할 수 있는지 모르고 구글 사이닝을 선택할 수있다. 유사하게, 어떤 유저는 복수의 이메일 주서를 당신의 서비스에 연결할 이유가 있었을 수도 있습니다. 만약 유저 식별과 인증을 분리해 두었다면, <a href="https://firebase.google.com/docs/auth/web/account-linking">하나의 유저에 대해 다양한 식별 정보를 연결하는게 간단하다.</a></p>
+<p>instance 만들고 / apache 깔고 / cors 설정 여는 데모..</p>
 
-<p>사용자가 기존 계정에 연결되지 않은 서드파티 아이디를 사용하고 있다는 것을 깨닫기전에 새로 가입하는 프로세스를 수행할 수 있는 가능성을 고려해야 한다. 흔한 식별 정보를 제공하도록 묻는것 만으로도 해결될 수 있다. 이메일어드레스, 폰이나 유저명 등.. 시스템에 존재한다면, 인증 후 새로운 아이디를 존재하는 계정에 연결하자.</p>
+<h1 id="best-practices-for-cloud-storage">Best Practices for cloud Storage</h1>
 
-<h2 id="5-길거나-복잡한-패스워드를-막지-말자">5. 길거나 복잡한 패스워드를 막지 말자.</h2>
+<hr />
 
-<p>NIST 는 최근에 패스워드 복잡도와 강인함에 대해 <a href="https://pages.nist.gov/800-63-3/sp800-63b.html#appendix-astrength-of-memorized-secrets">가이드라인</a>을 제공했다.
-패스워드 길이를 막아서 얻을 수 있는건 POST 사이즈 뿐.. (끽해봐야 1MB?)</p>
+<p>request rate 가 초당 1000 쓰기 요청 이나 5000 읽기 요청을 넘어가면 ..</p>
 
-<p>해쉬된 패스워드는 알려진 적은 ASCII문자의 선택으로 압축될 수 있고, 그렇지 않으면 그냥 바이너리 해쉬를 <a href="https://en.wikipedia.org/wiki/Base64">Base64</a> 로 변경해도 된다.</p>
-
-<h2 id="6-user-name-에-타당치-않은-규칙을-강요하지-마라">6. user name 에 타당치 않은 규칙을 강요하지 마라</h2>
+<ul>
+<li>이 기준 요청량내에서 요청을 시작해서</li>
+<li>20 분마다 요청을 두배로 해라.</li>
+</ul>
 
 </section>
 
 <div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f1-1.12-tips%2f&t=1-1.%20%ea%b3%84%ec%a0%95%ea%b4%80%eb%a6%ac%eb%a5%bc%20%ec%9c%84%ed%95%9c%2012%20tips" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f1-1.12-tips%2f&text=1-1.%20%ea%b3%84%ec%a0%95%ea%b4%80%eb%a6%ac%eb%a5%bc%20%ec%9c%84%ed%95%9c%2012%20tips&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f1-1.12-tips%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f1-1.12-tips%2f&title=1-1.%20%ea%b3%84%ec%a0%95%ea%b4%80%eb%a6%ac%eb%a5%bc%20%ec%9c%84%ed%95%9c%2012%20tips" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f6.datastorage%2f&t=6.%20DataStorage" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f6.datastorage%2f&text=6.%20DataStorage&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f6.datastorage%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f6.datastorage%2f&title=6.%20DataStorage" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
 </div>
 
 <div class="post-meta-code">
@@ -281,7 +410,7 @@ GCP 에서는 유저 계정에 대한 안전한 핸들링과 인증을 위한 �
   </a>
   
 
-  PAGE 4 / 17
+  PAGE 4 / 19
 
   
   <a href="/page/5/" rel="next">

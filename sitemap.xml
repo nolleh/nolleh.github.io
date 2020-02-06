@@ -3,6 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://nolleh.github.io/qpid/1.12.active-passive-messaging-clusters/</loc>
+    <lastmod>2020-02-06T14:47:47+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nolleh.github.io/qpid/1.4.broker-federation/</loc>
+    <lastmod>2020-02-06T13:23:27+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nolleh.github.io/cheatsheet/network/</loc>
+    <lastmod>2020-02-06T11:56:11+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nolleh.github.io/cheatsheet/docker/</loc>
+    <lastmod>2020-02-06T10:53:37+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://nolleh.github.io/rabbitmq/clustering-guide/</loc>
     <lastmod>2020-02-05T18:44:37+09:00</lastmod>
   </url>
@@ -222,6 +242,24 @@
   </url>
   
   <url>
+    <loc>https://nolleh.github.io/tags/cheatsheet/</loc>
+    <lastmod>2020-02-06T11:56:11+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nolleh.github.io/categories/cheatsheet/</loc>
+    <lastmod>2020-02-06T11:56:11+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nolleh.github.io/cheatsheet/</loc>
+    <lastmod>2020-02-06T11:56:11+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://nolleh.github.io/concurrency/</loc>
     <lastmod>2017-07-10T22:57:57+09:00</lastmod>
     <priority>0</priority>
@@ -278,6 +316,12 @@
   <url>
     <loc>https://nolleh.github.io/distributed-systems/</loc>
     <lastmod>2019-01-21T22:58:23+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nolleh.github.io/tags/docker/</loc>
+    <lastmod>2020-02-06T10:53:37+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -343,7 +387,7 @@
   
   <url>
     <loc>https://nolleh.github.io/tags/mq/</loc>
-    <lastmod>2020-02-05T18:44:37+09:00</lastmod>
+    <lastmod>2020-02-06T14:47:47+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -356,6 +400,12 @@
   <url>
     <loc>https://nolleh.github.io/categories/nancy/</loc>
     <lastmod>2018-04-24T21:43:04+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nolleh.github.io/tags/network/</loc>
+    <lastmod>2020-02-06T11:56:11+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -386,6 +436,30 @@
   <url>
     <loc>https://nolleh.github.io/tags/programming/</loc>
     <lastmod>2019-01-21T22:58:23+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nolleh.github.io/tags/qpid/</loc>
+    <lastmod>2020-02-06T14:47:47+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nolleh.github.io/categories/qpid/</loc>
+    <lastmod>2020-02-06T14:47:47+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nolleh.github.io/qpid/</loc>
+    <lastmod>2020-02-06T14:47:47+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nolleh.github.io/tags/rabbitmq/</loc>
+    <lastmod>2020-02-05T18:44:37+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -421,7 +495,7 @@
   
   <url>
     <loc>https://nolleh.github.io/</loc>
-    <lastmod>2020-02-05T18:44:37+09:00</lastmod>
+    <lastmod>2020-02-06T14:47:47+09:00</lastmod>
     <priority>0</priority>
   </url>
   

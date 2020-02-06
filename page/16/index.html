@@ -38,12 +38,12 @@
       </div>
 
 
-  <a href="https://nolleh.github.io/env/brew-update/">
+  <a href="https://nolleh.github.io/web/fund-spring/">
   <div class="post-title">
     <img src="/images/post-title-icon.png" />
     <div class="post-meta">
-      <time>04 Jul 2017, 22:31</time>
-      <h1>Brew Install 이 구버전만 설치할 때</h1>
+      <time>26 Jul 2017, 23:11</time>
+      <h1>스프링 기본 용어/정리</h1>
     </div>
   </div>
 </a>
@@ -56,17 +56,21 @@
 <ul>
 <li>
 <ul>
-<li><a href="#let-s-사족">Let&rsquo;s 사족</a></li>
-<li><a href="#brew">Brew</a>
+<li><a href="#spring-bean-객체">Spring Bean 객체</a></li>
+<li><a href="#applicationcontext">ApplicationContext</a>
 <ul>
-<li><a href="#brew-설치">Brew 설치</a></li>
-<li><a href="#brew-를-통해-설치하기">Brew 를 통해 설치하기</a>
-<ul>
-<li><a href="#최초-설치">최초 설치</a></li>
-<li><a href="#업데이트">업데이트</a></li>
+<li><a href="#applicationcontext-getbean">ApplicationContext::getBean</a></li>
 </ul></li>
-<li><a href="#brew-install-이-구-버전만-다운로드-받을-때">Brew Install 이 구 버전만 다운로드 받을 때</a></li>
-<li><a href="#업데이트시-다음-에러-노출시">업데이트시 다음 에러 노출시</a></li>
+<li><a href="#spring-di">Spring DI</a>
+<ul>
+<li><a href="#di">DI</a></li>
+<li><a href="#xml-을-통한-di-설정">XML 을 통한 DI 설정</a></li>
+<li><a href="#자바코드를-이용한-di-설정">자바코드를 이용한 DI 설정</a>
+<ul>
+<li><a href="#configuration">@Configuration</a></li>
+<li><a href="#bean">@Bean</a></li>
+<li><a href="#example">example</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -76,84 +80,99 @@
 <section class="post-content">
   
 
-<h2 id="let-s-사족">Let&rsquo;s 사족</h2>
-
-<p>처음 회사에 입사 했을 때 자리에는 Mac PC 만이 덩그러니 있었고, Mac 을 사용해본적 없던 꼬꼬마는
-자연스럽게 윈도우 CD 를 인사팀에서 받아와서 깔고 있었드랬다.</p>
-
 <blockquote>
-<p>&ldquo;기껏 좋은 컴퓨터 줬더니 넌 뭘하고 있는거니?&rdquo;</p>
+<p>어쩌다보니 그동안 손댈 일이 없던 웹서버에 좀 손을 대게 되서 (게임서버, 클라이언트, 그리고 웹서버..정녕 풀스택 개발자가 되는것인가..ㅋ), 예전 선배님이 버리고 간(?) 스프링 책을 꺼내서 읽어 보며 정리한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.</p>
 </blockquote>
 
-<p>라는 선배의 말을 듣고 그제야 맥에서도 안드로이드 개발이 되는거구나.. (이때는 현업 안드로이드 개발자였다.)<br />
-하곤 윈도우 설치페이지를 취소하고 다시 맥 OS 를 부팅했었지.</p>
+<h2 id="spring-bean-객체">Spring Bean 객체</h2>
 
-<p>이때가, Mac OS 와의 첫 만남이었드랬다.</p>
+<p>스프링에서 생성하여 관리하여 주는 스프링 빈 객체 혹은 빈 객체라고 부른다.
+res/applicationContext.xml 에 <bean> 태그로 선언할 수도 있다.
+이렇게 선언한경우, 리플렉션을 활용하여 bean id 클래스의 인스턴스를 지정한 세부 태그의 속성으로 메서드를 호출하여 객체를 초기화한다.</p>
 
-<h2 id="brew">Brew</h2>
+<h2 id="applicationcontext">ApplicationContext</h2>
 
-<p>뭐 전혀 관계 없는 얘기로 포스트를 열었지만.<br />
-어쨌거나 그때부터 Mac 을 수년간 사용하면서 - 그때 쓰던 회사 Mac 은 여전히 내 사무실 책상의 한켠을 차지하고 있다 -<br />
-Mac 을 비롯한 Linux 계통에서 Windows 를 압도하는 장점을 들자면,</p>
+<p>스프링에서 제공하는 인터페이스. 컨테이너가 제공해야할 기본 기능 정의. BeanFactory 인터페이스를 상위에 두고 있다.</p>
 
-<blockquote>
-<p>개발자를 위한 환경 설정이 간편하다</p>
-</blockquote>
+<h3 id="applicationcontext-getbean">ApplicationContext::getBean</h3>
 
-<p>가 되겠다.<br />
-Mac 에서는 그 역할을 충실히 하는 요소 중에 하나가 &ldquo;HomeBrew&rdquo; 라 하겠고.<br />
-<a href="http://docs.brew.sh/">HomeBrew</a></p>
+<p>인자는 이름/타입. 이를 통해 빈객체를 얻어올 수 있다.</p>
 
-<h3 id="brew-설치">Brew 설치</h3>
+<h2 id="spring-di">Spring DI</h2>
 
-<blockquote>
-<p>다음 라인을 터미널에서 실행하자. brew 설치 자체도 이렇게 간편하다니.. Linux 계통은 보통 이렇게 one line 으로 다 해결이 된다.</p>
-</blockquote>
+<p>설명이 장황한데, 여기서의 의존은 (composite 패턴으로) 다른 객체를 요할때를 의미한다.
+- 생성자를 통해 객체를 받거나<br />
+- 다른 멤버메서드를 통해 객체를 받거나</p>
 
-<pre><code class="language-Bash">mkdir homebrew &amp;&amp; curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
+<h3 id="di">DI</h3>
+
+<p>의존성을 주입하는 방식으로, 외부로부터 의존객체를 전달 받는 구현 방식을 의미한다.</p>
+
+<p>스프링은, 결국 DI 컨테이너다.</p>
+
+<h3 id="xml-을-통한-di-설정">XML 을 통한 DI 설정</h3>
+
+<pre><code class="language-xml">
+&lt;beans xmlns=&quot;http://www.springframework.org/scheme/beans&quot;...&gt;
+  &lt;bean id=&quot;식별자&quot; class=&quot;클래스명&quot;&gt;
+    &lt;constructor-arg value=&quot;test&quot;/&gt;
+    &lt;constructor-arg ref=&quot;Other Bean&quot;/&gt;
+    &lt;property name=&quot;프로퍼티명&quot;&gt;
+      &lt;value&gt;프로퍼티값&lt;/value&gt; 
+    &lt;/property&gt;
+  &lt;/bean&gt;
+&lt;/beans&gt;
 </code></pre>
 
-<h3 id="brew-를-통해-설치하기">Brew 를 통해 설치하기</h3>
+<p>프로퍼티 지정시, 역시 리플렉션을 활용, set{PropertyName}() 을 이용하여 값을 설정한다.
+- 스프링의 property 태그는 자바빈 규약에 따른다.</p>
 
-<p>Formula 라고 지칭하고 있는게 맞는지는 잘 모르겠지만.<br />
-brew 를 통해 프로그램/binary 를 설치할 경우 다음과 같이 실행</p>
+<h3 id="자바코드를-이용한-di-설정">자바코드를 이용한 DI 설정</h3>
 
-<h4 id="최초-설치">최초 설치</h4>
+<p>org.stringframework.annotation.AnnotationConfigApplicationContext
+빈컨테이너 사용</p>
 
-<pre><code class="language-Bash">$ Brew install ${Formula}
+<h4 id="configuration">@Configuration</h4>
+
+<p>클래스를 스프링 설정으로 사용함을 의미</p>
+
+<h4 id="bean">@Bean</h4>
+
+<p>메서드의 리턴값을 빈 객체로 사용함을 의미</p>
+
+<h4 id="example">example</h4>
+
+<pre><code class="language-java">@configuration
+public class Config {
+  @Bean
+  public User user1() {
+    return new User(&quot;nolleh&quot;);
+  }
+}
 </code></pre>
 
-<h4 id="업데이트">업데이트</h4>
+<p>요렇게 선언하고</p>
 
-<pre><code class="language-Bash">$ Brew upgrade ${Formula}
+<pre><code class="language-java">AnnotationConfigApplicationContext ctx =
+  new AnnotationConfigApplicationContext(Config.class);
+
+User user1 = ctx.getBean(&quot;user1&quot;, User.class);
 </code></pre>
 
-<h3 id="brew-install-이-구-버전만-다운로드-받을-때">Brew Install 이 구 버전만 다운로드 받을 때</h3>
+<p>요렇게 쓴다.<br />
+생성자나 프로퍼티 값 설정시 직접 호출하면 된다.</p>
 
-<p>이건.. 맥을 사용한 지금까지 잘 모르고 있었던 건데,<br />
-Brew 자체를 업데이트해서 formular 를 갱신할 필요가 있나보다.<br />
-다음을 통한다.</p>
+<p>set{프로퍼티}(..);</p>
 
-<pre><code class="language-Bash">$ Brew update
-</code></pre>
-
-<h3 id="업데이트시-다음-에러-노출시">업데이트시 다음 에러 노출시</h3>
-
-<pre><code class="language-Bash">$ Error: /usr/local must be writable!
-</code></pre>
-
-<p>다음 실행</p>
-
-<pre><code class="language-Bash">sudo chown -R $(whoami) /usr/local
-</code></pre>
+<p><strong>끝</strong></p>
 
 </section>
 
 <div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fenv%2fbrew-update%2f&t=Brew%20Install%20%ec%9d%b4%20%ea%b5%ac%eb%b2%84%ec%a0%84%eb%a7%8c%20%ec%84%a4%ec%b9%98%ed%95%a0%20%eb%95%8c" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fenv%2fbrew-update%2f&text=Brew%20Install%20%ec%9d%b4%20%ea%b5%ac%eb%b2%84%ec%a0%84%eb%a7%8c%20%ec%84%a4%ec%b9%98%ed%95%a0%20%eb%95%8c&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fenv%2fbrew-update%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fenv%2fbrew-update%2f&title=Brew%20Install%20%ec%9d%b4%20%ea%b5%ac%eb%b2%84%ec%a0%84%eb%a7%8c%20%ec%84%a4%ec%b9%98%ed%95%a0%20%eb%95%8c" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fweb%2ffund-spring%2f&t=%ec%8a%a4%ed%94%84%eb%a7%81%20%ea%b8%b0%eb%b3%b8%20%ec%9a%a9%ec%96%b4%2f%ec%a0%95%eb%a6%ac" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fweb%2ffund-spring%2f&text=%ec%8a%a4%ed%94%84%eb%a7%81%20%ea%b8%b0%eb%b3%b8%20%ec%9a%a9%ec%96%b4%2f%ec%a0%95%eb%a6%ac&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fweb%2ffund-spring%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fweb%2ffund-spring%2f&title=%ec%8a%a4%ed%94%84%eb%a7%81%20%ea%b8%b0%eb%b3%b8%20%ec%9a%a9%ec%96%b4%2f%ec%a0%95%eb%a6%ac" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
 </div>
 
 <div class="post-meta-code">
@@ -169,7 +188,7 @@ Brew 자체를 업데이트해서 formular 를 갱신할 필요가 있나보다.
       val categories = [
       
       
-      <a href="https://nolleh.github.io//categories/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD">"개발환경"</a>
+      <a href="https://nolleh.github.io//categories/spring">"Spring"</a>
       
       ];
     </div>
@@ -184,7 +203,13 @@ Brew 자체를 업데이트해서 formular 를 갱신할 필요가 있나보다.
         val tags = [
         
           
-          <a href="https://nolleh.github.io/tags/macos">"MacOS"</a>
+          <a href="https://nolleh.github.io/tags/spring">"Spring"</a>
+          
+          <a href="https://nolleh.github.io/tags/programming">"Programming"</a>
+          
+          <a href="https://nolleh.github.io/tags/note">"Note"</a>
+          
+          <a href="https://nolleh.github.io/tags/web-server">"Web Server"</a>
           
         
         ];
@@ -197,12 +222,12 @@ Brew 자체를 업데이트해서 formular 를 갱신할 필요가 있나보다.
     <img src="/images/seperator.png" />
   </div>
 
-  <a href="https://nolleh.github.io/env/mark-down-syntax/">
+  <a href="https://nolleh.github.io/operating-system/file-buffering/">
   <div class="post-title">
     <img src="/images/post-title-icon.png" />
     <div class="post-meta">
-      <time>04 Jul 2017, 22:13</time>
-      <h1>markDown 문법</h1>
+      <time>17 Jul 2017, 00:25</time>
+      <h1>파일 버퍼링</h1>
     </div>
   </div>
 </a>
@@ -213,25 +238,8 @@ Brew 자체를 업데이트해서 formular 를 갱신할 필요가 있나보다.
   </span>
   <nav id="TableOfContents">
 <ul>
-<li>
-<ul>
-<li><a href="#heading">Heading</a></li>
-</ul></li>
-<li><a href="#title">Title</a>
-<ul>
-<li><a href="#heading-1">Heading 1</a>
-<ul>
-<li><a href="#heading-2">Heading 2</a></li>
-</ul></li>
-<li><a href="#listing">Listing</a>
-<ul>
-<li><a href="#순서-없는-경우">순서 없는 경우</a></li>
-<li><a href="#순서가-있는-경우">순서가 있는 경우</a></li>
-</ul></li>
-<li><a href="#fonts">Fonts</a></li>
-<li><a href="#src">SRC</a></li>
-<li><a href="#table">TABLE</a></li>
-</ul></li>
+<li><a href="#file-buffering">File Buffering</a></li>
+<li><a href="#alignment-and-file-access-requirement">Alignment and File Access Requirement</a></li>
 </ul>
 </nav>
 </div>
@@ -239,96 +247,82 @@ Brew 자체를 업데이트해서 formular 를 갱신할 필요가 있나보다.
 <section class="post-content">
   
 
-<p>마크다운으로 포스팅하는 Git 페이지를 생성하였으니, 자주 사용되는 대표 문법 정리<br />
-<a href="https://confluence.atlassian.com/bitbucketserver/markdown-syntax-guide-776639995.html#Markdownsyntaxguide-Listinlist">마크다운 문법</a></p>
+<blockquote>
+<p>다음에서 발췌, 번역<br />
+- <a href="https://msdn.microsoft.com/en-gb/library/windows/desktop/cc644950(v=vs.85).aspx">https://msdn.microsoft.com/en-gb/library/windows/desktop/cc644950(v=vs.85).aspx</a></p>
+</blockquote>
 
-<h2 id="heading">Heading</h2>
+<h1 id="file-buffering">File Buffering</h1>
 
-<p>&rsquo;#&rsquo; 으로 처리하며, 단계별로 더 많은 &lsquo;#&rsquo; 을 사용한다.</p>
+<p>파일버퍼링 - unbuffered file I/O.<br />
+본문에선 시스템에 의해 캐싱되지 않는 (buffered) 데이터를<br />
+어떻게 유저 모드의 응용프로그램에서 데이터를 활용할 수 (interact) 있을지에 대해 다룬다.</p>
 
-<pre><code class="language-bash"># Title
-## Heading 1
-### Heading 2
+<p>FILE_FLAG_NO_BUFFERING 플래그를 통해 CreateFile 을 Open 하면,<br />
+파일을 읽거나 쓸때 시스템의 캐싱을 비활성화 하도록 제어할 수 있다.<br />
+I/O 버퍼링을 사용한것과 같은 효과를 내려면, 데이터 alignment 가 반드시 고려되어야 한다.</p>
+
+<pre><code>Note 파일에 대해 Seeking 과 위치포인터,  
+offsets 의 개념을 사용하는 파일에 대해 alignment 정보가 고려될 필요가 있다. 
 </code></pre>
 
-<p>결과</p>
+<p>물리 디스크와 파일 시스템 저장소의 계층에서 write 연산은 alignment 기준을 맞추지 못한다면 실패 할 것이다.</p>
 
-<h1 id="title">Title</h1>
+<h1 id="alignment-and-file-access-requirement">Alignment and File Access Requirement</h1>
 
-<h2 id="heading-1">Heading 1</h2>
-
-<h3 id="heading-2">Heading 2</h3>
-
-<h2 id="listing">Listing</h2>
-
-<p>Asterisk (*) 를 사용하여 순서 없는 목록을, 숫자를 사용하여 순서 있는 목록을 나타낸다.</p>
-
-<h3 id="순서-없는-경우">순서 없는 경우</h3>
+<p>다음을 만족시켜야한다.</p>
 
 <ul>
-<li>이거닷<br /></li>
-<li>이거 중요해!<br /></li>
+<li>파일 접근 사이즈. OVERLAPPED 구조체의 offset 을 포함해서,<br />
+지정된다면 volume 의 섹터사이즈의 정수배로 지정되어야한다.</li>
+<li>읽기/쓰기 연산의 버퍼주소는 물리적 섹터에 aligned 되어있어야 한다.<br />
+즉, 물리 섹터 사이즈의 정수배로 메모리가 주소에 정렬되어 있어야함을 의미한다.<br />
+디스크에 따라 강제사항이 아닐 수도 있다.</li>
 </ul>
 
-<h3 id="순서가-있는-경우">순서가 있는 경우</h3>
+<p>4096 byte 의 미디어 섹터사이즈가 시장에 나온 것을 고려해야하는데,<br />
+일시적인 방안으로, ATA / SCSI 명령어를 통해 일반적인 512 바이트의 섹터 저장소가<br />
+에뮬레이트 되도록 할 수 있다.</p>
 
-<ol>
-<li>첫번째 순서</li>
-<li>두번째~</li>
-<li>셋!!</li>
-</ol>
+<p>이 에뮬레이트를 사용할때, 다음 두 가지를 알아야한다.</p>
 
-<h2 id="fonts">Fonts</h2>
+<ul>
+<li>논리섹터: 미디어에 접근할때 사용되는 논리 블럭의 단위. 이 부분이 바로 &ldquo;emulation&rdquo;<br /></li>
+<li>물리섹터: 읽기/쓰기가 하나의 연산으로 이뤄지는 단위. 최적의 성능과 신뢰성을 위해 unbuffered I/O 가 aligned 되어야하는 단위이기도 하다.<br /></li>
+</ul>
 
-<pre><code class="language-bash">**Bold** _Italic_ ~~CANCEL_LINE~~
+<p>IOCTL_DISK_GET_DRIVE_GEOMETRY 와 GetDiskFreeSpace 를 통해 논리 섹터사이즈를 알 수 있으며,<br />
+IOCTL_STORAGE_QUERY_PROPERTY 제어코드와<br />
+STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR 구조체의<br />
+BytesPerPhysicalSector 멤버의 사용을 통해 물리 섹터 사이즈를 구할 수 있다.</p>
+
+<pre><code>Windows Server 2003 과 XP 에서는  
+STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR 가 지원되지 않는다.
 </code></pre>
 
-<p><strong>Bold</strong> <em>Italic</em> <del>CANCEL_LINE</del></p>
+<p>섹터 align 버퍼를 얻기 위해 VirtualAlloc 함수를 사용할 수 있다.</p>
 
-<h2 id="src">SRC</h2>
+<ul>
+<li>VertualAlloc 은 메모리를 시스템페이지의 정수배의 사이즈로 align 되도록 메모리를 할당한다.<br />
+x64 나 x86 에서는 4,096 바이트이며, Itanium-기반 시스템에서는 8,192 이다.<br />
+더 자세한 정보는 GetSystemInfo 함수를 통해 얻을 수 있다.</li>
+<li>직접 접근하는 저장소의 일반적인 섹터사이즈는 512 ~ 4,096 byte 이며, CD-ROM 에서는 2,048 바이트.</li>
+<li>페이지/섹터사이즈 모두 2의 거듭제곱.</li>
+</ul>
 
-<pre><code>![Alt](경로 &quot;Optional Tooltip MSG&quot;)
-</code></pre>
+<p>섹터사이즈가 페이지사이즈보다 큰 경우는 적기 때문에,<br />
+대부분의 경우 page 에 align 된 메모리는 sector 에 대해서도 align 되어있다.</p>
 
-<h2 id="table">TABLE</h2>
-
-<pre><code class="language-bash">| Day     | Meal    | Price |
-| --------|---------|-------|
-| Monday  | pasta   | $6    |
-| Tuesday | chicken | $8    |
-</code></pre>
-
-<table>
-<thead>
-<tr>
-<th>Day</th>
-<th>Meal</th>
-<th>Price</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>Monday</td>
-<td>pasta</td>
-<td>$6</td>
-</tr>
-
-<tr>
-<td>Tuesday</td>
-<td>chicken</td>
-<td>$8</td>
-</tr>
-</tbody>
-</table>
+<p>수동으로 align 된 메모리버퍼를 얻는 또하나의 방법은 _aligned_malloc 함수를 사용하는 것이다.<br />
+수동으로 align 된 버퍼를 사용하는 방법은 WriteFile 절의 예제코드를 살펴보라.</p>
 
 </section>
 
 <div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fenv%2fmark-down-syntax%2f&t=markDown%20%eb%ac%b8%eb%b2%95" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fenv%2fmark-down-syntax%2f&text=markDown%20%eb%ac%b8%eb%b2%95&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fenv%2fmark-down-syntax%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fenv%2fmark-down-syntax%2f&title=markDown%20%eb%ac%b8%eb%b2%95" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2foperating-system%2ffile-buffering%2f&t=%ed%8c%8c%ec%9d%bc%20%eb%b2%84%ed%8d%bc%eb%a7%81" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2foperating-system%2ffile-buffering%2f&text=%ed%8c%8c%ec%9d%bc%20%eb%b2%84%ed%8d%bc%eb%a7%81&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2foperating-system%2ffile-buffering%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2foperating-system%2ffile-buffering%2f&title=%ed%8c%8c%ec%9d%bc%20%eb%b2%84%ed%8d%bc%eb%a7%81" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
 </div>
 
 <div class="post-meta-code">
@@ -344,7 +338,7 @@ Brew 자체를 업데이트해서 formular 를 갱신할 필요가 있나보다.
       val categories = [
       
       
-      <a href="https://nolleh.github.io//categories/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD">"개발환경"</a>
+      <a href="https://nolleh.github.io//categories/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C">"운영체제"</a>
       
       ];
     </div>
@@ -359,9 +353,11 @@ Brew 자체를 업데이트해서 formular 를 갱신할 필요가 있나보다.
         val tags = [
         
           
-          <a href="https://nolleh.github.io/tags/github-page">"GitHub-Page"</a>
+          <a href="https://nolleh.github.io/tags/kernel">"Kernel"</a>
           
-          <a href="https://nolleh.github.io/tags/editor">"Editor"</a>
+          <a href="https://nolleh.github.io/tags/os">"OS"</a>
+          
+          <a href="https://nolleh.github.io/tags/programming">"Programming"</a>
           
         
         ];
@@ -382,7 +378,7 @@ Brew 자체를 업데이트해서 formular 를 갱신할 필요가 있나보다.
   </a>
   
 
-  PAGE 16 / 17
+  PAGE 16 / 19
 
   
   <a href="/page/17/" rel="next">

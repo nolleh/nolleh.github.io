@@ -38,12 +38,12 @@
       </div>
 
 
-  <a href="https://nolleh.github.io/csharp/async-control-flow-msdn/">
+  <a href="https://nolleh.github.io/block-chain/1.4-startyournodeandsetup/">
   <div class="post-title">
     <img src="/images/post-title-icon.png" />
     <div class="post-meta">
-      <time>21 Dec 2018, 22:02</time>
-      <h1>비동기 프로그램의 제어 흐름</h1>
+      <time>01 Jan 2019, 16:36</time>
+      <h1>EOSIO - 1.4/노드 시작하고 설정하기</h1>
     </div>
   </div>
 </a>
@@ -54,8 +54,17 @@
   </span>
   <nav id="TableOfContents">
 <ul>
-<li><a href="#개요">개요</a></li>
-<li><a href="#코드">코드</a></li>
+<li><a href="#step-1-boot-node-and-wallet">Step 1: Boot Node And Wallet</a>
+<ul>
+<li><a href="#step-1-1-start-keosd">Step 1.1: Start keosd</a></li>
+<li><a href="#step-1-2-start-nodeos">Step 1.2: Start nodeos</a></li>
+</ul></li>
+<li><a href="#step-2-check-the-installation">Step 2: Check the installation</a>
+<ul>
+<li><a href="#step-2-1-check-that-nodeos-is-producing-blocks">Step 2.1: Check That Nodeos is Producing Blocks</a></li>
+<li><a href="#step-2-2-check-the-wallet">Step 2.2: Check the wallet</a></li>
+<li><a href="#step-2-3-check-nodeos-endpoints">Step 2.3: Check Nodeos endpoints</a></li>
+</ul></li>
 </ul>
 </nav>
 </div>
@@ -63,60 +72,121 @@
 <section class="post-content">
   
 
-<h1 id="개요">개요</h1>
-
-<hr />
-
 <blockquote>
-<p>다음에서 발췌<br />
-<a href="https://docs.microsoft.com/ko-kr/dotnet/csharp/programming-guide/concepts/async/control-flow-in-async-programs">비동기 프로그램의 제어 흐름</a></p>
+<p>다음에서 발췌 - [](<a href="https://developers.eos.io/eosio-home/docs/getting-the-software">https://developers.eos.io/eosio-home/docs/getting-the-software</a>)</p>
 </blockquote>
 
-<h1 id="코드">코드</h1>
+<h1 id="step-1-boot-node-and-wallet">Step 1: Boot Node And Wallet</h1>
 
 <hr />
 
-<pre><code class="language-csharp">public partial class MainWindow : Window
-{
-    // . . .
-    private async void startButton_Click(object sender, RoutedEventArgs e)
-    {
-        // ONE
-        Task&lt;int&gt; getLengthTask = AccessTheWebAsync();
+<h2 id="step-1-1-start-keosd">Step 1.1: Start keosd</h2>
 
-        // FOUR
-        int contentLength = await getLengthTask;
+<p>먼저 keosd 를 시작한다.</p>
 
-        // SIX
-        resultsTextBox.Text +=
-            $&quot;\r\nLength of the downloaded string: {contentLength}.\r\n&quot;;
-    }
-
-    async Task&lt;int&gt; AccessTheWebAsync()
-    {
-        // TWO
-        HttpClient client = new HttpClient();
-        Task&lt;string&gt; getStringTask =
-            client.GetStringAsync(&quot;https://msdn.microsoft.com&quot;);
-
-        // THREE
-        string urlContents = await getStringTask;
-
-        // FIVE
-        return urlContents.Length;
-    }
-}
+<pre><code class="language-shell">keosd &amp;
 </code></pre>
 
-<p>Three 에서 yield 되어 Four.</p>
+<p>다음과 유사한 결과를 얻게 된다.</p>
+
+<pre><code class="language-shell">info  2018-11-26T06:54:24.789 thread-0  wallet_plugin.cpp:42          plugin_initialize    ] initializing wallet plugin
+info  2018-11-26T06:54:24.795 thread-0  http_plugin.cpp:554           add_handler          ] add api url: /v1/keosd/stop
+info  2018-11-26T06:54:24.796 thread-0  wallet_api_plugin.cpp:73      plugin_startup       ] starting wallet_api_plugin
+info  2018-11-26T06:54:24.796 thread-0  http_plugin.cpp:554           add_handler          ] add api url: /v1/wallet/create
+info  2018-11-26T06:54:24.796 thread-0  http_plugin.cpp:554           add_handler          ] add api url: /v1/wallet/create_key
+info  2018-11-26T06:54:24.796 thread-0  http_plugin.cpp:554           add_handler          ] add api url: /v1/wallet/get_public_keys
+</code></pre>
+
+<p>enter 를 치면 종료 된다.</p>
+
+<h2 id="step-1-2-start-nodeos">Step 1.2: Start nodeos</h2>
+
+<pre><code class="language-shell">nodeos -e -p eosio \
+--plugin eosio::producer_plugin \
+--plugin eosio::chain_api_plugin \
+--plugin eosio::http_plugin \
+--plugin eosio::history_plugin \
+--plugin eosio::history_api_plugin \
+--data-dir CONTRACTS_DIR/eosio/data \
+--config-dir CONTRACTS_DIR/eosio/config \
+--access-control-allow-origin='*' \
+--contracts-console \
+--http-validate-host=false \
+--verbose-http-errors \
+--filter-on='*' &gt;&gt; nodeos.log 2&gt;&amp;1 &amp;
+</code></pre>
+
+<p>이 설정은 다음과 같은 작업을 진행한다.
+1. 개발 디렉토리 하위의 eosio 디렉토리안에서 블록체인 데이터와 설정 데이터를 사용 할수 있도록 지정. eosio/data 와 eosio/config 을 각각 사용하게 된다.
+2. nodeos 를 실행한다. 이 커맨드는 기본적인 플러그인을 로드하고, 서버 주소를 설정하며, CORS 를 사용가능하게 하며 일부 contract 디버깅과 로깅을 가능케한다.
+3. CORS 가 (*) 에 대한 제약이 없도록 한다.</p>
+
+<blockquote>
+<p>CORS 의 * 에 대한 제약제거는 개발 과정에서만 사용하도록 한다.
+어떤 노드에 대해 public 하게 * 에 접근하도록 하는 것은 지양해야한다!</p>
+</blockquote>
+
+<h1 id="step-2-check-the-installation">Step 2: Check the installation</h1>
+
+<hr />
+
+<h2 id="step-2-1-check-that-nodeos-is-producing-blocks">Step 2.1: Check That Nodeos is Producing Blocks</h2>
+
+<p>아래의 명령어를 실행한다.</p>
+
+<pre><code class="language-shell">tail -f nodeos.log
+</code></pre>
+
+<p>아래와 유사한 출력 결과를 볼 수 있다.</p>
+
+<pre><code class="language-shell">1929001ms thread-0   producer_plugin.cpp:585       block_production_loo ] Produced block 0000366974ce4e2a... #13929 @ 2018-05-23T16:32:09.000 signed by eosio [trxs: 0, lib: 13928, confirmed: 0]
+1929502ms thread-0   producer_plugin.cpp:585       block_production_loo ] Produced block 0000366aea085023... #13930 @ 2018-05-23T16:32:09.500 signed by eosio [trxs: 0, lib: 13929, confirmed: 0]
+1930002ms thread-0   producer_plugin.cpp:585       block_production_loo ] Produced block 0000366b7f074fdd... #13931 @ 2018-05-23T16:32:10.000 signed by eosio [trxs: 0, lib: 13930, confirmed: 0]
+1930501ms thread-0   producer_plugin.cpp:585       block_production_loo ] Produced block 0000366cd8222adb... #13932 @ 2018-05-23T16:32:10.500 signed by eosio [trxs: 0, lib: 13931, confirmed: 0]
+1931002ms thread-0   producer_plugin.cpp:585       block_production_loo ] Produced block 0000366d5c1ec38d... #13933 @ 2018-05-23T16:32:11.000 signed by eosio [trxs: 0, lib: 13932, confirmed: 0]
+1931501ms thread-0   producer_plugin.cpp:585       block_production_loo ] Produced block 0000366e45c1f235... #13934 @ 2018-05-23T16:32:11.500 signed by eosio [trxs: 0, lib: 13933, confirmed: 0]
+1932001ms thread-0   producer_plugin.cpp:585       block_production_loo ] Produced block 0000366f98adb324... #13935 @ 2018-05-23T16:32:12.000 signed by eosio [trxs: 0, lib: 13934, confirmed: 0]
+1932501ms thread-0   producer_plugin.cpp:585       block_production_loo ] Produced block 00003670a0f01daa... #13936 @ 2018-05-23T16:32:12.500 signed by eosio [trxs: 0, lib: 13935, confirmed: 0]
+1933001ms thread-0   producer_plugin.cpp:585       block_production_loo ] Produced block 00003671e8b36e1e... #13937 @ 2018-05-23T16:32:13.000 signed by eosio [trxs: 0, lib: 13936, confirmed: 0]
+1933501ms thread-0   producer_plugin.cpp:585       block_production_loo ] Produced block 0000367257fe1623... #13938 @ 2018-05-23T16:32:13.500 signed by eosio [trxs: 0, lib: 13937, confirmed: 0]
+</code></pre>
+
+<p>로그를 닫기 위해 Ctrl + c 를 누르자.</p>
+
+<h2 id="step-2-2-check-the-wallet">Step 2.2: Check the wallet</h2>
+
+<p>쉘을 열고 아래 명령어를 기입한다.</p>
+
+<pre><code class="language-shell">cleos wallet list
+</code></pre>
+
+<p>다음과 같은 결과가 노출된다.</p>
+
+<pre><code class="language-shell">Wallets:
+[]
+</code></pre>
+
+<p>이 시점에서 앞으로, 당신의 로컬시스템에서 이 명령어들을 칠 것이라 기대한다.</p>
+
+<h2 id="step-2-3-check-nodeos-endpoints">Step 2.3: Check Nodeos endpoints</h2>
+
+<p>다음은 RPC API 가 정상적으로 동작하는지 확인할 것이다. 하나를 선택하자.</p>
+
+<ol>
+<li>다음 브라우저에서 <code>chain_api_plugin</code> 을 통해 제공되는 <code>get_info</code> 를 확인해본다. : <a href="http://localhost:8888/v1/chain/get_info">http://localhost:8888/v1/chain/get_info</a><br /></li>
+<li>같은 것을 확인하지만, 호스트머신의 콘솔에서 확인한다.</li>
+</ol>
+
+<pre><code class="language-shell">curl http://localhost:8888/v1/chain/get_info
+</code></pre>
 
 </section>
 
 <div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-control-flow-msdn%2f&t=%eb%b9%84%eb%8f%99%ea%b8%b0%20%ed%94%84%eb%a1%9c%ea%b7%b8%eb%9e%a8%ec%9d%98%20%ec%a0%9c%ec%96%b4%20%ed%9d%90%eb%a6%84" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-control-flow-msdn%2f&text=%eb%b9%84%eb%8f%99%ea%b8%b0%20%ed%94%84%eb%a1%9c%ea%b7%b8%eb%9e%a8%ec%9d%98%20%ec%a0%9c%ec%96%b4%20%ed%9d%90%eb%a6%84&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-control-flow-msdn%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-control-flow-msdn%2f&title=%eb%b9%84%eb%8f%99%ea%b8%b0%20%ed%94%84%eb%a1%9c%ea%b7%b8%eb%9e%a8%ec%9d%98%20%ec%a0%9c%ec%96%b4%20%ed%9d%90%eb%a6%84" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.4-startyournodeandsetup%2f&t=EOSIO%20-%201.4%2f%eb%85%b8%eb%93%9c%20%ec%8b%9c%ec%9e%91%ed%95%98%ea%b3%a0%20%ec%84%a4%ec%a0%95%ed%95%98%ea%b8%b0" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.4-startyournodeandsetup%2f&text=EOSIO%20-%201.4%2f%eb%85%b8%eb%93%9c%20%ec%8b%9c%ec%9e%91%ed%95%98%ea%b3%a0%20%ec%84%a4%ec%a0%95%ed%95%98%ea%b8%b0&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.4-startyournodeandsetup%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.4-startyournodeandsetup%2f&title=EOSIO%20-%201.4%2f%eb%85%b8%eb%93%9c%20%ec%8b%9c%ec%9e%91%ed%95%98%ea%b3%a0%20%ec%84%a4%ec%a0%95%ed%95%98%ea%b8%b0" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
 </div>
 
 <div class="post-meta-code">
@@ -132,7 +202,7 @@
       val categories = [
       
       
-      <a href="https://nolleh.github.io//categories/csharp">"csharp"</a>
+      <a href="https://nolleh.github.io//categories/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8">"블록체인"</a>
       
       ];
     </div>
@@ -147,13 +217,9 @@
         val tags = [
         
           
-          <a href="https://nolleh.github.io/tags/c">"C#"</a>
+          <a href="https://nolleh.github.io/tags/block-chain">"block-chain"</a>
           
-          <a href="https://nolleh.github.io/tags/programming">"Programming"</a>
-          
-          <a href="https://nolleh.github.io/tags/async">"async"</a>
-          
-          <a href="https://nolleh.github.io/tags/await">"await"</a>
+          <a href="https://nolleh.github.io/tags/eosio">"EOSIO"</a>
           
         
         ];
@@ -166,12 +232,12 @@
     <img src="/images/seperator.png" />
   </div>
 
-  <a href="https://nolleh.github.io/csharp/async-await-msdn/">
+  <a href="https://nolleh.github.io/block-chain/1.3-aboutthestack/">
   <div class="post-title">
     <img src="/images/post-title-icon.png" />
     <div class="post-meta">
-      <time>21 Dec 2018, 21:41</time>
-      <h1>Async Await 을 사용한 비동기 프로그래밍</h1>
+      <time>01 Jan 2019, 15:56</time>
+      <h1>EOSIO - 1.3/스택에 대해</h1>
     </div>
   </div>
 </a>
@@ -180,72 +246,35 @@
   <span class="title">
     Table of contents
   </span>
-  <nav id="TableOfContents">
-<ul>
-<li><a href="#개요">개요</a></li>
-<li><a href="#반응성을-향상시키는-비동기">반응성을 향상시키는 비동기</a></li>
-<li><a href="#작성이-간편한-비동기-메서드">작성이 간편한 비동기 메서드</a></li>
-<li><a href="#스레드">스레드</a></li>
-</ul>
-</nav>
+  
 </div>
 
 <section class="post-content">
-  
-
-<h1 id="개요">개요</h1>
-
-<hr />
-
-<blockquote>
-<p>다음에서 발췌 <a href="https://docs.microsoft.com/ko-kr/dotnet/csharp/programming-guide/concepts/async/">MSDN</a></p>
+  <blockquote>
+<p>발췌 - <a href="https://developers.eos.io/eosio-home/docs/how-it-all-fits-together">EOSIO - 1.3 About The Stack</a></p>
 </blockquote>
 
-<h1 id="반응성을-향상시키는-비동기">반응성을 향상시키는 비동기</h1>
-
-<hr />
-
-<p>잠재적인 차단 작업 완료 될때까지 다른 작업을 게속 수행</p>
-
-<h1 id="작성이-간편한-비동기-메서드">작성이 간편한 비동기 메서드</h1>
-
-<hr />
-
-<p>반환 형식은 다음 중 하나<br />
-- Task<TResult><br />
-- Task<br />
-- void - 비동기 이벤트 처리기 작성<br />
-- GetAwaiter 포함 모든 기타 형식</p>
-
-<p><img src="https://docs.microsoft.com/ko-kr/dotnet/csharp/programming-guide/concepts/async/media/navigationtrace.png" alt="navigation-trace" /></p>
+<p>방금 설치한 툴들을 시작하기 전에, 각각의 컴포넌트들이 어떻게 상호작용하는지 이해하는게 좋다.</p>
 
 <ul>
-<li>await 을 만나면 yield 함 (호출자로 제어가 돌아감)<br />
+<li><p>nodeos (node + eos = nodeos) - 노드를 실행하기 위한 플러그인들로 설정될 수 있는 Core EOSIO 데몬.  예제는 로컬개발과 API 종단점을 위해 블록제품을 사용한다.</p></li>
 
-<ul>
-<li>이때, Task<int> 가 호출자에게 반환되고 이는 언젠가 다운로드된 문자열의 길이가 반환된다는 약속 (future) 을 의미한다.<br /></li>
-<li>await 전에 작업이 완료된다면 제어가 돌아가지 않는다.<br /></li>
-</ul></li>
+<li><p>cleos (cli + eos = cleos) - 블록 체인과 상호작용하고 wallet 을 관리하기위한 커맨드 라인 인터페이스.</p></li>
+
+<li><p>keosd (key + eos = keosd) - wallet 안의 EOSIO key 를 안전하게 저장 하기 위한 컴포넌트</p></li>
+
+<li><p>eosio-cpp - eosio.cdt 의 일부로, C++ 코드를 WASM 로 컴파일하고 ABI 들을 생성한다.</p></li>
 </ul>
 
-<h1 id="스레드">스레드</h1>
-
-<hr />
-
-<p>비동기 메서드의 await 식은 대기한 작업이 실행되는 동안 현재 스레드를 차단하지 않는다.
-대신, 메서드의 나머지를 연속으로 등록하고 비동기 메서드 호출자에 반환.</p>
-
-<p>async / await 으로 인해 스레드가 추가로 생성되지 않는다.<br />
-비동기 메서드는 자체 스레드에서 실행되지 않고 <code>현재 동기화 컨텍스트</code>에서 실행되며,<br />
-활성화된 경우에만 스레드에서 시간을 사용.</p>
+<p><img src="https://files.readme.io/582e059-411_DevRelations_NodeosGraphic_Option3.png" alt="EOSIO Architecture" /></p>
 
 </section>
 
 <div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-await-msdn%2f&t=Async%20Await%20%ec%9d%84%20%ec%82%ac%ec%9a%a9%ed%95%9c%20%eb%b9%84%eb%8f%99%ea%b8%b0%20%ed%94%84%eb%a1%9c%ea%b7%b8%eb%9e%98%eb%b0%8d" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-await-msdn%2f&text=Async%20Await%20%ec%9d%84%20%ec%82%ac%ec%9a%a9%ed%95%9c%20%eb%b9%84%eb%8f%99%ea%b8%b0%20%ed%94%84%eb%a1%9c%ea%b7%b8%eb%9e%98%eb%b0%8d&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-await-msdn%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-await-msdn%2f&title=Async%20Await%20%ec%9d%84%20%ec%82%ac%ec%9a%a9%ed%95%9c%20%eb%b9%84%eb%8f%99%ea%b8%b0%20%ed%94%84%eb%a1%9c%ea%b7%b8%eb%9e%98%eb%b0%8d" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.3-aboutthestack%2f&t=EOSIO%20-%201.3%2f%ec%8a%a4%ed%83%9d%ec%97%90%20%eb%8c%80%ed%95%b4" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.3-aboutthestack%2f&text=EOSIO%20-%201.3%2f%ec%8a%a4%ed%83%9d%ec%97%90%20%eb%8c%80%ed%95%b4&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.3-aboutthestack%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.3-aboutthestack%2f&title=EOSIO%20-%201.3%2f%ec%8a%a4%ed%83%9d%ec%97%90%20%eb%8c%80%ed%95%b4" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
 </div>
 
 <div class="post-meta-code">
@@ -261,7 +290,7 @@
       val categories = [
       
       
-      <a href="https://nolleh.github.io//categories/csharp">"csharp"</a>
+      <a href="https://nolleh.github.io//categories/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8">"블록체인"</a>
       
       ];
     </div>
@@ -276,13 +305,9 @@
         val tags = [
         
           
-          <a href="https://nolleh.github.io/tags/c">"C#"</a>
+          <a href="https://nolleh.github.io/tags/block-chain">"block-chain"</a>
           
-          <a href="https://nolleh.github.io/tags/programming">"Programming"</a>
-          
-          <a href="https://nolleh.github.io/tags/async">"async"</a>
-          
-          <a href="https://nolleh.github.io/tags/await">"await"</a>
+          <a href="https://nolleh.github.io/tags/eosio">"EOSIO"</a>
           
         
         ];
@@ -303,7 +328,7 @@
   </a>
   
 
-  PAGE 11 / 17
+  PAGE 11 / 19
 
   
   <a href="/page/12/" rel="next">
