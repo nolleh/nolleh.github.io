@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Networks on The Computer Programmer, Nolleh</title>
     <link>https://nolleh.github.io/network/</link>
     <description>Recent content in Networks on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <managingEditor>nolleh7707@gmail.com (nolleh)</managingEditor>
-    <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
     <lastBuildDate>Tue, 01 Aug 2017 22:54:19 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/network/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Unix 01 Intro</title>
       <link>https://nolleh.github.io/network/unix-01-intro/</link>
       <pubDate>Tue, 01 Aug 2017 22:54:19 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/network/unix-01-intro/</guid>
       <description>네트워킹의 바이블이라 할 수 있는 Unix Network Programming 의 내용 정리
  Books Introduction Socket 을 통해 통신하는 프로그램을 작성하는 개발자를 위해 쓰여진 책.

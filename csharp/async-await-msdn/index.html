@@ -1,107 +1,223 @@
 <!DOCTYPE html>
-<html>
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=80&amp;path=livereload" data-no-instant defer></script>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Async Await 을 사용한 비동기 프로그래밍  | The Computer Programmer, Nolleh</title>
-  <meta name="description" content=" 'Async Await 을 사용한 비동기 프로그래밍'read this article.">
-  <meta property="og:title" content="Async Await 을 사용한 비동기 프로그래밍">
-  
-  <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2018-12-21">
-  
-  <meta property="og:description" content=" 'Async Await 을 사용한 비동기 프로그래밍'read this article.">
-  <meta property="og:url" content="https://nolleh.github.io/csharp/async-await-msdn/">
-  <meta property="og:site_name" content="The Computer Programmer, Nolleh">
-  
-  <meta property="og:image" content="https://nolleh.github.io/images/thumbnail.png">
-  
-  
-  <meta property="og:tags" content="C#">
-  
-  <meta property="og:tags" content="Programming">
-  
-  <meta property="og:tags" content="async">
-  
-  <meta property="og:tags" content="await">
-  
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="canonical" href="https://nolleh.github.io/csharp/async-await-msdn/">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
-  <link rel="stylesheet" href="/css/styles.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  
-  
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102565363-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-102565363-1');
-  </script>
-  
-  
-  <script type="text/javascript">
-  function toggle_visibility(id) {
-    var e = document.getElementById(id);
-    if (e.className === 'menu')
-      e.className = 'menu hidden';
-    else
-      e.className = 'menu';
-  }
-  </script>
-</head>
-<body>
-  <div class="navbar">    
-    <div class="logo">
-      <a href="/">
-        <img src="/images/logo.png" height="34px" />
-      </a>
-    </div>
-    <div class="burger">
-      <button onclick="toggle_visibility('menu')">
-        <i class="fa fa-bars" aria-hidden="true"></i> Menu
-      </button>
-    </div>
-    <div id="menu" class="menu hidden">
-      <ul>
-        <li><a href="/">#The Computer Programmer, Nolleh</a></li>
-        <li><a href="/categories">#Categories</a></li>
-        <li><a href="/tags">#Tags</a></li>
-        <li><a href="/projects">#Projects</a></li>        
-      </ul>
-      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
-    </div>
-  </div>
-  <div class="container">    
+<html lang="en" dir="auto">
 
-<div class="post">
-  <div class="post-title">
-    <a href="https://nolleh.github.io/csharp/async-await-msdn/">
-      <img src="/images/post-title-icon.png" />
-      <div class="post-meta">
-        <time>Friday, Dec 21, 2018 21:41</time>
-        <h1>Async Await 을 사용한 비동기 프로그래밍</h1>
-      </div>
-    </a>
-  </div>
-  <div class="post-toc">
-    <span class="title">TOC</span>
-    <nav id="TableOfContents"></nav>
-  </div>
-  <section class="post-content">
-    <h1 id="개요">개요</h1>
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Async Await 을 사용한 비동기 프로그래밍 | The Computer Programmer, Nolleh</title>
+<meta name="keywords" content="C#, Programming, async, await">
+<meta name="description" content="개요   다음에서 발췌 MSDN
+ 반응성을 향상시키는 비동기  잠재적인 차단 작업 완료 될때까지 다른 작업을 게속 수행
+작성이 간편한 비동기 메서드  반환 형식은 다음 중 하나
+ Task Task void - 비동기 이벤트 처리기 작성 GetAwaiter 포함 모든 기타 형식   await 을 만나면 yield 함 (호출자로 제어가 돌아감)  이때, Task가 호출자에게 반환되고 이는 언젠가 다운로드된 문자열의 길이가 반환된다는 약속 (future) 을 의미한다. await 전에 작업이 완료된다면 제어가 돌아가지 않는다.">
+<meta name="author" content="nolleh">
+<link rel="canonical" href="https://nolleh.github.io/csharp/async-await-msdn/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.1740750342264a4e69b84ddf6899fb02cc95465080d85c57c08bb1d110900bf6.css" integrity="sha256-F0B1A0ImSk5puE3faJn7AsyVRlCA2FxXwIux0RCQC/Y=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://nolleh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nolleh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-102565363-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="Async Await 을 사용한 비동기 프로그래밍" />
+<meta property="og:description" content="개요   다음에서 발췌 MSDN
+ 반응성을 향상시키는 비동기  잠재적인 차단 작업 완료 될때까지 다른 작업을 게속 수행
+작성이 간편한 비동기 메서드  반환 형식은 다음 중 하나
+ Task Task void - 비동기 이벤트 처리기 작성 GetAwaiter 포함 모든 기타 형식   await 을 만나면 yield 함 (호출자로 제어가 돌아감)  이때, Task가 호출자에게 반환되고 이는 언젠가 다운로드된 문자열의 길이가 반환된다는 약속 (future) 을 의미한다. await 전에 작업이 완료된다면 제어가 돌아가지 않는다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nolleh.github.io/csharp/async-await-msdn/" /><meta property="article:section" content="csharp" />
+<meta property="article:published_time" content="2018-12-21T21:41:08&#43;09:00" />
+<meta property="article:modified_time" content="2018-12-21T21:41:08&#43;09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Async Await 을 사용한 비동기 프로그래밍"/>
+<meta name="twitter:description" content="개요   다음에서 발췌 MSDN
+ 반응성을 향상시키는 비동기  잠재적인 차단 작업 완료 될때까지 다른 작업을 게속 수행
+작성이 간편한 비동기 메서드  반환 형식은 다음 중 하나
+ Task Task void - 비동기 이벤트 처리기 작성 GetAwaiter 포함 모든 기타 형식   await 을 만나면 yield 함 (호출자로 제어가 돌아감)  이때, Task가 호출자에게 반환되고 이는 언젠가 다운로드된 문자열의 길이가 반환된다는 약속 (future) 을 의미한다. await 전에 작업이 완료된다면 제어가 돌아가지 않는다."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Csharps",
+      "item": "https://nolleh.github.io/csharp/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Async Await 을 사용한 비동기 프로그래밍",
+      "item": "https://nolleh.github.io/csharp/async-await-msdn/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Async Await 을 사용한 비동기 프로그래밍",
+  "name": "Async Await 을 사용한 비동기 프로그래밍",
+  "description": "개요   다음에서 발췌 MSDN\n 반응성을 향상시키는 비동기  잠재적인 차단 작업 완료 될때까지 다른 작업을 게속 수행\n작성이 간편한 비동기 메서드  반환 형식은 다음 중 하나\n Task Task void - 비동기 이벤트 처리기 작성 GetAwaiter 포함 모든 기타 형식   await 을 만나면 yield 함 (호출자로 제어가 돌아감)  이때, Task가 호출자에게 반환되고 이는 언젠가 다운로드된 문자열의 길이가 반환된다는 약속 (future) 을 의미한다. await 전에 작업이 완료된다면 제어가 돌아가지 않는다.",
+  "keywords": [
+    "C#", "Programming", "async", "await"
+  ],
+  "articleBody": "개요   다음에서 발췌 MSDN\n 반응성을 향상시키는 비동기  잠재적인 차단 작업 완료 될때까지 다른 작업을 게속 수행\n작성이 간편한 비동기 메서드  반환 형식은 다음 중 하나\n Task Task void - 비동기 이벤트 처리기 작성 GetAwaiter 포함 모든 기타 형식   await 을 만나면 yield 함 (호출자로 제어가 돌아감)  이때, Task가 호출자에게 반환되고 이는 언젠가 다운로드된 문자열의 길이가 반환된다는 약속 (future) 을 의미한다. await 전에 작업이 완료된다면 제어가 돌아가지 않는다.    스레드  비동기 메서드의 await 식은 대기한 작업이 실행되는 동안 현재 스레드를 차단하지 않는다. 대신, 메서드의 나머지를 연속으로 등록하고 비동기 메서드 호출자에 반환.\nasync / await 으로 인해 스레드가 추가로 생성되지 않는다.\n비동기 메서드는 자체 스레드에서 실행되지 않고 현재 동기화 컨텍스트에서 실행되며,\n활성화된 경우에만 스레드에서 시간을 사용.\n",
+  "wordCount" : "113",
+  "inLanguage": "en",
+  "datePublished": "2018-12-21T21:41:08+09:00",
+  "dateModified": "2018-12-21T21:41:08+09:00",
+  "author":{
+    "@type": "Person",
+    "name": "nolleh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nolleh.github.io/csharp/async-await-msdn/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Computer Programmer, Nolleh",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nolleh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://nolleh.github.io/categories/" title="categories">
+                    <span>categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nolleh.github.io/tags/" title="tags">
+                    <span>tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Async Await 을 사용한 비동기 프로그래밍
+    </h1>
+    <div class="post-meta"><span title='2018-12-21 21:41:08 +0900 KST'>December 21, 2018</span>&nbsp;·&nbsp;nolleh
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="개요">개요<a hidden class="anchor" aria-hidden="true" href="#개요">#</a></h1>
 <hr>
 <blockquote>
 <p>다음에서 발췌 <a href="https://docs.microsoft.com/ko-kr/dotnet/csharp/programming-guide/concepts/async/">MSDN</a></p>
 </blockquote>
-<h1 id="반응성을-향상시키는-비동기">반응성을 향상시키는 비동기</h1>
+<h1 id="반응성을-향상시키는-비동기">반응성을 향상시키는 비동기<a hidden class="anchor" aria-hidden="true" href="#반응성을-향상시키는-비동기">#</a></h1>
 <hr>
 <p>잠재적인 차단 작업 완료 될때까지 다른 작업을 게속 수행</p>
-<h1 id="작성이-간편한-비동기-메서드">작성이 간편한 비동기 메서드</h1>
+<h1 id="작성이-간편한-비동기-메서드">작성이 간편한 비동기 메서드<a hidden class="anchor" aria-hidden="true" href="#작성이-간편한-비동기-메서드">#</a></h1>
 <hr>
 <p>반환 형식은 다음 중 하나</p>
 <ul>
@@ -110,7 +226,8 @@
 <li>void - 비동기 이벤트 처리기 작성</li>
 <li>GetAwaiter 포함 모든 기타 형식</li>
 </ul>
-<p><img src="https://docs.microsoft.com/ko-kr/dotnet/csharp/programming-guide/concepts/async/media/navigationtrace.png" alt="navigation-trace"></p>
+<p><img loading="lazy" src="https://docs.microsoft.com/ko-kr/dotnet/csharp/programming-guide/concepts/async/media/navigationtrace.png" alt="navigation-trace"  />
+</p>
 <ul>
 <li>await 을 만나면 yield 함 (호출자로 제어가 돌아감)
 <ul>
@@ -119,7 +236,7 @@
 </ul>
 </li>
 </ul>
-<h1 id="스레드">스레드</h1>
+<h1 id="스레드">스레드<a hidden class="anchor" aria-hidden="true" href="#스레드">#</a></h1>
 <hr>
 <p>비동기 메서드의 await 식은 대기한 작업이 실행되는 동안 현재 스레드를 차단하지 않는다.
 대신, 메서드의 나머지를 연속으로 등록하고 비동기 메서드 호출자에 반환.</p>
@@ -127,120 +244,88 @@
 비동기 메서드는 자체 스레드에서 실행되지 않고 <code>현재 동기화 컨텍스트</code>에서 실행되며,<br>
 활성화된 경우에만 스레드에서 시간을 사용.</p>
 
-  </section>
-  <div class="share">    
-    <a
-      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-await-msdn%2f&t=Async%20Await%20%ec%9d%84%20%ec%82%ac%ec%9a%a9%ed%95%9c%20%eb%b9%84%eb%8f%99%ea%b8%b0%20%ed%94%84%eb%a1%9c%ea%b7%b8%eb%9e%98%eb%b0%8d"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-facebook"></i
-    ></a>
-    <a
-      href="//twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-await-msdn%2f&text=Async%20Await%20%ec%9d%84%20%ec%82%ac%ec%9a%a9%ed%95%9c%20%eb%b9%84%eb%8f%99%ea%b8%b0%20%ed%94%84%eb%a1%9c%ea%b7%b8%eb%9e%98%eb%b0%8d&tw_p=tweetbutton"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-twitter"></i
-    ></a>
-    <a
-      href="//getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-await-msdn%2f&title=Async%20Await%20%ec%9d%84%20%ec%82%ac%ec%9a%a9%ed%95%9c%20%eb%b9%84%eb%8f%99%ea%b8%b0%20%ed%94%84%eb%a1%9c%ea%b7%b8%eb%9e%98%eb%b0%8d"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-get-pocket"></i
-    ></a>
-    <a
-      href="//plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-await-msdn%2f"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-google-plus"></i
-    ></a>
+
   </div>
-  <div class="post-meta-code">
-    <div class="desc">
-      Friendly
-      
-      nolleh
-      
-      wrotes this article at
-      <span class="highlight">Friday, Dec 21, 2018 21:41</span> 
-      for you.
-    </div>
-    <div class="desc">
-      
-      <div class="desc">
-        <span class="fixed-desc">_Categories</span>
-        
-        
-        <a href="https://nolleh.github.io//categories/csharp">#csharp</a>
-        
-      </div>
-      
-      <div class="desc">
-        <span class="fixed-desc">_Tags</span>
-        
-        
-        <a href="https://nolleh.github.io/tags/c">#C#</a>
-        
-        <a href="https://nolleh.github.io/tags/programming">#Programming</a>
-        
-        <a href="https://nolleh.github.io/tags/async">#async</a>
-        
-        <a href="https://nolleh.github.io/tags/await">#await</a>
-        
-        
-      </div>
-    </div>
-  </div>  
-  
-  <div class="post-comment">    
-    <div id="disqus_thread"></div>
-<script type="application/javascript">
-    window.disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "nolleh-github-io" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>    
-  </div>
-  
-  <div class="recommend-articles">
-    Recommend these articles
-    <ul>
-      
-      <li>
-        <a href="https://nolleh.github.io/csharp/dispose/" rel="prev">
-          <span>Dispose</span>
-        </a>
-      </li>
-      
-      
-      <li>
-        <a href="https://nolleh.github.io/csharp/async-control-flow-msdn/" rel="next">
-          <span>비동기 프로그램의 제어 흐름</span>
-        </a>
-      </li>
-      
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://nolleh.github.io/tags/c#/">C#</a></li>
+      <li><a href="https://nolleh.github.io/tags/programming/">Programming</a></li>
+      <li><a href="https://nolleh.github.io/tags/async/">async</a></li>
+      <li><a href="https://nolleh.github.io/tags/await/">await</a></li>
     </ul>
-  </div>
-</div>
-
-<div class="go-top">
-  <a href="#" class="go-top-button">
-    <i class="fa fa-angle-double-up"></i>
-    <span>Top</span>
-  </a>
-</div>
+  </footer>
+</article>
+    </main>
+    
 <footer class="footer">
-  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
-  ALL RIGHTS RESERVED.
+    <span>&copy; 2022 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
-</body>
-</html>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

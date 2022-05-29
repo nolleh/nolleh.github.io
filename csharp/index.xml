@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Csharps on The Computer Programmer, Nolleh</title>
     <link>https://nolleh.github.io/csharp/</link>
     <description>Recent content in Csharps on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <managingEditor>nolleh7707@gmail.com (nolleh)</managingEditor>
-    <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
     <lastBuildDate>Fri, 21 Dec 2018 22:02:13 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/csharp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>비동기 프로그램의 제어 흐름</title>
       <link>https://nolleh.github.io/csharp/async-control-flow-msdn/</link>
       <pubDate>Fri, 21 Dec 2018 22:02:13 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/csharp/async-control-flow-msdn/</guid>
       <description>개요   다음에서 발췌
 비동기 프로그램의 제어 흐름
@@ -24,7 +22,7 @@
       <title>Async Await 을 사용한 비동기 프로그래밍</title>
       <link>https://nolleh.github.io/csharp/async-await-msdn/</link>
       <pubDate>Fri, 21 Dec 2018 21:41:08 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/csharp/async-await-msdn/</guid>
       <description>개요   다음에서 발췌 MSDN
  반응성을 향상시키는 비동기  잠재적인 차단 작업 완료 될때까지 다른 작업을 게속 수행
@@ -36,7 +34,7 @@
       <title>Dispose</title>
       <link>https://nolleh.github.io/csharp/dispose/</link>
       <pubDate>Wed, 19 Dec 2018 10:18:25 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/csharp/dispose/</guid>
       <description>Dispose 에 대한 여러가지 MSDN  Implementing a Dispose method
  threadSafety  stackoverflow dispose 의 threadsafety
@@ -50,7 +48,7 @@
       <title>Async Await</title>
       <link>https://nolleh.github.io/csharp/async-await/</link>
       <pubDate>Tue, 18 Dec 2018 13:47:33 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/csharp/async-await/</guid>
       <description>NeoSmart.AsyncLock 라이브러리에 관하여  다음에서 발췌, 번역 - Neosmart Docs.
  개요  semaporeslim 은 reentrance 를 지원하지 않는다. 따라서, recursion 에서 적절히 사용되지 않으면 데드락이 발생한다.

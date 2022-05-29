@@ -1,114 +1,208 @@
 <!DOCTYPE html>
-<html>
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=80&amp;path=livereload" data-no-instant defer></script>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>5. Cloud DataStore Concepts and Indexes  | The Computer Programmer, Nolleh</title>
-  <meta name="description" content=" '5. Cloud DataStore Concepts and Indexes'read this article.">
-  <meta property="og:title" content="5. Cloud DataStore Concepts and Indexes">
-  
-  <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2019-03-16">
-  
-  <meta property="og:description" content=" '5. Cloud DataStore Concepts and Indexes'read this article.">
-  <meta property="og:url" content="https://nolleh.github.io/coursera/gcp/5.datastore/">
-  <meta property="og:site_name" content="The Computer Programmer, Nolleh">
-  
-  <meta property="og:image" content="https://nolleh.github.io/images/thumbnail.png">
-  
-  
-  <meta property="og:tags" content="Coursera">
-  
-  <meta property="og:tags" content="Google Cloud Service">
-  
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="canonical" href="https://nolleh.github.io/coursera/gcp/5.datastore/">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
-  <link rel="stylesheet" href="/css/styles.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  
-  
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102565363-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-102565363-1');
-  </script>
-  
-  
-  <script type="text/javascript">
-  function toggle_visibility(id) {
-    var e = document.getElementById(id);
-    if (e.className === 'menu')
-      e.className = 'menu hidden';
-    else
-      e.className = 'menu';
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>5. Cloud DataStore Concepts and Indexes | The Computer Programmer, Nolleh</title>
+<meta name="keywords" content="Coursera, Google Cloud Service">
+<meta name="description" content="Cloud Datastore Concepts and Indexes  Cloud Data Store concepts  데이터 오브젝트는 엔터티라고 불림 엔터티들은 하나이상의 프로퍼티로 구성됨 프로퍼티들은 하나이상의 값(values) 를 가질수 있음 각각의 엔터티는 구분되는 하나의 키를 가지고 있는데, 다음으로 구성 된다.  네임스페이스 엔터티 Kind 식별자 (스트링 or 숫자) 부모 ID   하나 이상의 엔터티에 대한 동작은 트랜잭션으로 불린다.  Datastore has two types of indexes    Built-in indexes Composite indexes     각각의 엔터티 Kind의 각각의 프로퍼티에 대해 자동으로 정의 인덱싱된 엔터티에 대해 다중의 프로퍼티 값을 인덱스함   간단한 쿼리에 적합 컴플렉스 쿼리에 적합    인덱스 설정파일에 정의       concept cloud datastore relational database     오브젝트 카테고리 Kind Table   한개 오브젝트 entity row   하나의 오브젝트를 위한 개별 데이터 프로퍼티 field   유니크 ID Key PrimaryKey    Design Considerations &amp; Sharding  Design Your application for scale  엔터티 그룹에 대한 최대 쓰기율은 1/초 사전적으로 가까운 키에 대한 읽기와 쓰기를 너무 자주하지 말것.">
+<meta name="author" content="nolleh">
+<link rel="canonical" href="https://nolleh.github.io/coursera/gcp/5.datastore/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.1740750342264a4e69b84ddf6899fb02cc95465080d85c57c08bb1d110900bf6.css" integrity="sha256-F0B1A0ImSk5puE3faJn7AsyVRlCA2FxXwIux0RCQC/Y=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://nolleh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nolleh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-102565363-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="5. Cloud DataStore Concepts and Indexes" />
+<meta property="og:description" content="Cloud Datastore Concepts and Indexes  Cloud Data Store concepts  데이터 오브젝트는 엔터티라고 불림 엔터티들은 하나이상의 프로퍼티로 구성됨 프로퍼티들은 하나이상의 값(values) 를 가질수 있음 각각의 엔터티는 구분되는 하나의 키를 가지고 있는데, 다음으로 구성 된다.  네임스페이스 엔터티 Kind 식별자 (스트링 or 숫자) 부모 ID   하나 이상의 엔터티에 대한 동작은 트랜잭션으로 불린다.  Datastore has two types of indexes    Built-in indexes Composite indexes     각각의 엔터티 Kind의 각각의 프로퍼티에 대해 자동으로 정의 인덱싱된 엔터티에 대해 다중의 프로퍼티 값을 인덱스함   간단한 쿼리에 적합 컴플렉스 쿼리에 적합    인덱스 설정파일에 정의       concept cloud datastore relational database     오브젝트 카테고리 Kind Table   한개 오브젝트 entity row   하나의 오브젝트를 위한 개별 데이터 프로퍼티 field   유니크 ID Key PrimaryKey    Design Considerations &amp; Sharding  Design Your application for scale  엔터티 그룹에 대한 최대 쓰기율은 1/초 사전적으로 가까운 키에 대한 읽기와 쓰기를 너무 자주하지 말것." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nolleh.github.io/coursera/gcp/5.datastore/" /><meta property="article:section" content="coursera" />
+<meta property="article:published_time" content="2019-03-16T11:34:29&#43;09:00" />
+<meta property="article:modified_time" content="2019-03-16T11:34:29&#43;09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="5. Cloud DataStore Concepts and Indexes"/>
+<meta name="twitter:description" content="Cloud Datastore Concepts and Indexes  Cloud Data Store concepts  데이터 오브젝트는 엔터티라고 불림 엔터티들은 하나이상의 프로퍼티로 구성됨 프로퍼티들은 하나이상의 값(values) 를 가질수 있음 각각의 엔터티는 구분되는 하나의 키를 가지고 있는데, 다음으로 구성 된다.  네임스페이스 엔터티 Kind 식별자 (스트링 or 숫자) 부모 ID   하나 이상의 엔터티에 대한 동작은 트랜잭션으로 불린다.  Datastore has two types of indexes    Built-in indexes Composite indexes     각각의 엔터티 Kind의 각각의 프로퍼티에 대해 자동으로 정의 인덱싱된 엔터티에 대해 다중의 프로퍼티 값을 인덱스함   간단한 쿼리에 적합 컴플렉스 쿼리에 적합    인덱스 설정파일에 정의       concept cloud datastore relational database     오브젝트 카테고리 Kind Table   한개 오브젝트 entity row   하나의 오브젝트를 위한 개별 데이터 프로퍼티 field   유니크 ID Key PrimaryKey    Design Considerations &amp; Sharding  Design Your application for scale  엔터티 그룹에 대한 최대 쓰기율은 1/초 사전적으로 가까운 키에 대한 읽기와 쓰기를 너무 자주하지 말것."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Courseras",
+      "item": "https://nolleh.github.io/coursera/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "5. Cloud DataStore Concepts and Indexes",
+      "item": "https://nolleh.github.io/coursera/gcp/5.datastore/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "5. Cloud DataStore Concepts and Indexes",
+  "name": "5. Cloud DataStore Concepts and Indexes",
+  "description": "Cloud Datastore Concepts and Indexes  Cloud Data Store concepts  데이터 오브젝트는 엔터티라고 불림 엔터티들은 하나이상의 프로퍼티로 구성됨 프로퍼티들은 하나이상의 값(values) 를 가질수 있음 각각의 엔터티는 구분되는 하나의 키를 가지고 있는데, 다음으로 구성 된다.  네임스페이스 엔터티 Kind 식별자 (스트링 or 숫자) 부모 ID   하나 이상의 엔터티에 대한 동작은 트랜잭션으로 불린다.  Datastore has two types of indexes    Built-in indexes Composite indexes     각각의 엔터티 Kind의 각각의 프로퍼티에 대해 자동으로 정의 인덱싱된 엔터티에 대해 다중의 프로퍼티 값을 인덱스함   간단한 쿼리에 적합 컴플렉스 쿼리에 적합    인덱스 설정파일에 정의       concept cloud datastore relational database     오브젝트 카테고리 Kind Table   한개 오브젝트 entity row   하나의 오브젝트를 위한 개별 데이터 프로퍼티 field   유니크 ID Key PrimaryKey    Design Considerations \u0026amp; Sharding  Design Your application for scale  엔터티 그룹에 대한 최대 쓰기율은 1/초 사전적으로 가까운 키에 대한 읽기와 쓰기를 너무 자주하지 말것.",
+  "keywords": [
+    "Coursera", "Google Cloud Service"
+  ],
+  "articleBody": "Cloud Datastore Concepts and Indexes  Cloud Data Store concepts  데이터 오브젝트는 엔터티라고 불림 엔터티들은 하나이상의 프로퍼티로 구성됨 프로퍼티들은 하나이상의 값(values) 를 가질수 있음 각각의 엔터티는 구분되는 하나의 키를 가지고 있는데, 다음으로 구성 된다.  네임스페이스 엔터티 Kind 식별자 (스트링 or 숫자) 부모 ID   하나 이상의 엔터티에 대한 동작은 트랜잭션으로 불린다.  Datastore has two types of indexes    Built-in indexes Composite indexes     각각의 엔터티 Kind의 각각의 프로퍼티에 대해 자동으로 정의 인덱싱된 엔터티에 대해 다중의 프로퍼티 값을 인덱스함   간단한 쿼리에 적합 컴플렉스 쿼리에 적합    인덱스 설정파일에 정의       concept cloud datastore relational database     오브젝트 카테고리 Kind Table   한개 오브젝트 entity row   하나의 오브젝트를 위한 개별 데이터 프로퍼티 field   유니크 ID Key PrimaryKey    Design Considerations \u0026 Sharding  Design Your application for scale  엔터티 그룹에 대한 최대 쓰기율은 1/초 사전적으로 가까운 키에 대한 읽기와 쓰기를 너무 자주하지 말것. 구글의 noSQL 데이터베이스 Bigtable 을 이용해서 구현되어있는데 확장할때 로우들을 별도 테이블로 샤딩하는데 이 로우들이 키에 대해 사전적으로 정렬되어있기 때문. 점진적으로 ramp up traffic 을 새로운 클라우드 데이터 스토어에.. 빅테이블이 테이블을 분리하기에 충분할 시간을 주도록.. 클라우드 데이터스토어의 엔터티를 적은 범위의 키로 삭제하는 동작을 피해라 컴팩션(삭제된 엔트리를 제거하고 데이터를 재구성하여 읽기와 쓰기가 더 효율적으로 동작하도록 주기적으로 테이블을 다시쓰는 작업) 타임스탬프가 비슷해서 함께 있을 엔터티들을 많이 삭제하면, 이에 대한 쿼리가 컴팩션이 완료되기 전까지 늦을 수 있다. 핫 클라우드 데이터 스토어 키들에 대해 :  use sharding, 쓰기가 빈번한 키 range 에. use replication, 읽기가 빈번한 키 range.    When sharding, remember:  트랜잭션 스루풋은 1 write/sec per entity group 복수의 kinds 에 걸쳐 자주 업데이트 되는 엔터티는 분리하라.  Shared counters to avoid contention with high writes contention 을 줄이기 위해:\n sharded counter 를 구축하라 (카운터를 N 개의 다른 카운터로 쪼개라) - 카운터를 올리기 위해 임의의 샤드를 선택하여 올린다 - 전체 카운트를 알기위해, 모든 샤드카운터를 읽어서 더해라. 샤드의 넘버를 올리는 것은 스루풋을 올리는 것.. increasing the number of shards will increase the throughput you will have for increments on you counter.  Replicaion, Query Types, Transactions, and Handling Errors  Use replication to read a portion of the key range 읽기 비율이 높은데에 사용. 엔터티에 대한 사본을 N 개에 대해 두면, 읽기 연산에 대해 N 배 빠르다.\nDevices - Cloud Load Balance - Front end App (AppEngine - auto scailiing)\nUse qurey types based on your needs  Keys-only Projection (엔터티에서 프로퍼티를 얻어옴.) Ancester - 쿼리의 강한 일관성을 요할때. select * from task where __key__ has ancestor key(TaskList, ‘default’) Entity select * from task where done = FALSE  Improve Your query latency by using cursors instead of offsets Demo: Use Cloud Dataflow to bulk-load data into Cloud data store  pip install apache-beam\nlab git clone https://github.com/GoogleCloudPlatform/training-data-analyst\nSummary 조상을 지정하는 것으로 엔터티 그룹을 설정할수 있다.\n이렇게 해서 모든 관계된 엔터티들이 하나의 트랜잭션으로 업데이트 될 수 있다. 트래픽 램프업을 위해 555 룰을 따라라. 처음엔 초당 500 정도를 쓰다가 5분마다 50퍼센트씩 증가 시키는 것.\n",
+  "wordCount" : "452",
+  "inLanguage": "en",
+  "datePublished": "2019-03-16T11:34:29+09:00",
+  "dateModified": "2019-03-16T11:34:29+09:00",
+  "author":{
+    "@type": "Person",
+    "name": "nolleh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nolleh.github.io/coursera/gcp/5.datastore/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Computer Programmer, Nolleh",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nolleh.github.io/favicon.ico"
+    }
   }
-  </script>
+}
+</script>
 </head>
-<body>
-  <div class="navbar">    
-    <div class="logo">
-      <a href="/">
-        <img src="/images/logo.png" height="34px" />
-      </a>
-    </div>
-    <div class="burger">
-      <button onclick="toggle_visibility('menu')">
-        <i class="fa fa-bars" aria-hidden="true"></i> Menu
-      </button>
-    </div>
-    <div id="menu" class="menu hidden">
-      <ul>
-        <li><a href="/">#The Computer Programmer, Nolleh</a></li>
-        <li><a href="/categories">#Categories</a></li>
-        <li><a href="/tags">#Tags</a></li>
-        <li><a href="/projects">#Projects</a></li>        
-      </ul>
-      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
-    </div>
-  </div>
-  <div class="container">    
 
-<div class="post">
-  <div class="post-title">
-    <a href="https://nolleh.github.io/coursera/gcp/5.datastore/">
-      <img src="/images/post-title-icon.png" />
-      <div class="post-meta">
-        <time>Saturday, Mar 16, 2019 11:34</time>
-        <h1>5. Cloud DataStore Concepts and Indexes</h1>
-      </div>
-    </a>
-  </div>
-  <div class="post-toc">
-    <span class="title">TOC</span>
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#cloud-data-store-concepts">Cloud Data Store concepts</a></li>
-    <li><a href="#datastore-has-two-types-of-indexes">Datastore has two types of indexes</a></li>
-  </ul>
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
 
-  <ul>
-    <li><a href="#design-your-application-for-scale">Design Your application for scale</a></li>
-    <li><a href="#when-sharding-remember">When sharding, remember:</a></li>
-    <li><a href="#shared-counters-to-avoid-contention-with-high-writes">Shared counters to avoid contention with high writes</a></li>
-  </ul>
+</script>
 
-  <ul>
-    <li><a href="#use-replication-to-read-a-portion-of-the-key-range">Use replication to read a portion of the key range</a></li>
-    <li><a href="#use-qurey-types-based-on-your-needs">Use qurey types based on your needs</a></li>
-    <li><a href="#improve-your-query-latency-by-using-cursors-instead-of-offsets">Improve Your query latency by using cursors instead of offsets</a></li>
-  </ul>
-</nav>
-  </div>
-  <section class="post-content">
-    <h1 id="cloud-datastore-concepts-and-indexes">Cloud Datastore Concepts and Indexes</h1>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://nolleh.github.io/categories/" title="categories">
+                    <span>categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nolleh.github.io/tags/" title="tags">
+                    <span>tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      5. Cloud DataStore Concepts and Indexes
+    </h1>
+    <div class="post-meta"><span title='2019-03-16 11:34:29 +0900 KST'>March 16, 2019</span>&nbsp;·&nbsp;nolleh
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="cloud-datastore-concepts-and-indexes">Cloud Datastore Concepts and Indexes<a hidden class="anchor" aria-hidden="true" href="#cloud-datastore-concepts-and-indexes">#</a></h1>
 <hr>
-<h2 id="cloud-data-store-concepts">Cloud Data Store concepts</h2>
+<h2 id="cloud-data-store-concepts">Cloud Data Store concepts<a hidden class="anchor" aria-hidden="true" href="#cloud-data-store-concepts">#</a></h2>
 <ul>
 <li>데이터 오브젝트는 엔터티라고 불림</li>
 <li>엔터티들은 하나이상의 프로퍼티로 구성됨</li>
@@ -123,7 +217,7 @@
 </li>
 <li>하나 이상의 엔터티에 대한 동작은 트랜잭션으로 불린다.</li>
 </ul>
-<h2 id="datastore-has-two-types-of-indexes">Datastore has two types of indexes</h2>
+<h2 id="datastore-has-two-types-of-indexes">Datastore has two types of indexes<a hidden class="anchor" aria-hidden="true" href="#datastore-has-two-types-of-indexes">#</a></h2>
 <table>
 <thead>
 <tr>
@@ -177,9 +271,9 @@
 </tr>
 </tbody>
 </table>
-<h1 id="design-considerations--sharding">Design Considerations &amp; Sharding</h1>
+<h1 id="design-considerations--sharding">Design Considerations &amp; Sharding<a hidden class="anchor" aria-hidden="true" href="#design-considerations--sharding">#</a></h1>
 <hr>
-<h2 id="design-your-application-for-scale">Design Your application for scale</h2>
+<h2 id="design-your-application-for-scale">Design Your application for scale<a hidden class="anchor" aria-hidden="true" href="#design-your-application-for-scale">#</a></h2>
 <ul>
 <li>엔터티 그룹에 대한 최대 쓰기율은 1/초</li>
 <li>사전적으로 가까운 키에 대한 읽기와 쓰기를 너무 자주하지 말것.
@@ -197,25 +291,25 @@
 </ul>
 </li>
 </ul>
-<h2 id="when-sharding-remember">When sharding, remember:</h2>
+<h2 id="when-sharding-remember">When sharding, remember:<a hidden class="anchor" aria-hidden="true" href="#when-sharding-remember">#</a></h2>
 <ul>
 <li>트랜잭션 스루풋은 1 write/sec per entity group</li>
 <li>복수의 kinds 에 걸쳐 자주 업데이트 되는 엔터티는 분리하라.</li>
 </ul>
-<h2 id="shared-counters-to-avoid-contention-with-high-writes">Shared counters to avoid contention with high writes</h2>
+<h2 id="shared-counters-to-avoid-contention-with-high-writes">Shared counters to avoid contention with high writes<a hidden class="anchor" aria-hidden="true" href="#shared-counters-to-avoid-contention-with-high-writes">#</a></h2>
 <p>contention 을 줄이기 위해:</p>
 <ul>
 <li>sharded counter 를 구축하라 (카운터를 N 개의 다른 카운터로 쪼개라) - 카운터를 올리기 위해 임의의 샤드를 선택하여 올린다 - 전체 카운트를 알기위해, 모든 샤드카운터를 읽어서 더해라.
 샤드의 넘버를 올리는 것은 스루풋을 올리는 것..
 increasing the number of shards will increase the throughput you will have for increments on you counter.</li>
 </ul>
-<h1 id="replicaion-query-types-transactions-and-handling-errors">Replicaion, Query Types, Transactions, and Handling Errors</h1>
+<h1 id="replicaion-query-types-transactions-and-handling-errors">Replicaion, Query Types, Transactions, and Handling Errors<a hidden class="anchor" aria-hidden="true" href="#replicaion-query-types-transactions-and-handling-errors">#</a></h1>
 <hr>
-<h2 id="use-replication-to-read-a-portion-of-the-key-range">Use replication to read a portion of the key range</h2>
+<h2 id="use-replication-to-read-a-portion-of-the-key-range">Use replication to read a portion of the key range<a hidden class="anchor" aria-hidden="true" href="#use-replication-to-read-a-portion-of-the-key-range">#</a></h2>
 <p>읽기 비율이 높은데에 사용.
 엔터티에 대한 사본을 N 개에 대해 두면, 읽기 연산에 대해 N 배 빠르다.</p>
 <p>Devices -&gt; Cloud Load Balance -&gt; Front end App (AppEngine - auto scailiing)</p>
-<h2 id="use-qurey-types-based-on-your-needs">Use qurey types based on your needs</h2>
+<h2 id="use-qurey-types-based-on-your-needs">Use qurey types based on your needs<a hidden class="anchor" aria-hidden="true" href="#use-qurey-types-based-on-your-needs">#</a></h2>
 <ol>
 <li>Keys-only</li>
 <li>Projection (엔터티에서 프로퍼티를 얻어옴.)</li>
@@ -224,128 +318,98 @@ select * from task where <code>__key__</code> has ancestor key(TaskList, &lsquo;
 <li>Entity
 select * from task where done = FALSE</li>
 </ol>
-<h2 id="improve-your-query-latency-by-using-cursors-instead-of-offsets">Improve Your query latency by using cursors instead of offsets</h2>
-<h1 id="demo-use-cloud-dataflow-to-bulk-load-data-into-cloud-data-store">Demo: Use Cloud Dataflow to bulk-load data into Cloud data store</h1>
+<h2 id="improve-your-query-latency-by-using-cursors-instead-of-offsets">Improve Your query latency by using cursors instead of offsets<a hidden class="anchor" aria-hidden="true" href="#improve-your-query-latency-by-using-cursors-instead-of-offsets">#</a></h2>
+<h1 id="demo-use-cloud-dataflow-to-bulk-load-data-into-cloud-data-store">Demo: Use Cloud Dataflow to bulk-load data into Cloud data store<a hidden class="anchor" aria-hidden="true" href="#demo-use-cloud-dataflow-to-bulk-load-data-into-cloud-data-store">#</a></h1>
 <hr>
 <p>pip install apache-beam</p>
-<h1 id="lab">lab</h1>
+<h1 id="lab">lab<a hidden class="anchor" aria-hidden="true" href="#lab">#</a></h1>
 <p>git clone <a href="https://github.com/GoogleCloudPlatform/training-data-analyst">https://github.com/GoogleCloudPlatform/training-data-analyst</a></p>
-<h1 id="summary">Summary</h1>
+<h1 id="summary">Summary<a hidden class="anchor" aria-hidden="true" href="#summary">#</a></h1>
 <p>조상을 지정하는 것으로 엔터티 그룹을 설정할수 있다.<br>
 이렇게 해서 모든 관계된 엔터티들이 하나의 트랜잭션으로 업데이트 될 수 있다.
 트래픽 램프업을 위해 555 룰을 따라라.
 처음엔 초당 500 정도를 쓰다가 5분마다 50퍼센트씩 증가 시키는 것.</p>
 
-  </section>
-  <div class="share">    
-    <a
-      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f5.datastore%2f&t=5.%20Cloud%20DataStore%20Concepts%20and%20Indexes"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-facebook"></i
-    ></a>
-    <a
-      href="//twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f5.datastore%2f&text=5.%20Cloud%20DataStore%20Concepts%20and%20Indexes&tw_p=tweetbutton"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-twitter"></i
-    ></a>
-    <a
-      href="//getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f5.datastore%2f&title=5.%20Cloud%20DataStore%20Concepts%20and%20Indexes"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-get-pocket"></i
-    ></a>
-    <a
-      href="//plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f5.datastore%2f"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-google-plus"></i
-    ></a>
+
   </div>
-  <div class="post-meta-code">
-    <div class="desc">
-      Friendly
-      
-      nolleh
-      
-      wrotes this article at
-      <span class="highlight">Saturday, Mar 16, 2019 11:34</span> 
-      for you.
-    </div>
-    <div class="desc">
-      
-      <div class="desc">
-        <span class="fixed-desc">_Categories</span>
-        
-        
-        <a href="https://nolleh.github.io//categories/google-cloud-service">#Google Cloud Service</a>
-        
-      </div>
-      
-      <div class="desc">
-        <span class="fixed-desc">_Tags</span>
-        
-        
-        <a href="https://nolleh.github.io/tags/coursera">#Coursera</a>
-        
-        <a href="https://nolleh.github.io/tags/google-cloud-service">#Google Cloud Service</a>
-        
-        
-      </div>
-    </div>
-  </div>  
-  
-  <div class="post-comment">    
-    <div id="disqus_thread"></div>
-<script type="application/javascript">
-    window.disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "nolleh-github-io" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>    
-  </div>
-  
-  <div class="recommend-articles">
-    Recommend these articles
-    <ul>
-      
-      <li>
-        <a href="https://nolleh.github.io/coursera/gcp/4.db-overview/" rel="prev">
-          <span>4.Cloud Storage, Cloud Datastore, Cloud Bigtable, Cloud SQL, and Cloud Spanner</span>
-        </a>
-      </li>
-      
-      
-      <li>
-        <a href="https://nolleh.github.io/coursera/gcp/6.datastorage/" rel="next">
-          <span>6. DataStorage</span>
-        </a>
-      </li>
-      
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://nolleh.github.io/tags/coursera/">Coursera</a></li>
+      <li><a href="https://nolleh.github.io/tags/google-cloud-service/">Google Cloud Service</a></li>
     </ul>
-  </div>
-</div>
-
-<div class="go-top">
-  <a href="#" class="go-top-button">
-    <i class="fa fa-angle-double-up"></i>
-    <span>Top</span>
-  </a>
-</div>
+  </footer>
+</article>
+    </main>
+    
 <footer class="footer">
-  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
-  ALL RIGHTS RESERVED.
+    <span>&copy; 2022 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
-</body>
-</html>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>The Computer Programmer, Nolleh</title>
     <link>https://nolleh.github.io/</link>
     <description>Recent content on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <managingEditor>nolleh7707@gmail.com (nolleh)</managingEditor>
-    <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
     <lastBuildDate>Thu, 06 Feb 2020 14:47:47 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Active Passive Messaging Clusters</title>
       <link>https://nolleh.github.io/qpid/1.12.active-passive-messaging-clusters/</link>
       <pubDate>Thu, 06 Feb 2020 14:47:47 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/qpid/1.12.active-passive-messaging-clusters/</guid>
       <description>1.12. Active-Passive Messaging Clusters 1.12.1 Overview HA 모듈은 active-passive, hot-standby 메시징 클러스터들을 장애에 tolerent 하도록 제공한다.
 active-passive 클러스터는 하나의 브로커만 존재하며, 이를 프라이머리라고 부르며, 액티브 하고 클라이언트를 serving 한다. 다른 브로커들은 백업을 위해 존재한다. 프라이머리의 변경은 모든 백업들에 반영되므로, 백업들은 최신상태이거나 &amp;lsquo;hot&amp;rsquo; 상태이다. 백업 브로커들은 클라이언트의 연결을 거부하며, 클라이언트들은 프라이머리에 연결해야한다.
@@ -25,7 +23,7 @@ active-passive 클러스터는 하나의 브로커만 존재하며, 이를 프�
       <title>Broker Federation</title>
       <link>https://nolleh.github.io/qpid/1.4.broker-federation/</link>
       <pubDate>Thu, 06 Feb 2020 13:23:27 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/qpid/1.4.broker-federation/</guid>
       <description>1.4 Broker Federation 메시지 라우트를 정의하여 하나의 브로커에서 다른 브로커로 자동으로 전달하게 한다.
 일반적으로 일방향이며, 라우트는 durable 하고 tansient 한다.
@@ -41,7 +39,7 @@ push 는 src 에서 설정함
       <title>Network</title>
       <link>https://nolleh.github.io/cheatsheet/network/</link>
       <pubDate>Thu, 06 Feb 2020 11:56:11 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/cheatsheet/network/</guid>
       <description>time_wait 종료 시간 확인 : ndd -get /dev/tcp tcp_time_wait_interval time_wait 종료 시간 30초로 설정 : ndd -set /dev/tcp tcp_time_wait_interval 30000 fin_wait_2 타임 아웃 시간 확인 : ndd -get /dev/tcp tcp_fin_wait_2_timeout fin_wait_2 타임 아웃 시간 5분으로 설정 : ndd -set /dev/tcp tcp_fin_wait_2_timeout 300000  출처: https://hyeonstorage.tistory.com/287 [개발이 하고 싶어요]</description>
     </item>
@@ -50,7 +48,7 @@ push 는 src 에서 설정함
       <title>Docker</title>
       <link>https://nolleh.github.io/cheatsheet/docker/</link>
       <pubDate>Thu, 06 Feb 2020 10:53:37 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/cheatsheet/docker/</guid>
       <description>Docker Cheat Sheet 1. docker conntianer 내부 소켓 상태 확인 
 $ docker inspect -f &amp;#39;{{.State.Pid}}&amp;#39; cb2939r52s22 5645 [ec2-user@ip-10-100-77-76 ~]$ sudo nsenter -t 5645 -n netstat Active Internet connections (w/o servers) Proto Recv-Q Send-Q Local Address Foreign Address State tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-77-225.ec2.:45104 ESTABLISHED tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-77-225.ec2.:14804 TIME_WAIT tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-76-6:seclayer-tls TIME_WAIT tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-76-65.ec:plethora TIME_WAIT tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-77-225.ec2.:14830 TIME_WAIT tcp 0 0 ip-172-17-0-2.</description>
@@ -60,7 +58,7 @@ $ docker inspect -f &amp;#39;{{.State.Pid}}&amp;#39; cb2939r52s22 5645 [ec2-user
       <title>Clustering Guide</title>
       <link>https://nolleh.github.io/rabbitmq/clustering-guide/</link>
       <pubDate>Wed, 05 Feb 2020 18:44:37 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/rabbitmq/clustering-guide/</guid>
       <description>한개 이상의 노드들의 논리적인 그룹을 의미하며, 각각은 유저와, 가상 호스트, 큐, exchanges, bindings 을 공유한다.
 Cluster Formation 다음 방법들로 구성 가능
@@ -71,7 +69,7 @@ Cluster Formation 다음 방법들로 구성 가능
       <title>SSL</title>
       <link>https://nolleh.github.io/crypto/ssl/</link>
       <pubDate>Thu, 30 Jan 2020 18:29:58 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/crypto/ssl/</guid>
       <description></description>
     </item>
@@ -80,7 +78,7 @@ Cluster Formation 다음 방법들로 구성 가능
       <title>ECDSA</title>
       <link>https://nolleh.github.io/crypto/ecdsa/</link>
       <pubDate>Thu, 30 Jan 2020 18:28:50 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/crypto/ecdsa/</guid>
       <description>ECDSA ref. https://m.blog.naver.com/aepkoreanet/221178375642
 ec (타원곡선) 을 이용한 기술들의 집합 - ECC,
@@ -95,7 +93,7 @@ E(Fp) 암호학에서 사용되는 유한체      - Prime Field 원소의 개수
       <title>6. DataStorage</title>
       <link>https://nolleh.github.io/coursera/gcp/6.datastorage/</link>
       <pubDate>Sat, 16 Mar 2019 23:02:25 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/coursera/gcp/6.datastorage/</guid>
       <description>Best Practices for Using Cloud Storage  버킷에 변화가 있을때 반응하게 할 수 있다. https://cloud.google.com/storage/docs/pubsub-notifications
 Demo  coldline 은 일년에 한번 접근하는것과 같은 문제발생시 복구하는 용도로 사용하면 좋다..
@@ -110,7 +108,7 @@ Best Practices for cloud Storage  request rate 가 초당 1000 쓰기 요청 이
       <title>5. Cloud DataStore Concepts and Indexes</title>
       <link>https://nolleh.github.io/coursera/gcp/5.datastore/</link>
       <pubDate>Sat, 16 Mar 2019 11:34:29 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/coursera/gcp/5.datastore/</guid>
       <description>Cloud Datastore Concepts and Indexes  Cloud Data Store concepts  데이터 오브젝트는 엔터티라고 불림 엔터티들은 하나이상의 프로퍼티로 구성됨 프로퍼티들은 하나이상의 값(values) 를 가질수 있음 각각의 엔터티는 구분되는 하나의 키를 가지고 있는데, 다음으로 구성 된다.  네임스페이스 엔터티 Kind 식별자 (스트링 or 숫자) 부모 ID   하나 이상의 엔터티에 대한 동작은 트랜잭션으로 불린다.  Datastore has two types of indexes    Built-in indexes Composite indexes     각각의 엔터티 Kind의 각각의 프로퍼티에 대해 자동으로 정의 인덱싱된 엔터티에 대해 다중의 프로퍼티 값을 인덱스함   간단한 쿼리에 적합 컴플렉스 쿼리에 적합    인덱스 설정파일에 정의       concept cloud datastore relational database     오브젝트 카테고리 Kind Table   한개 오브젝트 entity row   하나의 오브젝트를 위한 개별 데이터 프로퍼티 field   유니크 ID Key PrimaryKey    Design Considerations &amp;amp; Sharding  Design Your application for scale  엔터티 그룹에 대한 최대 쓰기율은 1/초 사전적으로 가까운 키에 대한 읽기와 쓰기를 너무 자주하지 말것.</description>
     </item>
@@ -119,7 +117,7 @@ Best Practices for cloud Storage  request rate 가 초당 1000 쓰기 요청 이
       <title>4.Cloud Storage, Cloud Datastore, Cloud Bigtable, Cloud SQL, and Cloud Spanner</title>
       <link>https://nolleh.github.io/coursera/gcp/4.db-overview/</link>
       <pubDate>Sat, 16 Mar 2019 11:33:59 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/coursera/gcp/4.db-overview/</guid>
       <description>Cloud Storage  크고 자주 사용되지 않은 비구조화된 데이터
    Overview ideal for     완전히 관리되고 고 신뢰가능 이미지와 비디오   비용절감. 확장가능한 오브젝트/블롭 저장 오브젝트와 블롭   http 로 접근 구조화되어있지 않은 데이터   오브젝트 이름이 키 정적 웹사이트 호스팅    Ideal for Cloud Datastore  관계형이나 데이터 분석에는 적합하지 않고 GAE 앱이나 구조화된 순수 제공 사용례에 적합한 구조화된 제공을 위한 스케일러블 저장소.</description>
@@ -129,7 +127,7 @@ Best Practices for cloud Storage  request rate 가 초당 1000 쓰기 요청 이
       <title>3.SDK</title>
       <link>https://nolleh.github.io/coursera/gcp/3.sdk/</link>
       <pubDate>Tue, 12 Mar 2019 23:37:51 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/coursera/gcp/3.sdk/</guid>
       <description>What are the Google Cloud Client Libraries? 관용적인 코드를 각각의 랭귀지에 대해 제공 gRPC 에서 성능 효과를 보는 라이브러리도 있다.
 github repo
@@ -147,7 +145,7 @@ Module Review Api Explore: google cloud api 를 테스트하기위한 샌드박�
       <title>1-1. 계정관리를 위한 12 tips</title>
       <link>https://nolleh.github.io/coursera/gcp/1-1.12-tips/</link>
       <pubDate>Tue, 12 Mar 2019 21:52:58 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/coursera/gcp/1-1.12-tips/</guid>
       <description>12 Best Practices for user saccount https://cloud.google.com/blog/products/gcp/12-best-practices-for-user-account GCP 에서는 유저 계정에 대한 안전한 핸들링과 인증을 위한 툴을 게공한다. 웹사이트가 구글 쿠버네티스엔진에 호스트 되는 웹사이트를 담당하든, apigee 의 api 를 담당하든, firebase 를 사용하든, 어떤 다른 서비스를 통해 유저를 인증하든, 이 포스트는 좋은 연습을 제공해서, 안전하고 확장가능하고 쓸만한 계정 인증 시스템을 사용할 수 있게 도와줄 것이다.
 1. 패스워드를 해시하라. 패스워드를 포함해서, 예민한 개인정보를 어떻게 저장할 것인가가 계정관리의 가장 중요한 규칙이다. 이 데이터를 신성하게 다뤄야한다.</description>
@@ -157,7 +155,7 @@ Module Review Api Explore: google cloud api 를 테스트하기위한 샌드박�
       <title>2.Security-Reliability-Migration</title>
       <link>https://nolleh.github.io/coursera/gcp/2.security-reliability-migration/</link>
       <pubDate>Tue, 12 Mar 2019 21:52:02 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/coursera/gcp/2.security-reliability-migration/</guid>
       <description>3. Security, Reliablitiy, and Migration Use federated identity management firebase authentication~ 외부의 identity provider 를 통해 ..
 Implement health-check endpoint Stackdriver monitoring (helth monitoring agent) -&amp;gt; /health upcheck. 어디에 ? storage / database, network connection, 다른 의존들 .. 실패하면 자동으로 알림을 준다.
@@ -168,7 +166,7 @@ Implement health-check endpoint Stackdriver monitoring (helth monitoring agent) 
       <title>1.MSA and ApiGateway</title>
       <link>https://nolleh.github.io/coursera/gcp/1.msaandapigateway/</link>
       <pubDate>Tue, 12 Mar 2019 21:51:32 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/coursera/gcp/1.msaandapigateway/</guid>
       <description>Loosely Coupled Microservices and API gateway 모놀리틱에서는 기본 코드가 부풀게 되서, 어디를 고쳐야하는지 알기가 어렵다. 패키지들의 의존성들이 얼키고 설킨다.
 작은 기본 코드를 고쳐도 전체 프로그램이 배포되어 테스트될 필요가 있다.
@@ -182,7 +180,7 @@ Cache content 반응성을 위해 컨텐츠를 캐싱해서, TTL 이 지나기�
       <title>Building Distributed App</title>
       <link>https://nolleh.github.io/block-chain-youtube/building-distributed-app/</link>
       <pubDate>Wed, 23 Jan 2019 20:32:59 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/block-chain-youtube/building-distributed-app/</guid>
       <description>다음에서 발췌 ()[]
  Smart Contract  블록은 트랜잭션을 포함한다. 트랜잭션은 액션의 기록이다. 액션은 컨트랙트의 동작이다.  스마트컨트랙트의 사용
@@ -194,7 +192,7 @@ Cache content 반응성을 위해 컨텐츠를 캐싱해서, TTL 이 지나기�
       <title>고수준의 분산 시스템</title>
       <link>https://nolleh.github.io/distributed-systems/1.highlevel/</link>
       <pubDate>Mon, 21 Jan 2019 22:58:23 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/distributed-systems/1.highlevel/</guid>
       <description>다음에서 발췌 http://book.mixu.net/distsys/intro.html
  1. Distributed systems at a highlevel  분산 프로그래밍은 같은 문제를 하나의 컴퓨터에서 해결할 수 있는 문제를 여러 컴퓨터에서 해결하는 예술이다.  컴퓨터 시스템이라면 해결해야 하는 두개의 문제가 있습니다.
@@ -206,7 +204,7 @@ Cache content 반응성을 위해 컨텐츠를 캐싱해서, TTL 이 지나기�
       <title>EOSIO - 2.1/Hello World!</title>
       <link>https://nolleh.github.io/block-chain/2.1-helloworld/</link>
       <pubDate>Tue, 01 Jan 2019 20:17:59 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/block-chain/2.1-helloworld/</guid>
       <description>hello 라는 이름의 디렉토리를 contracts directory 에 생성하자.
 cd CONTRACTS_DIR mkdir hello cd hello hello.cpp 를 생성하고 에디터로 열자.
@@ -220,7 +218,7 @@ using namespace eosio;  eosiolib/eosio.hpp 가 EOSIO C 와 C++ API 를 당신의
       <title>EOSIO - 1.7/Test 계정 생성하기</title>
       <link>https://nolleh.github.io/block-chain/1.7-createtestaccount/</link>
       <pubDate>Tue, 01 Jan 2019 20:02:35 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/block-chain/1.7-createtestaccount/</guid>
       <description>다음에서 발췌 EOSIO - 1.7 Create Test Accounts
  What is an account?  블록체인에 저장되어 송신자와 수신자를 구분하는데 사용되는 승인의 집합체라 할 수 있다. 유연한 권한 승인 구조를 가질 수 있는데, 권한이 어떻게 설정되느냐에 따른 개인이나 그룹에 의해 소유될 수 있다.
@@ -232,7 +230,7 @@ using namespace eosio;  eosiolib/eosio.hpp 가 EOSIO C 와 C++ API 를 당신의
       <title>EOSIO - 1.6/개발 Wallet 생성하기</title>
       <link>https://nolleh.github.io/block-chain/1.6-createdevelopmentwallet/</link>
       <pubDate>Tue, 01 Jan 2019 17:10:57 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/block-chain/1.6-createdevelopmentwallet/</guid>
       <description>Step 1: Wallet 생성하기  먼저 wallet 을 생성한다. cleos wallet create 를 통해 기본 wallet 을 --to-console 옵션을 사용하여 간단하게 생성한다.
 cleos 를 production 환경에서 사용한다면, 대신 --to-file 옵션을 사용하여 wallet 의 패스워드를 배쉬 기록에 남지않도록 한다.
@@ -245,7 +243,7 @@ Creating wallet: default Save password to use in the future to unlock this walle
       <title>EOSIO - 1.5/CDT 설치하기</title>
       <link>https://nolleh.github.io/block-chain/1.5-installthecdt/</link>
       <pubDate>Tue, 01 Jan 2019 16:57:50 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/block-chain/1.5-installthecdt/</guid>
       <description>다음에서 발췌 - EOSIO - 1.5 Install The CDT
  EOSIO Contract Development Toolkit, CDT 는 contract 컴파일을 위한 툴의 집합이다. 뒤따를 튜토리얼들은 contract 들을 컴파일하고 ABI 를 생성하는 주요 CDT 를 사용한다.
@@ -257,7 +255,7 @@ HomeBrew (Mac OS X)  Install brew tap eosio/eosio.cdt brew install eosio.</descr
       <title>EOSIO - 1.4/노드 시작하고 설정하기</title>
       <link>https://nolleh.github.io/block-chain/1.4-startyournodeandsetup/</link>
       <pubDate>Tue, 01 Jan 2019 16:36:28 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/block-chain/1.4-startyournodeandsetup/</guid>
       <description>다음에서 발췌 - 
  Step 1: Boot Node And Wallet  Step 1.1: Start keosd 먼저 keosd 를 시작한다.
@@ -269,7 +267,7 @@ info 2018-11-26T06:54:24.789 thread-0 wallet_plugin.cpp:42 plugin_initialize ] i
       <title>EOSIO - 1.3/스택에 대해</title>
       <link>https://nolleh.github.io/block-chain/1.3-aboutthestack/</link>
       <pubDate>Tue, 01 Jan 2019 15:56:51 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/block-chain/1.3-aboutthestack/</guid>
       <description>발췌 - EOSIO - 1.3 About The Stack
  방금 설치한 툴들을 시작하기 전에, 각각의 컴포넌트들이 어떻게 상호작용하는지 이해하는게 좋다.
@@ -282,7 +280,7 @@ info 2018-11-26T06:54:24.789 thread-0 wallet_plugin.cpp:42 plugin_initialize ] i
       <title>EOSIO - 1.2/시작하기 전에</title>
       <link>https://nolleh.github.io/block-chain/1.2-beforeyoubegin/</link>
       <pubDate>Tue, 01 Jan 2019 15:27:37 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/block-chain/1.2-beforeyoubegin/</guid>
       <description>발췌 - (EOSIO - 1.2 Before You Begin)[https://developers.eos.io/eosio-home/docs/setting-up-your-environment]
  Step 1: Install Binaries  이 튜토리얼은 선빌드된 바이너리를 사용한다.
@@ -295,7 +293,7 @@ brew tap eosio/eosio brew install eosio Step 2: Setup a development directory, s
       <title>EOSIO - 1.1/소개</title>
       <link>https://nolleh.github.io/block-chain/1.1-introduction/</link>
       <pubDate>Tue, 01 Jan 2019 14:41:42 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/block-chain/1.1-introduction/</guid>
       <description>발췌 EOSIO - 1.1 Introduction
  배울 수 있는 것   노드로 얼마나 빨리 갖고 놀 수 있는가 Wallet 과 Key 를 어떻게 관리할 수 있는가 계정을 만드는 법 contract 작성법 컴파일과 ABI contract 배포  C / C++ 경험  EOSIO 기반 블록체인은 WebAssembly 를 이용하여 유저가 생성한 어플리케이션과 코드를 실행한다.
@@ -307,7 +305,7 @@ WASM 은 구글, 마이크로소프트, 애플, 그리고 다른 주요 업체�
       <title>비동기 프로그램의 제어 흐름</title>
       <link>https://nolleh.github.io/csharp/async-control-flow-msdn/</link>
       <pubDate>Fri, 21 Dec 2018 22:02:13 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/csharp/async-control-flow-msdn/</guid>
       <description>개요   다음에서 발췌
 비동기 프로그램의 제어 흐름
@@ -318,7 +316,7 @@ WASM 은 구글, 마이크로소프트, 애플, 그리고 다른 주요 업체�
       <title>Async Await 을 사용한 비동기 프로그래밍</title>
       <link>https://nolleh.github.io/csharp/async-await-msdn/</link>
       <pubDate>Fri, 21 Dec 2018 21:41:08 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/csharp/async-await-msdn/</guid>
       <description>개요   다음에서 발췌 MSDN
  반응성을 향상시키는 비동기  잠재적인 차단 작업 완료 될때까지 다른 작업을 게속 수행
@@ -330,7 +328,7 @@ WASM 은 구글, 마이크로소프트, 애플, 그리고 다른 주요 업체�
       <title>Dispose</title>
       <link>https://nolleh.github.io/csharp/dispose/</link>
       <pubDate>Wed, 19 Dec 2018 10:18:25 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/csharp/dispose/</guid>
       <description>Dispose 에 대한 여러가지 MSDN  Implementing a Dispose method
  threadSafety  stackoverflow dispose 의 threadsafety
@@ -344,7 +342,7 @@ WASM 은 구글, 마이크로소프트, 애플, 그리고 다른 주요 업체�
       <title>Async Await</title>
       <link>https://nolleh.github.io/csharp/async-await/</link>
       <pubDate>Tue, 18 Dec 2018 13:47:33 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/csharp/async-await/</guid>
       <description>NeoSmart.AsyncLock 라이브러리에 관하여  다음에서 발췌, 번역 - Neosmart Docs.
  개요  semaporeslim 은 reentrance 를 지원하지 않는다. 따라서, recursion 에서 적절히 사용되지 않으면 데드락이 발생한다.
@@ -358,7 +356,7 @@ async / await 의 가장 기본적인 목적인 ui 의 불필요한 블럭킹 �
       <title>Nancy Introduction</title>
       <link>https://nolleh.github.io/nancy/introduction/</link>
       <pubDate>Tue, 24 Apr 2018 21:43:04 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/nancy/introduction/</guid>
       <description>Nancy 에 대한 문서 번역 #1. By Nolleh
  Introduction  가장 먼저, Nancy 의 세계에 온것을 환영합니다!
@@ -372,7 +370,7 @@ NancyFx 는 모든 컴포넌트들을 포함하는 umbrella project 입니다. (
       <title>Unix 01 Intro</title>
       <link>https://nolleh.github.io/network/unix-01-intro/</link>
       <pubDate>Tue, 01 Aug 2017 22:54:19 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/network/unix-01-intro/</guid>
       <description>네트워킹의 바이블이라 할 수 있는 Unix Network Programming 의 내용 정리
  Books Introduction Socket 을 통해 통신하는 프로그램을 작성하는 개발자를 위해 쓰여진 책.
@@ -386,7 +384,7 @@ NancyFx 는 모든 컴포넌트들을 포함하는 umbrella project 입니다. (
       <title>스프링 기본 용어/정리</title>
       <link>https://nolleh.github.io/web/fund-spring/</link>
       <pubDate>Wed, 26 Jul 2017 23:11:14 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/web/fund-spring/</guid>
       <description>어쩌다보니 그동안 손댈 일이 없던 웹서버에 좀 손을 대게 되서 (게임서버, 클라이언트, 그리고 웹서버..정녕 풀스택 개발자가 되는것인가..ㅋ), 예전 선배님이 버리고 간(?) 스프링 책을 꺼내서 읽어 보며 정리한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.
  Spring Bean 객체 스프링에서 생성하여 관리하여 주는 스프링 빈 객체 혹은 빈 객체라고 부른다. res/applicationContext.xml 에 태그로 선언할 수도 있다. 이렇게 선언한경우, 리플렉션을 활용하여 bean id 클래스의 인스턴스를 지정한 세부 태그의 속성으로 메서드를 호출하여 객체를 초기화한다.</description>
@@ -396,7 +394,7 @@ NancyFx 는 모든 컴포넌트들을 포함하는 umbrella project 입니다. (
       <title>파일 버퍼링</title>
       <link>https://nolleh.github.io/operating-system/file-buffering/</link>
       <pubDate>Mon, 17 Jul 2017 00:25:28 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/operating-system/file-buffering/</guid>
       <description>다음에서 발췌, 번역
  https://msdn.microsoft.com/en-gb/library/windows/desktop/cc644950(v=vs.85).aspx   File Buffering 파일버퍼링 - unbuffered file I/O.
@@ -412,7 +410,7 @@ Note 파일에 대해 Seeking 과 위치포인터, offsets 의 개념을 사용�
       <title>Concurrent Idiom 1 - Stack</title>
       <link>https://nolleh.github.io/concurrency/concurrent-idiom-1-stack/</link>
       <pubDate>Mon, 10 Jul 2017 22:57:57 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/concurrency/concurrent-idiom-1-stack/</guid>
       <description>concurrent 프로그램을 작성할 때 고려해야할 몇가지 사항. 그리고 idiom.
 여러 서적에서 발췌하였으며, 정리 차원에서 작성한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.
@@ -426,52 +424,34 @@ top() / pop() 도 마찬가지 -&amp;raquo; 조회되지 못하는 아이템이 
       <title>How To Make Git Page</title>
       <link>https://nolleh.github.io/env/how-to-make-git-page/</link>
       <pubDate>Fri, 07 Jul 2017 21:22:50 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/env/how-to-make-git-page/</guid>
-      <description>GitHub-Page 이런게 있다더라 ~ 라고 주변으로부터 처음 들은건 1~2년전이었던것 같은데
-갑자기 꽂혀서 git page 를 만들었다. (!!)
-github 에서는 1계정당 1 호스트를 제공하는 것 같고
-&amp;lt;ID&amp;gt;.github.io 
-뭐 이런식? github 의 제공 영역은 repo 에 존재하는 index.html 을 repo 에 지정된 1 도메인과
-연결해주는 정도인 것 같다.
-Repository git 을 사용해 본 적이 있다면 간단하다.
-그렇다면 다음 절로 넘어가고, 그렇지 않다면, 다음을 따라하자.
-github 가입 이 항목에 있어 더 이상의 자세한 설명은 생략한다.</description>
+      <description>Making Git Page</description>
     </item>
     
     <item>
       <title>Brew Install 이 구버전만 설치할 때</title>
       <link>https://nolleh.github.io/env/brew-update/</link>
       <pubDate>Tue, 04 Jul 2017 22:31:23 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/env/brew-update/</guid>
-      <description>Let&amp;rsquo;s 사족 처음 회사에 입사 했을 때 자리에는 Mac PC 만이 덩그러니 있었고, Mac 을 사용해본적 없던 꼬꼬마는 자연스럽게 윈도우 CD 를 인사팀에서 받아와서 깔고 있었드랬다.
- &amp;ldquo;기껏 좋은 컴퓨터 줬더니 넌 뭘하고 있는거니?&amp;rdquo;
- 라는 선배의 말을 듣고 그제야 맥에서도 안드로이드 개발이 되는거구나.. (이때는 현업 안드로이드 개발자였다.)
-하곤 윈도우 설치페이지를 취소하고 다시 맥 OS 를 부팅했었지.
-이때가, Mac OS 와의 첫 만남이었드랬다.
-Brew 뭐 전혀 관계 없는 얘기로 포스트를 열었지만.</description>
+      <description>개발 환경 - Brew</description>
     </item>
     
     <item>
       <title>markDown 문법</title>
       <link>https://nolleh.github.io/env/mark-down-syntax/</link>
       <pubDate>Tue, 04 Jul 2017 22:13:52 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/env/mark-down-syntax/</guid>
-      <description>마크다운으로 포스팅하는 Git 페이지를 생성하였으니, 자주 사용되는 대표 문법 정리
-마크다운 문법
-Heading &amp;lsquo;#&amp;rsquo; 으로 처리하며, 단계별로 더 많은 &amp;lsquo;#&amp;rsquo; 을 사용한다.
-# Title ## Heading 1 ### Heading 2 결과
-Title Heading 1 Heading 2 Listing Asterisk (*) 를 사용하여 순서 없는 목록을, 숫자를 사용하여 순서 있는 목록을 나타낸다.
-순서 없는 경우  이거닷 이거 중요해!  순서가 있는 경우  첫번째 순서 두번째~ 셋!!  Fonts **Bold** _Italic_ ~~CANCEL_LINE~~ Bold Italic CANCEL_LINE</description>
+      <description>mark down 문법</description>
     </item>
     
     <item>
       <title>C&#43;&#43; CLI 에서 managed 콜백을 unmanaged 로 전달하기</title>
       <link>https://nolleh.github.io/etc/managed_cb_to_unmanaged/</link>
       <pubDate>Tue, 04 Jul 2017 00:45:55 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/etc/managed_cb_to_unmanaged/</guid>
       <description>파라미터가 없다면 DelegateToPointer 로 마샬링해서 전달하면되는데,
 이러면 파라미터를 마샬링할 기회가 주어지지 않는다는게 문제다.

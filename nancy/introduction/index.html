@@ -1,106 +1,224 @@
 <!DOCTYPE html>
-<html>
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=80&amp;path=livereload" data-no-instant defer></script>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nancy Introduction  | The Computer Programmer, Nolleh</title>
-  <meta name="description" content=" 'Nancy Introduction'read this article.">
-  <meta property="og:title" content="Nancy Introduction">
-  
-  <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2018-04-24">
-  
-  <meta property="og:description" content=" 'Nancy Introduction'read this article.">
-  <meta property="og:url" content="https://nolleh.github.io/nancy/introduction/">
-  <meta property="og:site_name" content="The Computer Programmer, Nolleh">
-  
-  <meta property="og:image" content="https://nolleh.github.io/images/thumbnail.png">
-  
-  
-  <meta property="og:tags" content="Programming">
-  
-  <meta property="og:tags" content="C#">
-  
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="canonical" href="https://nolleh.github.io/nancy/introduction/">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
-  <link rel="stylesheet" href="/css/styles.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  
-  
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102565363-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-102565363-1');
-  </script>
-  
-  
-  <script type="text/javascript">
-  function toggle_visibility(id) {
-    var e = document.getElementById(id);
-    if (e.className === 'menu')
-      e.className = 'menu hidden';
-    else
-      e.className = 'menu';
-  }
-  </script>
-</head>
-<body>
-  <div class="navbar">    
-    <div class="logo">
-      <a href="/">
-        <img src="/images/logo.png" height="34px" />
-      </a>
-    </div>
-    <div class="burger">
-      <button onclick="toggle_visibility('menu')">
-        <i class="fa fa-bars" aria-hidden="true"></i> Menu
-      </button>
-    </div>
-    <div id="menu" class="menu hidden">
-      <ul>
-        <li><a href="/">#The Computer Programmer, Nolleh</a></li>
-        <li><a href="/categories">#Categories</a></li>
-        <li><a href="/tags">#Tags</a></li>
-        <li><a href="/projects">#Projects</a></li>        
-      </ul>
-      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
-    </div>
-  </div>
-  <div class="container">    
+<html lang="en" dir="auto">
 
-<div class="post">
-  <div class="post-title">
-    <a href="https://nolleh.github.io/nancy/introduction/">
-      <img src="/images/post-title-icon.png" />
-      <div class="post-meta">
-        <time>Tuesday, Apr 24, 2018 21:43</time>
-        <h1>Nancy Introduction</h1>
-      </div>
-    </a>
-  </div>
-  <div class="post-toc">
-    <span class="title">TOC</span>
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#introduction">Introduction</a></li>
-    <li><a href="#built-to-run-anywhere">Built to run anywhere</a></li>
-    <li><a href="#the-super-duper-happy-path">The super-duper-happy-path</a></li>
-    <li><a href="#creating-your-first-nancy-application">Creating your first Nancy application</a></li>
-    <li><a href="#more-info">More Info</a></li>
-  </ul>
-</nav>
-  </div>
-  <section class="post-content">
-    <blockquote>
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Nancy Introduction | The Computer Programmer, Nolleh</title>
+<meta name="keywords" content="Programming, C#">
+<meta name="description" content="Nancy 에 대한 문서 번역 #1. By Nolleh
+ Introduction  가장 먼저, Nancy 의 세계에 온것을 환영합니다!
+루비의 sinatra 프레임워크에 영감을 받아 Nancy 라는 이름을 붙이게 되었습니다. (Frank Sinatra 의 딸이름이 Nancy 니까요!)
+NancyFx 의 Fx 에 대해 많은 사람들이 궁금해하여 여기에 붙입니다만, framework 라는 뜻입니다 :)
+NancyFx 는 모든 컴포넌트들을 포함하는 umbrella project 입니다. (#역자주: 우산효과의 우산처럼, 포괄적인 프로젝트라는 의미로 쓴게 아닐까? )
+이 가이드는 앞으로 개괄적이고 빠르게 Nancy 의 특징들을 살펴 독자 스스로 Nancy 의 세계를 탐험해 볼 수 있는 시야를 제공할겁니다.">
+<meta name="author" content="nolleh">
+<link rel="canonical" href="https://nolleh.github.io/nancy/introduction/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.1740750342264a4e69b84ddf6899fb02cc95465080d85c57c08bb1d110900bf6.css" integrity="sha256-F0B1A0ImSk5puE3faJn7AsyVRlCA2FxXwIux0RCQC/Y=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://nolleh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nolleh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-102565363-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="Nancy Introduction" />
+<meta property="og:description" content="Nancy 에 대한 문서 번역 #1. By Nolleh
+ Introduction  가장 먼저, Nancy 의 세계에 온것을 환영합니다!
+루비의 sinatra 프레임워크에 영감을 받아 Nancy 라는 이름을 붙이게 되었습니다. (Frank Sinatra 의 딸이름이 Nancy 니까요!)
+NancyFx 의 Fx 에 대해 많은 사람들이 궁금해하여 여기에 붙입니다만, framework 라는 뜻입니다 :)
+NancyFx 는 모든 컴포넌트들을 포함하는 umbrella project 입니다. (#역자주: 우산효과의 우산처럼, 포괄적인 프로젝트라는 의미로 쓴게 아닐까? )
+이 가이드는 앞으로 개괄적이고 빠르게 Nancy 의 특징들을 살펴 독자 스스로 Nancy 의 세계를 탐험해 볼 수 있는 시야를 제공할겁니다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nolleh.github.io/nancy/introduction/" /><meta property="article:section" content="nancy" />
+<meta property="article:published_time" content="2018-04-24T21:43:04&#43;09:00" />
+<meta property="article:modified_time" content="2018-04-24T21:43:04&#43;09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Nancy Introduction"/>
+<meta name="twitter:description" content="Nancy 에 대한 문서 번역 #1. By Nolleh
+ Introduction  가장 먼저, Nancy 의 세계에 온것을 환영합니다!
+루비의 sinatra 프레임워크에 영감을 받아 Nancy 라는 이름을 붙이게 되었습니다. (Frank Sinatra 의 딸이름이 Nancy 니까요!)
+NancyFx 의 Fx 에 대해 많은 사람들이 궁금해하여 여기에 붙입니다만, framework 라는 뜻입니다 :)
+NancyFx 는 모든 컴포넌트들을 포함하는 umbrella project 입니다. (#역자주: 우산효과의 우산처럼, 포괄적인 프로젝트라는 의미로 쓴게 아닐까? )
+이 가이드는 앞으로 개괄적이고 빠르게 Nancy 의 특징들을 살펴 독자 스스로 Nancy 의 세계를 탐험해 볼 수 있는 시야를 제공할겁니다."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Nancies",
+      "item": "https://nolleh.github.io/nancy/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Nancy Introduction",
+      "item": "https://nolleh.github.io/nancy/introduction/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Nancy Introduction",
+  "name": "Nancy Introduction",
+  "description": "Nancy 에 대한 문서 번역 #1. By Nolleh\n Introduction  가장 먼저, Nancy 의 세계에 온것을 환영합니다!\n루비의 sinatra 프레임워크에 영감을 받아 Nancy 라는 이름을 붙이게 되었습니다. (Frank Sinatra 의 딸이름이 Nancy 니까요!)\nNancyFx 의 Fx 에 대해 많은 사람들이 궁금해하여 여기에 붙입니다만, framework 라는 뜻입니다 :)\nNancyFx 는 모든 컴포넌트들을 포함하는 umbrella project 입니다. (#역자주: 우산효과의 우산처럼, 포괄적인 프로젝트라는 의미로 쓴게 아닐까? )\n이 가이드는 앞으로 개괄적이고 빠르게 Nancy 의 특징들을 살펴 독자 스스로 Nancy 의 세계를 탐험해 볼 수 있는 시야를 제공할겁니다.",
+  "keywords": [
+    "Programming", "C#"
+  ],
+  "articleBody": " Nancy 에 대한 문서 번역 #1. By Nolleh\n Introduction  가장 먼저, Nancy 의 세계에 온것을 환영합니다!\n루비의 sinatra 프레임워크에 영감을 받아 Nancy 라는 이름을 붙이게 되었습니다. (Frank Sinatra 의 딸이름이 Nancy 니까요!)\nNancyFx 의 Fx 에 대해 많은 사람들이 궁금해하여 여기에 붙입니다만, framework 라는 뜻입니다 :)\nNancyFx 는 모든 컴포넌트들을 포함하는 umbrella project 입니다. (#역자주: 우산효과의 우산처럼, 포괄적인 프로젝트라는 의미로 쓴게 아닐까? )\n이 가이드는 앞으로 개괄적이고 빠르게 Nancy 의 특징들을 살펴 독자 스스로 Nancy 의 세계를 탐험해 볼 수 있는 시야를 제공할겁니다.\nNancy 는 가볍고, 적은 준비의식(#역자주: 라이브러리를 쓰기 위한 선제 작업)의 HTTP 기반의 서비스를 개발할 수 있는 .Net 과 Mono 기반 프레임 워크입니다.\n이 프레임워크의 목적은 모든 상호 통신(ineractions)을 신경쓰지 않으면서도 동시에 슈퍼-엄청-행복한 방법으로-(super-duper-happy-path) 제공하는 것입니다.\n이 말은 Nancy 를 통한 모든 것들이 당신을 개고생하게 만드는 설정 지옥에서 벗어날 수 있도록 관습적이고/기본적인 설정 값을 적극 활용하는 것을 의미합니다.\nNancy 와 함께라면 아무것도 없는 상태에서 수 분안에 웹사이트를 만들 수 있습니다. 문자 그대로요!!\nNancy 는 DELETE, GET, HEAD, OPTIONS, POST, PUT, PATH 요청을 단순하고 우아한 Domain Specific Language (DSL) 을 몇번의 타이핑만으로 응답으로 전달하도록 디자인 되어 있어 당신은 다른 좀 더 중요한 당신의 코드, 당신의 어플리케이션에 집중 할 수 있도록 하였습니다.\n이 모든 것들은 MIT License 의 오픈 소스 입니다.\nNuget, our TeamCity Server 와 github repository 로부터 살펴 보실 수 있습니다.\nBuilt to run anywhere  원하는 곳 어디에서든 빌드되고 실행될 수 있습니다.\nNancy 는 어떤 존재하는 프레임워크에도 의존성이 없도록 디자인 되었습니다.\nrequest / response 객체 전부 자체에 포함되어 있으므로, .NET framework client profile 을 통해 빌드하여 Nancy 는 당신이 원하는 곳 어디에서든 사용될 수 있습니다.\nNancy 의 핵심 개념중의 하나로 hosts 가 있습니다. 하나의 호스트는 nancy 와 호스팅 환경의 어댑터로서 동작하게 되므로 Nancy 를 기존의 존재하는 - ASP.Net, WCF, OWIN, 다른 통합 응용프로그램 - 기술에서 활용해보십시오.\n특정 호스트 구현은 Nancy 프레임워크의 핵심 기능을 제공하지 않을 수 있습니다. 이런 추가기능들 - 인증과 같은- 은 개별로 제공됩니다.\nNancy 응용 프로그램을 빌드하는 것은 웹프레임워크의 buffet 으로부터 가장 좋아하는 부분을 뽑아내는 것과 같습니다! Nancy 서비스를 빌드하는데 사용할 최소한의 부분은 핵심 프레임워크와 host 가 될 것입니다.\nThe super-duper-happy-path  그 “super-duper-happy-path” (말을 줄이길 좋아하는 요새 사람들을 따르자면 SDHP 랄까요?) 란, Nancy 의 정신을 바로 짚는 용어라 하겠습니다;동시에 Nancy 의 API 를 이용하는 동안 “슈퍼-엄청-행복한-길” 에 대한 경험을 당신에게 제공하는 것이라 할 수도 있겠네요.\n결국에는 대단히 감정적 용어이기때문에 정확히 어떤 것인지 짚어보기 전에 이 배후의 아이디어를 살펴보도록합시다.\n  “그냥 동작해” - 이것 저것 할것 없이 하나 집어서 사용하면 됩니다. 새로운 모듈을 추가한다? 이것들은 다 당신을 위해 자동으로 이뤄집니다. 새로운 뷰 엔진을 쓴다? 당신은 아무것도 할 것 없이, 미리 준비되어 있습니다. 당신 모듈에 새로운 의존성을 추가하는 것마저 자동으로 injection 해줄겁니다! - 설정노노해!-\n  “쉬운 커스터 마이즈” - “그냥 동작해” 와 같은 기능이 커스터마이즈를 어렵게 할 것 같지만 그렇지 않습니다. 다른 컨테이너를 원하세요? 문제 없어요! 라우딩 되는 다른 경로를 원하세요 ? 하세요! 우리의 bootstrapper 가 이 모든 것들을 누워서 떡먹게 해줍니다.\n  “적은 준비 의식” - 당신의 응용 프로그램을 위한 Nancy code 의 양은 아주 적습니다. Nancy 응용프로그램의 중요한 부분은 당신의 코드입니다. 실제 동작하는 Nancy 어플리케이션이 다음의 한 개의 트위터 글로 작성될 수 있다는 게 바로 그 증거죠.\n  “적은 마찰” - Nancy 로 소프트웨어를 빌드할때 API 들이 도와줄 것입니다. 이름은 명확하고 요구되는 설정은 최소한이지만 강력한 성능과 확장성은 당신이 필요로 할 때 여전히 그 자리에 있어 줄 겁니다 :)\n  위 내용들을 종합해 볼때, Nancy 로 응용프로그램을 작성하는 것은 즐겁고 재밌을거예요! 하지만 응용프로그램이 성장할 수록 성능이나 확장성을 포기해야할 때가 올 수도 있죠..\nCreating your first Nancy application  이야기는 이제 충분합니다. 이제 코드를 봅시다! Nuget (혹은 Mono) 은 설치되어 있을 것이라 가정하겠습니다.\n(우리곁의 어디에나 있는) 유비쿼터스 “Hello World” 응용프로그램을 Nancy 와 Nancy 의 ASP.NET 호스팅으로 빌드해보겠습니다.\n  visual studio 2012 이상이라면 SideWaffle Template Pack for Visual Studio 을, 2010 사용자라면 Nancy project templates 을 설치합시다.\n  Nancy empty project with ASP.NET host 메뉴 (sidewaffle) / Nancy Empty Web Application with ASP.NET Hosting 메뉴 (Nancy project template) 를 선택합니다.\n  Nancy Module 을 C# 클래스로 추가하고 root url 에 라우트 핸들러를 생성자에 작은 코드를 넣어 정의합니다:\n  Compile and run to see result !\n  강제하진 않지만 권장하는 내용으로, 새로운 업데이트를 체크하기 위해 Nuget Package Manager 를 사용해보세요.\n  The HelloModule.cs code\npublic class HelloModule : NancyModule {  public HelloModule()  {  Get[\"/\"] = parameters = \"Hello World\";  } } 모듈을 public 으로 선언하지 않으면 NancyFx 가 찾을 수 없으므로, 잊지마세요!\nMore Info  - Why use NancyFX?\n",
+  "wordCount" : "696",
+  "inLanguage": "en",
+  "datePublished": "2018-04-24T21:43:04+09:00",
+  "dateModified": "2018-04-24T21:43:04+09:00",
+  "author":{
+    "@type": "Person",
+    "name": "nolleh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nolleh.github.io/nancy/introduction/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Computer Programmer, Nolleh",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nolleh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://nolleh.github.io/categories/" title="categories">
+                    <span>categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nolleh.github.io/tags/" title="tags">
+                    <span>tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Nancy Introduction
+    </h1>
+    <div class="post-meta"><span title='2018-04-24 21:43:04 +0900 KST'>April 24, 2018</span>&nbsp;·&nbsp;nolleh
+
+</div>
+  </header> 
+  <div class="post-content"><blockquote>
 <p><a href="https://github.com/NancyFx/Nancy/wiki/Introduction">Nancy 에 대한 문서 번역 #1</a>. By Nolleh</p>
 </blockquote>
-<h2 id="introduction">Introduction</h2>
+<h2 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h2>
 <hr>
 <p>가장 먼저, Nancy 의 세계에 온것을 환영합니다!<br>
 루비의 sinatra 프레임워크에 영감을 받아 Nancy 라는 이름을 붙이게 되었습니다. (Frank Sinatra 의 딸이름이 Nancy 니까요!)<br>
@@ -114,7 +232,7 @@ Nancy 와 함께라면 아무것도 없는 상태에서 수 분안에 웹사이�
 <p>Nancy 는 DELETE, GET, HEAD, OPTIONS, POST, PUT, PATH 요청을 단순하고 우아한 <a href="http://en.wikipedia.org/wiki/Domain-specific_language">Domain Specific Language (DSL)</a> 을 몇번의 타이핑만으로 응답으로 전달하도록 디자인 되어 있어 당신은 다른 좀 더 중요한 <strong>당신의</strong> 코드, <strong>당신의</strong> 어플리케이션에 집중 할 수 있도록 하였습니다.</p>
 <p>이 모든 것들은 <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a> 의 오픈 소스 입니다.</p>
 <p><a href="http://teamcity.codebetter.com/project.html?projectId=project112&amp;tab=projectOverview&amp;guest=true">Nuget, our TeamCity Server</a> 와 <a href="http://nancyfx.org/">github repository</a> 로부터 살펴 보실 수 있습니다.</p>
-<h2 id="built-to-run-anywhere">Built to run anywhere</h2>
+<h2 id="built-to-run-anywhere">Built to run anywhere<a hidden class="anchor" aria-hidden="true" href="#built-to-run-anywhere">#</a></h2>
 <hr>
 <p>원하는 곳 어디에서든 빌드되고 실행될 수 있습니다.<br>
 Nancy 는 어떤 존재하는 프레임워크에도 의존성이 없도록 디자인 되었습니다.<br>
@@ -122,7 +240,7 @@ request / response 객체 전부 자체에 포함되어 있으므로, <a href="h
 <p>Nancy 의 핵심 개념중의 하나로 hosts 가 있습니다. 하나의 호스트는 nancy 와 호스팅 환경의 어댑터로서 동작하게 되므로 Nancy 를 기존의 존재하는 - ASP.Net, WCF, OWIN, 다른 통합 응용프로그램 - 기술에서 활용해보십시오.</p>
 <p>특정 호스트 구현은 Nancy 프레임워크의 핵심 기능을 제공하지 않을 수 있습니다. 이런 추가기능들 - 인증과 같은- 은 개별로 제공됩니다.<br>
 Nancy 응용 프로그램을 빌드하는 것은 웹프레임워크의 buffet 으로부터 가장 좋아하는 부분을 뽑아내는 것과 같습니다!  Nancy 서비스를 빌드하는데 사용할 최소한의 부분은 핵심 프레임워크와 host 가 될 것입니다.</p>
-<h2 id="the-super-duper-happy-path">The super-duper-happy-path</h2>
+<h2 id="the-super-duper-happy-path">The super-duper-happy-path<a hidden class="anchor" aria-hidden="true" href="#the-super-duper-happy-path">#</a></h2>
 <hr>
 <p>그 &ldquo;super-duper-happy-path&rdquo; (말을 줄이길 좋아하는 요새 사람들을 따르자면 <strong>SDHP</strong> 랄까요?) 란, Nancy 의 정신을 바로 짚는 용어라 하겠습니다;동시에 Nancy 의 API 를 이용하는 동안 &ldquo;슈퍼-엄청-행복한-길&rdquo; 에 대한 경험을 당신에게 제공하는 것이라 할 수도 있겠네요.</p>
 <p>결국에는 대단히 감정적 용어이기때문에 정확히 어떤 것인지 짚어보기 전에 이 배후의 아이디어를 살펴보도록합시다.</p>
@@ -141,7 +259,7 @@ Nancy 응용 프로그램을 빌드하는 것은 웹프레임워크의 buffet �
 </li>
 </ul>
 <p>위 내용들을 종합해 볼때, Nancy 로 응용프로그램을 작성하는 것은 즐겁고 재밌을거예요! 하지만 응용프로그램이 성장할 수록 성능이나 확장성을 포기해야할 때가 올 수도 있죠..</p>
-<h2 id="creating-your-first-nancy-application">Creating your first Nancy application</h2>
+<h2 id="creating-your-first-nancy-application">Creating your first Nancy application<a hidden class="anchor" aria-hidden="true" href="#creating-your-first-nancy-application">#</a></h2>
 <hr>
 <p>이야기는 이제 충분합니다. 이제 코드를 봅시다! Nuget (혹은 Mono) 은 설치되어 있을 것이라 가정하겠습니다.<br>
 (우리곁의 어디에나 있는) 유비쿼터스 &ldquo;Hello World&rdquo; 응용프로그램을 Nancy 와 Nancy 의 ASP.NET 호스팅으로 빌드해보겠습니다.</p>
@@ -171,120 +289,90 @@ Nancy 응용 프로그램을 빌드하는 것은 웹프레임워크의 buffet �
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>모듈을 public 으로 선언하지 않으면 NancyFx 가 찾을 수 없으므로, 잊지마세요!</p>
-<h2 id="more-info">More Info</h2>
+<h2 id="more-info">More Info<a hidden class="anchor" aria-hidden="true" href="#more-info">#</a></h2>
 <hr>
 <p><a href="http://blog.jonathanchannon.com/2012/12/19/why-use-nancyfx/">- Why use NancyFX?</a></p>
 
-  </section>
-  <div class="share">    
-    <a
-      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fnancy%2fintroduction%2f&t=Nancy%20Introduction"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-facebook"></i
-    ></a>
-    <a
-      href="//twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fnancy%2fintroduction%2f&text=Nancy%20Introduction&tw_p=tweetbutton"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-twitter"></i
-    ></a>
-    <a
-      href="//getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fnancy%2fintroduction%2f&title=Nancy%20Introduction"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-get-pocket"></i
-    ></a>
-    <a
-      href="//plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fnancy%2fintroduction%2f"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-google-plus"></i
-    ></a>
+
   </div>
-  <div class="post-meta-code">
-    <div class="desc">
-      Friendly
-      
-      nolleh
-      
-      wrotes this article at
-      <span class="highlight">Tuesday, Apr 24, 2018 21:43</span> 
-      for you.
-    </div>
-    <div class="desc">
-      
-      <div class="desc">
-        <span class="fixed-desc">_Categories</span>
-        
-        
-        <a href="https://nolleh.github.io//categories/nancy">#Nancy</a>
-        
-      </div>
-      
-      <div class="desc">
-        <span class="fixed-desc">_Tags</span>
-        
-        
-        <a href="https://nolleh.github.io/tags/programming">#Programming</a>
-        
-        <a href="https://nolleh.github.io/tags/c">#C#</a>
-        
-        
-      </div>
-    </div>
-  </div>  
-  
-  <div class="post-comment">    
-    <div id="disqus_thread"></div>
-<script type="application/javascript">
-    window.disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "nolleh-github-io" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>    
-  </div>
-  
-  <div class="recommend-articles">
-    Recommend these articles
-    <ul>
-      
-      <li>
-        <a href="https://nolleh.github.io/network/unix-01-intro/" rel="prev">
-          <span>Unix 01 Intro</span>
-        </a>
-      </li>
-      
-      
-      <li>
-        <a href="https://nolleh.github.io/csharp/async-await/" rel="next">
-          <span>Async Await</span>
-        </a>
-      </li>
-      
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://nolleh.github.io/tags/programming/">Programming</a></li>
+      <li><a href="https://nolleh.github.io/tags/c#/">C#</a></li>
     </ul>
-  </div>
-</div>
-
-<div class="go-top">
-  <a href="#" class="go-top-button">
-    <i class="fa fa-angle-double-up"></i>
-    <span>Top</span>
-  </a>
-</div>
+  </footer>
+</article>
+    </main>
+    
 <footer class="footer">
-  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
-  ALL RIGHTS RESERVED.
+    <span>&copy; 2022 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
-</body>
-</html>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

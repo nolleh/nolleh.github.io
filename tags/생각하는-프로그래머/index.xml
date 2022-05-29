@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>생각하는 프로그래머 on The Computer Programmer, Nolleh</title>
     <link>https://nolleh.github.io/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/</link>
     <description>Recent content in 생각하는 프로그래머 on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <managingEditor>nolleh7707@gmail.com (nolleh)</managingEditor>
-    <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
     <lastBuildDate>Mon, 21 Jan 2019 22:58:23 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>고수준의 분산 시스템</title>
       <link>https://nolleh.github.io/distributed-systems/1.highlevel/</link>
       <pubDate>Mon, 21 Jan 2019 22:58:23 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/distributed-systems/1.highlevel/</guid>
       <description>다음에서 발췌 http://book.mixu.net/distsys/intro.html
  1. Distributed systems at a highlevel  분산 프로그래밍은 같은 문제를 하나의 컴퓨터에서 해결할 수 있는 문제를 여러 컴퓨터에서 해결하는 예술이다.  컴퓨터 시스템이라면 해결해야 하는 두개의 문제가 있습니다.
@@ -25,7 +23,7 @@
       <title>Unix 01 Intro</title>
       <link>https://nolleh.github.io/network/unix-01-intro/</link>
       <pubDate>Tue, 01 Aug 2017 22:54:19 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/network/unix-01-intro/</guid>
       <description>네트워킹의 바이블이라 할 수 있는 Unix Network Programming 의 내용 정리
  Books Introduction Socket 을 통해 통신하는 프로그램을 작성하는 개발자를 위해 쓰여진 책.
@@ -39,7 +37,7 @@
       <title>Concurrent Idiom 1 - Stack</title>
       <link>https://nolleh.github.io/concurrency/concurrent-idiom-1-stack/</link>
       <pubDate>Mon, 10 Jul 2017 22:57:57 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/concurrency/concurrent-idiom-1-stack/</guid>
       <description>concurrent 프로그램을 작성할 때 고려해야할 몇가지 사항. 그리고 idiom.
 여러 서적에서 발췌하였으며, 정리 차원에서 작성한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.

@@ -1,109 +1,230 @@
 <!DOCTYPE html>
-<html>
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=80&amp;path=livereload" data-no-instant defer></script>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>C&#43;&#43; CLI 에서 managed 콜백을 unmanaged 로 전달하기  | The Computer Programmer, Nolleh</title>
-  <meta name="description" content=" 'C&#43;&#43; CLI 에서 managed 콜백을 unmanaged 로 전달하기'read this article.">
-  <meta property="og:title" content="C&#43;&#43; CLI 에서 managed 콜백을 unmanaged 로 전달하기">
-  
-  <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2017-07-04">
-  
-  <meta property="og:description" content=" 'C&#43;&#43; CLI 에서 managed 콜백을 unmanaged 로 전달하기'read this article.">
-  <meta property="og:url" content="https://nolleh.github.io/etc/managed_cb_to_unmanaged/">
-  <meta property="og:site_name" content="The Computer Programmer, Nolleh">
-  
-  <meta property="og:image" content="https://nolleh.github.io/images/thumbnail.png">
-  
-  
-  <meta property="og:tags" content="C&#43;&#43; CLI">
-  
-  <meta property="og:tags" content="Programming">
-  
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="canonical" href="https://nolleh.github.io/etc/managed_cb_to_unmanaged/">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
-  <link rel="stylesheet" href="/css/styles.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  
-  
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102565363-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-102565363-1');
-  </script>
-  
-  
-  <script type="text/javascript">
-  function toggle_visibility(id) {
-    var e = document.getElementById(id);
-    if (e.className === 'menu')
-      e.className = 'menu hidden';
-    else
-      e.className = 'menu';
-  }
-  </script>
-</head>
-<body>
-  <div class="navbar">    
-    <div class="logo">
-      <a href="/">
-        <img src="/images/logo.png" height="34px" />
-      </a>
-    </div>
-    <div class="burger">
-      <button onclick="toggle_visibility('menu')">
-        <i class="fa fa-bars" aria-hidden="true"></i> Menu
-      </button>
-    </div>
-    <div id="menu" class="menu hidden">
-      <ul>
-        <li><a href="/">#The Computer Programmer, Nolleh</a></li>
-        <li><a href="/categories">#Categories</a></li>
-        <li><a href="/tags">#Tags</a></li>
-        <li><a href="/projects">#Projects</a></li>        
-      </ul>
-      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
-    </div>
-  </div>
-  <div class="container">    
+<html lang="en" dir="auto">
 
-<div class="post">
-  <div class="post-title">
-    <a href="https://nolleh.github.io/etc/managed_cb_to_unmanaged/">
-      <img src="/images/post-title-icon.png" />
-      <div class="post-meta">
-        <time>Tuesday, Jul 4, 2017 00:45</time>
-        <h1>C&#43;&#43; CLI 에서 managed 콜백을 unmanaged 로 전달하기</h1>
-      </div>
-    </a>
-  </div>
-  <div class="post-toc">
-    <span class="title">TOC</span>
-    <nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-  </div>
-  <section class="post-content">
-    <p>파라미터가 없다면 DelegateToPointer 로 마샬링해서 전달하면되는데,<br>
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>C&#43;&#43; CLI 에서 managed 콜백을 unmanaged 로 전달하기 | The Computer Programmer, Nolleh</title>
+<meta name="keywords" content="C&#43;&#43; CLI, Programming">
+<meta name="description" content="파라미터가 없다면 DelegateToPointer 로 마샬링해서 전달하면되는데,
+이러면 파라미터를 마샬링할 기회가 주어지지 않는다는게 문제다.
+좀 구글링을 해봤는데,
+이런 포스트가 있었다.
+스택오버플로-파라미터와 함께 unmanaged 콜백으로 변환하기
+채택된 답변을 살펴보면 클래스 구조는 대략 다음과 같다.
+클래스 구조   NativeCallbackHandler - msclr::gcroot&lt;OutputManaged^&gt; m_owner (OutputLogManaged) 를 멤버로 보유. OutputLogManaged - native OutputLog* (m_nativeOutputLog) / 1의 Holder 를 보유 (m_nativeHandler)] / 그리고 managed 콜백을 보유 OutputLog - Native Callback 과 void* UserData 를 멤버로 보유.   이해하는데 주요한 클래스는 위 내용 정도인 듯.">
+<meta name="author" content="nolleh">
+<link rel="canonical" href="https://nolleh.github.io/etc/managed_cb_to_unmanaged/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.1740750342264a4e69b84ddf6899fb02cc95465080d85c57c08bb1d110900bf6.css" integrity="sha256-F0B1A0ImSk5puE3faJn7AsyVRlCA2FxXwIux0RCQC/Y=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://nolleh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nolleh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-102565363-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="C&#43;&#43; CLI 에서 managed 콜백을 unmanaged 로 전달하기" />
+<meta property="og:description" content="파라미터가 없다면 DelegateToPointer 로 마샬링해서 전달하면되는데,
+이러면 파라미터를 마샬링할 기회가 주어지지 않는다는게 문제다.
+좀 구글링을 해봤는데,
+이런 포스트가 있었다.
+스택오버플로-파라미터와 함께 unmanaged 콜백으로 변환하기
+채택된 답변을 살펴보면 클래스 구조는 대략 다음과 같다.
+클래스 구조   NativeCallbackHandler - msclr::gcroot&lt;OutputManaged^&gt; m_owner (OutputLogManaged) 를 멤버로 보유. OutputLogManaged - native OutputLog* (m_nativeOutputLog) / 1의 Holder 를 보유 (m_nativeHandler)] / 그리고 managed 콜백을 보유 OutputLog - Native Callback 과 void* UserData 를 멤버로 보유.   이해하는데 주요한 클래스는 위 내용 정도인 듯." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nolleh.github.io/etc/managed_cb_to_unmanaged/" /><meta property="article:section" content="etc" />
+<meta property="article:published_time" content="2017-07-04T00:45:55&#43;09:00" />
+<meta property="article:modified_time" content="2017-07-04T00:45:55&#43;09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="C&#43;&#43; CLI 에서 managed 콜백을 unmanaged 로 전달하기"/>
+<meta name="twitter:description" content="파라미터가 없다면 DelegateToPointer 로 마샬링해서 전달하면되는데,
+이러면 파라미터를 마샬링할 기회가 주어지지 않는다는게 문제다.
+좀 구글링을 해봤는데,
+이런 포스트가 있었다.
+스택오버플로-파라미터와 함께 unmanaged 콜백으로 변환하기
+채택된 답변을 살펴보면 클래스 구조는 대략 다음과 같다.
+클래스 구조   NativeCallbackHandler - msclr::gcroot&lt;OutputManaged^&gt; m_owner (OutputLogManaged) 를 멤버로 보유. OutputLogManaged - native OutputLog* (m_nativeOutputLog) / 1의 Holder 를 보유 (m_nativeHandler)] / 그리고 managed 콜백을 보유 OutputLog - Native Callback 과 void* UserData 를 멤버로 보유.   이해하는데 주요한 클래스는 위 내용 정도인 듯."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Etcs",
+      "item": "https://nolleh.github.io/etc/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "C++ CLI 에서 managed 콜백을 unmanaged 로 전달하기",
+      "item": "https://nolleh.github.io/etc/managed_cb_to_unmanaged/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "C++ CLI 에서 managed 콜백을 unmanaged 로 전달하기",
+  "name": "C\u002b\u002b CLI 에서 managed 콜백을 unmanaged 로 전달하기",
+  "description": "파라미터가 없다면 DelegateToPointer 로 마샬링해서 전달하면되는데,\n이러면 파라미터를 마샬링할 기회가 주어지지 않는다는게 문제다.\n좀 구글링을 해봤는데,\n이런 포스트가 있었다.\n스택오버플로-파라미터와 함께 unmanaged 콜백으로 변환하기\n채택된 답변을 살펴보면 클래스 구조는 대략 다음과 같다.\n클래스 구조   NativeCallbackHandler - msclr::gcroot\u0026lt;OutputManaged^\u0026gt; m_owner (OutputLogManaged) 를 멤버로 보유. OutputLogManaged - native OutputLog* (m_nativeOutputLog) / 1의 Holder 를 보유 (m_nativeHandler)] / 그리고 managed 콜백을 보유 OutputLog - Native Callback 과 void* UserData 를 멤버로 보유.   이해하는데 주요한 클래스는 위 내용 정도인 듯.",
+  "keywords": [
+    "C++ CLI", "Programming"
+  ],
+  "articleBody": "파라미터가 없다면 DelegateToPointer 로 마샬링해서 전달하면되는데,\n이러면 파라미터를 마샬링할 기회가 주어지지 않는다는게 문제다.\n좀 구글링을 해봤는데,\n이런 포스트가 있었다.\n스택오버플로-파라미터와 함께 unmanaged 콜백으로 변환하기\n채택된 답변을 살펴보면 클래스 구조는 대략 다음과 같다.\n클래스 구조   NativeCallbackHandler - msclr::gcroot m_owner (OutputLogManaged) 를 멤버로 보유. OutputLogManaged - native OutputLog* (m_nativeOutputLog) / 1의 Holder 를 보유 (m_nativeHandler)] / 그리고 managed 콜백을 보유 OutputLog - Native Callback 과 void* UserData 를 멤버로 보유.   이해하는데 주요한 클래스는 위 내용 정도인 듯.\n  Main 함수에서는 managed 로거와 native 에 적당한 콜백을 등록해 두고(OnError/GetNative()), Test 함수를 통해 콜백을 호출한다.\n  OutputLogManaged 에는 생성시에 1의 NativeCallbackHandler 가 생성되며 여기에 정의된 native callback 을 OutputLog 의 Callback 멤버변수에 세팅한다. 동시에 NativeCallbackHandler 를 this 로 해서 함께 UserData 라는 객체로 OutputLog 의 멤버로 등록을 한 상태이다.\n(다시 말해 OutputLog 의 UserData 에는 1의 인스턴스가, 같은 객체의 멤버 변수인 NativeCallback 타입에는 그 인스턴스의 함수가 등록이 되어있다.)\n  1의 콜백을 지닌 3 의 객체의 함수를 등록해두었고, 이 함수에서 1의 콜백을 호출하고 있으므로 1의 콜백이 호출이 되는데 (등록해두었던 umanaged 콜백이 호출되는 단순한 전개라 하겠다.)\n이때 OutputLog(3) 의 객체의 멤버함수(최초로 호출되는 콜백)에서 멤버변수로 보유한 NativeCallbackHandler(1) 객체를 1의 콜백의 파라미터로 전달, 콜백 등록 당시의 NativeCallbackHandler(1) 의 인스턴스를 얻어온다 (물론, 콜백을 여러개 등록할 수 있으므로. 각 인스턴스를 별도로 두는 것이 자연스럽다.)\n이 인스턴스의 멤버인 m_owner 를 통해 OutputLogManaged 의 managed 콜백을 호출한다.\n  내용을 말로 설명하려고하니 불필요하게 복잡해진 느낌인데,\n정리하면 다음과 같다.\nSummary unmanged 에서 Managed 의 객체를 들고 있다가 unmanaged 의 콜백이 호출될때 마샬링하여 Managed 의 콜백을 호출한다.\nC++/CLR 을 처음 접하고 필요에 따라 구글링으로 작업을 하다보니 managed 와 unmanged 사이에서 서로 멤버로 두려고 하면 컴파일 에러가 나길래 안되는 거구나..했는데.. 이런 기능이 있었나보다…\nmsclr::gcroot...  gcroot 는 unmanaged 에서 managed 를 참조하는 방법이며, interop 에서는 레퍼런스 카운트를 하나 증가시킨다.\n참고 - gcroot 의 역할\n 약간 허무하군.. (그래 안되면 어떻게 쓰겠냐만서도.. )\n참고 - MSDN / How to: Declare Handles in Native Types\n",
+  "wordCount" : "301",
+  "inLanguage": "en",
+  "datePublished": "2017-07-04T00:45:55+09:00",
+  "dateModified": "2017-07-04T00:45:55+09:00",
+  "author":{
+    "@type": "Person",
+    "name": "nolleh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nolleh.github.io/etc/managed_cb_to_unmanaged/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Computer Programmer, Nolleh",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nolleh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://nolleh.github.io/categories/" title="categories">
+                    <span>categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nolleh.github.io/tags/" title="tags">
+                    <span>tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      C&#43;&#43; CLI 에서 managed 콜백을 unmanaged 로 전달하기
+    </h1>
+    <div class="post-meta"><span title='2017-07-04 00:45:55 +0900 KST'>July 4, 2017</span>&nbsp;·&nbsp;nolleh
+
+</div>
+  </header> 
+  <div class="post-content"><p>파라미터가 없다면 DelegateToPointer 로 마샬링해서 전달하면되는데,<br>
 이러면 파라미터를 마샬링할 기회가 주어지지 않는다는게 문제다.<br>
 좀 구글링을 해봤는데,<br>
 이런 포스트가 있었다.</p>
 <p><a href="https://stackoverflow.com/questions/32386851/managed-to-unmanaged-callback-with-managed-parameters">스택오버플로-파라미터와 함께 unmanaged 콜백으로 변환하기</a></p>
 <p>채택된 답변을 살펴보면 클래스 구조는 대략 다음과 같다.</p>
-<h4 id="클래스-구조">클래스 구조</h4>
+<h4 id="클래스-구조">클래스 구조<a hidden class="anchor" aria-hidden="true" href="#클래스-구조">#</a></h4>
 <blockquote>
 <ol>
 <li>NativeCallbackHandler - msclr::gcroot&lt;OutputManaged^&gt; m_owner (OutputLogManaged) 를 멤버로 보유.</li>
@@ -129,7 +250,7 @@
 </ul>
 <p>내용을 말로 설명하려고하니 불필요하게 복잡해진 느낌인데,<br>
 정리하면 다음과 같다.</p>
-<h4 id="summary">Summary</h4>
+<h4 id="summary">Summary<a hidden class="anchor" aria-hidden="true" href="#summary">#</a></h4>
 <p>unmanged 에서 Managed 의 객체를 들고 있다가 unmanaged 의 콜백이 호출될때 마샬링하여 Managed 의 콜백을 호출한다.</p>
 <p>C++/CLR 을 처음 접하고 필요에 따라 구글링으로 작업을 하다보니 managed 와 unmanged 사이에서 서로 멤버로 두려고 하면 컴파일 에러가 나길래
 안되는 거구나..했는데.. 이런 기능이 있었나보다&hellip;</p>
@@ -141,110 +262,86 @@
 <p>약간 허무하군.. (그래 안되면 어떻게 쓰겠냐만서도.. )</p>
 <p><a href="https://msdn.microsoft.com/en-us//library/481fa11f.aspx">참고 - MSDN / How to: Declare Handles in Native Types</a></p>
 
-  </section>
-  <div class="share">    
-    <a
-      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fetc%2fmanaged_cb_to_unmanaged%2f&t=C%2b%2b%20CLI%20%ec%97%90%ec%84%9c%20managed%20%ec%bd%9c%eb%b0%b1%ec%9d%84%20unmanaged%20%eb%a1%9c%20%ec%a0%84%eb%8b%ac%ed%95%98%ea%b8%b0"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-facebook"></i
-    ></a>
-    <a
-      href="//twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fetc%2fmanaged_cb_to_unmanaged%2f&text=C%2b%2b%20CLI%20%ec%97%90%ec%84%9c%20managed%20%ec%bd%9c%eb%b0%b1%ec%9d%84%20unmanaged%20%eb%a1%9c%20%ec%a0%84%eb%8b%ac%ed%95%98%ea%b8%b0&tw_p=tweetbutton"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-twitter"></i
-    ></a>
-    <a
-      href="//getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fetc%2fmanaged_cb_to_unmanaged%2f&title=C%2b%2b%20CLI%20%ec%97%90%ec%84%9c%20managed%20%ec%bd%9c%eb%b0%b1%ec%9d%84%20unmanaged%20%eb%a1%9c%20%ec%a0%84%eb%8b%ac%ed%95%98%ea%b8%b0"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-get-pocket"></i
-    ></a>
-    <a
-      href="//plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fetc%2fmanaged_cb_to_unmanaged%2f"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-google-plus"></i
-    ></a>
+
   </div>
-  <div class="post-meta-code">
-    <div class="desc">
-      Friendly
-      
-      nolleh
-      
-      wrotes this article at
-      <span class="highlight">Tuesday, Jul 4, 2017 00:45</span> 
-      for you.
-    </div>
-    <div class="desc">
-      
-      <div class="desc">
-        <span class="fixed-desc">_Categories</span>
-        
-        
-        <a href="https://nolleh.github.io//categories/c&#43;&#43;-cli">#C&#43;&#43; CLI</a>
-        
-      </div>
-      
-      <div class="desc">
-        <span class="fixed-desc">_Tags</span>
-        
-        
-        <a href="https://nolleh.github.io/tags/c&#43;&#43;-cli">#C&#43;&#43; CLI</a>
-        
-        <a href="https://nolleh.github.io/tags/programming">#Programming</a>
-        
-        
-      </div>
-    </div>
-  </div>  
-  
-  <div class="post-comment">    
-    <div id="disqus_thread"></div>
-<script type="application/javascript">
-    window.disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "nolleh-github-io" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>    
-  </div>
-  
-  <div class="recommend-articles">
-    Recommend these articles
-    <ul>
-      
-      
-      <li>
-        <a href="https://nolleh.github.io/env/mark-down-syntax/" rel="next">
-          <span>markDown 문법</span>
-        </a>
-      </li>
-      
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://nolleh.github.io/tags/c&#43;&#43;-cli/">C&#43;&#43; CLI</a></li>
+      <li><a href="https://nolleh.github.io/tags/programming/">Programming</a></li>
     </ul>
-  </div>
-</div>
-
-<div class="go-top">
-  <a href="#" class="go-top-button">
-    <i class="fa fa-angle-double-up"></i>
-    <span>Top</span>
-  </a>
-</div>
+  </footer>
+</article>
+    </main>
+    
 <footer class="footer">
-  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
-  ALL RIGHTS RESERVED.
+    <span>&copy; 2022 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
-</body>
-</html>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

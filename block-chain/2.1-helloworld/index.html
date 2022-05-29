@@ -1,95 +1,221 @@
 <!DOCTYPE html>
-<html>
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=80&amp;path=livereload" data-no-instant defer></script>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EOSIO - 2.1/Hello World!  | The Computer Programmer, Nolleh</title>
-  <meta name="description" content=" 'EOSIO - 2.1/Hello World!'read this article.">
-  <meta property="og:title" content="EOSIO - 2.1/Hello World!">
-  
-  <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2019-01-01">
-  
-  <meta property="og:description" content=" 'EOSIO - 2.1/Hello World!'read this article.">
-  <meta property="og:url" content="https://nolleh.github.io/block-chain/2.1-helloworld/">
-  <meta property="og:site_name" content="The Computer Programmer, Nolleh">
-  
-  <meta property="og:image" content="https://nolleh.github.io/images/thumbnail.png">
-  
-  
-  <meta property="og:tags" content="block-chain">
-  
-  <meta property="og:tags" content="EOSIO">
-  
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="canonical" href="https://nolleh.github.io/block-chain/2.1-helloworld/">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
-  <link rel="stylesheet" href="/css/styles.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  
-  
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102565363-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-102565363-1');
-  </script>
-  
-  
-  <script type="text/javascript">
-  function toggle_visibility(id) {
-    var e = document.getElementById(id);
-    if (e.className === 'menu')
-      e.className = 'menu hidden';
-    else
-      e.className = 'menu';
-  }
-  </script>
-</head>
-<body>
-  <div class="navbar">    
-    <div class="logo">
-      <a href="/">
-        <img src="/images/logo.png" height="34px" />
-      </a>
-    </div>
-    <div class="burger">
-      <button onclick="toggle_visibility('menu')">
-        <i class="fa fa-bars" aria-hidden="true"></i> Menu
-      </button>
-    </div>
-    <div id="menu" class="menu hidden">
-      <ul>
-        <li><a href="/">#The Computer Programmer, Nolleh</a></li>
-        <li><a href="/categories">#Categories</a></li>
-        <li><a href="/tags">#Tags</a></li>
-        <li><a href="/projects">#Projects</a></li>        
-      </ul>
-      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
-    </div>
-  </div>
-  <div class="container">    
+<html lang="en" dir="auto">
 
-<div class="post">
-  <div class="post-title">
-    <a href="https://nolleh.github.io/block-chain/2.1-helloworld/">
-      <img src="/images/post-title-icon.png" />
-      <div class="post-meta">
-        <time>Tuesday, Jan 1, 2019 20:17</time>
-        <h1>EOSIO - 2.1/Hello World!</h1>
-      </div>
-    </a>
-  </div>
-  <div class="post-toc">
-    <span class="title">TOC</span>
-    <nav id="TableOfContents"></nav>
-  </div>
-  <section class="post-content">
-    <p>hello 라는 이름의 디렉토리를 contracts directory 에 생성하자.</p>
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>EOSIO - 2.1/Hello World! | The Computer Programmer, Nolleh</title>
+<meta name="keywords" content="block-chain, EOSIO">
+<meta name="description" content="hello 라는 이름의 디렉토리를 contracts directory 에 생성하자.
+cd CONTRACTS_DIR mkdir hello cd hello hello.cpp 를 생성하고 에디터로 열자.
+touch hello.cpp 필요한 라이브러리를 이 파일에 include 한다.
+#include &lt;eosiolib/eosio.hpp&gt;#include &lt;eosiolib/print.hpp&gt;코드를 간결하게 해줄 eosio 네임스페이스를 contract 에 추가한다.
+using namespace eosio;  eosiolib/eosio.hpp 가 EOSIO C 와 C&#43;&#43; API 를 당신의 contract 스코프에 로드한다.  표준 C&#43;&#43;11 클래스를 생성한다. 이 contract class 는 eosio::contract 를 확장해야한다.
+#include &lt;eosiolib/eosio.hpp&gt;#include &lt;eosiolib/print.hpp&gt; using namespace eosio;  class hello : public contract {}; 비어있는 contract 는 좋지 않으니, public 접근 지정자와 using 선언을 추가하자.">
+<meta name="author" content="nolleh">
+<link rel="canonical" href="https://nolleh.github.io/block-chain/2.1-helloworld/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.1740750342264a4e69b84ddf6899fb02cc95465080d85c57c08bb1d110900bf6.css" integrity="sha256-F0B1A0ImSk5puE3faJn7AsyVRlCA2FxXwIux0RCQC/Y=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://nolleh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nolleh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-102565363-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="EOSIO - 2.1/Hello World!" />
+<meta property="og:description" content="hello 라는 이름의 디렉토리를 contracts directory 에 생성하자.
+cd CONTRACTS_DIR mkdir hello cd hello hello.cpp 를 생성하고 에디터로 열자.
+touch hello.cpp 필요한 라이브러리를 이 파일에 include 한다.
+#include &lt;eosiolib/eosio.hpp&gt;#include &lt;eosiolib/print.hpp&gt;코드를 간결하게 해줄 eosio 네임스페이스를 contract 에 추가한다.
+using namespace eosio;  eosiolib/eosio.hpp 가 EOSIO C 와 C&#43;&#43; API 를 당신의 contract 스코프에 로드한다.  표준 C&#43;&#43;11 클래스를 생성한다. 이 contract class 는 eosio::contract 를 확장해야한다.
+#include &lt;eosiolib/eosio.hpp&gt;#include &lt;eosiolib/print.hpp&gt; using namespace eosio;  class hello : public contract {}; 비어있는 contract 는 좋지 않으니, public 접근 지정자와 using 선언을 추가하자." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nolleh.github.io/block-chain/2.1-helloworld/" /><meta property="article:section" content="block-chain" />
+<meta property="article:published_time" content="2019-01-01T20:17:59&#43;09:00" />
+<meta property="article:modified_time" content="2019-01-01T20:17:59&#43;09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="EOSIO - 2.1/Hello World!"/>
+<meta name="twitter:description" content="hello 라는 이름의 디렉토리를 contracts directory 에 생성하자.
+cd CONTRACTS_DIR mkdir hello cd hello hello.cpp 를 생성하고 에디터로 열자.
+touch hello.cpp 필요한 라이브러리를 이 파일에 include 한다.
+#include &lt;eosiolib/eosio.hpp&gt;#include &lt;eosiolib/print.hpp&gt;코드를 간결하게 해줄 eosio 네임스페이스를 contract 에 추가한다.
+using namespace eosio;  eosiolib/eosio.hpp 가 EOSIO C 와 C&#43;&#43; API 를 당신의 contract 스코프에 로드한다.  표준 C&#43;&#43;11 클래스를 생성한다. 이 contract class 는 eosio::contract 를 확장해야한다.
+#include &lt;eosiolib/eosio.hpp&gt;#include &lt;eosiolib/print.hpp&gt; using namespace eosio;  class hello : public contract {}; 비어있는 contract 는 좋지 않으니, public 접근 지정자와 using 선언을 추가하자."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Block-chains",
+      "item": "https://nolleh.github.io/block-chain/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "EOSIO - 2.1/Hello World!",
+      "item": "https://nolleh.github.io/block-chain/2.1-helloworld/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "EOSIO - 2.1/Hello World!",
+  "name": "EOSIO - 2.1\/Hello World!",
+  "description": "hello 라는 이름의 디렉토리를 contracts directory 에 생성하자.\ncd CONTRACTS_DIR mkdir hello cd hello hello.cpp 를 생성하고 에디터로 열자.\ntouch hello.cpp 필요한 라이브러리를 이 파일에 include 한다.\n#include \u0026lt;eosiolib/eosio.hpp\u0026gt;#include \u0026lt;eosiolib/print.hpp\u0026gt;코드를 간결하게 해줄 eosio 네임스페이스를 contract 에 추가한다.\nusing namespace eosio;  eosiolib/eosio.hpp 가 EOSIO C 와 C++ API 를 당신의 contract 스코프에 로드한다.  표준 C++11 클래스를 생성한다. 이 contract class 는 eosio::contract 를 확장해야한다.\n#include \u0026lt;eosiolib/eosio.hpp\u0026gt;#include \u0026lt;eosiolib/print.hpp\u0026gt; using namespace eosio;  class hello : public contract {}; 비어있는 contract 는 좋지 않으니, public 접근 지정자와 using 선언을 추가하자.",
+  "keywords": [
+    "block-chain", "EOSIO"
+  ],
+  "articleBody": "hello 라는 이름의 디렉토리를 contracts directory 에 생성하자.\ncd CONTRACTS_DIR mkdir hello cd hello hello.cpp 를 생성하고 에디터로 열자.\ntouch hello.cpp 필요한 라이브러리를 이 파일에 include 한다.\n#include #include 코드를 간결하게 해줄 eosio 네임스페이스를 contract 에 추가한다.\nusing namespace eosio;  eosiolib/eosio.hpp 가 EOSIO C 와 C++ API 를 당신의 contract 스코프에 로드한다.  표준 C++11 클래스를 생성한다. 이 contract class 는 eosio::contract 를 확장해야한다.\n#include #include  using namespace eosio;  class hello : public contract {}; 비어있는 contract 는 좋지 않으니, public 접근 지정자와 using 선언을 추가하자. 이 using 선언은 좀 더 간결한 코드를 쓸 수 있도록 도움을 줄것이다.\n이제 contract 는 어떤 작업을 하도록 구성한다. hello world 의 정신을 받아 “name” 파라메터를 수신하고, 파라메터를 출력하는 작업을 해보자.\n#include #include  using namespace eosio;  class hello : public contract {  public:  using contract::contract;   [[eosio::action]]  void hi( name user ) {  print( \"Hello, \", name{user});  } }; 위의 동작은 user 라는 이름의 파라메터를 name type 으로 전달 받는다.\nEOSIO 는 몇개의 typedef 를 선언하고 있는데, 이 중에 흔한 하나가 바로 이 name 이다.\neosio::print를 사용함으로써, 문자열을 user 파라미터와 붙여 출력한다.\n괄호를 이용한 초기화 name{user} 는 user 파라메터가 출력될 수 있도록 해준다.\neosio.cdt 의 abi 생성자는 atttrubite 없이는 hi() 의 동작을 알 수 없다. c++11 스타일의 attribute 를 action 의 상위에 추가하여 abi generator 가 신뢰 할 수 있는 출력을 할 수 있도록 한다.\n#include #include  using namespace eosio;  class hello : public contract {  public:  using contract::contract;   [[eosio::action]]  void hi( name user ) {  print( \"Hello, \", user);  } };  EOSIO_DISPATCH( hello, (hi)) 마지막으로, EOSIO_DISPATCH 매크로를 추가하여 hello contract 의 dispatch 액션을 처리하도록 한다.\n이제 web assembly 를 통해 컴파일해보자.\neosio-cpp -o hello.wasm hello.cpp --abigen contract 가 배포되면, 계정으로 배포되어 이 계정이 contract 의 인터페이스가 된다.\n이 튜토리얼의 이전에 언급하였듯, 같은 public key 를 모든계정에서 사용하여 간단히 할 수 있다.\ncleos wallet keys 이 contract 를 위한 계정을 생성하기 위해 cleos create account 를 사용한다.\ncleos create account eosio hello YOUR_PUBLIC_KEY -p eosio@active 컴파일된 wasm 을 cleos set contract 를 통해 블록체인으로 broadcast 한다.\ncleos set contract hello CONTRACTS_DIR/hello -p hello@active 훌륭하다! 이제 contract 가 설정 되었고, action 을 push 해보자.\ncleos push action hello hi '[\"bob\"]' -p bob@active executed transaction: 28d92256c8ffd8b0255be324e4596b7c745f50f85722d0c4400471bc184b9a16 244 bytes 1000 cycles # hello.code  Hello, bob 예상했던대로 hello, bob 이 출력된다.\n이번 경우, “alice” 가 권한이 있고 user 는 단순한 argument 이다. contract 를 수정하여 권한이 있는 유저가 “hi” 를 받을 유저와 동일한 경우에만 동작하도록 해보자.\nrequire_auth 메소드를 사용한다.\n이 메소드는 name 을 파라메터로 받아서 action 을 수행하는 사용자가 제공된 파라메터와 일치하는지 확인한다.\nvoid hi( name user ) {  require_auth( user );  print( \"Hello, \", name{user} ); } 다시 컴파일 한다.\neosio-cpp -o hello.wasm hello.cpp --abigen 그리고 update 한다.\ncleos set contract hello CONTRACTS_DIR/hello -p hello@active 실행하되, 이번에는 권한이 일치 않도록 한다.\ncleos push action hello hi '[\"bob\"]' -p alice@active Error 3090004: Missing required authority Ensure that you have the related authority inside your transaction!; If you are currently using 'cleos push action' command, try to add the [relevant](**http://google.com**) authority using -p option. 우리의 contract 수정으로, 제공된 name user 가 승인 유저와 동일한지 확인한다.\n다시 실행하되, 이번엔 alice account 의 권한으로 실행해보자.\ncleos push action hello hi '[\"alice\"]' -p alice@active executed transaction: 235bd766c2097f4a698cfb948eb2e709532df8d18458b92c9c6aae74ed8e4518 244 bytes 1000 cycles # hello  Hello, alice ",
+  "wordCount" : "542",
+  "inLanguage": "en",
+  "datePublished": "2019-01-01T20:17:59+09:00",
+  "dateModified": "2019-01-01T20:17:59+09:00",
+  "author":{
+    "@type": "Person",
+    "name": "nolleh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nolleh.github.io/block-chain/2.1-helloworld/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Computer Programmer, Nolleh",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nolleh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://nolleh.github.io/categories/" title="categories">
+                    <span>categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nolleh.github.io/tags/" title="tags">
+                    <span>tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      EOSIO - 2.1/Hello World!
+    </h1>
+    <div class="post-meta"><span title='2019-01-01 20:17:59 +0900 KST'>January 1, 2019</span>&nbsp;·&nbsp;nolleh
+
+</div>
+  </header> 
+  <div class="post-content"><p>hello 라는 이름의 디렉토리를 contracts directory 에 생성하자.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd CONTRACTS_DIR
 </span></span><span style="display:flex;"><span>mkdir hello
 </span></span><span style="display:flex;"><span>cd hello
@@ -186,116 +312,86 @@ EOSIO 는 몇개의 typedef 를 선언하고 있는데, 이 중에 흔한 하나
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#    hello &lt;= hello::hi               {&#34;user&#34;:&#34;alice&#34;}</span>
 </span></span><span style="display:flex;"><span>&gt;&gt; Hello, alice
 </span></span></code></pre></div>
-  </section>
-  <div class="share">    
-    <a
-      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f2.1-helloworld%2f&t=EOSIO%20-%202.1%2fHello%20World%21"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-facebook"></i
-    ></a>
-    <a
-      href="//twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f2.1-helloworld%2f&text=EOSIO%20-%202.1%2fHello%20World%21&tw_p=tweetbutton"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-twitter"></i
-    ></a>
-    <a
-      href="//getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f2.1-helloworld%2f&title=EOSIO%20-%202.1%2fHello%20World%21"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-get-pocket"></i
-    ></a>
-    <a
-      href="//plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f2.1-helloworld%2f"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-google-plus"></i
-    ></a>
+
   </div>
-  <div class="post-meta-code">
-    <div class="desc">
-      Friendly
-      
-      nolleh
-      
-      wrotes this article at
-      <span class="highlight">Tuesday, Jan 1, 2019 20:17</span> 
-      for you.
-    </div>
-    <div class="desc">
-      
-      <div class="desc">
-        <span class="fixed-desc">_Categories</span>
-        
-        
-        <a href="https://nolleh.github.io//categories/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8">#블록체인</a>
-        
-      </div>
-      
-      <div class="desc">
-        <span class="fixed-desc">_Tags</span>
-        
-        
-        <a href="https://nolleh.github.io/tags/block-chain">#block-chain</a>
-        
-        <a href="https://nolleh.github.io/tags/eosio">#EOSIO</a>
-        
-        
-      </div>
-    </div>
-  </div>  
-  
-  <div class="post-comment">    
-    <div id="disqus_thread"></div>
-<script type="application/javascript">
-    window.disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "nolleh-github-io" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>    
-  </div>
-  
-  <div class="recommend-articles">
-    Recommend these articles
-    <ul>
-      
-      <li>
-        <a href="https://nolleh.github.io/block-chain/1.7-createtestaccount/" rel="prev">
-          <span>EOSIO - 1.7/Test 계정 생성하기</span>
-        </a>
-      </li>
-      
-      
-      <li>
-        <a href="https://nolleh.github.io/distributed-systems/1.highlevel/" rel="next">
-          <span>고수준의 분산 시스템</span>
-        </a>
-      </li>
-      
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://nolleh.github.io/tags/block-chain/">block-chain</a></li>
+      <li><a href="https://nolleh.github.io/tags/eosio/">EOSIO</a></li>
     </ul>
-  </div>
-</div>
-
-<div class="go-top">
-  <a href="#" class="go-top-button">
-    <i class="fa fa-angle-double-up"></i>
-    <span>Top</span>
-  </a>
-</div>
+  </footer>
+</article>
+    </main>
+    
 <footer class="footer">
-  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
-  ALL RIGHTS RESERVED.
+    <span>&copy; 2022 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
-</body>
-</html>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

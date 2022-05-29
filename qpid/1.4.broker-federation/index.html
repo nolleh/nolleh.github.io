@@ -1,118 +1,232 @@
 <!DOCTYPE html>
-<html>
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=80&amp;path=livereload" data-no-instant defer></script>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Broker Federation  | The Computer Programmer, Nolleh</title>
-  <meta name="description" content=" 'Broker Federation'read this article.">
-  <meta property="og:title" content="Broker Federation">
-  
-  <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2020-02-06">
-  
-  <meta property="og:description" content=" 'Broker Federation'read this article.">
-  <meta property="og:url" content="https://nolleh.github.io/qpid/1.4.broker-federation/">
-  <meta property="og:site_name" content="The Computer Programmer, Nolleh">
-  
-  <meta property="og:image" content="https://nolleh.github.io/images/thumbnail.png">
-  
-  
-  <meta property="og:tags" content="MQ">
-  
-  <meta property="og:tags" content="QPID">
-  
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="canonical" href="https://nolleh.github.io/qpid/1.4.broker-federation/">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
-  <link rel="stylesheet" href="/css/styles.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  
-  
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102565363-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-102565363-1');
-  </script>
-  
-  
-  <script type="text/javascript">
-  function toggle_visibility(id) {
-    var e = document.getElementById(id);
-    if (e.className === 'menu')
-      e.className = 'menu hidden';
-    else
-      e.className = 'menu';
-  }
-  </script>
-</head>
-<body>
-  <div class="navbar">    
-    <div class="logo">
-      <a href="/">
-        <img src="/images/logo.png" height="34px" />
-      </a>
-    </div>
-    <div class="burger">
-      <button onclick="toggle_visibility('menu')">
-        <i class="fa fa-bars" aria-hidden="true"></i> Menu
-      </button>
-    </div>
-    <div id="menu" class="menu hidden">
-      <ul>
-        <li><a href="/">#The Computer Programmer, Nolleh</a></li>
-        <li><a href="/categories">#Categories</a></li>
-        <li><a href="/tags">#Tags</a></li>
-        <li><a href="/projects">#Projects</a></li>        
-      </ul>
-      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
-    </div>
-  </div>
-  <div class="container">    
+<html lang="en" dir="auto">
 
-<div class="post">
-  <div class="post-title">
-    <a href="https://nolleh.github.io/qpid/1.4.broker-federation/">
-      <img src="/images/post-title-icon.png" />
-      <div class="post-meta">
-        <time>Thursday, Feb 6, 2020 13:23</time>
-        <h1>Broker Federation</h1>
-      </div>
-    </a>
-  </div>
-  <div class="post-toc">
-    <span class="title">TOC</span>
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#141-message-routes">1.4.1 Message Routes</a>
-      <ul>
-        <li><a href="#1411-queue-routes">1.4.1.1 Queue Routes</a></li>
-        <li><a href="#1412-exchange-routes">1.4.1.2 Exchange Routes</a></li>
-        <li><a href="#1413-dynamic-exchange-routes">1.4.1.3 Dynamic Exchange Routes</a></li>
-      </ul>
-    </li>
-    <li><a href="#142-federation-topolpogies">1.4.2 Federation Topolpogies</a></li>
-    <li><a href="#143-federation-among-high-availablity-message-clusters">1.4.3 Federation among High Availablity Message Clusters</a></li>
-    <li><a href="#144-the-qpid-route-utility">1.4.4 The qpid-route Utility</a>
-      <ul>
-        <li><a href="#1441-creating-and-deleting-queue-routes">1.4.4.1. Creating and Deleting Queue Routes</a></li>
-        <li><a href="#1442-exchange-routes">1.4.4.2. Exchange Routes</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-  </div>
-  <section class="post-content">
-    <h1 id="14-broker-federation">1.4 Broker Federation</h1>
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Broker Federation | The Computer Programmer, Nolleh</title>
+<meta name="keywords" content="MQ, QPID">
+<meta name="description" content="1.4 Broker Federation 메시지 라우트를 정의하여 하나의 브로커에서 다른 브로커로 자동으로 전달하게 한다.
+일반적으로 일방향이며, 라우트는 durable 하고 tansient 한다.
+연결이 소실되면 메시지는 누적되다가 재연결이 되면 다시 전송한다.
+라우팅에 사용되는 룰은 서버가 변경됨에 따라 동적으로 변경할 수 있으며, 변경의 책임은 다른 변경조건에 맞게 반영된다,.
+1.4.1 Message Routes pull / push 방식이 있음.
+pull 은 dest 에서.
+push 는 src 에서 설정함
+ queue &lt;-&gt; exchage exchange &lt;-&gt; exchange  excg &lt;-&gt; excg 는 다음과 같은 라우트를 가질 수 있다.">
+<meta name="author" content="nolleh">
+<link rel="canonical" href="https://nolleh.github.io/qpid/1.4.broker-federation/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.1740750342264a4e69b84ddf6899fb02cc95465080d85c57c08bb1d110900bf6.css" integrity="sha256-F0B1A0ImSk5puE3faJn7AsyVRlCA2FxXwIux0RCQC/Y=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://nolleh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nolleh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-102565363-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="Broker Federation" />
+<meta property="og:description" content="1.4 Broker Federation 메시지 라우트를 정의하여 하나의 브로커에서 다른 브로커로 자동으로 전달하게 한다.
+일반적으로 일방향이며, 라우트는 durable 하고 tansient 한다.
+연결이 소실되면 메시지는 누적되다가 재연결이 되면 다시 전송한다.
+라우팅에 사용되는 룰은 서버가 변경됨에 따라 동적으로 변경할 수 있으며, 변경의 책임은 다른 변경조건에 맞게 반영된다,.
+1.4.1 Message Routes pull / push 방식이 있음.
+pull 은 dest 에서.
+push 는 src 에서 설정함
+ queue &lt;-&gt; exchage exchange &lt;-&gt; exchange  excg &lt;-&gt; excg 는 다음과 같은 라우트를 가질 수 있다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nolleh.github.io/qpid/1.4.broker-federation/" /><meta property="article:section" content="qpid" />
+<meta property="article:published_time" content="2020-02-06T13:23:27&#43;09:00" />
+<meta property="article:modified_time" content="2020-02-06T13:23:27&#43;09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Broker Federation"/>
+<meta name="twitter:description" content="1.4 Broker Federation 메시지 라우트를 정의하여 하나의 브로커에서 다른 브로커로 자동으로 전달하게 한다.
+일반적으로 일방향이며, 라우트는 durable 하고 tansient 한다.
+연결이 소실되면 메시지는 누적되다가 재연결이 되면 다시 전송한다.
+라우팅에 사용되는 룰은 서버가 변경됨에 따라 동적으로 변경할 수 있으며, 변경의 책임은 다른 변경조건에 맞게 반영된다,.
+1.4.1 Message Routes pull / push 방식이 있음.
+pull 은 dest 에서.
+push 는 src 에서 설정함
+ queue &lt;-&gt; exchage exchange &lt;-&gt; exchange  excg &lt;-&gt; excg 는 다음과 같은 라우트를 가질 수 있다."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Qpids",
+      "item": "https://nolleh.github.io/qpid/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Broker Federation",
+      "item": "https://nolleh.github.io/qpid/1.4.broker-federation/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Broker Federation",
+  "name": "Broker Federation",
+  "description": "1.4 Broker Federation 메시지 라우트를 정의하여 하나의 브로커에서 다른 브로커로 자동으로 전달하게 한다.\n일반적으로 일방향이며, 라우트는 durable 하고 tansient 한다.\n연결이 소실되면 메시지는 누적되다가 재연결이 되면 다시 전송한다.\n라우팅에 사용되는 룰은 서버가 변경됨에 따라 동적으로 변경할 수 있으며, 변경의 책임은 다른 변경조건에 맞게 반영된다,.\n1.4.1 Message Routes pull / push 방식이 있음.\npull 은 dest 에서.\npush 는 src 에서 설정함\n queue \u0026lt;-\u0026gt; exchage exchange \u0026lt;-\u0026gt; exchange  excg \u0026lt;-\u0026gt; excg 는 다음과 같은 라우트를 가질 수 있다.",
+  "keywords": [
+    "MQ", "QPID"
+  ],
+  "articleBody": "1.4 Broker Federation 메시지 라우트를 정의하여 하나의 브로커에서 다른 브로커로 자동으로 전달하게 한다.\n일반적으로 일방향이며, 라우트는 durable 하고 tansient 한다.\n연결이 소실되면 메시지는 누적되다가 재연결이 되면 다시 전송한다.\n라우팅에 사용되는 룰은 서버가 변경됨에 따라 동적으로 변경할 수 있으며, 변경의 책임은 다른 변경조건에 맞게 반영된다,.\n1.4.1 Message Routes pull / push 방식이 있음.\npull 은 dest 에서.\npush 는 src 에서 설정함\n queue  exchage exchange  exchange  excg  excg 는 다음과 같은 라우트를 가질 수 있다.\n1.4.1.1 Queue Routes 모든 메시지를 src 에서 dest 로.\n1.4.1.2 Exchange Routes 바인딩키에 따라 라우트함\n실제로는 내부적으로 큐가 (auto-delete, exclusive) 만들어지고, 이를 통해 연결하는 것.\n1.4.1.3 Dynamic Exchange Routes 클라이언트가 바인딩을 맺고, 이 exchange 만이 아니라 dynamic exchange route 를 통해 생성된 다른 exchange 도 수신한다. 바인딩 변경시, 이 exhcange 와 관련한 다른 exchange routes 또한 변경한다.\n source 에 연결 된 모든 dest exchange 에 대해 적용되는데, 하나의 메시지라도 매치가 되면 dest 에 라우트되도록한다. dest 에서 바인딩들이 추가되거나 삭제되는경우, 이 변화는 DER 에 적용이 된다.  dest 브로커가 바인딩을 주어진 바인딩키를 만들경우 라우트에 반영이되고 바인딩키를 제거할 경우 라우트는 더이상 메시지를 브로커들에게 전달하는 오버헤드를 갖지 않는다.   만약 두 excg 가 der 을 서로에 대해 갖는경우, 각각의 excg 에 대한 모든 바인딩은 der 에 반영된다. DER 에서, source 와 destination exchages 들은 같은 excage 타입을 가지고 있어야하고, 같은 이름을 가져야 한다.  내부적으로 dynamic exchage routes 는 exchage 라우트와 동일하게 구현되어 있는데, 다른점은 DEST Excg 에 바인딩이 있는 경우 DER 을 구현하는데 사용한 바인딩들이 수정됐다는것. (? except that the bindings used to implement dynamic exchange routes are modified if the bindings in the destination exchange change.)\nDER 은 항상 pull route 형식이다.\n1.4.2 Federation Topolpogies 보통 이 네트워크는 트리구조, 스타구조, 선형, 양방향 링크, 로 구성된다. 링 형태도 가능하지만, 이때는 단방향링크들만 사용하여야 한다.\n메시지를 빨리 전달 받기 위해서는 브로커 사이 홉을 줄이는 것이 중요. 그래서 대부분의 경우 트리나 스타 토폴로지가 최고다.\nA, B 가 있다고 할 때 서로를 연결하는 경로는 하나만이 있어야 할 것.\n만약 하나 이상의 경로가 있으면 중복된 메시지 전송을 야기하고 네트워크의 홍수를 일으킬 것.\n1.4.3 Federation among High Availablity Message Clusters fedration 은 일반적으로 High Availability Message Clusters 와 사용이 되는데, 클러스터들이 각각의 LAN 에 대해 고 안정성을 얻게끔한다.\n메시지 상태가 클러스터에서 복제 되기 때문에,\n같은 클러스터의 다른 브로커 사이에서 메시지 라우트를 정의하는 작은 개념을 만들어 준다.\n두 클러스터 사이에서 메시지를 생성하기 위해, 첫번째 클러스터에서 다른 클러스터의 브로커로 라우터를 만들어주면된다.\n1.4.4 The qpid-route Utility $ qpid-route [OPTIONS] dynamic add    $ qpid-route [OPTIONS] dynamic del    $ qpid-route [OPTIONS] route add     $ qpid-route [OPTIONS] route del     $ qpid-route [OPTIONS] queue add     $ qpid-route [OPTIONS] queue del     $ qpid-route [OPTIONS] list [] $ qpid-route [OPTIONS] flush [] $ qpid-route [OPTIONS] map [] $ qpid-route [OPTIONS] list connections [] The syntax for broker, dest-broker, and src-broker is as follows:\n [username/password@] hostname | ip-address [:]  The following are all valid examples of the above syntax: localhost, 10.1.1.7:10000, broker-host:10000, guest/guest@localhost.\nTable 1.9. qpid-route options\n         -v Verbose output.   -q Quiet output, will not print duplicate warnings.   -d Make the route durable.   –timeout N Maximum time to wait when qpid-route connects to a broker, in seconds. Default is 10 seconds.   –ack N Acknowledge transfers of routed messages in batches of N. Default is 0 (no acknowledgements). Setting to 1 or greater enables acknowledgements; when using acknowledgements, values of N greater than 1 can significnantly improve performance, especially if there is significant network latency between the two brokers.   -s [ –src-local ] Configure the route in the source broker (create a push route).   -t  [ --transport ] Transport protocol to be used for the route. _ tcp (default) _ ssl * rdma    1.4.4.1. Creating and Deleting Queue Routes $ qpid-route [OPTIONS] queue add     $ qpid-route [OPTIONS] queue del     1.4.4.2. Exchange Routes ",
+  "wordCount" : "638",
+  "inLanguage": "en",
+  "datePublished": "2020-02-06T13:23:27+09:00",
+  "dateModified": "2020-02-06T13:23:27+09:00",
+  "author":{
+    "@type": "Person",
+    "name": "nolleh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nolleh.github.io/qpid/1.4.broker-federation/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Computer Programmer, Nolleh",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nolleh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://nolleh.github.io/categories/" title="categories">
+                    <span>categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nolleh.github.io/tags/" title="tags">
+                    <span>tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Broker Federation
+    </h1>
+    <div class="post-meta"><span title='2020-02-06 13:23:27 +0900 KST'>February 6, 2020</span>&nbsp;·&nbsp;nolleh
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="14-broker-federation">1.4 Broker Federation<a hidden class="anchor" aria-hidden="true" href="#14-broker-federation">#</a></h1>
 <p>메시지 라우트를 정의하여 하나의 브로커에서 다른 브로커로 자동으로 전달하게 한다.<br>
 일반적으로 일방향이며, 라우트는 durable 하고 tansient 한다.<br>
 연결이 소실되면 메시지는 누적되다가 재연결이 되면 다시 전송한다.</p>
 <p>라우팅에 사용되는 룰은 서버가 변경됨에 따라 동적으로 변경할 수 있으며, 변경의 책임은 다른 변경조건에 맞게 반영된다,.</p>
-<h2 id="141-message-routes">1.4.1 Message Routes</h2>
+<h2 id="141-message-routes">1.4.1 Message Routes<a hidden class="anchor" aria-hidden="true" href="#141-message-routes">#</a></h2>
 <p>pull / push 방식이 있음.<br>
 pull 은 dest 에서.<br>
 push 는 src 에서 설정함</p>
@@ -121,12 +235,12 @@ push 는 src 에서 설정함</p>
 <li>exchange &lt;-&gt; exchange</li>
 </ul>
 <p>excg &lt;-&gt; excg 는 다음과 같은 라우트를 가질 수 있다.</p>
-<h3 id="1411-queue-routes">1.4.1.1 Queue Routes</h3>
+<h3 id="1411-queue-routes">1.4.1.1 Queue Routes<a hidden class="anchor" aria-hidden="true" href="#1411-queue-routes">#</a></h3>
 <p>모든 메시지를 src 에서 dest 로.</p>
-<h3 id="1412-exchange-routes">1.4.1.2 Exchange Routes</h3>
+<h3 id="1412-exchange-routes">1.4.1.2 Exchange Routes<a hidden class="anchor" aria-hidden="true" href="#1412-exchange-routes">#</a></h3>
 <p>바인딩키에 따라 라우트함</p>
 <p>실제로는 내부적으로 큐가 (auto-delete, exclusive) 만들어지고, 이를 통해 연결하는 것.</p>
-<h3 id="1413-dynamic-exchange-routes">1.4.1.3 Dynamic Exchange Routes</h3>
+<h3 id="1413-dynamic-exchange-routes">1.4.1.3 Dynamic Exchange Routes<a hidden class="anchor" aria-hidden="true" href="#1413-dynamic-exchange-routes">#</a></h3>
 <p>클라이언트가 바인딩을 맺고, 이 exchange 만이 아니라 dynamic exchange route 를 통해 생성된 다른 exchange 도 수신한다.
 바인딩 변경시, 이 exhcange 와 관련한 다른 exchange routes 또한 변경한다.</p>
 <ul>
@@ -142,17 +256,17 @@ push 는 src 에서 설정함</p>
 <p>내부적으로 dynamic exchage routes 는 exchage 라우트와 동일하게 구현되어 있는데, 다른점은
 DEST Excg 에 바인딩이 있는 경우 DER 을 구현하는데 사용한 바인딩들이 수정됐다는것. (? except that the bindings used to implement dynamic exchange routes are modified if the bindings in the destination exchange change.)</p>
 <p>DER 은 항상 pull route 형식이다.</p>
-<h2 id="142-federation-topolpogies">1.4.2 Federation Topolpogies</h2>
+<h2 id="142-federation-topolpogies">1.4.2 Federation Topolpogies<a hidden class="anchor" aria-hidden="true" href="#142-federation-topolpogies">#</a></h2>
 <p>보통 이 네트워크는 트리구조, 스타구조, 선형, 양방향 링크, 로 구성된다. 링 형태도 가능하지만, 이때는 단방향링크들만 사용하여야 한다.</p>
 <p>메시지를 빨리 전달 받기 위해서는 브로커 사이 홉을 줄이는 것이 중요. 그래서 대부분의 경우 트리나 스타 토폴로지가 최고다.</p>
 <p>A, B 가 있다고 할 때 서로를 연결하는 경로는 하나만이 있어야 할 것.<br>
 만약 하나 이상의 경로가 있으면 중복된 메시지 전송을 야기하고 네트워크의 홍수를 일으킬 것.</p>
-<h2 id="143-federation-among-high-availablity-message-clusters">1.4.3 Federation among High Availablity Message Clusters</h2>
+<h2 id="143-federation-among-high-availablity-message-clusters">1.4.3 Federation among High Availablity Message Clusters<a hidden class="anchor" aria-hidden="true" href="#143-federation-among-high-availablity-message-clusters">#</a></h2>
 <p>fedration 은 일반적으로 High Availability Message Clusters 와 사용이 되는데, 클러스터들이 각각의 LAN 에 대해 고 안정성을 얻게끔한다.<br>
 메시지 상태가 클러스터에서 복제 되기 때문에,<br>
 같은 클러스터의 다른 브로커 사이에서 메시지 라우트를 정의하는 작은 개념을 만들어 준다.</p>
 <p>두 클러스터 사이에서 메시지를 생성하기 위해, 첫번째 클러스터에서 다른 클러스터의 브로커로 라우터를 만들어주면된다.</p>
-<h2 id="144-the-qpid-route-utility">1.4.4 The qpid-route Utility</h2>
+<h2 id="144-the-qpid-route-utility">1.4.4 The qpid-route Utility<a hidden class="anchor" aria-hidden="true" href="#144-the-qpid-route-utility">#</a></h2>
 <pre tabindex="0"><code>$ qpid-route [OPTIONS] dynamic add &lt;dest-broker&gt; &lt;src-broker&gt; &lt;exchange&gt;
 $ qpid-route [OPTIONS] dynamic del &lt;dest-broker&gt; &lt;src-broker&gt; &lt;exchange&gt;
 
@@ -210,121 +324,91 @@ $ qpid-route [OPTIONS] list connections [&lt;broker&gt;]
 </tr>
 </tbody>
 </table>
-<h3 id="1441-creating-and-deleting-queue-routes">1.4.4.1. Creating and Deleting Queue Routes</h3>
+<h3 id="1441-creating-and-deleting-queue-routes">1.4.4.1. Creating and Deleting Queue Routes<a hidden class="anchor" aria-hidden="true" href="#1441-creating-and-deleting-queue-routes">#</a></h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ qpid-route <span style="color:#f92672">[</span>OPTIONS<span style="color:#f92672">]</span> queue add &lt;dest-broker&gt; &lt;src-broker&gt; &lt;dest-exchange&gt; &lt;src-queue&gt;
 </span></span><span style="display:flex;"><span>$ qpid-route <span style="color:#f92672">[</span>OPTIONS<span style="color:#f92672">]</span> queue del &lt;dest-broker&gt; &lt;src-broker&gt; &lt;dest-exchange&gt; &lt;src-queue&gt;
-</span></span></code></pre></div><h3 id="1442-exchange-routes">1.4.4.2. Exchange Routes</h3>
+</span></span></code></pre></div><h3 id="1442-exchange-routes">1.4.4.2. Exchange Routes<a hidden class="anchor" aria-hidden="true" href="#1442-exchange-routes">#</a></h3>
 
-  </section>
-  <div class="share">    
-    <a
-      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fqpid%2f1.4.broker-federation%2f&t=Broker%20Federation"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-facebook"></i
-    ></a>
-    <a
-      href="//twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fqpid%2f1.4.broker-federation%2f&text=Broker%20Federation&tw_p=tweetbutton"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-twitter"></i
-    ></a>
-    <a
-      href="//getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fqpid%2f1.4.broker-federation%2f&title=Broker%20Federation"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-get-pocket"></i
-    ></a>
-    <a
-      href="//plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fqpid%2f1.4.broker-federation%2f"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-google-plus"></i
-    ></a>
+
   </div>
-  <div class="post-meta-code">
-    <div class="desc">
-      Friendly
-      
-      nolleh
-      
-      wrotes this article at
-      <span class="highlight">Thursday, Feb 6, 2020 13:23</span> 
-      for you.
-    </div>
-    <div class="desc">
-      
-      <div class="desc">
-        <span class="fixed-desc">_Categories</span>
-        
-        
-        <a href="https://nolleh.github.io//categories/qpid">#QPID</a>
-        
-      </div>
-      
-      <div class="desc">
-        <span class="fixed-desc">_Tags</span>
-        
-        
-        <a href="https://nolleh.github.io/tags/mq">#MQ</a>
-        
-        <a href="https://nolleh.github.io/tags/qpid">#QPID</a>
-        
-        
-      </div>
-    </div>
-  </div>  
-  
-  <div class="post-comment">    
-    <div id="disqus_thread"></div>
-<script type="application/javascript">
-    window.disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "nolleh-github-io" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>    
-  </div>
-  
-  <div class="recommend-articles">
-    Recommend these articles
-    <ul>
-      
-      <li>
-        <a href="https://nolleh.github.io/cheatsheet/network/" rel="prev">
-          <span>Network</span>
-        </a>
-      </li>
-      
-      
-      <li>
-        <a href="https://nolleh.github.io/qpid/1.12.active-passive-messaging-clusters/" rel="next">
-          <span>Active Passive Messaging Clusters</span>
-        </a>
-      </li>
-      
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://nolleh.github.io/tags/mq/">MQ</a></li>
+      <li><a href="https://nolleh.github.io/tags/qpid/">qpid</a></li>
     </ul>
-  </div>
-</div>
-
-<div class="go-top">
-  <a href="#" class="go-top-button">
-    <i class="fa fa-angle-double-up"></i>
-    <span>Top</span>
-  </a>
-</div>
+  </footer>
+</article>
+    </main>
+    
 <footer class="footer">
-  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
-  ALL RIGHTS RESERVED.
+    <span>&copy; 2022 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
-</body>
-</html>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

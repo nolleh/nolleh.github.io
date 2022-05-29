@@ -1,115 +1,226 @@
 <!DOCTYPE html>
-<html>
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=80&amp;path=livereload" data-no-instant defer></script>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Concurrent Idiom 1 - Stack  | The Computer Programmer, Nolleh</title>
-  <meta name="description" content=" 'Concurrent Idiom 1 - Stack'read this article.">
-  <meta property="og:title" content="Concurrent Idiom 1 - Stack">
-  
-  <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2017-07-10">
-  
-  <meta property="og:description" content=" 'Concurrent Idiom 1 - Stack'read this article.">
-  <meta property="og:url" content="https://nolleh.github.io/concurrency/concurrent-idiom-1-stack/">
-  <meta property="og:site_name" content="The Computer Programmer, Nolleh">
-  
-  <meta property="og:image" content="https://nolleh.github.io/images/thumbnail.png">
-  
-  
-  <meta property="og:tags" content="Concurrent Programming">
-  
-  <meta property="og:tags" content="Programming">
-  
-  <meta property="og:tags" content="생각하는 프로그래머">
-  
-  <meta property="og:tags" content="Note">
-  
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="canonical" href="https://nolleh.github.io/concurrency/concurrent-idiom-1-stack/">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
-  <link rel="stylesheet" href="/css/styles.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  
-  
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102565363-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-102565363-1');
-  </script>
-  
-  
-  <script type="text/javascript">
-  function toggle_visibility(id) {
-    var e = document.getElementById(id);
-    if (e.className === 'menu')
-      e.className = 'menu hidden';
-    else
-      e.className = 'menu';
-  }
-  </script>
-</head>
-<body>
-  <div class="navbar">    
-    <div class="logo">
-      <a href="/">
-        <img src="/images/logo.png" height="34px" />
-      </a>
-    </div>
-    <div class="burger">
-      <button onclick="toggle_visibility('menu')">
-        <i class="fa fa-bars" aria-hidden="true"></i> Menu
-      </button>
-    </div>
-    <div id="menu" class="menu hidden">
-      <ul>
-        <li><a href="/">#The Computer Programmer, Nolleh</a></li>
-        <li><a href="/categories">#Categories</a></li>
-        <li><a href="/tags">#Tags</a></li>
-        <li><a href="/projects">#Projects</a></li>        
-      </ul>
-      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
-    </div>
-  </div>
-  <div class="container">    
+<html lang="en" dir="auto">
 
-<div class="post">
-  <div class="post-title">
-    <a href="https://nolleh.github.io/concurrency/concurrent-idiom-1-stack/">
-      <img src="/images/post-title-icon.png" />
-      <div class="post-meta">
-        <time>Monday, Jul 10, 2017 22:57</time>
-        <h1>Concurrent Idiom 1 - Stack</h1>
-      </div>
-    </a>
-  </div>
-  <div class="post-toc">
-    <span class="title">TOC</span>
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#options">Options</a>
-      <ul>
-        <li><a href="#reference">Reference</a></li>
-        <li><a href="#move">Move</a></li>
-        <li><a href="#pointer">Pointer</a></li>
-        <li><a href="#compounded-options">Compounded Options</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-  </div>
-  <section class="post-content">
-    <blockquote>
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Concurrent Idiom 1 - Stack | The Computer Programmer, Nolleh</title>
+<meta name="keywords" content="Concurrent Programming, Programming, 생각하는 프로그래머, Note">
+<meta name="description" content="concurrent 프로그램을 작성할 때 고려해야할 몇가지 사항. 그리고 idiom.
+여러 서적에서 발췌하였으며, 정리 차원에서 작성한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.
+어쩌면 작성자의 부사수를 위한 자재가 될지도 모르겠&hellip;(..)
+ Concurrent ISSUE - Stack 이번엔 스택.
+if (!s.empty()) {  item = s.top();  s.pop(); } 인터페이스상의 문제이기 때문에 empty 와 top 사이의 safety 를 보장할 수 없다.
+top() / pop() 도 마찬가지 -&raquo; 조회되지 못하는 아이템이 있을 수 있다.">
+<meta name="author" content="nolleh">
+<link rel="canonical" href="https://nolleh.github.io/concurrency/concurrent-idiom-1-stack/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.1740750342264a4e69b84ddf6899fb02cc95465080d85c57c08bb1d110900bf6.css" integrity="sha256-F0B1A0ImSk5puE3faJn7AsyVRlCA2FxXwIux0RCQC/Y=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://nolleh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nolleh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-102565363-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="Concurrent Idiom 1 - Stack" />
+<meta property="og:description" content="concurrent 프로그램을 작성할 때 고려해야할 몇가지 사항. 그리고 idiom.
+여러 서적에서 발췌하였으며, 정리 차원에서 작성한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.
+어쩌면 작성자의 부사수를 위한 자재가 될지도 모르겠&hellip;(..)
+ Concurrent ISSUE - Stack 이번엔 스택.
+if (!s.empty()) {  item = s.top();  s.pop(); } 인터페이스상의 문제이기 때문에 empty 와 top 사이의 safety 를 보장할 수 없다.
+top() / pop() 도 마찬가지 -&raquo; 조회되지 못하는 아이템이 있을 수 있다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nolleh.github.io/concurrency/concurrent-idiom-1-stack/" /><meta property="article:section" content="concurrency" />
+<meta property="article:published_time" content="2017-07-10T22:57:57&#43;09:00" />
+<meta property="article:modified_time" content="2017-07-10T22:57:57&#43;09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Concurrent Idiom 1 - Stack"/>
+<meta name="twitter:description" content="concurrent 프로그램을 작성할 때 고려해야할 몇가지 사항. 그리고 idiom.
+여러 서적에서 발췌하였으며, 정리 차원에서 작성한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.
+어쩌면 작성자의 부사수를 위한 자재가 될지도 모르겠&hellip;(..)
+ Concurrent ISSUE - Stack 이번엔 스택.
+if (!s.empty()) {  item = s.top();  s.pop(); } 인터페이스상의 문제이기 때문에 empty 와 top 사이의 safety 를 보장할 수 없다.
+top() / pop() 도 마찬가지 -&raquo; 조회되지 못하는 아이템이 있을 수 있다."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Concurrencies",
+      "item": "https://nolleh.github.io/concurrency/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Concurrent Idiom 1 - Stack",
+      "item": "https://nolleh.github.io/concurrency/concurrent-idiom-1-stack/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Concurrent Idiom 1 - Stack",
+  "name": "Concurrent Idiom 1 - Stack",
+  "description": "concurrent 프로그램을 작성할 때 고려해야할 몇가지 사항. 그리고 idiom.\n여러 서적에서 발췌하였으며, 정리 차원에서 작성한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.\n어쩌면 작성자의 부사수를 위한 자재가 될지도 모르겠\u0026hellip;(..)\n Concurrent ISSUE - Stack 이번엔 스택.\nif (!s.empty()) {  item = s.top();  s.pop(); } 인터페이스상의 문제이기 때문에 empty 와 top 사이의 safety 를 보장할 수 없다.\ntop() / pop() 도 마찬가지 -\u0026raquo; 조회되지 못하는 아이템이 있을 수 있다.",
+  "keywords": [
+    "Concurrent Programming", "Programming", "생각하는 프로그래머", "Note"
+  ],
+  "articleBody": " concurrent 프로그램을 작성할 때 고려해야할 몇가지 사항. 그리고 idiom.\n여러 서적에서 발췌하였으며, 정리 차원에서 작성한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.\n어쩌면 작성자의 부사수를 위한 자재가 될지도 모르겠…(..)\n Concurrent ISSUE - Stack 이번엔 스택.\nif (!s.empty()) {  item = s.top();  s.pop(); } 인터페이스상의 문제이기 때문에 empty 와 top 사이의 safety 를 보장할 수 없다.\ntop() / pop() 도 마찬가지 -» 조회되지 못하는 아이템이 있을 수 있다. (생각해보자.)\n해결을 위해 ?? - Returning Pop ? –» 역시, 생각해보자. (Hint. Exception)\nOptions Reference 호출전 인스턴스 생성 필요. 생성자의 인자가 항상 제공 가능한 경우가 아닐때도.\n그리고 assign 필요. (Q. 이것이 무엇을 의미하는가? - C++ 개발지식이 있다면 대답할 수 있어야 한다.)\nMove Exception 만이 문제라면 이 선택으로 회피 가능할 수 있지 않은가.\n하지만.. 위와 마찬가지. (Q. 역시, 대답할 수 있어야 한다. )\nPointer 유저에게 메모리 관리 작업을 맡기는 것. (Q. 이게 문제라면, 어떻게 해결할 수 있겠는가?) 간단한 타입에 대해서는 오버헤드.\nCompounded Options 말그대로, 결합.\n끝\n",
+  "wordCount" : "158",
+  "inLanguage": "en",
+  "datePublished": "2017-07-10T22:57:57+09:00",
+  "dateModified": "2017-07-10T22:57:57+09:00",
+  "author":{
+    "@type": "Person",
+    "name": "nolleh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nolleh.github.io/concurrency/concurrent-idiom-1-stack/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Computer Programmer, Nolleh",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nolleh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://nolleh.github.io/categories/" title="categories">
+                    <span>categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nolleh.github.io/tags/" title="tags">
+                    <span>tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Concurrent Idiom 1 - Stack
+    </h1>
+    <div class="post-meta"><span title='2017-07-10 22:57:57 +0900 KST'>July 10, 2017</span>&nbsp;·&nbsp;nolleh
+
+</div>
+  </header> 
+  <div class="post-content"><blockquote>
 <p>concurrent 프로그램을 작성할 때 고려해야할 몇가지 사항. 그리고 idiom.<br>
 여러 서적에서 발췌하였으며, 정리 차원에서 작성한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.<br>
 어쩌면 작성자의 부사수를 위한 자재가 될지도 모르겠&hellip;(..)</p>
 </blockquote>
-<h1 id="concurrent-issue---stack">Concurrent ISSUE - Stack</h1>
+<h1 id="concurrent-issue---stack">Concurrent ISSUE - Stack<a hidden class="anchor" aria-hidden="true" href="#concurrent-issue---stack">#</a></h1>
 <p>이번엔 스택.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>s.empty())
 </span></span><span style="display:flex;"><span>{
@@ -119,133 +230,101 @@
 </span></span></code></pre></div><p>인터페이스상의 문제이기 때문에 empty 와 top 사이의 safety 를 보장할 수 없다.<br>
 top() / pop() 도 마찬가지 -&raquo; 조회되지 못하는 아이템이 있을 수 있다. (생각해보자.)<br>
 해결을 위해 ?? -&gt; Returning Pop ? &ndash;&raquo; 역시, 생각해보자. (Hint. Exception)</p>
-<h2 id="options">Options</h2>
-<h3 id="reference">Reference</h3>
+<h2 id="options">Options<a hidden class="anchor" aria-hidden="true" href="#options">#</a></h2>
+<h3 id="reference">Reference<a hidden class="anchor" aria-hidden="true" href="#reference">#</a></h3>
 <p>호출전 인스턴스 생성 필요. 생성자의 인자가 항상 제공 가능한 경우가 아닐때도.<br>
 그리고 assign 필요. (Q. 이것이 무엇을 의미하는가? - C++ 개발지식이 있다면 대답할 수 있어야 한다.)</p>
-<h3 id="move">Move</h3>
+<h3 id="move">Move<a hidden class="anchor" aria-hidden="true" href="#move">#</a></h3>
 <p>Exception 만이 문제라면 이 선택으로 회피 가능할 수 있지 않은가.<br>
 하지만.. 위와 마찬가지. (Q. 역시, 대답할 수 있어야 한다. )</p>
-<h3 id="pointer">Pointer</h3>
+<h3 id="pointer">Pointer<a hidden class="anchor" aria-hidden="true" href="#pointer">#</a></h3>
 <p>유저에게 메모리 관리 작업을 맡기는 것. (Q. 이게 문제라면, 어떻게 해결할 수 있겠는가?) 간단한 타입에 대해서는 오버헤드.</p>
-<h3 id="compounded-options">Compounded Options</h3>
+<h3 id="compounded-options">Compounded Options<a hidden class="anchor" aria-hidden="true" href="#compounded-options">#</a></h3>
 <p>말그대로, 결합.</p>
 <p><strong>끝</strong></p>
 
-  </section>
-  <div class="share">    
-    <a
-      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fconcurrency%2fconcurrent-idiom-1-stack%2f&t=Concurrent%20Idiom%201%20-%20Stack"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-facebook"></i
-    ></a>
-    <a
-      href="//twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fconcurrency%2fconcurrent-idiom-1-stack%2f&text=Concurrent%20Idiom%201%20-%20Stack&tw_p=tweetbutton"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-twitter"></i
-    ></a>
-    <a
-      href="//getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fconcurrency%2fconcurrent-idiom-1-stack%2f&title=Concurrent%20Idiom%201%20-%20Stack"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-get-pocket"></i
-    ></a>
-    <a
-      href="//plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fconcurrency%2fconcurrent-idiom-1-stack%2f"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-google-plus"></i
-    ></a>
+
   </div>
-  <div class="post-meta-code">
-    <div class="desc">
-      Friendly
-      
-      nolleh
-      
-      wrotes this article at
-      <span class="highlight">Monday, Jul 10, 2017 22:57</span> 
-      for you.
-    </div>
-    <div class="desc">
-      
-      <div class="desc">
-        <span class="fixed-desc">_Categories</span>
-        
-        
-        <a href="https://nolleh.github.io//categories/%EC%84%9C%EB%B2%84%EA%B0%9C%EB%B0%9C%EC%A7%80%EC%8B%9D">#서버개발지식</a>
-        
-      </div>
-      
-      <div class="desc">
-        <span class="fixed-desc">_Tags</span>
-        
-        
-        <a href="https://nolleh.github.io/tags/concurrent-programming">#Concurrent Programming</a>
-        
-        <a href="https://nolleh.github.io/tags/programming">#Programming</a>
-        
-        <a href="https://nolleh.github.io/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8">#생각하는 프로그래머</a>
-        
-        <a href="https://nolleh.github.io/tags/note">#Note</a>
-        
-        
-      </div>
-    </div>
-  </div>  
-  
-  <div class="post-comment">    
-    <div id="disqus_thread"></div>
-<script type="application/javascript">
-    window.disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "nolleh-github-io" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>    
-  </div>
-  
-  <div class="recommend-articles">
-    Recommend these articles
-    <ul>
-      
-      <li>
-        <a href="https://nolleh.github.io/env/how-to-make-git-page/" rel="prev">
-          <span>How To Make Git Page</span>
-        </a>
-      </li>
-      
-      
-      <li>
-        <a href="https://nolleh.github.io/operating-system/file-buffering/" rel="next">
-          <span>파일 버퍼링</span>
-        </a>
-      </li>
-      
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://nolleh.github.io/tags/concurrent-programming/">Concurrent Programming</a></li>
+      <li><a href="https://nolleh.github.io/tags/programming/">Programming</a></li>
+      <li><a href="https://nolleh.github.io/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/">생각하는 프로그래머</a></li>
+      <li><a href="https://nolleh.github.io/tags/note/">Note</a></li>
     </ul>
-  </div>
-</div>
-
-<div class="go-top">
-  <a href="#" class="go-top-button">
-    <i class="fa fa-angle-double-up"></i>
-    <span>Top</span>
-  </a>
-</div>
+  </footer>
+</article>
+    </main>
+    
 <footer class="footer">
-  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
-  ALL RIGHTS RESERVED.
+    <span>&copy; 2022 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
-</body>
-</html>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

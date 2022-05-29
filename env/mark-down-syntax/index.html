@@ -1,145 +1,238 @@
 <!DOCTYPE html>
-<html>
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=80&amp;path=livereload" data-no-instant defer></script>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>markDown 문법  | The Computer Programmer, Nolleh</title>
-  <meta name="description" content=" 'markDown 문법'read this article.">
-  <meta property="og:title" content="markDown 문법">
-  
-  <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2017-07-04">
-  
-  <meta property="og:description" content=" 'markDown 문법'read this article.">
-  <meta property="og:url" content="https://nolleh.github.io/env/mark-down-syntax/">
-  <meta property="og:site_name" content="The Computer Programmer, Nolleh">
-  
-  <meta property="og:image" content="https://nolleh.github.io/images/thumbnail.png">
-  
-  
-  <meta property="og:tags" content="GitHub-Page">
-  
-  <meta property="og:tags" content="Editor">
-  
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="canonical" href="https://nolleh.github.io/env/mark-down-syntax/">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
-  <link rel="stylesheet" href="/css/styles.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  
-  
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102565363-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-102565363-1');
-  </script>
-  
-  
-  <script type="text/javascript">
-  function toggle_visibility(id) {
-    var e = document.getElementById(id);
-    if (e.className === 'menu')
-      e.className = 'menu hidden';
-    else
-      e.className = 'menu';
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>markDown 문법 | The Computer Programmer, Nolleh</title>
+<meta name="keywords" content="GitHub-Page, Editor">
+<meta name="description" content="mark down 문법">
+<meta name="author" content="nolleh">
+<link rel="canonical" href="https://nolleh.github.io/env/mark-down-syntax/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.1740750342264a4e69b84ddf6899fb02cc95465080d85c57c08bb1d110900bf6.css" integrity="sha256-F0B1A0ImSk5puE3faJn7AsyVRlCA2FxXwIux0RCQC/Y=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://nolleh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nolleh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-102565363-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="markDown 문법" />
+<meta property="og:description" content="mark down 문법" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nolleh.github.io/env/mark-down-syntax/" /><meta property="article:section" content="env" />
+<meta property="article:published_time" content="2017-07-04T22:13:52&#43;09:00" />
+<meta property="article:modified_time" content="2017-07-04T22:13:52&#43;09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="markDown 문법"/>
+<meta name="twitter:description" content="mark down 문법"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Envs",
+      "item": "https://nolleh.github.io/env/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "markDown 문법",
+      "item": "https://nolleh.github.io/env/mark-down-syntax/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "markDown 문법",
+  "name": "markDown 문법",
+  "description": "mark down 문법",
+  "keywords": [
+    "GitHub-Page", "Editor"
+  ],
+  "articleBody": "마크다운으로 포스팅하는 Git 페이지를 생성하였으니, 자주 사용되는 대표 문법 정리\n마크다운 문법\nHeading ‘#’ 으로 처리하며, 단계별로 더 많은 ‘#’ 을 사용한다.\n# Title ## Heading 1 ### Heading 2 결과\nTitle Heading 1 Heading 2 Listing Asterisk (*) 를 사용하여 순서 없는 목록을, 숫자를 사용하여 순서 있는 목록을 나타낸다.\n순서 없는 경우  이거닷 이거 중요해!  순서가 있는 경우  첫번째 순서 두번째~ 셋!!  Fonts **Bold** _Italic_ ~~CANCEL_LINE~~ Bold Italic CANCEL_LINE\nSRC ![Alt](경로 \"Optional Tooltip MSG\") TABLE | Day | Meal | Price | | --------|---------|-------| | Monday | pasta | $6 | | Tuesday | chicken | $8 |    Day Meal Price     Monday pasta $6   Tuesday chicken $8    ",
+  "wordCount" : "108",
+  "inLanguage": "en",
+  "datePublished": "2017-07-04T22:13:52+09:00",
+  "dateModified": "2017-07-04T22:13:52+09:00",
+  "author":{
+    "@type": "Person",
+    "name": "nolleh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nolleh.github.io/env/mark-down-syntax/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Computer Programmer, Nolleh",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nolleh.github.io/favicon.ico"
+    }
   }
-  </script>
+}
+</script>
 </head>
-<body>
-  <div class="navbar">    
-    <div class="logo">
-      <a href="/">
-        <img src="/images/logo.png" height="34px" />
-      </a>
-    </div>
-    <div class="burger">
-      <button onclick="toggle_visibility('menu')">
-        <i class="fa fa-bars" aria-hidden="true"></i> Menu
-      </button>
-    </div>
-    <div id="menu" class="menu hidden">
-      <ul>
-        <li><a href="/">#The Computer Programmer, Nolleh</a></li>
-        <li><a href="/categories">#Categories</a></li>
-        <li><a href="/tags">#Tags</a></li>
-        <li><a href="/projects">#Projects</a></li>        
-      </ul>
-      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
-    </div>
-  </div>
-  <div class="container">    
 
-<div class="post">
-  <div class="post-title">
-    <a href="https://nolleh.github.io/env/mark-down-syntax/">
-      <img src="/images/post-title-icon.png" />
-      <div class="post-meta">
-        <time>Tuesday, Jul 4, 2017 22:13</time>
-        <h1>markDown 문법</h1>
-      </div>
-    </a>
-  </div>
-  <div class="post-toc">
-    <span class="title">TOC</span>
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#heading">Heading</a></li>
-  </ul>
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
 
-  <ul>
-    <li><a href="#heading-1">Heading 1</a>
-      <ul>
-        <li><a href="#heading-2">Heading 2</a></li>
-      </ul>
-    </li>
-    <li><a href="#listing">Listing</a>
-      <ul>
-        <li><a href="#순서-없는-경우">순서 없는 경우</a></li>
-        <li><a href="#순서가-있는-경우">순서가 있는 경우</a></li>
-      </ul>
-    </li>
-    <li><a href="#fonts">Fonts</a></li>
-    <li><a href="#src">SRC</a></li>
-    <li><a href="#table">TABLE</a></li>
-  </ul>
-</nav>
-  </div>
-  <section class="post-content">
-    <p>마크다운으로 포스팅하는 Git 페이지를 생성하였으니, 자주 사용되는 대표 문법 정리<br>
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://nolleh.github.io/categories/" title="categories">
+                    <span>categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nolleh.github.io/tags/" title="tags">
+                    <span>tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      markDown 문법
+    </h1>
+    <div class="post-description">
+      mark down 문법
+    </div>
+    <div class="post-meta"><span title='2017-07-04 22:13:52 +0900 KST'>July 4, 2017</span>&nbsp;·&nbsp;nolleh
+
+</div>
+  </header> 
+  <div class="post-content"><p>마크다운으로 포스팅하는 Git 페이지를 생성하였으니, 자주 사용되는 대표 문법 정리<br>
 <a href="https://confluence.atlassian.com/bitbucketserver/markdown-syntax-guide-776639995.html#Markdownsyntaxguide-Listinlist">마크다운 문법</a></p>
-<h2 id="heading">Heading</h2>
+<h2 id="heading">Heading<a hidden class="anchor" aria-hidden="true" href="#heading">#</a></h2>
 <p>&lsquo;#&rsquo; 으로 처리하며, 단계별로 더 많은 &lsquo;#&rsquo; 을 사용한다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Title</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">## Heading 1</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">### Heading 2</span>
 </span></span></code></pre></div><p>결과</p>
-<h1 id="title">Title</h1>
-<h2 id="heading-1">Heading 1</h2>
-<h3 id="heading-2">Heading 2</h3>
-<h2 id="listing">Listing</h2>
+<h1 id="title">Title<a hidden class="anchor" aria-hidden="true" href="#title">#</a></h1>
+<h2 id="heading-1">Heading 1<a hidden class="anchor" aria-hidden="true" href="#heading-1">#</a></h2>
+<h3 id="heading-2">Heading 2<a hidden class="anchor" aria-hidden="true" href="#heading-2">#</a></h3>
+<h2 id="listing">Listing<a hidden class="anchor" aria-hidden="true" href="#listing">#</a></h2>
 <p>Asterisk (*) 를 사용하여 순서 없는 목록을, 숫자를 사용하여 순서 있는 목록을 나타낸다.</p>
-<h3 id="순서-없는-경우">순서 없는 경우</h3>
+<h3 id="순서-없는-경우">순서 없는 경우<a hidden class="anchor" aria-hidden="true" href="#순서-없는-경우">#</a></h3>
 <ul>
 <li>이거닷</li>
 <li>이거 중요해!</li>
 </ul>
-<h3 id="순서가-있는-경우">순서가 있는 경우</h3>
+<h3 id="순서가-있는-경우">순서가 있는 경우<a hidden class="anchor" aria-hidden="true" href="#순서가-있는-경우">#</a></h3>
 <ol>
 <li>첫번째 순서</li>
 <li>두번째~</li>
 <li>셋!!</li>
 </ol>
-<h2 id="fonts">Fonts</h2>
+<h2 id="fonts">Fonts<a hidden class="anchor" aria-hidden="true" href="#fonts">#</a></h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>**Bold** _Italic_ ~~CANCEL_LINE~~
 </span></span></code></pre></div><p><strong>Bold</strong> <em>Italic</em> <del>CANCEL_LINE</del></p>
-<h2 id="src">SRC</h2>
+<h2 id="src">SRC<a hidden class="anchor" aria-hidden="true" href="#src">#</a></h2>
 <pre tabindex="0"><code>![Alt](경로 &#34;Optional Tooltip MSG&#34;)
-</code></pre><h2 id="table">TABLE</h2>
+</code></pre><h2 id="table">TABLE<a hidden class="anchor" aria-hidden="true" href="#table">#</a></h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>| Day     | Meal    | Price |
 </span></span><span style="display:flex;"><span>| --------|---------|-------|
 </span></span><span style="display:flex;"><span>| Monday  | pasta   | $6    |
@@ -166,116 +259,86 @@
 </tbody>
 </table>
 
-  </section>
-  <div class="share">    
-    <a
-      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fenv%2fmark-down-syntax%2f&t=markDown%20%eb%ac%b8%eb%b2%95"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-facebook"></i
-    ></a>
-    <a
-      href="//twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fenv%2fmark-down-syntax%2f&text=markDown%20%eb%ac%b8%eb%b2%95&tw_p=tweetbutton"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-twitter"></i
-    ></a>
-    <a
-      href="//getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fenv%2fmark-down-syntax%2f&title=markDown%20%eb%ac%b8%eb%b2%95"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-get-pocket"></i
-    ></a>
-    <a
-      href="//plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fenv%2fmark-down-syntax%2f"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-google-plus"></i
-    ></a>
+
   </div>
-  <div class="post-meta-code">
-    <div class="desc">
-      Friendly
-      
-      nolleh
-      
-      wrotes this article at
-      <span class="highlight">Tuesday, Jul 4, 2017 22:13</span> 
-      for you.
-    </div>
-    <div class="desc">
-      
-      <div class="desc">
-        <span class="fixed-desc">_Categories</span>
-        
-        
-        <a href="https://nolleh.github.io//categories/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD">#개발환경</a>
-        
-      </div>
-      
-      <div class="desc">
-        <span class="fixed-desc">_Tags</span>
-        
-        
-        <a href="https://nolleh.github.io/tags/github-page">#GitHub-Page</a>
-        
-        <a href="https://nolleh.github.io/tags/editor">#Editor</a>
-        
-        
-      </div>
-    </div>
-  </div>  
-  
-  <div class="post-comment">    
-    <div id="disqus_thread"></div>
-<script type="application/javascript">
-    window.disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "nolleh-github-io" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>    
-  </div>
-  
-  <div class="recommend-articles">
-    Recommend these articles
-    <ul>
-      
-      <li>
-        <a href="https://nolleh.github.io/etc/managed_cb_to_unmanaged/" rel="prev">
-          <span>C&#43;&#43; CLI 에서 managed 콜백을 unmanaged 로 전달하기</span>
-        </a>
-      </li>
-      
-      
-      <li>
-        <a href="https://nolleh.github.io/env/brew-update/" rel="next">
-          <span>Brew Install 이 구버전만 설치할 때</span>
-        </a>
-      </li>
-      
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://nolleh.github.io/tags/github-page/">GitHub-Page</a></li>
+      <li><a href="https://nolleh.github.io/tags/editor/">Editor</a></li>
     </ul>
-  </div>
-</div>
-
-<div class="go-top">
-  <a href="#" class="go-top-button">
-    <i class="fa fa-angle-double-up"></i>
-    <span>Top</span>
-  </a>
-</div>
+  </footer>
+</article>
+    </main>
+    
 <footer class="footer">
-  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
-  ALL RIGHTS RESERVED.
+    <span>&copy; 2022 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
-</body>
-</html>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

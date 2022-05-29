@@ -1,98 +1,218 @@
 <!DOCTYPE html>
-<html>
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=80&amp;path=livereload" data-no-instant defer></script>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Building Distributed App  | The Computer Programmer, Nolleh</title>
-  <meta name="description" content=" 'Building Distributed App'read this article.">
-  <meta property="og:title" content="Building Distributed App">
-  
-  <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2019-01-23">
-  
-  <meta property="og:description" content=" 'Building Distributed App'read this article.">
-  <meta property="og:url" content="https://nolleh.github.io/block-chain-youtube/building-distributed-app/">
-  <meta property="og:site_name" content="The Computer Programmer, Nolleh">
-  
-  <meta property="og:image" content="https://nolleh.github.io/images/thumbnail.png">
-  
-  
-  <meta property="og:tags" content="EOS">
-  
-  <meta property="og:tags" content="블록체인">
-  
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="canonical" href="https://nolleh.github.io/block-chain-youtube/building-distributed-app/">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
-  <link rel="stylesheet" href="/css/styles.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  
-  
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102565363-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-102565363-1');
-  </script>
-  
-  
-  <script type="text/javascript">
-  function toggle_visibility(id) {
-    var e = document.getElementById(id);
-    if (e.className === 'menu')
-      e.className = 'menu hidden';
-    else
-      e.className = 'menu';
-  }
-  </script>
-</head>
-<body>
-  <div class="navbar">    
-    <div class="logo">
-      <a href="/">
-        <img src="/images/logo.png" height="34px" />
-      </a>
-    </div>
-    <div class="burger">
-      <button onclick="toggle_visibility('menu')">
-        <i class="fa fa-bars" aria-hidden="true"></i> Menu
-      </button>
-    </div>
-    <div id="menu" class="menu hidden">
-      <ul>
-        <li><a href="/">#The Computer Programmer, Nolleh</a></li>
-        <li><a href="/categories">#Categories</a></li>
-        <li><a href="/tags">#Tags</a></li>
-        <li><a href="/projects">#Projects</a></li>        
-      </ul>
-      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
-    </div>
-  </div>
-  <div class="container">    
+<html lang="en" dir="auto">
 
-<div class="post">
-  <div class="post-title">
-    <a href="https://nolleh.github.io/block-chain-youtube/building-distributed-app/">
-      <img src="/images/post-title-icon.png" />
-      <div class="post-meta">
-        <time>Wednesday, Jan 23, 2019 20:32</time>
-        <h1>Building Distributed App</h1>
-      </div>
-    </a>
-  </div>
-  <div class="post-toc">
-    <span class="title">TOC</span>
-    <nav id="TableOfContents"></nav>
-  </div>
-  <section class="post-content">
-    <blockquote>
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Building Distributed App | The Computer Programmer, Nolleh</title>
+<meta name="keywords" content="EOS, 블록체인">
+<meta name="description" content="다음에서 발췌 ()[]
+ Smart Contract  블록은 트랜잭션을 포함한다. 트랜잭션은 액션의 기록이다. 액션은 컨트랙트의 동작이다.  스마트컨트랙트의 사용
+ eos.io 의 컨트랙트는 abi 로 표현된다. 어플리케이션 코드는 json data 를 이용한 http 를 통해 contract 를 트리거 한다. EOS.IO 는 컨트랙트를 간단히 스크립팅하거나 테스팅하기위한 커맨드라인 인터페이스를 제공한다.  Intro Smart Contracts   EOS.IO 스마트 컨트랙트는 WebAssembly 로 구동된다. (WASM)
+ web 표준으로 떠오르는중 c/c&#43;&#43; 로부터 clang/llvm 을 통해 생성된다.">
+<meta name="author" content="nolleh">
+<link rel="canonical" href="https://nolleh.github.io/block-chain-youtube/building-distributed-app/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.1740750342264a4e69b84ddf6899fb02cc95465080d85c57c08bb1d110900bf6.css" integrity="sha256-F0B1A0ImSk5puE3faJn7AsyVRlCA2FxXwIux0RCQC/Y=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://nolleh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nolleh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-102565363-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="Building Distributed App" />
+<meta property="og:description" content="다음에서 발췌 ()[]
+ Smart Contract  블록은 트랜잭션을 포함한다. 트랜잭션은 액션의 기록이다. 액션은 컨트랙트의 동작이다.  스마트컨트랙트의 사용
+ eos.io 의 컨트랙트는 abi 로 표현된다. 어플리케이션 코드는 json data 를 이용한 http 를 통해 contract 를 트리거 한다. EOS.IO 는 컨트랙트를 간단히 스크립팅하거나 테스팅하기위한 커맨드라인 인터페이스를 제공한다.  Intro Smart Contracts   EOS.IO 스마트 컨트랙트는 WebAssembly 로 구동된다. (WASM)
+ web 표준으로 떠오르는중 c/c&#43;&#43; 로부터 clang/llvm 을 통해 생성된다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nolleh.github.io/block-chain-youtube/building-distributed-app/" /><meta property="article:section" content="block-chain-youtube" />
+<meta property="article:published_time" content="2019-01-23T20:32:59&#43;09:00" />
+<meta property="article:modified_time" content="2019-01-23T20:32:59&#43;09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Building Distributed App"/>
+<meta name="twitter:description" content="다음에서 발췌 ()[]
+ Smart Contract  블록은 트랜잭션을 포함한다. 트랜잭션은 액션의 기록이다. 액션은 컨트랙트의 동작이다.  스마트컨트랙트의 사용
+ eos.io 의 컨트랙트는 abi 로 표현된다. 어플리케이션 코드는 json data 를 이용한 http 를 통해 contract 를 트리거 한다. EOS.IO 는 컨트랙트를 간단히 스크립팅하거나 테스팅하기위한 커맨드라인 인터페이스를 제공한다.  Intro Smart Contracts   EOS.IO 스마트 컨트랙트는 WebAssembly 로 구동된다. (WASM)
+ web 표준으로 떠오르는중 c/c&#43;&#43; 로부터 clang/llvm 을 통해 생성된다."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Block-chain-youtubes",
+      "item": "https://nolleh.github.io/block-chain-youtube/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Building Distributed App",
+      "item": "https://nolleh.github.io/block-chain-youtube/building-distributed-app/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Building Distributed App",
+  "name": "Building Distributed App",
+  "description": "다음에서 발췌 ()[]\n Smart Contract  블록은 트랜잭션을 포함한다. 트랜잭션은 액션의 기록이다. 액션은 컨트랙트의 동작이다.  스마트컨트랙트의 사용\n eos.io 의 컨트랙트는 abi 로 표현된다. 어플리케이션 코드는 json data 를 이용한 http 를 통해 contract 를 트리거 한다. EOS.IO 는 컨트랙트를 간단히 스크립팅하거나 테스팅하기위한 커맨드라인 인터페이스를 제공한다.  Intro Smart Contracts   EOS.IO 스마트 컨트랙트는 WebAssembly 로 구동된다. (WASM)\n web 표준으로 떠오르는중 c/c++ 로부터 clang/llvm 을 통해 생성된다.",
+  "keywords": [
+    "EOS", "블록체인"
+  ],
+  "articleBody": " 다음에서 발췌 ()[]\n Smart Contract  블록은 트랜잭션을 포함한다. 트랜잭션은 액션의 기록이다. 액션은 컨트랙트의 동작이다.  스마트컨트랙트의 사용\n eos.io 의 컨트랙트는 abi 로 표현된다. 어플리케이션 코드는 json data 를 이용한 http 를 통해 contract 를 트리거 한다. EOS.IO 는 컨트랙트를 간단히 스크립팅하거나 테스팅하기위한 커맨드라인 인터페이스를 제공한다.  Intro Smart Contracts   EOS.IO 스마트 컨트랙트는 WebAssembly 로 구동된다. (WASM)\n web 표준으로 떠오르는중 c/c++ 로부터 clang/llvm 을 통해 생성된다. 다른 언어들도 언젠가 지원될 것    Transaction - 실행되는 하나이상의 액션의 집합.\n 하나의 액션이라도 실패하면 모든 트랜잭션이 실패한다    Action - 스마트컨트랙트를 실행하는 고수준의 함수\n 데이터를 컨트랙트에 전송하기 위해서는 payload 를 포함해야한다.    cloes 는 http 를 호출하는 syntatic sugar~\ntransaction json 을 살펴보면. signature 가 있고, 이 특정한 트랜잭션의 시그니쳐를 표현한다.\naction json 은 이런 형태\nactions : [{ \"account\": \"eosio\", \"name\": \"newaccount\",\"actor\": \"eosio\", \"permission\": \"acitve\" }], \"Data\": \"000000000ea30550 .. 000a8ed32320100\" }]\n  account : 액션을 실행하는 계정의 이름 (스마트 컨트랙트가 올라가있는 계정. 어떻게 action 을 실행할지에 대해 알고있다.) name : “authroization”: [{ // 어떤 시그니쳐가 필요한지 나타낸다. data : hex 로 표현된 값   table 을 업데이트할때, payer 에 대해 0 를 전달하면 이전 payer 를 그대로 사용한다.\nunittest - test_api - tests directories . - api_tests.cpp\n#include #inclue  abi.hpp  BOOST_AUTO_TEST_SUITE(dice_tests) BOOST_FIXTURE_TEST_CASE(dice_test, dice_tester) try { create_accounts( {N(eosio.token), N(dice), N(alice), N(bob), false}); set_code(N(eosio.token), eosio_token_wast); set_abi(N(eosio.token), eosio_token_abi); push_action(N(eosio.token), N(create), N(eosio.toekn), mvo() (\"issuer\", \"eosio.token\")) } load balcancing 을 담당하는 릴레이노드 / producer node 가 별개로 있다\n특정노드에 컨트랙트를 전송 ? host 지정 하면 된다.\ncontext free action 를 어디서배우면 되나~ //\ntransaction 을 트랙킹하기위해 플러그인을 사용해도 된다. mongodb plugin 등.\n",
+  "wordCount" : "248",
+  "inLanguage": "en",
+  "datePublished": "2019-01-23T20:32:59+09:00",
+  "dateModified": "2019-01-23T20:32:59+09:00",
+  "author":{
+    "@type": "Person",
+    "name": "nolleh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nolleh.github.io/block-chain-youtube/building-distributed-app/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Computer Programmer, Nolleh",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nolleh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://nolleh.github.io/categories/" title="categories">
+                    <span>categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nolleh.github.io/tags/" title="tags">
+                    <span>tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Building Distributed App
+    </h1>
+    <div class="post-meta"><span title='2019-01-23 20:32:59 +0900 KST'>January 23, 2019</span>&nbsp;·&nbsp;nolleh
+
+</div>
+  </header> 
+  <div class="post-content"><blockquote>
 <p>다음에서 발췌 ()[]</p>
 </blockquote>
-<h1 id="smart-contract">Smart Contract</h1>
+<h1 id="smart-contract">Smart Contract<a hidden class="anchor" aria-hidden="true" href="#smart-contract">#</a></h1>
 <ul>
 <li>블록은 트랜잭션을 포함한다.</li>
 <li>트랜잭션은 액션의 기록이다.</li>
@@ -104,7 +224,7 @@
 <li>어플리케이션 코드는 json data 를 이용한 http 를 통해 contract 를 트리거 한다.</li>
 <li>EOS.IO 는 컨트랙트를 간단히 스크립팅하거나 테스팅하기위한 커맨드라인 인터페이스를 제공한다.</li>
 </ul>
-<h1 id="intro-smart-contracts">Intro Smart Contracts</h1>
+<h1 id="intro-smart-contracts">Intro Smart Contracts<a hidden class="anchor" aria-hidden="true" href="#intro-smart-contracts">#</a></h1>
 <ul>
 <li>
 <p>EOS.IO 스마트 컨트랙트는 WebAssembly 로 구동된다. (WASM)</p>
@@ -160,116 +280,86 @@ host 지정 하면 된다.</p>
 <p>transaction 을 트랙킹하기위해 플러그인을 사용해도 된다.
 mongodb plugin 등.</p>
 
-  </section>
-  <div class="share">    
-    <a
-      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fblock-chain-youtube%2fbuilding-distributed-app%2f&t=Building%20Distributed%20App"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-facebook"></i
-    ></a>
-    <a
-      href="//twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fblock-chain-youtube%2fbuilding-distributed-app%2f&text=Building%20Distributed%20App&tw_p=tweetbutton"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-twitter"></i
-    ></a>
-    <a
-      href="//getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fblock-chain-youtube%2fbuilding-distributed-app%2f&title=Building%20Distributed%20App"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-get-pocket"></i
-    ></a>
-    <a
-      href="//plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fblock-chain-youtube%2fbuilding-distributed-app%2f"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-google-plus"></i
-    ></a>
+
   </div>
-  <div class="post-meta-code">
-    <div class="desc">
-      Friendly
-      
-      nolleh
-      
-      wrotes this article at
-      <span class="highlight">Wednesday, Jan 23, 2019 20:32</span> 
-      for you.
-    </div>
-    <div class="desc">
-      
-      <div class="desc">
-        <span class="fixed-desc">_Categories</span>
-        
-        
-        <a href="https://nolleh.github.io//categories/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8-%EA%B0%9C%EB%85%90">#블록체인-개념</a>
-        
-      </div>
-      
-      <div class="desc">
-        <span class="fixed-desc">_Tags</span>
-        
-        
-        <a href="https://nolleh.github.io/tags/eos">#EOS</a>
-        
-        <a href="https://nolleh.github.io/tags/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8">#블록체인</a>
-        
-        
-      </div>
-    </div>
-  </div>  
-  
-  <div class="post-comment">    
-    <div id="disqus_thread"></div>
-<script type="application/javascript">
-    window.disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "nolleh-github-io" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>    
-  </div>
-  
-  <div class="recommend-articles">
-    Recommend these articles
-    <ul>
-      
-      <li>
-        <a href="https://nolleh.github.io/distributed-systems/1.highlevel/" rel="prev">
-          <span>고수준의 분산 시스템</span>
-        </a>
-      </li>
-      
-      
-      <li>
-        <a href="https://nolleh.github.io/coursera/gcp/1.msaandapigateway/" rel="next">
-          <span>1.MSA and ApiGateway</span>
-        </a>
-      </li>
-      
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://nolleh.github.io/tags/eos/">EOS</a></li>
+      <li><a href="https://nolleh.github.io/tags/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8/">블록체인</a></li>
     </ul>
-  </div>
-</div>
-
-<div class="go-top">
-  <a href="#" class="go-top-button">
-    <i class="fa fa-angle-double-up"></i>
-    <span>Top</span>
-  </a>
-</div>
+  </footer>
+</article>
+    </main>
+    
 <footer class="footer">
-  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
-  ALL RIGHTS RESERVED.
+    <span>&copy; 2022 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
-</body>
-</html>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

@@ -1,105 +1,218 @@
 <!DOCTYPE html>
-<html>
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=80&amp;path=livereload" data-no-instant defer></script>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>비동기 프로그램의 제어 흐름  | The Computer Programmer, Nolleh</title>
-  <meta name="description" content=" '비동기 프로그램의 제어 흐름'read this article.">
-  <meta property="og:title" content="비동기 프로그램의 제어 흐름">
-  
-  <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2018-12-21">
-  
-  <meta property="og:description" content=" '비동기 프로그램의 제어 흐름'read this article.">
-  <meta property="og:url" content="https://nolleh.github.io/csharp/async-control-flow-msdn/">
-  <meta property="og:site_name" content="The Computer Programmer, Nolleh">
-  
-  <meta property="og:image" content="https://nolleh.github.io/images/thumbnail.png">
-  
-  
-  <meta property="og:tags" content="C#">
-  
-  <meta property="og:tags" content="Programming">
-  
-  <meta property="og:tags" content="async">
-  
-  <meta property="og:tags" content="await">
-  
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="canonical" href="https://nolleh.github.io/csharp/async-control-flow-msdn/">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
-  <link rel="stylesheet" href="/css/styles.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  
-  
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102565363-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-102565363-1');
-  </script>
-  
-  
-  <script type="text/javascript">
-  function toggle_visibility(id) {
-    var e = document.getElementById(id);
-    if (e.className === 'menu')
-      e.className = 'menu hidden';
-    else
-      e.className = 'menu';
-  }
-  </script>
-</head>
-<body>
-  <div class="navbar">    
-    <div class="logo">
-      <a href="/">
-        <img src="/images/logo.png" height="34px" />
-      </a>
-    </div>
-    <div class="burger">
-      <button onclick="toggle_visibility('menu')">
-        <i class="fa fa-bars" aria-hidden="true"></i> Menu
-      </button>
-    </div>
-    <div id="menu" class="menu hidden">
-      <ul>
-        <li><a href="/">#The Computer Programmer, Nolleh</a></li>
-        <li><a href="/categories">#Categories</a></li>
-        <li><a href="/tags">#Tags</a></li>
-        <li><a href="/projects">#Projects</a></li>        
-      </ul>
-      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
-    </div>
-  </div>
-  <div class="container">    
+<html lang="en" dir="auto">
 
-<div class="post">
-  <div class="post-title">
-    <a href="https://nolleh.github.io/csharp/async-control-flow-msdn/">
-      <img src="/images/post-title-icon.png" />
-      <div class="post-meta">
-        <time>Friday, Dec 21, 2018 22:02</time>
-        <h1>비동기 프로그램의 제어 흐름</h1>
-      </div>
-    </a>
-  </div>
-  <div class="post-toc">
-    <span class="title">TOC</span>
-    <nav id="TableOfContents"></nav>
-  </div>
-  <section class="post-content">
-    <h1 id="개요">개요</h1>
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>비동기 프로그램의 제어 흐름 | The Computer Programmer, Nolleh</title>
+<meta name="keywords" content="C#, Programming, async, await">
+<meta name="description" content="개요   다음에서 발췌
+비동기 프로그램의 제어 흐름
+ 코드  public partial class MainWindow : Window {  // . . .  private async void startButton_Click(object sender, RoutedEventArgs e)  {  // ONE  Task&lt;int&gt; getLengthTask = AccessTheWebAsync();   // FOUR  int contentLength = await getLengthTask;   // SIX  resultsTextBox.Text &#43;=  $&#34;\r\nLength of the downloaded string: {contentLength}.\r\n&#34;;  }   async Task&lt;int&gt; AccessTheWebAsync()  {  // TWO  HttpClient client = new HttpClient();  Task&lt;string&gt; getStringTask =  client.">
+<meta name="author" content="nolleh">
+<link rel="canonical" href="https://nolleh.github.io/csharp/async-control-flow-msdn/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.1740750342264a4e69b84ddf6899fb02cc95465080d85c57c08bb1d110900bf6.css" integrity="sha256-F0B1A0ImSk5puE3faJn7AsyVRlCA2FxXwIux0RCQC/Y=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://nolleh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nolleh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-102565363-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="비동기 프로그램의 제어 흐름" />
+<meta property="og:description" content="개요   다음에서 발췌
+비동기 프로그램의 제어 흐름
+ 코드  public partial class MainWindow : Window {  // . . .  private async void startButton_Click(object sender, RoutedEventArgs e)  {  // ONE  Task&lt;int&gt; getLengthTask = AccessTheWebAsync();   // FOUR  int contentLength = await getLengthTask;   // SIX  resultsTextBox.Text &#43;=  $&#34;\r\nLength of the downloaded string: {contentLength}.\r\n&#34;;  }   async Task&lt;int&gt; AccessTheWebAsync()  {  // TWO  HttpClient client = new HttpClient();  Task&lt;string&gt; getStringTask =  client." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nolleh.github.io/csharp/async-control-flow-msdn/" /><meta property="article:section" content="csharp" />
+<meta property="article:published_time" content="2018-12-21T22:02:13&#43;09:00" />
+<meta property="article:modified_time" content="2018-12-21T22:02:13&#43;09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="비동기 프로그램의 제어 흐름"/>
+<meta name="twitter:description" content="개요   다음에서 발췌
+비동기 프로그램의 제어 흐름
+ 코드  public partial class MainWindow : Window {  // . . .  private async void startButton_Click(object sender, RoutedEventArgs e)  {  // ONE  Task&lt;int&gt; getLengthTask = AccessTheWebAsync();   // FOUR  int contentLength = await getLengthTask;   // SIX  resultsTextBox.Text &#43;=  $&#34;\r\nLength of the downloaded string: {contentLength}.\r\n&#34;;  }   async Task&lt;int&gt; AccessTheWebAsync()  {  // TWO  HttpClient client = new HttpClient();  Task&lt;string&gt; getStringTask =  client."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Csharps",
+      "item": "https://nolleh.github.io/csharp/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "비동기 프로그램의 제어 흐름",
+      "item": "https://nolleh.github.io/csharp/async-control-flow-msdn/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "비동기 프로그램의 제어 흐름",
+  "name": "비동기 프로그램의 제어 흐름",
+  "description": "개요   다음에서 발췌\n비동기 프로그램의 제어 흐름\n 코드  public partial class MainWindow : Window {  // . . .  private async void startButton_Click(object sender, RoutedEventArgs e)  {  // ONE  Task\u0026lt;int\u0026gt; getLengthTask = AccessTheWebAsync();   // FOUR  int contentLength = await getLengthTask;   // SIX  resultsTextBox.Text +=  $\u0026#34;\\r\\nLength of the downloaded string: {contentLength}.\\r\\n\u0026#34;;  }   async Task\u0026lt;int\u0026gt; AccessTheWebAsync()  {  // TWO  HttpClient client = new HttpClient();  Task\u0026lt;string\u0026gt; getStringTask =  client.",
+  "keywords": [
+    "C#", "Programming", "async", "await"
+  ],
+  "articleBody": "개요   다음에서 발췌\n비동기 프로그램의 제어 흐름\n 코드  public partial class MainWindow : Window {  // . . .  private async void startButton_Click(object sender, RoutedEventArgs e)  {  // ONE  Taskint getLengthTask = AccessTheWebAsync();   // FOUR  int contentLength = await getLengthTask;   // SIX  resultsTextBox.Text +=  $\"\\r\\nLength of the downloaded string: {contentLength}.\\r\\n\";  }   async Taskint AccessTheWebAsync()  {  // TWO  HttpClient client = new HttpClient();  Taskstring getStringTask =  client.GetStringAsync(\"https://msdn.microsoft.com\");   // THREE  string urlContents = await getStringTask;   // FIVE  return urlContents.Length;  } } Three 에서 yield 되어 Four.\n",
+  "wordCount" : "84",
+  "inLanguage": "en",
+  "datePublished": "2018-12-21T22:02:13+09:00",
+  "dateModified": "2018-12-21T22:02:13+09:00",
+  "author":{
+    "@type": "Person",
+    "name": "nolleh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nolleh.github.io/csharp/async-control-flow-msdn/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Computer Programmer, Nolleh",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nolleh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://nolleh.github.io/categories/" title="categories">
+                    <span>categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nolleh.github.io/tags/" title="tags">
+                    <span>tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      비동기 프로그램의 제어 흐름
+    </h1>
+    <div class="post-meta"><span title='2018-12-21 22:02:13 +0900 KST'>December 21, 2018</span>&nbsp;·&nbsp;nolleh
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="개요">개요<a hidden class="anchor" aria-hidden="true" href="#개요">#</a></h1>
 <hr>
 <blockquote>
 <p>다음에서 발췌<br>
 <a href="https://docs.microsoft.com/ko-kr/dotnet/csharp/programming-guide/concepts/async/control-flow-in-async-programs">비동기 프로그램의 제어 흐름</a></p>
 </blockquote>
-<h1 id="코드">코드</h1>
+<h1 id="코드">코드<a hidden class="anchor" aria-hidden="true" href="#코드">#</a></h1>
 <hr>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">partial</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MainWindow</span> : Window
 </span></span><span style="display:flex;"><span>{
@@ -133,120 +246,88 @@
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Three 에서 yield 되어 Four.</p>
 
-  </section>
-  <div class="share">    
-    <a
-      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-control-flow-msdn%2f&t=%eb%b9%84%eb%8f%99%ea%b8%b0%20%ed%94%84%eb%a1%9c%ea%b7%b8%eb%9e%a8%ec%9d%98%20%ec%a0%9c%ec%96%b4%20%ed%9d%90%eb%a6%84"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-facebook"></i
-    ></a>
-    <a
-      href="//twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-control-flow-msdn%2f&text=%eb%b9%84%eb%8f%99%ea%b8%b0%20%ed%94%84%eb%a1%9c%ea%b7%b8%eb%9e%a8%ec%9d%98%20%ec%a0%9c%ec%96%b4%20%ed%9d%90%eb%a6%84&tw_p=tweetbutton"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-twitter"></i
-    ></a>
-    <a
-      href="//getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-control-flow-msdn%2f&title=%eb%b9%84%eb%8f%99%ea%b8%b0%20%ed%94%84%eb%a1%9c%ea%b7%b8%eb%9e%a8%ec%9d%98%20%ec%a0%9c%ec%96%b4%20%ed%9d%90%eb%a6%84"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-get-pocket"></i
-    ></a>
-    <a
-      href="//plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fcsharp%2fasync-control-flow-msdn%2f"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-google-plus"></i
-    ></a>
+
   </div>
-  <div class="post-meta-code">
-    <div class="desc">
-      Friendly
-      
-      nolleh
-      
-      wrotes this article at
-      <span class="highlight">Friday, Dec 21, 2018 22:02</span> 
-      for you.
-    </div>
-    <div class="desc">
-      
-      <div class="desc">
-        <span class="fixed-desc">_Categories</span>
-        
-        
-        <a href="https://nolleh.github.io//categories/csharp">#csharp</a>
-        
-      </div>
-      
-      <div class="desc">
-        <span class="fixed-desc">_Tags</span>
-        
-        
-        <a href="https://nolleh.github.io/tags/c">#C#</a>
-        
-        <a href="https://nolleh.github.io/tags/programming">#Programming</a>
-        
-        <a href="https://nolleh.github.io/tags/async">#async</a>
-        
-        <a href="https://nolleh.github.io/tags/await">#await</a>
-        
-        
-      </div>
-    </div>
-  </div>  
-  
-  <div class="post-comment">    
-    <div id="disqus_thread"></div>
-<script type="application/javascript">
-    window.disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "nolleh-github-io" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>    
-  </div>
-  
-  <div class="recommend-articles">
-    Recommend these articles
-    <ul>
-      
-      <li>
-        <a href="https://nolleh.github.io/csharp/async-await-msdn/" rel="prev">
-          <span>Async Await 을 사용한 비동기 프로그래밍</span>
-        </a>
-      </li>
-      
-      
-      <li>
-        <a href="https://nolleh.github.io/block-chain/1.1-introduction/" rel="next">
-          <span>EOSIO - 1.1/소개</span>
-        </a>
-      </li>
-      
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://nolleh.github.io/tags/c#/">C#</a></li>
+      <li><a href="https://nolleh.github.io/tags/programming/">Programming</a></li>
+      <li><a href="https://nolleh.github.io/tags/async/">async</a></li>
+      <li><a href="https://nolleh.github.io/tags/await/">await</a></li>
     </ul>
-  </div>
-</div>
-
-<div class="go-top">
-  <a href="#" class="go-top-button">
-    <i class="fa fa-angle-double-up"></i>
-    <span>Top</span>
-  </a>
-</div>
+  </footer>
+</article>
+    </main>
+    
 <footer class="footer">
-  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
-  ALL RIGHTS RESERVED.
+    <span>&copy; 2022 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
-</body>
-</html>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

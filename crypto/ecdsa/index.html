@@ -1,111 +1,228 @@
 <!DOCTYPE html>
-<html>
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=80&amp;path=livereload" data-no-instant defer></script>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ECDSA  | The Computer Programmer, Nolleh</title>
-  <meta name="description" content=" 'ECDSA'read this article.">
-  <meta property="og:title" content="ECDSA">
-  
-  <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2020-01-30">
-  
-  <meta property="og:description" content=" 'ECDSA'read this article.">
-  <meta property="og:url" content="https://nolleh.github.io/crypto/ecdsa/">
-  <meta property="og:site_name" content="The Computer Programmer, Nolleh">
-  
-  <meta property="og:image" content="https://nolleh.github.io/images/thumbnail.png">
-  
-  
-  <meta property="og:tags" content="암호학">
-  
-  <meta property="og:tags" content="CRYPTO">
-  
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="canonical" href="https://nolleh.github.io/crypto/ecdsa/">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
-  <link rel="stylesheet" href="/css/styles.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  
-  
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102565363-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-102565363-1');
-  </script>
-  
-  
-  <script type="text/javascript">
-  function toggle_visibility(id) {
-    var e = document.getElementById(id);
-    if (e.className === 'menu')
-      e.className = 'menu hidden';
-    else
-      e.className = 'menu';
-  }
-  </script>
-</head>
-<body>
-  <div class="navbar">    
-    <div class="logo">
-      <a href="/">
-        <img src="/images/logo.png" height="34px" />
-      </a>
-    </div>
-    <div class="burger">
-      <button onclick="toggle_visibility('menu')">
-        <i class="fa fa-bars" aria-hidden="true"></i> Menu
-      </button>
-    </div>
-    <div id="menu" class="menu hidden">
-      <ul>
-        <li><a href="/">#The Computer Programmer, Nolleh</a></li>
-        <li><a href="/categories">#Categories</a></li>
-        <li><a href="/tags">#Tags</a></li>
-        <li><a href="/projects">#Projects</a></li>        
-      </ul>
-      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
-    </div>
-  </div>
-  <div class="container">    
+<html lang="en" dir="auto">
 
-<div class="post">
-  <div class="post-title">
-    <a href="https://nolleh.github.io/crypto/ecdsa/">
-      <img src="/images/post-title-icon.png" />
-      <div class="post-meta">
-        <time>Thursday, Jan 30, 2020 18:28</time>
-        <h1>ECDSA</h1>
-      </div>
-    </a>
-  </div>
-  <div class="post-toc">
-    <span class="title">TOC</span>
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#terms">Terms</a></li>
-    <li><a href="#ecc-의-privatekey-와-publickey">ECC 의 privateKey 와 publicKey</a></li>
-    <li><a href="#ecdsa-와-secp256k1">ECDSA 와 secp256k1</a>
-      <ul>
-        <li><a href="#domain-parameter">Domain Parameter</a></li>
-      </ul>
-    </li>
-    <li><a href="#서명은-어떻게-이루어지는가-">서명은 어떻게 이루어지는가 ?</a></li>
-    <li><a href="#ecdsa-시그니쳐에서-어떻게-public-key-를-복원할-수-있는가-">ECDSA 시그니쳐에서 어떻게 public key 를 복원할 수 있는가 ?</a></li>
-  </ul>
-</nav>
-  </div>
-  <section class="post-content">
-    <h1 id="ecdsa">ECDSA</h1>
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>ECDSA | The Computer Programmer, Nolleh</title>
+<meta name="keywords" content="암호학, CRYPTO">
+<meta name="description" content="ECDSA ref. https://m.blog.naver.com/aepkoreanet/221178375642
+ec (타원곡선) 을 이용한 기술들의 집합 - ECC,
+이중에 디지털서명 관련 기술이 ECDSA
+Terms   유한체
+집합에 속해있는 원소의 수가 한정되어 있고 덧셈, 곱셈에 대해 닫혀있는 집합  유한체 F 표기법
+원소의 개수가 p 인 유한체 F 는 Fp 혹은 GF(p) 로 표기 유한체 상에 정의된 타원 곡선
+E(Fp) 암호학에서 사용되는 유한체      - Prime Field 원소의 개수가 소수  ECC 사용시 타원 곡선을 정의하는 domain parameter 를 정의해야함.">
+<meta name="author" content="nolleh">
+<link rel="canonical" href="https://nolleh.github.io/crypto/ecdsa/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.1740750342264a4e69b84ddf6899fb02cc95465080d85c57c08bb1d110900bf6.css" integrity="sha256-F0B1A0ImSk5puE3faJn7AsyVRlCA2FxXwIux0RCQC/Y=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://nolleh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nolleh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-102565363-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="ECDSA" />
+<meta property="og:description" content="ECDSA ref. https://m.blog.naver.com/aepkoreanet/221178375642
+ec (타원곡선) 을 이용한 기술들의 집합 - ECC,
+이중에 디지털서명 관련 기술이 ECDSA
+Terms   유한체
+집합에 속해있는 원소의 수가 한정되어 있고 덧셈, 곱셈에 대해 닫혀있는 집합  유한체 F 표기법
+원소의 개수가 p 인 유한체 F 는 Fp 혹은 GF(p) 로 표기 유한체 상에 정의된 타원 곡선
+E(Fp) 암호학에서 사용되는 유한체      - Prime Field 원소의 개수가 소수  ECC 사용시 타원 곡선을 정의하는 domain parameter 를 정의해야함." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nolleh.github.io/crypto/ecdsa/" /><meta property="article:section" content="crypto" />
+<meta property="article:published_time" content="2020-01-30T18:28:50&#43;09:00" />
+<meta property="article:modified_time" content="2020-01-30T18:28:50&#43;09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ECDSA"/>
+<meta name="twitter:description" content="ECDSA ref. https://m.blog.naver.com/aepkoreanet/221178375642
+ec (타원곡선) 을 이용한 기술들의 집합 - ECC,
+이중에 디지털서명 관련 기술이 ECDSA
+Terms   유한체
+집합에 속해있는 원소의 수가 한정되어 있고 덧셈, 곱셈에 대해 닫혀있는 집합  유한체 F 표기법
+원소의 개수가 p 인 유한체 F 는 Fp 혹은 GF(p) 로 표기 유한체 상에 정의된 타원 곡선
+E(Fp) 암호학에서 사용되는 유한체      - Prime Field 원소의 개수가 소수  ECC 사용시 타원 곡선을 정의하는 domain parameter 를 정의해야함."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Cryptoes",
+      "item": "https://nolleh.github.io/crypto/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "ECDSA",
+      "item": "https://nolleh.github.io/crypto/ecdsa/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "ECDSA",
+  "name": "ECDSA",
+  "description": "ECDSA ref. https://m.blog.naver.com/aepkoreanet/221178375642\nec (타원곡선) 을 이용한 기술들의 집합 - ECC,\n이중에 디지털서명 관련 기술이 ECDSA\nTerms   유한체\n집합에 속해있는 원소의 수가 한정되어 있고 덧셈, 곱셈에 대해 닫혀있는 집합  유한체 F 표기법\n원소의 개수가 p 인 유한체 F 는 Fp 혹은 GF(p) 로 표기 유한체 상에 정의된 타원 곡선\nE(Fp) 암호학에서 사용되는 유한체      - Prime Field 원소의 개수가 소수  ECC 사용시 타원 곡선을 정의하는 domain parameter 를 정의해야함.",
+  "keywords": [
+    "암호학", "CRYPTO"
+  ],
+  "articleBody": "ECDSA ref. https://m.blog.naver.com/aepkoreanet/221178375642\nec (타원곡선) 을 이용한 기술들의 집합 - ECC,\n이중에 디지털서명 관련 기술이 ECDSA\nTerms   유한체\n집합에 속해있는 원소의 수가 한정되어 있고 덧셈, 곱셈에 대해 닫혀있는 집합  유한체 F 표기법\n원소의 개수가 p 인 유한체 F 는 Fp 혹은 GF(p) 로 표기 유한체 상에 정의된 타원 곡선\nE(Fp) 암호학에서 사용되는 유한체      - Prime Field 원소의 개수가 소수  ECC 사용시 타원 곡선을 정의하는 domain parameter 를 정의해야함. (p, a, b, G, n, h) 를 정의해야하는건데, 여러 표준단체에서 Field Size 에 맞는 타원곡선에 대한 파라미터 발표.\n p : Modulo Prime Number a : 타원곡선 방정식에서 사용되는 계수 b : 타원곡선 방정식에서 사용되는 계수 Base point 또는 Generator Point, G 는 E(Fp) 에 속해있는 point n : the order of point G (G 를 n번 더하면 무한원점이 되는값 : nG = ∞) H : cofactor  타원 곡선이란, 타원 곡선 방정식을 만족하는 집합을 곡선 그래프로 표시한 것\ny^2 = x^3 + ax + b\nsecp256k1 곡선의 경우 a = 0, b = 7 을 사용\nECC 의 privateKey 와 publicKey   Private Key d : P 보다 적은 소수 (Prime) 로, 난수 생성기로 생성 Public Key Q : Q(x, y) = d x G(x0, y0)   ECDSA 와 secp256k1 ECDSA 의 파라메터로 secp256k1 curve 를 사용 secp256k1\nsec - standard for Efficient Cryptography\np - parameter p over Fp\n256 - field size p 의 bit 수\nk - koblitz curve 변형\n1 - sequence number\nDomain Parameter T = (p,a,b,G,n,h) p : FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFC2F a : 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 b : 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000007 G : 02 79BE667E F9DCBBAC 55A06295 CE870B07 029BFCDB 2DCE28D9 59F2815B 16F81798 또는 G : 04 79BE667E F9DCBBAC 55A06295 CE870B07 029BFCDB 2DCE28D9 59F2815B 16F81798 483ADA77 26A3C465 5DA4FBFC 0E1108A8 FD17B448 A6855419 9C47D08F FB10D4B8 N : FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFE BAAEDCE6 AF48A03B BFD25E8C D0364141 h : 01 서명은 어떻게 이루어지는가 ? https://ko.wikipedia.org/wiki/%ED%83%80%EC%9B%90%EA%B3%A1%EC%84%A0_DSA\ndomain parameter 로 (CURVE, g, n) 을 사용한다.\n Curve : 타원곡선의 체 (field) 와 여기 사용된 수식. g : 타원 곡선의 기준점 (base point). 해당 타원곡선의 생성원(generator) 이다. n : g 의 차수이다. n X g = 0 이며, 반드시 소수여야한다. 보통 충분히 큰 소수를 사용한다.  privateKey, d 생성. - RNG 로 생성된 무작위로 선택된 1~ n-1 사이의 정수\npublicKey, Q 생성 - Q = dg 를 만족하는 정수. (g 를 d 번 더한 값)\n서명 프로세스\n필요한 것: E(Fp), d, Q, m\n1. e = H(m). 메시지를 해쉬하고 이를 e 라고 한다. 2. z = Ln(e) e 의 binary 값에서 왼쪽으로부터 n 번째 까지 잘라낸 값을 z 라고 한다. (left most n'th bit) 3. 암호학적으로 안전한 난수 k 를 [1, n-1] 사이에서 무작위로 선택한다. 4. 곡선 위의 점 (x1, y1) = k * g 를 계산한다. - 타원곡선에서의 덧셈은, 결국 다시 점이 된다. - 위 k * g 는 g 를 k 번 더하는 것을 의미하고, 결국 점이 된다. 5. r = x1 (mod n) 을 계산 한다. r 이 0 인 경우, k 를 다시 선택한다. 6. s = k^(-1)(z + rd) (mod n) 을 계산. s = 0 이면 3 으로 되돌아가 다른 k 를 선택, 순서대로 진행한다. 완성된 서명은 (r, s) 이다. 검증 프로세스\n필요한 것: E(Fp), (r,s), m\n- 곡선위의 점 인증 1. Q =/= O (identity element) 2. Q 가 곡선 위의 점인지 3. n x Q = O 인지 확인 - 서명 유효성 인증 1. r,s 가 1부터 n-1 사이의 정수인지 확인. 2. e = H(m) 을 계산. 3. z 계산 4. w = s^(-1)(mod n) 계산, u1 = zw, u2 = rw (mod n) 계산 5. shamir's trick 을 사용해서 (x1, y1) = u1 x g + u2 x Q 를 계산. (x1, y1) = O 이면 무효 6. r = x1 (mod n) 일때만 유효. 즉, 서명 프로세스는 타원 곡선에서 새로운 k 와 (x1, y1) 을 구한 후\nECDSA 시그니쳐에서 어떻게 public key 를 복원할 수 있는가 ? stack exchange link\nECDSA signature (r,s)\n사실 곡선과 사용된 해쉬 함수, 서명된 메시지 원본을 알고 있더라도 signature 로부터 public key 를 recover 하는 것은 불가능하다.\n그러나, signature 와 원본 메시지, 곡선에 대한 정보로 두개의 public key 를 생성하는게 가능하다. (이 중에 private key 가 사용된 public key 가 있을 것)\n동작 원리는 다음과 같다.\n R 과 R’ x 좌표로 r 값을 갖는 좌표를 찾는다. r^-1 을 연산하는데, 이는 시그니쳐의 r 의 곱셈 역원이다. (mod n) z 메시지 해쉬의 하위 n bit 인 z 를 연산한다.  public key 는 r^(−1)(sR−zG) and r^(−1)(sR′−zG) 가 된다.\n",
+  "wordCount" : "736",
+  "inLanguage": "en",
+  "datePublished": "2020-01-30T18:28:50+09:00",
+  "dateModified": "2020-01-30T18:28:50+09:00",
+  "author":{
+    "@type": "Person",
+    "name": "nolleh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nolleh.github.io/crypto/ecdsa/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Computer Programmer, Nolleh",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nolleh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://nolleh.github.io/categories/" title="categories">
+                    <span>categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nolleh.github.io/tags/" title="tags">
+                    <span>tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      ECDSA
+    </h1>
+    <div class="post-meta"><span title='2020-01-30 18:28:50 +0900 KST'>January 30, 2020</span>&nbsp;·&nbsp;nolleh
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="ecdsa">ECDSA<a hidden class="anchor" aria-hidden="true" href="#ecdsa">#</a></h1>
 <p>ref. <a href="https://m.blog.naver.com/aepkoreanet/221178375642">https://m.blog.naver.com/aepkoreanet/221178375642</a></p>
 <p>ec (타원곡선) 을 이용한 기술들의 집합 - ECC,<br>
 이중에 디지털서명 관련 기술이 ECDSA</p>
-<h2 id="terms">Terms</h2>
+<h2 id="terms">Terms<a hidden class="anchor" aria-hidden="true" href="#terms">#</a></h2>
 <blockquote>
 <ul>
 <li>유한체<br>
@@ -136,15 +253,16 @@
 <p>타원 곡선이란, 타원 곡선 방정식을 만족하는 집합을 곡선 그래프로 표시한 것</p>
 <p>y^2 = x^3 + ax + b</p>
 <p>secp256k1 곡선의 경우 a = 0, b = 7 을 사용</p>
-<p><img src="https://mblogthumb-phinf.pstatic.net/MjAxODAxMDVfMjA3/MDAxNTE1MTIwNzU2Mzg4.-O3OYGeOa7qhb3XL4zNeyVTUu-QztZOTNCB5usfDlzsg.WQ_YS2FHvXxbrzIKQ0FBFvJBdf90Zj7x5JuNwEVKWH8g.JPEG.aepkoreanet/secpcurve.jpg?type=w2" alt=""></p>
-<h2 id="ecc-의-privatekey-와-publickey">ECC 의 privateKey 와 publicKey</h2>
+<p><img loading="lazy" src="https://mblogthumb-phinf.pstatic.net/MjAxODAxMDVfMjA3/MDAxNTE1MTIwNzU2Mzg4.-O3OYGeOa7qhb3XL4zNeyVTUu-QztZOTNCB5usfDlzsg.WQ_YS2FHvXxbrzIKQ0FBFvJBdf90Zj7x5JuNwEVKWH8g.JPEG.aepkoreanet/secpcurve.jpg?type=w2" alt=""  />
+</p>
+<h2 id="ecc-의-privatekey-와-publickey">ECC 의 privateKey 와 publicKey<a hidden class="anchor" aria-hidden="true" href="#ecc-의-privatekey-와-publickey">#</a></h2>
 <blockquote>
 <ul>
 <li>Private Key d : P 보다 적은 소수 (Prime) 로, 난수 생성기로 생성</li>
 <li>Public Key Q : Q(x, y) = d x G(x0, y0)</li>
 </ul>
 </blockquote>
-<h2 id="ecdsa-와-secp256k1">ECDSA 와 secp256k1</h2>
+<h2 id="ecdsa-와-secp256k1">ECDSA 와 secp256k1<a hidden class="anchor" aria-hidden="true" href="#ecdsa-와-secp256k1">#</a></h2>
 <p>ECDSA 의 파라메터로 secp256k1 curve 를 사용
 secp256k1</p>
 <p>sec - standard for Efficient Cryptography<br>
@@ -152,7 +270,7 @@ p - parameter p over Fp<br>
 256 - field size p 의 bit 수<br>
 k - koblitz curve 변형<br>
 1 - sequence number</p>
-<h3 id="domain-parameter">Domain Parameter</h3>
+<h3 id="domain-parameter">Domain Parameter<a hidden class="anchor" aria-hidden="true" href="#domain-parameter">#</a></h3>
 <pre tabindex="0"><code>T = (p,a,b,G,n,h)
 
 p :  FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFC2F
@@ -170,7 +288,7 @@ G : 04 79BE667E F9DCBBAC 55A06295 CE870B07 029BFCDB 2DCE28D9 59F2815B 16F81798 4
 N :  FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFE BAAEDCE6 AF48A03B BFD25E8C D0364141
 
 h : 01
-</code></pre><h2 id="서명은-어떻게-이루어지는가-">서명은 어떻게 이루어지는가 ?</h2>
+</code></pre><h2 id="서명은-어떻게-이루어지는가-">서명은 어떻게 이루어지는가 ?<a hidden class="anchor" aria-hidden="true" href="#서명은-어떻게-이루어지는가-">#</a></h2>
 <p><a href="https://ko.wikipedia.org/wiki/%ED%83%80%EC%9B%90%EA%B3%A1%EC%84%A0_DSA">https://ko.wikipedia.org/wiki/%ED%83%80%EC%9B%90%EA%B3%A1%EC%84%A0_DSA</a></p>
 <p>domain parameter 로 (CURVE, g, n) 을 사용한다.</p>
 <ul>
@@ -192,7 +310,8 @@ publicKey, Q 생성 - Q = dg 를 만족하는 정수. (g 를 d 번 더한 값)</
 6. s = k^(-1)(z + rd) (mod n) 을 계산. s = 0 이면 3 으로 되돌아가 다른 k 를 선택, 순서대로 진행한다.
 
 완성된 서명은 (r, s) 이다.
-</code></pre><p><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d2ae87d5c9d298c4339595d4308963c17257e228" alt=""></p>
+</code></pre><p><img loading="lazy" src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d2ae87d5c9d298c4339595d4308963c17257e228" alt=""  />
+</p>
 <p>검증 프로세스</p>
 <p>필요한 것: <code>E(Fp)</code>, (r,s), m</p>
 <pre tabindex="0"><code>- 곡선위의 점 인증
@@ -208,7 +327,7 @@ publicKey, Q 생성 - Q = dg 를 만족하는 정수. (g 를 d 번 더한 값)</
 5. shamir&#39;s trick 을 사용해서 (x1, y1) = u1 x g + u2 x Q 를 계산. (x1, y1) = O 이면 무효
 6. r = x1 (mod n) 일때만 유효.
 </code></pre><p>즉, 서명 프로세스는 타원 곡선에서 새로운 k 와 (x1, y1) 을 구한 후</p>
-<h2 id="ecdsa-시그니쳐에서-어떻게-public-key-를-복원할-수-있는가-">ECDSA 시그니쳐에서 어떻게 public key 를 복원할 수 있는가 ?</h2>
+<h2 id="ecdsa-시그니쳐에서-어떻게-public-key-를-복원할-수-있는가-">ECDSA 시그니쳐에서 어떻게 public key 를 복원할 수 있는가 ?<a hidden class="anchor" aria-hidden="true" href="#ecdsa-시그니쳐에서-어떻게-public-key-를-복원할-수-있는가-">#</a></h2>
 <p><a href="https://crypto.stackexchange.com/questions/18105/how-does-recovering-the-public-key-from-an-ecdsa-signature-work">stack exchange link</a></p>
 <p>ECDSA signature (r,s)</p>
 <p>사실 곡선과 사용된 해쉬 함수, 서명된 메시지 원본을 알고 있더라도
@@ -223,116 +342,86 @@ signature 로부터 public key 를 recover 하는 것은 불가능하다.</p>
 </ul>
 <p>public key 는 <code>r^(−1)(sR−zG) and r^(−1)(sR′−zG)</code> 가 된다.</p>
 
-  </section>
-  <div class="share">    
-    <a
-      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fcrypto%2fecdsa%2f&t=ECDSA"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-facebook"></i
-    ></a>
-    <a
-      href="//twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fcrypto%2fecdsa%2f&text=ECDSA&tw_p=tweetbutton"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-twitter"></i
-    ></a>
-    <a
-      href="//getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fcrypto%2fecdsa%2f&title=ECDSA"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-get-pocket"></i
-    ></a>
-    <a
-      href="//plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fcrypto%2fecdsa%2f"
-      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-      ><i class="fa fa-google-plus"></i
-    ></a>
+
   </div>
-  <div class="post-meta-code">
-    <div class="desc">
-      Friendly
-      
-      nolleh
-      
-      wrotes this article at
-      <span class="highlight">Thursday, Jan 30, 2020 18:28</span> 
-      for you.
-    </div>
-    <div class="desc">
-      
-      <div class="desc">
-        <span class="fixed-desc">_Categories</span>
-        
-        
-        <a href="https://nolleh.github.io//categories/%EC%95%94%ED%98%B8%ED%95%99">#암호학</a>
-        
-      </div>
-      
-      <div class="desc">
-        <span class="fixed-desc">_Tags</span>
-        
-        
-        <a href="https://nolleh.github.io/tags/%EC%95%94%ED%98%B8%ED%95%99">#암호학</a>
-        
-        <a href="https://nolleh.github.io/tags/crypto">#CRYPTO</a>
-        
-        
-      </div>
-    </div>
-  </div>  
-  
-  <div class="post-comment">    
-    <div id="disqus_thread"></div>
-<script type="application/javascript">
-    window.disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "nolleh-github-io" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>    
-  </div>
-  
-  <div class="recommend-articles">
-    Recommend these articles
-    <ul>
-      
-      <li>
-        <a href="https://nolleh.github.io/coursera/gcp/6.datastorage/" rel="prev">
-          <span>6. DataStorage</span>
-        </a>
-      </li>
-      
-      
-      <li>
-        <a href="https://nolleh.github.io/crypto/ssl/" rel="next">
-          <span>SSL</span>
-        </a>
-      </li>
-      
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://nolleh.github.io/tags/%EC%95%94%ED%98%B8%ED%95%99/">암호학</a></li>
+      <li><a href="https://nolleh.github.io/tags/crypto/">CRYPTO</a></li>
     </ul>
-  </div>
-</div>
-
-<div class="go-top">
-  <a href="#" class="go-top-button">
-    <i class="fa fa-angle-double-up"></i>
-    <span>Top</span>
-  </a>
-</div>
+  </footer>
+</article>
+    </main>
+    
 <footer class="footer">
-  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
-  ALL RIGHTS RESERVED.
+    <span>&copy; 2022 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
-</body>
-</html>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

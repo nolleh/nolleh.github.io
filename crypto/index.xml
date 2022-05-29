@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Cryptoes on The Computer Programmer, Nolleh</title>
     <link>https://nolleh.github.io/crypto/</link>
     <description>Recent content in Cryptoes on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <managingEditor>nolleh7707@gmail.com (nolleh)</managingEditor>
-    <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
     <lastBuildDate>Thu, 30 Jan 2020 18:29:58 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/crypto/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SSL</title>
       <link>https://nolleh.github.io/crypto/ssl/</link>
       <pubDate>Thu, 30 Jan 2020 18:29:58 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/crypto/ssl/</guid>
       <description></description>
     </item>
@@ -22,7 +20,7 @@
       <title>ECDSA</title>
       <link>https://nolleh.github.io/crypto/ecdsa/</link>
       <pubDate>Thu, 30 Jan 2020 18:28:50 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
+      
       <guid>https://nolleh.github.io/crypto/ecdsa/</guid>
       <description>ECDSA ref. https://m.blog.naver.com/aepkoreanet/221178375642
 ec (타원곡선) 을 이용한 기술들의 집합 - ECC,
