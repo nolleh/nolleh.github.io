@@ -176,13 +176,18 @@ if (!doNotTrack) {
         </div>
         <ul id="menu">
             <li>
-                <a href="https://nolleh.github.io/categories/" title="categories">
-                    <span>categories</span>
+                <a href="https://nolleh.github.io/categories/" title="Categories">
+                    <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://nolleh.github.io/tags/" title="tags">
-                    <span>tags</span>
+                <a href="https://nolleh.github.io/search/" title="Search">
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nolleh.github.io/tags/" title="Tags">
+                    <span>Tags</span>
                 </a>
             </li>
         </ul>
@@ -192,14 +197,60 @@ if (!doNotTrack) {
 
 <article class="post-single">
   <header class="post-header">
-    
+    <div class="breadcrumbs"><a href="https://nolleh.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://nolleh.github.io/coursera/">Courseras</a></div>
     <h1 class="post-title">
       5. Cloud DataStore Concepts and Indexes
     </h1>
     <div class="post-meta"><span title='2019-03-16 11:34:29 +0900 KST'>March 16, 2019</span>&nbsp;·&nbsp;nolleh
 
 </div>
-  </header> 
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#cloud-datastore-concepts-and-indexes" aria-label="Cloud Datastore Concepts and Indexes">Cloud Datastore Concepts and Indexes</a><ul>
+                        
+                <li>
+                    <a href="#cloud-data-store-concepts" aria-label="Cloud Data Store concepts">Cloud Data Store concepts</a></li>
+                <li>
+                    <a href="#datastore-has-two-types-of-indexes" aria-label="Datastore has two types of indexes">Datastore has two types of indexes</a></li></ul>
+                </li>
+                <li>
+                    <a href="#design-considerations--sharding" aria-label="Design Considerations &amp;amp; Sharding">Design Considerations &amp; Sharding</a><ul>
+                        
+                <li>
+                    <a href="#design-your-application-for-scale" aria-label="Design Your application for scale">Design Your application for scale</a></li>
+                <li>
+                    <a href="#when-sharding-remember" aria-label="When sharding, remember:">When sharding, remember:</a></li>
+                <li>
+                    <a href="#shared-counters-to-avoid-contention-with-high-writes" aria-label="Shared counters to avoid contention with high writes">Shared counters to avoid contention with high writes</a></li></ul>
+                </li>
+                <li>
+                    <a href="#replicaion-query-types-transactions-and-handling-errors" aria-label="Replicaion, Query Types, Transactions, and Handling Errors">Replicaion, Query Types, Transactions, and Handling Errors</a><ul>
+                        
+                <li>
+                    <a href="#use-replication-to-read-a-portion-of-the-key-range" aria-label="Use replication to read a portion of the key range">Use replication to read a portion of the key range</a></li>
+                <li>
+                    <a href="#use-qurey-types-based-on-your-needs" aria-label="Use qurey types based on your needs">Use qurey types based on your needs</a></li>
+                <li>
+                    <a href="#improve-your-query-latency-by-using-cursors-instead-of-offsets" aria-label="Improve Your query latency by using cursors instead of offsets">Improve Your query latency by using cursors instead of offsets</a></li></ul>
+                </li>
+                <li>
+                    <a href="#demo-use-cloud-dataflow-to-bulk-load-data-into-cloud-data-store" aria-label="Demo: Use Cloud Dataflow to bulk-load data into Cloud data store">Demo: Use Cloud Dataflow to bulk-load data into Cloud data store</a></li>
+                <li>
+                    <a href="#lab" aria-label="lab">lab</a></li>
+                <li>
+                    <a href="#summary" aria-label="Summary">Summary</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
   <div class="post-content"><h1 id="cloud-datastore-concepts-and-indexes">Cloud Datastore Concepts and Indexes<a hidden class="anchor" aria-hidden="true" href="#cloud-datastore-concepts-and-indexes">#</a></h1>
 <hr>
 <h2 id="cloud-data-store-concepts">Cloud Data Store concepts<a hidden class="anchor" aria-hidden="true" href="#cloud-data-store-concepts">#</a></h2>

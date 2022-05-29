@@ -182,13 +182,18 @@ Implement health-check endpoint Stackdriver monitoring (helth monitoring agent) 
         </div>
         <ul id="menu">
             <li>
-                <a href="https://nolleh.github.io/categories/" title="categories">
-                    <span>categories</span>
+                <a href="https://nolleh.github.io/categories/" title="Categories">
+                    <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://nolleh.github.io/tags/" title="tags">
-                    <span>tags</span>
+                <a href="https://nolleh.github.io/search/" title="Search">
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nolleh.github.io/tags/" title="Tags">
+                    <span>Tags</span>
                 </a>
             </li>
         </ul>
@@ -198,14 +203,45 @@ Implement health-check endpoint Stackdriver monitoring (helth monitoring agent) 
 
 <article class="post-single">
   <header class="post-header">
-    
+    <div class="breadcrumbs"><a href="https://nolleh.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://nolleh.github.io/coursera/">Courseras</a></div>
     <h1 class="post-title">
       2.Security-Reliability-Migration
     </h1>
     <div class="post-meta"><span title='2019-03-12 21:52:02 +0900 KST'>March 12, 2019</span>&nbsp;·&nbsp;nolleh
 
 </div>
-  </header> 
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#3-security-reliablitiy-and-migration" aria-label="3. Security, Reliablitiy, and Migration">3. Security, Reliablitiy, and Migration</a><ul>
+                        
+                <li>
+                    <a href="#implement-health-check-endpoint" aria-label="Implement health-check endpoint">Implement health-check endpoint</a></li>
+                <li>
+                    <a href="#%eb%a1%9c%ea%b9%85%ea%b3%bc-%eb%aa%a8%eb%8b%88%ed%84%b0%eb%a5%bc-%ec%96%b4%ed%94%8c%eb%a6%ac%ec%bc%80%ec%9d%b4%ec%85%98%ec%9d%98-%ec%84%b1%eb%8a%a5%ec%97%90-%eb%8c%80%ed%95%b4-%eb%91%90%eb%9d%bc" aria-label="로깅과 모니터를 어플리케이션의 성능에 대해 두라.">로깅과 모니터를 어플리케이션의 성능에 대해 두라.</a></li>
+                <li>
+                    <a href="#%ec%82%ac%ec%86%8c%ed%95%9c-%ec%97%90%eb%9f%ac%ec%99%80-%ec%98%a4%eb%9e%98-%ec%a7%80%ec%86%8d%eb%90%98%eb%8a%94-%ec%97%90%eb%9f%ac%eb%a5%bc-%ec%9a%b0%ec%95%84%ed%95%98%ea%b2%8c-%eb%8b%a4%eb%a4%84%eb%9d%bc" aria-label="사소한 에러와 오래 지속되는 에러를 우아하게 다뤄라.">사소한 에러와 오래 지속되는 에러를 우아하게 다뤄라.</a></li>
+                <li>
+                    <a href="#%eb%8d%b0%ec%9d%b4%ed%84%b0-sovereignnty-%ec%99%80-compliance-%ec%9a%94%ea%b5%ac%ec%82%ac%ed%95%ad%ec%9d%84-%ea%b3%a0%eb%a0%a4%ed%95%98%eb%9d%bc" aria-label="데이터 sovereignnty 와 compliance 요구사항을 고려하라.">데이터 sovereignnty 와 compliance 요구사항을 고려하라.</a></li>
+                <li>
+                    <a href="#%ea%b0%80%eb%8a%a5%ed%95%9c-%ed%85%8c%ec%8a%a4%ed%8c%85%ea%b3%bc-%ec%9e%ac%ec%95%99%ec%9c%bc%eb%a1%9c%eb%b6%80%ed%84%b0-%eb%b3%b5%ea%b5%ac%ea%b3%84%ed%9a%8d%ec%9d%84-%ea%b5%ac%ec%83%81%ed%95%98%ea%b3%a0-%ec%96%b4%ed%94%8c%ec%9d%84-%ed%85%8c%ec%8a%a4%ed%8a%b8%ed%95%98%eb%9d%bc" aria-label="가능한 테스팅과 재앙으로부터 복구계획을 구상하고 어플을 테스트하라.">가능한 테스팅과 재앙으로부터 복구계획을 구상하고 어플을 테스트하라.</a></li>
+                <li>
+                    <a href="#%ea%b3%84%ec%86%8d%eb%90%98%eb%8a%94-%ed%86%b5%ed%95%a9%eb%aa%a8%eb%8d%b8-ci-%ec%9d%84-%ea%b5%ac%ed%98%84%ed%95%98%ea%b3%a0-%ed%8c%8c%ec%9d%b4%ed%94%84%eb%9d%bc%ec%9d%b8%ec%9c%bc%eb%a1%9c-%eb%b0%b0%ec%86%a1%ed%95%98%eb%9d%bc-cd" aria-label="계속되는 통합모델 (CI) 을 구현하고 파이프라인으로 배송하라. (CD)">계속되는 통합모델 (CI) 을 구현하고 파이프라인으로 배송하라. (CD)</a></li>
+                <li>
+                    <a href="#strangler-%ed%8c%a8%ed%84%b4%ec%9d%84-%ec%83%88%eb%a1%9c-%ec%96%b4%ed%94%8c%eb%a6%ac%ec%bc%80%ec%9d%b4%ec%85%98%ec%9d%84-%ea%b5%ac%ec%a1%b0%ed%99%94%ed%95%98%eb%8a%94%eb%8d%b0-%ec%82%ac%ec%9a%a9%ed%95%98%eb%9d%bc" aria-label="Strangler 패턴을 새로 어플리케이션을 구조화하는데 사용하라.">Strangler 패턴을 새로 어플리케이션을 구조화하는데 사용하라.</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
   <div class="post-content"><h1 id="3-security-reliablitiy-and-migration">3. Security, Reliablitiy, and Migration<a hidden class="anchor" aria-hidden="true" href="#3-security-reliablitiy-and-migration">#</a></h1>
 <p>Use federated identity management
 firebase authentication~

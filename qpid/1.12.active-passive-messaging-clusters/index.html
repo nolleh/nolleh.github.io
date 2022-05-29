@@ -185,13 +185,18 @@ active-passive 클러스터는 하나의 브로커만 존재하며, 이를 프�
         </div>
         <ul id="menu">
             <li>
-                <a href="https://nolleh.github.io/categories/" title="categories">
-                    <span>categories</span>
+                <a href="https://nolleh.github.io/categories/" title="Categories">
+                    <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://nolleh.github.io/tags/" title="tags">
-                    <span>tags</span>
+                <a href="https://nolleh.github.io/search/" title="Search">
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nolleh.github.io/tags/" title="Tags">
+                    <span>Tags</span>
                 </a>
             </li>
         </ul>
@@ -201,14 +206,40 @@ active-passive 클러스터는 하나의 브로커만 존재하며, 이를 프�
 
 <article class="post-single">
   <header class="post-header">
-    
+    <div class="breadcrumbs"><a href="https://nolleh.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://nolleh.github.io/qpid/">Qpids</a></div>
     <h1 class="post-title">
       Active Passive Messaging Clusters
     </h1>
     <div class="post-meta"><span title='2020-02-06 14:47:47 +0900 KST'>February 6, 2020</span>&nbsp;·&nbsp;nolleh
 
 </div>
-  </header> 
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#112-active-passive-messaging-clusters" aria-label="1.12. Active-Passive Messaging Clusters">1.12. Active-Passive Messaging Clusters</a><ul>
+                        
+                <li>
+                    <a href="#1121-overview" aria-label="1.12.1 Overview">1.12.1 Overview</a><ul>
+                        
+                <li>
+                    <a href="#11211-avoiding-message-loss" aria-label="1.12.1.1. Avoiding message loss">1.12.1.1. Avoiding message loss</a></li>
+                <li>
+                    <a href="#11212-limitations" aria-label="1.12.1.2. Limitations">1.12.1.2. Limitations</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
   <div class="post-content"><h1 id="112-active-passive-messaging-clusters">1.12. Active-Passive Messaging Clusters<a hidden class="anchor" aria-hidden="true" href="#112-active-passive-messaging-clusters">#</a></h1>
 <h2 id="1121-overview">1.12.1 Overview<a hidden class="anchor" aria-hidden="true" href="#1121-overview">#</a></h2>
 <p>HA 모듈은 active-passive, hot-standby 메시징 클러스터들을 장애에 tolerent 하도록 제공한다.</p>
