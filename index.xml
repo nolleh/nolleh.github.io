@@ -8,15 +8,6 @@
     <language>ko-KR</language>
     <lastBuildDate>Sun, 29 May 2022 16:37:55 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Search</title>
-      <link>https://nolleh.github.io/search/</link>
-      <pubDate>Sun, 29 May 2022 17:01:38 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/search/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>서브 모듈 추가하기</title>
       <link>https://nolleh.github.io/git/sub-module/</link>
       <pubDate>Sun, 29 May 2022 16:37:55 +0900</pubDate>
@@ -481,6 +472,7 @@ top() / pop() 도 마찬가지 -&amp;raquo; 조회되지 못하는 아이템이 
 채택된 답변을 살펴보면 클래스 구조는 대략 다음과 같다.
 클래스 구조   NativeCallbackHandler - msclr::gcroot&amp;lt;OutputManaged^&amp;gt; m_owner (OutputLogManaged) 를 멤버로 보유. OutputLogManaged - native OutputLog* (m_nativeOutputLog) / 1의 Holder 를 보유 (m_nativeHandler)] / 그리고 managed 콜백을 보유 OutputLog - Native Callback 과 void* UserData 를 멤버로 보유.   이해하는데 주요한 클래스는 위 내용 정도인 듯.</description>
     </item>
+    
     
   </channel>
 </rss>

@@ -2,9 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://nolleh.github.io/search/</loc>
-    <lastmod>2022-05-29T17:01:38+09:00</lastmod>
-  </url><url>
     <loc>https://nolleh.github.io/categories/</loc>
     <lastmod>2022-05-29T16:37:55+09:00</lastmod>
   </url><url>
@@ -325,5 +322,7 @@
   </url><url>
     <loc>https://nolleh.github.io/etc/</loc>
     <lastmod>2017-07-04T00:45:55+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/search/</loc>
   </url>
 </urlset>
