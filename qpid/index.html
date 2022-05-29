@@ -1,98 +1,147 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <base href="https://nolleh.github.io/">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>Qpids  &middot; The Computer Programmer, Nolleh</title>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="canonical" href="https://nolleh.github.io/qpid/">
-    
-    <link href="https://nolleh.github.io/qpid/index.xml" rel="alternate" type="application/rss+xml" title="Qpids" />
-    
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=80&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qpids  | The Computer Programmer, Nolleh</title>
+  <meta name="description" content=" 'Qpids'read this article.">
+  <meta property="og:title" content="Qpids">
+  
+  <meta property="og:type" content="website">
+  
+  <meta property="og:description" content=" 'Qpids'read this article.">
+  <meta property="og:url" content="https://nolleh.github.io/qpid/">
+  <meta property="og:site_name" content="The Computer Programmer, Nolleh">
+  
+  <meta property="og:image" content="https://nolleh.github.io/images/thumbnail.png">
+  
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="https://nolleh.github.io/qpid/">
+  <link rel="alternate" type="application/rss+xml" href="https://nolleh.github.io/qpid/index.xml" title="The Computer Programmer, Nolleh" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102565363-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-102565363-1');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
 </head>
-
 <body>
-    <div class="navbar">
-        <ul>
-            <li><a href="/">HOME</a></li>
-            <li><a href="/categories">CATEGORIES</a></li>
-            <li><a href="/project">PROJECTS</a></li>
-        </ul>
+  <div class="navbar">    
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo.png" height="34px" />
+      </a>
     </div>
-    <div class="container">
-      <div class="title">
-        <div>
-          <a href="/">
-            <img src="/images/logo.png" />
-          </a>
-        </div>
-        <div><img src="/images/seperator.png" /></div>
-        <div class="logo-title">hello, world!</div>
-      </div>
-
-
-
-<div class="post-list-item">
-  <a href="https://nolleh.github.io/qpid/1.12.active-passive-messaging-clusters/">
-    <div class="post-title">
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> Menu
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><a href="/">#The Computer Programmer, Nolleh</a></li>
+        <li><a href="/categories">#Categories</a></li>
+        <li><a href="/tags">#Tags</a></li>
+        <li><a href="/projects">#Projects</a></li>        
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
+    </div>
+  </div>
+  <div class="container">    
+<div class="container">
+  
+  <div class="post">
+  <div class="post-title">
+    <a href="https://nolleh.github.io/qpid/1.12.active-passive-messaging-clusters/" title="Active Passive Messaging Clusters">
       <img src="/images/post-title-icon.png" />
       <div class="post-meta">
-        <time>06 Feb 2020, 14:47</time>
+        <time>Thursday, Feb 6, 2020 14:47</time>
         <h1>Active Passive Messaging Clusters</h1>
       </div>
-    </div>
-  </a>
+    </a>
+  </div>
+  
+  <div>
+    1.12. Active-Passive Messaging Clusters 1.12.1 Overview HA 모듈은 active-passive, hot-standby 메시징 클러스터들을 장애에 tolerent 하도록 제공한다.
+active-passive 클러스터는 하나의 브로커만 존재하며, 이를 프라이머리라고 부르며, 액티브 하고 클라이언트를 serving 한다. 다른 브로커들은 백업을 위해 존재한다. 프라이머리의 변경은 모든 백업들에 반영되므로, 백업들은 최신상태이거나 &lsquo;hot&rsquo; 상태이다. 백업 브로커들은 클라이언트의 연결을 거부하며, 클라이언트들은 프라이머리에 연결해야한다.
+만약 프라이머리가 실패하는 경우, 백업중의 하나가 새로운 프라이머리가 되기위해 자리를 차지한다. 클라이언트는 새로운 프라이머리에 자동으로 연결한다.
+만약 복수개의 백업이 있다면, 다른 백업들은 새로운 프라이머리의 백업이 되도록 장애처리를 진행한다.
+    
+    <a href="/qpid/1.12.active-passive-messaging-clusters/" class="summary-more">More</a>
+    
+  </div>
 </div>
 
-<div class="post-list-item">
-  <a href="https://nolleh.github.io/qpid/1.4.broker-federation/">
-    <div class="post-title">
+  <hr class="summary-sep" />
+  
+  <div class="post">
+  <div class="post-title">
+    <a href="https://nolleh.github.io/qpid/1.4.broker-federation/" title="Broker Federation">
       <img src="/images/post-title-icon.png" />
       <div class="post-meta">
-        <time>06 Feb 2020, 13:23</time>
+        <time>Thursday, Feb 6, 2020 13:23</time>
         <h1>Broker Federation</h1>
       </div>
-    </div>
-  </a>
+    </a>
+  </div>
+  
+  <div>
+    1.4 Broker Federation 메시지 라우트를 정의하여 하나의 브로커에서 다른 브로커로 자동으로 전달하게 한다.
+일반적으로 일방향이며, 라우트는 durable 하고 tansient 한다.
+연결이 소실되면 메시지는 누적되다가 재연결이 되면 다시 전송한다.
+라우팅에 사용되는 룰은 서버가 변경됨에 따라 동적으로 변경할 수 있으며, 변경의 책임은 다른 변경조건에 맞게 반영된다,.
+1.4.1 Message Routes pull / push 방식이 있음.
+pull 은 dest 에서.
+push 는 src 에서 설정함
+ queue &lt;-&gt; exchage exchange &lt;-&gt; exchange  excg &lt;-&gt; excg 는 다음과 같은 라우트를 가질 수 있다.
+    
+    <a href="/qpid/1.4.broker-federation/" class="summary-more">More</a>
+    
+  </div>
 </div>
 
-
+  <hr class="summary-sep" />
+  
+</div>
 <div class="paging">
   
-
-  PAGE 1 / 1
-
+  <span class="page">
+    Page 1 / 1
+  </span>
   
 </div>
 
-<div class="seperator">
-  <img src="/images/seperator.png" />
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>Top</span>
+  </a>
 </div>
-
 <footer class="footer">
-    COPYRIGHT (C) <a href="http://blog.lulab.net">DONGGEUN,BANG</a>. ALL RIGHTS RESERVED.
+  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
+  ALL RIGHTS RESERVED.
 </footer>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-102565363-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<script data-no-instant>document.write('<script src="/livereload.js?port=80&mindelay=10"></' + 'script>')</script></body>
-
+</body>
 </html>
 

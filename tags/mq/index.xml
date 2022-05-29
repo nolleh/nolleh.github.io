@@ -1,18 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Mq on The Computer Programmer, Nolleh</title>
+    <title>MQ on The Computer Programmer, Nolleh</title>
     <link>https://nolleh.github.io/tags/mq/</link>
-    <description>Recent content in Mq on The Computer Programmer, Nolleh</description>
+    <description>Recent content in MQ on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
     <managingEditor>nolleh7707@gmail.com (nolleh)</managingEditor>
     <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
-    <lastBuildDate>Thu, 06 Feb 2020 14:47:47 +0900</lastBuildDate>
-    
-	<atom:link href="https://nolleh.github.io/tags/mq/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 06 Feb 2020 14:47:47 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/mq/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Active Passive Messaging Clusters</title>
       <link>https://nolleh.github.io/qpid/1.12.active-passive-messaging-clusters/</link>

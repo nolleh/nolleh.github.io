@@ -1,142 +1,150 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <base href="https://nolleh.github.io/">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>markDown 문법  &middot; The Computer Programmer, Nolleh</title>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="canonical" href="https://nolleh.github.io/env/mark-down-syntax/">
-    
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=80&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>markDown 문법  | The Computer Programmer, Nolleh</title>
+  <meta name="description" content=" 'markDown 문법'read this article.">
+  <meta property="og:title" content="markDown 문법">
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2017-07-04">
+  
+  <meta property="og:description" content=" 'markDown 문법'read this article.">
+  <meta property="og:url" content="https://nolleh.github.io/env/mark-down-syntax/">
+  <meta property="og:site_name" content="The Computer Programmer, Nolleh">
+  
+  <meta property="og:image" content="https://nolleh.github.io/images/thumbnail.png">
+  
+  
+  <meta property="og:tags" content="GitHub-Page">
+  
+  <meta property="og:tags" content="Editor">
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="https://nolleh.github.io/env/mark-down-syntax/">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102565363-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-102565363-1');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
 </head>
-
 <body>
-    <div class="navbar">
-        <ul>
-            <li><a href="/">HOME</a></li>
-            <li><a href="/categories">CATEGORIES</a></li>
-            <li><a href="/project">PROJECTS</a></li>
-        </ul>
+  <div class="navbar">    
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo.png" height="34px" />
+      </a>
     </div>
-    <div class="container">
-      <div class="title">
-        <div>
-          <a href="/">
-            <img src="/images/logo.png" />
-          </a>
-        </div>
-        <div><img src="/images/seperator.png" /></div>
-        <div class="logo-title">hello, world!</div>
-      </div>
-
-
-<a href="https://nolleh.github.io/env/mark-down-syntax/">
-  <div class="post-title">
-    <img src="/images/post-title-icon.png" />
-    <div class="post-meta">
-      <time>04 Jul 2017, 22:13</time>
-      <h1>markDown 문법</h1>
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> Menu
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><a href="/">#The Computer Programmer, Nolleh</a></li>
+        <li><a href="/categories">#Categories</a></li>
+        <li><a href="/tags">#Tags</a></li>
+        <li><a href="/projects">#Projects</a></li>        
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
     </div>
   </div>
-</a>
+  <div class="container">    
 
-<div class="post-toc">
-  <span class="title">
-    Table of contents
-  </span>
-  <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#heading">Heading</a></li>
-</ul></li>
-<li><a href="#title">Title</a>
-<ul>
-<li><a href="#heading-1">Heading 1</a>
-<ul>
-<li><a href="#heading-2">Heading 2</a></li>
-</ul></li>
-<li><a href="#listing">Listing</a>
-<ul>
-<li><a href="#순서-없는-경우">순서 없는 경우</a></li>
-<li><a href="#순서가-있는-경우">순서가 있는 경우</a></li>
-</ul></li>
-<li><a href="#fonts">Fonts</a></li>
-<li><a href="#src">SRC</a></li>
-<li><a href="#table">TABLE</a></li>
-</ul></li>
-</ul>
+<div class="post">
+  <div class="post-title">
+    <a href="https://nolleh.github.io/env/mark-down-syntax/">
+      <img src="/images/post-title-icon.png" />
+      <div class="post-meta">
+        <time>Tuesday, Jul 4, 2017 22:13</time>
+        <h1>markDown 문법</h1>
+      </div>
+    </a>
+  </div>
+  <div class="post-toc">
+    <span class="title">TOC</span>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#heading">Heading</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#heading-1">Heading 1</a>
+      <ul>
+        <li><a href="#heading-2">Heading 2</a></li>
+      </ul>
+    </li>
+    <li><a href="#listing">Listing</a>
+      <ul>
+        <li><a href="#순서-없는-경우">순서 없는 경우</a></li>
+        <li><a href="#순서가-있는-경우">순서가 있는 경우</a></li>
+      </ul>
+    </li>
+    <li><a href="#fonts">Fonts</a></li>
+    <li><a href="#src">SRC</a></li>
+    <li><a href="#table">TABLE</a></li>
+  </ul>
 </nav>
-</div>
-
-<section class="post-content">
-  
-
-<p>마크다운으로 포스팅하는 Git 페이지를 생성하였으니, 자주 사용되는 대표 문법 정리<br />
+  </div>
+  <section class="post-content">
+    <p>마크다운으로 포스팅하는 Git 페이지를 생성하였으니, 자주 사용되는 대표 문법 정리<br>
 <a href="https://confluence.atlassian.com/bitbucketserver/markdown-syntax-guide-776639995.html#Markdownsyntaxguide-Listinlist">마크다운 문법</a></p>
-
 <h2 id="heading">Heading</h2>
-
-<p>&rsquo;#&rsquo; 으로 처리하며, 단계별로 더 많은 &lsquo;#&rsquo; 을 사용한다.</p>
-
-<pre><code class="language-bash"># Title
-## Heading 1
-### Heading 2
-</code></pre>
-
-<p>결과</p>
-
+<p>&lsquo;#&rsquo; 으로 처리하며, 단계별로 더 많은 &lsquo;#&rsquo; 을 사용한다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Title</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Heading 1</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Heading 2</span>
+</span></span></code></pre></div><p>결과</p>
 <h1 id="title">Title</h1>
-
 <h2 id="heading-1">Heading 1</h2>
-
 <h3 id="heading-2">Heading 2</h3>
-
 <h2 id="listing">Listing</h2>
-
 <p>Asterisk (*) 를 사용하여 순서 없는 목록을, 숫자를 사용하여 순서 있는 목록을 나타낸다.</p>
-
 <h3 id="순서-없는-경우">순서 없는 경우</h3>
-
 <ul>
-<li>이거닷<br /></li>
-<li>이거 중요해!<br /></li>
+<li>이거닷</li>
+<li>이거 중요해!</li>
 </ul>
-
 <h3 id="순서가-있는-경우">순서가 있는 경우</h3>
-
 <ol>
 <li>첫번째 순서</li>
 <li>두번째~</li>
 <li>셋!!</li>
 </ol>
-
 <h2 id="fonts">Fonts</h2>
-
-<pre><code class="language-bash">**Bold** _Italic_ ~~CANCEL_LINE~~
-</code></pre>
-
-<p><strong>Bold</strong> <em>Italic</em> <del>CANCEL_LINE</del></p>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>**Bold** _Italic_ ~~CANCEL_LINE~~
+</span></span></code></pre></div><p><strong>Bold</strong> <em>Italic</em> <del>CANCEL_LINE</del></p>
 <h2 id="src">SRC</h2>
-
-<pre><code>![Alt](경로 &quot;Optional Tooltip MSG&quot;)
-</code></pre>
-
-<h2 id="table">TABLE</h2>
-
-<pre><code class="language-bash">| Day     | Meal    | Price |
-| --------|---------|-------|
-| Monday  | pasta   | $6    |
-| Tuesday | chicken | $8    |
-</code></pre>
-
-<table>
+<pre tabindex="0"><code>![Alt](경로 &#34;Optional Tooltip MSG&#34;)
+</code></pre><h2 id="table">TABLE</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>| Day     | Meal    | Price |
+</span></span><span style="display:flex;"><span>| --------|---------|-------|
+</span></span><span style="display:flex;"><span>| Monday  | pasta   | $6    |
+</span></span><span style="display:flex;"><span>| Tuesday | chicken | $8    |
+</span></span></code></pre></div><table>
 <thead>
 <tr>
 <th>Day</th>
@@ -144,14 +152,12 @@
 <th>Price</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>Monday</td>
 <td>pasta</td>
 <td>$6</td>
 </tr>
-
 <tr>
 <td>Tuesday</td>
 <td>chicken</td>
@@ -160,60 +166,66 @@
 </tbody>
 </table>
 
-</section>
-
-<div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fenv%2fmark-down-syntax%2f&t=markDown%20%eb%ac%b8%eb%b2%95" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fenv%2fmark-down-syntax%2f&text=markDown%20%eb%ac%b8%eb%b2%95&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fenv%2fmark-down-syntax%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fenv%2fmark-down-syntax%2f&title=markDown%20%eb%ac%b8%eb%b2%95" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
-</div>
-
-<div class="post-meta-code">
-  <div class="desc">
-    public string description() {
-    <div class="desc">val author = "
-    
-        nolleh
-    ";
-    </div>
-    
+  </section>
+  <div class="share">    
+    <a
+      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fenv%2fmark-down-syntax%2f&t=markDown%20%eb%ac%b8%eb%b2%95"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-facebook"></i
+    ></a>
+    <a
+      href="//twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fenv%2fmark-down-syntax%2f&text=markDown%20%eb%ac%b8%eb%b2%95&tw_p=tweetbutton"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-twitter"></i
+    ></a>
+    <a
+      href="//getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fenv%2fmark-down-syntax%2f&title=markDown%20%eb%ac%b8%eb%b2%95"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-get-pocket"></i
+    ></a>
+    <a
+      href="//plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fenv%2fmark-down-syntax%2f"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-google-plus"></i
+    ></a>
+  </div>
+  <div class="post-meta-code">
     <div class="desc">
-      val categories = [
+      Friendly
       
+      nolleh
       
-      <a href="https://nolleh.github.io//categories/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD">"개발환경"</a>
-      
-      ];
+      wrotes this article at
+      <span class="highlight">Tuesday, Jul 4, 2017 22:13</span> 
+      for you.
     </div>
-    
-    }
-  </div>
-</div>
-<div class="post-meta-code">
-  <div class="desc">
-    public string tags() {
+    <div class="desc">
+      
       <div class="desc">
-        val tags = [
+        <span class="fixed-desc">_Categories</span>
         
-          
-          <a href="https://nolleh.github.io/tags/github-page">"GitHub-Page"</a>
-          
-          <a href="https://nolleh.github.io/tags/editor">"Editor"</a>
-          
         
-        ];
+        <a href="https://nolleh.github.io//categories/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD">#개발환경</a>
+        
       </div>
-    }
-  </div>
-</div>
-
-
-<div class="share"></div>
-
-<div id="disqus_thread"></div>
+      
+      <div class="desc">
+        <span class="fixed-desc">_Tags</span>
+        
+        
+        <a href="https://nolleh.github.io/tags/github-page">#GitHub-Page</a>
+        
+        <a href="https://nolleh.github.io/tags/editor">#Editor</a>
+        
+        
+      </div>
+    </div>
+  </div>  
+  
+  <div class="post-comment">    
+    <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -230,45 +242,40 @@
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-<div class="paging post-paging">
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>    
+  </div>
   
-  <a class="left" href="https://nolleh.github.io/env/brew-update/" rel="prev">
-    <i class="fa fa-caret-left" aria-hidden="true"></i> <span>Brew Install 이 구버전만 설치할 때</span>
-  </a>
-  
-  
-  <a class="right" href="https://nolleh.github.io/etc/managed_cb_to_unmanaged/" rel="next">
-    <span>C&#43;&#43; CLI 에서 managed 콜백을 unmanaged 로 전달하기</span> <i class="fa fa-caret-right" aria-hidden="true"></i>
-  </a>
-  
+  <div class="recommend-articles">
+    Recommend these articles
+    <ul>
+      
+      <li>
+        <a href="https://nolleh.github.io/etc/managed_cb_to_unmanaged/" rel="prev">
+          <span>C&#43;&#43; CLI 에서 managed 콜백을 unmanaged 로 전달하기</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="https://nolleh.github.io/env/brew-update/" rel="next">
+          <span>Brew Install 이 구버전만 설치할 때</span>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
 </div>
 
-<div class="share"></div>
-
-<div class="seperator">
-  <img src="/images/seperator.png" />
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>Top</span>
+  </a>
 </div>
-
 <footer class="footer">
-    COPYRIGHT (C) <a href="http://blog.lulab.net">DONGGEUN,BANG</a>. ALL RIGHTS RESERVED.
+  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
+  ALL RIGHTS RESERVED.
 </footer>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-102565363-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<script data-no-instant>document.write('<script src="/livereload.js?port=80&mindelay=10"></' + 'script>')</script></body>
-
+</body>
 </html>
 

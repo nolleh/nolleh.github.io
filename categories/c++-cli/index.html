@@ -1,86 +1,122 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <base href="https://nolleh.github.io/">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>C&#43;&#43; Cli  &middot; The Computer Programmer, Nolleh</title>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="canonical" href="https://nolleh.github.io/categories/c&#43;&#43;-cli/">
-    
-    <link href="https://nolleh.github.io/categories/c&#43;&#43;-cli/index.xml" rel="alternate" type="application/rss+xml" title="C&#43;&#43; Cli" />
-    
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=80&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C&#43;&#43; CLI  | The Computer Programmer, Nolleh</title>
+  <meta name="description" content=" 'C&#43;&#43; CLI'read this article.">
+  <meta property="og:title" content="C&#43;&#43; CLI">
+  
+  <meta property="og:type" content="website">
+  
+  <meta property="og:description" content=" 'C&#43;&#43; CLI'read this article.">
+  <meta property="og:url" content="https://nolleh.github.io/categories/c&#43;&#43;-cli/">
+  <meta property="og:site_name" content="The Computer Programmer, Nolleh">
+  
+  <meta property="og:image" content="https://nolleh.github.io/images/thumbnail.png">
+  
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="https://nolleh.github.io/categories/c&#43;&#43;-cli/">
+  <link rel="alternate" type="application/rss+xml" href="https://nolleh.github.io/categories/c++-cli/index.xml" title="The Computer Programmer, Nolleh" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102565363-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-102565363-1');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
 </head>
-
 <body>
-    <div class="navbar">
-        <ul>
-            <li><a href="/">HOME</a></li>
-            <li><a href="/categories">CATEGORIES</a></li>
-            <li><a href="/project">PROJECTS</a></li>
-        </ul>
+  <div class="navbar">    
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo.png" height="34px" />
+      </a>
     </div>
-    <div class="container">
-      <div class="title">
-        <div>
-          <a href="/">
-            <img src="/images/logo.png" />
-          </a>
-        </div>
-        <div><img src="/images/seperator.png" /></div>
-        <div class="logo-title">hello, world!</div>
-      </div>
-
-
-
-<div class="post-list-item">
-  <a href="https://nolleh.github.io/etc/managed_cb_to_unmanaged/">
-    <div class="post-title">
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> Menu
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><a href="/">#The Computer Programmer, Nolleh</a></li>
+        <li><a href="/categories">#Categories</a></li>
+        <li><a href="/tags">#Tags</a></li>
+        <li><a href="/projects">#Projects</a></li>        
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
+    </div>
+  </div>
+  <div class="container">    
+<div class="container">
+  
+  <div class="post">
+  <div class="post-title">
+    <a href="https://nolleh.github.io/etc/managed_cb_to_unmanaged/" title="C&#43;&#43; CLI 에서 managed 콜백을 unmanaged 로 전달하기">
       <img src="/images/post-title-icon.png" />
       <div class="post-meta">
-        <time>04 Jul 2017, 00:45</time>
+        <time>Tuesday, Jul 4, 2017 00:45</time>
         <h1>C&#43;&#43; CLI 에서 managed 콜백을 unmanaged 로 전달하기</h1>
       </div>
-    </div>
-  </a>
+    </a>
+  </div>
+  
+  <div>
+    파라미터가 없다면 DelegateToPointer 로 마샬링해서 전달하면되는데,
+이러면 파라미터를 마샬링할 기회가 주어지지 않는다는게 문제다.
+좀 구글링을 해봤는데,
+이런 포스트가 있었다.
+스택오버플로-파라미터와 함께 unmanaged 콜백으로 변환하기
+채택된 답변을 살펴보면 클래스 구조는 대략 다음과 같다.
+클래스 구조   NativeCallbackHandler - msclr::gcroot&lt;OutputManaged^&gt; m_owner (OutputLogManaged) 를 멤버로 보유. OutputLogManaged - native OutputLog* (m_nativeOutputLog) / 1의 Holder 를 보유 (m_nativeHandler)] / 그리고 managed 콜백을 보유 OutputLog - Native Callback 과 void* UserData 를 멤버로 보유.   이해하는데 주요한 클래스는 위 내용 정도인 듯.
+    
+    <a href="/etc/managed_cb_to_unmanaged/" class="summary-more">More</a>
+    
+  </div>
 </div>
 
-
+  <hr class="summary-sep" />
+  
+</div>
 <div class="paging">
   
-
-  PAGE 1 / 1
-
+  <span class="page">
+    Page 1 / 1
+  </span>
   
 </div>
 
-<div class="seperator">
-  <img src="/images/seperator.png" />
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>Top</span>
+  </a>
 </div>
-
 <footer class="footer">
-    COPYRIGHT (C) <a href="http://blog.lulab.net">DONGGEUN,BANG</a>. ALL RIGHTS RESERVED.
+  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
+  ALL RIGHTS RESERVED.
 </footer>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-102565363-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<script data-no-instant>document.write('<script src="/livereload.js?port=80&mindelay=10"></' + 'script>')</script></body>
-
+</body>
 </html>
 

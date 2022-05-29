@@ -1,442 +1,161 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-	<meta name="generator" content="Hugo 0.52" />
-    <base href="https://nolleh.github.io/">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>The Computer Programmer, Nolleh </title>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="canonical" href="https://nolleh.github.io/">
-    
-    <link href="https://nolleh.github.io/index.xml" rel="alternate" type="application/rss+xml" title="The Computer Programmer, Nolleh" />
-    
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+	<meta name="generator" content="Hugo 0.99.1" /><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=80&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Computer Programmer, Nolleh </title>
+  <meta name="description" content="">
+  <meta property="og:title" content="The Computer Programmer, Nolleh">
+  
+  <meta property="og:type" content="website">
+  
+  <meta property="og:description" content="">
+  <meta property="og:url" content="https://nolleh.github.io/">
+  <meta property="og:site_name" content="The Computer Programmer, Nolleh">
+  
+  <meta property="og:image" content="https://nolleh.github.io/images/thumbnail.png">
+  
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="https://nolleh.github.io/">
+  <link rel="alternate" type="application/rss+xml" href="https://nolleh.github.io/index.xml" title="The Computer Programmer, Nolleh" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102565363-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-102565363-1');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
 </head>
-
 <body>
-    <div class="navbar">
-        <ul>
-            <li><a href="/">HOME</a></li>
-            <li><a href="/categories">CATEGORIES</a></li>
-            <li><a href="/project">PROJECTS</a></li>
-        </ul>
+  <div class="navbar">    
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo.png" height="34px" />
+      </a>
     </div>
-    <div class="container">
-      <div class="title">
-        <div>
-          <a href="/">
-            <img src="/images/logo.png" />
-          </a>
-        </div>
-        <div><img src="/images/seperator.png" /></div>
-        <div class="logo-title">hello, world!</div>
-      </div>
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> Menu
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><a href="/">#The Computer Programmer, Nolleh</a></li>
+        <li><a href="/categories">#Categories</a></li>
+        <li><a href="/tags">#Tags</a></li>
+        <li><a href="/projects">#Projects</a></li>        
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
+    </div>
+  </div>
+  <div class="container">    
 
 
-  <a href="https://nolleh.github.io/crypto/ecdsa/">
+  <div class="post">
   <div class="post-title">
-    <img src="/images/post-title-icon.png" />
-    <div class="post-meta">
-      <time>30 Jan 2020, 18:28</time>
-      <h1>ECDSA</h1>
-    </div>
-  </div>
-</a>
-
-<div class="post-toc">
-  <span class="title">
-    Table of contents
-  </span>
-  <nav id="TableOfContents">
-<ul>
-<li><a href="#ecdsa">ECDSA</a>
-<ul>
-<li><a href="#terms">Terms</a></li>
-<li><a href="#ecc-의-privatekey-와-publickey">ECC 의 privateKey 와 publicKey</a></li>
-<li><a href="#ecdsa-와-secp256k1">ECDSA 와 secp256k1</a>
-<ul>
-<li><a href="#domain-parameter">Domain Parameter</a></li>
-</ul></li>
-<li><a href="#서명은-어떻게-이루어지는가">서명은 어떻게 이루어지는가 ?</a></li>
-<li><a href="#ecdsa-시그니쳐에서-어떻게-public-key-를-복원할-수-있는가">ECDSA 시그니쳐에서 어떻게 public key 를 복원할 수 있는가 ?</a></li>
-</ul></li>
-</ul>
-</nav>
-</div>
-
-<section class="post-content">
-  
-
-<h1 id="ecdsa">ECDSA</h1>
-
-<p>ref. <a href="https://m.blog.naver.com/aepkoreanet/221178375642">https://m.blog.naver.com/aepkoreanet/221178375642</a></p>
-
-<p>ec (타원곡선) 을 이용한 기술들의 집합 - ECC,<br />
-이중에 디지털서명 관련 기술이 ECDSA</p>
-
-<h2 id="terms">Terms</h2>
-
-<blockquote>
-<ul>
-<li>유한체<br />
-집합에 속해있는 원소의 수가 한정되어 있고 덧셈, 곱셈에 대해 닫혀있는 집합
-
-<ul>
-<li>유한체 F 표기법<br />
-원소의 개수가 p 인 유한체 F 는 <code>Fp</code> 혹은 <code>GF(p)</code> 로 표기</li>
-<li>유한체 상에 정의된 타원 곡선<br />
-<code>E(Fp)</code></li>
-<li>암호학에서 사용되는 유한체</li>
-</ul></li>
-</ul>
-</blockquote>
-
-<pre><code>    - Prime Field
-    원소의 개수가 소수
-</code></pre>
-
-<p>ECC 사용시 타원 곡선을 정의하는 domain parameter 를 정의해야함.
-(p, a, b, G, n, h) 를 정의해야하는건데, 여러 표준단체에서 Field Size 에 맞는 타원곡선에 대한 파라미터 발표.</p>
-
-<ul>
-<li>p : Modulo Prime Number</li>
-<li>a : 타원곡선 방정식에서 사용되는 계수</li>
-<li>b : 타원곡선 방정식에서 사용되는 계수</li>
-<li>Base point 또는 Generator Point, G 는 <code>E(Fp)</code> 에 속해있는 point</li>
-<li>n : the order of point G (G 를 n번 더하면 무한원점이 되는값 : nG = ∞)</li>
-<li>H : cofactor</li>
-</ul>
-
-<p>타원 곡선이란, 타원 곡선 방정식을 만족하는 집합을 곡선 그래프로 표시한 것</p>
-
-<p>y^2 = x^3 + ax + b</p>
-
-<p>secp256k1 곡선의 경우 a = 0, b = 7 을 사용</p>
-
-<p><img src="https://mblogthumb-phinf.pstatic.net/MjAxODAxMDVfMjA3/MDAxNTE1MTIwNzU2Mzg4.-O3OYGeOa7qhb3XL4zNeyVTUu-QztZOTNCB5usfDlzsg.WQ_YS2FHvXxbrzIKQ0FBFvJBdf90Zj7x5JuNwEVKWH8g.JPEG.aepkoreanet/secpcurve.jpg?type=w2" alt="" /></p>
-
-<h2 id="ecc-의-privatekey-와-publickey">ECC 의 privateKey 와 publicKey</h2>
-
-<blockquote>
-<ul>
-<li>Private Key d : P 보다 적은 소수 (Prime) 로, 난수 생성기로 생성</li>
-<li>Public Key Q : Q(x, y) = d x G(x0, y0)</li>
-</ul>
-</blockquote>
-
-<h2 id="ecdsa-와-secp256k1">ECDSA 와 secp256k1</h2>
-
-<p>ECDSA 의 파라메터로 secp256k1 curve 를 사용
-secp256k1</p>
-
-<p>sec - standard for Efficient Cryptography<br />
-p - parameter p over Fp<br />
-256 - field size p 의 bit 수<br />
-k - koblitz curve 변형<br />
-1 - sequence number</p>
-
-<h3 id="domain-parameter">Domain Parameter</h3>
-
-<pre><code>T = (p,a,b,G,n,h)
-
-p :  FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFC2F
-
-a :  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
-
-b :  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000007
-
-G :  02 79BE667E F9DCBBAC 55A06295 CE870B07 029BFCDB 2DCE28D9 59F2815B 16F81798
-
-  또는
-
-G : 04 79BE667E F9DCBBAC 55A06295 CE870B07 029BFCDB 2DCE28D9 59F2815B 16F81798 483ADA77 26A3C465 5DA4FBFC 0E1108A8 FD17B448 A6855419 9C47D08F FB10D4B8
-
-N :  FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFE BAAEDCE6 AF48A03B BFD25E8C D0364141
-
-h : 01
-</code></pre>
-
-<h2 id="서명은-어떻게-이루어지는가">서명은 어떻게 이루어지는가 ?</h2>
-
-<p><a href="https://ko.wikipedia.org/wiki/%ED%83%80%EC%9B%90%EA%B3%A1%EC%84%A0_DSA">https://ko.wikipedia.org/wiki/%ED%83%80%EC%9B%90%EA%B3%A1%EC%84%A0_DSA</a></p>
-
-<p>domain parameter 로 (CURVE, g, n) 을 사용한다.</p>
-
-<ul>
-<li>Curve : 타원곡선의 체 (field) 와 여기 사용된 수식.</li>
-<li>g : 타원 곡선의 기준점 (base point). 해당 타원곡선의 생성원(generator) 이다.</li>
-<li>n : g 의 차수이다. n X g = 0 이며, 반드시 소수여야한다. 보통 충분히 큰 소수를 사용한다.</li>
-</ul>
-
-<p>privateKey, d 생성. - RNG 로 생성된 무작위로 선택된 1~ n-1 사이의 정수<br />
-publicKey, Q 생성 - Q = dg 를 만족하는 정수. (g 를 d 번 더한 값)</p>
-
-<p>서명 프로세스</p>
-
-<p>필요한 것: <code>E(Fp)</code>, d, Q, m</p>
-
-<pre><code>1. e = H(m). 메시지를 해쉬하고 이를 e 라고 한다.
-2. z = Ln(e) e 의 binary 값에서 왼쪽으로부터 n 번째 까지 잘라낸 값을 z 라고 한다. (left most n'th bit)
-3. 암호학적으로 안전한 난수 k 를 [1, n-1] 사이에서 무작위로 선택한다.
-4. 곡선 위의 점 (x1, y1) = k * g 를 계산한다.
-    - 타원곡선에서의 덧셈은, 결국 다시 점이 된다.
-    - 위 k * g 는 g 를 k 번 더하는 것을 의미하고, 결국 점이 된다.
-5. r = x1 (mod n) 을 계산 한다. r 이 0 인 경우, k 를 다시 선택한다.
-6. s = k^(-1)(z + rd) (mod n) 을 계산. s = 0 이면 3 으로 되돌아가 다른 k 를 선택, 순서대로 진행한다.
-
-완성된 서명은 (r, s) 이다.
-</code></pre>
-
-<p><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d2ae87d5c9d298c4339595d4308963c17257e228" alt="" /></p>
-
-<p>검증 프로세스</p>
-
-<p>필요한 것: <code>E(Fp)</code>, (r,s), m</p>
-
-<pre><code>- 곡선위의 점 인증
-1. Q =/= O (identity element)
-2. Q 가 곡선 위의 점인지
-3. n x Q = O 인지 확인
-
-- 서명 유효성 인증
-1. r,s 가 1부터 n-1 사이의 정수인지 확인.
-2. e = H(m) 을 계산.
-3. z 계산
-4. w = s^(-1)(mod n) 계산, u1 = zw, u2 = rw (mod n) 계산
-5. shamir's trick 을 사용해서 (x1, y1) = u1 x g + u2 x Q 를 계산. (x1, y1) = O 이면 무효
-6. r = x1 (mod n) 일때만 유효.
-</code></pre>
-
-<p>즉, 서명 프로세스는 타원 곡선에서 새로운 k 와 (x1, y1) 을 구한 후</p>
-
-<h2 id="ecdsa-시그니쳐에서-어떻게-public-key-를-복원할-수-있는가">ECDSA 시그니쳐에서 어떻게 public key 를 복원할 수 있는가 ?</h2>
-
-<p><a href="https://crypto.stackexchange.com/questions/18105/how-does-recovering-the-public-key-from-an-ecdsa-signature-work">stack exchange link</a></p>
-
-<p>ECDSA signature (r,s)</p>
-
-<p>사실 곡선과 사용된 해쉬 함수, 서명된 메시지 원본을 알고 있더라도
-signature 로부터 public key 를 recover 하는 것은 불가능하다.</p>
-
-<p>그러나, signature 와 원본 메시지, 곡선에 대한 정보로 두개의 public key 를 생성하는게 가능하다.
-(이 중에 private key 가 사용된 public key 가 있을 것)</p>
-
-<p>동작 원리는 다음과 같다.</p>
-
-<ul>
-<li>R 과 R&rsquo; x 좌표로 r 값을 갖는 좌표를 찾는다.</li>
-<li>r^-1 을 연산하는데, 이는 시그니쳐의 r 의 곱셈 역원이다. (mod n)</li>
-<li>z 메시지 해쉬의 하위 n bit 인 z 를 연산한다.</li>
-</ul>
-
-<p>public key 는 <code>r^(−1)(sR−zG) and r^(−1)(sR′−zG)</code> 가 된다.</p>
-
-</section>
-
-<div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fcrypto%2fecdsa%2f&t=ECDSA" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fcrypto%2fecdsa%2f&text=ECDSA&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fcrypto%2fecdsa%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fcrypto%2fecdsa%2f&title=ECDSA" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
-</div>
-
-<div class="post-meta-code">
-  <div class="desc">
-    public string description() {
-    <div class="desc">val author = "
-    
-        nolleh
-    ";
-    </div>
-    
-    <div class="desc">
-      val categories = [
-      
-      
-      <a href="https://nolleh.github.io//categories/%EC%95%94%ED%98%B8%ED%95%99">"암호학"</a>
-      
-      ];
-    </div>
-    
-    }
-  </div>
-</div>
-<div class="post-meta-code">
-  <div class="desc">
-    public string tags() {
-      <div class="desc">
-        val tags = [
-        
-          
-          <a href="https://nolleh.github.io/tags/%EC%95%94%ED%98%B8%ED%95%99">"암호학"</a>
-          
-          <a href="https://nolleh.github.io/tags/crypto">"CRYPTO"</a>
-          
-        
-        ];
+    <a href="https://nolleh.github.io/crypto/ecdsa/" title="ECDSA">
+      <img src="/images/post-title-icon.png" />
+      <div class="post-meta">
+        <time>Thursday, Jan 30, 2020 18:28</time>
+        <h1>ECDSA</h1>
       </div>
-    }
+    </a>
+  </div>
+  
+  <div>
+    ECDSA ref. https://m.blog.naver.com/aepkoreanet/221178375642
+ec (타원곡선) 을 이용한 기술들의 집합 - ECC,
+이중에 디지털서명 관련 기술이 ECDSA
+Terms   유한체
+집합에 속해있는 원소의 수가 한정되어 있고 덧셈, 곱셈에 대해 닫혀있는 집합  유한체 F 표기법
+원소의 개수가 p 인 유한체 F 는 Fp 혹은 GF(p) 로 표기 유한체 상에 정의된 타원 곡선
+E(Fp) 암호학에서 사용되는 유한체      - Prime Field 원소의 개수가 소수  ECC 사용시 타원 곡선을 정의하는 domain parameter 를 정의해야함.
+    
+    <a href="/crypto/ecdsa/" class="summary-more">More</a>
+    
   </div>
 </div>
 
-  <div class="seperator">
-    <img src="/images/seperator.png" />
-  </div>
+  <hr class="summary-sep" />
 
-  <a href="https://nolleh.github.io/coursera/gcp/6.datastorage/">
+  <div class="post">
   <div class="post-title">
-    <img src="/images/post-title-icon.png" />
-    <div class="post-meta">
-      <time>16 Mar 2019, 23:02</time>
-      <h1>6. DataStorage</h1>
-    </div>
-  </div>
-</a>
-
-<div class="post-toc">
-  <span class="title">
-    Table of contents
-  </span>
-  <nav id="TableOfContents">
-<ul>
-<li><a href="#best-practices-for-using-cloud-storage">Best Practices for Using Cloud Storage</a></li>
-<li><a href="#demo">Demo</a></li>
-<li><a href="#demo2-cors">Demo2 - Cors</a></li>
-<li><a href="#best-practices-for-cloud-storage">Best Practices for cloud Storage</a></li>
-</ul>
-</nav>
-</div>
-
-<section class="post-content">
-  
-
-<h1 id="best-practices-for-using-cloud-storage">Best Practices for Using Cloud Storage</h1>
-
-<hr />
-
-<p>버킷에 변화가 있을때 반응하게 할 수 있다.
-<a href="https://cloud.google.com/storage/docs/pubsub-notifications">https://cloud.google.com/storage/docs/pubsub-notifications</a></p>
-
-<h1 id="demo">Demo</h1>
-
-<hr />
-
-<p>coldline 은 일년에 한번 접근하는것과 같은 문제발생시 복구하는 용도로 사용하면 좋다..</p>
-
-<p><a href="https://cloud.google.com/storage/docs/managing-lifecycles">https://cloud.google.com/storage/docs/managing-lifecycles</a></p>
-
-<h1 id="demo2-cors">Demo2 - Cors</h1>
-
-<hr />
-
-<p>cors - <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS</a>
-cross-origin-resource sharing</p>
-
-<p>instance 만들고 / apache 깔고 / cors 설정 여는 데모..</p>
-
-<h1 id="best-practices-for-cloud-storage">Best Practices for cloud Storage</h1>
-
-<hr />
-
-<p>request rate 가 초당 1000 쓰기 요청 이나 5000 읽기 요청을 넘어가면 ..</p>
-
-<ul>
-<li>이 기준 요청량내에서 요청을 시작해서</li>
-<li>20 분마다 요청을 두배로 해라.</li>
-</ul>
-
-</section>
-
-<div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f6.datastorage%2f&t=6.%20DataStorage" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f6.datastorage%2f&text=6.%20DataStorage&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f6.datastorage%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fcoursera%2fgcp%2f6.datastorage%2f&title=6.%20DataStorage" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
-</div>
-
-<div class="post-meta-code">
-  <div class="desc">
-    public string description() {
-    <div class="desc">val author = "
-    
-        nolleh
-    ";
-    </div>
-    
-    <div class="desc">
-      val categories = [
-      
-      
-      <a href="https://nolleh.github.io//categories/google-cloud-service">"Google Cloud Service"</a>
-      
-      ];
-    </div>
-    
-    }
-  </div>
-</div>
-<div class="post-meta-code">
-  <div class="desc">
-    public string tags() {
-      <div class="desc">
-        val tags = [
-        
-          
-          <a href="https://nolleh.github.io/tags/coursera">"Coursera"</a>
-          
-          <a href="https://nolleh.github.io/tags/google-cloud-service">"Google Cloud Service"</a>
-          
-        
-        ];
+    <a href="https://nolleh.github.io/coursera/gcp/6.datastorage/" title="6. DataStorage">
+      <img src="/images/post-title-icon.png" />
+      <div class="post-meta">
+        <time>Saturday, Mar 16, 2019 23:02</time>
+        <h1>6. DataStorage</h1>
       </div>
-    }
+    </a>
+  </div>
+  
+  <div>
+    Best Practices for Using Cloud Storage  버킷에 변화가 있을때 반응하게 할 수 있다. https://cloud.google.com/storage/docs/pubsub-notifications
+Demo  coldline 은 일년에 한번 접근하는것과 같은 문제발생시 복구하는 용도로 사용하면 좋다..
+https://cloud.google.com/storage/docs/managing-lifecycles
+Demo2 - Cors  cors - https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS cross-origin-resource sharing
+instance 만들고 / apache 깔고 / cors 설정 여는 데모..
+Best Practices for cloud Storage  request rate 가 초당 1000 쓰기 요청 이나 5000 읽기 요청을 넘어가면 ..
+ 이 기준 요청량내에서 요청을 시작해서 20 분마다 요청을 두배로 해라.
+    
+    <a href="/coursera/gcp/6.datastorage/" class="summary-more">More</a>
+    
   </div>
 </div>
 
-  <div class="seperator">
-    <img src="/images/seperator.png" />
-  </div>
+  <hr class="summary-sep" />
 
 
 <div class="paging">
   
   <a href="/page/3/" rel="prev">
+    Prev
     <i class="fa fa-caret-left" aria-hidden="true"></i>
   </a>
   
-
-  PAGE 4 / 19
-
+  <span class="page">
+    Page 4 / 19
+  </span>
   
   <a href="/page/5/" rel="next">
     <i class="fa fa-caret-right" aria-hidden="true"></i>
+    
   </a>
   
 </div>
 
+
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>Top</span>
+  </a>
+</div>
 <footer class="footer">
-    COPYRIGHT (C) <a href="http://blog.lulab.net">DONGGEUN,BANG</a>. ALL RIGHTS RESERVED.
+  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
+  ALL RIGHTS RESERVED.
 </footer>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-102565363-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<script data-no-instant>document.write('<script src="/livereload.js?port=80&mindelay=10"></' + 'script>')</script></body>
-
+</body>
 </html>
 

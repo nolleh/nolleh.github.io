@@ -1,236 +1,237 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <base href="https://nolleh.github.io/">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>EOSIO - 1.4/노드 시작하고 설정하기  &middot; The Computer Programmer, Nolleh</title>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="canonical" href="https://nolleh.github.io/block-chain/1.4-startyournodeandsetup/">
-    
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=80&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EOSIO - 1.4/노드 시작하고 설정하기  | The Computer Programmer, Nolleh</title>
+  <meta name="description" content=" 'EOSIO - 1.4/노드 시작하고 설정하기'read this article.">
+  <meta property="og:title" content="EOSIO - 1.4/노드 시작하고 설정하기">
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2019-01-01">
+  
+  <meta property="og:description" content=" 'EOSIO - 1.4/노드 시작하고 설정하기'read this article.">
+  <meta property="og:url" content="https://nolleh.github.io/block-chain/1.4-startyournodeandsetup/">
+  <meta property="og:site_name" content="The Computer Programmer, Nolleh">
+  
+  <meta property="og:image" content="https://nolleh.github.io/images/thumbnail.png">
+  
+  
+  <meta property="og:tags" content="block-chain">
+  
+  <meta property="og:tags" content="EOSIO">
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="https://nolleh.github.io/block-chain/1.4-startyournodeandsetup/">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102565363-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-102565363-1');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
 </head>
-
 <body>
-    <div class="navbar">
-        <ul>
-            <li><a href="/">HOME</a></li>
-            <li><a href="/categories">CATEGORIES</a></li>
-            <li><a href="/project">PROJECTS</a></li>
-        </ul>
+  <div class="navbar">    
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo.png" height="34px" />
+      </a>
     </div>
-    <div class="container">
-      <div class="title">
-        <div>
-          <a href="/">
-            <img src="/images/logo.png" />
-          </a>
-        </div>
-        <div><img src="/images/seperator.png" /></div>
-        <div class="logo-title">hello, world!</div>
-      </div>
-
-
-<a href="https://nolleh.github.io/block-chain/1.4-startyournodeandsetup/">
-  <div class="post-title">
-    <img src="/images/post-title-icon.png" />
-    <div class="post-meta">
-      <time>01 Jan 2019, 16:36</time>
-      <h1>EOSIO - 1.4/노드 시작하고 설정하기</h1>
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> Menu
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><a href="/">#The Computer Programmer, Nolleh</a></li>
+        <li><a href="/categories">#Categories</a></li>
+        <li><a href="/tags">#Tags</a></li>
+        <li><a href="/projects">#Projects</a></li>        
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
     </div>
   </div>
-</a>
+  <div class="container">    
 
-<div class="post-toc">
-  <span class="title">
-    Table of contents
-  </span>
-  <nav id="TableOfContents">
-<ul>
-<li><a href="#step-1-boot-node-and-wallet">Step 1: Boot Node And Wallet</a>
-<ul>
-<li><a href="#step-1-1-start-keosd">Step 1.1: Start keosd</a></li>
-<li><a href="#step-1-2-start-nodeos">Step 1.2: Start nodeos</a></li>
-</ul></li>
-<li><a href="#step-2-check-the-installation">Step 2: Check the installation</a>
-<ul>
-<li><a href="#step-2-1-check-that-nodeos-is-producing-blocks">Step 2.1: Check That Nodeos is Producing Blocks</a></li>
-<li><a href="#step-2-2-check-the-wallet">Step 2.2: Check the wallet</a></li>
-<li><a href="#step-2-3-check-nodeos-endpoints">Step 2.3: Check Nodeos endpoints</a></li>
-</ul></li>
-</ul>
+<div class="post">
+  <div class="post-title">
+    <a href="https://nolleh.github.io/block-chain/1.4-startyournodeandsetup/">
+      <img src="/images/post-title-icon.png" />
+      <div class="post-meta">
+        <time>Tuesday, Jan 1, 2019 16:36</time>
+        <h1>EOSIO - 1.4/노드 시작하고 설정하기</h1>
+      </div>
+    </a>
+  </div>
+  <div class="post-toc">
+    <span class="title">TOC</span>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#step-11-start-keosd">Step 1.1: Start keosd</a></li>
+    <li><a href="#step-12-start-nodeos">Step 1.2: Start nodeos</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#step-21-check-that-nodeos-is-producing-blocks">Step 2.1: Check That Nodeos is Producing Blocks</a></li>
+    <li><a href="#step-22-check-the-wallet">Step 2.2: Check the wallet</a></li>
+    <li><a href="#step-23-check-nodeos-endpoints">Step 2.3: Check Nodeos endpoints</a></li>
+  </ul>
 </nav>
-</div>
-
-<section class="post-content">
-  
-
-<blockquote>
-<p>다음에서 발췌 - [](<a href="https://developers.eos.io/eosio-home/docs/getting-the-software">https://developers.eos.io/eosio-home/docs/getting-the-software</a>)</p>
+  </div>
+  <section class="post-content">
+    <blockquote>
+<p>다음에서 발췌 - <a href="https://developers.eos.io/eosio-home/docs/getting-the-software"></a></p>
 </blockquote>
-
 <h1 id="step-1-boot-node-and-wallet">Step 1: Boot Node And Wallet</h1>
-
-<hr />
-
-<h2 id="step-1-1-start-keosd">Step 1.1: Start keosd</h2>
-
+<hr>
+<h2 id="step-11-start-keosd">Step 1.1: Start keosd</h2>
 <p>먼저 keosd 를 시작한다.</p>
-
-<pre><code class="language-shell">keosd &amp;
-</code></pre>
-
-<p>다음과 유사한 결과를 얻게 된다.</p>
-
-<pre><code class="language-shell">info  2018-11-26T06:54:24.789 thread-0  wallet_plugin.cpp:42          plugin_initialize    ] initializing wallet plugin
-info  2018-11-26T06:54:24.795 thread-0  http_plugin.cpp:554           add_handler          ] add api url: /v1/keosd/stop
-info  2018-11-26T06:54:24.796 thread-0  wallet_api_plugin.cpp:73      plugin_startup       ] starting wallet_api_plugin
-info  2018-11-26T06:54:24.796 thread-0  http_plugin.cpp:554           add_handler          ] add api url: /v1/wallet/create
-info  2018-11-26T06:54:24.796 thread-0  http_plugin.cpp:554           add_handler          ] add api url: /v1/wallet/create_key
-info  2018-11-26T06:54:24.796 thread-0  http_plugin.cpp:554           add_handler          ] add api url: /v1/wallet/get_public_keys
-</code></pre>
-
-<p>enter 를 치면 종료 된다.</p>
-
-<h2 id="step-1-2-start-nodeos">Step 1.2: Start nodeos</h2>
-
-<pre><code class="language-shell">nodeos -e -p eosio \
---plugin eosio::producer_plugin \
---plugin eosio::chain_api_plugin \
---plugin eosio::http_plugin \
---plugin eosio::history_plugin \
---plugin eosio::history_api_plugin \
---data-dir CONTRACTS_DIR/eosio/data \
---config-dir CONTRACTS_DIR/eosio/config \
---access-control-allow-origin='*' \
---contracts-console \
---http-validate-host=false \
---verbose-http-errors \
---filter-on='*' &gt;&gt; nodeos.log 2&gt;&amp;1 &amp;
-</code></pre>
-
-<p>이 설정은 다음과 같은 작업을 진행한다.
-1. 개발 디렉토리 하위의 eosio 디렉토리안에서 블록체인 데이터와 설정 데이터를 사용 할수 있도록 지정. eosio/data 와 eosio/config 을 각각 사용하게 된다.
-2. nodeos 를 실행한다. 이 커맨드는 기본적인 플러그인을 로드하고, 서버 주소를 설정하며, CORS 를 사용가능하게 하며 일부 contract 디버깅과 로깅을 가능케한다.
-3. CORS 가 (*) 에 대한 제약이 없도록 한다.</p>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>keosd &amp;
+</span></span></code></pre></div><p>다음과 유사한 결과를 얻게 된다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>info  2018-11-26T06:54:24.789 thread-0  wallet_plugin.cpp:42          plugin_initialize    <span style="color:#f92672">]</span> initializing wallet plugin
+</span></span><span style="display:flex;"><span>info  2018-11-26T06:54:24.795 thread-0  http_plugin.cpp:554           add_handler          <span style="color:#f92672">]</span> add api url: /v1/keosd/stop
+</span></span><span style="display:flex;"><span>info  2018-11-26T06:54:24.796 thread-0  wallet_api_plugin.cpp:73      plugin_startup       <span style="color:#f92672">]</span> starting wallet_api_plugin
+</span></span><span style="display:flex;"><span>info  2018-11-26T06:54:24.796 thread-0  http_plugin.cpp:554           add_handler          <span style="color:#f92672">]</span> add api url: /v1/wallet/create
+</span></span><span style="display:flex;"><span>info  2018-11-26T06:54:24.796 thread-0  http_plugin.cpp:554           add_handler          <span style="color:#f92672">]</span> add api url: /v1/wallet/create_key
+</span></span><span style="display:flex;"><span>info  2018-11-26T06:54:24.796 thread-0  http_plugin.cpp:554           add_handler          <span style="color:#f92672">]</span> add api url: /v1/wallet/get_public_keys
+</span></span></code></pre></div><p>enter 를 치면 종료 된다.</p>
+<h2 id="step-12-start-nodeos">Step 1.2: Start nodeos</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>nodeos -e -p eosio <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>--plugin eosio::producer_plugin <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>--plugin eosio::chain_api_plugin <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>--plugin eosio::http_plugin <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>--plugin eosio::history_plugin <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>--plugin eosio::history_api_plugin <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>--data-dir CONTRACTS_DIR/eosio/data <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>--config-dir CONTRACTS_DIR/eosio/config <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>--access-control-allow-origin<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;*&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>--contracts-console <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>--http-validate-host<span style="color:#f92672">=</span>false <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>--verbose-http-errors <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>--filter-on<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;*&#39;</span> &gt;&gt; nodeos.log 2&gt;&amp;<span style="color:#ae81ff">1</span> &amp;
+</span></span></code></pre></div><p>이 설정은 다음과 같은 작업을 진행한다.</p>
+<ol>
+<li>개발 디렉토리 하위의 eosio 디렉토리안에서 블록체인 데이터와 설정 데이터를 사용 할수 있도록 지정. eosio/data 와 eosio/config 을 각각 사용하게 된다.</li>
+<li>nodeos 를 실행한다. 이 커맨드는 기본적인 플러그인을 로드하고, 서버 주소를 설정하며, CORS 를 사용가능하게 하며 일부 contract 디버깅과 로깅을 가능케한다.</li>
+<li>CORS 가 (*) 에 대한 제약이 없도록 한다.</li>
+</ol>
 <blockquote>
 <p>CORS 의 * 에 대한 제약제거는 개발 과정에서만 사용하도록 한다.
 어떤 노드에 대해 public 하게 * 에 접근하도록 하는 것은 지양해야한다!</p>
 </blockquote>
-
 <h1 id="step-2-check-the-installation">Step 2: Check the installation</h1>
-
-<hr />
-
-<h2 id="step-2-1-check-that-nodeos-is-producing-blocks">Step 2.1: Check That Nodeos is Producing Blocks</h2>
-
+<hr>
+<h2 id="step-21-check-that-nodeos-is-producing-blocks">Step 2.1: Check That Nodeos is Producing Blocks</h2>
 <p>아래의 명령어를 실행한다.</p>
-
-<pre><code class="language-shell">tail -f nodeos.log
-</code></pre>
-
-<p>아래와 유사한 출력 결과를 볼 수 있다.</p>
-
-<pre><code class="language-shell">1929001ms thread-0   producer_plugin.cpp:585       block_production_loo ] Produced block 0000366974ce4e2a... #13929 @ 2018-05-23T16:32:09.000 signed by eosio [trxs: 0, lib: 13928, confirmed: 0]
-1929502ms thread-0   producer_plugin.cpp:585       block_production_loo ] Produced block 0000366aea085023... #13930 @ 2018-05-23T16:32:09.500 signed by eosio [trxs: 0, lib: 13929, confirmed: 0]
-1930002ms thread-0   producer_plugin.cpp:585       block_production_loo ] Produced block 0000366b7f074fdd... #13931 @ 2018-05-23T16:32:10.000 signed by eosio [trxs: 0, lib: 13930, confirmed: 0]
-1930501ms thread-0   producer_plugin.cpp:585       block_production_loo ] Produced block 0000366cd8222adb... #13932 @ 2018-05-23T16:32:10.500 signed by eosio [trxs: 0, lib: 13931, confirmed: 0]
-1931002ms thread-0   producer_plugin.cpp:585       block_production_loo ] Produced block 0000366d5c1ec38d... #13933 @ 2018-05-23T16:32:11.000 signed by eosio [trxs: 0, lib: 13932, confirmed: 0]
-1931501ms thread-0   producer_plugin.cpp:585       block_production_loo ] Produced block 0000366e45c1f235... #13934 @ 2018-05-23T16:32:11.500 signed by eosio [trxs: 0, lib: 13933, confirmed: 0]
-1932001ms thread-0   producer_plugin.cpp:585       block_production_loo ] Produced block 0000366f98adb324... #13935 @ 2018-05-23T16:32:12.000 signed by eosio [trxs: 0, lib: 13934, confirmed: 0]
-1932501ms thread-0   producer_plugin.cpp:585       block_production_loo ] Produced block 00003670a0f01daa... #13936 @ 2018-05-23T16:32:12.500 signed by eosio [trxs: 0, lib: 13935, confirmed: 0]
-1933001ms thread-0   producer_plugin.cpp:585       block_production_loo ] Produced block 00003671e8b36e1e... #13937 @ 2018-05-23T16:32:13.000 signed by eosio [trxs: 0, lib: 13936, confirmed: 0]
-1933501ms thread-0   producer_plugin.cpp:585       block_production_loo ] Produced block 0000367257fe1623... #13938 @ 2018-05-23T16:32:13.500 signed by eosio [trxs: 0, lib: 13937, confirmed: 0]
-</code></pre>
-
-<p>로그를 닫기 위해 Ctrl + c 를 누르자.</p>
-
-<h2 id="step-2-2-check-the-wallet">Step 2.2: Check the wallet</h2>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>tail -f nodeos.log
+</span></span></code></pre></div><p>아래와 유사한 출력 결과를 볼 수 있다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>1929001ms thread-0   producer_plugin.cpp:585       block_production_loo <span style="color:#f92672">]</span> Produced block 0000366974ce4e2a... <span style="color:#75715e">#13929 @ 2018-05-23T16:32:09.000 signed by eosio [trxs: 0, lib: 13928, confirmed: 0]</span>
+</span></span><span style="display:flex;"><span>1929502ms thread-0   producer_plugin.cpp:585       block_production_loo <span style="color:#f92672">]</span> Produced block 0000366aea085023... <span style="color:#75715e">#13930 @ 2018-05-23T16:32:09.500 signed by eosio [trxs: 0, lib: 13929, confirmed: 0]</span>
+</span></span><span style="display:flex;"><span>1930002ms thread-0   producer_plugin.cpp:585       block_production_loo <span style="color:#f92672">]</span> Produced block 0000366b7f074fdd... <span style="color:#75715e">#13931 @ 2018-05-23T16:32:10.000 signed by eosio [trxs: 0, lib: 13930, confirmed: 0]</span>
+</span></span><span style="display:flex;"><span>1930501ms thread-0   producer_plugin.cpp:585       block_production_loo <span style="color:#f92672">]</span> Produced block 0000366cd8222adb... <span style="color:#75715e">#13932 @ 2018-05-23T16:32:10.500 signed by eosio [trxs: 0, lib: 13931, confirmed: 0]</span>
+</span></span><span style="display:flex;"><span>1931002ms thread-0   producer_plugin.cpp:585       block_production_loo <span style="color:#f92672">]</span> Produced block 0000366d5c1ec38d... <span style="color:#75715e">#13933 @ 2018-05-23T16:32:11.000 signed by eosio [trxs: 0, lib: 13932, confirmed: 0]</span>
+</span></span><span style="display:flex;"><span>1931501ms thread-0   producer_plugin.cpp:585       block_production_loo <span style="color:#f92672">]</span> Produced block 0000366e45c1f235... <span style="color:#75715e">#13934 @ 2018-05-23T16:32:11.500 signed by eosio [trxs: 0, lib: 13933, confirmed: 0]</span>
+</span></span><span style="display:flex;"><span>1932001ms thread-0   producer_plugin.cpp:585       block_production_loo <span style="color:#f92672">]</span> Produced block 0000366f98adb324... <span style="color:#75715e">#13935 @ 2018-05-23T16:32:12.000 signed by eosio [trxs: 0, lib: 13934, confirmed: 0]</span>
+</span></span><span style="display:flex;"><span>1932501ms thread-0   producer_plugin.cpp:585       block_production_loo <span style="color:#f92672">]</span> Produced block 00003670a0f01daa... <span style="color:#75715e">#13936 @ 2018-05-23T16:32:12.500 signed by eosio [trxs: 0, lib: 13935, confirmed: 0]</span>
+</span></span><span style="display:flex;"><span>1933001ms thread-0   producer_plugin.cpp:585       block_production_loo <span style="color:#f92672">]</span> Produced block 00003671e8b36e1e... <span style="color:#75715e">#13937 @ 2018-05-23T16:32:13.000 signed by eosio [trxs: 0, lib: 13936, confirmed: 0]</span>
+</span></span><span style="display:flex;"><span>1933501ms thread-0   producer_plugin.cpp:585       block_production_loo <span style="color:#f92672">]</span> Produced block 0000367257fe1623... <span style="color:#75715e">#13938 @ 2018-05-23T16:32:13.500 signed by eosio [trxs: 0, lib: 13937, confirmed: 0]</span>
+</span></span></code></pre></div><p>로그를 닫기 위해 Ctrl + c 를 누르자.</p>
+<h2 id="step-22-check-the-wallet">Step 2.2: Check the wallet</h2>
 <p>쉘을 열고 아래 명령어를 기입한다.</p>
-
-<pre><code class="language-shell">cleos wallet list
-</code></pre>
-
-<p>다음과 같은 결과가 노출된다.</p>
-
-<pre><code class="language-shell">Wallets:
-[]
-</code></pre>
-
-<p>이 시점에서 앞으로, 당신의 로컬시스템에서 이 명령어들을 칠 것이라 기대한다.</p>
-
-<h2 id="step-2-3-check-nodeos-endpoints">Step 2.3: Check Nodeos endpoints</h2>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cleos wallet list
+</span></span></code></pre></div><p>다음과 같은 결과가 노출된다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Wallets:
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[]</span>
+</span></span></code></pre></div><p>이 시점에서 앞으로, 당신의 로컬시스템에서 이 명령어들을 칠 것이라 기대한다.</p>
+<h2 id="step-23-check-nodeos-endpoints">Step 2.3: Check Nodeos endpoints</h2>
 <p>다음은 RPC API 가 정상적으로 동작하는지 확인할 것이다. 하나를 선택하자.</p>
-
 <ol>
-<li>다음 브라우저에서 <code>chain_api_plugin</code> 을 통해 제공되는 <code>get_info</code> 를 확인해본다. : <a href="http://localhost:8888/v1/chain/get_info">http://localhost:8888/v1/chain/get_info</a><br /></li>
+<li>다음 브라우저에서 <code>chain_api_plugin</code> 을 통해 제공되는 <code>get_info</code> 를 확인해본다. : <a href="http://localhost:8888/v1/chain/get_info">http://localhost:8888/v1/chain/get_info</a></li>
 <li>같은 것을 확인하지만, 호스트머신의 콘솔에서 확인한다.</li>
 </ol>
-
-<pre><code class="language-shell">curl http://localhost:8888/v1/chain/get_info
-</code></pre>
-
-</section>
-
-<div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.4-startyournodeandsetup%2f&t=EOSIO%20-%201.4%2f%eb%85%b8%eb%93%9c%20%ec%8b%9c%ec%9e%91%ed%95%98%ea%b3%a0%20%ec%84%a4%ec%a0%95%ed%95%98%ea%b8%b0" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.4-startyournodeandsetup%2f&text=EOSIO%20-%201.4%2f%eb%85%b8%eb%93%9c%20%ec%8b%9c%ec%9e%91%ed%95%98%ea%b3%a0%20%ec%84%a4%ec%a0%95%ed%95%98%ea%b8%b0&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.4-startyournodeandsetup%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.4-startyournodeandsetup%2f&title=EOSIO%20-%201.4%2f%eb%85%b8%eb%93%9c%20%ec%8b%9c%ec%9e%91%ed%95%98%ea%b3%a0%20%ec%84%a4%ec%a0%95%ed%95%98%ea%b8%b0" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
-</div>
-
-<div class="post-meta-code">
-  <div class="desc">
-    public string description() {
-    <div class="desc">val author = "
-    
-        nolleh
-    ";
-    </div>
-    
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>curl http://localhost:8888/v1/chain/get_info
+</span></span></code></pre></div>
+  </section>
+  <div class="share">    
+    <a
+      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.4-startyournodeandsetup%2f&t=EOSIO%20-%201.4%2f%eb%85%b8%eb%93%9c%20%ec%8b%9c%ec%9e%91%ed%95%98%ea%b3%a0%20%ec%84%a4%ec%a0%95%ed%95%98%ea%b8%b0"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-facebook"></i
+    ></a>
+    <a
+      href="//twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.4-startyournodeandsetup%2f&text=EOSIO%20-%201.4%2f%eb%85%b8%eb%93%9c%20%ec%8b%9c%ec%9e%91%ed%95%98%ea%b3%a0%20%ec%84%a4%ec%a0%95%ed%95%98%ea%b8%b0&tw_p=tweetbutton"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-twitter"></i
+    ></a>
+    <a
+      href="//getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.4-startyournodeandsetup%2f&title=EOSIO%20-%201.4%2f%eb%85%b8%eb%93%9c%20%ec%8b%9c%ec%9e%91%ed%95%98%ea%b3%a0%20%ec%84%a4%ec%a0%95%ed%95%98%ea%b8%b0"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-get-pocket"></i
+    ></a>
+    <a
+      href="//plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.4-startyournodeandsetup%2f"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-google-plus"></i
+    ></a>
+  </div>
+  <div class="post-meta-code">
     <div class="desc">
-      val categories = [
+      Friendly
       
+      nolleh
       
-      <a href="https://nolleh.github.io//categories/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8">"블록체인"</a>
-      
-      ];
+      wrotes this article at
+      <span class="highlight">Tuesday, Jan 1, 2019 16:36</span> 
+      for you.
     </div>
-    
-    }
-  </div>
-</div>
-<div class="post-meta-code">
-  <div class="desc">
-    public string tags() {
+    <div class="desc">
+      
       <div class="desc">
-        val tags = [
+        <span class="fixed-desc">_Categories</span>
         
-          
-          <a href="https://nolleh.github.io/tags/block-chain">"block-chain"</a>
-          
-          <a href="https://nolleh.github.io/tags/eosio">"EOSIO"</a>
-          
         
-        ];
+        <a href="https://nolleh.github.io//categories/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8">#블록체인</a>
+        
       </div>
-    }
-  </div>
-</div>
-
-
-<div class="share"></div>
-
-<div id="disqus_thread"></div>
+      
+      <div class="desc">
+        <span class="fixed-desc">_Tags</span>
+        
+        
+        <a href="https://nolleh.github.io/tags/block-chain">#block-chain</a>
+        
+        <a href="https://nolleh.github.io/tags/eosio">#EOSIO</a>
+        
+        
+      </div>
+    </div>
+  </div>  
+  
+  <div class="post-comment">    
+    <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -247,45 +248,40 @@ info  2018-11-26T06:54:24.796 thread-0  http_plugin.cpp:554           add_handle
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-<div class="paging post-paging">
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>    
+  </div>
   
-  <a class="left" href="https://nolleh.github.io/block-chain/1.5-installthecdt/" rel="prev">
-    <i class="fa fa-caret-left" aria-hidden="true"></i> <span>EOSIO - 1.5/CDT 설치하기</span>
-  </a>
-  
-  
-  <a class="right" href="https://nolleh.github.io/block-chain/1.3-aboutthestack/" rel="next">
-    <span>EOSIO - 1.3/스택에 대해</span> <i class="fa fa-caret-right" aria-hidden="true"></i>
-  </a>
-  
+  <div class="recommend-articles">
+    Recommend these articles
+    <ul>
+      
+      <li>
+        <a href="https://nolleh.github.io/block-chain/1.3-aboutthestack/" rel="prev">
+          <span>EOSIO - 1.3/스택에 대해</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="https://nolleh.github.io/block-chain/1.5-installthecdt/" rel="next">
+          <span>EOSIO - 1.5/CDT 설치하기</span>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
 </div>
 
-<div class="share"></div>
-
-<div class="seperator">
-  <img src="/images/seperator.png" />
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>Top</span>
+  </a>
 </div>
-
 <footer class="footer">
-    COPYRIGHT (C) <a href="http://blog.lulab.net">DONGGEUN,BANG</a>. ALL RIGHTS RESERVED.
+  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
+  ALL RIGHTS RESERVED.
 </footer>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-102565363-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<script data-no-instant>document.write('<script src="/livereload.js?port=80&mindelay=10"></' + 'script>')</script></body>
-
+</body>
 </html>
 

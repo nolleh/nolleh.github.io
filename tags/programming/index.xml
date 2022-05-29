@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Programming on The Computer Programmer, Nolleh</title>
@@ -8,11 +8,7 @@
     <language>ko-KR</language>
     <managingEditor>nolleh7707@gmail.com (nolleh)</managingEditor>
     <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
-    <lastBuildDate>Mon, 21 Jan 2019 22:58:23 +0900</lastBuildDate>
-    
-	<atom:link href="https://nolleh.github.io/tags/programming/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 21 Jan 2019 22:58:23 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>고수준의 분산 시스템</title>
       <link>https://nolleh.github.io/distributed-systems/1.highlevel/</link>
@@ -31,9 +27,9 @@
       <pubDate>Fri, 21 Dec 2018 22:02:13 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/csharp/async-control-flow-msdn/</guid>
-      <description>개요  다음에서 발췌
+      <description>개요   다음에서 발췌
 비동기 프로그램의 제어 흐름
- 코드 public partial class MainWindow : Window { // . . . private async void startButton_Click(object sender, RoutedEventArgs e) { // ONE Task&amp;lt;int&amp;gt; getLengthTask = AccessTheWebAsync(); // FOUR int contentLength = await getLengthTask; // SIX resultsTextBox.Text += $&amp;quot;\r\nLength of the downloaded string: {contentLength}.\r\n&amp;quot;; } async Task&amp;lt;int&amp;gt; AccessTheWebAsync() { // TWO HttpClient client = new HttpClient(); Task&amp;lt;string&amp;gt; getStringTask = client.GetStringAsync(&amp;quot;https://msdn.microsoft.com&amp;quot;); // THREE string urlContents = await getStringTask; // FIVE return urlContents.</description>
+ 코드  public partial class MainWindow : Window {  // . . .  private async void startButton_Click(object sender, RoutedEventArgs e)  {  // ONE  Task&amp;lt;int&amp;gt; getLengthTask = AccessTheWebAsync();   // FOUR  int contentLength = await getLengthTask;   // SIX  resultsTextBox.Text +=  $&amp;#34;\r\nLength of the downloaded string: {contentLength}.\r\n&amp;#34;;  }   async Task&amp;lt;int&amp;gt; AccessTheWebAsync()  {  // TWO  HttpClient client = new HttpClient();  Task&amp;lt;string&amp;gt; getStringTask =  client.</description>
     </item>
     
     <item>
@@ -42,15 +38,10 @@
       <pubDate>Fri, 21 Dec 2018 21:41:08 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/csharp/async-await-msdn/</guid>
-      <description>개요  다음에서 발췌 MSDN
- 반응성을 향상시키는 비동기 잠재적인 차단 작업 완료 될때까지 다른 작업을 게속 수행
-작성이 간편한 비동기 메서드 반환 형식은 다음 중 하나
-- Task
-- Task
-- void - 비동기 이벤트 처리기 작성
-- GetAwaiter 포함 모든 기타 형식
- await 을 만나면 yield 함 (호출자로 제어가 돌아감)
- 이때, Task 가 호출자에게 반환되고 이는 언젠가 다운로드된 문자열의 길이가 반환된다는 약속 (future) 을 의미한다.</description>
+      <description>개요   다음에서 발췌 MSDN
+ 반응성을 향상시키는 비동기  잠재적인 차단 작업 완료 될때까지 다른 작업을 게속 수행
+작성이 간편한 비동기 메서드  반환 형식은 다음 중 하나
+ Task Task void - 비동기 이벤트 처리기 작성 GetAwaiter 포함 모든 기타 형식   await 을 만나면 yield 함 (호출자로 제어가 돌아감)  이때, Task가 호출자에게 반환되고 이는 언젠가 다운로드된 문자열의 길이가 반환된다는 약속 (future) 을 의미한다. await 전에 작업이 완료된다면 제어가 돌아가지 않는다.</description>
     </item>
     
     <item>
@@ -74,9 +65,9 @@
       <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/csharp/async-await/</guid>
       <description>NeoSmart.AsyncLock 라이브러리에 관하여  다음에서 발췌, 번역 - Neosmart Docs.
- 개요 semaporeslim 은 reentrance 를 지원하지 않는다. 따라서, recursion 에서 적절히 사용되지 않으면 데드락이 발생한다.
+ 개요  semaporeslim 은 reentrance 를 지원하지 않는다. 따라서, recursion 에서 적절히 사용되지 않으면 데드락이 발생한다.
 asynclock 은 reentrance 기능을 semaphoreslim 에 추가한거.
-대안 간단한 방법은 semaphoreslim 으로 교체하고, recursion 인 경우를 스레드 아이디로 확인 하는 것.
+대안  간단한 방법은 semaphoreslim 으로 교체하고, recursion 인 경우를 스레드 아이디로 확인 하는 것.
 이 경우의 문제는
 async / await 의 가장 기본적인 목적인 ui 의 불필요한 블럭킹 없이 작업의 완료를 기다린다는 문제를 그대로 안고 있다.</description>
     </item>
@@ -88,7 +79,7 @@ async / await 의 가장 기본적인 목적인 ui 의 불필요한 블럭킹 �
       <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/nancy/introduction/</guid>
       <description>Nancy 에 대한 문서 번역 #1. By Nolleh
- Introduction 가장 먼저, Nancy 의 세계에 온것을 환영합니다!
+ Introduction  가장 먼저, Nancy 의 세계에 온것을 환영합니다!
 루비의 sinatra 프레임워크에 영감을 받아 Nancy 라는 이름을 붙이게 되었습니다. (Frank Sinatra 의 딸이름이 Nancy 니까요!)
 NancyFx 의 Fx 에 대해 많은 사람들이 궁금해하여 여기에 붙입니다만, framework 라는 뜻입니다 :)
 NancyFx 는 모든 컴포넌트들을 포함하는 umbrella project 입니다. (#역자주: 우산효과의 우산처럼, 포괄적인 프로젝트라는 의미로 쓴게 아닐까? )
@@ -102,7 +93,7 @@ NancyFx 는 모든 컴포넌트들을 포함하는 umbrella project 입니다. (
       <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/web/fund-spring/</guid>
       <description>어쩌다보니 그동안 손댈 일이 없던 웹서버에 좀 손을 대게 되서 (게임서버, 클라이언트, 그리고 웹서버..정녕 풀스택 개발자가 되는것인가..ㅋ), 예전 선배님이 버리고 간(?) 스프링 책을 꺼내서 읽어 보며 정리한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.
- Spring Bean 객체 스프링에서 생성하여 관리하여 주는 스프링 빈 객체 혹은 빈 객체라고 부른다. res/applicationContext.xml 에  태그로 선언할 수도 있다. 이렇게 선언한경우, 리플렉션을 활용하여 bean id 클래스의 인스턴스를 지정한 세부 태그의 속성으로 메서드를 호출하여 객체를 초기화한다.</description>
+ Spring Bean 객체 스프링에서 생성하여 관리하여 주는 스프링 빈 객체 혹은 빈 객체라고 부른다. res/applicationContext.xml 에 태그로 선언할 수도 있다. 이렇게 선언한경우, 리플렉션을 활용하여 bean id 클래스의 인스턴스를 지정한 세부 태그의 속성으로 메서드를 호출하여 객체를 초기화한다.</description>
     </item>
     
     <item>
@@ -112,8 +103,7 @@ NancyFx 는 모든 컴포넌트들을 포함하는 umbrella project 입니다. (
       <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/operating-system/file-buffering/</guid>
       <description>다음에서 발췌, 번역
-- https://msdn.microsoft.com/en-gb/library/windows/desktop/cc644950(v=vs.85).aspx
- File Buffering 파일버퍼링 - unbuffered file I/O.
+ https://msdn.microsoft.com/en-gb/library/windows/desktop/cc644950(v=vs.85).aspx   File Buffering 파일버퍼링 - unbuffered file I/O.
 본문에선 시스템에 의해 캐싱되지 않는 (buffered) 데이터를
 어떻게 유저 모드의 응용프로그램에서 데이터를 활용할 수 (interact) 있을지에 대해 다룬다.
 FILE_FLAG_NO_BUFFERING 플래그를 통해 CreateFile 을 Open 하면,
@@ -132,8 +122,8 @@ Note 파일에 대해 Seeking 과 위치포인터, offsets 의 개념을 사용�
 여러 서적에서 발췌하였으며, 정리 차원에서 작성한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.
 어쩌면 작성자의 부사수를 위한 자재가 될지도 모르겠&amp;hellip;(..)
  Concurrent ISSUE - Stack 이번엔 스택.
-if (!s.empty()) { item = s.top(); s.pop(); }  인터페이스상의 문제이기 때문에 empty 와 top 사이의 safety 를 보장할 수 없다.
-top() / pop() 도 마찬가지 -&amp;gt;&amp;gt; 조회되지 못하는 아이템이 있을 수 있다.</description>
+if (!s.empty()) {  item = s.top();  s.pop(); } 인터페이스상의 문제이기 때문에 empty 와 top 사이의 safety 를 보장할 수 없다.
+top() / pop() 도 마찬가지 -&amp;raquo; 조회되지 못하는 아이템이 있을 수 있다.</description>
     </item>
     
     <item>
@@ -148,7 +138,7 @@ top() / pop() 도 마찬가지 -&amp;gt;&amp;gt; 조회되지 못하는 아이�
 이런 포스트가 있었다.
 스택오버플로-파라미터와 함께 unmanaged 콜백으로 변환하기
 채택된 답변을 살펴보면 클래스 구조는 대략 다음과 같다.
-클래스 구조   NativeCallbackHandler - msclr::gcroot m_owner (OutputLogManaged) 를 멤버로 보유. OutputLogManaged - native OutputLog* (m_nativeOutputLog) / 1의 Holder 를 보유 (m_nativeHandler)] / 그리고 managed 콜백을 보유 OutputLog - Native Callback 과 void* UserData 를 멤버로 보유.</description>
+클래스 구조   NativeCallbackHandler - msclr::gcroot&amp;lt;OutputManaged^&amp;gt; m_owner (OutputLogManaged) 를 멤버로 보유. OutputLogManaged - native OutputLog* (m_nativeOutputLog) / 1의 Holder 를 보유 (m_nativeHandler)] / 그리고 managed 콜백을 보유 OutputLog - Native Callback 과 void* UserData 를 멤버로 보유.   이해하는데 주요한 클래스는 위 내용 정도인 듯.</description>
     </item>
     
   </channel>

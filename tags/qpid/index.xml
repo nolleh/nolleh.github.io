@@ -1,18 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Qpid on The Computer Programmer, Nolleh</title>
+    <title>qpid on The Computer Programmer, Nolleh</title>
     <link>https://nolleh.github.io/tags/qpid/</link>
-    <description>Recent content in Qpid on The Computer Programmer, Nolleh</description>
+    <description>Recent content in qpid on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
     <managingEditor>nolleh7707@gmail.com (nolleh)</managingEditor>
     <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
-    <lastBuildDate>Thu, 06 Feb 2020 14:47:47 +0900</lastBuildDate>
-    
-	<atom:link href="https://nolleh.github.io/tags/qpid/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 06 Feb 2020 14:47:47 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/qpid/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Active Passive Messaging Clusters</title>
       <link>https://nolleh.github.io/qpid/1.12.active-passive-messaging-clusters/</link>

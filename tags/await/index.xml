@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Await on The Computer Programmer, Nolleh</title>
+    <title>await on The Computer Programmer, Nolleh</title>
     <link>https://nolleh.github.io/tags/await/</link>
-    <description>Recent content in Await on The Computer Programmer, Nolleh</description>
+    <description>Recent content in await on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
     <managingEditor>nolleh7707@gmail.com (nolleh)</managingEditor>
     <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
-    <lastBuildDate>Fri, 21 Dec 2018 22:02:13 +0900</lastBuildDate>
-    
-	<atom:link href="https://nolleh.github.io/tags/await/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 21 Dec 2018 22:02:13 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/await/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>비동기 프로그램의 제어 흐름</title>
       <link>https://nolleh.github.io/csharp/async-control-flow-msdn/</link>
       <pubDate>Fri, 21 Dec 2018 22:02:13 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/csharp/async-control-flow-msdn/</guid>
-      <description>개요  다음에서 발췌
+      <description>개요   다음에서 발췌
 비동기 프로그램의 제어 흐름
- 코드 public partial class MainWindow : Window { // . . . private async void startButton_Click(object sender, RoutedEventArgs e) { // ONE Task&amp;lt;int&amp;gt; getLengthTask = AccessTheWebAsync(); // FOUR int contentLength = await getLengthTask; // SIX resultsTextBox.Text += $&amp;quot;\r\nLength of the downloaded string: {contentLength}.\r\n&amp;quot;; } async Task&amp;lt;int&amp;gt; AccessTheWebAsync() { // TWO HttpClient client = new HttpClient(); Task&amp;lt;string&amp;gt; getStringTask = client.GetStringAsync(&amp;quot;https://msdn.microsoft.com&amp;quot;); // THREE string urlContents = await getStringTask; // FIVE return urlContents.</description>
+ 코드  public partial class MainWindow : Window {  // . . .  private async void startButton_Click(object sender, RoutedEventArgs e)  {  // ONE  Task&amp;lt;int&amp;gt; getLengthTask = AccessTheWebAsync();   // FOUR  int contentLength = await getLengthTask;   // SIX  resultsTextBox.Text +=  $&amp;#34;\r\nLength of the downloaded string: {contentLength}.\r\n&amp;#34;;  }   async Task&amp;lt;int&amp;gt; AccessTheWebAsync()  {  // TWO  HttpClient client = new HttpClient();  Task&amp;lt;string&amp;gt; getStringTask =  client.</description>
     </item>
     
     <item>
@@ -30,15 +26,10 @@
       <pubDate>Fri, 21 Dec 2018 21:41:08 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/csharp/async-await-msdn/</guid>
-      <description>개요  다음에서 발췌 MSDN
- 반응성을 향상시키는 비동기 잠재적인 차단 작업 완료 될때까지 다른 작업을 게속 수행
-작성이 간편한 비동기 메서드 반환 형식은 다음 중 하나
-- Task
-- Task
-- void - 비동기 이벤트 처리기 작성
-- GetAwaiter 포함 모든 기타 형식
- await 을 만나면 yield 함 (호출자로 제어가 돌아감)
- 이때, Task 가 호출자에게 반환되고 이는 언젠가 다운로드된 문자열의 길이가 반환된다는 약속 (future) 을 의미한다.</description>
+      <description>개요   다음에서 발췌 MSDN
+ 반응성을 향상시키는 비동기  잠재적인 차단 작업 완료 될때까지 다른 작업을 게속 수행
+작성이 간편한 비동기 메서드  반환 형식은 다음 중 하나
+ Task Task void - 비동기 이벤트 처리기 작성 GetAwaiter 포함 모든 기타 형식   await 을 만나면 yield 함 (호출자로 제어가 돌아감)  이때, Task가 호출자에게 반환되고 이는 언젠가 다운로드된 문자열의 길이가 반환된다는 약속 (future) 을 의미한다. await 전에 작업이 완료된다면 제어가 돌아가지 않는다.</description>
     </item>
     
     <item>
@@ -48,9 +39,9 @@
       <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/csharp/async-await/</guid>
       <description>NeoSmart.AsyncLock 라이브러리에 관하여  다음에서 발췌, 번역 - Neosmart Docs.
- 개요 semaporeslim 은 reentrance 를 지원하지 않는다. 따라서, recursion 에서 적절히 사용되지 않으면 데드락이 발생한다.
+ 개요  semaporeslim 은 reentrance 를 지원하지 않는다. 따라서, recursion 에서 적절히 사용되지 않으면 데드락이 발생한다.
 asynclock 은 reentrance 기능을 semaphoreslim 에 추가한거.
-대안 간단한 방법은 semaphoreslim 으로 교체하고, recursion 인 경우를 스레드 아이디로 확인 하는 것.
+대안  간단한 방법은 semaphoreslim 으로 교체하고, recursion 인 경우를 스레드 아이디로 확인 하는 것.
 이 경우의 문제는
 async / await 의 가장 기본적인 목적인 ui 의 불필요한 블럭킹 없이 작업의 완료를 기다린다는 문제를 그대로 안고 있다.</description>
     </item>

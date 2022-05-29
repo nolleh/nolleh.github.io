@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Google Cloud Service on The Computer Programmer, Nolleh</title>
@@ -8,23 +8,19 @@
     <language>ko-KR</language>
     <managingEditor>nolleh7707@gmail.com (nolleh)</managingEditor>
     <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
-    <lastBuildDate>Sat, 16 Mar 2019 23:02:25 +0900</lastBuildDate>
-    
-	<atom:link href="https://nolleh.github.io/categories/google-cloud-service/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 16 Mar 2019 23:02:25 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/categories/google-cloud-service/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>6. DataStorage</title>
       <link>https://nolleh.github.io/coursera/gcp/6.datastorage/</link>
       <pubDate>Sat, 16 Mar 2019 23:02:25 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/coursera/gcp/6.datastorage/</guid>
-      <description>Best Practices for Using Cloud Storage 버킷에 변화가 있을때 반응하게 할 수 있다. https://cloud.google.com/storage/docs/pubsub-notifications
-Demo coldline 은 일년에 한번 접근하는것과 같은 문제발생시 복구하는 용도로 사용하면 좋다..
+      <description>Best Practices for Using Cloud Storage  버킷에 변화가 있을때 반응하게 할 수 있다. https://cloud.google.com/storage/docs/pubsub-notifications
+Demo  coldline 은 일년에 한번 접근하는것과 같은 문제발생시 복구하는 용도로 사용하면 좋다..
 https://cloud.google.com/storage/docs/managing-lifecycles
-Demo2 - Cors cors - https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS cross-origin-resource sharing
+Demo2 - Cors  cors - https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS cross-origin-resource sharing
 instance 만들고 / apache 깔고 / cors 설정 여는 데모..
-Best Practices for cloud Storage request rate 가 초당 1000 쓰기 요청 이나 5000 읽기 요청을 넘어가면 ..
+Best Practices for cloud Storage  request rate 가 초당 1000 쓰기 요청 이나 5000 읽기 요청을 넘어가면 ..
  이 기준 요청량내에서 요청을 시작해서 20 분마다 요청을 두배로 해라.</description>
     </item>
     
@@ -34,7 +30,7 @@ Best Practices for cloud Storage request rate 가 초당 1000 쓰기 요청 이�
       <pubDate>Sat, 16 Mar 2019 11:34:29 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/coursera/gcp/5.datastore/</guid>
-      <description>Cloud Datastore Concepts and Indexes Cloud Data Store concepts  데이터 오브젝트는 엔터티라고 불림 엔터티들은 하나이상의 프로퍼티로 구성됨 프로퍼티들은 하나이상의 값(values) 를 가질수 있음 각각의 엔터티는 구분되는 하나의 키를 가지고 있는데, 다음으로 구성 된다.  네임스페이스 엔터티 Kind 식별자 (스트링 or 숫자) 부모 ID  하나 이상의 엔터티에 대한 동작은 트랜잭션으로 불린다.  Datastore has two types of indexes    Built-in indexes Composite indexes     각각의 엔터티 Kind의 각각의 프로퍼티에 대해 자동으로 정의 인덱싱된 엔터티에 대해 다중의 프로퍼티 값을 인덱스함   간단한 쿼리에 적합 컴플렉스 쿼리에 적합    인덱스 설정파일에 정의       concept cloud datastore relational database     오브젝트 카테고리 Kind Table   한개 오브젝트 entity row   하나의 오브젝트를 위한 개별 데이터 프로퍼티 field   유니크 ID Key PrimaryKey    Design Considerations &amp;amp; Sharding Design Your application for scale  엔터티 그룹에 대한 최대 쓰기율은 1/초 사전적으로 가까운 키에 대한 읽기와 쓰기를 너무 자주하지 말것.</description>
+      <description>Cloud Datastore Concepts and Indexes  Cloud Data Store concepts  데이터 오브젝트는 엔터티라고 불림 엔터티들은 하나이상의 프로퍼티로 구성됨 프로퍼티들은 하나이상의 값(values) 를 가질수 있음 각각의 엔터티는 구분되는 하나의 키를 가지고 있는데, 다음으로 구성 된다.  네임스페이스 엔터티 Kind 식별자 (스트링 or 숫자) 부모 ID   하나 이상의 엔터티에 대한 동작은 트랜잭션으로 불린다.  Datastore has two types of indexes    Built-in indexes Composite indexes     각각의 엔터티 Kind의 각각의 프로퍼티에 대해 자동으로 정의 인덱싱된 엔터티에 대해 다중의 프로퍼티 값을 인덱스함   간단한 쿼리에 적합 컴플렉스 쿼리에 적합    인덱스 설정파일에 정의       concept cloud datastore relational database     오브젝트 카테고리 Kind Table   한개 오브젝트 entity row   하나의 오브젝트를 위한 개별 데이터 프로퍼티 field   유니크 ID Key PrimaryKey    Design Considerations &amp;amp; Sharding  Design Your application for scale  엔터티 그룹에 대한 최대 쓰기율은 1/초 사전적으로 가까운 키에 대한 읽기와 쓰기를 너무 자주하지 말것.</description>
     </item>
     
     <item>
@@ -43,8 +39,8 @@ Best Practices for cloud Storage request rate 가 초당 1000 쓰기 요청 이�
       <pubDate>Sat, 16 Mar 2019 11:33:59 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/coursera/gcp/4.db-overview/</guid>
-      <description>Cloud Storage 크고 자주 사용되지 않은 비구조화된 데이터
-   Overview ideal for     완전히 관리되고 고 신뢰가능 이미지와 비디오   비용절감. 확장가능한 오브젝트/블롭 저장 오브젝트와 블롭   http 로 접근 구조화되어있지 않은 데이터   오브젝트 이름이 키 정적 웹사이트 호스팅    Ideal for Cloud Datastore 관계형이나 데이터 분석에는 적합하지 않고 GAE 앱이나 구조화된 순수 제공 사용례에 적합한 구조화된 제공을 위한 스케일러블 저장소.</description>
+      <description>Cloud Storage  크고 자주 사용되지 않은 비구조화된 데이터
+   Overview ideal for     완전히 관리되고 고 신뢰가능 이미지와 비디오   비용절감. 확장가능한 오브젝트/블롭 저장 오브젝트와 블롭   http 로 접근 구조화되어있지 않은 데이터   오브젝트 이름이 키 정적 웹사이트 호스팅    Ideal for Cloud Datastore  관계형이나 데이터 분석에는 적합하지 않고 GAE 앱이나 구조화된 순수 제공 사용례에 적합한 구조화된 제공을 위한 스케일러블 저장소.</description>
     </item>
     
     <item>
@@ -61,7 +57,8 @@ gsuitl 버킷이랑 통신하기 위한 커맨드라인 툴
 gcloud init (initialize )
 Cloud Shell 브라우저 베이스 커맨드라인툴. 일시적인 vm에 대한 접근을 제공. 5GB 디스크 SDK 에 이미 설치되어있음
 구글클라우드 콘솔프로젝트에대한 authorization /리소스 제공
-코드 에디터가 포함 (beta)</description>
+코드 에디터가 포함 (beta)
+Module Review Api Explore: google cloud api 를 테스트하기위한 샌드박스로 사용 Google Cloud Client Library : GCP 서비스와 커뮤니케이션 GCP Service 의 스크립트 작성 : Google Cloud SDK</description>
     </item>
     
     <item>

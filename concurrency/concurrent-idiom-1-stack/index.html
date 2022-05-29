@@ -1,174 +1,201 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <base href="https://nolleh.github.io/">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>Concurrent Idiom 1 - Stack  &middot; The Computer Programmer, Nolleh</title>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="canonical" href="https://nolleh.github.io/concurrency/concurrent-idiom-1-stack/">
-    
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=80&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concurrent Idiom 1 - Stack  | The Computer Programmer, Nolleh</title>
+  <meta name="description" content=" 'Concurrent Idiom 1 - Stack'read this article.">
+  <meta property="og:title" content="Concurrent Idiom 1 - Stack">
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2017-07-10">
+  
+  <meta property="og:description" content=" 'Concurrent Idiom 1 - Stack'read this article.">
+  <meta property="og:url" content="https://nolleh.github.io/concurrency/concurrent-idiom-1-stack/">
+  <meta property="og:site_name" content="The Computer Programmer, Nolleh">
+  
+  <meta property="og:image" content="https://nolleh.github.io/images/thumbnail.png">
+  
+  
+  <meta property="og:tags" content="Concurrent Programming">
+  
+  <meta property="og:tags" content="Programming">
+  
+  <meta property="og:tags" content="생각하는 프로그래머">
+  
+  <meta property="og:tags" content="Note">
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="https://nolleh.github.io/concurrency/concurrent-idiom-1-stack/">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102565363-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-102565363-1');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
 </head>
-
 <body>
-    <div class="navbar">
-        <ul>
-            <li><a href="/">HOME</a></li>
-            <li><a href="/categories">CATEGORIES</a></li>
-            <li><a href="/project">PROJECTS</a></li>
-        </ul>
+  <div class="navbar">    
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo.png" height="34px" />
+      </a>
     </div>
-    <div class="container">
-      <div class="title">
-        <div>
-          <a href="/">
-            <img src="/images/logo.png" />
-          </a>
-        </div>
-        <div><img src="/images/seperator.png" /></div>
-        <div class="logo-title">hello, world!</div>
-      </div>
-
-
-<a href="https://nolleh.github.io/concurrency/concurrent-idiom-1-stack/">
-  <div class="post-title">
-    <img src="/images/post-title-icon.png" />
-    <div class="post-meta">
-      <time>10 Jul 2017, 22:57</time>
-      <h1>Concurrent Idiom 1 - Stack</h1>
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> Menu
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><a href="/">#The Computer Programmer, Nolleh</a></li>
+        <li><a href="/categories">#Categories</a></li>
+        <li><a href="/tags">#Tags</a></li>
+        <li><a href="/projects">#Projects</a></li>        
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
     </div>
   </div>
-</a>
+  <div class="container">    
 
-<div class="post-toc">
-  <span class="title">
-    Table of contents
-  </span>
-  <nav id="TableOfContents">
-<ul>
-<li><a href="#concurrent-issue-stack">Concurrent ISSUE - Stack</a>
-<ul>
-<li><a href="#options">Options</a>
-<ul>
-<li><a href="#reference">Reference</a></li>
-<li><a href="#move">Move</a></li>
-<li><a href="#pointer">Pointer</a></li>
-<li><a href="#compounded-options">Compounded Options</a></li>
-</ul></li>
-</ul></li>
-</ul>
+<div class="post">
+  <div class="post-title">
+    <a href="https://nolleh.github.io/concurrency/concurrent-idiom-1-stack/">
+      <img src="/images/post-title-icon.png" />
+      <div class="post-meta">
+        <time>Monday, Jul 10, 2017 22:57</time>
+        <h1>Concurrent Idiom 1 - Stack</h1>
+      </div>
+    </a>
+  </div>
+  <div class="post-toc">
+    <span class="title">TOC</span>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#options">Options</a>
+      <ul>
+        <li><a href="#reference">Reference</a></li>
+        <li><a href="#move">Move</a></li>
+        <li><a href="#pointer">Pointer</a></li>
+        <li><a href="#compounded-options">Compounded Options</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
-</div>
-
-<section class="post-content">
-  
-
-<blockquote>
-<p>concurrent 프로그램을 작성할 때 고려해야할 몇가지 사항. 그리고 idiom.<br />
-여러 서적에서 발췌하였으며, 정리 차원에서 작성한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.<br />
+  </div>
+  <section class="post-content">
+    <blockquote>
+<p>concurrent 프로그램을 작성할 때 고려해야할 몇가지 사항. 그리고 idiom.<br>
+여러 서적에서 발췌하였으며, 정리 차원에서 작성한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.<br>
 어쩌면 작성자의 부사수를 위한 자재가 될지도 모르겠&hellip;(..)</p>
 </blockquote>
-
-<h1 id="concurrent-issue-stack">Concurrent ISSUE - Stack</h1>
-
+<h1 id="concurrent-issue---stack">Concurrent ISSUE - Stack</h1>
 <p>이번엔 스택.</p>
-
-<pre><code class="language-cpp">if (!s.empty())
-{
-    item = s.top();
-    s.pop();
-}
-</code></pre>
-
-<p>인터페이스상의 문제이기 때문에 empty 와 top 사이의 safety 를 보장할 수 없다.<br />
-top() / pop() 도 마찬가지 -&gt;&gt; 조회되지 못하는 아이템이 있을 수 있다. (생각해보자.)<br />
-해결을 위해 ?? -&gt; Returning Pop ? &ndash;&gt;&gt; 역시, 생각해보자. (Hint. Exception)</p>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>s.empty())
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    item <span style="color:#f92672">=</span> s.top();
+</span></span><span style="display:flex;"><span>    s.pop();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>인터페이스상의 문제이기 때문에 empty 와 top 사이의 safety 를 보장할 수 없다.<br>
+top() / pop() 도 마찬가지 -&raquo; 조회되지 못하는 아이템이 있을 수 있다. (생각해보자.)<br>
+해결을 위해 ?? -&gt; Returning Pop ? &ndash;&raquo; 역시, 생각해보자. (Hint. Exception)</p>
 <h2 id="options">Options</h2>
-
 <h3 id="reference">Reference</h3>
-
-<p>호출전 인스턴스 생성 필요. 생성자의 인자가 항상 제공 가능한 경우가 아닐때도.<br />
+<p>호출전 인스턴스 생성 필요. 생성자의 인자가 항상 제공 가능한 경우가 아닐때도.<br>
 그리고 assign 필요. (Q. 이것이 무엇을 의미하는가? - C++ 개발지식이 있다면 대답할 수 있어야 한다.)</p>
-
 <h3 id="move">Move</h3>
-
-<p>Exception 만이 문제라면 이 선택으로 회피 가능할 수 있지 않은가.<br />
+<p>Exception 만이 문제라면 이 선택으로 회피 가능할 수 있지 않은가.<br>
 하지만.. 위와 마찬가지. (Q. 역시, 대답할 수 있어야 한다. )</p>
-
 <h3 id="pointer">Pointer</h3>
-
 <p>유저에게 메모리 관리 작업을 맡기는 것. (Q. 이게 문제라면, 어떻게 해결할 수 있겠는가?) 간단한 타입에 대해서는 오버헤드.</p>
-
 <h3 id="compounded-options">Compounded Options</h3>
-
 <p>말그대로, 결합.</p>
-
 <p><strong>끝</strong></p>
 
-</section>
-
-<div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fconcurrency%2fconcurrent-idiom-1-stack%2f&t=Concurrent%20Idiom%201%20-%20Stack" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fconcurrency%2fconcurrent-idiom-1-stack%2f&text=Concurrent%20Idiom%201%20-%20Stack&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fconcurrency%2fconcurrent-idiom-1-stack%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fconcurrency%2fconcurrent-idiom-1-stack%2f&title=Concurrent%20Idiom%201%20-%20Stack" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
-</div>
-
-<div class="post-meta-code">
-  <div class="desc">
-    public string description() {
-    <div class="desc">val author = "
-    
-        nolleh
-    ";
-    </div>
-    
+  </section>
+  <div class="share">    
+    <a
+      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fconcurrency%2fconcurrent-idiom-1-stack%2f&t=Concurrent%20Idiom%201%20-%20Stack"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-facebook"></i
+    ></a>
+    <a
+      href="//twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fconcurrency%2fconcurrent-idiom-1-stack%2f&text=Concurrent%20Idiom%201%20-%20Stack&tw_p=tweetbutton"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-twitter"></i
+    ></a>
+    <a
+      href="//getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fconcurrency%2fconcurrent-idiom-1-stack%2f&title=Concurrent%20Idiom%201%20-%20Stack"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-get-pocket"></i
+    ></a>
+    <a
+      href="//plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fconcurrency%2fconcurrent-idiom-1-stack%2f"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-google-plus"></i
+    ></a>
+  </div>
+  <div class="post-meta-code">
     <div class="desc">
-      val categories = [
+      Friendly
       
+      nolleh
       
-      <a href="https://nolleh.github.io//categories/%EC%84%9C%EB%B2%84%EA%B0%9C%EB%B0%9C%EC%A7%80%EC%8B%9D">"서버개발지식"</a>
-      
-      ];
+      wrotes this article at
+      <span class="highlight">Monday, Jul 10, 2017 22:57</span> 
+      for you.
     </div>
-    
-    }
-  </div>
-</div>
-<div class="post-meta-code">
-  <div class="desc">
-    public string tags() {
+    <div class="desc">
+      
       <div class="desc">
-        val tags = [
+        <span class="fixed-desc">_Categories</span>
         
-          
-          <a href="https://nolleh.github.io/tags/concurrent-programming">"Concurrent Programming"</a>
-          
-          <a href="https://nolleh.github.io/tags/programming">"Programming"</a>
-          
-          <a href="https://nolleh.github.io/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8">"생각하는 프로그래머"</a>
-          
-          <a href="https://nolleh.github.io/tags/note">"Note"</a>
-          
         
-        ];
+        <a href="https://nolleh.github.io//categories/%EC%84%9C%EB%B2%84%EA%B0%9C%EB%B0%9C%EC%A7%80%EC%8B%9D">#서버개발지식</a>
+        
       </div>
-    }
-  </div>
-</div>
-
-
-<div class="share"></div>
-
-<div id="disqus_thread"></div>
+      
+      <div class="desc">
+        <span class="fixed-desc">_Tags</span>
+        
+        
+        <a href="https://nolleh.github.io/tags/concurrent-programming">#Concurrent Programming</a>
+        
+        <a href="https://nolleh.github.io/tags/programming">#Programming</a>
+        
+        <a href="https://nolleh.github.io/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8">#생각하는 프로그래머</a>
+        
+        <a href="https://nolleh.github.io/tags/note">#Note</a>
+        
+        
+      </div>
+    </div>
+  </div>  
+  
+  <div class="post-comment">    
+    <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -185,45 +212,40 @@ top() / pop() 도 마찬가지 -&gt;&gt; 조회되지 못하는 아이템이 있
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-<div class="paging post-paging">
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>    
+  </div>
   
-  <a class="left" href="https://nolleh.github.io/operating-system/file-buffering/" rel="prev">
-    <i class="fa fa-caret-left" aria-hidden="true"></i> <span>파일 버퍼링</span>
-  </a>
-  
-  
-  <a class="right" href="https://nolleh.github.io/env/how-to-make-git-page/" rel="next">
-    <span>How To Make Git Page</span> <i class="fa fa-caret-right" aria-hidden="true"></i>
-  </a>
-  
+  <div class="recommend-articles">
+    Recommend these articles
+    <ul>
+      
+      <li>
+        <a href="https://nolleh.github.io/env/how-to-make-git-page/" rel="prev">
+          <span>How To Make Git Page</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="https://nolleh.github.io/operating-system/file-buffering/" rel="next">
+          <span>파일 버퍼링</span>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
 </div>
 
-<div class="share"></div>
-
-<div class="seperator">
-  <img src="/images/seperator.png" />
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>Top</span>
+  </a>
 </div>
-
 <footer class="footer">
-    COPYRIGHT (C) <a href="http://blog.lulab.net">DONGGEUN,BANG</a>. ALL RIGHTS RESERVED.
+  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
+  ALL RIGHTS RESERVED.
 </footer>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-102565363-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<script data-no-instant>document.write('<script src="/livereload.js?port=80&mindelay=10"></' + 'script>')</script></body>
-
+</body>
 </html>
 

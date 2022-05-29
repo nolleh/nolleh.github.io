@@ -1,150 +1,148 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <base href="https://nolleh.github.io/">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>Coursera  &middot; The Computer Programmer, Nolleh</title>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="canonical" href="https://nolleh.github.io/tags/coursera/">
-    
-    <link href="https://nolleh.github.io/tags/coursera/index.xml" rel="alternate" type="application/rss+xml" title="Coursera" />
-    
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=80&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coursera  | The Computer Programmer, Nolleh</title>
+  <meta name="description" content=" 'Coursera'read this article.">
+  <meta property="og:title" content="Coursera">
+  
+  <meta property="og:type" content="website">
+  
+  <meta property="og:description" content=" 'Coursera'read this article.">
+  <meta property="og:url" content="https://nolleh.github.io/tags/coursera/">
+  <meta property="og:site_name" content="The Computer Programmer, Nolleh">
+  
+  <meta property="og:image" content="https://nolleh.github.io/images/thumbnail.png">
+  
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="https://nolleh.github.io/tags/coursera/">
+  <link rel="alternate" type="application/rss+xml" href="https://nolleh.github.io/tags/coursera/index.xml" title="The Computer Programmer, Nolleh" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102565363-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-102565363-1');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
 </head>
-
 <body>
-    <div class="navbar">
-        <ul>
-            <li><a href="/">HOME</a></li>
-            <li><a href="/categories">CATEGORIES</a></li>
-            <li><a href="/project">PROJECTS</a></li>
-        </ul>
+  <div class="navbar">    
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo.png" height="34px" />
+      </a>
     </div>
-    <div class="container">
-      <div class="title">
-        <div>
-          <a href="/">
-            <img src="/images/logo.png" />
-          </a>
-        </div>
-        <div><img src="/images/seperator.png" /></div>
-        <div class="logo-title">hello, world!</div>
-      </div>
-
-
-
-<div class="post-list-item">
-  <a href="https://nolleh.github.io/coursera/gcp/6.datastorage/">
-    <div class="post-title">
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> Menu
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><a href="/">#The Computer Programmer, Nolleh</a></li>
+        <li><a href="/categories">#Categories</a></li>
+        <li><a href="/tags">#Tags</a></li>
+        <li><a href="/projects">#Projects</a></li>        
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
+    </div>
+  </div>
+  <div class="container">    
+<div class="container">
+  
+  <div class="post">
+  <div class="post-title">
+    <a href="https://nolleh.github.io/coursera/gcp/6.datastorage/" title="6. DataStorage">
       <img src="/images/post-title-icon.png" />
       <div class="post-meta">
-        <time>16 Mar 2019, 23:02</time>
+        <time>Saturday, Mar 16, 2019 23:02</time>
         <h1>6. DataStorage</h1>
       </div>
-    </div>
-  </a>
+    </a>
+  </div>
+  
+  <div>
+    Best Practices for Using Cloud Storage  버킷에 변화가 있을때 반응하게 할 수 있다. https://cloud.google.com/storage/docs/pubsub-notifications
+Demo  coldline 은 일년에 한번 접근하는것과 같은 문제발생시 복구하는 용도로 사용하면 좋다..
+https://cloud.google.com/storage/docs/managing-lifecycles
+Demo2 - Cors  cors - https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS cross-origin-resource sharing
+instance 만들고 / apache 깔고 / cors 설정 여는 데모..
+Best Practices for cloud Storage  request rate 가 초당 1000 쓰기 요청 이나 5000 읽기 요청을 넘어가면 ..
+ 이 기준 요청량내에서 요청을 시작해서 20 분마다 요청을 두배로 해라.
+    
+    <a href="/coursera/gcp/6.datastorage/" class="summary-more">More</a>
+    
+  </div>
 </div>
 
-<div class="post-list-item">
-  <a href="https://nolleh.github.io/coursera/gcp/5.datastore/">
-    <div class="post-title">
+  <hr class="summary-sep" />
+  
+  <div class="post">
+  <div class="post-title">
+    <a href="https://nolleh.github.io/coursera/gcp/5.datastore/" title="5. Cloud DataStore Concepts and Indexes">
       <img src="/images/post-title-icon.png" />
       <div class="post-meta">
-        <time>16 Mar 2019, 11:34</time>
+        <time>Saturday, Mar 16, 2019 11:34</time>
         <h1>5. Cloud DataStore Concepts and Indexes</h1>
       </div>
-    </div>
-  </a>
+    </a>
+  </div>
+  
+  <div>
+    Cloud Datastore Concepts and Indexes  Cloud Data Store concepts  데이터 오브젝트는 엔터티라고 불림 엔터티들은 하나이상의 프로퍼티로 구성됨 프로퍼티들은 하나이상의 값(values) 를 가질수 있음 각각의 엔터티는 구분되는 하나의 키를 가지고 있는데, 다음으로 구성 된다.  네임스페이스 엔터티 Kind 식별자 (스트링 or 숫자) 부모 ID   하나 이상의 엔터티에 대한 동작은 트랜잭션으로 불린다.  Datastore has two types of indexes    Built-in indexes Composite indexes     각각의 엔터티 Kind의 각각의 프로퍼티에 대해 자동으로 정의 인덱싱된 엔터티에 대해 다중의 프로퍼티 값을 인덱스함   간단한 쿼리에 적합 컴플렉스 쿼리에 적합    인덱스 설정파일에 정의       concept cloud datastore relational database     오브젝트 카테고리 Kind Table   한개 오브젝트 entity row   하나의 오브젝트를 위한 개별 데이터 프로퍼티 field   유니크 ID Key PrimaryKey    Design Considerations &amp; Sharding  Design Your application for scale  엔터티 그룹에 대한 최대 쓰기율은 1/초 사전적으로 가까운 키에 대한 읽기와 쓰기를 너무 자주하지 말것.
+    
+    <a href="/coursera/gcp/5.datastore/" class="summary-more">More</a>
+    
+  </div>
 </div>
 
-<div class="post-list-item">
-  <a href="https://nolleh.github.io/coursera/gcp/3.sdk/">
-    <div class="post-title">
-      <img src="/images/post-title-icon.png" />
-      <div class="post-meta">
-        <time>12 Mar 2019, 23:37</time>
-        <h1>3.SDK</h1>
-      </div>
-    </div>
-  </a>
+  <hr class="summary-sep" />
+  
 </div>
-
-<div class="post-list-item">
-  <a href="https://nolleh.github.io/coursera/gcp/1-1.12-tips/">
-    <div class="post-title">
-      <img src="/images/post-title-icon.png" />
-      <div class="post-meta">
-        <time>12 Mar 2019, 21:52</time>
-        <h1>1-1. 계정관리를 위한 12 tips</h1>
-      </div>
-    </div>
-  </a>
-</div>
-
-<div class="post-list-item">
-  <a href="https://nolleh.github.io/coursera/gcp/2.security-reliability-migration/">
-    <div class="post-title">
-      <img src="/images/post-title-icon.png" />
-      <div class="post-meta">
-        <time>12 Mar 2019, 21:52</time>
-        <h1>2.Security-Reliability-Migration</h1>
-      </div>
-    </div>
-  </a>
-</div>
-
-<div class="post-list-item">
-  <a href="https://nolleh.github.io/coursera/gcp/1.msaandapigateway/">
-    <div class="post-title">
-      <img src="/images/post-title-icon.png" />
-      <div class="post-meta">
-        <time>12 Mar 2019, 21:51</time>
-        <h1>1.MSA and ApiGateway</h1>
-      </div>
-    </div>
-  </a>
-</div>
-
-
 <div class="paging">
   
-
-  PAGE 1 / 3
-
+  <span class="page">
+    Page 1 / 3
+  </span>
   
   <a href="/tags/coursera/page/2/" rel="next">
     <i class="fa fa-caret-right" aria-hidden="true"></i>
+    
   </a>
   
 </div>
 
-<div class="seperator">
-  <img src="/images/seperator.png" />
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>Top</span>
+  </a>
 </div>
-
 <footer class="footer">
-    COPYRIGHT (C) <a href="http://blog.lulab.net">DONGGEUN,BANG</a>. ALL RIGHTS RESERVED.
+  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
+  ALL RIGHTS RESERVED.
 </footer>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-102565363-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<script data-no-instant>document.write('<script src="/livereload.js?port=80&mindelay=10"></' + 'script>')</script></body>
-
+</body>
 </html>
 

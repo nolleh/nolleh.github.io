@@ -1,81 +1,103 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <base href="https://nolleh.github.io/">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>EOSIO - 1.1/소개  &middot; The Computer Programmer, Nolleh</title>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="canonical" href="https://nolleh.github.io/block-chain/1.1-introduction/">
-    
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=80&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EOSIO - 1.1/소개  | The Computer Programmer, Nolleh</title>
+  <meta name="description" content=" 'EOSIO - 1.1/소개'read this article.">
+  <meta property="og:title" content="EOSIO - 1.1/소개">
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2019-01-01">
+  
+  <meta property="og:description" content=" 'EOSIO - 1.1/소개'read this article.">
+  <meta property="og:url" content="https://nolleh.github.io/block-chain/1.1-introduction/">
+  <meta property="og:site_name" content="The Computer Programmer, Nolleh">
+  
+  <meta property="og:image" content="https://nolleh.github.io/images/thumbnail.png">
+  
+  
+  <meta property="og:tags" content="block-chain">
+  
+  <meta property="og:tags" content="EOSIO">
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="https://nolleh.github.io/block-chain/1.1-introduction/">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102565363-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-102565363-1');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
 </head>
-
 <body>
-    <div class="navbar">
-        <ul>
-            <li><a href="/">HOME</a></li>
-            <li><a href="/categories">CATEGORIES</a></li>
-            <li><a href="/project">PROJECTS</a></li>
-        </ul>
+  <div class="navbar">    
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo.png" height="34px" />
+      </a>
     </div>
-    <div class="container">
-      <div class="title">
-        <div>
-          <a href="/">
-            <img src="/images/logo.png" />
-          </a>
-        </div>
-        <div><img src="/images/seperator.png" /></div>
-        <div class="logo-title">hello, world!</div>
-      </div>
-
-
-<a href="https://nolleh.github.io/block-chain/1.1-introduction/">
-  <div class="post-title">
-    <img src="/images/post-title-icon.png" />
-    <div class="post-meta">
-      <time>01 Jan 2019, 14:41</time>
-      <h1>EOSIO - 1.1/소개</h1>
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> Menu
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><a href="/">#The Computer Programmer, Nolleh</a></li>
+        <li><a href="/categories">#Categories</a></li>
+        <li><a href="/tags">#Tags</a></li>
+        <li><a href="/projects">#Projects</a></li>        
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
     </div>
   </div>
-</a>
+  <div class="container">    
 
-<div class="post-toc">
-  <span class="title">
-    Table of contents
-  </span>
-  <nav id="TableOfContents">
-<ul>
-<li><a href="#배울-수-있는-것">배울 수 있는 것</a></li>
-<li><a href="#c-c-경험">C / C++ 경험</a></li>
-<li><a href="#linux-mac-os-experience">Linux / Mac OS Experience</a></li>
-<li><a href="#command-line-knowlege">Command Line Knowlege</a></li>
-<li><a href="#c-environment-setup">C++ Environment Setup</a></li>
-<li><a href="#potential-editors-and-ides">Potential Editors and IDEs</a></li>
-<li><a href="#operating-system-of-development-enviornment">Operating System of Development Enviornment</a>
-<ul>
-<li><a href="#windows">Windows</a></li>
-</ul></li>
-</ul>
+<div class="post">
+  <div class="post-title">
+    <a href="https://nolleh.github.io/block-chain/1.1-introduction/">
+      <img src="/images/post-title-icon.png" />
+      <div class="post-meta">
+        <time>Tuesday, Jan 1, 2019 14:41</time>
+        <h1>EOSIO - 1.1/소개</h1>
+      </div>
+    </a>
+  </div>
+  <div class="post-toc">
+    <span class="title">TOC</span>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#windows">Windows</a></li>
+  </ul>
 </nav>
-</div>
-
-<section class="post-content">
-  
-
-<blockquote>
+  </div>
+  <section class="post-content">
+    <blockquote>
 <p>발췌 <a href="https://developers.eos.io/eosio-home/docs/introduction">EOSIO - 1.1 Introduction</a></p>
 </blockquote>
-
 <h1 id="배울-수-있는-것">배울 수 있는 것</h1>
-
-<hr />
-
+<hr>
 <ul>
 <li>노드로 얼마나 빨리 갖고 놀 수 있는가</li>
 <li>Wallet 과 Key 를 어떻게 관리할 수 있는가</li>
@@ -84,23 +106,15 @@
 <li>컴파일과 ABI</li>
 <li>contract 배포</li>
 </ul>
-
-<h1 id="c-c-경험">C / C++ 경험</h1>
-
-<hr />
-
-<p>EOSIO 기반 블록체인은 WebAssembly 를 이용하여 유저가 생성한 어플리케이션과 코드를 실행한다.<br />
+<h1 id="c--c-경험">C / C++ 경험</h1>
+<hr>
+<p>EOSIO 기반 블록체인은 WebAssembly 를 이용하여 유저가 생성한 어플리케이션과 코드를 실행한다.<br>
 WASM 은 구글, 마이크로소프트, 애플, 그리고 다른 주요 업체의 지원을 받는 떠오르는 웹 표준이다.</p>
-
-<p>오늘날 WASM 을 빌드하기위해 사용되는 성숙된 도구는 C/C++ 컴파일러를 통한 clang/llvm 이다.<br />
+<p>오늘날 WASM 을 빌드하기위해 사용되는 성숙된 도구는 C/C++ 컴파일러를 통한 clang/llvm 이다.<br>
 최고의 호환성을 위해, EOSIO C++ 툴체인을 사용하도록 권장한다.</p>
-
 <p>서드파티에 의해 개발중인 다른 툴체인들은 다음과 같다: Rust, Python, Solidity. 이들의 언어는 단순해 보이지만, 성능은 당신이 빌드하는 어플리케이션의 규모에 따라 다르다. C++ 가 가장 안전하고 고성능일 것이라고 기대한다.</p>
-
-<h1 id="linux-mac-os-experience">Linux / Mac OS Experience</h1>
-
-<hr />
-
+<h1 id="linux--mac-os-experience">Linux / Mac OS Experience</h1>
+<hr>
 <ul>
 <li>Amazon 2017.09</li>
 <li>CentOS 7</li>
@@ -110,23 +124,14 @@ WASM 은 구글, 마이크로소프트, 애플, 그리고 다른 주요 업체�
 <li>Ubuntu 18.04</li>
 <li>MacOS Darwin 10.12+ (10.13 추천)</li>
 </ul>
-
 <h1 id="command-line-knowlege">Command Line Knowlege</h1>
-
-<hr />
-
+<hr>
 <p>EOSIO 의 다양한 툴을 이용하기 위해서는 기본적인 커맨드라인 지식이 필요하다.</p>
-
 <h1 id="c-environment-setup">C++ Environment Setup</h1>
-
-<hr />
-
+<hr>
 <p>C++ 문법 하이라이팅을 지원하는 어떤 텍스트 에디터를 사용해도 되지만 주요한 에디터는 Sublime Text, Atom 이 있다. 다른 선택지는 철학적인 코드 완성과 개발 경험이 더 많은 철학적인 IDE 를 선택해서 사용하면된다. 개인 선호에 따라 작업하면 되지만, 확신이 없다면 다음 선택지 중에서 살펴보면 된다.</p>
-
 <h1 id="potential-editors-and-ides">Potential Editors and IDEs</h1>
-
-<hr />
-
+<hr>
 <ul>
 <li>Sublime Text</li>
 <li>Atom Editor</li>
@@ -134,75 +139,78 @@ WASM 은 구글, 마이크로소프트, 애플, 그리고 다른 주요 업체�
 <li>Eclips</li>
 <li>Visual Studio Code</li>
 </ul>
-
 <h1 id="operating-system-of-development-enviornment">Operating System of Development Enviornment</h1>
-
-<hr />
-
-<p>linux 향의 OS 를 사용한다면 튜토리얼을 따를 수 있다. 다음을 포함하지만, 여기에 제한된건 아니다.
-- Mac OS
-- Ubuntu
-- Debian
-- Fedora</p>
-
+<hr>
+<p>linux 향의 OS 를 사용한다면 튜토리얼을 따를 수 있다. 다음을 포함하지만, 여기에 제한된건 아니다.</p>
+<ul>
+<li>Mac OS</li>
+<li>Ubuntu</li>
+<li>Debian</li>
+<li>Fedora</li>
+</ul>
 <h2 id="windows">Windows</h2>
-
 <p>현재는 powershell 포트등에 대해 지원하지 않는다. 미래에는 powershell 명령어를 지원할 계획이지만, 그전까지는 Ubuntu VM 을 활용하여 개발환경을 구성하는 편이 최선이다. Linux 명령에 익숙한 개발자라면 적은 어려움 만이 있을 것이다.</p>
 
-</section>
-
-<div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.1-introduction%2f&t=EOSIO%20-%201.1%2f%ec%86%8c%ea%b0%9c" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.1-introduction%2f&text=EOSIO%20-%201.1%2f%ec%86%8c%ea%b0%9c&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.1-introduction%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.1-introduction%2f&title=EOSIO%20-%201.1%2f%ec%86%8c%ea%b0%9c" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
-</div>
-
-<div class="post-meta-code">
-  <div class="desc">
-    public string description() {
-    <div class="desc">val author = "
-    
-        nolleh
-    ";
-    </div>
-    
+  </section>
+  <div class="share">    
+    <a
+      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.1-introduction%2f&t=EOSIO%20-%201.1%2f%ec%86%8c%ea%b0%9c"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-facebook"></i
+    ></a>
+    <a
+      href="//twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.1-introduction%2f&text=EOSIO%20-%201.1%2f%ec%86%8c%ea%b0%9c&tw_p=tweetbutton"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-twitter"></i
+    ></a>
+    <a
+      href="//getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.1-introduction%2f&title=EOSIO%20-%201.1%2f%ec%86%8c%ea%b0%9c"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-get-pocket"></i
+    ></a>
+    <a
+      href="//plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.1-introduction%2f"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-google-plus"></i
+    ></a>
+  </div>
+  <div class="post-meta-code">
     <div class="desc">
-      val categories = [
+      Friendly
       
+      nolleh
       
-      <a href="https://nolleh.github.io//categories/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8">"블록체인"</a>
-      
-      ];
+      wrotes this article at
+      <span class="highlight">Tuesday, Jan 1, 2019 14:41</span> 
+      for you.
     </div>
-    
-    }
-  </div>
-</div>
-<div class="post-meta-code">
-  <div class="desc">
-    public string tags() {
+    <div class="desc">
+      
       <div class="desc">
-        val tags = [
+        <span class="fixed-desc">_Categories</span>
         
-          
-          <a href="https://nolleh.github.io/tags/block-chain">"block-chain"</a>
-          
-          <a href="https://nolleh.github.io/tags/eosio">"EOSIO"</a>
-          
         
-        ];
+        <a href="https://nolleh.github.io//categories/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8">#블록체인</a>
+        
       </div>
-    }
-  </div>
-</div>
-
-
-<div class="share"></div>
-
-<div id="disqus_thread"></div>
+      
+      <div class="desc">
+        <span class="fixed-desc">_Tags</span>
+        
+        
+        <a href="https://nolleh.github.io/tags/block-chain">#block-chain</a>
+        
+        <a href="https://nolleh.github.io/tags/eosio">#EOSIO</a>
+        
+        
+      </div>
+    </div>
+  </div>  
+  
+  <div class="post-comment">    
+    <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -219,45 +227,40 @@ WASM 은 구글, 마이크로소프트, 애플, 그리고 다른 주요 업체�
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-<div class="paging post-paging">
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>    
+  </div>
   
-  <a class="left" href="https://nolleh.github.io/block-chain/1.2-beforeyoubegin/" rel="prev">
-    <i class="fa fa-caret-left" aria-hidden="true"></i> <span>EOSIO - 1.2/시작하기 전에</span>
-  </a>
-  
-  
-  <a class="right" href="https://nolleh.github.io/csharp/async-control-flow-msdn/" rel="next">
-    <span>비동기 프로그램의 제어 흐름</span> <i class="fa fa-caret-right" aria-hidden="true"></i>
-  </a>
-  
+  <div class="recommend-articles">
+    Recommend these articles
+    <ul>
+      
+      <li>
+        <a href="https://nolleh.github.io/csharp/async-control-flow-msdn/" rel="prev">
+          <span>비동기 프로그램의 제어 흐름</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="https://nolleh.github.io/block-chain/1.2-beforeyoubegin/" rel="next">
+          <span>EOSIO - 1.2/시작하기 전에</span>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
 </div>
 
-<div class="share"></div>
-
-<div class="seperator">
-  <img src="/images/seperator.png" />
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>Top</span>
+  </a>
 </div>
-
 <footer class="footer">
-    COPYRIGHT (C) <a href="http://blog.lulab.net">DONGGEUN,BANG</a>. ALL RIGHTS RESERVED.
+  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
+  ALL RIGHTS RESERVED.
 </footer>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-102565363-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<script data-no-instant>document.write('<script src="/livereload.js?port=80&mindelay=10"></' + 'script>')</script></body>
-
+</body>
 </html>
 

@@ -1,84 +1,113 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <base href="https://nolleh.github.io/">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>Clustering Guide  &middot; The Computer Programmer, Nolleh</title>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="canonical" href="https://nolleh.github.io/rabbitmq/clustering-guide/">
-    
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=80&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clustering Guide  | The Computer Programmer, Nolleh</title>
+  <meta name="description" content=" 'Clustering Guide'read this article.">
+  <meta property="og:title" content="Clustering Guide">
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2020-02-05">
+  
+  <meta property="og:description" content=" 'Clustering Guide'read this article.">
+  <meta property="og:url" content="https://nolleh.github.io/rabbitmq/clustering-guide/">
+  <meta property="og:site_name" content="The Computer Programmer, Nolleh">
+  
+  <meta property="og:image" content="https://nolleh.github.io/images/thumbnail.png">
+  
+  
+  <meta property="og:tags" content="MQ">
+  
+  <meta property="og:tags" content="RabbitMQ">
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="https://nolleh.github.io/rabbitmq/clustering-guide/">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102565363-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-102565363-1');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
 </head>
-
 <body>
-    <div class="navbar">
-        <ul>
-            <li><a href="/">HOME</a></li>
-            <li><a href="/categories">CATEGORIES</a></li>
-            <li><a href="/project">PROJECTS</a></li>
-        </ul>
+  <div class="navbar">    
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo.png" height="34px" />
+      </a>
     </div>
-    <div class="container">
-      <div class="title">
-        <div>
-          <a href="/">
-            <img src="/images/logo.png" />
-          </a>
-        </div>
-        <div><img src="/images/seperator.png" /></div>
-        <div class="logo-title">hello, world!</div>
-      </div>
-
-
-<a href="https://nolleh.github.io/rabbitmq/clustering-guide/">
-  <div class="post-title">
-    <img src="/images/post-title-icon.png" />
-    <div class="post-meta">
-      <time>05 Feb 2020, 18:44</time>
-      <h1>Clustering Guide</h1>
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> Menu
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><a href="/">#The Computer Programmer, Nolleh</a></li>
+        <li><a href="/categories">#Categories</a></li>
+        <li><a href="/tags">#Tags</a></li>
+        <li><a href="/projects">#Projects</a></li>        
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
     </div>
   </div>
-</a>
+  <div class="container">    
 
-<div class="post-toc">
-  <span class="title">
-    Table of contents
-  </span>
-  <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#cluster-formation">Cluster Formation</a></li>
-<li><a href="#node-names-identifiers">Node Names (Identifiers)</a></li>
-<li><a href="#nodes-in-a-cluster">Nodes in a Cluster</a>
-<ul>
-<li><a href="#nodes-are-equal-peers">Nodes are Equal Peers</a></li>
-</ul></li>
-<li><a href="#how-cli-tools-authenticate-to-nodes-and-nodes-to-each-other-the-erlang-cookie">HOW CLI Tools Authenticate to Nodes (And Nodes to Each Other): the Erlang Cookie</a></li>
-<li><a href="#node-counts-and-quorum">Node Counts and Quorum</a></li>
-<li><a href="#clustrering-and-clients">Clustrering and Clients</a></li>
-<li><a href="#clustering-and-observability">Clustering and Observability</a></li>
-<li><a href="#node-failure-handling">Node Failure Handling</a></li>
-<li><a href="#disk-and-ram-nodes">Disk and RAM Nodes</a></li>
-</ul></li>
-</ul>
+<div class="post">
+  <div class="post-title">
+    <a href="https://nolleh.github.io/rabbitmq/clustering-guide/">
+      <img src="/images/post-title-icon.png" />
+      <div class="post-meta">
+        <time>Wednesday, Feb 5, 2020 18:44</time>
+        <h1>Clustering Guide</h1>
+      </div>
+    </a>
+  </div>
+  <div class="post-toc">
+    <span class="title">TOC</span>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#cluster-formation">Cluster Formation</a></li>
+    <li><a href="#node-names-identifiers">Node Names (Identifiers)</a></li>
+    <li><a href="#nodes-in-a-cluster">Nodes in a Cluster</a>
+      <ul>
+        <li><a href="#nodes-are-equal-peers">Nodes are Equal Peers</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-cli-tools-authenticate-to-nodes-and-nodes-to-each-other-the-erlang-cookie">HOW CLI Tools Authenticate to Nodes (And Nodes to Each Other): the Erlang Cookie</a></li>
+    <li><a href="#node-counts-and-quorum">Node Counts and Quorum</a></li>
+    <li><a href="#clustrering-and-clients">Clustrering and Clients</a></li>
+    <li><a href="#clustering-and-observability">Clustering and Observability</a></li>
+    <li><a href="#node-failure-handling">Node Failure Handling</a></li>
+    <li><a href="#disk-and-ram-nodes">Disk and RAM Nodes</a></li>
+  </ul>
 </nav>
-</div>
-
-<section class="post-content">
-  
-
-<p>한개 이상의 노드들의 논리적인 그룹을 의미하며, 각각은 유저와, 가상 호스트, 큐, exchanges, bindings 을 공유한다.</p>
-
+  </div>
+  <section class="post-content">
+    <p>한개 이상의 노드들의 논리적인 그룹을 의미하며, 각각은 유저와, 가상 호스트, 큐, exchanges, bindings 을 공유한다.</p>
 <h2 id="cluster-formation">Cluster Formation</h2>
-
 <p>다음 방법들로 구성 가능</p>
-
 <ul>
 <li>Declaratively by listing cluster nodes in config file</li>
 <li>Declaratively using DNS-based discovery</li>
@@ -88,131 +117,108 @@
 <li>Declaratively using etcd-based discovery (via a plugin)</li>
 <li>Manually with rabbitmqctl</li>
 </ul>
-
 <p>구성은 동적으로 변경 될수 있고, 모든 RabbitMQ 브로커는 하나의 노드로부터 시작해서 클러스터에 참여시키거나, 다시 개별의 브로커로 돌아갈 수 있다.</p>
-
 <h2 id="node-names-identifiers">Node Names (Identifiers)</h2>
-
-<p>클러스터 내에서 서로 구분할 수 있는 고유 값이어야함.<br />
+<p>클러스터 내에서 서로 구분할 수 있는 고유 값이어야함.<br>
 환경 변수로 지정. <code>RABBITMQ_NODENAME</code></p>
-
 <p>fully qulified domain names (FQDNs)를 사용하는 경우 <code>RABBITMQ_USE_LONGNAME</code> true 로 지정</p>
-
 <h2 id="nodes-in-a-cluster">Nodes in a Cluster</h2>
-
 <p>정상적으로 동작하기위해 모든 노드에 걸쳐 데이터와 상태가 복제 되어야 한다. 하나의 예외는 메시지 큐인데, 기본적으로 하나의 노드에서만 존재하지만 다른 노드들 사이에서 visible 하고 reachable 하다. 이마저도 복제하고 싶다면 HA 를 참고하라.</p>
-
 <h3 id="nodes-are-equal-peers">Nodes are Equal Peers</h3>
-
 <p>어떤 분산시스템들은 leader 와 follower 가 있지만 rabbitMQ 에서는 일반적으로 그렇지 않다.
 모든 노드는 동등하다. 다만, 이주제는 queue mirroring 과 연관이 되면 미묘해진다.</p>
-
 <h2 id="how-cli-tools-authenticate-to-nodes-and-nodes-to-each-other-the-erlang-cookie">HOW CLI Tools Authenticate to Nodes (And Nodes to Each Other): the Erlang Cookie</h2>
-
-<p>erlang cookie 라고 부르는 대칭키를 함께 보유하고 있어야한다.<br />
-로컬키에 저장해둠.<br />
-소유자에게 접근권한이 있어야함. (600 이나 유사 권한)<br />
+<p>erlang cookie 라고 부르는 대칭키를 함께 보유하고 있어야한다.<br>
+로컬키에 저장해둠.<br>
+소유자에게 접근권한이 있어야함. (600 이나 유사 권한)<br>
 파일이 없으면 생성하나, 이 방식은 모든 노드가 각자의 데이터를 생성하니, 개발단계에서 사용할 것.</p>
-
 <p>쿠키 생성은 클러스터 배포단계에서 완료되어야하며, 자동화와 오케스트레이션 툴을 이용하는 것을 추천한다.</p>
-
 <h2 id="node-counts-and-quorum">Node Counts and Quorum</h2>
-
 <p>consensus 를 요구하는 플러그인들이 있으므로, 홀수개의 노드 추천.</p>
-
 <h2 id="clustrering-and-clients">Clustrering and Clients</h2>
-
 <p>모든 멤버가 정상적으로 동작할때 클라이언트는 어느노드나 붙어서 작업을 수행할 수 있다. 노드들은 연산을 큐 마스터 노드 (HA) 로 투명히 전달, 클라이언트로 돌려준다.</p>
-
 <p>실패한 경우 클라이언트는 다른 노드에 재연결하여 토폴로지를 복구하고, 다시 연산을 재개해야 한다.
 이가 여의치 않은 경우 &lsquo;미러링 되지 않은 큐가 실패한 노드에 있을 경우&rsquo; 참고.</p>
-
 <h2 id="clustering-and-observability">Clustering and Observability</h2>
-
-<p>클라이언트 연결과 채널, 큐들은 클러스터 노드들에 나뉘어져 있다.<br />
+<p>클라이언트 연결과 채널, 큐들은 클러스터 노드들에 나뉘어져 있다.<br>
 운영자들은 모든 클러스터 노드에 걸쳐 이를 관찰하고 모니터 할 필요가 있다.</p>
-
 <p><code>rabbitmq-diagnostics</code> 와 <code>rabbitmqctl</code> 과 같은 CLI 툴의 경우 클러스터 단위의 리소스를 관찰하는 명령어들을 제공한다.</p>
-
 <p>어떤 커맨드들은 하나의 노드에 집중하기도 한다.0</p>
-
 <p>(e.g. <code>rabbitmq-diagnostics environment</code> and <code>rabbitmq-diagnostics status</code>)</p>
-
 <h2 id="node-failure-handling">Node Failure Handling</h2>
-
-<p>각 개별의 노드의 장애에 대해서는 tolerate 하다.<br />
+<p>각 개별의 노드의 장애에 대해서는 tolerate 하다.<br>
 노드는 다른 클러스터 멤버 노드에 연결을 할 수 있는한, 원하면 실행되거나 중지될 수 있다.</p>
-
 <p>큐 미러링은 큐의 데이터가 복수의 클러스터 노드에 복제 될 수 있도록 한다.</p>
-
-<p>미러링 되지 않은 큐들도 클러스터에 사용될 수 있는데, 이런 큐들의 경우 노드 장애시 큐 durability 속성에 의해 동작이 정해진다.<br />
+<p>미러링 되지 않은 큐들도 클러스터에 사용될 수 있는데, 이런 큐들의 경우 노드 장애시 큐 durability 속성에 의해 동작이 정해진다.<br>
 rabbitmq 클러스터링은 네트워크 파티션을 다루기 위한 (주로 일관성을 중시하는) 몇가지 모드가 있다.</p>
-
 <h2 id="disk-and-ram-nodes">Disk and RAM Nodes</h2>
-
-<p>노드는 디스크 노드이거나 램 노드 일 수 있다. 램 노드들은 램에만 데이터베이스 테이블을 저장한다.<br />
-여기에 메시지들은 포함하지 않는다.<br />
+<p>노드는 디스크 노드이거나 램 노드 일 수 있다. 램 노드들은 램에만 데이터베이스 테이블을 저장한다.<br>
+여기에 메시지들은 포함하지 않는다.<br>
 메시지는 색인, 큐 색인과 다른 노드 상태를 저장한다.</p>
-
 <p>대부분 디스크 노드를 사용하는 것을 원할 것이다. 램 노드는 큐, exchange, bind 가 많을때 성능 개선을 원하는 경우에 사용할 것이다. 램노드를 사용한다고 해서 메시지 비율이 개선 되진 않는다.</p>
-
 <p>램노드는 내부 데이터베이스테이블을 사용하기 때문에 peer 노드가 구동되는 경우 sync 해 줘야한다.
 이는 하나의 디스크 노드는 필요하다는 것.</p>
 
-</section>
-
-<div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2frabbitmq%2fclustering-guide%2f&t=Clustering%20Guide" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2frabbitmq%2fclustering-guide%2f&text=Clustering%20Guide&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2frabbitmq%2fclustering-guide%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2frabbitmq%2fclustering-guide%2f&title=Clustering%20Guide" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
-</div>
-
-<div class="post-meta-code">
-  <div class="desc">
-    public string description() {
-    <div class="desc">val author = "
-    
-        nolleh
-    ";
-    </div>
-    
+  </section>
+  <div class="share">    
+    <a
+      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2frabbitmq%2fclustering-guide%2f&t=Clustering%20Guide"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-facebook"></i
+    ></a>
+    <a
+      href="//twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2frabbitmq%2fclustering-guide%2f&text=Clustering%20Guide&tw_p=tweetbutton"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-twitter"></i
+    ></a>
+    <a
+      href="//getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2frabbitmq%2fclustering-guide%2f&title=Clustering%20Guide"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-get-pocket"></i
+    ></a>
+    <a
+      href="//plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2frabbitmq%2fclustering-guide%2f"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-google-plus"></i
+    ></a>
+  </div>
+  <div class="post-meta-code">
     <div class="desc">
-      val categories = [
+      Friendly
       
+      nolleh
       
-      <a href="https://nolleh.github.io//categories/rabbitmq">"RabbitMQ"</a>
-      
-      ];
+      wrotes this article at
+      <span class="highlight">Wednesday, Feb 5, 2020 18:44</span> 
+      for you.
     </div>
-    
-    }
-  </div>
-</div>
-<div class="post-meta-code">
-  <div class="desc">
-    public string tags() {
+    <div class="desc">
+      
       <div class="desc">
-        val tags = [
+        <span class="fixed-desc">_Categories</span>
         
-          
-          <a href="https://nolleh.github.io/tags/mq">"MQ"</a>
-          
-          <a href="https://nolleh.github.io/tags/rabbitmq">"RabbitMQ"</a>
-          
         
-        ];
+        <a href="https://nolleh.github.io//categories/rabbitmq">#RabbitMQ</a>
+        
       </div>
-    }
-  </div>
-</div>
-
-
-<div class="share"></div>
-
-<div id="disqus_thread"></div>
+      
+      <div class="desc">
+        <span class="fixed-desc">_Tags</span>
+        
+        
+        <a href="https://nolleh.github.io/tags/mq">#MQ</a>
+        
+        <a href="https://nolleh.github.io/tags/rabbitmq">#RabbitMQ</a>
+        
+        
+      </div>
+    </div>
+  </div>  
+  
+  <div class="post-comment">    
+    <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -229,45 +235,40 @@ rabbitmq 클러스터링은 네트워크 파티션을 다루기 위한 (주로 �
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-<div class="paging post-paging">
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>    
+  </div>
   
-  <a class="left" href="https://nolleh.github.io/cheatsheet/docker/" rel="prev">
-    <i class="fa fa-caret-left" aria-hidden="true"></i> <span>Docker</span>
-  </a>
-  
-  
-  <a class="right" href="https://nolleh.github.io/crypto/ssl/" rel="next">
-    <span>SSL</span> <i class="fa fa-caret-right" aria-hidden="true"></i>
-  </a>
-  
+  <div class="recommend-articles">
+    Recommend these articles
+    <ul>
+      
+      <li>
+        <a href="https://nolleh.github.io/crypto/ssl/" rel="prev">
+          <span>SSL</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="https://nolleh.github.io/cheatsheet/docker/" rel="next">
+          <span>Docker</span>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
 </div>
 
-<div class="share"></div>
-
-<div class="seperator">
-  <img src="/images/seperator.png" />
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>Top</span>
+  </a>
 </div>
-
 <footer class="footer">
-    COPYRIGHT (C) <a href="http://blog.lulab.net">DONGGEUN,BANG</a>. ALL RIGHTS RESERVED.
+  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
+  ALL RIGHTS RESERVED.
 </footer>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-102565363-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<script data-no-instant>document.write('<script src="/livereload.js?port=80&mindelay=10"></' + 'script>')</script></body>
-
+</body>
 </html>
 

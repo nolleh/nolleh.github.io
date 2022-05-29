@@ -1,98 +1,136 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <base href="https://nolleh.github.io/">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>Cheatsheet  &middot; The Computer Programmer, Nolleh</title>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="canonical" href="https://nolleh.github.io/tags/cheatsheet/">
-    
-    <link href="https://nolleh.github.io/tags/cheatsheet/index.xml" rel="alternate" type="application/rss+xml" title="Cheatsheet" />
-    
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=80&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cheatsheet  | The Computer Programmer, Nolleh</title>
+  <meta name="description" content=" 'Cheatsheet'read this article.">
+  <meta property="og:title" content="Cheatsheet">
+  
+  <meta property="og:type" content="website">
+  
+  <meta property="og:description" content=" 'Cheatsheet'read this article.">
+  <meta property="og:url" content="https://nolleh.github.io/tags/cheatsheet/">
+  <meta property="og:site_name" content="The Computer Programmer, Nolleh">
+  
+  <meta property="og:image" content="https://nolleh.github.io/images/thumbnail.png">
+  
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="https://nolleh.github.io/tags/cheatsheet/">
+  <link rel="alternate" type="application/rss+xml" href="https://nolleh.github.io/tags/cheatsheet/index.xml" title="The Computer Programmer, Nolleh" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102565363-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-102565363-1');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
 </head>
-
 <body>
-    <div class="navbar">
-        <ul>
-            <li><a href="/">HOME</a></li>
-            <li><a href="/categories">CATEGORIES</a></li>
-            <li><a href="/project">PROJECTS</a></li>
-        </ul>
+  <div class="navbar">    
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo.png" height="34px" />
+      </a>
     </div>
-    <div class="container">
-      <div class="title">
-        <div>
-          <a href="/">
-            <img src="/images/logo.png" />
-          </a>
-        </div>
-        <div><img src="/images/seperator.png" /></div>
-        <div class="logo-title">hello, world!</div>
-      </div>
-
-
-
-<div class="post-list-item">
-  <a href="https://nolleh.github.io/cheatsheet/network/">
-    <div class="post-title">
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> Menu
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><a href="/">#The Computer Programmer, Nolleh</a></li>
+        <li><a href="/categories">#Categories</a></li>
+        <li><a href="/tags">#Tags</a></li>
+        <li><a href="/projects">#Projects</a></li>        
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
+    </div>
+  </div>
+  <div class="container">    
+<div class="container">
+  
+  <div class="post">
+  <div class="post-title">
+    <a href="https://nolleh.github.io/cheatsheet/network/" title="Network">
       <img src="/images/post-title-icon.png" />
       <div class="post-meta">
-        <time>06 Feb 2020, 11:56</time>
+        <time>Thursday, Feb 6, 2020 11:56</time>
         <h1>Network</h1>
       </div>
-    </div>
-  </a>
+    </a>
+  </div>
+  
+  <div>
+    time_wait 종료 시간 확인 : ndd -get /dev/tcp tcp_time_wait_interval time_wait 종료 시간 30초로 설정 : ndd -set /dev/tcp tcp_time_wait_interval 30000 fin_wait_2 타임 아웃 시간 확인 : ndd -get /dev/tcp tcp_fin_wait_2_timeout fin_wait_2 타임 아웃 시간 5분으로 설정 : ndd -set /dev/tcp tcp_fin_wait_2_timeout 300000  출처: https://hyeonstorage.tistory.com/287 [개발이 하고 싶어요]
+    
+  </div>
 </div>
 
-<div class="post-list-item">
-  <a href="https://nolleh.github.io/cheatsheet/docker/">
-    <div class="post-title">
+  <hr class="summary-sep" />
+  
+  <div class="post">
+  <div class="post-title">
+    <a href="https://nolleh.github.io/cheatsheet/docker/" title="Docker">
       <img src="/images/post-title-icon.png" />
       <div class="post-meta">
-        <time>06 Feb 2020, 10:53</time>
+        <time>Thursday, Feb 6, 2020 10:53</time>
         <h1>Docker</h1>
       </div>
-    </div>
-  </a>
+    </a>
+  </div>
+  
+  <div>
+    Docker Cheat Sheet 1. docker conntianer 내부 소켓 상태 확인 
+$ docker inspect -f &#39;{{.State.Pid}}&#39; cb2939r52s22 5645 [ec2-user@ip-10-100-77-76 ~]$ sudo nsenter -t 5645 -n netstat Active Internet connections (w/o servers) Proto Recv-Q Send-Q Local Address Foreign Address State tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-77-225.ec2.:45104 ESTABLISHED tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-77-225.ec2.:14804 TIME_WAIT tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-76-6:seclayer-tls TIME_WAIT tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-76-65.ec:plethora TIME_WAIT tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-77-225.ec2.:14830 TIME_WAIT tcp 0 0 ip-172-17-0-2.
+    
+    <a href="/cheatsheet/docker/" class="summary-more">More</a>
+    
+  </div>
 </div>
 
-
+  <hr class="summary-sep" />
+  
+</div>
 <div class="paging">
   
-
-  PAGE 1 / 1
-
+  <span class="page">
+    Page 1 / 1
+  </span>
   
 </div>
 
-<div class="seperator">
-  <img src="/images/seperator.png" />
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>Top</span>
+  </a>
 </div>
-
 <footer class="footer">
-    COPYRIGHT (C) <a href="http://blog.lulab.net">DONGGEUN,BANG</a>. ALL RIGHTS RESERVED.
+  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
+  ALL RIGHTS RESERVED.
 </footer>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-102565363-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<script data-no-instant>document.write('<script src="/livereload.js?port=80&mindelay=10"></' + 'script>')</script></body>
-
+</body>
 </html>
 

@@ -1,349 +1,155 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-	<meta name="generator" content="Hugo 0.52" />
-    <base href="https://nolleh.github.io/">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>The Computer Programmer, Nolleh </title>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="canonical" href="https://nolleh.github.io/">
-    
-    <link href="https://nolleh.github.io/index.xml" rel="alternate" type="application/rss+xml" title="The Computer Programmer, Nolleh" />
-    
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+	<meta name="generator" content="Hugo 0.99.1" /><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=80&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Computer Programmer, Nolleh </title>
+  <meta name="description" content="">
+  <meta property="og:title" content="The Computer Programmer, Nolleh">
+  
+  <meta property="og:type" content="website">
+  
+  <meta property="og:description" content="">
+  <meta property="og:url" content="https://nolleh.github.io/">
+  <meta property="og:site_name" content="The Computer Programmer, Nolleh">
+  
+  <meta property="og:image" content="https://nolleh.github.io/images/thumbnail.png">
+  
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="https://nolleh.github.io/">
+  <link rel="alternate" type="application/rss+xml" href="https://nolleh.github.io/index.xml" title="The Computer Programmer, Nolleh" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102565363-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-102565363-1');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
 </head>
-
 <body>
-    <div class="navbar">
-        <ul>
-            <li><a href="/">HOME</a></li>
-            <li><a href="/categories">CATEGORIES</a></li>
-            <li><a href="/project">PROJECTS</a></li>
-        </ul>
+  <div class="navbar">    
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo.png" height="34px" />
+      </a>
     </div>
-    <div class="container">
-      <div class="title">
-        <div>
-          <a href="/">
-            <img src="/images/logo.png" />
-          </a>
-        </div>
-        <div><img src="/images/seperator.png" /></div>
-        <div class="logo-title">hello, world!</div>
-      </div>
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> Menu
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><a href="/">#The Computer Programmer, Nolleh</a></li>
+        <li><a href="/categories">#Categories</a></li>
+        <li><a href="/tags">#Tags</a></li>
+        <li><a href="/projects">#Projects</a></li>        
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
+    </div>
+  </div>
+  <div class="container">    
 
 
-  <a href="https://nolleh.github.io/block-chain-youtube/building-distributed-app/">
+  <div class="post">
   <div class="post-title">
-    <img src="/images/post-title-icon.png" />
-    <div class="post-meta">
-      <time>23 Jan 2019, 20:32</time>
-      <h1>Building Distributed App</h1>
-    </div>
-  </div>
-</a>
-
-<div class="post-toc">
-  <span class="title">
-    Table of contents
-  </span>
-  <nav id="TableOfContents">
-<ul>
-<li><a href="#smart-contract">Smart Contract</a></li>
-<li><a href="#intro-smart-contracts">Intro Smart Contracts</a></li>
-</ul>
-</nav>
-</div>
-
-<section class="post-content">
-  
-
-<blockquote>
-<p>다음에서 발췌 ()[]</p>
-</blockquote>
-
-<h1 id="smart-contract">Smart Contract</h1>
-
-<ul>
-<li>블록은 트랜잭션을 포함한다.</li>
-<li>트랜잭션은 액션의 기록이다.</li>
-<li>액션은 컨트랙트의 동작이다.</li>
-</ul>
-
-<p>스마트컨트랙트의 사용</p>
-
-<ul>
-<li>eos.io 의 컨트랙트는 abi 로 표현된다.</li>
-<li>어플리케이션 코드는 json data 를 이용한 http 를 통해 contract 를 트리거 한다.</li>
-<li>EOS.IO 는 컨트랙트를 간단히 스크립팅하거나 테스팅하기위한 커맨드라인 인터페이스를 제공한다.</li>
-</ul>
-
-<h1 id="intro-smart-contracts">Intro Smart Contracts</h1>
-
-<ul>
-<li><p>EOS.IO 스마트 컨트랙트는 WebAssembly 로 구동된다. (WASM)</p>
-
-<ul>
-<li>web 표준으로 떠오르는중</li>
-<li>c/c++ 로부터 clang/llvm 을 통해 생성된다.</li>
-<li>다른 언어들도 언젠가 지원될 것</li>
-</ul></li>
-
-<li><p>Transaction - 실행되는 하나이상의 액션의 집합.</p>
-
-<ul>
-<li>하나의 액션이라도 실패하면 모든 트랜잭션이 실패한다</li>
-</ul></li>
-
-<li><p>Action - 스마트컨트랙트를 실행하는 고수준의 함수</p>
-
-<ul>
-<li>데이터를 컨트랙트에 전송하기 위해서는 payload 를 포함해야한다.</li>
-</ul></li>
-</ul>
-
-<p>cloes 는 http 를 호출하는 syntatic sugar~</p>
-
-<p>transaction json 을 살펴보면.
-signature 가 있고, 이 특정한 트랜잭션의 시그니쳐를 표현한다.</p>
-
-<p>action json 은 이런 형태</p>
-
-<p><code>actions : [{ &quot;account&quot;: &quot;eosio&quot;, &quot;name&quot;: &quot;newaccount&quot;,&quot;actor&quot;: &quot;eosio&quot;, &quot;permission&quot;: &quot;acitve&quot; }], &quot;Data&quot;: &quot;000000000ea30550 .. 000a8ed32320100&quot; }]</code></p>
-
-<blockquote>
-<ul>
-<li>account : 액션을 실행하는 계정의 이름 (스마트 컨트랙트가 올라가있는 계정. 어떻게 action 을 실행할지에 대해 알고있다.)</li>
-<li>name : &ldquo;authroization&rdquo;: [{ // 어떤 시그니쳐가 필요한지 나타낸다.</li>
-<li>data : hex 로 표현된 값</li>
-</ul>
-</blockquote>
-
-<p>table 을 업데이트할때, payer 에 대해 0 를 전달하면 이전 payer 를 그대로 사용한다.</p>
-
-<p>unittest - test_api -&gt; tests directories . - api_tests.cpp</p>
-
-<pre><code class="language-cpp">#include &lt;boost/test/unit_test.hpp&gt;
-#inclue &lt;eosio.token/eosio.token.wast.hpp&gt;
-abi.hpp&gt;
-
-BOOST_AUTO_TEST_SUITE(dice_tests)
-BOOST_FIXTURE_TEST_CASE(dice_test, dice_tester) try {
-create_accounts( {N(eosio.token), N(dice), N(alice), N(bob), false});
-set_code(N(eosio.token), eosio_token_wast);
-set_abi(N(eosio.token), eosio_token_abi);
-push_action(N(eosio.token), N(create), N(eosio.toekn), mvo() (&quot;issuer&quot;, &quot;eosio.token&quot;))
-}
-
-</code></pre>
-
-<p>load balcancing 을 담당하는 릴레이노드 /
-producer node 가 별개로 있다</p>
-
-<p>특정노드에 컨트랙트를 전송 ?
-host 지정 하면 된다.</p>
-
-<p>context free action 를 어디서배우면 되나~ //</p>
-
-<p>transaction 을 트랙킹하기위해 플러그인을 사용해도 된다.
-mongodb plugin 등.</p>
-
-</section>
-
-<div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fblock-chain-youtube%2fbuilding-distributed-app%2f&t=Building%20Distributed%20App" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fblock-chain-youtube%2fbuilding-distributed-app%2f&text=Building%20Distributed%20App&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fblock-chain-youtube%2fbuilding-distributed-app%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fblock-chain-youtube%2fbuilding-distributed-app%2f&title=Building%20Distributed%20App" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
-</div>
-
-<div class="post-meta-code">
-  <div class="desc">
-    public string description() {
-    <div class="desc">val author = "
-    
-        nolleh
-    ";
-    </div>
-    
-    <div class="desc">
-      val categories = [
-      
-      
-      <a href="https://nolleh.github.io//categories/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8-%EA%B0%9C%EB%85%90">"블록체인-개념"</a>
-      
-      ];
-    </div>
-    
-    }
-  </div>
-</div>
-<div class="post-meta-code">
-  <div class="desc">
-    public string tags() {
-      <div class="desc">
-        val tags = [
-        
-          
-          <a href="https://nolleh.github.io/tags/eos">"EOS"</a>
-          
-          <a href="https://nolleh.github.io/tags/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8">"블록체인"</a>
-          
-        
-        ];
+    <a href="https://nolleh.github.io/block-chain-youtube/building-distributed-app/" title="Building Distributed App">
+      <img src="/images/post-title-icon.png" />
+      <div class="post-meta">
+        <time>Wednesday, Jan 23, 2019 20:32</time>
+        <h1>Building Distributed App</h1>
       </div>
-    }
+    </a>
+  </div>
+  
+  <div>
+    다음에서 발췌 ()[]
+ Smart Contract  블록은 트랜잭션을 포함한다. 트랜잭션은 액션의 기록이다. 액션은 컨트랙트의 동작이다.  스마트컨트랙트의 사용
+ eos.io 의 컨트랙트는 abi 로 표현된다. 어플리케이션 코드는 json data 를 이용한 http 를 통해 contract 를 트리거 한다. EOS.IO 는 컨트랙트를 간단히 스크립팅하거나 테스팅하기위한 커맨드라인 인터페이스를 제공한다.  Intro Smart Contracts   EOS.IO 스마트 컨트랙트는 WebAssembly 로 구동된다. (WASM)
+ web 표준으로 떠오르는중 c/c++ 로부터 clang/llvm 을 통해 생성된다.
+    
+    <a href="/block-chain-youtube/building-distributed-app/" class="summary-more">More</a>
+    
   </div>
 </div>
 
-  <div class="seperator">
-    <img src="/images/seperator.png" />
-  </div>
+  <hr class="summary-sep" />
 
-  <a href="https://nolleh.github.io/distributed-systems/1.highlevel/">
+  <div class="post">
   <div class="post-title">
-    <img src="/images/post-title-icon.png" />
-    <div class="post-meta">
-      <time>21 Jan 2019, 22:58</time>
-      <h1>고수준의 분산 시스템</h1>
-    </div>
-  </div>
-</a>
-
-<div class="post-toc">
-  <span class="title">
-    Table of contents
-  </span>
-  <nav id="TableOfContents">
-<ul>
-<li><a href="#1-distributed-systems-at-a-highlevel">1. Distributed systems at a highlevel</a></li>
-</ul>
-</nav>
-</div>
-
-<section class="post-content">
-  
-
-<blockquote>
-<p>다음에서 발췌
-<a href="http://book.mixu.net/distsys/intro.html">http://book.mixu.net/distsys/intro.html</a></p>
-</blockquote>
-
-<h1 id="1-distributed-systems-at-a-highlevel">1. Distributed systems at a highlevel</h1>
-
-<ul>
-<li>분산 프로그래밍은 같은 문제를 하나의 컴퓨터에서 해결할 수 있는 문제를 여러 컴퓨터에서 해결하는 예술이다.</li>
-</ul>
-
-<p>컴퓨터 시스템이라면 해결해야 하는 두개의 문제가 있습니다.</p>
-
-<ul>
-<li>저장소</li>
-<li>연산</li>
-</ul>
-
-<p>분산 프로그래밍은 하나의 컴퓨터에서 해결할 수 있는 문제를 여러 컴퓨터를 통해 해결하는 예술입니다. 보통 하나의 컴퓨터에서 해결하기에는 적합하지 않은 문제를 위해서입니다.</p>
-
-<p>실세계에서의 어떤것도 분산시스템을 요구하지는 않습니다. 무한한 돈과 무한한 실시간 연구 시간이 있다면, 분산시스템은 필요없습니다. 모든 연산과 모든 저장소는 매직박스 안에서 실행 될 수 있습니다 - 하나의, 믿을 수 없을정도로 빠르고, 믿을 수 없을정도로 신뢰할 수 있는 시스템은 누군가에게 돈을 지불하거나 당신이 직접 디자인할 필요가 있겟죠.</p>
-
-<p>하지만, 그렇게 무한한 자원을 가지고 있는 사람은 별로 없습니다. 때문에, 그들은 좋은 장소와실제 세계에서, 비용적인 ㅈ측면에서 고려할 수 있는 적합한 실세계 의 장소를 찾아야 합니다. 작은 사이즈 에서는 하드웨어를 업그레이드 하는 것은 필ㅅ적인 전략입니다. 하지만, 문제의 사이즈가 커짐에 따라 싱글 노드의 하드웨어 업그레이드 만으로는 문제를 해결할수 없거나, 비용적으로 막히는 지점이 오게 됩니다. 이 포인트에서, 분산 시스템으로 오신것을 환영할 때가 된것 같네요!</p>
-
-<p>이것은 현재의 현실이고 어떤 현실이냐면 가장 가치있는 중앙 범위, 상업적인 소프트웨어 - 유지보수 비용이 문제가 발생했을때도 괜찮은 소프트웨어로 유지될 수 있도록 해줍니다.</p>
-
-<p>연산은 일반적으로</p>
-
-</section>
-
-<div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fdistributed-systems%2f1.highlevel%2f&t=%ea%b3%a0%ec%88%98%ec%a4%80%ec%9d%98%20%eb%b6%84%ec%82%b0%20%ec%8b%9c%ec%8a%a4%ed%85%9c" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fdistributed-systems%2f1.highlevel%2f&text=%ea%b3%a0%ec%88%98%ec%a4%80%ec%9d%98%20%eb%b6%84%ec%82%b0%20%ec%8b%9c%ec%8a%a4%ed%85%9c&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fdistributed-systems%2f1.highlevel%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fdistributed-systems%2f1.highlevel%2f&title=%ea%b3%a0%ec%88%98%ec%a4%80%ec%9d%98%20%eb%b6%84%ec%82%b0%20%ec%8b%9c%ec%8a%a4%ed%85%9c" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
-</div>
-
-<div class="post-meta-code">
-  <div class="desc">
-    public string description() {
-    <div class="desc">val author = "
-    
-        nolleh
-    ";
-    </div>
-    
-    <div class="desc">
-      val categories = [
-      
-      
-      <a href="https://nolleh.github.io//categories/%EC%84%9C%EB%B2%84%EA%B0%9C%EB%B0%9C%EC%A7%80%EC%8B%9D">"서버개발지식"</a>
-      
-      ];
-    </div>
-    
-    }
-  </div>
-</div>
-<div class="post-meta-code">
-  <div class="desc">
-    public string tags() {
-      <div class="desc">
-        val tags = [
-        
-          
-          <a href="https://nolleh.github.io/tags/programming">"Programming"</a>
-          
-          <a href="https://nolleh.github.io/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8">"생각하는 프로그래머"</a>
-          
-        
-        ];
+    <a href="https://nolleh.github.io/distributed-systems/1.highlevel/" title="고수준의 분산 시스템">
+      <img src="/images/post-title-icon.png" />
+      <div class="post-meta">
+        <time>Monday, Jan 21, 2019 22:58</time>
+        <h1>고수준의 분산 시스템</h1>
       </div>
-    }
+    </a>
+  </div>
+  
+  <div>
+    다음에서 발췌 http://book.mixu.net/distsys/intro.html
+ 1. Distributed systems at a highlevel  분산 프로그래밍은 같은 문제를 하나의 컴퓨터에서 해결할 수 있는 문제를 여러 컴퓨터에서 해결하는 예술이다.  컴퓨터 시스템이라면 해결해야 하는 두개의 문제가 있습니다.
+ 저장소 연산  분산 프로그래밍은 하나의 컴퓨터에서 해결할 수 있는 문제를 여러 컴퓨터를 통해 해결하는 예술입니다. 보통 하나의 컴퓨터에서 해결하기에는 적합하지 않은 문제를 위해서입니다.
+실세계에서의 어떤것도 분산시스템을 요구하지는 않습니다. 무한한 돈과 무한한 실시간 연구 시간이 있다면, 분산시스템은 필요없습니다.
+    
+    <a href="/distributed-systems/1.highlevel/" class="summary-more">More</a>
+    
   </div>
 </div>
 
-  <div class="seperator">
-    <img src="/images/seperator.png" />
-  </div>
+  <hr class="summary-sep" />
 
 
 <div class="paging">
   
   <a href="/page/7/" rel="prev">
+    Prev
     <i class="fa fa-caret-left" aria-hidden="true"></i>
   </a>
   
-
-  PAGE 8 / 19
-
+  <span class="page">
+    Page 8 / 19
+  </span>
   
   <a href="/page/9/" rel="next">
     <i class="fa fa-caret-right" aria-hidden="true"></i>
+    
   </a>
   
 </div>
 
+
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>Top</span>
+  </a>
+</div>
 <footer class="footer">
-    COPYRIGHT (C) <a href="http://blog.lulab.net">DONGGEUN,BANG</a>. ALL RIGHTS RESERVED.
+  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
+  ALL RIGHTS RESERVED.
 </footer>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-102565363-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<script data-no-instant>document.write('<script src="/livereload.js?port=80&mindelay=10"></' + 'script>')</script></body>
-
+</body>
 </html>
 

@@ -1,151 +1,159 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <base href="https://nolleh.github.io/">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>Broker Federation  &middot; The Computer Programmer, Nolleh</title>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="canonical" href="https://nolleh.github.io/qpid/1.4.broker-federation/">
-    
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=80&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Broker Federation  | The Computer Programmer, Nolleh</title>
+  <meta name="description" content=" 'Broker Federation'read this article.">
+  <meta property="og:title" content="Broker Federation">
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2020-02-06">
+  
+  <meta property="og:description" content=" 'Broker Federation'read this article.">
+  <meta property="og:url" content="https://nolleh.github.io/qpid/1.4.broker-federation/">
+  <meta property="og:site_name" content="The Computer Programmer, Nolleh">
+  
+  <meta property="og:image" content="https://nolleh.github.io/images/thumbnail.png">
+  
+  
+  <meta property="og:tags" content="MQ">
+  
+  <meta property="og:tags" content="QPID">
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="https://nolleh.github.io/qpid/1.4.broker-federation/">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102565363-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-102565363-1');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
 </head>
-
 <body>
-    <div class="navbar">
-        <ul>
-            <li><a href="/">HOME</a></li>
-            <li><a href="/categories">CATEGORIES</a></li>
-            <li><a href="/project">PROJECTS</a></li>
-        </ul>
+  <div class="navbar">    
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo.png" height="34px" />
+      </a>
     </div>
-    <div class="container">
-      <div class="title">
-        <div>
-          <a href="/">
-            <img src="/images/logo.png" />
-          </a>
-        </div>
-        <div><img src="/images/seperator.png" /></div>
-        <div class="logo-title">hello, world!</div>
-      </div>
-
-
-<a href="https://nolleh.github.io/qpid/1.4.broker-federation/">
-  <div class="post-title">
-    <img src="/images/post-title-icon.png" />
-    <div class="post-meta">
-      <time>06 Feb 2020, 13:23</time>
-      <h1>Broker Federation</h1>
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> Menu
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><a href="/">#The Computer Programmer, Nolleh</a></li>
+        <li><a href="/categories">#Categories</a></li>
+        <li><a href="/tags">#Tags</a></li>
+        <li><a href="/projects">#Projects</a></li>        
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
     </div>
   </div>
-</a>
+  <div class="container">    
 
-<div class="post-toc">
-  <span class="title">
-    Table of contents
-  </span>
-  <nav id="TableOfContents">
-<ul>
-<li><a href="#1-4-broker-federation">1.4 Broker Federation</a>
-<ul>
-<li><a href="#1-4-1-message-routes">1.4.1 Message Routes</a>
-<ul>
-<li><a href="#1-4-1-1-queue-routes">1.4.1.1 Queue Routes</a></li>
-<li><a href="#1-4-1-2-exchange-routes">1.4.1.2 Exchange Routes</a></li>
-<li><a href="#1-4-1-3-dynamic-exchange-routes">1.4.1.3 Dynamic Exchange Routes</a></li>
-</ul></li>
-<li><a href="#1-4-2-federation-topolpogies">1.4.2 Federation Topolpogies</a></li>
-<li><a href="#1-4-3-federation-among-high-availablity-message-clusters">1.4.3 Federation among High Availablity Message Clusters</a></li>
-<li><a href="#1-4-4-the-qpid-route-utility">1.4.4 The qpid-route Utility</a>
-<ul>
-<li><a href="#1-4-4-1-creating-and-deleting-queue-routes">1.4.4.1. Creating and Deleting Queue Routes</a></li>
-<li><a href="#1-4-4-2-exchange-routes">1.4.4.2. Exchange Routes</a></li>
-</ul></li>
-</ul></li>
-</ul>
+<div class="post">
+  <div class="post-title">
+    <a href="https://nolleh.github.io/qpid/1.4.broker-federation/">
+      <img src="/images/post-title-icon.png" />
+      <div class="post-meta">
+        <time>Thursday, Feb 6, 2020 13:23</time>
+        <h1>Broker Federation</h1>
+      </div>
+    </a>
+  </div>
+  <div class="post-toc">
+    <span class="title">TOC</span>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#141-message-routes">1.4.1 Message Routes</a>
+      <ul>
+        <li><a href="#1411-queue-routes">1.4.1.1 Queue Routes</a></li>
+        <li><a href="#1412-exchange-routes">1.4.1.2 Exchange Routes</a></li>
+        <li><a href="#1413-dynamic-exchange-routes">1.4.1.3 Dynamic Exchange Routes</a></li>
+      </ul>
+    </li>
+    <li><a href="#142-federation-topolpogies">1.4.2 Federation Topolpogies</a></li>
+    <li><a href="#143-federation-among-high-availablity-message-clusters">1.4.3 Federation among High Availablity Message Clusters</a></li>
+    <li><a href="#144-the-qpid-route-utility">1.4.4 The qpid-route Utility</a>
+      <ul>
+        <li><a href="#1441-creating-and-deleting-queue-routes">1.4.4.1. Creating and Deleting Queue Routes</a></li>
+        <li><a href="#1442-exchange-routes">1.4.4.2. Exchange Routes</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
-</div>
-
-<section class="post-content">
-  
-
-<h1 id="1-4-broker-federation">1.4 Broker Federation</h1>
-
-<p>메시지 라우트를 정의하여 하나의 브로커에서 다른 브로커로 자동으로 전달하게 한다.<br />
-일반적으로 일방향이며, 라우트는 durable 하고 tansient 한다.<br />
+  </div>
+  <section class="post-content">
+    <h1 id="14-broker-federation">1.4 Broker Federation</h1>
+<p>메시지 라우트를 정의하여 하나의 브로커에서 다른 브로커로 자동으로 전달하게 한다.<br>
+일반적으로 일방향이며, 라우트는 durable 하고 tansient 한다.<br>
 연결이 소실되면 메시지는 누적되다가 재연결이 되면 다시 전송한다.</p>
-
 <p>라우팅에 사용되는 룰은 서버가 변경됨에 따라 동적으로 변경할 수 있으며, 변경의 책임은 다른 변경조건에 맞게 반영된다,.</p>
-
-<h2 id="1-4-1-message-routes">1.4.1 Message Routes</h2>
-
-<p>pull / push 방식이 있음.<br />
-pull 은 dest 에서.<br />
+<h2 id="141-message-routes">1.4.1 Message Routes</h2>
+<p>pull / push 방식이 있음.<br>
+pull 은 dest 에서.<br>
 push 는 src 에서 설정함</p>
-
 <ul>
 <li>queue &lt;-&gt; exchage</li>
 <li>exchange &lt;-&gt; exchange</li>
 </ul>
-
 <p>excg &lt;-&gt; excg 는 다음과 같은 라우트를 가질 수 있다.</p>
-
-<h3 id="1-4-1-1-queue-routes">1.4.1.1 Queue Routes</h3>
-
+<h3 id="1411-queue-routes">1.4.1.1 Queue Routes</h3>
 <p>모든 메시지를 src 에서 dest 로.</p>
-
-<h3 id="1-4-1-2-exchange-routes">1.4.1.2 Exchange Routes</h3>
-
+<h3 id="1412-exchange-routes">1.4.1.2 Exchange Routes</h3>
 <p>바인딩키에 따라 라우트함</p>
-
 <p>실제로는 내부적으로 큐가 (auto-delete, exclusive) 만들어지고, 이를 통해 연결하는 것.</p>
-
-<h3 id="1-4-1-3-dynamic-exchange-routes">1.4.1.3 Dynamic Exchange Routes</h3>
-
+<h3 id="1413-dynamic-exchange-routes">1.4.1.3 Dynamic Exchange Routes</h3>
 <p>클라이언트가 바인딩을 맺고, 이 exchange 만이 아니라 dynamic exchange route 를 통해 생성된 다른 exchange 도 수신한다.
 바인딩 변경시, 이 exhcange 와 관련한 다른 exchange routes 또한 변경한다.</p>
-
 <ul>
 <li>source 에 연결 된 모든 dest exchange 에 대해 적용되는데, 하나의 메시지라도 매치가 되면 dest 에 라우트되도록한다.</li>
 <li>dest 에서 바인딩들이 추가되거나 삭제되는경우, 이 변화는 DER 에 적용이 된다.
-
 <ul>
 <li>dest 브로커가 바인딩을 주어진 바인딩키를 만들경우 라우트에 반영이되고 바인딩키를 제거할 경우 라우트는 더이상 메시지를 브로커들에게 전달하는 오버헤드를 갖지 않는다.</li>
-</ul></li>
+</ul>
+</li>
 <li>만약 두 excg 가 der 을 서로에 대해 갖는경우, 각각의 excg 에 대한 모든 바인딩은 der 에 반영된다.</li>
 <li>DER 에서, source 와 destination exchages 들은 같은 excage 타입을 가지고 있어야하고, 같은 이름을 가져야 한다.</li>
 </ul>
-
 <p>내부적으로 dynamic exchage routes 는 exchage 라우트와 동일하게 구현되어 있는데, 다른점은
 DEST Excg 에 바인딩이 있는 경우 DER 을 구현하는데 사용한 바인딩들이 수정됐다는것. (? except that the bindings used to implement dynamic exchange routes are modified if the bindings in the destination exchange change.)</p>
-
 <p>DER 은 항상 pull route 형식이다.</p>
-
-<h2 id="1-4-2-federation-topolpogies">1.4.2 Federation Topolpogies</h2>
-
+<h2 id="142-federation-topolpogies">1.4.2 Federation Topolpogies</h2>
 <p>보통 이 네트워크는 트리구조, 스타구조, 선형, 양방향 링크, 로 구성된다. 링 형태도 가능하지만, 이때는 단방향링크들만 사용하여야 한다.</p>
-
 <p>메시지를 빨리 전달 받기 위해서는 브로커 사이 홉을 줄이는 것이 중요. 그래서 대부분의 경우 트리나 스타 토폴로지가 최고다.</p>
-
-<p>A, B 가 있다고 할 때 서로를 연결하는 경로는 하나만이 있어야 할 것.<br />
+<p>A, B 가 있다고 할 때 서로를 연결하는 경로는 하나만이 있어야 할 것.<br>
 만약 하나 이상의 경로가 있으면 중복된 메시지 전송을 야기하고 네트워크의 홍수를 일으킬 것.</p>
-
-<h2 id="1-4-3-federation-among-high-availablity-message-clusters">1.4.3 Federation among High Availablity Message Clusters</h2>
-
-<p>fedration 은 일반적으로 High Availability Message Clusters 와 사용이 되는데, 클러스터들이 각각의 LAN 에 대해 고 안정성을 얻게끔한다.<br />
-메시지 상태가 클러스터에서 복제 되기 때문에,<br />
+<h2 id="143-federation-among-high-availablity-message-clusters">1.4.3 Federation among High Availablity Message Clusters</h2>
+<p>fedration 은 일반적으로 High Availability Message Clusters 와 사용이 되는데, 클러스터들이 각각의 LAN 에 대해 고 안정성을 얻게끔한다.<br>
+메시지 상태가 클러스터에서 복제 되기 때문에,<br>
 같은 클러스터의 다른 브로커 사이에서 메시지 라우트를 정의하는 작은 개념을 만들어 준다.</p>
-
 <p>두 클러스터 사이에서 메시지를 생성하기 위해, 첫번째 클러스터에서 다른 클러스터의 브로커로 라우터를 만들어주면된다.</p>
-
-<h2 id="1-4-4-the-qpid-route-utility">1.4.4 The qpid-route Utility</h2>
-
-<pre><code>$ qpid-route [OPTIONS] dynamic add &lt;dest-broker&gt; &lt;src-broker&gt; &lt;exchange&gt;
+<h2 id="144-the-qpid-route-utility">1.4.4 The qpid-route Utility</h2>
+<pre tabindex="0"><code>$ qpid-route [OPTIONS] dynamic add &lt;dest-broker&gt; &lt;src-broker&gt; &lt;exchange&gt;
 $ qpid-route [OPTIONS] dynamic del &lt;dest-broker&gt; &lt;src-broker&gt; &lt;exchange&gt;
 
 $ qpid-route [OPTIONS] route add &lt;dest-broker&gt; &lt;src-broker&gt; &lt;exchange&gt; &lt;routing-key&gt;
@@ -159,88 +167,114 @@ $ qpid-route [OPTIONS] flush [&lt;broker&gt;]
 $ qpid-route [OPTIONS] map   [&lt;broker&gt;]
 
 $ qpid-route [OPTIONS] list connections [&lt;broker&gt;]
-</code></pre>
-
-<p>The syntax for broker, dest-broker, and src-broker is as follows:</p>
-
+</code></pre><p>The syntax for broker, dest-broker, and src-broker is as follows:</p>
 <pre><code>  [username/password@] hostname | ip-address [:&lt;port&gt;]
 </code></pre>
-
 <p>The following are all valid examples of the above syntax: localhost, 10.1.1.7:10000, broker-host:10000, guest/guest@localhost.</p>
+<p>Table 1.9. qpid-route options</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-v</td>
+<td>Verbose output.</td>
+</tr>
+<tr>
+<td>-q</td>
+<td>Quiet output, will not print duplicate warnings.</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>Make the route durable.</td>
+</tr>
+<tr>
+<td>&ndash;timeout N</td>
+<td>Maximum time to wait when qpid-route connects to a broker, in seconds. Default is 10 seconds.</td>
+</tr>
+<tr>
+<td>&ndash;ack N</td>
+<td>Acknowledge transfers of routed messages in batches of N. Default is 0 (no acknowledgements). Setting to 1 or greater enables acknowledgements; when using acknowledgements, values of N greater than 1 can significnantly improve performance, especially if there is significant network latency between the two brokers.</td>
+</tr>
+<tr>
+<td>-s [ &ndash;src-local ]</td>
+<td>Configure the route in the source broker (create a push route).</td>
+</tr>
+<tr>
+<td><code>-t &lt;transport&gt; [ --transport &lt;transport&gt;]</code></td>
+<td>Transport protocol to be used for the route. <!-- raw HTML omitted --> _ tcp (default) <!-- raw HTML omitted --> _ ssl <!-- raw HTML omitted --> * rdma</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1441-creating-and-deleting-queue-routes">1.4.4.1. Creating and Deleting Queue Routes</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ qpid-route <span style="color:#f92672">[</span>OPTIONS<span style="color:#f92672">]</span> queue add &lt;dest-broker&gt; &lt;src-broker&gt; &lt;dest-exchange&gt; &lt;src-queue&gt;
+</span></span><span style="display:flex;"><span>$ qpid-route <span style="color:#f92672">[</span>OPTIONS<span style="color:#f92672">]</span> queue del &lt;dest-broker&gt; &lt;src-broker&gt; &lt;dest-exchange&gt; &lt;src-queue&gt;
+</span></span></code></pre></div><h3 id="1442-exchange-routes">1.4.4.2. Exchange Routes</h3>
 
-<p>Table 1.9. qpid-route options
-|||
-|-|-|
-| -v| Verbose output.|
-|-q| Quiet output, will not print duplicate warnings.|
-|-d | Make the route durable.|
-|&ndash;timeout N |Maximum time to wait when qpid-route connects to a broker, in seconds. Default is 10 seconds.|
-|&ndash;ack N|Acknowledge transfers of routed messages in batches of N. Default is 0 (no acknowledgements). Setting to 1 or greater enables acknowledgements; when using acknowledgements, values of N greater than 1 can significnantly improve performance, especially if there is significant network latency between the two brokers.
-| -s [ &ndash;src-local ] | Configure the route in the source broker (create a push route).
-| <code>-t &lt;transport&gt; [ --transport &lt;transport&gt;]</code> | Transport protocol to be used for the route. <br> _ tcp (default) <br> _ ssl <br> * rdma |</p>
-
-<h3 id="1-4-4-1-creating-and-deleting-queue-routes">1.4.4.1. Creating and Deleting Queue Routes</h3>
-
-<pre><code class="language-bash">$ qpid-route [OPTIONS] queue add &lt;dest-broker&gt; &lt;src-broker&gt; &lt;dest-exchange&gt; &lt;src-queue&gt;
-$ qpid-route [OPTIONS] queue del &lt;dest-broker&gt; &lt;src-broker&gt; &lt;dest-exchange&gt; &lt;src-queue&gt;
-</code></pre>
-
-<h3 id="1-4-4-2-exchange-routes">1.4.4.2. Exchange Routes</h3>
-
-</section>
-
-<div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fqpid%2f1.4.broker-federation%2f&t=Broker%20Federation" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fqpid%2f1.4.broker-federation%2f&text=Broker%20Federation&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fqpid%2f1.4.broker-federation%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fqpid%2f1.4.broker-federation%2f&title=Broker%20Federation" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
-</div>
-
-<div class="post-meta-code">
-  <div class="desc">
-    public string description() {
-    <div class="desc">val author = "
-    
-        nolleh
-    ";
-    </div>
-    
+  </section>
+  <div class="share">    
+    <a
+      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fqpid%2f1.4.broker-federation%2f&t=Broker%20Federation"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-facebook"></i
+    ></a>
+    <a
+      href="//twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fqpid%2f1.4.broker-federation%2f&text=Broker%20Federation&tw_p=tweetbutton"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-twitter"></i
+    ></a>
+    <a
+      href="//getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fqpid%2f1.4.broker-federation%2f&title=Broker%20Federation"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-get-pocket"></i
+    ></a>
+    <a
+      href="//plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fqpid%2f1.4.broker-federation%2f"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-google-plus"></i
+    ></a>
+  </div>
+  <div class="post-meta-code">
     <div class="desc">
-      val categories = [
+      Friendly
       
+      nolleh
       
-      <a href="https://nolleh.github.io//categories/qpid">"QPID"</a>
-      
-      ];
+      wrotes this article at
+      <span class="highlight">Thursday, Feb 6, 2020 13:23</span> 
+      for you.
     </div>
-    
-    }
-  </div>
-</div>
-<div class="post-meta-code">
-  <div class="desc">
-    public string tags() {
+    <div class="desc">
+      
       <div class="desc">
-        val tags = [
+        <span class="fixed-desc">_Categories</span>
         
-          
-          <a href="https://nolleh.github.io/tags/mq">"MQ"</a>
-          
-          <a href="https://nolleh.github.io/tags/qpid">"QPID"</a>
-          
         
-        ];
+        <a href="https://nolleh.github.io//categories/qpid">#QPID</a>
+        
       </div>
-    }
-  </div>
-</div>
-
-
-<div class="share"></div>
-
-<div id="disqus_thread"></div>
+      
+      <div class="desc">
+        <span class="fixed-desc">_Tags</span>
+        
+        
+        <a href="https://nolleh.github.io/tags/mq">#MQ</a>
+        
+        <a href="https://nolleh.github.io/tags/qpid">#QPID</a>
+        
+        
+      </div>
+    </div>
+  </div>  
+  
+  <div class="post-comment">    
+    <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -257,45 +291,40 @@ $ qpid-route [OPTIONS] queue del &lt;dest-broker&gt; &lt;src-broker&gt; &lt;dest
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-<div class="paging post-paging">
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>    
+  </div>
   
-  <a class="left" href="https://nolleh.github.io/qpid/1.12.active-passive-messaging-clusters/" rel="prev">
-    <i class="fa fa-caret-left" aria-hidden="true"></i> <span>Active Passive Messaging Clusters</span>
-  </a>
-  
-  
-  <a class="right" href="https://nolleh.github.io/cheatsheet/network/" rel="next">
-    <span>Network</span> <i class="fa fa-caret-right" aria-hidden="true"></i>
-  </a>
-  
+  <div class="recommend-articles">
+    Recommend these articles
+    <ul>
+      
+      <li>
+        <a href="https://nolleh.github.io/cheatsheet/network/" rel="prev">
+          <span>Network</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="https://nolleh.github.io/qpid/1.12.active-passive-messaging-clusters/" rel="next">
+          <span>Active Passive Messaging Clusters</span>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
 </div>
 
-<div class="share"></div>
-
-<div class="seperator">
-  <img src="/images/seperator.png" />
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>Top</span>
+  </a>
 </div>
-
 <footer class="footer">
-    COPYRIGHT (C) <a href="http://blog.lulab.net">DONGGEUN,BANG</a>. ALL RIGHTS RESERVED.
+  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
+  ALL RIGHTS RESERVED.
 </footer>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-102565363-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<script data-no-instant>document.write('<script src="/livereload.js?port=80&mindelay=10"></' + 'script>')</script></body>
-
+</body>
 </html>
 

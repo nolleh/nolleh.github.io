@@ -1,156 +1,177 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <base href="https://nolleh.github.io/">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>EOSIO - 1.7/Test 계정 생성하기  &middot; The Computer Programmer, Nolleh</title>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="canonical" href="https://nolleh.github.io/block-chain/1.7-createtestaccount/">
-    
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=80&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EOSIO - 1.7/Test 계정 생성하기  | The Computer Programmer, Nolleh</title>
+  <meta name="description" content=" 'EOSIO - 1.7/Test 계정 생성하기'read this article.">
+  <meta property="og:title" content="EOSIO - 1.7/Test 계정 생성하기">
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2019-01-01">
+  
+  <meta property="og:description" content=" 'EOSIO - 1.7/Test 계정 생성하기'read this article.">
+  <meta property="og:url" content="https://nolleh.github.io/block-chain/1.7-createtestaccount/">
+  <meta property="og:site_name" content="The Computer Programmer, Nolleh">
+  
+  <meta property="og:image" content="https://nolleh.github.io/images/thumbnail.png">
+  
+  
+  <meta property="og:tags" content="block-chain">
+  
+  <meta property="og:tags" content="EOSIO">
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="https://nolleh.github.io/block-chain/1.7-createtestaccount/">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102565363-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-102565363-1');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
 </head>
-
 <body>
-    <div class="navbar">
-        <ul>
-            <li><a href="/">HOME</a></li>
-            <li><a href="/categories">CATEGORIES</a></li>
-            <li><a href="/project">PROJECTS</a></li>
-        </ul>
+  <div class="navbar">    
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo.png" height="34px" />
+      </a>
     </div>
-    <div class="container">
-      <div class="title">
-        <div>
-          <a href="/">
-            <img src="/images/logo.png" />
-          </a>
-        </div>
-        <div><img src="/images/seperator.png" /></div>
-        <div class="logo-title">hello, world!</div>
-      </div>
-
-
-<a href="https://nolleh.github.io/block-chain/1.7-createtestaccount/">
-  <div class="post-title">
-    <img src="/images/post-title-icon.png" />
-    <div class="post-meta">
-      <time>01 Jan 2019, 20:02</time>
-      <h1>EOSIO - 1.7/Test 계정 생성하기</h1>
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> Menu
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><a href="/">#The Computer Programmer, Nolleh</a></li>
+        <li><a href="/categories">#Categories</a></li>
+        <li><a href="/tags">#Tags</a></li>
+        <li><a href="/projects">#Projects</a></li>        
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
     </div>
   </div>
-</a>
+  <div class="container">    
 
-<div class="post-toc">
-  <span class="title">
-    Table of contents
-  </span>
-  <nav id="TableOfContents">
-<ul>
-<li><a href="#what-is-an-account">What is an account?</a></li>
-<li><a href="#step-1-create-test-accounts">Step 1: Create Test Accounts</a></li>
-</ul>
-</nav>
-</div>
-
-<section class="post-content">
-  
-
-<blockquote>
+<div class="post">
+  <div class="post-title">
+    <a href="https://nolleh.github.io/block-chain/1.7-createtestaccount/">
+      <img src="/images/post-title-icon.png" />
+      <div class="post-meta">
+        <time>Tuesday, Jan 1, 2019 20:02</time>
+        <h1>EOSIO - 1.7/Test 계정 생성하기</h1>
+      </div>
+    </a>
+  </div>
+  <div class="post-toc">
+    <span class="title">TOC</span>
+    <nav id="TableOfContents"></nav>
+  </div>
+  <section class="post-content">
+    <blockquote>
 <p>다음에서 발췌 <a href="https://developers.eos.io/eosio-home/docs/accounts-1">EOSIO - 1.7 Create Test Accounts</a></p>
 </blockquote>
-
 <h1 id="what-is-an-account">What is an account?</h1>
-
-<hr />
-
-<p>블록체인에 저장되어 송신자와 수신자를 구분하는데 사용되는 승인의 집합체라 할 수 있다.  유연한 권한 승인 구조를 가질 수 있는데, 권한이 어떻게 설정되느냐에 따른 개인이나 그룹에 의해 소유될 수 있다.<br />
+<hr>
+<p>블록체인에 저장되어 송신자와 수신자를 구분하는데 사용되는 승인의 집합체라 할 수 있다.  유연한 권한 승인 구조를 가질 수 있는데, 권한이 어떻게 설정되느냐에 따른 개인이나 그룹에 의해 소유될 수 있다.<br>
 하나의 계정은 블록체인의 트랜잭션을 보내거나 받기 위해 요구된다.</p>
-
 <p>이 튜토리얼에서는 두개의 user 계정, bob 과 alice, 그리고 설정을 위한 기본 eosio 계정을 사용한다.  추가로 계정들은 다양한 contracts 를 위해 이 튜토리얼 시리즈에서 만들어 질 수 있다.</p>
-
 <h1 id="step-1-create-test-accounts">Step 1: Create Test Accounts</h1>
-
-<hr />
-
+<hr>
 <p>이전 단계에서, wallet 과 개발키 쌍을 생성하였다. form 에 public key 를 지정하도록 요청받았지만, 이 단계를 넘기거나 쿠키를 사용하지 않도록 설정하였을 수있다. 생성된 publickey 를 YOUR_PUBLIC_KEY 에 기입하여 진행하자.</p>
-
 <p>이 튜토리얼동안 유저 bob 가 alice 가 사용된다. 두 계정은 cleos create accounts 를 통해 생성된다.</p>
-
-<pre><code class="language-shell">cleos create account eosio bob YOUR_PUBLIC_KEY 
-cleos create account eosio alice YOUR_PUBLIC_KEY
-</code></pre>
-
-<p>트랜잭션이 발송 되었음을 나타내는 다음과 같은 메시지가 노출된다.</p>
-
-<pre><code class="language-shell">executed transaction: 40c605006de...  200 bytes  153 us
-#         eosio &lt;= eosio::newaccount            {&quot;creator&quot;:&quot;eosio&quot;,&quot;name&quot;:&quot;alice&quot;,&quot;owner&quot;:{&quot;threshold&quot;:1,&quot;keys&quot;:[{&quot;key&quot;:&quot;EOS5rti4LTL53xptjgQBXv9HxyU...
-warning: transaction executed locally, but may not be confirmed by the network yet    ]
-</code></pre>
-
-<blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cleos create account eosio bob YOUR_PUBLIC_KEY 
+</span></span><span style="display:flex;"><span>cleos create account eosio alice YOUR_PUBLIC_KEY
+</span></span></code></pre></div><p>트랜잭션이 발송 되었음을 나타내는 다음과 같은 메시지가 노출된다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>executed transaction: 40c605006de...  <span style="color:#ae81ff">200</span> bytes  <span style="color:#ae81ff">153</span> us
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#         eosio &lt;= eosio::newaccount            {&#34;creator&#34;:&#34;eosio&#34;,&#34;name&#34;:&#34;alice&#34;,&#34;owner&#34;:{&#34;threshold&#34;:1,&#34;keys&#34;:[{&#34;key&#34;:&#34;EOS5rti4LTL53xptjgQBXv9HxyU...</span>
+</span></span><span style="display:flex;"><span>warning: transaction executed locally, but may not be confirmed by the network yet    <span style="color:#f92672">]</span>
+</span></span></code></pre></div><blockquote>
 <p>Using Different Keys for Active/Owner on a PRODUCTION Network
 EOSIO has a unique authorization structure that has added security for you account. You can minimize the exposure of your account by keeping the owner key cold, while using the key associated with your active permission. This way, if your active key were every compromised, you could regain control over your account with your owner key.</p>
 </blockquote>
 
-</section>
-
-<div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.7-createtestaccount%2f&t=EOSIO%20-%201.7%2fTest%20%ea%b3%84%ec%a0%95%20%ec%83%9d%ec%84%b1%ed%95%98%ea%b8%b0" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.7-createtestaccount%2f&text=EOSIO%20-%201.7%2fTest%20%ea%b3%84%ec%a0%95%20%ec%83%9d%ec%84%b1%ed%95%98%ea%b8%b0&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.7-createtestaccount%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.7-createtestaccount%2f&title=EOSIO%20-%201.7%2fTest%20%ea%b3%84%ec%a0%95%20%ec%83%9d%ec%84%b1%ed%95%98%ea%b8%b0" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
-</div>
-
-<div class="post-meta-code">
-  <div class="desc">
-    public string description() {
-    <div class="desc">val author = "
-    
-        nolleh
-    ";
-    </div>
-    
+  </section>
+  <div class="share">    
+    <a
+      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.7-createtestaccount%2f&t=EOSIO%20-%201.7%2fTest%20%ea%b3%84%ec%a0%95%20%ec%83%9d%ec%84%b1%ed%95%98%ea%b8%b0"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-facebook"></i
+    ></a>
+    <a
+      href="//twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.7-createtestaccount%2f&text=EOSIO%20-%201.7%2fTest%20%ea%b3%84%ec%a0%95%20%ec%83%9d%ec%84%b1%ed%95%98%ea%b8%b0&tw_p=tweetbutton"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-twitter"></i
+    ></a>
+    <a
+      href="//getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.7-createtestaccount%2f&title=EOSIO%20-%201.7%2fTest%20%ea%b3%84%ec%a0%95%20%ec%83%9d%ec%84%b1%ed%95%98%ea%b8%b0"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-get-pocket"></i
+    ></a>
+    <a
+      href="//plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.7-createtestaccount%2f"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-google-plus"></i
+    ></a>
+  </div>
+  <div class="post-meta-code">
     <div class="desc">
-      val categories = [
+      Friendly
       
+      nolleh
       
-      <a href="https://nolleh.github.io//categories/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8">"블록체인"</a>
-      
-      ];
+      wrotes this article at
+      <span class="highlight">Tuesday, Jan 1, 2019 20:02</span> 
+      for you.
     </div>
-    
-    }
-  </div>
-</div>
-<div class="post-meta-code">
-  <div class="desc">
-    public string tags() {
+    <div class="desc">
+      
       <div class="desc">
-        val tags = [
+        <span class="fixed-desc">_Categories</span>
         
-          
-          <a href="https://nolleh.github.io/tags/block-chain">"block-chain"</a>
-          
-          <a href="https://nolleh.github.io/tags/eosio">"EOSIO"</a>
-          
         
-        ];
+        <a href="https://nolleh.github.io//categories/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8">#블록체인</a>
+        
       </div>
-    }
-  </div>
-</div>
-
-
-<div class="share"></div>
-
-<div id="disqus_thread"></div>
+      
+      <div class="desc">
+        <span class="fixed-desc">_Tags</span>
+        
+        
+        <a href="https://nolleh.github.io/tags/block-chain">#block-chain</a>
+        
+        <a href="https://nolleh.github.io/tags/eosio">#EOSIO</a>
+        
+        
+      </div>
+    </div>
+  </div>  
+  
+  <div class="post-comment">    
+    <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -167,45 +188,40 @@ EOSIO has a unique authorization structure that has added security for you accou
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-<div class="paging post-paging">
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>    
+  </div>
   
-  <a class="left" href="https://nolleh.github.io/block-chain/2.1-helloworld/" rel="prev">
-    <i class="fa fa-caret-left" aria-hidden="true"></i> <span>EOSIO - 2.1/Hello World!</span>
-  </a>
-  
-  
-  <a class="right" href="https://nolleh.github.io/block-chain/1.6-createdevelopmentwallet/" rel="next">
-    <span>EOSIO - 1.6/개발 Wallet 생성하기</span> <i class="fa fa-caret-right" aria-hidden="true"></i>
-  </a>
-  
+  <div class="recommend-articles">
+    Recommend these articles
+    <ul>
+      
+      <li>
+        <a href="https://nolleh.github.io/block-chain/1.6-createdevelopmentwallet/" rel="prev">
+          <span>EOSIO - 1.6/개발 Wallet 생성하기</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="https://nolleh.github.io/block-chain/2.1-helloworld/" rel="next">
+          <span>EOSIO - 2.1/Hello World!</span>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
 </div>
 
-<div class="share"></div>
-
-<div class="seperator">
-  <img src="/images/seperator.png" />
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>Top</span>
+  </a>
 </div>
-
 <footer class="footer">
-    COPYRIGHT (C) <a href="http://blog.lulab.net">DONGGEUN,BANG</a>. ALL RIGHTS RESERVED.
+  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
+  ALL RIGHTS RESERVED.
 </footer>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-102565363-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<script data-no-instant>document.write('<script src="/livereload.js?port=80&mindelay=10"></' + 'script>')</script></body>
-
+</body>
 </html>
 

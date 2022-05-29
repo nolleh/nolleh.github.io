@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on The Computer Programmer, Nolleh</title>
@@ -8,17 +8,13 @@
     <language>ko-KR</language>
     <managingEditor>nolleh7707@gmail.com (nolleh)</managingEditor>
     <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
-    <lastBuildDate>Tue, 04 Jul 2017 00:45:55 +0900</lastBuildDate>
-    
-	<atom:link href="https://nolleh.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 06 Feb 2020 14:47:47 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>C&#43;&#43; Cli</title>
-      <link>https://nolleh.github.io/categories/c&#43;&#43;-cli/</link>
-      <pubDate>Tue, 04 Jul 2017 00:45:55 +0900</pubDate>
+      <title>qpid</title>
+      <link>https://nolleh.github.io/categories/qpid/</link>
+      <pubDate>Thu, 06 Feb 2020 14:47:47 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
-      <guid>https://nolleh.github.io/categories/c&#43;&#43;-cli/</guid>
+      <guid>https://nolleh.github.io/categories/qpid/</guid>
       <description></description>
     </item>
     
@@ -32,11 +28,20 @@
     </item>
     
     <item>
-      <title>Csharp</title>
-      <link>https://nolleh.github.io/categories/csharp/</link>
-      <pubDate>Fri, 21 Dec 2018 22:02:13 +0900</pubDate>
+      <title>RabbitMQ</title>
+      <link>https://nolleh.github.io/categories/rabbitmq/</link>
+      <pubDate>Wed, 05 Feb 2020 18:44:37 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
-      <guid>https://nolleh.github.io/categories/csharp/</guid>
+      <guid>https://nolleh.github.io/categories/rabbitmq/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>암호학</title>
+      <link>https://nolleh.github.io/categories/%EC%95%94%ED%98%B8%ED%95%99/</link>
+      <pubDate>Thu, 30 Jan 2020 18:29:58 +0900</pubDate>
+      <author>nolleh7707@gmail.com (nolleh)</author>
+      <guid>https://nolleh.github.io/categories/%EC%95%94%ED%98%B8%ED%95%99/</guid>
       <description></description>
     </item>
     
@@ -50,70 +55,7 @@
     </item>
     
     <item>
-      <title>Nancy</title>
-      <link>https://nolleh.github.io/categories/nancy/</link>
-      <pubDate>Tue, 24 Apr 2018 21:43:04 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
-      <guid>https://nolleh.github.io/categories/nancy/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Qpid</title>
-      <link>https://nolleh.github.io/categories/qpid/</link>
-      <pubDate>Thu, 06 Feb 2020 14:47:47 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
-      <guid>https://nolleh.github.io/categories/qpid/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Rabbitmq</title>
-      <link>https://nolleh.github.io/categories/rabbitmq/</link>
-      <pubDate>Wed, 05 Feb 2020 18:44:37 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
-      <guid>https://nolleh.github.io/categories/rabbitmq/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Spring</title>
-      <link>https://nolleh.github.io/categories/spring/</link>
-      <pubDate>Wed, 26 Jul 2017 23:11:14 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
-      <guid>https://nolleh.github.io/categories/spring/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Unix Network Programming</title>
-      <link>https://nolleh.github.io/categories/unix-network-programming/</link>
-      <pubDate>Tue, 01 Aug 2017 22:54:19 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
-      <guid>https://nolleh.github.io/categories/unix-network-programming/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>개발환경</title>
-      <link>https://nolleh.github.io/categories/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD/</link>
-      <pubDate>Fri, 07 Jul 2017 21:22:50 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
-      <guid>https://nolleh.github.io/categories/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>블록체인</title>
-      <link>https://nolleh.github.io/categories/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8/</link>
-      <pubDate>Tue, 01 Jan 2019 20:17:59 +0900</pubDate>
-      <author>nolleh7707@gmail.com (nolleh)</author>
-      <guid>https://nolleh.github.io/categories/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>블록체인 개념</title>
+      <title>블록체인-개념</title>
       <link>https://nolleh.github.io/categories/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8-%EA%B0%9C%EB%85%90/</link>
       <pubDate>Wed, 23 Jan 2019 20:32:59 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
@@ -131,11 +73,47 @@
     </item>
     
     <item>
-      <title>암호학</title>
-      <link>https://nolleh.github.io/categories/%EC%95%94%ED%98%B8%ED%95%99/</link>
-      <pubDate>Thu, 30 Jan 2020 18:29:58 +0900</pubDate>
+      <title>블록체인</title>
+      <link>https://nolleh.github.io/categories/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8/</link>
+      <pubDate>Tue, 01 Jan 2019 20:17:59 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
-      <guid>https://nolleh.github.io/categories/%EC%95%94%ED%98%B8%ED%95%99/</guid>
+      <guid>https://nolleh.github.io/categories/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>csharp</title>
+      <link>https://nolleh.github.io/categories/csharp/</link>
+      <pubDate>Fri, 21 Dec 2018 22:02:13 +0900</pubDate>
+      <author>nolleh7707@gmail.com (nolleh)</author>
+      <guid>https://nolleh.github.io/categories/csharp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nancy</title>
+      <link>https://nolleh.github.io/categories/nancy/</link>
+      <pubDate>Tue, 24 Apr 2018 21:43:04 +0900</pubDate>
+      <author>nolleh7707@gmail.com (nolleh)</author>
+      <guid>https://nolleh.github.io/categories/nancy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Unix Network Programming</title>
+      <link>https://nolleh.github.io/categories/unix-network-programming/</link>
+      <pubDate>Tue, 01 Aug 2017 22:54:19 +0900</pubDate>
+      <author>nolleh7707@gmail.com (nolleh)</author>
+      <guid>https://nolleh.github.io/categories/unix-network-programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spring</title>
+      <link>https://nolleh.github.io/categories/spring/</link>
+      <pubDate>Wed, 26 Jul 2017 23:11:14 +0900</pubDate>
+      <author>nolleh7707@gmail.com (nolleh)</author>
+      <guid>https://nolleh.github.io/categories/spring/</guid>
       <description></description>
     </item>
     
@@ -145,6 +123,24 @@
       <pubDate>Mon, 17 Jul 2017 00:25:28 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/categories/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>개발환경</title>
+      <link>https://nolleh.github.io/categories/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD/</link>
+      <pubDate>Fri, 07 Jul 2017 21:22:50 +0900</pubDate>
+      <author>nolleh7707@gmail.com (nolleh)</author>
+      <guid>https://nolleh.github.io/categories/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43; CLI</title>
+      <link>https://nolleh.github.io/categories/c&#43;&#43;-cli/</link>
+      <pubDate>Tue, 04 Jul 2017 00:45:55 +0900</pubDate>
+      <author>nolleh7707@gmail.com (nolleh)</author>
+      <guid>https://nolleh.github.io/categories/c&#43;&#43;-cli/</guid>
       <description></description>
     </item>
     

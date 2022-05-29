@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>개발환경 on The Computer Programmer, Nolleh</title>
@@ -8,11 +8,7 @@
     <language>ko-KR</language>
     <managingEditor>nolleh7707@gmail.com (nolleh)</managingEditor>
     <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
-    <lastBuildDate>Fri, 07 Jul 2017 21:22:50 +0900</lastBuildDate>
-    
-	<atom:link href="https://nolleh.github.io/categories/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 07 Jul 2017 21:22:50 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/categories/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How To Make Git Page</title>
       <link>https://nolleh.github.io/env/how-to-make-git-page/</link>
@@ -22,7 +18,12 @@
       <description>GitHub-Page 이런게 있다더라 ~ 라고 주변으로부터 처음 들은건 1~2년전이었던것 같은데
 갑자기 꽂혀서 git page 를 만들었다. (!!)
 github 에서는 1계정당 1 호스트를 제공하는 것 같고
-뭐 이런식? github 의 제공 영역은 repo 에 존재하는 index.html 을 repo 에 지정된 1 도메인과 연결해주는 정도인 것 같다. # Repository git 을 사용해 본 적이 있다면 간단하다. 그렇다면 다음 절로 넘어가고, 그렇지 않다면, 다음을 따라하자. ## github 가입 이 항목에 있어 더 이상의 자세한 설명은 생략한다.</description>
+&amp;lt;ID&amp;gt;.github.io 
+뭐 이런식? github 의 제공 영역은 repo 에 존재하는 index.html 을 repo 에 지정된 1 도메인과
+연결해주는 정도인 것 같다.
+Repository git 을 사용해 본 적이 있다면 간단하다.
+그렇다면 다음 절로 넘어가고, 그렇지 않다면, 다음을 따라하자.
+github 가입 이 항목에 있어 더 이상의 자세한 설명은 생략한다.</description>
     </item>
     
     <item>
@@ -47,12 +48,10 @@ Brew 뭐 전혀 관계 없는 얘기로 포스트를 열었지만.</description>
       <guid>https://nolleh.github.io/env/mark-down-syntax/</guid>
       <description>마크다운으로 포스팅하는 Git 페이지를 생성하였으니, 자주 사용되는 대표 문법 정리
 마크다운 문법
-Heading &amp;rsquo;#&amp;rsquo; 으로 처리하며, 단계별로 더 많은 &amp;lsquo;#&amp;rsquo; 을 사용한다.
-# Title ## Heading 1 ### Heading 2  결과
+Heading &amp;lsquo;#&amp;rsquo; 으로 처리하며, 단계별로 더 많은 &amp;lsquo;#&amp;rsquo; 을 사용한다.
+# Title ## Heading 1 ### Heading 2 결과
 Title Heading 1 Heading 2 Listing Asterisk (*) 를 사용하여 순서 없는 목록을, 숫자를 사용하여 순서 있는 목록을 나타낸다.
-순서 없는 경우  이거닷
- 이거 중요해!
-  순서가 있는 경우  첫번째 순서 두번째~ 셋!!  Fonts **Bold** _Italic_ ~~CANCEL_LINE~~  Bold Italic CANCEL_LINE</description>
+순서 없는 경우  이거닷 이거 중요해!  순서가 있는 경우  첫번째 순서 두번째~ 셋!!  Fonts **Bold** _Italic_ ~~CANCEL_LINE~~ Bold Italic CANCEL_LINE</description>
     </item>
     
   </channel>

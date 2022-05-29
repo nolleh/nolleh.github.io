@@ -1,18 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Block Chain on The Computer Programmer, Nolleh</title>
+    <title>block-chain on The Computer Programmer, Nolleh</title>
     <link>https://nolleh.github.io/tags/block-chain/</link>
-    <description>Recent content in Block Chain on The Computer Programmer, Nolleh</description>
+    <description>Recent content in block-chain on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
     <managingEditor>nolleh7707@gmail.com (nolleh)</managingEditor>
     <webMaster>nolleh7707@gmail.com (nolleh)</webMaster>
-    <lastBuildDate>Tue, 01 Jan 2019 20:17:59 +0900</lastBuildDate>
-    
-	<atom:link href="https://nolleh.github.io/tags/block-chain/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 01 Jan 2019 20:17:59 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/block-chain/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>EOSIO - 2.1/Hello World!</title>
       <link>https://nolleh.github.io/block-chain/2.1-helloworld/</link>
@@ -20,10 +16,11 @@
       <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/block-chain/2.1-helloworld/</guid>
       <description>hello 라는 이름의 디렉토리를 contracts directory 에 생성하자.
-cd CONTRACTS_DIR mkdir hello cd hello  hello.cpp 를 생성하고 에디터로 열자.
-touch hello.cpp  필요한 라이브러리를 이 파일에 include 한다.
-#include &amp;lt;eosiolib/eosio.hpp&amp;gt; #include &amp;lt;eosiolib/print.hpp&amp;gt;  코드를 간결하게 해줄 eosio 네임스페이스를 contract 에 추가한다.
-using namespace eosio;   eosiolib/eosio.hpp 가 EOSIO C 와 C++ API 를 당신의 contract 스코프에 로드한다.  표준 C++11 클래스를 생성한다. 이 contract class 는 eosio::contract 를 확장해야한다.</description>
+cd CONTRACTS_DIR mkdir hello cd hello hello.cpp 를 생성하고 에디터로 열자.
+touch hello.cpp 필요한 라이브러리를 이 파일에 include 한다.
+#include &amp;lt;eosiolib/eosio.hpp&amp;gt;#include &amp;lt;eosiolib/print.hpp&amp;gt;코드를 간결하게 해줄 eosio 네임스페이스를 contract 에 추가한다.
+using namespace eosio;  eosiolib/eosio.hpp 가 EOSIO C 와 C++ API 를 당신의 contract 스코프에 로드한다.  표준 C++11 클래스를 생성한다. 이 contract class 는 eosio::contract 를 확장해야한다.
+#include &amp;lt;eosiolib/eosio.hpp&amp;gt;#include &amp;lt;eosiolib/print.hpp&amp;gt; using namespace eosio;  class hello : public contract {}; 비어있는 contract 는 좋지 않으니, public 접근 지정자와 using 선언을 추가하자.</description>
     </item>
     
     <item>
@@ -33,7 +30,7 @@ using namespace eosio;   eosiolib/eosio.hpp 가 EOSIO C 와 C++ API 를 당신�
       <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/block-chain/1.7-createtestaccount/</guid>
       <description>다음에서 발췌 EOSIO - 1.7 Create Test Accounts
- What is an account? 블록체인에 저장되어 송신자와 수신자를 구분하는데 사용되는 승인의 집합체라 할 수 있다. 유연한 권한 승인 구조를 가질 수 있는데, 권한이 어떻게 설정되느냐에 따른 개인이나 그룹에 의해 소유될 수 있다.
+ What is an account?  블록체인에 저장되어 송신자와 수신자를 구분하는데 사용되는 승인의 집합체라 할 수 있다. 유연한 권한 승인 구조를 가질 수 있는데, 권한이 어떻게 설정되느냐에 따른 개인이나 그룹에 의해 소유될 수 있다.
 하나의 계정은 블록체인의 트랜잭션을 보내거나 받기 위해 요구된다.
 이 튜토리얼에서는 두개의 user 계정, bob 과 alice, 그리고 설정을 위한 기본 eosio 계정을 사용한다. 추가로 계정들은 다양한 contracts 를 위해 이 튜토리얼 시리즈에서 만들어 질 수 있다.</description>
     </item>
@@ -44,10 +41,10 @@ using namespace eosio;   eosiolib/eosio.hpp 가 EOSIO C 와 C++ API 를 당신�
       <pubDate>Tue, 01 Jan 2019 17:10:57 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/block-chain/1.6-createdevelopmentwallet/</guid>
-      <description>Step 1: Wallet 생성하기 먼저 wallet 을 생성한다. cleos wallet create 를 통해 기본 wallet 을 --to-console 옵션을 사용하여 간단하게 생성한다.
+      <description>Step 1: Wallet 생성하기  먼저 wallet 을 생성한다. cleos wallet create 를 통해 기본 wallet 을 --to-console 옵션을 사용하여 간단하게 생성한다.
 cleos 를 production 환경에서 사용한다면, 대신 --to-file 옵션을 사용하여 wallet 의 패스워드를 배쉬 기록에 남지않도록 한다.
 개발 목적으로 사용하는 production 환경의 키가 아니기때문에 &amp;ndash;to-console 으로 보안 위협없이 사용할 수 있다.
-cleos wallet create --to-console  cleos 는 패스워드를 반환하며, 이 패스워드를 다음 튜토리얼에서 이용할 수 있도록 저장하자.
+cleos wallet create --to-console cleos 는 패스워드를 반환하며, 이 패스워드를 다음 튜토리얼에서 이용할 수 있도록 저장하자.
 Creating wallet: default Save password to use in the future to unlock this wallet.</description>
     </item>
     
@@ -60,7 +57,7 @@ Creating wallet: default Save password to use in the future to unlock this walle
       <description>다음에서 발췌 - EOSIO - 1.5 Install The CDT
  EOSIO Contract Development Toolkit, CDT 는 contract 컴파일을 위한 툴의 집합이다. 뒤따를 튜토리얼들은 contract 들을 컴파일하고 ABI 를 생성하는 주요 CDT 를 사용한다.
 1.3.x 버전부터, CDT 는 Mac OS X brew, linux debian 과 RPM 패키지들을 지원한다. 설치하기 위한 가장쉬운 선택지는 이 패키지 시스템들을 이용하는 것이다. 하나의 방법을 선택하자.
-HomeBrew (Mac OS X) Install brew tap eosio/eosio.cdt brew install eosio.</description>
+HomeBrew (Mac OS X)  Install brew tap eosio/eosio.cdt brew install eosio.</description>
     </item>
     
     <item>
@@ -69,9 +66,9 @@ HomeBrew (Mac OS X) Install brew tap eosio/eosio.cdt brew install eosio.</descri
       <pubDate>Tue, 01 Jan 2019 16:36:28 +0900</pubDate>
       <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/block-chain/1.4-startyournodeandsetup/</guid>
-      <description>다음에서 발췌 - [](https://developers.eos.io/eosio-home/docs/getting-the-software)
- Step 1: Boot Node And Wallet Step 1.1: Start keosd 먼저 keosd 를 시작한다.
-keosd &amp;amp;  다음과 유사한 결과를 얻게 된다.
+      <description>다음에서 발췌 - 
+ Step 1: Boot Node And Wallet  Step 1.1: Start keosd 먼저 keosd 를 시작한다.
+keosd &amp;amp; 다음과 유사한 결과를 얻게 된다.
 info 2018-11-26T06:54:24.789 thread-0 wallet_plugin.cpp:42 plugin_initialize ] initializing wallet plugin info 2018-11-26T06:54:24.795 thread-0 http_plugin.cpp:554 add_handler ] add api url: /v1/keosd/stop info 2018-11-26T06:54:24.796 thread-0 wallet_api_plugin.cpp:73 plugin_startup ] starting wallet_api_plugin info 2018-11-26T06:54:24.796 thread-0 http_plugin.cpp:554 add_handler ] add api url: /v1/wallet/create info 2018-11-26T06:54:24.796 thread-0 http_plugin.cpp:554 add_handler ] add api url: /v1/wallet/create_key info 2018-11-26T06:54:24.</description>
     </item>
     
@@ -83,9 +80,9 @@ info 2018-11-26T06:54:24.789 thread-0 wallet_plugin.cpp:42 plugin_initialize ] i
       <guid>https://nolleh.github.io/block-chain/1.3-aboutthestack/</guid>
       <description>발췌 - EOSIO - 1.3 About The Stack
  방금 설치한 툴들을 시작하기 전에, 각각의 컴포넌트들이 어떻게 상호작용하는지 이해하는게 좋다.
- nodeos (node + eos = nodeos) - 노드를 실행하기 위한 플러그인들로 설정될 수 있는 Core EOSIO 데몬. 예제는 로컬개발과 API 종단점을 위해 블록제품을 사용한다.
- cleos (cli + eos = cleos) - 블록 체인과 상호작용하고 wallet 을 관리하기위한 커맨드 라인 인터페이스.
- keosd (key + eos = keosd) - wallet 안의 EOSIO key 를 안전하게 저장 하기 위한 컴포넌트</description>
+  nodeos (node + eos = nodeos) - 노드를 실행하기 위한 플러그인들로 설정될 수 있는 Core EOSIO 데몬. 예제는 로컬개발과 API 종단점을 위해 블록제품을 사용한다.
+  cleos (cli + eos = cleos) - 블록 체인과 상호작용하고 wallet 을 관리하기위한 커맨드 라인 인터페이스.
+  keosd (key + eos = keosd) - wallet 안의 EOSIO key 를 안전하게 저장 하기 위한 컴포넌트</description>
     </item>
     
     <item>
@@ -95,10 +92,10 @@ info 2018-11-26T06:54:24.789 thread-0 wallet_plugin.cpp:42 plugin_initialize ] i
       <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/block-chain/1.2-beforeyoubegin/</guid>
       <description>발췌 - (EOSIO - 1.2 Before You Begin)[https://developers.eos.io/eosio-home/docs/setting-up-your-environment]
- Step 1: Install Binaries 이 튜토리얼은 선빌드된 바이너리를 사용한다.
+ Step 1: Install Binaries  이 튜토리얼은 선빌드된 바이너리를 사용한다.
 가장 빨리 시작하는 방법은 이게 가장 좋은 선택지 일것이다. 소스로부터 빌드하는 것도 하나의 선택지이지만, 한시간 이상 걸릴 수 도 있으며 빌드 에러가 발생 할 수도 있다.
 아래의 명령어들이 각각의 OS 에서 바이너리를 다운로드 할 것이다.
-brew tap eosio/eosio brew install eosio  Step 2: Setup a development directory, stick to it 작업을 진행할 디렉토리를 선택할 필요가 있다.</description>
+brew tap eosio/eosio brew install eosio Step 2: Setup a development directory, stick to it  작업을 진행할 디렉토리를 선택할 필요가 있다.</description>
     </item>
     
     <item>
@@ -108,7 +105,7 @@ brew tap eosio/eosio brew install eosio  Step 2: Setup a development directory, 
       <author>nolleh7707@gmail.com (nolleh)</author>
       <guid>https://nolleh.github.io/block-chain/1.1-introduction/</guid>
       <description>발췌 EOSIO - 1.1 Introduction
- 배울 수 있는 것  노드로 얼마나 빨리 갖고 놀 수 있는가 Wallet 과 Key 를 어떻게 관리할 수 있는가 계정을 만드는 법 contract 작성법 컴파일과 ABI contract 배포  C / C++ 경험 EOSIO 기반 블록체인은 WebAssembly 를 이용하여 유저가 생성한 어플리케이션과 코드를 실행한다.
+ 배울 수 있는 것   노드로 얼마나 빨리 갖고 놀 수 있는가 Wallet 과 Key 를 어떻게 관리할 수 있는가 계정을 만드는 법 contract 작성법 컴파일과 ABI contract 배포  C / C++ 경험  EOSIO 기반 블록체인은 WebAssembly 를 이용하여 유저가 생성한 어플리케이션과 코드를 실행한다.
 WASM 은 구글, 마이크로소프트, 애플, 그리고 다른 주요 업체의 지원을 받는 떠오르는 웹 표준이다.
 오늘날 WASM 을 빌드하기위해 사용되는 성숙된 도구는 C/C++ 컴파일러를 통한 clang/llvm 이다.</description>
     </item>

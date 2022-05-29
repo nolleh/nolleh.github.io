@@ -1,362 +1,156 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-	<meta name="generator" content="Hugo 0.52" />
-    <base href="https://nolleh.github.io/">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>The Computer Programmer, Nolleh </title>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="canonical" href="https://nolleh.github.io/">
-    
-    <link href="https://nolleh.github.io/index.xml" rel="alternate" type="application/rss+xml" title="The Computer Programmer, Nolleh" />
-    
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+	<meta name="generator" content="Hugo 0.99.1" /><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=80&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Computer Programmer, Nolleh </title>
+  <meta name="description" content="">
+  <meta property="og:title" content="The Computer Programmer, Nolleh">
+  
+  <meta property="og:type" content="website">
+  
+  <meta property="og:description" content="">
+  <meta property="og:url" content="https://nolleh.github.io/">
+  <meta property="og:site_name" content="The Computer Programmer, Nolleh">
+  
+  <meta property="og:image" content="https://nolleh.github.io/images/thumbnail.png">
+  
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="https://nolleh.github.io/">
+  <link rel="alternate" type="application/rss+xml" href="https://nolleh.github.io/index.xml" title="The Computer Programmer, Nolleh" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102565363-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-102565363-1');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
 </head>
-
 <body>
-    <div class="navbar">
-        <ul>
-            <li><a href="/">HOME</a></li>
-            <li><a href="/categories">CATEGORIES</a></li>
-            <li><a href="/project">PROJECTS</a></li>
-        </ul>
+  <div class="navbar">    
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo.png" height="34px" />
+      </a>
     </div>
-    <div class="container">
-      <div class="title">
-        <div>
-          <a href="/">
-            <img src="/images/logo.png" />
-          </a>
-        </div>
-        <div><img src="/images/seperator.png" /></div>
-        <div class="logo-title">hello, world!</div>
-      </div>
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> Menu
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><a href="/">#The Computer Programmer, Nolleh</a></li>
+        <li><a href="/categories">#Categories</a></li>
+        <li><a href="/tags">#Tags</a></li>
+        <li><a href="/projects">#Projects</a></li>        
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
+    </div>
+  </div>
+  <div class="container">    
 
 
-  <a href="https://nolleh.github.io/block-chain/1.6-createdevelopmentwallet/">
+  <div class="post">
   <div class="post-title">
-    <img src="/images/post-title-icon.png" />
-    <div class="post-meta">
-      <time>01 Jan 2019, 17:10</time>
-      <h1>EOSIO - 1.6/개발 Wallet 생성하기</h1>
-    </div>
-  </div>
-</a>
-
-<div class="post-toc">
-  <span class="title">
-    Table of contents
-  </span>
-  <nav id="TableOfContents">
-<ul>
-<li><a href="#step-1-wallet-생성하기">Step 1: Wallet 생성하기</a></li>
-<li><a href="#step2-open-the-wallet">Step2: Open the wallet</a></li>
-<li><a href="#step-3-unlock-it">Step 3: Unlock it</a></li>
-<li><a href="#step-4-import-keys-into-your-wallet">Step 4: Import keys into your wallet</a></li>
-<li><a href="#step-5-follow-this-tutorial-series-more-easily">Step 5: Follow this tutorial series more easily</a></li>
-<li><a href="#step-6-import-the-development-key">Step 6:Import the Development Key</a></li>
-</ul>
-</nav>
-</div>
-
-<section class="post-content">
-  
-
-<h1 id="step-1-wallet-생성하기">Step 1: Wallet 생성하기</h1>
-
-<hr />
-
-<p>먼저 wallet 을 생성한다. cleos wallet create 를 통해 기본 wallet 을 <code>--to-console</code> 옵션을 사용하여 간단하게 생성한다.<br />
-cleos 를 production 환경에서 사용한다면, 대신 <code>--to-file</code> 옵션을 사용하여 wallet 의 패스워드를 배쉬 기록에 남지않도록 한다.<br />
-개발 목적으로 사용하는 production 환경의 키가 아니기때문에 &ndash;to-console 으로 보안 위협없이 사용할 수 있다.</p>
-
-<pre><code class="language-shell">cleos wallet create --to-console
-</code></pre>
-
-<p>cleos 는 패스워드를 반환하며, 이 패스워드를 다음 튜토리얼에서 이용할 수 있도록 저장하자.</p>
-
-<pre><code class="language-shell">Creating wallet: default
-Save password to use in the future to unlock this wallet.
-Without password imported keys will not be retrievable.
-&quot;PW5Kewn9L76X8Fpd....................t42S9XCw2&quot;
-</code></pre>
-
-<blockquote>
-<p>wallet 에 대해
-wallet 의 암호 해독성에 대한 흔한 오해중의 하나는 토큰을 저장할 것이라는 것이다.  wallet 은 토큰을 저장하지 않는다.  wallet 은 private key 를 암호화된 파일에 저장하고 사이닝 트랜젝션에 활용한다.</p>
-
-<p>유저는 주로 인터페이스를 통해 트랜잭션 오브젝트를 빌드하고, 그 오브젝트를 서명될 수 있도록 wallet 에 전송하여, wallet 이 이후 시그니쳐와 함께 오브젝트를 네트워크를 통해 반환한다. 네트워크가 트랜잭션을 유효하다고 판단하면, 이를 블록체인의 블록에 포함시킨다.</p>
-</blockquote>
-
-<h1 id="step2-open-the-wallet">Step2: Open the wallet</h1>
-
-<hr />
-
-<p>keosd 인스턴스를 시작하고 다면 wallet은 닫히게 된다. 실행시키고 싶다면 다음 명령어를 활용한다.</p>
-
-<pre><code class="language-shell">cleos wallet open
-</code></pre>
-
-<p>다시 리스트를 조회해보면</p>
-
-<pre><code class="language-shell">cleos wallet list
-</code></pre>
-
-<p>다음과 같이 반환된다.</p>
-
-<pre><code class="language-shell">Wallets:
-[
-  &quot;default&quot;
-]
-</code></pre>
-
-<h1 id="step-3-unlock-it">Step 3: Unlock it</h1>
-
-<hr />
-
-<p>keosd wallet 은 열려있지만 여전히 잠겨있다. 좀전에 비밀번호를 제공받았으므로, 이를 이제 사용한다.</p>
-
-<pre><code class="language-shell">cleos wallet unlock
-</code></pre>
-
-<p>비밀번호를 입력하고 다시 리스트를 조회해보면</p>
-
-<pre><code class="language-shell">Wallets:
-[
-  &quot;default *&quot;
-]
-</code></pre>
-
-<p>열렸음을 의미하는 * 가 붙어있다.</p>
-
-<h1 id="step-4-import-keys-into-your-wallet">Step 4: Import keys into your wallet</h1>
-
-<hr />
-
-<p>private key 를 생성하기 위한 cleos 명령어가 있다.</p>
-
-<pre><code class="language-shell">cleos wallet create_key
-</code></pre>
-
-<h1 id="step-5-follow-this-tutorial-series-more-easily">Step 5: Follow this tutorial series more easily</h1>
-
-<hr />
-
-<p>얻은 public key 를 입력하자.</p>
-
-<h1 id="step-6-import-the-development-key">Step 6:Import the Development Key</h1>
-
-<hr />
-
-<p>새로운 EOSIO 체인마다 &ldquo;eosio&rdquo; 라 불리는 기본적인 &ldquo;system&rdquo; 유저를 보유한다.<br />
-이 계정은 시스템 contracts 들을 로딩함으로써 governance 와 EOSIO 체인의 컨센서스를 지휘하는 체인을 설정하는데 사용된다.<br />
-모든 EOSIO 체인은 development key 와 함께 제공되는데, 모두 동일하다. 이 키를 로드하여 시스템유저(eosio) 대신 트랜잭션을 서명해보자.</p>
-
-<pre><code class="language-shell">cleos wallet import
-</code></pre>
-
-<p>private key 를 질의 할텐데, 다음을 입력한다.</p>
-
-<pre><code class="language-shell">5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
-</code></pre>
-
-<p>이제 default wallet 이 해금되고 key 로 load 되었으니, 다음을 진행 할 수 있게 되었다.</p>
-
-</section>
-
-<div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.6-createdevelopmentwallet%2f&t=EOSIO%20-%201.6%2f%ea%b0%9c%eb%b0%9c%20Wallet%20%ec%83%9d%ec%84%b1%ed%95%98%ea%b8%b0" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.6-createdevelopmentwallet%2f&text=EOSIO%20-%201.6%2f%ea%b0%9c%eb%b0%9c%20Wallet%20%ec%83%9d%ec%84%b1%ed%95%98%ea%b8%b0&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.6-createdevelopmentwallet%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.6-createdevelopmentwallet%2f&title=EOSIO%20-%201.6%2f%ea%b0%9c%eb%b0%9c%20Wallet%20%ec%83%9d%ec%84%b1%ed%95%98%ea%b8%b0" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
-</div>
-
-<div class="post-meta-code">
-  <div class="desc">
-    public string description() {
-    <div class="desc">val author = "
-    
-        nolleh
-    ";
-    </div>
-    
-    <div class="desc">
-      val categories = [
-      
-      
-      <a href="https://nolleh.github.io//categories/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8">"블록체인"</a>
-      
-      ];
-    </div>
-    
-    }
-  </div>
-</div>
-<div class="post-meta-code">
-  <div class="desc">
-    public string tags() {
-      <div class="desc">
-        val tags = [
-        
-          
-          <a href="https://nolleh.github.io/tags/block-chain">"block-chain"</a>
-          
-          <a href="https://nolleh.github.io/tags/eosio">"EOSIO"</a>
-          
-        
-        ];
+    <a href="https://nolleh.github.io/block-chain/1.6-createdevelopmentwallet/" title="EOSIO - 1.6/개발 Wallet 생성하기">
+      <img src="/images/post-title-icon.png" />
+      <div class="post-meta">
+        <time>Tuesday, Jan 1, 2019 17:10</time>
+        <h1>EOSIO - 1.6/개발 Wallet 생성하기</h1>
       </div>
-    }
+    </a>
+  </div>
+  
+  <div>
+    Step 1: Wallet 생성하기  먼저 wallet 을 생성한다. cleos wallet create 를 통해 기본 wallet 을 --to-console 옵션을 사용하여 간단하게 생성한다.
+cleos 를 production 환경에서 사용한다면, 대신 --to-file 옵션을 사용하여 wallet 의 패스워드를 배쉬 기록에 남지않도록 한다.
+개발 목적으로 사용하는 production 환경의 키가 아니기때문에 &ndash;to-console 으로 보안 위협없이 사용할 수 있다.
+cleos wallet create --to-console cleos 는 패스워드를 반환하며, 이 패스워드를 다음 튜토리얼에서 이용할 수 있도록 저장하자.
+Creating wallet: default Save password to use in the future to unlock this wallet.
+    
+    <a href="/block-chain/1.6-createdevelopmentwallet/" class="summary-more">More</a>
+    
   </div>
 </div>
 
-  <div class="seperator">
-    <img src="/images/seperator.png" />
-  </div>
+  <hr class="summary-sep" />
 
-  <a href="https://nolleh.github.io/block-chain/1.5-installthecdt/">
+  <div class="post">
   <div class="post-title">
-    <img src="/images/post-title-icon.png" />
-    <div class="post-meta">
-      <time>01 Jan 2019, 16:57</time>
-      <h1>EOSIO - 1.5/CDT 설치하기</h1>
-    </div>
-  </div>
-</a>
-
-<div class="post-toc">
-  <span class="title">
-    Table of contents
-  </span>
-  <nav id="TableOfContents">
-<ul>
-<li><a href="#homebrew-mac-os-x">HomeBrew (Mac OS X)</a>
-<ul>
-<li><a href="#install">Install</a></li>
-<li><a href="#uninstall">Uninstall</a></li>
-</ul></li>
-</ul>
-</nav>
-</div>
-
-<section class="post-content">
-  
-
-<blockquote>
-<p>다음에서 발췌 - <a href="https://developers.eos.io/eosio-home/docs/installing-the-contract-development-toolkit">EOSIO - 1.5 Install The CDT</a></p>
-</blockquote>
-
-<p>EOSIO Contract Development Toolkit, CDT 는 contract 컴파일을 위한 툴의 집합이다.   뒤따를 튜토리얼들은 contract 들을 컴파일하고 ABI 를 생성하는 주요 CDT 를 사용한다.</p>
-
-<p>1.3.x 버전부터, CDT 는 Mac OS X brew, linux debian 과 RPM 패키지들을 지원한다. 설치하기 위한 가장쉬운 선택지는 이 패키지 시스템들을 이용하는 것이다. 하나의 방법을 선택하자.</p>
-
-<h1 id="homebrew-mac-os-x">HomeBrew (Mac OS X)</h1>
-
-<hr />
-
-<h2 id="install">Install</h2>
-
-<pre><code class="language-shell">brew tap eosio/eosio.cdt
-brew install eosio.cdt
-</code></pre>
-
-<h2 id="uninstall">Uninstall</h2>
-
-<pre><code class="language-shell">brew remove eosio.cdt
-</code></pre>
-
-</section>
-
-<div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.5-installthecdt%2f&t=EOSIO%20-%201.5%2fCDT%20%ec%84%a4%ec%b9%98%ed%95%98%ea%b8%b0" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.5-installthecdt%2f&text=EOSIO%20-%201.5%2fCDT%20%ec%84%a4%ec%b9%98%ed%95%98%ea%b8%b0&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.5-installthecdt%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fblock-chain%2f1.5-installthecdt%2f&title=EOSIO%20-%201.5%2fCDT%20%ec%84%a4%ec%b9%98%ed%95%98%ea%b8%b0" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
-</div>
-
-<div class="post-meta-code">
-  <div class="desc">
-    public string description() {
-    <div class="desc">val author = "
-    
-        nolleh
-    ";
-    </div>
-    
-    <div class="desc">
-      val categories = [
-      
-      
-      <a href="https://nolleh.github.io//categories/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8">"블록체인"</a>
-      
-      ];
-    </div>
-    
-    }
-  </div>
-</div>
-<div class="post-meta-code">
-  <div class="desc">
-    public string tags() {
-      <div class="desc">
-        val tags = [
-        
-          
-          <a href="https://nolleh.github.io/tags/block-chain">"block-chain"</a>
-          
-          <a href="https://nolleh.github.io/tags/eosio">"EOSIO"</a>
-          
-        
-        ];
+    <a href="https://nolleh.github.io/block-chain/1.5-installthecdt/" title="EOSIO - 1.5/CDT 설치하기">
+      <img src="/images/post-title-icon.png" />
+      <div class="post-meta">
+        <time>Tuesday, Jan 1, 2019 16:57</time>
+        <h1>EOSIO - 1.5/CDT 설치하기</h1>
       </div>
-    }
+    </a>
+  </div>
+  
+  <div>
+    다음에서 발췌 - EOSIO - 1.5 Install The CDT
+ EOSIO Contract Development Toolkit, CDT 는 contract 컴파일을 위한 툴의 집합이다. 뒤따를 튜토리얼들은 contract 들을 컴파일하고 ABI 를 생성하는 주요 CDT 를 사용한다.
+1.3.x 버전부터, CDT 는 Mac OS X brew, linux debian 과 RPM 패키지들을 지원한다. 설치하기 위한 가장쉬운 선택지는 이 패키지 시스템들을 이용하는 것이다. 하나의 방법을 선택하자.
+HomeBrew (Mac OS X)  Install brew tap eosio/eosio.cdt brew install eosio.
+    
+    <a href="/block-chain/1.5-installthecdt/" class="summary-more">More</a>
+    
   </div>
 </div>
 
-  <div class="seperator">
-    <img src="/images/seperator.png" />
-  </div>
+  <hr class="summary-sep" />
 
 
 <div class="paging">
   
   <a href="/page/9/" rel="prev">
+    Prev
     <i class="fa fa-caret-left" aria-hidden="true"></i>
   </a>
   
-
-  PAGE 10 / 19
-
+  <span class="page">
+    Page 10 / 19
+  </span>
   
   <a href="/page/11/" rel="next">
     <i class="fa fa-caret-right" aria-hidden="true"></i>
+    
   </a>
   
 </div>
 
+
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>Top</span>
+  </a>
+</div>
 <footer class="footer">
-    COPYRIGHT (C) <a href="http://blog.lulab.net">DONGGEUN,BANG</a>. ALL RIGHTS RESERVED.
+  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
+  ALL RIGHTS RESERVED.
 </footer>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-102565363-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<script data-no-instant>document.write('<script src="/livereload.js?port=80&mindelay=10"></' + 'script>')</script></body>
-
+</body>
 </html>
 

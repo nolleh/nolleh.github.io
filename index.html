@@ -1,432 +1,154 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-	<meta name="generator" content="Hugo 0.52" />
-    <base href="https://nolleh.github.io/">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>The Computer Programmer, Nolleh </title>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="canonical" href="https://nolleh.github.io/">
-    
-    <link href="https://nolleh.github.io/index.xml" rel="alternate" type="application/rss+xml" title="The Computer Programmer, Nolleh" />
-    
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+	<meta name="generator" content="Hugo 0.99.1" /><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=80&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Computer Programmer, Nolleh </title>
+  <meta name="description" content="">
+  <meta property="og:title" content="The Computer Programmer, Nolleh">
+  
+  <meta property="og:type" content="website">
+  
+  <meta property="og:description" content="">
+  <meta property="og:url" content="https://nolleh.github.io/">
+  <meta property="og:site_name" content="The Computer Programmer, Nolleh">
+  
+  <meta property="og:image" content="https://nolleh.github.io/images/thumbnail.png">
+  
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="https://nolleh.github.io/">
+  <link rel="alternate" type="application/rss+xml" href="https://nolleh.github.io/index.xml" title="The Computer Programmer, Nolleh" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102565363-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-102565363-1');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
 </head>
-
 <body>
-    <div class="navbar">
-        <ul>
-            <li><a href="/">HOME</a></li>
-            <li><a href="/categories">CATEGORIES</a></li>
-            <li><a href="/project">PROJECTS</a></li>
-        </ul>
+  <div class="navbar">    
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo.png" height="34px" />
+      </a>
     </div>
-    <div class="container">
-      <div class="title">
-        <div>
-          <a href="/">
-            <img src="/images/logo.png" />
-          </a>
-        </div>
-        <div><img src="/images/seperator.png" /></div>
-        <div class="logo-title">hello, world!</div>
-      </div>
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> Menu
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><a href="/">#The Computer Programmer, Nolleh</a></li>
+        <li><a href="/categories">#Categories</a></li>
+        <li><a href="/tags">#Tags</a></li>
+        <li><a href="/projects">#Projects</a></li>        
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
+    </div>
+  </div>
+  <div class="container">    
 
 
-  <a href="https://nolleh.github.io/qpid/1.12.active-passive-messaging-clusters/">
+  <div class="post">
   <div class="post-title">
-    <img src="/images/post-title-icon.png" />
-    <div class="post-meta">
-      <time>06 Feb 2020, 14:47</time>
-      <h1>Active Passive Messaging Clusters</h1>
-    </div>
-  </div>
-</a>
-
-<div class="post-toc">
-  <span class="title">
-    Table of contents
-  </span>
-  <nav id="TableOfContents">
-<ul>
-<li><a href="#1-12-active-passive-messaging-clusters">1.12. Active-Passive Messaging Clusters</a>
-<ul>
-<li><a href="#1-12-1-overview">1.12.1 Overview</a>
-<ul>
-<li><a href="#1-12-1-1-avoiding-message-loss">1.12.1.1. Avoiding message loss</a></li>
-<li><a href="#1-12-1-2-limitations">1.12.1.2. Limitations</a></li>
-</ul></li>
-</ul></li>
-</ul>
-</nav>
-</div>
-
-<section class="post-content">
-  
-
-<h1 id="1-12-active-passive-messaging-clusters">1.12. Active-Passive Messaging Clusters</h1>
-
-<h2 id="1-12-1-overview">1.12.1 Overview</h2>
-
-<p>HA 모듈은 active-passive, hot-standby 메시징 클러스터들을 장애에 tolerent 하도록 제공한다.</p>
-
-<p>active-passive 클러스터는 하나의 브로커만 존재하며, 이를 프라이머리라고 부르며, 액티브 하고 클라이언트를 serving 한다.
-다른 브로커들은 백업을 위해 존재한다. 프라이머리의 변경은 모든 백업들에 반영되므로, 백업들은 최신상태이거나 &lsquo;hot&rsquo; 상태이다. 백업 브로커들은 클라이언트의 연결을 거부하며, 클라이언트들은 프라이머리에 연결해야한다.</p>
-
-<p>만약 프라이머리가 실패하는 경우, 백업중의 하나가 새로운 프라이머리가 되기위해 자리를 차지한다.
-클라이언트는 새로운 프라이머리에 자동으로 연결한다.</p>
-
-<p>만약 복수개의 백업이 있다면, 다른 백업들은 새로운 프라이머리의 백업이 되도록 장애처리를 진행한다.</p>
-
-<p>이 접근은 외부의 클러스터 리소스 매니저가 장애를 탐지하고, 새로운 프라이머리를 선택하며, 네트워크 파티션을 핸들링하는 것을 믿는것이다. rgmanager 는 이를 기본적으로 지원하며, 다른 것들은 미래에 제공될 것이다.</p>
-
-<h3 id="1-12-1-1-avoiding-message-loss">1.12.1.1. Avoiding message loss</h3>
-
-<p>메시지가 모든 백업 브로커들에 대해 복제되는 것을 대기하거나 프라이머리 큐에서 consumed 되고 클라이언트로 응답(acknowledgement) 을 줌으로써 메시지의 유실을 회피한다.</p>
-
-<p>이것은 응답이 돌아온 모든 메시지들은 &lsquo;safe&rsquo; 하다는 것을 보장한다. : consumed 되거나, 다른 모든 브로커로 복제 되었음을. 복제 되기전에 consumed 된 메시지들은 복제가 될 필요가 없다. 액티브한 컨슈머가 있는 큐에 복제하는 부담을 줄여준다.</p>
-
-<p>primary 에 의해 응답을 받기 전까지 버퍼에 미응답상태의 메시지를 보관해야한다. 만약 프라이머리가 실패하면, 클라이언트는 새로운 프라이머리에 연결하고 다시 메시지를 전송하는 장애처리를 수행해야한다.</p>
-
-<p>만약 프라이머리에 크래쉬가 발생하는 경우, 모든 응답을 받은 메시지들은 백업에 의해 가용하고, 이중에 새로운 프라이머리가 있을 것이다. 그래서 유실은 발생하지 않는다.</p>
-
-<p>하나 알아두어야 할것은, 메시지가 중복되서 전송될 수 있다는 것이다. 장애 발생시에 새로운 프라이머리에 의해 클라이언트로 다시 메시지를 전송하는 것이 가능하다. 이를 감지하고 중복을 제거하는 것은 어플리케이션의 몫이다.</p>
-
-<p>프라이머리가 새로 승격하는경우, 처음에 &ldquo;recovering&rdquo; 모드에 진입한다. 이 모드에서는, 모든 백업들이 프라이머리에 성공적으로 연결할때까지 메시지들에 대한 응답들을 지연한다.</p>
-
-<p>백업브로커에 모든 메시지가 복제될 필요는 없다. 만약 메시지가 consumed 되고 응답을 받은경우 복제될 필요는 없다.</p>
-
-<p><strong>HA Broker State</strong></p>
-
-<ul>
-<li>Stand-alone
-
-<ul>
-<li>cluster 의 일부가 아니다</li>
-</ul></li>
-<li>Joining
-
-<ul>
-<li>새로 시작된 브로커이고, 어떤 프라이머리에도 아직 연결되지 않았다.</li>
-</ul></li>
-<li>Catch-up
-
-<ul>
-<li>프라이머리에 연결되었고, 상태를 다운로드 받는 중이다 (queues, messages.. )</li>
-</ul></li>
-<li>Ready
-
-<ul>
-<li>catch-up 을 완료했고 프라이머리가 될 준비가 되었다.</li>
-</ul></li>
-<li>Recovering
-
-<ul>
-<li>새로 승격한 프라이머리이며, 백업들이 연결하여 catchup 하도록 기다리고 있다. 클라이언트들은 연결할 수 있지만 프라이머리가 액티브 상태가 될때까지 엔진을 멈춘다.</li>
-</ul></li>
-<li>Active
-
-<ul>
-<li>모든 백업들이 연결되고 캐치업된 프라이머리 브로커</li>
-</ul></li>
-</ul>
-
-<h3 id="1-12-1-2-limitations">1.12.1.2. Limitations</h3>
-
-<p>현재 구현상 알려진 제한이 있다. 새 버전에서는 수정될 것.</p>
-
-</section>
-
-<div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fqpid%2f1.12.active-passive-messaging-clusters%2f&t=Active%20Passive%20Messaging%20Clusters" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fqpid%2f1.12.active-passive-messaging-clusters%2f&text=Active%20Passive%20Messaging%20Clusters&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fqpid%2f1.12.active-passive-messaging-clusters%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fqpid%2f1.12.active-passive-messaging-clusters%2f&title=Active%20Passive%20Messaging%20Clusters" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
-</div>
-
-<div class="post-meta-code">
-  <div class="desc">
-    public string description() {
-    <div class="desc">val author = "
-    
-        nolleh
-    ";
-    </div>
-    
-    <div class="desc">
-      val categories = [
-      
-      
-      <a href="https://nolleh.github.io//categories/qpid">"qpid"</a>
-      
-      ];
-    </div>
-    
-    }
-  </div>
-</div>
-<div class="post-meta-code">
-  <div class="desc">
-    public string tags() {
-      <div class="desc">
-        val tags = [
-        
-          
-          <a href="https://nolleh.github.io/tags/mq">"MQ"</a>
-          
-          <a href="https://nolleh.github.io/tags/qpid">"qpid"</a>
-          
-        
-        ];
+    <a href="https://nolleh.github.io/qpid/1.12.active-passive-messaging-clusters/" title="Active Passive Messaging Clusters">
+      <img src="/images/post-title-icon.png" />
+      <div class="post-meta">
+        <time>Thursday, Feb 6, 2020 14:47</time>
+        <h1>Active Passive Messaging Clusters</h1>
       </div>
-    }
+    </a>
+  </div>
+  
+  <div>
+    1.12. Active-Passive Messaging Clusters 1.12.1 Overview HA 모듈은 active-passive, hot-standby 메시징 클러스터들을 장애에 tolerent 하도록 제공한다.
+active-passive 클러스터는 하나의 브로커만 존재하며, 이를 프라이머리라고 부르며, 액티브 하고 클라이언트를 serving 한다. 다른 브로커들은 백업을 위해 존재한다. 프라이머리의 변경은 모든 백업들에 반영되므로, 백업들은 최신상태이거나 &lsquo;hot&rsquo; 상태이다. 백업 브로커들은 클라이언트의 연결을 거부하며, 클라이언트들은 프라이머리에 연결해야한다.
+만약 프라이머리가 실패하는 경우, 백업중의 하나가 새로운 프라이머리가 되기위해 자리를 차지한다. 클라이언트는 새로운 프라이머리에 자동으로 연결한다.
+만약 복수개의 백업이 있다면, 다른 백업들은 새로운 프라이머리의 백업이 되도록 장애처리를 진행한다.
+    
+    <a href="/qpid/1.12.active-passive-messaging-clusters/" class="summary-more">More</a>
+    
   </div>
 </div>
 
-  <div class="seperator">
-    <img src="/images/seperator.png" />
-  </div>
+  <hr class="summary-sep" />
 
-  <a href="https://nolleh.github.io/qpid/1.4.broker-federation/">
+  <div class="post">
   <div class="post-title">
-    <img src="/images/post-title-icon.png" />
-    <div class="post-meta">
-      <time>06 Feb 2020, 13:23</time>
-      <h1>Broker Federation</h1>
-    </div>
-  </div>
-</a>
-
-<div class="post-toc">
-  <span class="title">
-    Table of contents
-  </span>
-  <nav id="TableOfContents">
-<ul>
-<li><a href="#1-4-broker-federation">1.4 Broker Federation</a>
-<ul>
-<li><a href="#1-4-1-message-routes">1.4.1 Message Routes</a>
-<ul>
-<li><a href="#1-4-1-1-queue-routes">1.4.1.1 Queue Routes</a></li>
-<li><a href="#1-4-1-2-exchange-routes">1.4.1.2 Exchange Routes</a></li>
-<li><a href="#1-4-1-3-dynamic-exchange-routes">1.4.1.3 Dynamic Exchange Routes</a></li>
-</ul></li>
-<li><a href="#1-4-2-federation-topolpogies">1.4.2 Federation Topolpogies</a></li>
-<li><a href="#1-4-3-federation-among-high-availablity-message-clusters">1.4.3 Federation among High Availablity Message Clusters</a></li>
-<li><a href="#1-4-4-the-qpid-route-utility">1.4.4 The qpid-route Utility</a>
-<ul>
-<li><a href="#1-4-4-1-creating-and-deleting-queue-routes">1.4.4.1. Creating and Deleting Queue Routes</a></li>
-<li><a href="#1-4-4-2-exchange-routes">1.4.4.2. Exchange Routes</a></li>
-</ul></li>
-</ul></li>
-</ul>
-</nav>
-</div>
-
-<section class="post-content">
-  
-
-<h1 id="1-4-broker-federation">1.4 Broker Federation</h1>
-
-<p>메시지 라우트를 정의하여 하나의 브로커에서 다른 브로커로 자동으로 전달하게 한다.<br />
-일반적으로 일방향이며, 라우트는 durable 하고 tansient 한다.<br />
-연결이 소실되면 메시지는 누적되다가 재연결이 되면 다시 전송한다.</p>
-
-<p>라우팅에 사용되는 룰은 서버가 변경됨에 따라 동적으로 변경할 수 있으며, 변경의 책임은 다른 변경조건에 맞게 반영된다,.</p>
-
-<h2 id="1-4-1-message-routes">1.4.1 Message Routes</h2>
-
-<p>pull / push 방식이 있음.<br />
-pull 은 dest 에서.<br />
-push 는 src 에서 설정함</p>
-
-<ul>
-<li>queue &lt;-&gt; exchage</li>
-<li>exchange &lt;-&gt; exchange</li>
-</ul>
-
-<p>excg &lt;-&gt; excg 는 다음과 같은 라우트를 가질 수 있다.</p>
-
-<h3 id="1-4-1-1-queue-routes">1.4.1.1 Queue Routes</h3>
-
-<p>모든 메시지를 src 에서 dest 로.</p>
-
-<h3 id="1-4-1-2-exchange-routes">1.4.1.2 Exchange Routes</h3>
-
-<p>바인딩키에 따라 라우트함</p>
-
-<p>실제로는 내부적으로 큐가 (auto-delete, exclusive) 만들어지고, 이를 통해 연결하는 것.</p>
-
-<h3 id="1-4-1-3-dynamic-exchange-routes">1.4.1.3 Dynamic Exchange Routes</h3>
-
-<p>클라이언트가 바인딩을 맺고, 이 exchange 만이 아니라 dynamic exchange route 를 통해 생성된 다른 exchange 도 수신한다.
-바인딩 변경시, 이 exhcange 와 관련한 다른 exchange routes 또한 변경한다.</p>
-
-<ul>
-<li>source 에 연결 된 모든 dest exchange 에 대해 적용되는데, 하나의 메시지라도 매치가 되면 dest 에 라우트되도록한다.</li>
-<li>dest 에서 바인딩들이 추가되거나 삭제되는경우, 이 변화는 DER 에 적용이 된다.
-
-<ul>
-<li>dest 브로커가 바인딩을 주어진 바인딩키를 만들경우 라우트에 반영이되고 바인딩키를 제거할 경우 라우트는 더이상 메시지를 브로커들에게 전달하는 오버헤드를 갖지 않는다.</li>
-</ul></li>
-<li>만약 두 excg 가 der 을 서로에 대해 갖는경우, 각각의 excg 에 대한 모든 바인딩은 der 에 반영된다.</li>
-<li>DER 에서, source 와 destination exchages 들은 같은 excage 타입을 가지고 있어야하고, 같은 이름을 가져야 한다.</li>
-</ul>
-
-<p>내부적으로 dynamic exchage routes 는 exchage 라우트와 동일하게 구현되어 있는데, 다른점은
-DEST Excg 에 바인딩이 있는 경우 DER 을 구현하는데 사용한 바인딩들이 수정됐다는것. (? except that the bindings used to implement dynamic exchange routes are modified if the bindings in the destination exchange change.)</p>
-
-<p>DER 은 항상 pull route 형식이다.</p>
-
-<h2 id="1-4-2-federation-topolpogies">1.4.2 Federation Topolpogies</h2>
-
-<p>보통 이 네트워크는 트리구조, 스타구조, 선형, 양방향 링크, 로 구성된다. 링 형태도 가능하지만, 이때는 단방향링크들만 사용하여야 한다.</p>
-
-<p>메시지를 빨리 전달 받기 위해서는 브로커 사이 홉을 줄이는 것이 중요. 그래서 대부분의 경우 트리나 스타 토폴로지가 최고다.</p>
-
-<p>A, B 가 있다고 할 때 서로를 연결하는 경로는 하나만이 있어야 할 것.<br />
-만약 하나 이상의 경로가 있으면 중복된 메시지 전송을 야기하고 네트워크의 홍수를 일으킬 것.</p>
-
-<h2 id="1-4-3-federation-among-high-availablity-message-clusters">1.4.3 Federation among High Availablity Message Clusters</h2>
-
-<p>fedration 은 일반적으로 High Availability Message Clusters 와 사용이 되는데, 클러스터들이 각각의 LAN 에 대해 고 안정성을 얻게끔한다.<br />
-메시지 상태가 클러스터에서 복제 되기 때문에,<br />
-같은 클러스터의 다른 브로커 사이에서 메시지 라우트를 정의하는 작은 개념을 만들어 준다.</p>
-
-<p>두 클러스터 사이에서 메시지를 생성하기 위해, 첫번째 클러스터에서 다른 클러스터의 브로커로 라우터를 만들어주면된다.</p>
-
-<h2 id="1-4-4-the-qpid-route-utility">1.4.4 The qpid-route Utility</h2>
-
-<pre><code>$ qpid-route [OPTIONS] dynamic add &lt;dest-broker&gt; &lt;src-broker&gt; &lt;exchange&gt;
-$ qpid-route [OPTIONS] dynamic del &lt;dest-broker&gt; &lt;src-broker&gt; &lt;exchange&gt;
-
-$ qpid-route [OPTIONS] route add &lt;dest-broker&gt; &lt;src-broker&gt; &lt;exchange&gt; &lt;routing-key&gt;
-$ qpid-route [OPTIONS] route del &lt;dest-broker&gt; &lt;src-broker&gt; &lt;exchange&gt; &lt;routing-key&gt;
-
-$ qpid-route [OPTIONS] queue add &lt;dest-broker&gt; &lt;src-broker&gt; &lt;dest-exchange&gt;  &lt;src-queue&gt;
-$ qpid-route [OPTIONS] queue del &lt;dest-broker&gt; &lt;src-broker&gt; &lt;dest-exchange&gt;  &lt;src-queue&gt;
-
-$ qpid-route [OPTIONS] list  [&lt;broker&gt;]
-$ qpid-route [OPTIONS] flush [&lt;broker&gt;]
-$ qpid-route [OPTIONS] map   [&lt;broker&gt;]
-
-$ qpid-route [OPTIONS] list connections [&lt;broker&gt;]
-</code></pre>
-
-<p>The syntax for broker, dest-broker, and src-broker is as follows:</p>
-
-<pre><code>  [username/password@] hostname | ip-address [:&lt;port&gt;]
-</code></pre>
-
-<p>The following are all valid examples of the above syntax: localhost, 10.1.1.7:10000, broker-host:10000, guest/guest@localhost.</p>
-
-<p>Table 1.9. qpid-route options
-|||
-|-|-|
-| -v| Verbose output.|
-|-q| Quiet output, will not print duplicate warnings.|
-|-d | Make the route durable.|
-|&ndash;timeout N |Maximum time to wait when qpid-route connects to a broker, in seconds. Default is 10 seconds.|
-|&ndash;ack N|Acknowledge transfers of routed messages in batches of N. Default is 0 (no acknowledgements). Setting to 1 or greater enables acknowledgements; when using acknowledgements, values of N greater than 1 can significnantly improve performance, especially if there is significant network latency between the two brokers.
-| -s [ &ndash;src-local ] | Configure the route in the source broker (create a push route).
-| <code>-t &lt;transport&gt; [ --transport &lt;transport&gt;]</code> | Transport protocol to be used for the route. <br> _ tcp (default) <br> _ ssl <br> * rdma |</p>
-
-<h3 id="1-4-4-1-creating-and-deleting-queue-routes">1.4.4.1. Creating and Deleting Queue Routes</h3>
-
-<pre><code class="language-bash">$ qpid-route [OPTIONS] queue add &lt;dest-broker&gt; &lt;src-broker&gt; &lt;dest-exchange&gt; &lt;src-queue&gt;
-$ qpid-route [OPTIONS] queue del &lt;dest-broker&gt; &lt;src-broker&gt; &lt;dest-exchange&gt; &lt;src-queue&gt;
-</code></pre>
-
-<h3 id="1-4-4-2-exchange-routes">1.4.4.2. Exchange Routes</h3>
-
-</section>
-
-<div class="share">
-  <a href="http://www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fnolleh.github.io%2fqpid%2f1.4.broker-federation%2f&t=Broker%20Federation" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
-  <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2fnolleh.github.io%2fqpid%2f1.4.broker-federation%2f&text=Broker%20Federation&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
-  <a href="https://plus.google.com/share?url=https%3a%2f%2fnolleh.github.io%2fqpid%2f1.4.broker-federation%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
-  <a href="http://getpocket.com/edit?url=https%3a%2f%2fnolleh.github.io%2fqpid%2f1.4.broker-federation%2f&title=Broker%20Federation" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
-</div>
-
-<div class="post-meta-code">
-  <div class="desc">
-    public string description() {
-    <div class="desc">val author = "
-    
-        nolleh
-    ";
-    </div>
-    
-    <div class="desc">
-      val categories = [
-      
-      
-      <a href="https://nolleh.github.io//categories/qpid">"QPID"</a>
-      
-      ];
-    </div>
-    
-    }
-  </div>
-</div>
-<div class="post-meta-code">
-  <div class="desc">
-    public string tags() {
-      <div class="desc">
-        val tags = [
-        
-          
-          <a href="https://nolleh.github.io/tags/mq">"MQ"</a>
-          
-          <a href="https://nolleh.github.io/tags/qpid">"QPID"</a>
-          
-        
-        ];
+    <a href="https://nolleh.github.io/qpid/1.4.broker-federation/" title="Broker Federation">
+      <img src="/images/post-title-icon.png" />
+      <div class="post-meta">
+        <time>Thursday, Feb 6, 2020 13:23</time>
+        <h1>Broker Federation</h1>
       </div>
-    }
+    </a>
+  </div>
+  
+  <div>
+    1.4 Broker Federation 메시지 라우트를 정의하여 하나의 브로커에서 다른 브로커로 자동으로 전달하게 한다.
+일반적으로 일방향이며, 라우트는 durable 하고 tansient 한다.
+연결이 소실되면 메시지는 누적되다가 재연결이 되면 다시 전송한다.
+라우팅에 사용되는 룰은 서버가 변경됨에 따라 동적으로 변경할 수 있으며, 변경의 책임은 다른 변경조건에 맞게 반영된다,.
+1.4.1 Message Routes pull / push 방식이 있음.
+pull 은 dest 에서.
+push 는 src 에서 설정함
+ queue &lt;-&gt; exchage exchange &lt;-&gt; exchange  excg &lt;-&gt; excg 는 다음과 같은 라우트를 가질 수 있다.
+    
+    <a href="/qpid/1.4.broker-federation/" class="summary-more">More</a>
+    
   </div>
 </div>
 
-  <div class="seperator">
-    <img src="/images/seperator.png" />
-  </div>
+  <hr class="summary-sep" />
 
 
 <div class="paging">
   
-
-  PAGE 1 / 19
-
+  <span class="page">
+    Page 1 / 19
+  </span>
   
   <a href="/page/2/" rel="next">
     <i class="fa fa-caret-right" aria-hidden="true"></i>
+    
   </a>
   
 </div>
 
+
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>Top</span>
+  </a>
+</div>
 <footer class="footer">
-    COPYRIGHT (C) <a href="http://blog.lulab.net">DONGGEUN,BANG</a>. ALL RIGHTS RESERVED.
+  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
+  ALL RIGHTS RESERVED.
 </footer>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-102565363-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<script data-no-instant>document.write('<script src="/livereload.js?port=80&mindelay=10"></' + 'script>')</script></body>
-
+</body>
 </html>
 
