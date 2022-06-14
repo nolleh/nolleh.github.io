@@ -10,7 +10,7 @@
 <meta name="description" content="Cloud Datastore Concepts and Indexes  Cloud Data Store concepts  데이터 오브젝트는 엔터티라고 불림 엔터티들은 하나이상의 프로퍼티로 구성됨 프로퍼티들은 하나이상의 값(values) 를 가질수 있음 각각의 엔터티는 구분되는 하나의 키를 가지고 있는데, 다음으로 구성 된다.  네임스페이스 엔터티 Kind 식별자 (스트링 or 숫자) 부모 ID   하나 이상의 엔터티에 대한 동작은 트랜잭션으로 불린다.  Datastore has two types of indexes    Built-in indexes Composite indexes     각각의 엔터티 Kind의 각각의 프로퍼티에 대해 자동으로 정의 인덱싱된 엔터티에 대해 다중의 프로퍼티 값을 인덱스함   간단한 쿼리에 적합 컴플렉스 쿼리에 적합    인덱스 설정파일에 정의       concept cloud datastore relational database     오브젝트 카테고리 Kind Table   한개 오브젝트 entity row   하나의 오브젝트를 위한 개별 데이터 프로퍼티 field   유니크 ID Key PrimaryKey    Design Considerations &amp; Sharding  Design Your application for scale  엔터티 그룹에 대한 최대 쓰기율은 1/초 사전적으로 가까운 키에 대한 읽기와 쓰기를 너무 자주하지 말것.">
 <meta name="author" content="nolleh">
 <link rel="canonical" href="https://nolleh.github.io/coursera/gcp/5.datastore/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.1740750342264a4e69b84ddf6899fb02cc95465080d85c57c08bb1d110900bf6.css" integrity="sha256-F0B1A0ImSk5puE3faJn7AsyVRlCA2FxXwIux0RCQC/Y=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d7fb4cbf980fe688a21621b06a795933c4e6bb2d4070ec940667af1715d84af2.css" integrity="sha256-1/tMv5gP5oiiFiGwanlZM8Tmuy1AcOyUBmevFxXYSvI=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://nolleh.github.io/favicon.ico">
@@ -383,6 +383,8 @@ select * from task where done = FALSE</li>
 
 
   </div>
+
+  
 
   <footer class="post-footer">
     <ul class="post-tags">
