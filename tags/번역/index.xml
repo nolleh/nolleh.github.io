@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>distributed system on The Computer Programmer, Nolleh</title>
-    <link>https://nolleh.github.io/tags/distributed-system/</link>
-    <description>Recent content in distributed system on The Computer Programmer, Nolleh</description>
+    <title>번역 on The Computer Programmer, Nolleh</title>
+    <link>https://nolleh.github.io/tags/%EB%B2%88%EC%97%AD/</link>
+    <description>Recent content in 번역 on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Wed, 29 Jun 2022 22:15:08 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/distributed-system/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Jun 2022 22:15:08 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/%EB%B2%88%EC%97%AD/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>2.level of Abstraction</title>
       <link>https://nolleh.github.io/distributed-systems/2.level-of-abstraction/</link>

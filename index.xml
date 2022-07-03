@@ -6,7 +6,18 @@
     <description>Recent content on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Sun, 29 May 2022 16:37:55 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Jun 2022 22:15:08 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2.level of Abstraction</title>
+      <link>https://nolleh.github.io/distributed-systems/2.level-of-abstraction/</link>
+      <pubDate>Wed, 29 Jun 2022 22:15:08 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/distributed-systems/2.level-of-abstraction/</guid>
+      <description>다음에서 발췌 http://book.mixu.net/distsys/abstractions.html
+ 2. Up and down the level of abstraction 이 챕터에서는, 추상화의 레벨을 여행할 것이며, 몇가지 불가능한 결과를 보고, (CAP 와 FLP), 그리고 나서 성능에 대한 항해를 할 것 입니다.
+만약 어떤 프로그래밍을 완료했다면, 추상화. 수준에 대한 개념은 당신에게 익숙할 겁니다. 당신은 이미 추상화와 함께 했고, 어떤 API 를 통해 더 낮은 레이어와 인터페이싱하고 있을 것이며, 더 높은 레이어에 API 나 인터페이스를 제공하고있을 겁니다. OSI 네트워크 7 계층이 좋은 예죠.</description>
+    </item>
+    
     <item>
       <title>서브 모듈 추가하기</title>
       <link>https://nolleh.github.io/git/sub-module/</link>
@@ -200,7 +211,7 @@ Cache content 반응성을 위해 컨텐츠를 캐싱해서, TTL 이 지나기�
     </item>
     
     <item>
-      <title>고수준의 분산 시스템</title>
+      <title>1. Distributed systems at a highlevel</title>
       <link>https://nolleh.github.io/distributed-systems/1.highlevel/</link>
       <pubDate>Mon, 21 Jan 2019 22:58:23 +0900</pubDate>
       

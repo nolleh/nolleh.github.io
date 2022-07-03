@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>2.level of Abstraction | The Computer Programmer, Nolleh</title>
+<meta name="keywords" content="Programming, 생각하는 프로그래머, distributed system, 번역">
+<meta name="description" content="다음에서 발췌 http://book.mixu.net/distsys/abstractions.html
+ 2. Up and down the level of abstraction 이 챕터에서는, 추상화의 레벨을 여행할 것이며, 몇가지 불가능한 결과를 보고, (CAP 와 FLP), 그리고 나서 성능에 대한 항해를 할 것 입니다.
+만약 어떤 프로그래밍을 완료했다면, 추상화. 수준에 대한 개념은 당신에게 익숙할 겁니다. 당신은 이미 추상화와 함께 했고, 어떤 API 를 통해 더 낮은 레이어와 인터페이싱하고 있을 것이며, 더 높은 레이어에 API 나 인터페이스를 제공하고있을 겁니다. OSI 네트워크 7 계층이 좋은 예죠.">
+<meta name="author" content="nolleh">
+<link rel="canonical" href="https://nolleh.github.io/distributed-systems/2.level-of-abstraction/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d7fb4cbf980fe688a21621b06a795933c4e6bb2d4070ec940667af1715d84af2.css" integrity="sha256-1/tMv5gP5oiiFiGwanlZM8Tmuy1AcOyUBmevFxXYSvI=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://nolleh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nolleh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-102565363-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="2.level of Abstraction" />
+<meta property="og:description" content="다음에서 발췌 http://book.mixu.net/distsys/abstractions.html
+ 2. Up and down the level of abstraction 이 챕터에서는, 추상화의 레벨을 여행할 것이며, 몇가지 불가능한 결과를 보고, (CAP 와 FLP), 그리고 나서 성능에 대한 항해를 할 것 입니다.
+만약 어떤 프로그래밍을 완료했다면, 추상화. 수준에 대한 개념은 당신에게 익숙할 겁니다. 당신은 이미 추상화와 함께 했고, 어떤 API 를 통해 더 낮은 레이어와 인터페이싱하고 있을 것이며, 더 높은 레이어에 API 나 인터페이스를 제공하고있을 겁니다. OSI 네트워크 7 계층이 좋은 예죠." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nolleh.github.io/distributed-systems/2.level-of-abstraction/" /><meta property="article:section" content="distributed-systems" />
+<meta property="article:published_time" content="2022-06-29T22:15:08&#43;09:00" />
+<meta property="article:modified_time" content="2022-06-29T22:15:08&#43;09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="2.level of Abstraction"/>
+<meta name="twitter:description" content="다음에서 발췌 http://book.mixu.net/distsys/abstractions.html
+ 2. Up and down the level of abstraction 이 챕터에서는, 추상화의 레벨을 여행할 것이며, 몇가지 불가능한 결과를 보고, (CAP 와 FLP), 그리고 나서 성능에 대한 항해를 할 것 입니다.
+만약 어떤 프로그래밍을 완료했다면, 추상화. 수준에 대한 개념은 당신에게 익숙할 겁니다. 당신은 이미 추상화와 함께 했고, 어떤 API 를 통해 더 낮은 레이어와 인터페이싱하고 있을 것이며, 더 높은 레이어에 API 나 인터페이스를 제공하고있을 겁니다. OSI 네트워크 7 계층이 좋은 예죠."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Distributed-systems",
+      "item": "https://nolleh.github.io/distributed-systems/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "2.level of Abstraction",
+      "item": "https://nolleh.github.io/distributed-systems/2.level-of-abstraction/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "2.level of Abstraction",
+  "name": "2.level of Abstraction",
+  "description": "다음에서 발췌 http://book.mixu.net/distsys/abstractions.html\n 2. Up and down the level of abstraction 이 챕터에서는, 추상화의 레벨을 여행할 것이며, 몇가지 불가능한 결과를 보고, (CAP 와 FLP), 그리고 나서 성능에 대한 항해를 할 것 입니다.\n만약 어떤 프로그래밍을 완료했다면, 추상화. 수준에 대한 개념은 당신에게 익숙할 겁니다. 당신은 이미 추상화와 함께 했고, 어떤 API 를 통해 더 낮은 레이어와 인터페이싱하고 있을 것이며, 더 높은 레이어에 API 나 인터페이스를 제공하고있을 겁니다. OSI 네트워크 7 계층이 좋은 예죠.",
+  "keywords": [
+    "Programming", "생각하는 프로그래머", "distributed system", "번역"
+  ],
+  "articleBody": " 다음에서 발췌 http://book.mixu.net/distsys/abstractions.html\n 2. Up and down the level of abstraction 이 챕터에서는, 추상화의 레벨을 여행할 것이며, 몇가지 불가능한 결과를 보고, (CAP 와 FLP), 그리고 나서 성능에 대한 항해를 할 것 입니다.\n만약 어떤 프로그래밍을 완료했다면, 추상화. 수준에 대한 개념은 당신에게 익숙할 겁니다. 당신은 이미 추상화와 함께 했고, 어떤 API 를 통해 더 낮은 레이어와 인터페이싱하고 있을 것이며, 더 높은 레이어에 API 나 인터페이스를 제공하고있을 겁니다. OSI 네트워크 7 계층이 좋은 예죠.\n분산 프로그래밍은, 단언하고 싶은데, 분산의 결과를 다루는 것이 많은 부분을 차지합니다. 이것은, 현실과 긴장이 있는데, 많은 도들들과 우리의 욕구, 시스템에 대한것은 “하나의 시스템처럼” 이기 때문입니다. 이것은 가능한것과 이해 가능한 것과 성능 사이에서 균형을 잡고 좋은 추상화를 하는 것을 찾아 가는것을 의미합니다.\nX 가 Y 보다 더 추상화가 되어있다는 것의 의미는 무엇일까요? 첫째로, X 는 Y 와 근본적인 차이는 없고, 다른 새로운것을 소개 하는 게 아닙니다. 대신, X 는 Y 의 내용을 제거하고 제시하는것, 더 관리하기 쉬운 형태로 제시하는 것을 의미합니다. 둘째로, X 는 Y 로부터 중요하지 않은 문제들을 제거함으로써, 어떤 감각에 대해 Y 보다 더 직관 적일 수 있습니다.\nNietzsche 는 다음과 같이 이야기 했습니다.\n 모든 동등에 대한것으로 부터 나온 개념은 동등하지 않다. 어떤 이파리(leaf) 도 다른 것과 완전이 같지 않으며, 이파리(leaf) 의 개념은 각각의 차이들로부터 차이에 대한 것들을 잊음으로써 임의의 추상화를 통해 형성된것이다; 또한, 이것은 어떤 아이디어를 도출하는데, 이파리들의 본성은 이파리와 다른 어떤것을 가지고 있을 수 있다는 것이다 - 어떤 종류 모든 이파리로부터 다른 어떤 자기만의 형태가 있을 수 있으며, 낡고, 마킹되고, 복제되며, 색이 다르며, 구부러지고, 색이 다를 수 있지만, 기술적이지 않은 손길로 인해, 맞는것으로, 믿을 수 있고, 신뢰할 수 있는 본래의 형태의 이미지가 되는 복제가 없다. (TODO refined)\n 추상화는, 근본적으로, 진짜가 아닙니다. 모든 상황들은 유일하며, 모든 노드 또한 그렇습니다. 하지만 추상화는 세상을 관리할 수 있게 해줍니다: 문제 상황들에 대해 더 간단하게 하여 - 현실의 자유 - 더 분석적으로 다룰수있고, 어떤 중요한 것들을 무시하지도 않으면서, 해결책을 넓게 적용할 수 있도록 해줍니다.\n실제로, 우리가 다루는 것들은 필수적이면, 우리가 도출할 수 있는 결과도 넓게 적용 가능합니다. 이것은 왜 불가능한 결과가 그렇게 중한지 알려줍니다; 이것들은 문제의 가능한 공식의 가장 단순한 방법을 취하며, 제약과 가정의 집합내에서 해결할 수 없는 문제임을 우리게 설명해 줍니다.\n모든 추상화는 의도적으로 유일한 것들을 무시합니다. 이 트릭은 중요하지 않는 것들을 제거하는 것인데, 어떻게 어떤것이 필수적인지 알 수 있을까요? 글쎄, 당신은 아마도 선험적으로(priori) 알지 못할 것입니다.\n매 시간 우리는 시스템의 측변에서 제외합니다, 시스템의 특정부분들으세ㅓ. 우리는 에러의 source 로부터 소개하는 리스크를 안고 있습니다. 이것은 왜 때때로 우리가 다른 방향으로 접근해야하는지, 선택적으로 실 하드웨어의 어떤 측변을 선택하고, 실제세계의 문제를 다시 선택적해야하는지. 이 것들은 어떤 하드웨어의 특정 부분들을 (e.g. 물리적인 연속성) 나, 다른 물리적인 특징들이 시스템이 충분히 잘 돌아가도록 충분하다 다시 소개하는 것이.\n이것을 머리속에 생각하면서, 분산시스템에서 동작하고 있다는 것을 인지하면서 최소한의 현실은 어떤 것일까? 하나의 시스템 모델은 우리가 중요하다고 고려하는 특징들입니다; 지정한 것들을 갖고 있으면, 불가능한 결과와 도전들을 살펴볼수 있게 됩니다.\nA System model 분산시스템에서 주요한 속성중의 하나는, ‘분산’입니다. 더 정확하게는, 분산시스템에서의 프로그램은:\n 각각의 독립적인 노드에서 동시에 실행 됩니다. 네트워크를 토앻 연결되어있고, 메시지가 유실되거나 비정의된 동작으로 이어질 수 있습니다. 공유 메모리나, 공유 시간이 없습니다. (shared memory, shared clock)  여기에는 많은 암시사항들이 있는데요:\n 각각의 노드 들은 프로그램을 동시에 실행한다. 지식들은 지역적이다: 노드들은 그들의 로컬 상태에는 빠르게 접근 하지만, 글로벌 상태에 대한 정보는 잠재적으로 최신 값이 아닐 수 있다. 노드들은 실패할수 있으며, 실패로 부터 독립적으로 복구 될 수 있습니다. 메시지들은 지연되거나 유실될 수 있습니다. (노드의 실패와는 독립적으로; 네트워크의 실패와 노드 실패 두개를 구분하는 것은 쉬운 일이 아닙니다.) clock 들은 접근하는 노드들 사이에서 동기화 되어있지 않습니다. (한 로컬의 타임스탬프는 실제 글로벌 타임과 다를 수 있고, 쉽게 파악하기 어렵습니다.)  하나의 시스템 모델은 어떤 특정 시스템 디자인과 관계하여 많은 가정들을 내포합니다.\n System model 분산시스템이 구현된 환경과 시설에 대한 가정들의 집합\n 시스템 모델들은 그들의 가정, 환경과 시설들에 대한 그들의 가정이 다양합니다. 이 가정은 다음을 포함합니다.\n 노드가 어떤 수용량(capabilities)을 가지고 있고 어떻게 실패할 수 있는지 어떻게 통신을 연결하여 동작하고, 어떻게 실패 할 수 있는지 전체 시스템의 속성 - 시간과 순서에 대한 가정같은 것들-  건장한 시스템 모델은 가장 작은 가정을 하는 모델입니다; 어떤 알고리즘이 이런 시스템에 쓰여도, 다른 환경에서도 tolerant 하고, 이는 상당히 작은 가정이 있거나, 거의 없기때문입니다.\n한편으로, 우리는 시스템모델에 많은 가정을 함으로써 시스템을 이해하기 쉽게 만들수 있습니다. 예를 들어서, 알고리즘에 대해 노드들은 실패하지 않는다. 라는것은 노드의 실패를 다룰 필요가 없게 되죠. 하지만, 이런 시스템 모델은 현실적이지 않으므로 적용 할 수가 없죠.\n노드의 속성들을 살펴보고, 시간과 순서에 대해 좀 더 살펴봅시다.\nNodes in our System model 노드들은 연산과 저장소의 호스트로서 동작하게 되는데, 이들은 다음을 갖고 있습니다:\n 프로그램을 실행할 수 있는 능력 데이터를 휘발성 메보리에 저장할 수 있는 능력과 (실패시에는 소실될 수 있는) 안정적인 상태로 저장 할 수 있는 능력 (실패 이후에도 읽을 수 있는) a clock (정확하다고 믿거나 믿지 않을 수 있는 시계)  노드들은 결정적인(deterministic) 알고리즘들을 실행합니다; 내부 연산, 연산 이후의 내부 상태, 메시지를 수신한 이후 자체적으로(uniquely) 결정한 메시지를 전송한다거나.\n노드가 실패 했을 때의 동작을 기술한 많은 실패 모델들이 있는데, 실제로는 (in practice), 대부분의 시스템들이 크래쉬-복구 실패 모델을 가정합니다; 이것은, 노드들이 크래쉬가 났을 경우에만 실패하며, 일정 시점 이후에는 복구 할 수 있다 라고 가정합니다.\n다른 대안은 노드는 임의의 다른 의도하지 않은 동작을 하여 실패할 수 있다고 가정하는 것인데요, 이것은 비잔틴 실패 tolerance 라고 알려져 있습니다. 비잔틴 실패는 상용 시스템에서는 거의 다뤄지지 않으며, 임의의 실패에 대응 할 수 있는 알고리즘은 구현하기가 훨씬 복잡하고, 비싸기 때문입니다. 이것에 대해 다루지는 않겠습니다.\nCommunication links in our system model 통신 연결들이 각각의 도드들을 연결하며, 메시지들이 어떤 방향으로도 전송 될 수 있도록 해줍니다. 많은 책들에서 분산 알고리즘들은 각각의 노드 쌍에 대해 각각의 연결, 메시지에 대해 FIFO 를 제공하고 그들이 보낸 메시지만 전달하고, 유실될수 있다고 가정합니다.\n어떤 알고리즘들은 이 네트워크가 신뢰할 수 있다고 믿습니다; 메시지들은 절데 유실되지 않으며 절대 무기한 연기되지 않는다. 이런 가정들은 어떤 실세계의 설정에서는 유효한 가정이지만, 일반적인 경우에는 네트워크는 신뢰할 수 없으며 대상들은 메시지를 유실하거나 지연할 수 있다고 고려하는것이 선호 됩니다.\n네트워크 파티션은 네트워크가 실패하여 다른 노드들 자체들은 연산가능한 상태로 남아 있을 때 발 생합니다. 이것이 일어나게 되면, 메시지들은 유실되거나 네트워크 파티션이 복구 될때까지 지연되게 됩니다. 파티션 된 노드들은 어떤 클라이언트에게는 정상적으로 접근가능하므로, 크래쉬 노드와는 다르게 처리되어야 합니다. 아래의 다이어그램은 노느 실패와 네트워크 파티션을 나타냅니다.:\n통신링크에 대해 더 많은 가정을 하는 것은 드뭅니다. 우리는 연결들이 하나의 방향성만 가진다고 가정하거나, 다른 커뮤니케이션 비용을 소개할 수 도 있습니다. (e.g. 물리적 거리로 인한 지연) . 그러나, 이것들은 상업적 환경에서는 큰 걱정사항이 아니며 (WAN 지연과 같은 긴거리의 연결을 제외하고) 그렇기때문에 여기서 논의 하지 않겠습니다; 더 자세한 비용과 topology 에 대한 모델은 복잡성에 대해 더 나은 최적화를 하게 됩니다.\nTiming / ordering assumtions 각각의 노드들이 물리적인 분리가 되어있다는 것은 세상을 유일한 매너로 볼 수 있게 해 줍니다. 이것은 피할 수 없는데, 광속을 뛰어넘는 정보란 있을 수 없기때문입니다. 만약 노드들이 각각 다른 거리에 있고, 어떤 메시지지들도 하나의 노드에서 다른 노드로 전송되면, 노드들 사이에서 각각 다른 순서와 시간으로 도달 할 수 있습니다.\n타이밍에 대한 가정은 현실을 고려할 때 확장하기에 쉽게 해 줍니다. 주요한 두 대안들은:\n Sychronous system model 프로세스들은 락 단계 에서 실행됩니다; 메시지 전송 지연에는 알려진 상한이 있으며; 각각의 프로세스들은 정확한 clock 을 가지고 있습니다.\nAsynchronous system model 타이밍에 대한 가정은 없습니다 -e.g. 프로세스들은 독립적인 비율로 실행합니다; 메시지 전송 지연에 대한 범위는 없으며; 유용한 clocks 도 없습니다.\n 동기화된 시스템 모델은 시간과 순서에 대한 많은 제약들을 두고 있습니다. 이것은 필수적으로 노드들이 같은 경험을 하도록 가정합니다; 메시지들은 항상 최대 전송 지연 시간 안에 수신되어야하며, 락 단계( lock-step) 에서 실행 되어야 합니다. 이것은 시스템의 디자이너가 시간과 순서에 대한 많은 가정을 할 수 있게 하므로, 편리한 반면에, 비동기화된 시스템모델은 그렇지 않습니다.\n비동시성은 가정이란 없습니다; 그저 타이밍에 대한 가정을 할수 없다 라는 가정 만이 있습니다.\n동기화된 시스템 모델에서 문제를 푸는 것이 더 쉬운데, 실행 스피드, 최대 메시지 전송지연, 시계 정확성에 대한 가정 모두 문제를 푸는데 도움을 주기 때문인데, 이는 가정에 기반하여 추론을 할 수 있게 해주고, 일어나지 않을 것이라고 가정하는 불편한 실패 시나리오들을 생각할 필요가 없기 때문입니다.\n물론, 동기화된 시스템 모델을 고려하는것은 일부는 현실적이지 않스빈다. 실세계의 네트워크는 실패할 수 있으며, 메시지 딜레이에 대한 강력한 범위도 없스빈다. 실세계의 시스템은 최대한 일부적으로 동기화 되어있습니다: 때때로 올바르게 동작하고 최대 지연 범위를 제공하지만, 메시지가 무한하게 딜레이될 수 있고 시계들은 동작에서 벗어 날 수 있습니다. 여기서 동기화된 시스템의 알고리즘에 대해 다루진 않을 것이며, 분석하기 쉽기 때문에 (현실적이지 않지만) 다른 책들에서 많이 다루고 있을 겁니다.\nThe consensus problem 이 문서의 나머지에서, 우리는 시스템모델의 인자들을 다양화 할 것 입니다. 이후에는, 어떻게 두 시스템 송성들을 다양화 할 것인가에 대한 것을 살펴 봅니다.\n 네트워크 파티션이 실패 모델에 포함을 할 것인지, 동시성 vs. 비 동시성의 타이밍 가정을 할 것인지.  시스템 디자인 선택의 영향은 두 불가능한 결과(FLP 와 CAP) 를 논의 하는것에 의해 영향을 받습니다.\n물론, 논의를 하기 위해, 풀어야할 문제를 소개할 필요가 있겠네요. 바로 타협 문제입니다.\n몇몇 컴퓨터 (노드) 들은 그들이 어떤 값들에 대해 모두 동의 할 수 있습니다. 더 격의 적으로 이야기하면:\n 동의: 모든 올바른 프로세스들은 같은 값들에 동의 해야합니다. 통합: 모든 올바른 프로세스들은 최대 하나의 값을 결정하고, 어떤 값을 정하면, 어떤 프로세스에 의해 제안 되어야 합니다. 종료: 모든 프로세스들은 결과적으로 결정에 다달아야 합니다. 유효성: 만약 모든 올바른 프로세스들이 같은 값 V 를 제안했다면, 모든 올바른 프로세스들이 V 를 결정한 것입니다.  이 타협 문제는 많은 상업용 분산 시스템에서의 주요 문제 입니다. 결과적으로, 우리는 분산에서의 부작용을 다루지 않고 신뢰성과 성능을 얻고 싶으며, aotmic broadcase 와 atomic commit 같은 타협문제와 관련한 더 발전된 문제들을 풀고 싶어하죠.\nTwo impossibility results 첫번째 불가능한 결과 (FLP imossibility result 로 알려진)는 분산시스템을 설계한 사람에 관계한 불가능한 결과 입니다. 두번째는 - The CAP 이론- 실무자에 더 관계한 결과 입니다; 시스템 디자인을 선택 하는 사람들이 알고리즘 디자인에 대한 직접적인 고려가 없는 경우에 해당합니다.\nThe FLP impossibility result 간략하게 FLP 불가능 결과 에 대해 요약해 보면, (교육계에서는 더 중요하게 고려 되지만) FLP 불가능 결과 (Fishcher, Lynch and Patterson 저자에 의해 지어진 이름입니다.) 비동기 시스템 위에서 타협 문제를(기술적으로, 타협문제의 작은 형태인 동의 문제) 검사합니다. 노드들은 크래쉬에 의해 실패할 수 있다고 가정합니다.; 네트워크는 신뢰할 수 있고, 비동기 모델에서의 일반적인 타이밍 문제는 유지 됩니다: e.g. 메시지 지연에 대한 범위는 없습니다.\n이런 가정하에, FLP 결과는 “(deterministic)한 알고리즘은 실패할 수 있는 비동기 모델에서 메시지가 절대 유실되지 않더라도, 최대 하나의 프로세스만이 실패할 수 있더라도, 그 이유가 오로지 크래쉬에 의한 것이라도 존재할 수 없다.” 라고 이야기 합니다.\n이 결과는 무한하게 지연될 수 없다.라고 가정한 최소한의 시스템 모델에서는 타협문제를 풀 방법이 없다.\n",
+  "wordCount" : "1614",
+  "inLanguage": "en",
+  "datePublished": "2022-06-29T22:15:08+09:00",
+  "dateModified": "2022-06-29T22:15:08+09:00",
+  "author":{
+    "@type": "Person",
+    "name": "nolleh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nolleh.github.io/distributed-systems/2.level-of-abstraction/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Computer Programmer, Nolleh",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nolleh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://nolleh.github.io/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nolleh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nolleh.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://nolleh.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://nolleh.github.io/distributed-systems/">Distributed-systems</a></div>
+    <h1 class="post-title">
+      2.level of Abstraction<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    </h1>
+    <div class="post-meta"><span title='2022-06-29 22:15:08 +0900 KST'>June 29, 2022</span>&nbsp;·&nbsp;nolleh
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#2-up-and-down-the-level-of-abstraction" aria-label="2. Up and down the level of abstraction">2. Up and down the level of abstraction</a><ul>
+                        
+                <li>
+                    <a href="#a-system-model" aria-label="A System model">A System model</a><ul>
+                        
+                <li>
+                    <a href="#nodes-in-our-system-model" aria-label="Nodes in our System model">Nodes in our System model</a></li>
+                <li>
+                    <a href="#communication-links-in-our-system-model" aria-label="Communication links in our system model">Communication links in our system model</a></li>
+                <li>
+                    <a href="#timing--ordering-assumtions" aria-label="Timing / ordering assumtions">Timing / ordering assumtions</a></li>
+                <li>
+                    <a href="#the-consensus-problem" aria-label="The consensus problem">The consensus problem</a></li>
+                <li>
+                    <a href="#two-impossibility-results" aria-label="Two impossibility results">Two impossibility results</a></li></ul>
+                </li>
+                <li>
+                    <a href="#the-flp-impossibility-result" aria-label="The FLP impossibility result">The FLP impossibility result</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><blockquote>
+<p>다음에서 발췌
+<a href="http://book.mixu.net/distsys/abstractions.html">http://book.mixu.net/distsys/abstractions.html</a></p>
+</blockquote>
+<h1 id="2-up-and-down-the-level-of-abstraction">2. Up and down the level of abstraction<a hidden class="anchor" aria-hidden="true" href="#2-up-and-down-the-level-of-abstraction">#</a></h1>
+<p>이 챕터에서는, 추상화의 레벨을 여행할 것이며, 몇가지 불가능한 결과를 보고, (CAP 와 FLP), 그리고 나서 성능에 대한 항해를 할 것 입니다.</p>
+<p>만약 어떤 프로그래밍을 완료했다면, 추상화. 수준에 대한 개념은 당신에게 익숙할 겁니다. 당신은 이미 추상화와 함께 했고,
+어떤 API 를 통해 더 낮은 레이어와 인터페이싱하고 있을 것이며,
+더 높은 레이어에 API 나 인터페이스를 제공하고있을 겁니다. OSI 네트워크 7 계층이 좋은 예죠.</p>
+<p>분산 프로그래밍은, 단언하고 싶은데, 분산의 결과를 다루는 것이 많은 부분을 차지합니다. 이것은, 현실과 긴장이 있는데, 많은 도들들과 우리의 욕구, 시스템에 대한것은 &ldquo;하나의 시스템처럼&rdquo; 이기 때문입니다. 이것은 가능한것과 이해 가능한 것과 성능 사이에서 균형을 잡고 좋은 추상화를 하는 것을 찾아 가는것을 의미합니다.</p>
+<p>X 가 Y 보다 더 추상화가 되어있다는 것의 의미는 무엇일까요? 첫째로, X 는 Y 와 근본적인 차이는 없고, 다른 새로운것을 소개 하는 게 아닙니다. 대신, X 는 Y 의 내용을 제거하고 제시하는것, 더 관리하기 쉬운 형태로 제시하는 것을 의미합니다. 둘째로, X 는 Y 로부터 중요하지 않은 문제들을 제거함으로써, 어떤 감각에 대해 Y 보다 더 직관 적일 수 있습니다.</p>
+<p>Nietzsche 는 다음과 같이 이야기 했습니다.</p>
+<blockquote>
+<p>모든 동등에 대한것으로 부터 나온 개념은 동등하지 않다. 어떤 이파리(leaf) 도 다른 것과 완전이 같지 않으며, 이파리(leaf) 의 개념은 각각의 차이들로부터 차이에 대한 것들을 잊음으로써 임의의 추상화를 통해 형성된것이다; 또한, 이것은 어떤 아이디어를 도출하는데, 이파리들의 본성은 이파리와 다른 어떤것을 가지고 있을 수 있다는 것이다 - 어떤 종류 모든 이파리로부터 다른 어떤 자기만의 형태가 있을 수 있으며, 낡고, 마킹되고, 복제되며, 색이 다르며, 구부러지고, 색이 다를 수 있지만, 기술적이지 않은 손길로 인해, 맞는것으로, 믿을 수 있고, 신뢰할 수 있는 본래의 형태의 이미지가 되는 복제가 없다. (TODO refined)</p>
+</blockquote>
+<p>추상화는, 근본적으로, 진짜가 아닙니다. 모든 상황들은 유일하며, 모든 노드 또한 그렇습니다. 하지만 추상화는 세상을 관리할 수 있게 해줍니다: 문제 상황들에 대해 더 간단하게 하여 - 현실의 자유 - 더 분석적으로 다룰수있고, 어떤 중요한 것들을 무시하지도 않으면서, 해결책을 넓게 적용할 수 있도록 해줍니다.</p>
+<p>실제로, 우리가 다루는 것들은 필수적이면, 우리가 도출할 수 있는 결과도 넓게 적용 가능합니다. 이것은 왜 불가능한 결과가 그렇게 중한지 알려줍니다; 이것들은 문제의 가능한 공식의 가장 단순한 방법을 취하며, 제약과 가정의 집합내에서 해결할 수 없는 문제임을 우리게 설명해 줍니다.</p>
+<p>모든 추상화는 의도적으로 유일한 것들을 무시합니다. 이 트릭은 중요하지 않는 것들을 제거하는 것인데, 어떻게 어떤것이 필수적인지 알 수 있을까요? 글쎄, 당신은 아마도 선험적으로(priori) 알지 못할 것입니다.</p>
+<p>매 시간 우리는 시스템의 측변에서 제외합니다, 시스템의 특정부분들으세ㅓ. 우리는 에러의 source 로부터 소개하는 리스크를 안고 있습니다. 이것은 왜 때때로 우리가 다른 방향으로 접근해야하는지, 선택적으로 실 하드웨어의 어떤 측변을 선택하고, 실제세계의 문제를 다시 선택적해야하는지. 이 것들은 어떤 하드웨어의 특정 부분들을 (e.g. 물리적인 연속성) 나, 다른 물리적인 특징들이 시스템이 충분히 잘 돌아가도록 충분하다 다시 소개하는 것이.</p>
+<p>이것을 머리속에 생각하면서,
+분산시스템에서 동작하고 있다는 것을 인지하면서 최소한의 현실은 어떤 것일까? 하나의 시스템 모델은 우리가 중요하다고 고려하는 특징들입니다; 지정한 것들을 갖고 있으면, 불가능한 결과와 도전들을 살펴볼수 있게 됩니다.</p>
+<h2 id="a-system-model">A System model<a hidden class="anchor" aria-hidden="true" href="#a-system-model">#</a></h2>
+<p>분산시스템에서 주요한 속성중의 하나는, &lsquo;분산&rsquo;입니다. 더 정확하게는, 분산시스템에서의 프로그램은:</p>
+<ul>
+<li>각각의 독립적인 노드에서 동시에 실행 됩니다.</li>
+<li>네트워크를 토앻 연결되어있고, 메시지가 유실되거나 비정의된 동작으로 이어질 수 있습니다.</li>
+<li>공유 메모리나, 공유 시간이 없습니다. (shared memory, shared clock)</li>
+</ul>
+<p>여기에는 많은 암시사항들이 있는데요:</p>
+<ul>
+<li>각각의 노드 들은 프로그램을 동시에 실행한다.</li>
+<li>지식들은 지역적이다: 노드들은 그들의 로컬 상태에는 빠르게 접근 하지만, 글로벌 상태에 대한 정보는 잠재적으로 최신 값이 아닐 수 있다.</li>
+<li>노드들은 실패할수 있으며, 실패로 부터 독립적으로 복구 될 수 있습니다.</li>
+<li>메시지들은 지연되거나 유실될 수 있습니다. (노드의 실패와는 독립적으로; 네트워크의 실패와 노드 실패 두개를 구분하는 것은 쉬운 일이 아닙니다.)</li>
+<li>clock 들은 접근하는 노드들 사이에서 동기화 되어있지 않습니다. (한 로컬의 타임스탬프는 실제 글로벌 타임과 다를 수 있고, 쉽게 파악하기 어렵습니다.)</li>
+</ul>
+<p>하나의 시스템 모델은 어떤 특정 시스템 디자인과 관계하여 많은 가정들을 내포합니다.</p>
+<blockquote>
+<p><strong>System model</strong> 분산시스템이 구현된 환경과 시설에 대한 가정들의 집합</p>
+</blockquote>
+<p>시스템 모델들은 그들의 가정, 환경과 시설들에 대한 그들의 가정이 다양합니다. 이 가정은 다음을 포함합니다.</p>
+<ul>
+<li>노드가 어떤 수용량(capabilities)을 가지고 있고 어떻게 실패할 수 있는지</li>
+<li>어떻게 통신을 연결하여 동작하고, 어떻게 실패 할 수 있는지</li>
+<li>전체 시스템의 속성 - 시간과 순서에 대한 가정같은 것들-</li>
+</ul>
+<p>건장한 시스템 모델은 가장 작은 가정을 하는 모델입니다; 어떤 알고리즘이 이런 시스템에 쓰여도, 다른 환경에서도 tolerant 하고, 이는 상당히 작은 가정이 있거나, 거의 없기때문입니다.</p>
+<p>한편으로, 우리는 시스템모델에 많은 가정을 함으로써 시스템을 이해하기 쉽게 만들수 있습니다. 예를 들어서, 알고리즘에 대해 노드들은 실패하지 않는다. 라는것은 노드의 실패를 다룰 필요가 없게 되죠. 하지만, 이런 시스템 모델은 현실적이지 않으므로 적용 할 수가 없죠.</p>
+<p>노드의 속성들을 살펴보고, 시간과 순서에 대해 좀 더 살펴봅시다.</p>
+<h3 id="nodes-in-our-system-model">Nodes in our System model<a hidden class="anchor" aria-hidden="true" href="#nodes-in-our-system-model">#</a></h3>
+<p>노드들은 연산과 저장소의 호스트로서 동작하게 되는데, 이들은 다음을 갖고 있습니다:</p>
+<ul>
+<li>프로그램을 실행할 수 있는 능력</li>
+<li>데이터를 휘발성 메보리에 저장할 수 있는 능력과 (실패시에는 소실될 수 있는) 안정적인 상태로 저장 할 수 있는 능력 (실패 이후에도 읽을 수 있는)</li>
+<li>a clock (정확하다고 믿거나 믿지 않을 수 있는 시계)</li>
+</ul>
+<p>노드들은 결정적인(deterministic) 알고리즘들을 실행합니다; 내부 연산, 연산 이후의 내부 상태, 메시지를 수신한 이후 자체적으로(uniquely) 결정한 메시지를 전송한다거나.</p>
+<p>노드가 실패 했을 때의 동작을 기술한 많은 실패 모델들이 있는데,  실제로는 (in practice), 대부분의 시스템들이 크래쉬-복구 실패 모델을 가정합니다; 이것은, 노드들이 크래쉬가 났을 경우에만 실패하며, 일정 시점 이후에는 복구 할 수 있다 라고 가정합니다.</p>
+<p>다른 대안은 노드는 임의의 다른 의도하지 않은 동작을 하여 실패할 수 있다고 가정하는 것인데요, 이것은 <a href="http://en.wikipedia.org/wiki/Byzantine_fault_tolerance">비잔틴 실패 tolerance</a> 라고 알려져 있습니다. 비잔틴 실패는 상용 시스템에서는 거의 다뤄지지 않으며, 임의의 실패에 대응 할 수 있는 알고리즘은 구현하기가 훨씬 복잡하고, 비싸기 때문입니다. 이것에 대해 다루지는 않겠습니다.</p>
+<h3 id="communication-links-in-our-system-model">Communication links in our system model<a hidden class="anchor" aria-hidden="true" href="#communication-links-in-our-system-model">#</a></h3>
+<p>통신 연결들이 각각의 도드들을 연결하며, 메시지들이 어떤 방향으로도 전송 될 수 있도록 해줍니다. 많은 책들에서 분산 알고리즘들은 각각의 노드 쌍에 대해 각각의 연결, 메시지에 대해 FIFO 를 제공하고 그들이 보낸 메시지만 전달하고, 유실될수 있다고 가정합니다.</p>
+<p>어떤 알고리즘들은 이 네트워크가 신뢰할 수 있다고 믿습니다; 메시지들은 절데 유실되지 않으며 절대 무기한 연기되지 않는다. 이런 가정들은 어떤 실세계의 설정에서는 유효한 가정이지만, 일반적인 경우에는 네트워크는 신뢰할 수 없으며 대상들은 메시지를 유실하거나 지연할 수 있다고 고려하는것이 선호 됩니다.</p>
+<p>네트워크 파티션은 네트워크가 실패하여 다른 노드들 자체들은 연산가능한 상태로 남아 있을 때 발 생합니다. 이것이 일어나게 되면, 메시지들은 유실되거나 네트워크 파티션이 복구 될때까지 지연되게 됩니다. 파티션 된 노드들은 어떤 클라이언트에게는 정상적으로  접근가능하므로, 크래쉬 노드와는 다르게 처리되어야 합니다. 아래의 다이어그램은 노느 실패와 네트워크 파티션을 나타냅니다.:</p>
+<p><img loading="lazy" src="http://book.mixu.net/distsys/images/system-of-2.png" alt=""  />
+</p>
+<p>통신링크에 대해 더 많은 가정을 하는 것은 드뭅니다. 우리는 연결들이 하나의 방향성만 가진다고 가정하거나, 다른 커뮤니케이션 비용을 소개할 수 도 있습니다. (e.g. 물리적 거리로 인한 지연) . 그러나, 이것들은 상업적 환경에서는 큰 걱정사항이 아니며 (WAN 지연과 같은 긴거리의 연결을 제외하고) 그렇기때문에 여기서 논의 하지 않겠습니다; 더 자세한 비용과 topology 에 대한 모델은 복잡성에 대해 더 나은 최적화를 하게 됩니다.</p>
+<h3 id="timing--ordering-assumtions">Timing / ordering assumtions<a hidden class="anchor" aria-hidden="true" href="#timing--ordering-assumtions">#</a></h3>
+<p>각각의 노드들이 물리적인 분리가 되어있다는 것은 세상을 유일한 매너로 볼 수 있게 해 줍니다. 이것은 피할 수 없는데, 광속을 뛰어넘는 정보란 있을 수 없기때문입니다. 만약 노드들이 각각 다른 거리에 있고, 어떤 메시지지들도 하나의 노드에서 다른 노드로 전송되면, 노드들 사이에서 각각 다른 순서와 시간으로 도달 할 수 있습니다.</p>
+<p>타이밍에 대한 가정은 현실을 고려할 때 확장하기에 쉽게 해 줍니다. 주요한 두 대안들은:</p>
+<blockquote>
+<p><strong>Sychronous system model</strong> 프로세스들은 락 단계 에서 실행됩니다; 메시지 전송 지연에는 알려진 상한이 있으며; 각각의 프로세스들은 정확한 clock 을 가지고 있습니다.</p>
+<p><strong>Asynchronous system model</strong> 타이밍에 대한 가정은 없습니다 -e.g. 프로세스들은 독립적인 비율로 실행합니다;  메시지 전송 지연에 대한 범위는 없으며; 유용한 clocks 도 없습니다.</p>
+</blockquote>
+<p>동기화된 시스템 모델은 시간과 순서에 대한 많은 제약들을 두고 있습니다. 이것은 필수적으로 노드들이 같은 경험을 하도록 가정합니다; 메시지들은 항상 최대 전송 지연 시간 안에 수신되어야하며, 락 단계( lock-step) 에서 실행 되어야 합니다. 이것은 시스템의 디자이너가 시간과 순서에 대한 많은 가정을 할 수 있게 하므로, 편리한 반면에, 비동기화된 시스템모델은 그렇지 않습니다.</p>
+<p>비동시성은 가정이란 없습니다; 그저 타이밍에 대한 가정을 할수 없다 라는 가정 만이 있습니다.</p>
+<p>동기화된 시스템 모델에서 문제를 푸는 것이 더 쉬운데, 실행 스피드, 최대 메시지 전송지연, 시계 정확성에 대한 가정 모두 문제를 푸는데 도움을 주기 때문인데, 이는 가정에 기반하여 추론을 할 수 있게 해주고, 일어나지 않을 것이라고 가정하는 불편한 실패 시나리오들을 생각할 필요가 없기 때문입니다.</p>
+<p>물론, 동기화된 시스템 모델을 고려하는것은 일부는 현실적이지 않스빈다. 실세계의 네트워크는 실패할 수 있으며, 메시지 딜레이에 대한 강력한 범위도 없스빈다. 실세계의 시스템은 최대한 일부적으로 동기화 되어있습니다: 때때로 올바르게 동작하고 최대 지연 범위를 제공하지만, 메시지가 무한하게 딜레이될 수 있고 시계들은 동작에서 벗어 날 수 있습니다. 여기서 동기화된 시스템의 알고리즘에 대해 다루진 않을 것이며, 분석하기 쉽기 때문에 (현실적이지 않지만) 다른 책들에서 많이 다루고 있을 겁니다.</p>
+<h3 id="the-consensus-problem">The consensus problem<a hidden class="anchor" aria-hidden="true" href="#the-consensus-problem">#</a></h3>
+<p>이 문서의 나머지에서, 우리는 시스템모델의 인자들을 다양화 할 것 입니다. 이후에는, 어떻게 두 시스템 송성들을 다양화 할 것인가에 대한 것을 살펴 봅니다.</p>
+<ul>
+<li>네트워크 파티션이 실패 모델에 포함을 할 것인지,</li>
+<li>동시성 vs. 비 동시성의 타이밍 가정을 할 것인지.</li>
+</ul>
+<p>시스템 디자인 선택의 영향은 두  불가능한 결과(FLP 와 CAP) 를 논의 하는것에 의해 영향을 받습니다.</p>
+<p>물론, 논의를 하기 위해, 풀어야할 문제를 소개할 필요가 있겠네요. 바로 <a href="http://en.wikipedia.org/wiki/Consensus_%28computer_science%29">타협 문제</a>입니다.</p>
+<p>몇몇 컴퓨터 (노드) 들은 그들이 어떤 값들에 대해 모두 동의 할 수 있습니다. 더 격의 적으로 이야기하면:</p>
+<ol>
+<li>동의: 모든 올바른 프로세스들은 같은 값들에 동의 해야합니다.</li>
+<li>통합: 모든 올바른 프로세스들은 최대 하나의 값을 결정하고, 어떤 값을 정하면, 어떤 프로세스에 의해 제안 되어야 합니다.</li>
+<li>종료: 모든 프로세스들은 결과적으로 결정에 다달아야 합니다.</li>
+<li>유효성: 만약 모든 올바른 프로세스들이 같은 값 V 를 제안했다면, 모든 올바른 프로세스들이 V 를 결정한 것입니다.</li>
+</ol>
+<p>이 타협 문제는 많은 상업용 분산 시스템에서의 주요 문제 입니다. 결과적으로, 우리는 분산에서의 부작용을 다루지 않고 신뢰성과 성능을 얻고 싶으며, aotmic broadcase 와 atomic commit 같은 타협문제와 관련한 더 발전된 문제들을 풀고 싶어하죠.</p>
+<h3 id="two-impossibility-results">Two impossibility results<a hidden class="anchor" aria-hidden="true" href="#two-impossibility-results">#</a></h3>
+<p>첫번째 불가능한 결과 (FLP imossibility result 로 알려진)는 분산시스템을 설계한 사람에 관계한 불가능한 결과 입니다. 두번째는 - The CAP 이론- 실무자에 더 관계한 결과 입니다; 시스템 디자인을 선택 하는 사람들이 알고리즘 디자인에 대한 직접적인 고려가 없는 경우에 해당합니다.</p>
+<h2 id="the-flp-impossibility-result">The FLP impossibility result<a hidden class="anchor" aria-hidden="true" href="#the-flp-impossibility-result">#</a></h2>
+<p>간략하게 <a href="http://en.wikipedia.org/wiki/Consensus_%28computer_science%29#Solvability_results_for_some_agreement_problems">FLP 불가능 결과</a> 에 대해 요약해 보면, (교육계에서는 <a href="http://en.wikipedia.org/wiki/Dijkstra_Prize">더 중요</a>하게 고려 되지만) FLP 불가능 결과 (Fishcher, Lynch and Patterson 저자에 의해 지어진 이름입니다.) 비동기 시스템 위에서 타협 문제를(기술적으로, 타협문제의 작은 형태인 동의 문제) 검사합니다. 노드들은 크래쉬에 의해 실패할 수 있다고 가정합니다.; 네트워크는 신뢰할 수 있고, 비동기 모델에서의 일반적인 타이밍 문제는 유지 됩니다: e.g. 메시지 지연에 대한 범위는 없습니다.</p>
+<p>이런 가정하에, FLP 결과는 &ldquo;(deterministic)한 알고리즘은 실패할 수 있는 비동기 모델에서 메시지가 절대 유실되지 않더라도, 최대 하나의 프로세스만이 실패할 수 있더라도, 그 이유가 오로지 크래쉬에 의한 것이라도 존재할 수 없다.&rdquo; 라고 이야기 합니다.</p>
+<p>이 결과는 무한하게 지연될 수 없다.라고 가정한 최소한의 시스템 모델에서는 타협문제를 풀 방법이 없다.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://nolleh.github.io/tags/programming/">Programming</a></li>
+      <li><a href="https://nolleh.github.io/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/">생각하는 프로그래머</a></li>
+      <li><a href="https://nolleh.github.io/tags/distributed-system/">distributed system</a></li>
+      <li><a href="https://nolleh.github.io/tags/%EB%B2%88%EC%97%AD/">번역</a></li>
+    </ul>
+  </footer><div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "nolleh-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

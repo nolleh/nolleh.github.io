@@ -145,7 +145,21 @@ if (!doNotTrack) {
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2>고수준의 분산 시스템
+    <h2>2.level of Abstraction<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>다음에서 발췌 http://book.mixu.net/distsys/abstractions.html
+ 2. Up and down the level of abstraction 이 챕터에서는, 추상화의 레벨을 여행할 것이며, 몇가지 불가능한 결과를 보고, (CAP 와 FLP), 그리고 나서 성능에 대한 항해를 할 것 입니다.
+만약 어떤 프로그래밍을 완료했다면, 추상화. 수준에 대한 개념은 당신에게 익숙할 겁니다. 당신은 이미 추상화와 함께 했고, 어떤 API 를 통해 더 낮은 레이어와 인터페이싱하고 있을 것이며, 더 높은 레이어에 API 나 인터페이스를 제공하고있을 겁니다. OSI 네트워크 7 계층이 좋은 예죠....</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-06-29 22:15:08 +0900 KST'>June 29, 2022</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 2.level of Abstraction" href="https://nolleh.github.io/distributed-systems/2.level-of-abstraction/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>1. Distributed systems at a highlevel
     </h2>
   </header>
   <div class="entry-content">
@@ -155,7 +169,7 @@ if (!doNotTrack) {
 실세계에서의 어떤것도 분산시스템을 요구하지는 않습니다. 무한한 돈과 무한한 실시간 연구 시간이 있다면, 분산시스템은 필요없습니다....</p>
   </div>
   <footer class="entry-footer"><span title='2019-01-21 22:58:23 +0900 KST'>January 21, 2019</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 고수준의 분산 시스템" href="https://nolleh.github.io/distributed-systems/1.highlevel/"></a>
+  <a class="entry-link" aria-label="post link to 1. Distributed systems at a highlevel" href="https://nolleh.github.io/distributed-systems/1.highlevel/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
@@ -202,23 +216,6 @@ if (!doNotTrack) {
   </div>
   <footer class="entry-footer"><span title='2018-12-19 10:18:25 +0900 KST'>December 19, 2018</span>&nbsp;·&nbsp;nolleh</footer>
   <a class="entry-link" aria-label="post link to Dispose" href="https://nolleh.github.io/csharp/dispose/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>Async Await
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>NeoSmart.AsyncLock 라이브러리에 관하여  다음에서 발췌, 번역 - Neosmart Docs.
- 개요  semaporeslim 은 reentrance 를 지원하지 않는다. 따라서, recursion 에서 적절히 사용되지 않으면 데드락이 발생한다.
-asynclock 은 reentrance 기능을 semaphoreslim 에 추가한거.
-대안  간단한 방법은 semaphoreslim 으로 교체하고, recursion 인 경우를 스레드 아이디로 확인 하는 것.
-이 경우의 문제는
-async / await 의 가장 기본적인 목적인 ui 의 불필요한 블럭킹 없이 작업의 완료를 기다린다는 문제를 그대로 안고 있다....</p>
-  </div>
-  <footer class="entry-footer"><span title='2018-12-18 13:47:33 +0900 KST'>December 18, 2018</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to Async Await" href="https://nolleh.github.io/csharp/async-await/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
