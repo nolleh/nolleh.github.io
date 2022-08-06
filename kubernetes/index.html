@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Distributed-systems | The Computer Programmer, Nolleh</title>
+<title>Kubernetes | The Computer Programmer, Nolleh</title>
 <meta name="keywords" content="">
-<meta name="description" content="Distributed-systems - The Computer Programmer, Nolleh">
+<meta name="description" content="Kubernetes - The Computer Programmer, Nolleh">
 <meta name="author" content="nolleh">
-<link rel="canonical" href="https://nolleh.github.io/distributed-systems/">
+<link rel="canonical" href="https://nolleh.github.io/kubernetes/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.d7fb4cbf980fe688a21621b06a795933c4e6bb2d4070ec940667af1715d84af2.css" integrity="sha256-1/tMv5gP5oiiFiGwanlZM8Tmuy1AcOyUBmevFxXYSvI=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://nolleh.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
@@ -18,7 +18,7 @@
 <link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://nolleh.github.io/distributed-systems/index.xml">
+<link rel="alternate" type="application/rss+xml" href="https://nolleh.github.io/kubernetes/index.xml">
 <noscript>
     <style>
         #theme-toggle,
@@ -67,13 +67,13 @@ if (!doNotTrack) {
 	
 	ga('send', 'pageview');
 }
-</script><meta property="og:title" content="Distributed-systems" />
+</script><meta property="og:title" content="Kubernetes" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://nolleh.github.io/distributed-systems/" />
+<meta property="og:url" content="https://nolleh.github.io/kubernetes/" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Distributed-systems"/>
+<meta name="twitter:title" content="Kubernetes"/>
 <meta name="twitter:description" content=""/>
 
 
@@ -85,8 +85,8 @@ if (!doNotTrack) {
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "Distributed-systems",
-      "item": "https://nolleh.github.io/distributed-systems/"
+      "name": "Kubernetes",
+      "item": "https://nolleh.github.io/kubernetes/"
     }
   ]
 }
@@ -154,55 +154,21 @@ if (!doNotTrack) {
 <main class="main"> 
 <header class="page-header"><div class="breadcrumbs"><a href="https://nolleh.github.io/">Home</a></div>
   <h1>
-    Distributed-systems
+    Kubernetes
   </h1>
 </header>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>3.time and Order<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    <h2>Cheatsheet<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h2>
   </header>
   <div class="entry-content">
-    <p>다음에서 발췌 
- 3. Time and Order 순서란 무엇이고, 왜 중요할까요?
-“순서란 무엇인가” 라는 질문은 무슨 의미 일까요 ?
-애초에 왜 여기에 왜 빠져있는 걸까요? 왜 우리는 A 가 B 이전에 실행되었다는걸 신경 써야할까요? 왜 우리는 다른 주제에는 신경을 안쓸까요 ? 색깔 같은거?
-글쎄, 친구, 일단 이에 답변하기 위해 분산 시스템을 다시 살펴보도록 합시다.
-기억하고 있을지 모르겠는데, 분산프로그래밍을 복수의 컴퓨터를 활용해서 같은 문제를 해결하는 예술이라고 묘사했었습니다.
-이것은, 사실, 순서에 대한 강박(obsession)의 가장주요한 내용입니다....</p>
+    <p>CronJobs 수동 실행
+kubectl create job -n {namespace} --from=cronjob/{name} {job-name} </p>
   </div>
-  <footer class="entry-footer"><span title='2022-07-23 14:33:45 +0900 KST'>July 23, 2022</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 3.time and Order" href="https://nolleh.github.io/distributed-systems/3.time-and-order/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>2.level of Abstraction
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>다음에서 발췌 http://book.mixu.net/distsys/abstractions.html
- 2. Up and down the level of abstraction 이 챕터에서는, 추상화의 레벨을 여행할 것이며, 몇가지 불가능한 결과를 보고, (CAP 와 FLP), 그리고 나서 성능에 대한 항해를 할 것 입니다.
-만약 어떤 프로그래밍을 완료했다면, 추상화. 수준에 대한 개념은 당신에게 익숙할 겁니다. 당신은 이미 추상화와 함께 했고, 어떤 API 를 통해 더 낮은 레이어와 인터페이싱하고 있을 것이며, 더 높은 레이어에 API 나 인터페이스를 제공하고있을 겁니다. OSI 네트워크 7 계층이 좋은 예죠....</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-06-29 22:15:08 +0900 KST'>June 29, 2022</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 2.level of Abstraction" href="https://nolleh.github.io/distributed-systems/2.level-of-abstraction/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>1. Distributed systems at a highlevel
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>다음에서 발췌 http://book.mixu.net/distsys/intro.html
- 1. Distributed systems at a highlevel  분산 프로그래밍은 같은 문제를 하나의 컴퓨터에서 해결할 수 있는 문제를 여러 컴퓨터에서 해결하는 예술이다.  컴퓨터 시스템이라면 해결해야 하는 두개의 문제가 있습니다.
- 저장소 연산  분산 프로그래밍은 하나의 컴퓨터에서 해결할 수 있는 문제를 여러 컴퓨터를 통해 해결하는 예술입니다. 보통 하나의 컴퓨터에서 해결하기에는 적합하지 않은 문제를 위해서입니다.
-실세계에서의 어떤것도 분산시스템을 요구하지는 않습니다. 무한한 돈과 무한한 실시간 연구 시간이 있다면, 분산시스템은 필요없습니다....</p>
-  </div>
-  <footer class="entry-footer"><span title='2019-01-21 22:58:23 +0900 KST'>January 21, 2019</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 1. Distributed systems at a highlevel" href="https://nolleh.github.io/distributed-systems/1.highlevel/"></a>
+  <footer class="entry-footer"><span title='2022-08-05 16:22:31 +0900 KST'>August 5, 2022</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to Cheatsheet" href="https://nolleh.github.io/kubernetes/cheatsheet/"></a>
 </article>
     </main>
     
