@@ -2,10 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://nolleh.github.io/categories/</loc>
+    <lastmod>2022-08-06T12:06:41+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/database/</loc>
+    <lastmod>2022-08-06T12:06:41+09:00</lastmod>
+  </url><url>
     <loc>https://nolleh.github.io/mysql/functions/</loc>
     <lastmod>2022-08-06T12:06:41+09:00</lastmod>
   </url><url>
+    <loc>https://nolleh.github.io/categories/mysql/</loc>
+    <lastmod>2022-08-06T12:06:41+09:00</lastmod>
+  </url><url>
     <loc>https://nolleh.github.io/mysql/</loc>
+    <lastmod>2022-08-06T12:06:41+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/rdb/</loc>
+    <lastmod>2022-08-06T12:06:41+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/sql/</loc>
+    <lastmod>2022-08-06T12:06:41+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/</loc>
     <lastmod>2022-08-06T12:06:41+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/</loc>
@@ -14,7 +32,28 @@
     <loc>https://nolleh.github.io/mysql/cheatsheet/</loc>
     <lastmod>2022-08-06T12:05:08+09:00</lastmod>
   </url><url>
+    <loc>https://nolleh.github.io/tags/cheetsheet/</loc>
+    <lastmod>2022-08-06T12:05:08+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/mysql/</loc>
+    <lastmod>2022-08-06T12:05:08+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/cheatsheet/</loc>
+    <lastmod>2022-08-05T16:22:31+09:00</lastmod>
+  </url><url>
     <loc>https://nolleh.github.io/kubernetes/cheatsheet/</loc>
+    <lastmod>2022-08-05T16:22:31+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/devops/</loc>
+    <lastmod>2022-08-05T16:22:31+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/k8s/</loc>
+    <lastmod>2022-08-05T16:22:31+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/kubernetes/</loc>
+    <lastmod>2022-08-05T16:22:31+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/categories/kubernetes/</loc>
     <lastmod>2022-08-05T16:22:31+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/kubernetes/</loc>
@@ -29,9 +68,6 @@
     <loc>https://nolleh.github.io/distributed-systems/2.level-of-abstraction/</loc>
     <lastmod>2022-06-29T22:15:08+09:00</lastmod>
   </url><url>
-    <loc>https://nolleh.github.io/categories/</loc>
-    <lastmod>2022-06-29T22:15:08+09:00</lastmod>
-  </url><url>
     <loc>https://nolleh.github.io/tags/distributed-system/</loc>
     <lastmod>2022-06-29T22:15:08+09:00</lastmod>
   </url><url>
@@ -39,9 +75,6 @@
     <lastmod>2022-06-29T22:15:08+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/tags/programming/</loc>
-    <lastmod>2022-06-29T22:15:08+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/tags/</loc>
     <lastmod>2022-06-29T22:15:08+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/tags/%EB%B2%88%EC%97%AD/</loc>
@@ -82,9 +115,6 @@
   </url><url>
     <loc>https://nolleh.github.io/qpid/1.4.broker-federation/</loc>
     <lastmod>2020-02-06T13:23:27+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/tags/cheatsheet/</loc>
-    <lastmod>2020-02-06T11:56:11+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/categories/cheatsheet/</loc>
     <lastmod>2020-02-06T11:56:11+09:00</lastmod>

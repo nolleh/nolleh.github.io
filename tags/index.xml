@@ -6,7 +6,88 @@
     <description>Recent content in Tags on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Wed, 29 Jun 2022 22:15:08 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 06 Aug 2022 12:06:41 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Database</title>
+      <link>https://nolleh.github.io/tags/database/</link>
+      <pubDate>Sat, 06 Aug 2022 12:06:41 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/tags/database/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RDB</title>
+      <link>https://nolleh.github.io/tags/rdb/</link>
+      <pubDate>Sat, 06 Aug 2022 12:06:41 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/tags/rdb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQL</title>
+      <link>https://nolleh.github.io/tags/sql/</link>
+      <pubDate>Sat, 06 Aug 2022 12:06:41 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/tags/sql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cheetsheet</title>
+      <link>https://nolleh.github.io/tags/cheetsheet/</link>
+      <pubDate>Sat, 06 Aug 2022 12:05:08 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/tags/cheetsheet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mysql</title>
+      <link>https://nolleh.github.io/tags/mysql/</link>
+      <pubDate>Sat, 06 Aug 2022 12:05:08 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cheatsheet</title>
+      <link>https://nolleh.github.io/tags/cheatsheet/</link>
+      <pubDate>Fri, 05 Aug 2022 16:22:31 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/tags/cheatsheet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>devops</title>
+      <link>https://nolleh.github.io/tags/devops/</link>
+      <pubDate>Fri, 05 Aug 2022 16:22:31 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/tags/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>k8s</title>
+      <link>https://nolleh.github.io/tags/k8s/</link>
+      <pubDate>Fri, 05 Aug 2022 16:22:31 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/tags/k8s/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubernetes</title>
+      <link>https://nolleh.github.io/tags/kubernetes/</link>
+      <pubDate>Fri, 05 Aug 2022 16:22:31 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>distributed system</title>
       <link>https://nolleh.github.io/tags/distributed-system/</link>
@@ -76,15 +157,6 @@
       <pubDate>Thu, 06 Feb 2020 14:47:47 +0900</pubDate>
       
       <guid>https://nolleh.github.io/tags/qpid/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Cheatsheet</title>
-      <link>https://nolleh.github.io/tags/cheatsheet/</link>
-      <pubDate>Thu, 06 Feb 2020 11:56:11 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/cheatsheet/</guid>
       <description></description>
     </item>
     

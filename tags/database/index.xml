@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Database on The Computer Programmer, Nolleh</title>
+    <link>https://nolleh.github.io/tags/database/</link>
+    <description>Recent content in Database on The Computer Programmer, Nolleh</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <lastBuildDate>Sat, 06 Aug 2022 12:06:41 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/database/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Functions</title>
+      <link>https://nolleh.github.io/mysql/functions/</link>
+      <pubDate>Sat, 06 Aug 2022 12:06:41 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/mysql/functions/</guid>
+      <description>Overview 개인적으로 업무 진행중 빠르게 DB 데이터를 bulk 로 넣어야할 때에는 function 생성을 선호하는 편이다.
+ORM 을 통해 코드로 넣는 방법도 있지만, 코드 수정하고 코드를 다시 실행해서 테스트 코드를 돌리고 데이터 결과를 쿼리로 다시 확인하는것보다. 쿼리를 바로 바로 작성해서 바로 수정하는게 더 생산성이 좋기 때문.
+  코드 작성 (IDE) 프로그램 실행 (SVR APP) 테스트 코드 실행 (SWAGGER BROWSER) 데이터 삽입 결과 확인 (DB CLIENT)   VS
+  function 작성 (DB CLIENT) function 실행 (DB CLIENT) 데이터 삽입 결과 확인 (DB CLIENT)   절차는 크게 차이나지 않아보이지만, 화면 이동, 적합한 프로그램 실행등의 과정에서 누적되면 생산성의 차이가 발생한다.</description>
+    </item>
+    
+    <item>
+      <title>Cheatsheet</title>
+      <link>https://nolleh.github.io/mysql/cheatsheet/</link>
+      <pubDate>Sat, 06 Aug 2022 12:05:08 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/mysql/cheatsheet/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
