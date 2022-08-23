@@ -3,7 +3,34 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://nolleh.github.io/categories/</loc>
-    <lastmod>2022-08-06T12:06:41+09:00</lastmod>
+    <lastmod>2022-08-24T00:49:49+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/env/</loc>
+    <lastmod>2022-08-24T00:49:49+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/env/</loc>
+    <lastmod>2022-08-24T00:49:49+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/linux/</loc>
+    <lastmod>2022-08-24T00:49:49+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/mac/</loc>
+    <lastmod>2022-08-24T00:49:49+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/env/mac-cheat/</loc>
+    <lastmod>2022-08-24T00:49:49+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/</loc>
+    <lastmod>2022-08-24T00:49:49+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/</loc>
+    <lastmod>2022-08-24T00:49:49+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/unix/</loc>
+    <lastmod>2022-08-24T00:49:49+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/categories/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD/</loc>
+    <lastmod>2022-08-24T00:49:49+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/tags/database/</loc>
     <lastmod>2022-08-06T12:06:41+09:00</lastmod>
@@ -21,12 +48,6 @@
     <lastmod>2022-08-06T12:06:41+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/tags/sql/</loc>
-    <lastmod>2022-08-06T12:06:41+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/tags/</loc>
-    <lastmod>2022-08-06T12:06:41+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/</loc>
     <lastmod>2022-08-06T12:06:41+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/mysql/cheatsheet/</loc>
@@ -296,9 +317,6 @@
     <loc>https://nolleh.github.io/tags/os/</loc>
     <lastmod>2017-08-01T22:54:19+09:00</lastmod>
   </url><url>
-    <loc>https://nolleh.github.io/tags/unix/</loc>
-    <lastmod>2017-08-01T22:54:19+09:00</lastmod>
-  </url><url>
     <loc>https://nolleh.github.io/network/unix-01-intro/</loc>
     <lastmod>2017-08-01T22:54:19+09:00</lastmod>
   </url><url>
@@ -350,16 +368,10 @@
     <loc>https://nolleh.github.io/tags/editor/</loc>
     <lastmod>2017-07-07T21:22:50+09:00</lastmod>
   </url><url>
-    <loc>https://nolleh.github.io/env/</loc>
-    <lastmod>2017-07-07T21:22:50+09:00</lastmod>
-  </url><url>
     <loc>https://nolleh.github.io/tags/github-page/</loc>
     <lastmod>2017-07-07T21:22:50+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/env/how-to-make-git-page/</loc>
-    <lastmod>2017-07-07T21:22:50+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/categories/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD/</loc>
     <lastmod>2017-07-07T21:22:50+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/env/brew-update/</loc>

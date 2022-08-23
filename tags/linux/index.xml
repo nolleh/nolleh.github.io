@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>linux on The Computer Programmer, Nolleh</title>
+    <link>https://nolleh.github.io/tags/linux/</link>
+    <description>Recent content in linux on The Computer Programmer, Nolleh</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <lastBuildDate>Wed, 24 Aug 2022 00:49:49 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mac Cheat</title>
+      <link>https://nolleh.github.io/env/mac-cheat/</link>
+      <pubDate>Wed, 24 Aug 2022 00:49:49 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/env/mac-cheat/</guid>
+      <description>유저그룹으로 권한 설정 example. brew
+echo $(brew --prefix) echo $(groups $(whoami)) sudo dseditgroup -o edit -a $(whoami) -t user admin sudo chgrp -R admin $(brew --prefix) sudo chmod -R g+rwX $(brew --prefix) ls -lah $(brew --prefix) 순서대로,
+ brew install path 확인하고 내 그룹 확인하고. 2에서 어드민 그룹에 없다면 어드민 그룹에 넣고 어드민 그룹으로 폴더 recursive 하게 소유권 변경 어드민 그룹에 있는 유저들에 대해 읽기,쓰기,실행 권한 부여 권한 확인  </description>
+    </item>
+    
+  </channel>
+</rss>
