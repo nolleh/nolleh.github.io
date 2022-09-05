@@ -150,6 +150,19 @@ if (!doNotTrack) {
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2>Dont Lock on Async Tasks
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>서론 예전 회사에서나 현 직장에서나, 면접관으로 들어가다가 C# 이 이력서에 적혀있는 경우 Task 와 async/await 관련하여 동기화 관련한 내용에 대해 물어보곤한다. 그리고 이 질문에서 대부분 깊이가 드러나게 된다. (여담이지만, 대부분의 지원자가 자바스택이라, 이런 재미진? 것들을 물어보기가 어렵다. C# 이랑 C&#43;&#43;, 실시간 게임서버는 재미진 질문? 들이 많은데.. ㅎㅎㅎㅎ 면접관으로 들어가기위해서 자바스택의 재미진 토픽들도 좀 찾아봐야겠다….
+ 내 경험에서 질문을 도출하려고 스프링의 라이브러리들을 어떻게 구현할 수 있을지 물어볼수는 없으니…)  물어보다가 나도 생각도 정리하고, 내가 알고 있는 틀린 부분이 없는지 정리하는겸해서 블로그에 기록해 놓는다....</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-09-06 00:20:16 +0900 KST'>September 6, 2022</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to Dont Lock on Async Tasks" href="https://nolleh.github.io/csharp/dont-lock-on-async-tasks/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2>3.time and Order<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h2>
   </header>
@@ -197,37 +210,23 @@ if (!doNotTrack) {
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2>Unix 01 Intro
+    <h2>Async Await 을 사용한 비동기 프로그래밍
     </h2>
   </header>
   <div class="entry-content">
-    <p>네트워킹의 바이블이라 할 수 있는 Unix Network Programming 의 내용 정리
- Books Introduction Socket 을 통해 통신하는 프로그램을 작성하는 개발자를 위해 쓰여진 책.
-시작하는 사람에게나, 프로페셔널에게나 유용한 책.
-물론 유지보수를 하거나, 새로 작성하는 사람, 네트워크 시스템 함수를 이해하는 모두에게 유용하다.
-실제 텍스트들은 유닉스 시스템에서 구동가능하나, OS 에 독립적인 socket api 를 지원하는 다른 OS 에서도, 본문에서 제안하는 일반적인 개념을 활용가능하다.
-많은 OS 는 셀수 없이 많은 네트워크 응용프로그램을 제공하고 있으며 - 예컨데 웹브라우저, email....</p>
+    <p>개요   다음에서 발췌 MSDN
+ 반응성을 향상시키는 비동기  잠재적인 차단 작업 완료 될때까지 다른 작업을 게속 수행
+작성이 간편한 비동기 메서드  반환 형식은 다음 중 하나
+ Task Task void - 비동기 이벤트 처리기 작성 GetAwaiter 포함 모든 기타 형식   await 을 만나면 yield 함 (호출자로 제어가 돌아감)  이때, Task가 호출자에게 반환되고 이는 언젠가 다운로드된 문자열의 길이가 반환된다는 약속 (future) 을 의미한다. await 전에 작업이 완료된다면 제어가 돌아가지 않는다....</p>
   </div>
-  <footer class="entry-footer"><span title='2017-08-01 22:54:19 +0900 KST'>August 1, 2017</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to Unix 01 Intro" href="https://nolleh.github.io/network/unix-01-intro/"></a>
+  <footer class="entry-footer"><span title='2018-12-21 21:41:08 +0900 KST'>December 21, 2018</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to Async Await 을 사용한 비동기 프로그래밍" href="https://nolleh.github.io/csharp/async-await-msdn/"></a>
 </article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>Concurrent Idiom 1 - Stack
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>concurrent 프로그램을 작성할 때 고려해야할 몇가지 사항. 그리고 idiom.
-여러 서적에서 발췌하였으며, 정리 차원에서 작성한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.
-어쩌면 작성자의 부사수를 위한 자재가 될지도 모르겠…(..)
- Concurrent ISSUE - Stack 이번엔 스택.
-if (!s.empty()) {  item = s.top();  s.pop(); } 인터페이스상의 문제이기 때문에 empty 와 top 사이의 safety 를 보장할 수 없다.
-top() / pop() 도 마찬가지 -» 조회되지 못하는 아이템이 있을 수 있다....</p>
-  </div>
-  <footer class="entry-footer"><span title='2017-07-10 22:57:57 +0900 KST'>July 10, 2017</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to Concurrent Idiom 1 - Stack" href="https://nolleh.github.io/concurrency/concurrent-idiom-1-stack/"></a>
-</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="next" href="https://nolleh.github.io/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/page/2/">Next »</a>
+  </nav>
+</footer>
     </main>
     
 <footer class="footer">

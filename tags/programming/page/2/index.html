@@ -150,6 +150,21 @@ if (!doNotTrack) {
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2>Async Await 을 사용한 비동기 프로그래밍
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>개요   다음에서 발췌 MSDN
+ 반응성을 향상시키는 비동기  잠재적인 차단 작업 완료 될때까지 다른 작업을 게속 수행
+작성이 간편한 비동기 메서드  반환 형식은 다음 중 하나
+ Task Task void - 비동기 이벤트 처리기 작성 GetAwaiter 포함 모든 기타 형식   await 을 만나면 yield 함 (호출자로 제어가 돌아감)  이때, Task가 호출자에게 반환되고 이는 언젠가 다운로드된 문자열의 길이가 반환된다는 약속 (future) 을 의미한다. await 전에 작업이 완료된다면 제어가 돌아가지 않는다....</p>
+  </div>
+  <footer class="entry-footer"><span title='2018-12-21 21:41:08 +0900 KST'>December 21, 2018</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to Async Await 을 사용한 비동기 프로그래밍" href="https://nolleh.github.io/csharp/async-await-msdn/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2>Dispose
     </h2>
   </header>
@@ -210,25 +225,6 @@ NancyFx 는 모든 컴포넌트들을 포함하는 umbrella project 입니다. (
   </div>
   <footer class="entry-footer"><span title='2017-07-26 23:11:14 +0900 KST'>July 26, 2017</span>&nbsp;·&nbsp;nolleh</footer>
   <a class="entry-link" aria-label="post link to 스프링 기본 용어/정리" href="https://nolleh.github.io/web/fund-spring/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>파일 버퍼링
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>다음에서 발췌, 번역
- https://msdn.microsoft.com/en-gb/library/windows/desktop/cc644950(v=vs.85).aspx   File Buffering 파일버퍼링 - unbuffered file I/O.
-본문에선 시스템에 의해 캐싱되지 않는 (buffered) 데이터를
-어떻게 유저 모드의 응용프로그램에서 데이터를 활용할 수 (interact) 있을지에 대해 다룬다.
-FILE_FLAG_NO_BUFFERING 플래그를 통해 CreateFile 을 Open 하면,
-파일을 읽거나 쓸때 시스템의 캐싱을 비활성화 하도록 제어할 수 있다.
-I/O 버퍼링을 사용한것과 같은 효과를 내려면, 데이터 alignment 가 반드시 고려되어야 한다.
-Note 파일에 대해 Seeking 과 위치포인터, offsets 의 개념을 사용하는 파일에 대해 alignment 정보가 고려될 필요가 있다....</p>
-  </div>
-  <footer class="entry-footer"><span title='2017-07-17 00:25:28 +0900 KST'>July 17, 2017</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 파일 버퍼링" href="https://nolleh.github.io/operating-system/file-buffering/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

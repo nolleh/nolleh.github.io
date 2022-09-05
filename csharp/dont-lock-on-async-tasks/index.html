@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Dont Lock on Async Tasks | The Computer Programmer, Nolleh</title>
+<meta name="keywords" content="Programming, async-await, concurrent, 생각하는 프로그래머">
+<meta name="description" content="서론 예전 회사에서나 현 직장에서나, 면접관으로 들어가다가 C# 이 이력서에 적혀있는 경우 Task 와 async/await 관련하여 동기화 관련한 내용에 대해 물어보곤한다. 그리고 이 질문에서 대부분 깊이가 드러나게 된다. (여담이지만, 대부분의 지원자가 자바스택이라, 이런 재미진? 것들을 물어보기가 어렵다. C# 이랑 C&#43;&#43;, 실시간 게임서버는 재미진 질문? 들이 많은데.. ㅎㅎㅎㅎ 면접관으로 들어가기위해서 자바스택의 재미진 토픽들도 좀 찾아봐야겠다&hellip;.
+ 내 경험에서 질문을 도출하려고 스프링의 라이브러리들을 어떻게 구현할 수 있을지 물어볼수는 없으니&hellip;)  물어보다가 나도 생각도 정리하고, 내가 알고 있는 틀린 부분이 없는지 정리하는겸해서 블로그에 기록해 놓는다.">
+<meta name="author" content="nolleh">
+<link rel="canonical" href="https://nolleh.github.io/csharp/dont-lock-on-async-tasks/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d7fb4cbf980fe688a21621b06a795933c4e6bb2d4070ec940667af1715d84af2.css" integrity="sha256-1/tMv5gP5oiiFiGwanlZM8Tmuy1AcOyUBmevFxXYSvI=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://nolleh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nolleh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-102565363-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="Dont Lock on Async Tasks" />
+<meta property="og:description" content="서론 예전 회사에서나 현 직장에서나, 면접관으로 들어가다가 C# 이 이력서에 적혀있는 경우 Task 와 async/await 관련하여 동기화 관련한 내용에 대해 물어보곤한다. 그리고 이 질문에서 대부분 깊이가 드러나게 된다. (여담이지만, 대부분의 지원자가 자바스택이라, 이런 재미진? 것들을 물어보기가 어렵다. C# 이랑 C&#43;&#43;, 실시간 게임서버는 재미진 질문? 들이 많은데.. ㅎㅎㅎㅎ 면접관으로 들어가기위해서 자바스택의 재미진 토픽들도 좀 찾아봐야겠다&hellip;.
+ 내 경험에서 질문을 도출하려고 스프링의 라이브러리들을 어떻게 구현할 수 있을지 물어볼수는 없으니&hellip;)  물어보다가 나도 생각도 정리하고, 내가 알고 있는 틀린 부분이 없는지 정리하는겸해서 블로그에 기록해 놓는다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nolleh.github.io/csharp/dont-lock-on-async-tasks/" /><meta property="article:section" content="csharp" />
+<meta property="article:published_time" content="2022-09-06T00:20:16&#43;09:00" />
+<meta property="article:modified_time" content="2022-09-06T00:20:16&#43;09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Dont Lock on Async Tasks"/>
+<meta name="twitter:description" content="서론 예전 회사에서나 현 직장에서나, 면접관으로 들어가다가 C# 이 이력서에 적혀있는 경우 Task 와 async/await 관련하여 동기화 관련한 내용에 대해 물어보곤한다. 그리고 이 질문에서 대부분 깊이가 드러나게 된다. (여담이지만, 대부분의 지원자가 자바스택이라, 이런 재미진? 것들을 물어보기가 어렵다. C# 이랑 C&#43;&#43;, 실시간 게임서버는 재미진 질문? 들이 많은데.. ㅎㅎㅎㅎ 면접관으로 들어가기위해서 자바스택의 재미진 토픽들도 좀 찾아봐야겠다&hellip;.
+ 내 경험에서 질문을 도출하려고 스프링의 라이브러리들을 어떻게 구현할 수 있을지 물어볼수는 없으니&hellip;)  물어보다가 나도 생각도 정리하고, 내가 알고 있는 틀린 부분이 없는지 정리하는겸해서 블로그에 기록해 놓는다."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Csharps",
+      "item": "https://nolleh.github.io/csharp/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Dont Lock on Async Tasks",
+      "item": "https://nolleh.github.io/csharp/dont-lock-on-async-tasks/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Dont Lock on Async Tasks",
+  "name": "Dont Lock on Async Tasks",
+  "description": "서론 예전 회사에서나 현 직장에서나, 면접관으로 들어가다가 C# 이 이력서에 적혀있는 경우 Task 와 async/await 관련하여 동기화 관련한 내용에 대해 물어보곤한다. 그리고 이 질문에서 대부분 깊이가 드러나게 된다. (여담이지만, 대부분의 지원자가 자바스택이라, 이런 재미진? 것들을 물어보기가 어렵다. C# 이랑 C++, 실시간 게임서버는 재미진 질문? 들이 많은데.. ㅎㅎㅎㅎ 면접관으로 들어가기위해서 자바스택의 재미진 토픽들도 좀 찾아봐야겠다\u0026hellip;.\n 내 경험에서 질문을 도출하려고 스프링의 라이브러리들을 어떻게 구현할 수 있을지 물어볼수는 없으니\u0026hellip;)  물어보다가 나도 생각도 정리하고, 내가 알고 있는 틀린 부분이 없는지 정리하는겸해서 블로그에 기록해 놓는다.",
+  "keywords": [
+    "Programming", "async-await", "concurrent", "생각하는 프로그래머"
+  ],
+  "articleBody": "서론 예전 회사에서나 현 직장에서나, 면접관으로 들어가다가 C# 이 이력서에 적혀있는 경우 Task 와 async/await 관련하여 동기화 관련한 내용에 대해 물어보곤한다. 그리고 이 질문에서 대부분 깊이가 드러나게 된다. (여담이지만, 대부분의 지원자가 자바스택이라, 이런 재미진? 것들을 물어보기가 어렵다. C# 이랑 C++, 실시간 게임서버는 재미진 질문? 들이 많은데.. ㅎㅎㅎㅎ 면접관으로 들어가기위해서 자바스택의 재미진 토픽들도 좀 찾아봐야겠다….\n 내 경험에서 질문을 도출하려고 스프링의 라이브러리들을 어떻게 구현할 수 있을지 물어볼수는 없으니…)  물어보다가 나도 생각도 정리하고, 내가 알고 있는 틀린 부분이 없는지 정리하는겸해서 블로그에 기록해 놓는다.\n내용 출처 - Don’t Lock On Async Tasks\n다음과 같이 일반적으로 락을 건다고 하자.\npublic class LockTest{  private readonly object objLock = new object();   public void RecordSuccess(int batchId){  lock(objLock){  // Record a success in database  var success = GetCurrentSuccessCountFromDB();  SaveSuccessCountToDB(success+1);  }  }   public void RecordFailure(int batchId){  lock(objLock){  // Record a failure in database  var success = GetCurrentFailureCountFromDB();  SaveFailureCountToDB(success+1);  }  } } 락을 거는 것의 목적은 동시에 해당 영역에 두개이상의 스레드들이 접근 불가하도록 하는것인데, 10 개의 스레드가 락을 얻으려고 한다고 가정할때 순차적으로 락을 얻게 된다.\ntask 와 async/await 으로 위와 같은 코드를 작성하는 경우 async/await 의 이점을 제대로 누리지 못하고 스레드들이 잠기게 될것이다. (it ain’t async over here)\n 때문에, 컴파일조차 안되게끔 컴파일러에서 막고있다. (이건 nolleh 의 경험상 적은 문구.)  그럼 어떻게 async 하게 wait 할수있을까? 이걸 위해 semapore 와 semaporeslim 이 있음.\n세마포어는 IPC 에서 사용할수 있고 세마포어 슬림은 어플리케이션 레벨에서 사용할 수 있다.\n - 이제 blocking 에서, suspended 된다. 요렇게 사용하면 됨.\npublic class LockTest{ private readonly SemaphoreSlim _lock= new SemaphoreSlim(1, 1); public async Task RecordSuccess(int batchId){ await _lock.WaitAsync(); try{ // Record a success in database var success = GetCurrentSuccessCountFromDB(); SaveSuccessCountToDB(success+1); } finally{ _lock.Release(); } } public async Task RecordFailure(int batchId){ await _lock.WaitAsync(); try{ // Record a failure in database var success = GetCurrentFailureCountFromDB(); SaveFailureCountToDB(success+1); } finally{ _lock.Release(); } } }  nolleh 의 경험상, 여기에서 추가로 더 알아 둬야할 게 있는데, (reentrance 관련) 해당 컬럼은 본 블로그의 같은 카테고리-다음글-에서 찾아볼수 있다.  이어보기 - NeoSmart.AsyncLock 라이브러리에 관하여\n",
+  "wordCount" : "316",
+  "inLanguage": "en",
+  "datePublished": "2022-09-06T00:20:16+09:00",
+  "dateModified": "2022-09-06T00:20:16+09:00",
+  "author":{
+    "@type": "Person",
+    "name": "nolleh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nolleh.github.io/csharp/dont-lock-on-async-tasks/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Computer Programmer, Nolleh",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nolleh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://nolleh.github.io/archives/" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nolleh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nolleh.github.io/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nolleh.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://nolleh.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://nolleh.github.io/csharp/">Csharps</a></div>
+    <h1 class="post-title">
+      Dont Lock on Async Tasks
+    </h1>
+    <div class="post-meta"><span title='2022-09-06 00:20:16 +0900 KST'>September 6, 2022</span>&nbsp;·&nbsp;nolleh
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%ec%84%9c%eb%a1%a0" aria-label="서론">서론</a></li>
+                <li>
+                    <a href="#%eb%82%b4%ec%9a%a9" aria-label="내용">내용</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="서론">서론<a hidden class="anchor" aria-hidden="true" href="#서론">#</a></h2>
+<p>예전 회사에서나 현 직장에서나, 면접관으로 들어가다가 C# 이 이력서에 적혀있는 경우
+Task 와 async/await 관련하여 동기화 관련한 내용에 대해 물어보곤한다.
+그리고 이 질문에서 대부분 깊이가 드러나게 된다.
+(여담이지만, 대부분의 지원자가 자바스택이라, 이런 재미진? 것들을 물어보기가 어렵다.
+C# 이랑 C++, 실시간 게임서버는 재미진 질문? 들이 많은데.. ㅎㅎㅎㅎ
+면접관으로 들어가기위해서 자바스택의 재미진 토픽들도 좀 찾아봐야겠다&hellip;.</p>
+<ul>
+<li>내 경험에서 질문을 도출하려고 스프링의 라이브러리들을 어떻게 구현할 수 있을지 물어볼수는 없으니&hellip;)</li>
+</ul>
+<p>물어보다가 나도 생각도 정리하고, 내가 알고 있는 틀린 부분이 없는지 정리하는겸해서 블로그에 기록해 놓는다.</p>
+<h2 id="내용">내용<a hidden class="anchor" aria-hidden="true" href="#내용">#</a></h2>
+<p>출처 - <a href="https://davidsekar.com/c-sharp/dont-lock-on-async-tasks">Don&rsquo;t Lock On Async Tasks</a></p>
+<p>다음과 같이 일반적으로 락을 건다고 하자.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LockTest</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">object</span> objLock = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">object</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> RecordSuccess(<span style="color:#66d9ef">int</span> batchId){
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">lock</span>(objLock){
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Record a success in database</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">var</span> success = GetCurrentSuccessCountFromDB();
+</span></span><span style="display:flex;"><span>            SaveSuccessCountToDB(success+<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> RecordFailure(<span style="color:#66d9ef">int</span> batchId){
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">lock</span>(objLock){
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Record a failure in database</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">var</span> success = GetCurrentFailureCountFromDB();
+</span></span><span style="display:flex;"><span>            SaveFailureCountToDB(success+<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>락을 거는 것의 목적은 동시에 해당 영역에 두개이상의 스레드들이 접근 불가하도록 하는것인데,
+10 개의 스레드가 락을 얻으려고 한다고 가정할때 순차적으로 락을 얻게 된다.</p>
+<p>task 와 async/await 으로 위와 같은 코드를 작성하는 경우 async/await 의 이점을 제대로 누리지 못하고
+스레드들이 잠기게 될것이다. (it ain&rsquo;t async over here)</p>
+<ul>
+<li>때문에, 컴파일조차 안되게끔 컴파일러에서 막고있다. (이건 nolleh 의 경험상 적은 문구.)</li>
+</ul>
+<p>그럼 어떻게 async 하게 wait 할수있을까?
+이걸 위해 semapore 와 semaporeslim 이 있음.</p>
+<p>세마포어는 IPC 에서 사용할수 있고
+세마포어 슬림은 어플리케이션 레벨에서 사용할 수 있다.<br>
+<code> -&gt; 이제 blocking 에서, suspended 된다.</code>
+요렇게 사용하면 됨.</p>
+<pre tabindex="0"><code>public class LockTest{
+    private readonly SemaphoreSlim _lock= new SemaphoreSlim(1, 1);
+
+    public async Task RecordSuccess(int batchId){
+        await _lock.WaitAsync();
+        try{
+            // Record a success in database
+            var success = GetCurrentSuccessCountFromDB();
+            SaveSuccessCountToDB(success+1);
+        }
+        finally{
+            _lock.Release();
+        }
+    }
+
+    public async Task RecordFailure(int batchId){
+        await _lock.WaitAsync();
+        try{
+            // Record a failure in database
+            var success = GetCurrentFailureCountFromDB();
+            SaveFailureCountToDB(success+1);
+        }
+        finally{
+            _lock.Release();
+        }
+    }
+}
+</code></pre><ul>
+<li>nolleh 의 경험상, 여기에서 추가로 더 알아 둬야할 게 있는데, (reentrance 관련)
+해당 컬럼은 본 블로그의 같은 카테고리-다음글-에서 찾아볼수 있다.</li>
+</ul>
+<p><a href="https://nolleh.github.io/csharp/async-await/">이어보기 - NeoSmart.AsyncLock 라이브러리에 관하여</a></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://nolleh.github.io/tags/programming/">Programming</a></li>
+      <li><a href="https://nolleh.github.io/tags/async-await/">async-await</a></li>
+      <li><a href="https://nolleh.github.io/tags/concurrent/">concurrent</a></li>
+      <li><a href="https://nolleh.github.io/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/">생각하는 프로그래머</a></li>
+    </ul>
+  </footer><div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "nolleh-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

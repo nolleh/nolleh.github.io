@@ -6,7 +6,43 @@
     <description>Recent content in Tags on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Wed, 24 Aug 2022 00:49:49 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Sep 2022 00:20:16 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>async-await</title>
+      <link>https://nolleh.github.io/tags/async-await/</link>
+      <pubDate>Tue, 06 Sep 2022 00:20:16 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/tags/async-await/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>concurrent</title>
+      <link>https://nolleh.github.io/tags/concurrent/</link>
+      <pubDate>Tue, 06 Sep 2022 00:20:16 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/tags/concurrent/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programming</title>
+      <link>https://nolleh.github.io/tags/programming/</link>
+      <pubDate>Tue, 06 Sep 2022 00:20:16 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>생각하는 프로그래머</title>
+      <link>https://nolleh.github.io/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/</link>
+      <pubDate>Tue, 06 Sep 2022 00:20:16 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>env</title>
       <link>https://nolleh.github.io/tags/env/</link>
@@ -134,29 +170,11 @@
     </item>
     
     <item>
-      <title>Programming</title>
-      <link>https://nolleh.github.io/tags/programming/</link>
-      <pubDate>Sat, 23 Jul 2022 14:33:45 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/programming/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>번역</title>
       <link>https://nolleh.github.io/tags/%EB%B2%88%EC%97%AD/</link>
       <pubDate>Sat, 23 Jul 2022 14:33:45 +0900</pubDate>
       
       <guid>https://nolleh.github.io/tags/%EB%B2%88%EC%97%AD/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>생각하는 프로그래머</title>
-      <link>https://nolleh.github.io/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/</link>
-      <pubDate>Sat, 23 Jul 2022 14:33:45 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/</guid>
       <description></description>
     </item>
     

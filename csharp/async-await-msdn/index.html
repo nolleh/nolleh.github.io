@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>Async Await 을 사용한 비동기 프로그래밍 | The Computer Programmer, Nolleh</title>
-<meta name="keywords" content="C#, Programming, async, await">
+<meta name="keywords" content="C#, Programming, async-await, 생각하는 프로그래머">
 <meta name="description" content="개요   다음에서 발췌 MSDN
  반응성을 향상시키는 비동기  잠재적인 차단 작업 완료 될때까지 다른 작업을 게속 수행
 작성이 간편한 비동기 메서드  반환 형식은 다음 중 하나
@@ -117,7 +117,7 @@ if (!doNotTrack) {
   "name": "Async Await 을 사용한 비동기 프로그래밍",
   "description": "개요   다음에서 발췌 MSDN\n 반응성을 향상시키는 비동기  잠재적인 차단 작업 완료 될때까지 다른 작업을 게속 수행\n작성이 간편한 비동기 메서드  반환 형식은 다음 중 하나\n Task Task void - 비동기 이벤트 처리기 작성 GetAwaiter 포함 모든 기타 형식   await 을 만나면 yield 함 (호출자로 제어가 돌아감)  이때, Task가 호출자에게 반환되고 이는 언젠가 다운로드된 문자열의 길이가 반환된다는 약속 (future) 을 의미한다. await 전에 작업이 완료된다면 제어가 돌아가지 않는다.",
   "keywords": [
-    "C#", "Programming", "async", "await"
+    "C#", "Programming", "async-await", "생각하는 프로그래머"
   ],
   "articleBody": "개요   다음에서 발췌 MSDN\n 반응성을 향상시키는 비동기  잠재적인 차단 작업 완료 될때까지 다른 작업을 게속 수행\n작성이 간편한 비동기 메서드  반환 형식은 다음 중 하나\n Task Task void - 비동기 이벤트 처리기 작성 GetAwaiter 포함 모든 기타 형식   await 을 만나면 yield 함 (호출자로 제어가 돌아감)  이때, Task가 호출자에게 반환되고 이는 언젠가 다운로드된 문자열의 길이가 반환된다는 약속 (future) 을 의미한다. await 전에 작업이 완료된다면 제어가 돌아가지 않는다.    스레드  비동기 메서드의 await 식은 대기한 작업이 실행되는 동안 현재 스레드를 차단하지 않는다. 대신, 메서드의 나머지를 연속으로 등록하고 비동기 메서드 호출자에 반환.\nasync / await 으로 인해 스레드가 추가로 생성되지 않는다.\n비동기 메서드는 자체 스레드에서 실행되지 않고 현재 동기화 컨텍스트에서 실행되며,\n활성화된 경우에만 스레드에서 시간을 사용.\n",
   "wordCount" : "113",
@@ -281,8 +281,8 @@ if (!doNotTrack) {
     <ul class="post-tags">
       <li><a href="https://nolleh.github.io/tags/c#/">C#</a></li>
       <li><a href="https://nolleh.github.io/tags/programming/">Programming</a></li>
-      <li><a href="https://nolleh.github.io/tags/async/">async</a></li>
-      <li><a href="https://nolleh.github.io/tags/await/">await</a></li>
+      <li><a href="https://nolleh.github.io/tags/async-await/">async-await</a></li>
+      <li><a href="https://nolleh.github.io/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/">생각하는 프로그래머</a></li>
     </ul>
   </footer><div id="disqus_thread"></div>
 <script type="application/javascript">
