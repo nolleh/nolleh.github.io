@@ -2,10 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://nolleh.github.io/tags/async-await/</loc>
-    <lastmod>2022-09-06T00:20:16+09:00</lastmod>
-  </url><url>
     <loc>https://nolleh.github.io/categories/</loc>
+    <lastmod>2022-10-11T23:34:14+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/fe/</loc>
+    <lastmod>2022-10-11T23:34:14+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/svelte/overview/</loc>
+    <lastmod>2022-10-11T23:34:14+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/categories/svelte/</loc>
+    <lastmod>2022-10-11T23:34:14+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/svelte/</loc>
+    <lastmod>2022-10-11T23:34:14+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/</loc>
+    <lastmod>2022-10-11T23:34:14+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/</loc>
+    <lastmod>2022-10-11T23:34:14+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/async-await/</loc>
     <lastmod>2022-09-06T00:20:16+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/tags/concurrent/</loc>
@@ -21,12 +39,6 @@
     <lastmod>2022-09-06T00:20:16+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/tags/programming/</loc>
-    <lastmod>2022-09-06T00:20:16+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/tags/</loc>
-    <lastmod>2022-09-06T00:20:16+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/</loc>
     <lastmod>2022-09-06T00:20:16+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/</loc>

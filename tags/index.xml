@@ -6,7 +6,16 @@
     <description>Recent content in Tags on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Tue, 06 Sep 2022 00:20:16 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 11 Oct 2022 23:34:14 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FE</title>
+      <link>https://nolleh.github.io/tags/fe/</link>
+      <pubDate>Tue, 11 Oct 2022 23:34:14 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/tags/fe/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>async-await</title>
       <link>https://nolleh.github.io/tags/async-await/</link>
