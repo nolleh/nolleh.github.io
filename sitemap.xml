@@ -2,8 +2,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/2.linux-history/</loc>
+    <lastmod>2022-12-11T23:42:16+09:00</lastmod>
+  </url><url>
     <loc>https://nolleh.github.io/categories/</loc>
-    <lastmod>2022-10-11T23:34:14+09:00</lastmod>
+    <lastmod>2022-12-11T23:42:16+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/edx/</loc>
+    <lastmod>2022-12-11T23:42:16+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/categories/edx-linux/</loc>
+    <lastmod>2022-12-11T23:42:16+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/kernal/</loc>
+    <lastmod>2022-12-11T23:42:16+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/linux/</loc>
+    <lastmod>2022-12-11T23:42:16+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/linux/</loc>
+    <lastmod>2022-12-11T23:42:16+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/</loc>
+    <lastmod>2022-12-11T23:42:16+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/</loc>
+    <lastmod>2022-12-11T23:42:16+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/1.introduction/</loc>
+    <lastmod>2022-12-11T23:23:50+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/linux/1.the-linux-foundation/3.course-linux-requirements/</loc>
+    <lastmod>2022-12-11T22:23:30+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/linux/1.the-linux-foundation/2.the-linux-foundation/</loc>
+    <lastmod>2022-12-11T21:55:34+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/linux/1.the-linux-foundation/1.introduction/</loc>
+    <lastmod>2022-12-11T21:55:20+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/linux/welcome/</loc>
+    <lastmod>2022-12-11T21:50:09+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/tags/fe/</loc>
     <lastmod>2022-10-11T23:34:14+09:00</lastmod>
@@ -15,12 +54,6 @@
     <lastmod>2022-10-11T23:34:14+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/svelte/</loc>
-    <lastmod>2022-10-11T23:34:14+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/tags/</loc>
-    <lastmod>2022-10-11T23:34:14+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/</loc>
     <lastmod>2022-10-11T23:34:14+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/tags/async-await/</loc>
@@ -54,9 +87,6 @@
     <lastmod>2022-08-24T00:49:49+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/env/</loc>
-    <lastmod>2022-08-24T00:49:49+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/tags/linux/</loc>
     <lastmod>2022-08-24T00:49:49+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/tags/mac/</loc>
