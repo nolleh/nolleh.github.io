@@ -6,7 +6,63 @@
     <description>Recent content in Kernel on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Mon, 17 Jul 2017 00:25:28 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/kernel/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 11 Dec 2022 23:42:16 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/kernel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2-2.linux History</title>
+      <link>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/2.linux-history/</link>
+      <pubDate>Sun, 11 Dec 2022 23:42:16 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/2.linux-history/</guid>
+      <description>Linux History Overview initially developed on and for intel x86-based personal computers.
+Linux History Linus Torvalds was a student in Helsinki, Finland, in 1991, when he started a project: writing his own operating system kernal. collected together and/or developed the other essential ingredients required to construct an entire operating system with his kernel at the center.
+In 1992, Linux was re-licensed using General Public License (GPL) by GNU (a project of the Free Software Foundation or FSF, which promotes freely available software),</description>
+    </item>
+    
+    <item>
+      <title>2-1.introduction</title>
+      <link>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/1.introduction/</link>
+      <pubDate>Sun, 11 Dec 2022 23:23:50 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/1.introduction/</guid>
+      <description>The Power of Linux Three Important Pieces of Context   Things change in Linux
+Linux is contantly evolving. no matter how hard to make up-to-date as possible, Course &amp;lt;-/-&amp;gt; Linux
+  We have repeated some things in the class meterial
+  We have tried to avoid holy wars
+there are many areas where there are strong preference disagreements in the Linux (and wider open source) community. examples include the best editor: emacs vs.</description>
+    </item>
+    
+    <item>
+      <title>1-3.course Linux Requirements</title>
+      <link>https://nolleh.github.io/linux/1.the-linux-foundation/3.course-linux-requirements/</link>
+      <pubDate>Sun, 11 Dec 2022 22:23:30 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/linux/1.the-linux-foundation/3.course-linux-requirements/</guid>
+      <description>Course Software Requirements to fully benefit from this course, at least one linux distribution installed.
+you will learn some more details about many available Linux distributions and the failies thy can be considered to belong to.
+focus on 3 major distribution families.
+Focus on Three Major Linux Distribution Families The Red Hat Family Red Hat Enterprise Linux (RHEL) heads the family that includes CentOS, CentOS Stream, Fedora and Oracle Linux.</description>
+    </item>
+    
+    <item>
+      <title>1-2.the Linux Foundation</title>
+      <link>https://nolleh.github.io/linux/1.the-linux-foundation/2.the-linux-foundation/</link>
+      <pubDate>Sun, 11 Dec 2022 21:55:34 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/linux/1.the-linux-foundation/2.the-linux-foundation/</guid>
+      <description>founded in 2000, supported by more than 1,000 members and is the world&amp;rsquo;s leading home for collaboration on open source software.
+the foundation hosts hundreds of world&amp;rsquo;s most important open source projects including linux, kubernetes, Node.js, Hyperledger, ONAP&amp;hellip; and many more.</description>
+    </item>
+    
+    <item>
+      <title>1-1.Introduction</title>
+      <link>https://nolleh.github.io/linux/1.the-linux-foundation/1.introduction/</link>
+      <pubDate>Sun, 11 Dec 2022 21:55:20 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/linux/1.the-linux-foundation/1.introduction/</guid>
+      <description>we will learn&amp;hellip;
+ linux foundation logistics of this online course choosing a linux distribution that&amp;rsquo;s right for you  </description>
+    </item>
+    
     <item>
       <title>파일 버퍼링</title>
       <link>https://nolleh.github.io/operating-system/file-buffering/</link>
