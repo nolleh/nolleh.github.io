@@ -6,7 +6,52 @@
     <description>Recent content on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Sun, 11 Dec 2022 23:42:16 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 25 Dec 2022 22:02:31 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2-6.chapter summary</title>
+      <link>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/6.chapter-summary/</link>
+      <pubDate>Sun, 25 Dec 2022 22:02:31 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/6.chapter-summary/</guid>
+      <description>Chapter Summary Linux boroows heavily from UNIX operating system, with withch its creators were well-versed. LInux accesses many features and services through files and file-like objects. Linux is a fully multi-tasking, multi-user operating system, with built-in networking and service processes known as deamons. Linux is developed by a loose confederation of developers from all over the world, collaborating over the Internet,
+with Linus Torvalds at th head. Technical sill and a desire to contriubte are the only qualifications for participating.</description>
+    </item>
+    
+    <item>
+      <title>2-5.linux Distribution</title>
+      <link>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/5.linux-distribution/</link>
+      <pubDate>Sun, 25 Dec 2022 21:38:28 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/5.linux-distribution/</guid>
+      <description>Linux Distribution Overview making sure that project works properly on the most widely used Linux distributions. To accomplish this, you need to learn amout the different components, services, and configurations associated with each distribution.</description>
+    </item>
+    
+    <item>
+      <title>2-4.linux Terminology Overview</title>
+      <link>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/4.linux-terminology-overview/</link>
+      <pubDate>Sun, 25 Dec 2022 21:27:09 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/4.linux-terminology-overview/</guid>
+      <description>Video: Linux Terminology Kernel: Glue between hardware and applications
+Ditribution: Collection of software making up a Linux-based OS
+BootLoader: Program that boots the operating system
+Service: Program that runs as a background process
+Filesystem: Method for sotring and organizing files
+X window System: toolkit and protocol to build graphical subsystem
+Shell: command line interpreter</description>
+    </item>
+    
+    <item>
+      <title>2-3.linux Philosophy</title>
+      <link>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/3.linux-philosophy/</link>
+      <pubDate>Sun, 25 Dec 2022 14:37:33 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/3.linux-philosophy/</guid>
+      <description>Linux Philosophy Overview Linux is constantly enhanced and maintained by a network of developers from all over the world collaborating over the internet, with Linus Torvalds at the head.
+Linux Philosophy Linux borrows heavily from the well-established UNIX operating system. it was written to be a free and open source system to be used in place of UNIX,
+which at the time was designed for computers much more powerful than PCs and was quite expensive.</description>
+    </item>
+    
     <item>
       <title>2-2.linux History</title>
       <link>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/2.linux-history/</link>
@@ -24,11 +69,11 @@ In 1992, Linux was re-licensed using General Public License (GPL) by GNU (a proj
       <pubDate>Sun, 11 Dec 2022 23:23:50 +0900</pubDate>
       
       <guid>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/1.introduction/</guid>
-      <description>The Power of Linux Three Important Pieces of Context   Things change in Linux
+      <description>The Power of Linux Three Important Pieces of Context Things change in Linux
 Linux is contantly evolving. no matter how hard to make up-to-date as possible, Course &amp;lt;-/-&amp;gt; Linux
-  We have repeated some things in the class meterial
-  We have tried to avoid holy wars
-there are many areas where there are strong preference disagreements in the Linux (and wider open source) community. examples include the best editor: emacs vs.</description>
+We have repeated some things in the class meterial
+We have tried to avoid holy wars
+there are many areas where there are strong preference disagreements in the Linux (and wider open source) community. examples include the best editor: emacs vs. vi; GNOME vs.</description>
     </item>
     
     <item>
@@ -60,7 +105,7 @@ the foundation hosts hundreds of world&amp;rsquo;s most important open source pr
       
       <guid>https://nolleh.github.io/linux/1.the-linux-foundation/1.introduction/</guid>
       <description>we will learn&amp;hellip;
- linux foundation logistics of this online course choosing a linux distribution that&amp;rsquo;s right for you  </description>
+linux foundation logistics of this online course choosing a linux distribution that&amp;rsquo;s right for you </description>
     </item>
     
     <item>
@@ -89,7 +134,7 @@ the foundation hosts hundreds of world&amp;rsquo;s most important open source pr
       
       <guid>https://nolleh.github.io/csharp/dont-lock-on-async-tasks/</guid>
       <description>서론 예전 회사에서나 현 직장에서나, 면접관으로 들어가다가 C# 이 이력서에 적혀있는 경우 Task 와 async/await 관련하여 동기화 관련한 내용에 대해 물어보곤한다. 그리고 이 질문에서 대부분 깊이가 드러나게 된다. (여담이지만, 대부분의 지원자가 자바스택이라, 이런 재미진? 것들을 물어보기가 어렵다. C# 이랑 C++, 실시간 게임서버는 재미진 질문? 들이 많은데.. ㅎㅎㅎㅎ 면접관으로 들어가기위해서 자바스택의 재미진 토픽들도 좀 찾아봐야겠다&amp;hellip;.
- 내 경험에서 질문을 도출하려고 스프링의 라이브러리들을 어떻게 구현할 수 있을지 물어볼수는 없으니&amp;hellip;)  물어보다가 나도 생각도 정리하고, 내가 알고 있는 틀린 부분이 없는지 정리하는겸해서 블로그에 기록해 놓는다.</description>
+내 경험에서 질문을 도출하려고 스프링의 라이브러리들을 어떻게 구현할 수 있을지 물어볼수는 없으니&amp;hellip;) 물어보다가 나도 생각도 정리하고, 내가 알고 있는 틀린 부분이 없는지 정리하는겸해서 블로그에 기록해 놓는다.</description>
     </item>
     
     <item>
@@ -98,7 +143,7 @@ the foundation hosts hundreds of world&amp;rsquo;s most important open source pr
       <pubDate>Sun, 04 Sep 2022 13:55:28 +0900</pubDate>
       
       <guid>https://nolleh.github.io/coursera/data-analyst-ibm/week1/note/</guid>
-      <description>role of data analyst  sicentist: modeling. analyze data for actionable insight and build ML or DLM anaylsts : data to find trends and patterns, for buisiness decisions. engineer : extract and organie data from different sources, store and manage data repositorioes, so that other data professionals can access it.  build your skills as a data analyst Data Analyst Expert view point </description>
+      <description>role of data analyst sicentist: modeling. analyze data for actionable insight and build ML or DLM anaylsts : data to find trends and patterns, for buisiness decisions. engineer : extract and organie data from different sources, store and manage data repositorioes, so that other data professionals can access it. build your skills as a data analyst Data Analyst Expert view point </description>
     </item>
     
     <item>
@@ -110,7 +155,7 @@ the foundation hosts hundreds of world&amp;rsquo;s most important open source pr
       <description>stackoverflow
 유저그룹으로 권한 설정 example. brew
 echo $(brew --prefix) echo $(groups $(whoami)) sudo dseditgroup -o edit -a $(whoami) -t user admin sudo chgrp -R admin $(brew --prefix) sudo chmod -R g+rwX $(brew --prefix) ls -lah $(brew --prefix) 순서대로,
- brew install path 확인하고 내 그룹 확인하고. 2에서 어드민 그룹에 없다면 어드민 그룹에 넣고 어드민 그룹으로 폴더 recursive 하게 소유권 변경 어드민 그룹에 있는 유저들에 대해 읽기,쓰기,실행 권한 부여 권한 확인   공식 문서 제안법 하나도 사용하지 않거나, 하나의 글로벌 brew 설치를 하고, 모든 다른 유저들에서 지역 버전을 사용하는것이 공식 제안 법.</description>
+brew install path 확인하고 내 그룹 확인하고. 2에서 어드민 그룹에 없다면 어드민 그룹에 넣고 어드민 그룹으로 폴더 recursive 하게 소유권 변경 어드민 그룹에 있는 유저들에 대해 읽기,쓰기,실행 권한 부여 권한 확인 공식 문서 제안법 하나도 사용하지 않거나, 하나의 글로벌 brew 설치를 하고, 모든 다른 유저들에서 지역 버전을 사용하는것이 공식 제안 법.</description>
     </item>
     
     <item>
@@ -121,8 +166,8 @@ echo $(brew --prefix) echo $(groups $(whoami)) sudo dseditgroup -o edit -a $(who
       <guid>https://nolleh.github.io/mysql/functions/</guid>
       <description>Overview 개인적으로 업무 진행중 빠르게 DB 데이터를 bulk 로 넣어야할 때에는 function 생성을 선호하는 편이다.
 ORM 을 통해 코드로 넣는 방법도 있지만, 코드 수정하고 코드를 다시 실행해서 테스트 코드를 돌리고 데이터 결과를 쿼리로 다시 확인하는것보다. 쿼리를 바로 바로 작성해서 바로 수정하는게 더 생산성이 좋기 때문.
-  코드 작성 (IDE) 프로그램 실행 (SVR APP) 테스트 코드 실행 (SWAGGER BROWSER) 데이터 삽입 결과 확인 (DB CLIENT)   VS
-  function 작성 (DB CLIENT) function 실행 (DB CLIENT) 데이터 삽입 결과 확인 (DB CLIENT)   절차는 크게 차이나지 않아보이지만, 화면 이동, 적합한 프로그램 실행등의 과정에서 누적되면 생산성의 차이가 발생한다.</description>
+코드 작성 (IDE) 프로그램 실행 (SVR APP) 테스트 코드 실행 (SWAGGER BROWSER) 데이터 삽입 결과 확인 (DB CLIENT) VS
+function 작성 (DB CLIENT) function 실행 (DB CLIENT) 데이터 삽입 결과 확인 (DB CLIENT) 절차는 크게 차이나지 않아보이지만, 화면 이동, 적합한 프로그램 실행등의 과정에서 누적되면 생산성의 차이가 발생한다.</description>
     </item>
     
     <item>
@@ -150,8 +195,7 @@ kubectl create job -n {namespace} --from=cronjob/{name} {job-name} </description
       <pubDate>Sat, 23 Jul 2022 14:33:45 +0900</pubDate>
       
       <guid>https://nolleh.github.io/distributed-systems/3.time-and-order/</guid>
-      <description>다음에서 발췌 
- 3. Time and Order 순서란 무엇이고, 왜 중요할까요?
+      <description>다음에서 발췌 3. Time and Order 순서란 무엇이고, 왜 중요할까요?
 &amp;ldquo;순서란 무엇인가&amp;rdquo; 라는 질문은 무슨 의미 일까요 ?
 애초에 왜 여기에 왜 빠져있는 걸까요? 왜 우리는 A 가 B 이전에 실행되었다는걸 신경 써야할까요? 왜 우리는 다른 주제에는 신경을 안쓸까요 ? 색깔 같은거?
 글쎄, 친구, 일단 이에 답변하기 위해 분산 시스템을 다시 살펴보도록 합시다.
@@ -166,7 +210,7 @@ kubectl create job -n {namespace} --from=cronjob/{name} {job-name} </description
       
       <guid>https://nolleh.github.io/distributed-systems/2.level-of-abstraction/</guid>
       <description>다음에서 발췌 http://book.mixu.net/distsys/abstractions.html
- 2. Up and down the level of abstraction 이 챕터에서는, 추상화의 레벨을 여행할 것이며, 몇가지 불가능한 결과를 보고, (CAP 와 FLP), 그리고 나서 성능에 대한 항해를 할 것 입니다.
+2. Up and down the level of abstraction 이 챕터에서는, 추상화의 레벨을 여행할 것이며, 몇가지 불가능한 결과를 보고, (CAP 와 FLP), 그리고 나서 성능에 대한 항해를 할 것 입니다.
 만약 어떤 프로그래밍을 완료했다면, 추상화. 수준에 대한 개념은 당신에게 익숙할 겁니다. 당신은 이미 추상화와 함께 했고, 어떤 API 를 통해 더 낮은 레이어와 인터페이싱하고 있을 것이며, 더 높은 레이어에 API 나 인터페이스를 제공하고있을 겁니다. OSI 네트워크 7 계층이 좋은 예죠.</description>
     </item>
     
@@ -178,7 +222,7 @@ kubectl create job -n {namespace} --from=cronjob/{name} {job-name} </description
       <guid>https://nolleh.github.io/git/sub-module/</guid>
       <description>자주 사용하는 서브 모듈 명령어.
 add submodule git submodule add {remote-repo} update git submodule init
- git 에서 서브모듈을 관리하기위한 설정파일, gitmodules 를 설정한다.  git submodule update  remote 저장소로부터 업데이트 내용을 가져와서 적용한다.  git submodule update --init remove submodule git submodule deinit -f {path} rm -rf .git/modules/{path} git rm -f {path} </description>
+git 에서 서브모듈을 관리하기위한 설정파일, gitmodules 를 설정한다. git submodule update remote 저장소로부터 업데이트 내용을 가져와서 적용한다. git submodule update --init remove submodule git submodule deinit -f {path} rm -rf .git/modules/{path} git rm -f {path} </description>
     </item>
     
     <item>
@@ -206,7 +250,7 @@ active-passive 클러스터는 하나의 브로커만 존재하며, 이를 프�
 1.4.1 Message Routes pull / push 방식이 있음.
 pull 은 dest 에서.
 push 는 src 에서 설정함
- queue &amp;lt;-&amp;gt; exchage exchange &amp;lt;-&amp;gt; exchange  excg &amp;lt;-&amp;gt; excg 는 다음과 같은 라우트를 가질 수 있다.</description>
+queue &amp;lt;-&amp;gt; exchage exchange &amp;lt;-&amp;gt; exchange excg &amp;lt;-&amp;gt; excg 는 다음과 같은 라우트를 가질 수 있다.</description>
     </item>
     
     <item>
@@ -215,7 +259,7 @@ push 는 src 에서 설정함
       <pubDate>Thu, 06 Feb 2020 11:56:11 +0900</pubDate>
       
       <guid>https://nolleh.github.io/cheatsheet/network/</guid>
-      <description>time_wait 종료 시간 확인 : ndd -get /dev/tcp tcp_time_wait_interval time_wait 종료 시간 30초로 설정 : ndd -set /dev/tcp tcp_time_wait_interval 30000 fin_wait_2 타임 아웃 시간 확인 : ndd -get /dev/tcp tcp_fin_wait_2_timeout fin_wait_2 타임 아웃 시간 5분으로 설정 : ndd -set /dev/tcp tcp_fin_wait_2_timeout 300000  출처: https://hyeonstorage.tistory.com/287 [개발이 하고 싶어요]</description>
+      <description>time_wait 종료 시간 확인 : ndd -get /dev/tcp tcp_time_wait_interval time_wait 종료 시간 30초로 설정 : ndd -set /dev/tcp tcp_time_wait_interval 30000 fin_wait_2 타임 아웃 시간 확인 : ndd -get /dev/tcp tcp_fin_wait_2_timeout fin_wait_2 타임 아웃 시간 5분으로 설정 : ndd -set /dev/tcp tcp_fin_wait_2_timeout 300000 출처: https://hyeonstorage.tistory.com/287 [개발이 하고 싶어요]</description>
     </item>
     
     <item>
@@ -224,8 +268,7 @@ push 는 src 에서 설정함
       <pubDate>Thu, 06 Feb 2020 10:53:37 +0900</pubDate>
       
       <guid>https://nolleh.github.io/cheatsheet/docker/</guid>
-      <description>Docker Cheat Sheet 1. docker conntainer 내부 소켓 상태 확인 
-$ docker inspect -f &amp;#39;{{.State.Pid}}&amp;#39; cb2939r52s22 5645 [ec2-user@ip-10-100-77-76 ~]$ sudo nsenter -t 5645 -n netstat Active Internet connections (w/o servers) Proto Recv-Q Send-Q Local Address Foreign Address State tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-77-225.ec2.:45104 ESTABLISHED tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-77-225.ec2.:14804 TIME_WAIT tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-76-6:seclayer-tls TIME_WAIT tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-76-65.ec:plethora TIME_WAIT tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-77-225.ec2.:14830 TIME_WAIT tcp 0 0 ip-172-17-0-2.</description>
+      <description>Docker Cheat Sheet 1. docker conntainer 내부 소켓 상태 확인 $ docker inspect -f &amp;#39;{{.State.Pid}}&amp;#39; cb2939r52s22 5645 [ec2-user@ip-10-100-77-76 ~]$ sudo nsenter -t 5645 -n netstat Active Internet connections (w/o servers) Proto Recv-Q Send-Q Local Address Foreign Address State tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-77-225.ec2.:45104 ESTABLISHED tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-77-225.ec2.:14804 TIME_WAIT tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-76-6:seclayer-tls TIME_WAIT tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-76-65.ec:plethora TIME_WAIT tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-77-225.ec2.:14830 TIME_WAIT tcp 0 0 ip-172-17-0-2.</description>
     </item>
     
     <item>
@@ -236,7 +279,7 @@ $ docker inspect -f &amp;#39;{{.State.Pid}}&amp;#39; cb2939r52s22 5645 [ec2-user
       <guid>https://nolleh.github.io/rabbitmq/clustering-guide/</guid>
       <description>한개 이상의 노드들의 논리적인 그룹을 의미하며, 각각은 유저와, 가상 호스트, 큐, exchanges, bindings 을 공유한다.
 Cluster Formation 다음 방법들로 구성 가능
- Declaratively by listing cluster nodes in config file Declaratively using DNS-based discovery Declaratively using AWS (EC2) instance discovery (via a plugin) Declaratively using Kubernetes discovery (via a plugin) Declaratively using Consul-based discovery (via a plugin) Declaratively using etcd-based discovery (via a plugin) Manually with rabbitmqctl  구성은 동적으로 변경 될수 있고, 모든 RabbitMQ 브로커는 하나의 노드로부터 시작해서 클러스터에 참여시키거나, 다시 개별의 브로커로 돌아갈 수 있다.</description>
+Declaratively by listing cluster nodes in config file Declaratively using DNS-based discovery Declaratively using AWS (EC2) instance discovery (via a plugin) Declaratively using Kubernetes discovery (via a plugin) Declaratively using Consul-based discovery (via a plugin) Declaratively using etcd-based discovery (via a plugin) Manually with rabbitmqctl 구성은 동적으로 변경 될수 있고, 모든 RabbitMQ 브로커는 하나의 노드로부터 시작해서 클러스터에 참여시키거나, 다시 개별의 브로커로 돌아갈 수 있다.</description>
     </item>
     
     <item>
@@ -257,10 +300,10 @@ Cluster Formation 다음 방법들로 구성 가능
       <description>ECDSA ref. https://m.blog.naver.com/aepkoreanet/221178375642
 ec (타원곡선) 을 이용한 기술들의 집합 - ECC,
 이중에 디지털서명 관련 기술이 ECDSA
-Terms   유한체
-집합에 속해있는 원소의 수가 한정되어 있고 덧셈, 곱셈에 대해 닫혀있는 집합  유한체 F 표기법
+Terms 유한체
+집합에 속해있는 원소의 수가 한정되어 있고 덧셈, 곱셈에 대해 닫혀있는 집합 유한체 F 표기법
 원소의 개수가 p 인 유한체 F 는 Fp 혹은 GF(p) 로 표기 유한체 상에 정의된 타원 곡선
-E(Fp) 암호학에서 사용되는 유한체      - Prime Field 원소의 개수가 소수  ECC 사용시 타원 곡선을 정의하는 domain parameter 를 정의해야함.</description>
+E(Fp) 암호학에서 사용되는 유한체 - Prime Field 원소의 개수가 소수 ECC 사용시 타원 곡선을 정의하는 domain parameter 를 정의해야함. (p, a, b, G, n, h) 를 정의해야하는건데, 여러 표준단체에서 Field Size 에 맞는 타원곡선에 대한 파라미터 발표.</description>
     </item>
     
     <item>
@@ -269,13 +312,13 @@ E(Fp) 암호학에서 사용되는 유한체      - Prime Field 원소의 개수
       <pubDate>Sat, 16 Mar 2019 23:02:25 +0900</pubDate>
       
       <guid>https://nolleh.github.io/coursera/gcp/6.datastorage/</guid>
-      <description>Best Practices for Using Cloud Storage  버킷에 변화가 있을때 반응하게 할 수 있다. https://cloud.google.com/storage/docs/pubsub-notifications
-Demo  coldline 은 일년에 한번 접근하는것과 같은 문제발생시 복구하는 용도로 사용하면 좋다..
+      <description>Best Practices for Using Cloud Storage 버킷에 변화가 있을때 반응하게 할 수 있다. https://cloud.google.com/storage/docs/pubsub-notifications
+Demo coldline 은 일년에 한번 접근하는것과 같은 문제발생시 복구하는 용도로 사용하면 좋다..
 https://cloud.google.com/storage/docs/managing-lifecycles
-Demo2 - Cors  cors - https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS cross-origin-resource sharing
+Demo2 - Cors cors - https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS cross-origin-resource sharing
 instance 만들고 / apache 깔고 / cors 설정 여는 데모..
-Best Practices for cloud Storage  request rate 가 초당 1000 쓰기 요청 이나 5000 읽기 요청을 넘어가면 ..
- 이 기준 요청량내에서 요청을 시작해서 20 분마다 요청을 두배로 해라.</description>
+Best Practices for cloud Storage request rate 가 초당 1000 쓰기 요청 이나 5000 읽기 요청을 넘어가면 ..
+이 기준 요청량내에서 요청을 시작해서 20 분마다 요청을 두배로 해라.</description>
     </item>
     
     <item>
@@ -284,7 +327,7 @@ Best Practices for cloud Storage  request rate 가 초당 1000 쓰기 요청 이
       <pubDate>Sat, 16 Mar 2019 11:34:29 +0900</pubDate>
       
       <guid>https://nolleh.github.io/coursera/gcp/5.datastore/</guid>
-      <description>Cloud Datastore Concepts and Indexes  Cloud Data Store concepts  데이터 오브젝트는 엔터티라고 불림 엔터티들은 하나이상의 프로퍼티로 구성됨 프로퍼티들은 하나이상의 값(values) 를 가질수 있음 각각의 엔터티는 구분되는 하나의 키를 가지고 있는데, 다음으로 구성 된다.  네임스페이스 엔터티 Kind 식별자 (스트링 or 숫자) 부모 ID   하나 이상의 엔터티에 대한 동작은 트랜잭션으로 불린다.  Datastore has two types of indexes    Built-in indexes Composite indexes     각각의 엔터티 Kind의 각각의 프로퍼티에 대해 자동으로 정의 인덱싱된 엔터티에 대해 다중의 프로퍼티 값을 인덱스함   간단한 쿼리에 적합 컴플렉스 쿼리에 적합    인덱스 설정파일에 정의       concept cloud datastore relational database     오브젝트 카테고리 Kind Table   한개 오브젝트 entity row   하나의 오브젝트를 위한 개별 데이터 프로퍼티 field   유니크 ID Key PrimaryKey    Design Considerations &amp;amp; Sharding  Design Your application for scale  엔터티 그룹에 대한 최대 쓰기율은 1/초 사전적으로 가까운 키에 대한 읽기와 쓰기를 너무 자주하지 말것.</description>
+      <description>Cloud Datastore Concepts and Indexes Cloud Data Store concepts 데이터 오브젝트는 엔터티라고 불림 엔터티들은 하나이상의 프로퍼티로 구성됨 프로퍼티들은 하나이상의 값(values) 를 가질수 있음 각각의 엔터티는 구분되는 하나의 키를 가지고 있는데, 다음으로 구성 된다. 네임스페이스 엔터티 Kind 식별자 (스트링 or 숫자) 부모 ID 하나 이상의 엔터티에 대한 동작은 트랜잭션으로 불린다. Datastore has two types of indexes Built-in indexes Composite indexes 각각의 엔터티 Kind의 각각의 프로퍼티에 대해 자동으로 정의 인덱싱된 엔터티에 대해 다중의 프로퍼티 값을 인덱스함 간단한 쿼리에 적합 컴플렉스 쿼리에 적합 인덱스 설정파일에 정의 concept cloud datastore relational database 오브젝트 카테고리 Kind Table 한개 오브젝트 entity row 하나의 오브젝트를 위한 개별 데이터 프로퍼티 field 유니크 ID Key PrimaryKey Design Considerations &amp;amp; Sharding Design Your application for scale 엔터티 그룹에 대한 최대 쓰기율은 1/초 사전적으로 가까운 키에 대한 읽기와 쓰기를 너무 자주하지 말것.</description>
     </item>
     
     <item>
@@ -293,8 +336,9 @@ Best Practices for cloud Storage  request rate 가 초당 1000 쓰기 요청 이
       <pubDate>Sat, 16 Mar 2019 11:33:59 +0900</pubDate>
       
       <guid>https://nolleh.github.io/coursera/gcp/4.db-overview/</guid>
-      <description>Cloud Storage  크고 자주 사용되지 않은 비구조화된 데이터
-   Overview ideal for     완전히 관리되고 고 신뢰가능 이미지와 비디오   비용절감. 확장가능한 오브젝트/블롭 저장 오브젝트와 블롭   http 로 접근 구조화되어있지 않은 데이터   오브젝트 이름이 키 정적 웹사이트 호스팅    Ideal for Cloud Datastore  관계형이나 데이터 분석에는 적합하지 않고 GAE 앱이나 구조화된 순수 제공 사용례에 적합한 구조화된 제공을 위한 스케일러블 저장소.</description>
+      <description>Cloud Storage 크고 자주 사용되지 않은 비구조화된 데이터
+Overview ideal for 완전히 관리되고 고 신뢰가능 이미지와 비디오 비용절감. 확장가능한 오브젝트/블롭 저장 오브젝트와 블롭 http 로 접근 구조화되어있지 않은 데이터 오브젝트 이름이 키 정적 웹사이트 호스팅 Ideal for Cloud Datastore 관계형이나 데이터 분석에는 적합하지 않고 GAE 앱이나 구조화된 순수 제공 사용례에 적합한 구조화된 제공을 위한 스케일러블 저장소.
+OverView ideal for NoSQL 도큐먼트 데이터베이스 세미구조의 어플리케이션 데이터 확장가능 내구성이 필요한 키 밸류 데이터 계층구조 데이터 복수 인덱스 매니징 트랜잭션 Cloud Bigtable 고구조화 / 트랜잭셔널 데이터에는 적합하지 않고, flat 하고 많은 read/write 연산이나 분석을 위한 데이터에 적합한 큰 용량의 저지연 데이터베이스.</description>
     </item>
     
     <item>
@@ -357,9 +401,9 @@ Cache content 반응성을 위해 컨텐츠를 캐싱해서, TTL 이 지나기�
       
       <guid>https://nolleh.github.io/block-chain-youtube/building-distributed-app/</guid>
       <description>다음에서 발췌 ()[]
- Smart Contract  블록은 트랜잭션을 포함한다. 트랜잭션은 액션의 기록이다. 액션은 컨트랙트의 동작이다.  스마트컨트랙트의 사용
- eos.io 의 컨트랙트는 abi 로 표현된다. 어플리케이션 코드는 json data 를 이용한 http 를 통해 contract 를 트리거 한다. EOS.IO 는 컨트랙트를 간단히 스크립팅하거나 테스팅하기위한 커맨드라인 인터페이스를 제공한다.  Intro Smart Contracts   EOS.IO 스마트 컨트랙트는 WebAssembly 로 구동된다. (WASM)
- web 표준으로 떠오르는중 c/c++ 로부터 clang/llvm 을 통해 생성된다.</description>
+Smart Contract 블록은 트랜잭션을 포함한다. 트랜잭션은 액션의 기록이다. 액션은 컨트랙트의 동작이다. 스마트컨트랙트의 사용
+eos.io 의 컨트랙트는 abi 로 표현된다. 어플리케이션 코드는 json data 를 이용한 http 를 통해 contract 를 트리거 한다. EOS.IO 는 컨트랙트를 간단히 스크립팅하거나 테스팅하기위한 커맨드라인 인터페이스를 제공한다. Intro Smart Contracts EOS.IO 스마트 컨트랙트는 WebAssembly 로 구동된다. (WASM)
+web 표준으로 떠오르는중 c/c++ 로부터 clang/llvm 을 통해 생성된다. 다른 언어들도 언젠가 지원될 것 Transaction - 실행되는 하나이상의 액션의 집합.</description>
     </item>
     
     <item>
@@ -369,9 +413,9 @@ Cache content 반응성을 위해 컨텐츠를 캐싱해서, TTL 이 지나기�
       
       <guid>https://nolleh.github.io/distributed-systems/1.highlevel/</guid>
       <description>다음에서 발췌 http://book.mixu.net/distsys/intro.html
- 1. Distributed systems at a highlevel  분산 프로그래밍은 같은 문제를 하나의 컴퓨터에서 해결할 수 있는 문제를 여러 컴퓨터에서 해결하는 예술이다.  컴퓨터 시스템이라면 해결해야 하는 두개의 문제가 있습니다.
- 저장소 연산  분산 프로그래밍은 하나의 컴퓨터에서 해결할 수 있는 문제를 여러 컴퓨터를 통해 해결하는 예술입니다. 보통 하나의 컴퓨터에서 해결하기에는 적합하지 않은 문제를 위해서입니다.
-실세계에서의 어떤것도 분산시스템을 요구하지는 않습니다. 무한한 돈과 무한한 실시간 연구 시간이 있다면, 분산시스템은 필요없습니다.</description>
+1. Distributed systems at a highlevel 분산 프로그래밍은 같은 문제를 하나의 컴퓨터에서 해결할 수 있는 문제를 여러 컴퓨터에서 해결하는 예술이다. 컴퓨터 시스템이라면 해결해야 하는 두개의 문제가 있습니다.
+저장소 연산 분산 프로그래밍은 하나의 컴퓨터에서 해결할 수 있는 문제를 여러 컴퓨터를 통해 해결하는 예술입니다. 보통 하나의 컴퓨터에서 해결하기에는 적합하지 않은 문제를 위해서입니다.
+실세계에서의 어떤것도 분산시스템을 요구하지는 않습니다. 무한한 돈과 무한한 실시간 연구 시간이 있다면, 분산시스템은 필요없습니다. 모든 연산과 모든 저장소는 매직박스 안에서 실행 될 수 있습니다 - 하나의, 믿을 수 없을정도로 빠르고, 믿을 수 없을정도로 신뢰할 수 있는 시스템은 누군가에게 돈을 지불하거나 당신이 직접 디자인할 필요가 있겟죠.</description>
     </item>
     
     <item>
@@ -383,9 +427,9 @@ Cache content 반응성을 위해 컨텐츠를 캐싱해서, TTL 이 지나기�
       <description>hello 라는 이름의 디렉토리를 contracts directory 에 생성하자.
 cd CONTRACTS_DIR mkdir hello cd hello hello.cpp 를 생성하고 에디터로 열자.
 touch hello.cpp 필요한 라이브러리를 이 파일에 include 한다.
-#include &amp;lt;eosiolib/eosio.hpp&amp;gt;#include &amp;lt;eosiolib/print.hpp&amp;gt;코드를 간결하게 해줄 eosio 네임스페이스를 contract 에 추가한다.
-using namespace eosio;  eosiolib/eosio.hpp 가 EOSIO C 와 C++ API 를 당신의 contract 스코프에 로드한다.  표준 C++11 클래스를 생성한다. 이 contract class 는 eosio::contract 를 확장해야한다.
-#include &amp;lt;eosiolib/eosio.hpp&amp;gt;#include &amp;lt;eosiolib/print.hpp&amp;gt; using namespace eosio;  class hello : public contract {}; 비어있는 contract 는 좋지 않으니, public 접근 지정자와 using 선언을 추가하자.</description>
+#include &amp;lt;eosiolib/eosio.hpp&amp;gt; #include &amp;lt;eosiolib/print.hpp&amp;gt; 코드를 간결하게 해줄 eosio 네임스페이스를 contract 에 추가한다.
+using namespace eosio; eosiolib/eosio.hpp 가 EOSIO C 와 C++ API 를 당신의 contract 스코프에 로드한다. 표준 C++11 클래스를 생성한다. 이 contract class 는 eosio::contract 를 확장해야한다.
+#include &amp;lt;eosiolib/eosio.hpp&amp;gt; #include &amp;lt;eosiolib/print.hpp&amp;gt; using namespace eosio; class hello : public contract {}; 비어있는 contract 는 좋지 않으니, public 접근 지정자와 using 선언을 추가하자.</description>
     </item>
     
     <item>
@@ -395,7 +439,7 @@ using namespace eosio;  eosiolib/eosio.hpp 가 EOSIO C 와 C++ API 를 당신의
       
       <guid>https://nolleh.github.io/block-chain/1.7-createtestaccount/</guid>
       <description>다음에서 발췌 EOSIO - 1.7 Create Test Accounts
- What is an account?  블록체인에 저장되어 송신자와 수신자를 구분하는데 사용되는 승인의 집합체라 할 수 있다. 유연한 권한 승인 구조를 가질 수 있는데, 권한이 어떻게 설정되느냐에 따른 개인이나 그룹에 의해 소유될 수 있다.
+What is an account? 블록체인에 저장되어 송신자와 수신자를 구분하는데 사용되는 승인의 집합체라 할 수 있다. 유연한 권한 승인 구조를 가질 수 있는데, 권한이 어떻게 설정되느냐에 따른 개인이나 그룹에 의해 소유될 수 있다.
 하나의 계정은 블록체인의 트랜잭션을 보내거나 받기 위해 요구된다.
 이 튜토리얼에서는 두개의 user 계정, bob 과 alice, 그리고 설정을 위한 기본 eosio 계정을 사용한다. 추가로 계정들은 다양한 contracts 를 위해 이 튜토리얼 시리즈에서 만들어 질 수 있다.</description>
     </item>
@@ -406,7 +450,7 @@ using namespace eosio;  eosiolib/eosio.hpp 가 EOSIO C 와 C++ API 를 당신의
       <pubDate>Tue, 01 Jan 2019 17:10:57 +0900</pubDate>
       
       <guid>https://nolleh.github.io/block-chain/1.6-createdevelopmentwallet/</guid>
-      <description>Step 1: Wallet 생성하기  먼저 wallet 을 생성한다. cleos wallet create 를 통해 기본 wallet 을 --to-console 옵션을 사용하여 간단하게 생성한다.
+      <description>Step 1: Wallet 생성하기 먼저 wallet 을 생성한다. cleos wallet create 를 통해 기본 wallet 을 --to-console 옵션을 사용하여 간단하게 생성한다.
 cleos 를 production 환경에서 사용한다면, 대신 --to-file 옵션을 사용하여 wallet 의 패스워드를 배쉬 기록에 남지않도록 한다.
 개발 목적으로 사용하는 production 환경의 키가 아니기때문에 &amp;ndash;to-console 으로 보안 위협없이 사용할 수 있다.
 cleos wallet create --to-console cleos 는 패스워드를 반환하며, 이 패스워드를 다음 튜토리얼에서 이용할 수 있도록 저장하자.
@@ -420,9 +464,9 @@ Creating wallet: default Save password to use in the future to unlock this walle
       
       <guid>https://nolleh.github.io/block-chain/1.5-installthecdt/</guid>
       <description>다음에서 발췌 - EOSIO - 1.5 Install The CDT
- EOSIO Contract Development Toolkit, CDT 는 contract 컴파일을 위한 툴의 집합이다. 뒤따를 튜토리얼들은 contract 들을 컴파일하고 ABI 를 생성하는 주요 CDT 를 사용한다.
+EOSIO Contract Development Toolkit, CDT 는 contract 컴파일을 위한 툴의 집합이다. 뒤따를 튜토리얼들은 contract 들을 컴파일하고 ABI 를 생성하는 주요 CDT 를 사용한다.
 1.3.x 버전부터, CDT 는 Mac OS X brew, linux debian 과 RPM 패키지들을 지원한다. 설치하기 위한 가장쉬운 선택지는 이 패키지 시스템들을 이용하는 것이다. 하나의 방법을 선택하자.
-HomeBrew (Mac OS X)  Install brew tap eosio/eosio.cdt brew install eosio.</description>
+HomeBrew (Mac OS X) Install brew tap eosio/eosio.cdt brew install eosio.cdt Uninstall brew remove eosio.</description>
     </item>
     
     <item>
@@ -431,8 +475,7 @@ HomeBrew (Mac OS X)  Install brew tap eosio/eosio.cdt brew install eosio.</descr
       <pubDate>Tue, 01 Jan 2019 16:36:28 +0900</pubDate>
       
       <guid>https://nolleh.github.io/block-chain/1.4-startyournodeandsetup/</guid>
-      <description>다음에서 발췌 - 
- Step 1: Boot Node And Wallet  Step 1.1: Start keosd 먼저 keosd 를 시작한다.
+      <description>다음에서 발췌 - Step 1: Boot Node And Wallet Step 1.1: Start keosd 먼저 keosd 를 시작한다.
 keosd &amp;amp; 다음과 유사한 결과를 얻게 된다.
 info 2018-11-26T06:54:24.789 thread-0 wallet_plugin.cpp:42 plugin_initialize ] initializing wallet plugin info 2018-11-26T06:54:24.795 thread-0 http_plugin.cpp:554 add_handler ] add api url: /v1/keosd/stop info 2018-11-26T06:54:24.796 thread-0 wallet_api_plugin.cpp:73 plugin_startup ] starting wallet_api_plugin info 2018-11-26T06:54:24.796 thread-0 http_plugin.cpp:554 add_handler ] add api url: /v1/wallet/create info 2018-11-26T06:54:24.796 thread-0 http_plugin.cpp:554 add_handler ] add api url: /v1/wallet/create_key info 2018-11-26T06:54:24.</description>
     </item>
@@ -444,10 +487,10 @@ info 2018-11-26T06:54:24.789 thread-0 wallet_plugin.cpp:42 plugin_initialize ] i
       
       <guid>https://nolleh.github.io/block-chain/1.3-aboutthestack/</guid>
       <description>발췌 - EOSIO - 1.3 About The Stack
- 방금 설치한 툴들을 시작하기 전에, 각각의 컴포넌트들이 어떻게 상호작용하는지 이해하는게 좋다.
-  nodeos (node + eos = nodeos) - 노드를 실행하기 위한 플러그인들로 설정될 수 있는 Core EOSIO 데몬. 예제는 로컬개발과 API 종단점을 위해 블록제품을 사용한다.
-  cleos (cli + eos = cleos) - 블록 체인과 상호작용하고 wallet 을 관리하기위한 커맨드 라인 인터페이스.
-  keosd (key + eos = keosd) - wallet 안의 EOSIO key 를 안전하게 저장 하기 위한 컴포넌트</description>
+방금 설치한 툴들을 시작하기 전에, 각각의 컴포넌트들이 어떻게 상호작용하는지 이해하는게 좋다.
+nodeos (node + eos = nodeos) - 노드를 실행하기 위한 플러그인들로 설정될 수 있는 Core EOSIO 데몬. 예제는 로컬개발과 API 종단점을 위해 블록제품을 사용한다.
+cleos (cli + eos = cleos) - 블록 체인과 상호작용하고 wallet 을 관리하기위한 커맨드 라인 인터페이스.
+keosd (key + eos = keosd) - wallet 안의 EOSIO key 를 안전하게 저장 하기 위한 컴포넌트</description>
     </item>
     
     <item>
@@ -457,10 +500,10 @@ info 2018-11-26T06:54:24.789 thread-0 wallet_plugin.cpp:42 plugin_initialize ] i
       
       <guid>https://nolleh.github.io/block-chain/1.2-beforeyoubegin/</guid>
       <description>발췌 - (EOSIO - 1.2 Before You Begin)[https://developers.eos.io/eosio-home/docs/setting-up-your-environment]
- Step 1: Install Binaries  이 튜토리얼은 선빌드된 바이너리를 사용한다.
+Step 1: Install Binaries 이 튜토리얼은 선빌드된 바이너리를 사용한다.
 가장 빨리 시작하는 방법은 이게 가장 좋은 선택지 일것이다. 소스로부터 빌드하는 것도 하나의 선택지이지만, 한시간 이상 걸릴 수 도 있으며 빌드 에러가 발생 할 수도 있다.
 아래의 명령어들이 각각의 OS 에서 바이너리를 다운로드 할 것이다.
-brew tap eosio/eosio brew install eosio Step 2: Setup a development directory, stick to it  작업을 진행할 디렉토리를 선택할 필요가 있다.</description>
+brew tap eosio/eosio brew install eosio Step 2: Setup a development directory, stick to it 작업을 진행할 디렉토리를 선택할 필요가 있다.</description>
     </item>
     
     <item>
@@ -470,7 +513,7 @@ brew tap eosio/eosio brew install eosio Step 2: Setup a development directory, s
       
       <guid>https://nolleh.github.io/block-chain/1.1-introduction/</guid>
       <description>발췌 EOSIO - 1.1 Introduction
- 배울 수 있는 것   노드로 얼마나 빨리 갖고 놀 수 있는가 Wallet 과 Key 를 어떻게 관리할 수 있는가 계정을 만드는 법 contract 작성법 컴파일과 ABI contract 배포  C / C++ 경험  EOSIO 기반 블록체인은 WebAssembly 를 이용하여 유저가 생성한 어플리케이션과 코드를 실행한다.
+배울 수 있는 것 노드로 얼마나 빨리 갖고 놀 수 있는가 Wallet 과 Key 를 어떻게 관리할 수 있는가 계정을 만드는 법 contract 작성법 컴파일과 ABI contract 배포 C / C++ 경험 EOSIO 기반 블록체인은 WebAssembly 를 이용하여 유저가 생성한 어플리케이션과 코드를 실행한다.
 WASM 은 구글, 마이크로소프트, 애플, 그리고 다른 주요 업체의 지원을 받는 떠오르는 웹 표준이다.
 오늘날 WASM 을 빌드하기위해 사용되는 성숙된 도구는 C/C++ 컴파일러를 통한 clang/llvm 이다.</description>
     </item>
@@ -481,9 +524,9 @@ WASM 은 구글, 마이크로소프트, 애플, 그리고 다른 주요 업체�
       <pubDate>Fri, 21 Dec 2018 22:02:13 +0900</pubDate>
       
       <guid>https://nolleh.github.io/csharp/async-control-flow-msdn/</guid>
-      <description>개요   다음에서 발췌
+      <description>개요 다음에서 발췌
 비동기 프로그램의 제어 흐름
- 코드  public partial class MainWindow : Window {  // . . .  private async void startButton_Click(object sender, RoutedEventArgs e)  {  // ONE  Task&amp;lt;int&amp;gt; getLengthTask = AccessTheWebAsync();   // FOUR  int contentLength = await getLengthTask;   // SIX  resultsTextBox.Text +=  $&amp;#34;\r\nLength of the downloaded string: {contentLength}.\r\n&amp;#34;;  }   async Task&amp;lt;int&amp;gt; AccessTheWebAsync()  {  // TWO  HttpClient client = new HttpClient();  Task&amp;lt;string&amp;gt; getStringTask =  client.</description>
+코드 public partial class MainWindow : Window { // . . . private async void startButton_Click(object sender, RoutedEventArgs e) { // ONE Task&amp;lt;int&amp;gt; getLengthTask = AccessTheWebAsync(); // FOUR int contentLength = await getLengthTask; // SIX resultsTextBox.Text += $&amp;#34;\r\nLength of the downloaded string: {contentLength}.\r\n&amp;#34;; } async Task&amp;lt;int&amp;gt; AccessTheWebAsync() { // TWO HttpClient client = new HttpClient(); Task&amp;lt;string&amp;gt; getStringTask = client.GetStringAsync(&amp;#34;https://msdn.microsoft.com&amp;#34;); // THREE string urlContents = await getStringTask; // FIVE return urlContents.</description>
     </item>
     
     <item>
@@ -492,10 +535,10 @@ WASM 은 구글, 마이크로소프트, 애플, 그리고 다른 주요 업체�
       <pubDate>Fri, 21 Dec 2018 21:41:08 +0900</pubDate>
       
       <guid>https://nolleh.github.io/csharp/async-await-msdn/</guid>
-      <description>개요   다음에서 발췌 MSDN
- 반응성을 향상시키는 비동기  잠재적인 차단 작업 완료 될때까지 다른 작업을 게속 수행
-작성이 간편한 비동기 메서드  반환 형식은 다음 중 하나
- Task Task void - 비동기 이벤트 처리기 작성 GetAwaiter 포함 모든 기타 형식   await 을 만나면 yield 함 (호출자로 제어가 돌아감)  이때, Task가 호출자에게 반환되고 이는 언젠가 다운로드된 문자열의 길이가 반환된다는 약속 (future) 을 의미한다. await 전에 작업이 완료된다면 제어가 돌아가지 않는다.</description>
+      <description>개요 다음에서 발췌 MSDN
+반응성을 향상시키는 비동기 잠재적인 차단 작업 완료 될때까지 다른 작업을 게속 수행
+작성이 간편한 비동기 메서드 반환 형식은 다음 중 하나
+Task Task void - 비동기 이벤트 처리기 작성 GetAwaiter 포함 모든 기타 형식 await 을 만나면 yield 함 (호출자로 제어가 돌아감) 이때, Task 가 호출자에게 반환되고 이는 언젠가 다운로드된 문자열의 길이가 반환된다는 약속 (future) 을 의미한다. await 전에 작업이 완료된다면 제어가 돌아가지 않는다. 스레드 비동기 메서드의 await 식은 대기한 작업이 실행되는 동안 현재 스레드를 차단하지 않는다.</description>
     </item>
     
     <item>
@@ -504,9 +547,9 @@ WASM 은 구글, 마이크로소프트, 애플, 그리고 다른 주요 업체�
       <pubDate>Wed, 19 Dec 2018 10:18:25 +0900</pubDate>
       
       <guid>https://nolleh.github.io/csharp/dispose/</guid>
-      <description>Dispose 에 대한 여러가지 MSDN  Implementing a Dispose method
- threadSafety  stackoverflow dispose 의 threadsafety
- 많은 경우 어떤 스레드든지 다른 스레드가 dispose 를 시작했을때 오브젝트에 대해 작업을 하고 있을 수 있기 때문에, interlocked.Exchange 를 통해 배제하는게 옳아 보인다.
+      <description>Dispose 에 대한 여러가지 MSDN Implementing a Dispose method
+threadSafety stackoverflow dispose 의 threadsafety
+많은 경우 어떤 스레드든지 다른 스레드가 dispose 를 시작했을때 오브젝트에 대해 작업을 하고 있을 수 있기 때문에, interlocked.Exchange 를 통해 배제하는게 옳아 보인다.
 물론, 좋은 생각이고 표준 dispose 패턴의 일부가 되어야 한다고 생각한다.
 (champareExchange가 base class 에 봉인됨으로써 derived class 에서 private 한 disposed flag 를 사용하는 것을 피해야한다.)
 하지만 불행히도, dispose 가 정확히 어떤것을 하는지 생각해보면 문제는 좀 더 복잡해진다.</description>
@@ -518,12 +561,13 @@ WASM 은 구글, 마이크로소프트, 애플, 그리고 다른 주요 업체�
       <pubDate>Tue, 18 Dec 2018 13:47:33 +0900</pubDate>
       
       <guid>https://nolleh.github.io/csharp/async-await/</guid>
-      <description>NeoSmart.AsyncLock 라이브러리에 관하여  다음에서 발췌, 번역 - Neosmart Docs.
- 개요  semaporeslim 은 reentrance 를 지원하지 않는다. 따라서, recursion 에서 적절히 사용되지 않으면 데드락이 발생한다.
+      <description>NeoSmart.AsyncLock 라이브러리에 관하여 다음에서 발췌, 번역 - Neosmart Docs.
+개요 semaporeslim 은 reentrance 를 지원하지 않는다. 따라서, recursion 에서 적절히 사용되지 않으면 데드락이 발생한다.
 asynclock 은 reentrance 기능을 semaphoreslim 에 추가한거.
-대안  간단한 방법은 semaphoreslim 으로 교체하고, recursion 인 경우를 스레드 아이디로 확인 하는 것.
+대안 간단한 방법은 semaphoreslim 으로 교체하고, recursion 인 경우를 스레드 아이디로 확인 하는 것.
 이 경우의 문제는
-async / await 의 가장 기본적인 목적인 ui 의 불필요한 블럭킹 없이 작업의 완료를 기다린다는 문제를 그대로 안고 있다.</description>
+async / await 의 가장 기본적인 목적인 ui 의 불필요한 블럭킹 없이 작업의 완료를 기다린다는 문제를 그대로 안고 있다.
+await 코드를 넣어도 다른 코드가 실행 될 수 없다.</description>
     </item>
     
     <item>
@@ -533,7 +577,7 @@ async / await 의 가장 기본적인 목적인 ui 의 불필요한 블럭킹 �
       
       <guid>https://nolleh.github.io/nancy/introduction/</guid>
       <description>Nancy 에 대한 문서 번역 #1. By Nolleh
- Introduction  가장 먼저, Nancy 의 세계에 온것을 환영합니다!
+Introduction 가장 먼저, Nancy 의 세계에 온것을 환영합니다!
 루비의 sinatra 프레임워크에 영감을 받아 Nancy 라는 이름을 붙이게 되었습니다. (Frank Sinatra 의 딸이름이 Nancy 니까요!)
 NancyFx 의 Fx 에 대해 많은 사람들이 궁금해하여 여기에 붙입니다만, framework 라는 뜻입니다 :)
 NancyFx 는 모든 컴포넌트들을 포함하는 umbrella project 입니다. (#역자주: 우산효과의 우산처럼, 포괄적인 프로젝트라는 의미로 쓴게 아닐까? )
@@ -547,7 +591,7 @@ NancyFx 는 모든 컴포넌트들을 포함하는 umbrella project 입니다. (
       
       <guid>https://nolleh.github.io/network/unix-01-intro/</guid>
       <description>네트워킹의 바이블이라 할 수 있는 Unix Network Programming 의 내용 정리
- Books Introduction Socket 을 통해 통신하는 프로그램을 작성하는 개발자를 위해 쓰여진 책.
+Books Introduction Socket 을 통해 통신하는 프로그램을 작성하는 개발자를 위해 쓰여진 책.
 시작하는 사람에게나, 프로페셔널에게나 유용한 책.
 물론 유지보수를 하거나, 새로 작성하는 사람, 네트워크 시스템 함수를 이해하는 모두에게 유용하다.
 실제 텍스트들은 유닉스 시스템에서 구동가능하나, OS 에 독립적인 socket api 를 지원하는 다른 OS 에서도, 본문에서 제안하는 일반적인 개념을 활용가능하다.
@@ -561,7 +605,7 @@ NancyFx 는 모든 컴포넌트들을 포함하는 umbrella project 입니다. (
       
       <guid>https://nolleh.github.io/web/fund-spring/</guid>
       <description>어쩌다보니 그동안 손댈 일이 없던 웹서버에 좀 손을 대게 되서 (게임서버, 클라이언트, 그리고 웹서버..정녕 풀스택 개발자가 되는것인가..ㅋ), 예전 선배님이 버리고 간(?) 스프링 책을 꺼내서 읽어 보며 정리한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.
- Spring Bean 객체 스프링에서 생성하여 관리하여 주는 스프링 빈 객체 혹은 빈 객체라고 부른다. res/applicationContext.xml 에 태그로 선언할 수도 있다. 이렇게 선언한경우, 리플렉션을 활용하여 bean id 클래스의 인스턴스를 지정한 세부 태그의 속성으로 메서드를 호출하여 객체를 초기화한다.</description>
+Spring Bean 객체 스프링에서 생성하여 관리하여 주는 스프링 빈 객체 혹은 빈 객체라고 부른다. res/applicationContext.xml 에 태그로 선언할 수도 있다. 이렇게 선언한경우, 리플렉션을 활용하여 bean id 클래스의 인스턴스를 지정한 세부 태그의 속성으로 메서드를 호출하여 객체를 초기화한다.</description>
     </item>
     
     <item>
@@ -571,7 +615,7 @@ NancyFx 는 모든 컴포넌트들을 포함하는 umbrella project 입니다. (
       
       <guid>https://nolleh.github.io/operating-system/file-buffering/</guid>
       <description>다음에서 발췌, 번역
- https://msdn.microsoft.com/en-gb/library/windows/desktop/cc644950(v=vs.85).aspx   File Buffering 파일버퍼링 - unbuffered file I/O.
+https://msdn.microsoft.com/en-gb/library/windows/desktop/cc644950(v=vs.85).aspx File Buffering 파일버퍼링 - unbuffered file I/O.
 본문에선 시스템에 의해 캐싱되지 않는 (buffered) 데이터를
 어떻게 유저 모드의 응용프로그램에서 데이터를 활용할 수 (interact) 있을지에 대해 다룬다.
 FILE_FLAG_NO_BUFFERING 플래그를 통해 CreateFile 을 Open 하면,
@@ -589,8 +633,8 @@ Note 파일에 대해 Seeking 과 위치포인터, offsets 의 개념을 사용�
       <description>concurrent 프로그램을 작성할 때 고려해야할 몇가지 사항. 그리고 idiom.
 여러 서적에서 발췌하였으며, 정리 차원에서 작성한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.
 어쩌면 작성자의 부사수를 위한 자재가 될지도 모르겠&amp;hellip;(..)
- Concurrent ISSUE - Stack 이번엔 스택.
-if (!s.empty()) {  item = s.top();  s.pop(); } 인터페이스상의 문제이기 때문에 empty 와 top 사이의 safety 를 보장할 수 없다.
+Concurrent ISSUE - Stack 이번엔 스택.
+if (!s.empty()) { item = s.top(); s.pop(); } 인터페이스상의 문제이기 때문에 empty 와 top 사이의 safety 를 보장할 수 없다.
 top() / pop() 도 마찬가지 -&amp;raquo; 조회되지 못하는 아이템이 있을 수 있다.</description>
     </item>
     
@@ -633,7 +677,7 @@ top() / pop() 도 마찬가지 -&amp;raquo; 조회되지 못하는 아이템이 
 이런 포스트가 있었다.
 스택오버플로-파라미터와 함께 unmanaged 콜백으로 변환하기
 채택된 답변을 살펴보면 클래스 구조는 대략 다음과 같다.
-클래스 구조   NativeCallbackHandler - msclr::gcroot&amp;lt;OutputManaged^&amp;gt; m_owner (OutputLogManaged) 를 멤버로 보유. OutputLogManaged - native OutputLog* (m_nativeOutputLog) / 1의 Holder 를 보유 (m_nativeHandler)] / 그리고 managed 콜백을 보유 OutputLog - Native Callback 과 void* UserData 를 멤버로 보유.   이해하는데 주요한 클래스는 위 내용 정도인 듯.</description>
+클래스 구조 NativeCallbackHandler - msclr::gcroot&amp;lt;OutputManaged^&amp;gt; m_owner (OutputLogManaged) 를 멤버로 보유. OutputLogManaged - native OutputLog* (m_nativeOutputLog) / 1의 Holder 를 보유 (m_nativeHandler)] / 그리고 managed 콜백을 보유 OutputLog - Native Callback 과 void* UserData 를 멤버로 보유. 이해하는데 주요한 클래스는 위 내용 정도인 듯.</description>
     </item>
     
     

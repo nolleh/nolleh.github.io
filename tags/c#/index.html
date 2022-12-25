@@ -154,9 +154,9 @@ if (!doNotTrack) {
     </h2>
   </header>
   <div class="entry-content">
-    <p>개요   다음에서 발췌
+    <p>개요 다음에서 발췌
 비동기 프로그램의 제어 흐름
- 코드  public partial class MainWindow : Window {  // . . .  private async void startButton_Click(object sender, RoutedEventArgs e)  {  // ONE  Task&lt;int&gt; getLengthTask = AccessTheWebAsync();   // FOUR  int contentLength = await getLengthTask;   // SIX  resultsTextBox.Text &#43;=  $&#34;\r\nLength of the downloaded string: {contentLength}.\r\n&#34;;  }   async Task&lt;int&gt; AccessTheWebAsync()  {  // TWO  HttpClient client = new HttpClient();  Task&lt;string&gt; getStringTask =  client....</p>
+코드 public partial class MainWindow : Window { // . . . private async void startButton_Click(object sender, RoutedEventArgs e) { // ONE Task&lt;int&gt; getLengthTask = AccessTheWebAsync(); // FOUR int contentLength = await getLengthTask; // SIX resultsTextBox.Text &#43;= $&#34;\r\nLength of the downloaded string: {contentLength}.\r\n&#34;; } async Task&lt;int&gt; AccessTheWebAsync() { // TWO HttpClient client = new HttpClient(); Task&lt;string&gt; getStringTask = client.GetStringAsync(&#34;https://msdn.microsoft.com&#34;); // THREE string urlContents = await getStringTask; // FIVE return urlContents....</p>
   </div>
   <footer class="entry-footer"><span title='2018-12-21 22:02:13 +0900 KST'>December 21, 2018</span>&nbsp;·&nbsp;nolleh</footer>
   <a class="entry-link" aria-label="post link to 비동기 프로그램의 제어 흐름" href="https://nolleh.github.io/csharp/async-control-flow-msdn/"></a>
@@ -168,10 +168,10 @@ if (!doNotTrack) {
     </h2>
   </header>
   <div class="entry-content">
-    <p>개요   다음에서 발췌 MSDN
- 반응성을 향상시키는 비동기  잠재적인 차단 작업 완료 될때까지 다른 작업을 게속 수행
-작성이 간편한 비동기 메서드  반환 형식은 다음 중 하나
- Task Task void - 비동기 이벤트 처리기 작성 GetAwaiter 포함 모든 기타 형식   await 을 만나면 yield 함 (호출자로 제어가 돌아감)  이때, Task가 호출자에게 반환되고 이는 언젠가 다운로드된 문자열의 길이가 반환된다는 약속 (future) 을 의미한다. await 전에 작업이 완료된다면 제어가 돌아가지 않는다....</p>
+    <p>개요 다음에서 발췌 MSDN
+반응성을 향상시키는 비동기 잠재적인 차단 작업 완료 될때까지 다른 작업을 게속 수행
+작성이 간편한 비동기 메서드 반환 형식은 다음 중 하나
+Task Task void - 비동기 이벤트 처리기 작성 GetAwaiter 포함 모든 기타 형식 await 을 만나면 yield 함 (호출자로 제어가 돌아감) 이때, Task 가 호출자에게 반환되고 이는 언젠가 다운로드된 문자열의 길이가 반환된다는 약속 (future) 을 의미한다. await 전에 작업이 완료된다면 제어가 돌아가지 않는다. 스레드 비동기 메서드의 await 식은 대기한 작업이 실행되는 동안 현재 스레드를 차단하지 않는다....</p>
   </div>
   <footer class="entry-footer"><span title='2018-12-21 21:41:08 +0900 KST'>December 21, 2018</span>&nbsp;·&nbsp;nolleh</footer>
   <a class="entry-link" aria-label="post link to Async Await 을 사용한 비동기 프로그래밍" href="https://nolleh.github.io/csharp/async-await-msdn/"></a>
@@ -183,9 +183,9 @@ if (!doNotTrack) {
     </h2>
   </header>
   <div class="entry-content">
-    <p>Dispose 에 대한 여러가지 MSDN  Implementing a Dispose method
- threadSafety  stackoverflow dispose 의 threadsafety
- 많은 경우 어떤 스레드든지 다른 스레드가 dispose 를 시작했을때 오브젝트에 대해 작업을 하고 있을 수 있기 때문에, interlocked.Exchange 를 통해 배제하는게 옳아 보인다.
+    <p>Dispose 에 대한 여러가지 MSDN Implementing a Dispose method
+threadSafety stackoverflow dispose 의 threadsafety
+많은 경우 어떤 스레드든지 다른 스레드가 dispose 를 시작했을때 오브젝트에 대해 작업을 하고 있을 수 있기 때문에, interlocked.Exchange 를 통해 배제하는게 옳아 보인다.
 물론, 좋은 생각이고 표준 dispose 패턴의 일부가 되어야 한다고 생각한다.
 (champareExchange가 base class 에 봉인됨으로써 derived class 에서 private 한 disposed flag 를 사용하는 것을 피해야한다.)
 하지만 불행히도, dispose 가 정확히 어떤것을 하는지 생각해보면 문제는 좀 더 복잡해진다....</p>
@@ -200,12 +200,13 @@ if (!doNotTrack) {
     </h2>
   </header>
   <div class="entry-content">
-    <p>NeoSmart.AsyncLock 라이브러리에 관하여  다음에서 발췌, 번역 - Neosmart Docs.
- 개요  semaporeslim 은 reentrance 를 지원하지 않는다. 따라서, recursion 에서 적절히 사용되지 않으면 데드락이 발생한다.
+    <p>NeoSmart.AsyncLock 라이브러리에 관하여 다음에서 발췌, 번역 - Neosmart Docs.
+개요 semaporeslim 은 reentrance 를 지원하지 않는다. 따라서, recursion 에서 적절히 사용되지 않으면 데드락이 발생한다.
 asynclock 은 reentrance 기능을 semaphoreslim 에 추가한거.
-대안  간단한 방법은 semaphoreslim 으로 교체하고, recursion 인 경우를 스레드 아이디로 확인 하는 것.
+대안 간단한 방법은 semaphoreslim 으로 교체하고, recursion 인 경우를 스레드 아이디로 확인 하는 것.
 이 경우의 문제는
-async / await 의 가장 기본적인 목적인 ui 의 불필요한 블럭킹 없이 작업의 완료를 기다린다는 문제를 그대로 안고 있다....</p>
+async / await 의 가장 기본적인 목적인 ui 의 불필요한 블럭킹 없이 작업의 완료를 기다린다는 문제를 그대로 안고 있다.
+await 코드를 넣어도 다른 코드가 실행 될 수 없다....</p>
   </div>
   <footer class="entry-footer"><span title='2018-12-18 13:47:33 +0900 KST'>December 18, 2018</span>&nbsp;·&nbsp;nolleh</footer>
   <a class="entry-link" aria-label="post link to Async Await" href="https://nolleh.github.io/csharp/async-await/"></a>
@@ -218,7 +219,7 @@ async / await 의 가장 기본적인 목적인 ui 의 불필요한 블럭킹 �
   </header>
   <div class="entry-content">
     <p>Nancy 에 대한 문서 번역 #1. By Nolleh
- Introduction  가장 먼저, Nancy 의 세계에 온것을 환영합니다!
+Introduction 가장 먼저, Nancy 의 세계에 온것을 환영합니다!
 루비의 sinatra 프레임워크에 영감을 받아 Nancy 라는 이름을 붙이게 되었습니다. (Frank Sinatra 의 딸이름이 Nancy 니까요!)
 NancyFx 의 Fx 에 대해 많은 사람들이 궁금해하여 여기에 붙입니다만, framework 라는 뜻입니다 :)
 NancyFx 는 모든 컴포넌트들을 포함하는 umbrella project 입니다. (#역자주: 우산효과의 우산처럼, 포괄적인 프로젝트라는 의미로 쓴게 아닐까? )

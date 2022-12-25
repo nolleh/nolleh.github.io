@@ -175,7 +175,7 @@ if (!doNotTrack) {
 이런 포스트가 있었다.
 스택오버플로-파라미터와 함께 unmanaged 콜백으로 변환하기
 채택된 답변을 살펴보면 클래스 구조는 대략 다음과 같다.
-클래스 구조   NativeCallbackHandler - msclr::gcroot&lt;OutputManaged^&gt; m_owner (OutputLogManaged) 를 멤버로 보유. OutputLogManaged - native OutputLog* (m_nativeOutputLog) / 1의 Holder 를 보유 (m_nativeHandler)] / 그리고 managed 콜백을 보유 OutputLog - Native Callback 과 void* UserData 를 멤버로 보유.   이해하는데 주요한 클래스는 위 내용 정도인 듯....</p>
+클래스 구조 NativeCallbackHandler - msclr::gcroot&lt;OutputManaged^&gt; m_owner (OutputLogManaged) 를 멤버로 보유. OutputLogManaged - native OutputLog* (m_nativeOutputLog) / 1의 Holder 를 보유 (m_nativeHandler)] / 그리고 managed 콜백을 보유 OutputLog - Native Callback 과 void* UserData 를 멤버로 보유. 이해하는데 주요한 클래스는 위 내용 정도인 듯....</p>
   </div>
   <footer class="entry-footer"><span title='2017-07-04 00:45:55 +0900 KST'>July 4, 2017</span>&nbsp;·&nbsp;nolleh</footer>
   <a class="entry-link" aria-label="post link to C&#43;&#43; CLI 에서 managed 콜백을 unmanaged 로 전달하기" href="https://nolleh.github.io/etc/managed_cb_to_unmanaged/"></a>

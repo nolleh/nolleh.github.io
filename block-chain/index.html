@@ -172,9 +172,9 @@ if (!doNotTrack) {
     <p>hello 라는 이름의 디렉토리를 contracts directory 에 생성하자.
 cd CONTRACTS_DIR mkdir hello cd hello hello.cpp 를 생성하고 에디터로 열자.
 touch hello.cpp 필요한 라이브러리를 이 파일에 include 한다.
-#include &lt;eosiolib/eosio.hpp&gt;#include &lt;eosiolib/print.hpp&gt;코드를 간결하게 해줄 eosio 네임스페이스를 contract 에 추가한다.
-using namespace eosio;  eosiolib/eosio.hpp 가 EOSIO C 와 C&#43;&#43; API 를 당신의 contract 스코프에 로드한다.  표준 C&#43;&#43;11 클래스를 생성한다. 이 contract class 는 eosio::contract 를 확장해야한다.
-#include &lt;eosiolib/eosio.hpp&gt;#include &lt;eosiolib/print.hpp&gt; using namespace eosio;  class hello : public contract {}; 비어있는 contract 는 좋지 않으니, public 접근 지정자와 using 선언을 추가하자....</p>
+#include &lt;eosiolib/eosio.hpp&gt; #include &lt;eosiolib/print.hpp&gt; 코드를 간결하게 해줄 eosio 네임스페이스를 contract 에 추가한다.
+using namespace eosio; eosiolib/eosio.hpp 가 EOSIO C 와 C&#43;&#43; API 를 당신의 contract 스코프에 로드한다. 표준 C&#43;&#43;11 클래스를 생성한다. 이 contract class 는 eosio::contract 를 확장해야한다.
+#include &lt;eosiolib/eosio.hpp&gt; #include &lt;eosiolib/print.hpp&gt; using namespace eosio; class hello : public contract {}; 비어있는 contract 는 좋지 않으니, public 접근 지정자와 using 선언을 추가하자....</p>
   </div>
   <footer class="entry-footer"><span title='2019-01-01 20:17:59 +0900 KST'>January 1, 2019</span>&nbsp;·&nbsp;nolleh</footer>
   <a class="entry-link" aria-label="post link to EOSIO - 2.1/Hello World!" href="https://nolleh.github.io/block-chain/2.1-helloworld/"></a>
@@ -187,7 +187,7 @@ using namespace eosio;  eosiolib/eosio.hpp 가 EOSIO C 와 C&#43;&#43; API 를 �
   </header>
   <div class="entry-content">
     <p>다음에서 발췌 EOSIO - 1.7 Create Test Accounts
- What is an account?  블록체인에 저장되어 송신자와 수신자를 구분하는데 사용되는 승인의 집합체라 할 수 있다. 유연한 권한 승인 구조를 가질 수 있는데, 권한이 어떻게 설정되느냐에 따른 개인이나 그룹에 의해 소유될 수 있다.
+What is an account? 블록체인에 저장되어 송신자와 수신자를 구분하는데 사용되는 승인의 집합체라 할 수 있다. 유연한 권한 승인 구조를 가질 수 있는데, 권한이 어떻게 설정되느냐에 따른 개인이나 그룹에 의해 소유될 수 있다.
 하나의 계정은 블록체인의 트랜잭션을 보내거나 받기 위해 요구된다.
 이 튜토리얼에서는 두개의 user 계정, bob 과 alice, 그리고 설정을 위한 기본 eosio 계정을 사용한다. 추가로 계정들은 다양한 contracts 를 위해 이 튜토리얼 시리즈에서 만들어 질 수 있다....</p>
   </div>
@@ -201,7 +201,7 @@ using namespace eosio;  eosiolib/eosio.hpp 가 EOSIO C 와 C&#43;&#43; API 를 �
     </h2>
   </header>
   <div class="entry-content">
-    <p>Step 1: Wallet 생성하기  먼저 wallet 을 생성한다. cleos wallet create 를 통해 기본 wallet 을 --to-console 옵션을 사용하여 간단하게 생성한다.
+    <p>Step 1: Wallet 생성하기 먼저 wallet 을 생성한다. cleos wallet create 를 통해 기본 wallet 을 --to-console 옵션을 사용하여 간단하게 생성한다.
 cleos 를 production 환경에서 사용한다면, 대신 --to-file 옵션을 사용하여 wallet 의 패스워드를 배쉬 기록에 남지않도록 한다.
 개발 목적으로 사용하는 production 환경의 키가 아니기때문에 –to-console 으로 보안 위협없이 사용할 수 있다.
 cleos wallet create --to-console cleos 는 패스워드를 반환하며, 이 패스워드를 다음 튜토리얼에서 이용할 수 있도록 저장하자.
@@ -218,9 +218,9 @@ Creating wallet: default Save password to use in the future to unlock this walle
   </header>
   <div class="entry-content">
     <p>다음에서 발췌 - EOSIO - 1.5 Install The CDT
- EOSIO Contract Development Toolkit, CDT 는 contract 컴파일을 위한 툴의 집합이다. 뒤따를 튜토리얼들은 contract 들을 컴파일하고 ABI 를 생성하는 주요 CDT 를 사용한다.
+EOSIO Contract Development Toolkit, CDT 는 contract 컴파일을 위한 툴의 집합이다. 뒤따를 튜토리얼들은 contract 들을 컴파일하고 ABI 를 생성하는 주요 CDT 를 사용한다.
 1.3.x 버전부터, CDT 는 Mac OS X brew, linux debian 과 RPM 패키지들을 지원한다. 설치하기 위한 가장쉬운 선택지는 이 패키지 시스템들을 이용하는 것이다. 하나의 방법을 선택하자.
-HomeBrew (Mac OS X)  Install brew tap eosio/eosio.cdt brew install eosio....</p>
+HomeBrew (Mac OS X) Install brew tap eosio/eosio.cdt brew install eosio.cdt Uninstall brew remove eosio....</p>
   </div>
   <footer class="entry-footer"><span title='2019-01-01 16:57:50 +0900 KST'>January 1, 2019</span>&nbsp;·&nbsp;nolleh</footer>
   <a class="entry-link" aria-label="post link to EOSIO - 1.5/CDT 설치하기" href="https://nolleh.github.io/block-chain/1.5-installthecdt/"></a>
@@ -232,8 +232,7 @@ HomeBrew (Mac OS X)  Install brew tap eosio/eosio.cdt brew install eosio....</p>
     </h2>
   </header>
   <div class="entry-content">
-    <p>다음에서 발췌 - 
- Step 1: Boot Node And Wallet  Step 1.1: Start keosd 먼저 keosd 를 시작한다.
+    <p>다음에서 발췌 - Step 1: Boot Node And Wallet Step 1.1: Start keosd 먼저 keosd 를 시작한다.
 keosd &amp; 다음과 유사한 결과를 얻게 된다.
 info 2018-11-26T06:54:24.789 thread-0 wallet_plugin.cpp:42 plugin_initialize ] initializing wallet plugin info 2018-11-26T06:54:24.795 thread-0 http_plugin.cpp:554 add_handler ] add api url: /v1/keosd/stop info 2018-11-26T06:54:24.796 thread-0 wallet_api_plugin.cpp:73 plugin_startup ] starting wallet_api_plugin info 2018-11-26T06:54:24.796 thread-0 http_plugin.cpp:554 add_handler ] add api url: /v1/wallet/create info 2018-11-26T06:54:24.796 thread-0 http_plugin.cpp:554 add_handler ] add api url: /v1/wallet/create_key info 2018-11-26T06:54:24....</p>
   </div>

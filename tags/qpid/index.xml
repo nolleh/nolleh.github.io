@@ -32,7 +32,7 @@ active-passive 클러스터는 하나의 브로커만 존재하며, 이를 프�
 1.4.1 Message Routes pull / push 방식이 있음.
 pull 은 dest 에서.
 push 는 src 에서 설정함
- queue &amp;lt;-&amp;gt; exchage exchange &amp;lt;-&amp;gt; exchange  excg &amp;lt;-&amp;gt; excg 는 다음과 같은 라우트를 가질 수 있다.</description>
+queue &amp;lt;-&amp;gt; exchage exchange &amp;lt;-&amp;gt; exchange excg &amp;lt;-&amp;gt; excg 는 다음과 같은 라우트를 가질 수 있다.</description>
     </item>
     
   </channel>

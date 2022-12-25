@@ -154,9 +154,9 @@ if (!doNotTrack) {
     </h2>
   </header>
   <div class="entry-content">
-    <p>개요   다음에서 발췌
+    <p>개요 다음에서 발췌
 비동기 프로그램의 제어 흐름
- 코드  public partial class MainWindow : Window {  // . . .  private async void startButton_Click(object sender, RoutedEventArgs e)  {  // ONE  Task&lt;int&gt; getLengthTask = AccessTheWebAsync();   // FOUR  int contentLength = await getLengthTask;   // SIX  resultsTextBox.Text &#43;=  $&#34;\r\nLength of the downloaded string: {contentLength}.\r\n&#34;;  }   async Task&lt;int&gt; AccessTheWebAsync()  {  // TWO  HttpClient client = new HttpClient();  Task&lt;string&gt; getStringTask =  client....</p>
+코드 public partial class MainWindow : Window { // . . . private async void startButton_Click(object sender, RoutedEventArgs e) { // ONE Task&lt;int&gt; getLengthTask = AccessTheWebAsync(); // FOUR int contentLength = await getLengthTask; // SIX resultsTextBox.Text &#43;= $&#34;\r\nLength of the downloaded string: {contentLength}.\r\n&#34;; } async Task&lt;int&gt; AccessTheWebAsync() { // TWO HttpClient client = new HttpClient(); Task&lt;string&gt; getStringTask = client.GetStringAsync(&#34;https://msdn.microsoft.com&#34;); // THREE string urlContents = await getStringTask; // FIVE return urlContents....</p>
   </div>
   <footer class="entry-footer"><span title='2018-12-21 22:02:13 +0900 KST'>December 21, 2018</span>&nbsp;·&nbsp;nolleh</footer>
   <a class="entry-link" aria-label="post link to 비동기 프로그램의 제어 흐름" href="https://nolleh.github.io/csharp/async-control-flow-msdn/"></a>

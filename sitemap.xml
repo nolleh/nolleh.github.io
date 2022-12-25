@@ -2,31 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/2.linux-history/</loc>
-    <lastmod>2022-12-11T23:42:16+09:00</lastmod>
+    <loc>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/6.chapter-summary/</loc>
+    <lastmod>2022-12-25T22:02:31+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/categories/</loc>
-    <lastmod>2022-12-11T23:42:16+09:00</lastmod>
+    <lastmod>2022-12-25T22:02:31+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/tags/edx/</loc>
-    <lastmod>2022-12-11T23:42:16+09:00</lastmod>
+    <lastmod>2022-12-25T22:02:31+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/categories/edx-linux/</loc>
-    <lastmod>2022-12-11T23:42:16+09:00</lastmod>
+    <lastmod>2022-12-25T22:02:31+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/tags/kernel/</loc>
-    <lastmod>2022-12-11T23:42:16+09:00</lastmod>
+    <lastmod>2022-12-25T22:02:31+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/tags/linux/</loc>
-    <lastmod>2022-12-11T23:42:16+09:00</lastmod>
+    <lastmod>2022-12-25T22:02:31+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/linux/</loc>
-    <lastmod>2022-12-11T23:42:16+09:00</lastmod>
+    <lastmod>2022-12-25T22:02:31+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/tags/</loc>
-    <lastmod>2022-12-11T23:42:16+09:00</lastmod>
+    <lastmod>2022-12-25T22:02:31+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/</loc>
+    <lastmod>2022-12-25T22:02:31+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/5.linux-distribution/</loc>
+    <lastmod>2022-12-25T21:38:28+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/4.linux-terminology-overview/</loc>
+    <lastmod>2022-12-25T21:27:09+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/3.linux-philosophy/</loc>
+    <lastmod>2022-12-25T14:37:33+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/2.linux-history/</loc>
     <lastmod>2022-12-11T23:42:16+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/1.introduction/</loc>

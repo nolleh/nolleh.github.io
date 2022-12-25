@@ -6,7 +6,52 @@
     <description>Recent content in Kernel on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Sun, 11 Dec 2022 23:42:16 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/kernel/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 25 Dec 2022 22:02:31 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/kernel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2-6.chapter summary</title>
+      <link>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/6.chapter-summary/</link>
+      <pubDate>Sun, 25 Dec 2022 22:02:31 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/6.chapter-summary/</guid>
+      <description>Chapter Summary Linux boroows heavily from UNIX operating system, with withch its creators were well-versed. LInux accesses many features and services through files and file-like objects. Linux is a fully multi-tasking, multi-user operating system, with built-in networking and service processes known as deamons. Linux is developed by a loose confederation of developers from all over the world, collaborating over the Internet,
+with Linus Torvalds at th head. Technical sill and a desire to contriubte are the only qualifications for participating.</description>
+    </item>
+    
+    <item>
+      <title>2-5.linux Distribution</title>
+      <link>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/5.linux-distribution/</link>
+      <pubDate>Sun, 25 Dec 2022 21:38:28 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/5.linux-distribution/</guid>
+      <description>Linux Distribution Overview making sure that project works properly on the most widely used Linux distributions. To accomplish this, you need to learn amout the different components, services, and configurations associated with each distribution.</description>
+    </item>
+    
+    <item>
+      <title>2-4.linux Terminology Overview</title>
+      <link>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/4.linux-terminology-overview/</link>
+      <pubDate>Sun, 25 Dec 2022 21:27:09 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/4.linux-terminology-overview/</guid>
+      <description>Video: Linux Terminology Kernel: Glue between hardware and applications
+Ditribution: Collection of software making up a Linux-based OS
+BootLoader: Program that boots the operating system
+Service: Program that runs as a background process
+Filesystem: Method for sotring and organizing files
+X window System: toolkit and protocol to build graphical subsystem
+Shell: command line interpreter</description>
+    </item>
+    
+    <item>
+      <title>2-3.linux Philosophy</title>
+      <link>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/3.linux-philosophy/</link>
+      <pubDate>Sun, 25 Dec 2022 14:37:33 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/3.linux-philosophy/</guid>
+      <description>Linux Philosophy Overview Linux is constantly enhanced and maintained by a network of developers from all over the world collaborating over the internet, with Linus Torvalds at the head.
+Linux Philosophy Linux borrows heavily from the well-established UNIX operating system. it was written to be a free and open source system to be used in place of UNIX,
+which at the time was designed for computers much more powerful than PCs and was quite expensive.</description>
+    </item>
+    
     <item>
       <title>2-2.linux History</title>
       <link>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/2.linux-history/</link>
@@ -24,11 +69,11 @@ In 1992, Linux was re-licensed using General Public License (GPL) by GNU (a proj
       <pubDate>Sun, 11 Dec 2022 23:23:50 +0900</pubDate>
       
       <guid>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/1.introduction/</guid>
-      <description>The Power of Linux Three Important Pieces of Context   Things change in Linux
+      <description>The Power of Linux Three Important Pieces of Context Things change in Linux
 Linux is contantly evolving. no matter how hard to make up-to-date as possible, Course &amp;lt;-/-&amp;gt; Linux
-  We have repeated some things in the class meterial
-  We have tried to avoid holy wars
-there are many areas where there are strong preference disagreements in the Linux (and wider open source) community. examples include the best editor: emacs vs.</description>
+We have repeated some things in the class meterial
+We have tried to avoid holy wars
+there are many areas where there are strong preference disagreements in the Linux (and wider open source) community. examples include the best editor: emacs vs. vi; GNOME vs.</description>
     </item>
     
     <item>
@@ -60,7 +105,7 @@ the foundation hosts hundreds of world&amp;rsquo;s most important open source pr
       
       <guid>https://nolleh.github.io/linux/1.the-linux-foundation/1.introduction/</guid>
       <description>we will learn&amp;hellip;
- linux foundation logistics of this online course choosing a linux distribution that&amp;rsquo;s right for you  </description>
+linux foundation logistics of this online course choosing a linux distribution that&amp;rsquo;s right for you </description>
     </item>
     
     <item>
@@ -70,7 +115,7 @@ the foundation hosts hundreds of world&amp;rsquo;s most important open source pr
       
       <guid>https://nolleh.github.io/operating-system/file-buffering/</guid>
       <description>다음에서 발췌, 번역
- https://msdn.microsoft.com/en-gb/library/windows/desktop/cc644950(v=vs.85).aspx   File Buffering 파일버퍼링 - unbuffered file I/O.
+https://msdn.microsoft.com/en-gb/library/windows/desktop/cc644950(v=vs.85).aspx File Buffering 파일버퍼링 - unbuffered file I/O.
 본문에선 시스템에 의해 캐싱되지 않는 (buffered) 데이터를
 어떻게 유저 모드의 응용프로그램에서 데이터를 활용할 수 (interact) 있을지에 대해 다룬다.
 FILE_FLAG_NO_BUFFERING 플래그를 통해 CreateFile 을 Open 하면,
