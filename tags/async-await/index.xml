@@ -18,6 +18,17 @@
     </item>
     
     <item>
+      <title>비동기 프로그램의 제어 흐름</title>
+      <link>https://nolleh.github.io/csharp/async-control-flow-msdn/</link>
+      <pubDate>Fri, 21 Dec 2018 22:02:13 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/csharp/async-control-flow-msdn/</guid>
+      <description>개요 다음에서 발췌
+비동기 프로그램의 제어 흐름
+코드 public partial class MainWindow : Window { // . . . private async void startButton_Click(object sender, RoutedEventArgs e) { // ONE Task&amp;lt;int&amp;gt; getLengthTask = AccessTheWebAsync(); // FOUR int contentLength = await getLengthTask; // SIX resultsTextBox.Text += $&amp;#34;\r\nLength of the downloaded string: {contentLength}.\r\n&amp;#34;; } async Task&amp;lt;int&amp;gt; AccessTheWebAsync() { // TWO HttpClient client = new HttpClient(); Task&amp;lt;string&amp;gt; getStringTask = client.GetStringAsync(&amp;#34;https://msdn.microsoft.com&amp;#34;); // THREE string urlContents = await getStringTask; // FIVE return urlContents.</description>
+    </item>
+    
+    <item>
       <title>Async Await 을 사용한 비동기 프로그래밍</title>
       <link>https://nolleh.github.io/csharp/async-await-msdn/</link>
       <pubDate>Fri, 21 Dec 2018 21:41:08 +0900</pubDate>

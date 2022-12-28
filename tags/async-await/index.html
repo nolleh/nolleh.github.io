@@ -124,11 +124,6 @@ if (!doNotTrack) {
                 </a>
             </li>
             <li>
-                <a href="https://nolleh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
-                    <span>Search</span>
-                </a>
-            </li>
-            <li>
                 <a href="https://nolleh.github.io/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
@@ -136,6 +131,11 @@ if (!doNotTrack) {
             <li>
                 <a href="https://nolleh.github.io/tags/" title="Tags">
                     <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nolleh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
                 </a>
             </li>
         </ul>
@@ -159,6 +159,20 @@ if (!doNotTrack) {
   </div>
   <footer class="entry-footer"><span title='2022-09-06 00:20:16 +0900 KST'>September 6, 2022</span>&nbsp;·&nbsp;nolleh</footer>
   <a class="entry-link" aria-label="post link to Dont Lock on Async Tasks" href="https://nolleh.github.io/csharp/dont-lock-on-async-tasks/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>비동기 프로그램의 제어 흐름
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>개요 다음에서 발췌
+비동기 프로그램의 제어 흐름
+코드 public partial class MainWindow : Window { // . . . private async void startButton_Click(object sender, RoutedEventArgs e) { // ONE Task&lt;int&gt; getLengthTask = AccessTheWebAsync(); // FOUR int contentLength = await getLengthTask; // SIX resultsTextBox.Text &#43;= $&#34;\r\nLength of the downloaded string: {contentLength}.\r\n&#34;; } async Task&lt;int&gt; AccessTheWebAsync() { // TWO HttpClient client = new HttpClient(); Task&lt;string&gt; getStringTask = client.GetStringAsync(&#34;https://msdn.microsoft.com&#34;); // THREE string urlContents = await getStringTask; // FIVE return urlContents....</p>
+  </div>
+  <footer class="entry-footer"><span title='2018-12-21 22:02:13 +0900 KST'>December 21, 2018</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 비동기 프로그램의 제어 흐름" href="https://nolleh.github.io/csharp/async-control-flow-msdn/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 

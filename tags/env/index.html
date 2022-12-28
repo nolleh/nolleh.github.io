@@ -124,11 +124,6 @@ if (!doNotTrack) {
                 </a>
             </li>
             <li>
-                <a href="https://nolleh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
-                    <span>Search</span>
-                </a>
-            </li>
-            <li>
                 <a href="https://nolleh.github.io/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
@@ -136,6 +131,11 @@ if (!doNotTrack) {
             <li>
                 <a href="https://nolleh.github.io/tags/" title="Tags">
                     <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nolleh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
                 </a>
             </li>
         </ul>
@@ -150,17 +150,20 @@ if (!doNotTrack) {
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2>Mac Cheat<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    <h2>Mac 터미널에서 복수의 유저 사용하기
     </h2>
   </header>
   <div class="entry-content">
-    <p>stackoverflow
-유저그룹으로 권한 설정 example. brew
-echo $(brew --prefix) echo $(groups $(whoami)) sudo dseditgroup -o edit -a $(whoami) -t user admin sudo chgrp -R admin $(brew --prefix) sudo chmod -R g&#43;rwX $(brew --prefix) ls -lah $(brew --prefix) 순서대로,
-brew install path 확인하고 내 그룹 확인하고. 2에서 어드민 그룹에 없다면 어드민 그룹에 넣고 어드민 그룹으로 폴더 recursive 하게 소유권 변경 어드민 그룹에 있는 유저들에 대해 읽기,쓰기,실행 권한 부여 권한 확인 공식 문서 제안법 하나도 사용하지 않거나, 하나의 글로벌 brew 설치를 하고, 모든 다른 유저들에서 지역 버전을 사용하는것이 공식 제안 법....</p>
+    <p>복수의 유저 사용하기 맥터미널에서 복수의 유저를 사용하려면 몇가지 신경써야할 부분들이 생긴다.
+home directory 가 분리 되어 있기 때문에 어떤 유저를 위해 설치한 데이터들은
+다른 유저에서는 사용못할수도 있고 (그러는게 맞고, 그럴려고 격리한거니)
+그러다보니 양쪽에서 같은 데이터를 설치해야하나 ?
+혹은 서로 충돌이 난다거나 하는 불편함들이 생긴다.
+대표적인 예로 brew 에서 이런 문제가 발생하는데,,
+어떤 계정으로 설치한 패키지가 다른 계정에서 권한문제로 접근이 안되게 되면서 엉망이 된다.. (-_–) dependency 가 있는 다른 패키지 들과도 맞물리게 되면서 내가 설치한 패키지가 아닌 패키지에 대해 데이터를 바꾸려고 하면서 권한 이슈로 연결 되는식....</p>
   </div>
   <footer class="entry-footer"><span title='2022-08-24 00:49:49 +0900 KST'>August 24, 2022</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to Mac Cheat" href="https://nolleh.github.io/env/mac-cheat/"></a>
+  <a class="entry-link" aria-label="post link to Mac 터미널에서 복수의 유저 사용하기" href="https://nolleh.github.io/env/mac-terminal-multiple-user/"></a>
 </article>
     </main>
     

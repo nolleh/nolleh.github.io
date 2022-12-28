@@ -124,11 +124,6 @@ if (!doNotTrack) {
                 </a>
             </li>
             <li>
-                <a href="https://nolleh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
-                    <span>Search</span>
-                </a>
-            </li>
-            <li>
                 <a href="https://nolleh.github.io/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
@@ -136,6 +131,11 @@ if (!doNotTrack) {
             <li>
                 <a href="https://nolleh.github.io/tags/" title="Tags">
                     <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nolleh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
                 </a>
             </li>
         </ul>
@@ -180,6 +180,20 @@ Best Practices for cloud Storage request rate 가 초당 1000 쓰기 요청 이�
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2>4.Cloud Storage, Cloud Datastore, Cloud Bigtable, Cloud SQL, and Cloud Spanner
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Cloud Storage 크고 자주 사용되지 않은 비구조화된 데이터
+Overview ideal for 완전히 관리되고 고 신뢰가능 이미지와 비디오 비용절감. 확장가능한 오브젝트/블롭 저장 오브젝트와 블롭 http 로 접근 구조화되어있지 않은 데이터 오브젝트 이름이 키 정적 웹사이트 호스팅 Ideal for Cloud Datastore 관계형이나 데이터 분석에는 적합하지 않고 GAE 앱이나 구조화된 순수 제공 사용례에 적합한 구조화된 제공을 위한 스케일러블 저장소.
+OverView ideal for NoSQL 도큐먼트 데이터베이스 세미구조의 어플리케이션 데이터 확장가능 내구성이 필요한 키 밸류 데이터 계층구조 데이터 복수 인덱스 매니징 트랜잭션 Cloud Bigtable 고구조화 / 트랜잭셔널 데이터에는 적합하지 않고, flat 하고 많은 read/write 연산이나 분석을 위한 데이터에 적합한 큰 용량의 저지연 데이터베이스....</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-03-16 11:33:59 +0900 KST'>March 16, 2019</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 4.Cloud Storage, Cloud Datastore, Cloud Bigtable, Cloud SQL, and Cloud Spanner" href="https://nolleh.github.io/coursera/gcp/4.db-overview/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2>3.SDK
     </h2>
   </header>
@@ -210,20 +224,6 @@ Module Review Api Explore: google cloud api 를 테스트하기위한 샌드박�
   </div>
   <footer class="entry-footer"><span title='2019-03-12 21:52:58 +0900 KST'>March 12, 2019</span>&nbsp;·&nbsp;nolleh</footer>
   <a class="entry-link" aria-label="post link to 1-1. 계정관리를 위한 12 tips" href="https://nolleh.github.io/coursera/gcp/1-1.12-tips/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>2.Security-Reliability-Migration
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>3. Security, Reliablitiy, and Migration Use federated identity management firebase authentication~ 외부의 identity provider 를 통해 ..
-Implement health-check endpoint Stackdriver monitoring (helth monitoring agent) -&gt; /health upcheck. 어디에 ? storage / database, network connection, 다른 의존들 .. 실패하면 자동으로 알림을 준다.
-로깅과 모니터를 어플리케이션의 성능에 대해 두라. 로그를 이벤트 스트림으로 취급하라. 어플리케이션에서는 건들지 말고 stdout 등으로 노출되는 데이터를 다른애가 후처리 해라 . 구글의 스택드라이버를 통해 어플리케이션을 디버그할 수 있고, 에러 모니터링을 설정할 수 있다....</p>
-  </div>
-  <footer class="entry-footer"><span title='2019-03-12 21:52:02 +0900 KST'>March 12, 2019</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 2.Security-Reliability-Migration" href="https://nolleh.github.io/coursera/gcp/2.security-reliability-migration/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
