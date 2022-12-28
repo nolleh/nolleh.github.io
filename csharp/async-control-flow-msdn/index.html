@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>비동기 프로그램의 제어 흐름 | The Computer Programmer, Nolleh</title>
-<meta name="keywords" content="C#, Programming, async-await">
+<meta name="keywords" content="C#, async-await">
 <meta name="description" content="개요 다음에서 발췌
 비동기 프로그램의 제어 흐름
 코드 public partial class MainWindow : Window { // . . . private async void startButton_Click(object sender, RoutedEventArgs e) { // ONE Task&lt;int&gt; getLengthTask = AccessTheWebAsync(); // FOUR int contentLength = await getLengthTask; // SIX resultsTextBox.Text &#43;= $&#34;\r\nLength of the downloaded string: {contentLength}.\r\n&#34;; } async Task&lt;int&gt; AccessTheWebAsync() { // TWO HttpClient client = new HttpClient(); Task&lt;string&gt; getStringTask = client.GetStringAsync(&#34;https://msdn.microsoft.com&#34;); // THREE string urlContents = await getStringTask; // FIVE return urlContents.">
@@ -114,7 +114,7 @@ if (!doNotTrack) {
   "name": "비동기 프로그램의 제어 흐름",
   "description": "개요 다음에서 발췌\n비동기 프로그램의 제어 흐름\n코드 public partial class MainWindow : Window { // . . . private async void startButton_Click(object sender, RoutedEventArgs e) { // ONE Task\u0026lt;int\u0026gt; getLengthTask = AccessTheWebAsync(); // FOUR int contentLength = await getLengthTask; // SIX resultsTextBox.Text += $\u0026#34;\\r\\nLength of the downloaded string: {contentLength}.\\r\\n\u0026#34;; } async Task\u0026lt;int\u0026gt; AccessTheWebAsync() { // TWO HttpClient client = new HttpClient(); Task\u0026lt;string\u0026gt; getStringTask = client.GetStringAsync(\u0026#34;https://msdn.microsoft.com\u0026#34;); // THREE string urlContents = await getStringTask; // FIVE return urlContents.",
   "keywords": [
-    "C#", "Programming", "async-await"
+    "C#", "async-await"
   ],
   "articleBody": "개요 다음에서 발췌\n비동기 프로그램의 제어 흐름\n코드 public partial class MainWindow : Window { // . . . private async void startButton_Click(object sender, RoutedEventArgs e) { // ONE Task\u003cint\u003e getLengthTask = AccessTheWebAsync(); // FOUR int contentLength = await getLengthTask; // SIX resultsTextBox.Text += $\"\\r\\nLength of the downloaded string: {contentLength}.\\r\\n\"; } async Task\u003cint\u003e AccessTheWebAsync() { // TWO HttpClient client = new HttpClient(); Task\u003cstring\u003e getStringTask = client.GetStringAsync(\"https://msdn.microsoft.com\"); // THREE string urlContents = await getStringTask; // FIVE return urlContents.Length; } } Three 에서 yield 되어 Four.\n",
   "wordCount" : "84",
@@ -278,7 +278,6 @@ if (!doNotTrack) {
   <footer class="post-footer">
     <ul class="post-tags">
       <li><a href="https://nolleh.github.io/tags/c#/">C#</a></li>
-      <li><a href="https://nolleh.github.io/tags/programming/">Programming</a></li>
       <li><a href="https://nolleh.github.io/tags/async-await/">async-await</a></li>
     </ul>
   </footer><div id="disqus_thread"></div>
