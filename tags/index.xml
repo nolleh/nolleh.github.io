@@ -6,7 +6,34 @@
     <description>Recent content in Tags on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Sun, 25 Dec 2022 22:21:34 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 Jan 2023 10:44:05 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cheatsheet</title>
+      <link>https://nolleh.github.io/tags/cheatsheet/</link>
+      <pubDate>Sun, 01 Jan 2023 10:44:05 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/tags/cheatsheet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://nolleh.github.io/tags/linux/</link>
+      <pubDate>Sun, 01 Jan 2023 10:44:05 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>unix</title>
+      <link>https://nolleh.github.io/tags/unix/</link>
+      <pubDate>Sun, 01 Jan 2023 10:44:05 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/tags/unix/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>edx</title>
       <link>https://nolleh.github.io/tags/edx/</link>
@@ -22,15 +49,6 @@
       <pubDate>Sun, 25 Dec 2022 22:21:34 +0900</pubDate>
       
       <guid>https://nolleh.github.io/tags/kernel/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>linux</title>
-      <link>https://nolleh.github.io/tags/linux/</link>
-      <pubDate>Sun, 25 Dec 2022 22:21:34 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/linux/</guid>
       <description></description>
     </item>
     
@@ -71,15 +89,6 @@
     </item>
     
     <item>
-      <title>Cheatsheet</title>
-      <link>https://nolleh.github.io/tags/cheatsheet/</link>
-      <pubDate>Wed, 24 Aug 2022 00:49:49 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/cheatsheet/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>env</title>
       <link>https://nolleh.github.io/tags/env/</link>
       <pubDate>Wed, 24 Aug 2022 00:49:49 +0900</pubDate>
@@ -94,15 +103,6 @@
       <pubDate>Wed, 24 Aug 2022 00:49:49 +0900</pubDate>
       
       <guid>https://nolleh.github.io/tags/macos/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>unix</title>
-      <link>https://nolleh.github.io/tags/unix/</link>
-      <pubDate>Wed, 24 Aug 2022 00:49:49 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/unix/</guid>
       <description></description>
     </item>
     
@@ -197,20 +197,20 @@
     </item>
     
     <item>
-      <title>subversion</title>
-      <link>https://nolleh.github.io/tags/subversion/</link>
-      <pubDate>Sun, 29 May 2022 16:37:55 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/subversion/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>tool</title>
       <link>https://nolleh.github.io/tags/tool/</link>
       <pubDate>Sun, 29 May 2022 16:37:55 +0900</pubDate>
       
       <guid>https://nolleh.github.io/tags/tool/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>version control</title>
+      <link>https://nolleh.github.io/tags/version-control/</link>
+      <pubDate>Sun, 29 May 2022 16:37:55 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/tags/version-control/</guid>
       <description></description>
     </item>
     

@@ -2,10 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://nolleh.github.io/linux/3.linux-basics-and-system-startup/2.the-boot-process/</loc>
-    <lastmod>2022-12-25T22:21:34+09:00</lastmod>
-  </url><url>
     <loc>https://nolleh.github.io/categories/</loc>
+    <lastmod>2023-01-01T10:44:05+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/cheatsheet/</loc>
+    <lastmod>2023-01-01T10:44:05+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/categories/cheatsheet/</loc>
+    <lastmod>2023-01-01T10:44:05+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/cheatsheet/</loc>
+    <lastmod>2023-01-01T10:44:05+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/linux/</loc>
+    <lastmod>2023-01-01T10:44:05+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/cheatsheet/shell/</loc>
+    <lastmod>2023-01-01T10:44:05+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/</loc>
+    <lastmod>2023-01-01T10:44:05+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/</loc>
+    <lastmod>2023-01-01T10:44:05+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/unix/</loc>
+    <lastmod>2023-01-01T10:44:05+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/linux/3.linux-basics-and-system-startup/2.the-boot-process/</loc>
     <lastmod>2022-12-25T22:21:34+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/tags/edx/</loc>
@@ -17,16 +41,7 @@
     <loc>https://nolleh.github.io/tags/kernel/</loc>
     <lastmod>2022-12-25T22:21:34+09:00</lastmod>
   </url><url>
-    <loc>https://nolleh.github.io/tags/linux/</loc>
-    <lastmod>2022-12-25T22:21:34+09:00</lastmod>
-  </url><url>
     <loc>https://nolleh.github.io/linux/</loc>
-    <lastmod>2022-12-25T22:21:34+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/tags/</loc>
-    <lastmod>2022-12-25T22:21:34+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/</loc>
     <lastmod>2022-12-25T22:21:34+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/linux/3.linux-basics-and-system-startup/1.introduction/</loc>
@@ -98,9 +113,6 @@
     <loc>https://nolleh.github.io/coursera/data-analyst-ibm/week1/note/</loc>
     <lastmod>2022-09-04T13:55:28+09:00</lastmod>
   </url><url>
-    <loc>https://nolleh.github.io/tags/cheatsheet/</loc>
-    <lastmod>2022-08-24T00:49:49+09:00</lastmod>
-  </url><url>
     <loc>https://nolleh.github.io/tags/env/</loc>
     <lastmod>2022-08-24T00:49:49+09:00</lastmod>
   </url><url>
@@ -111,9 +123,6 @@
     <lastmod>2022-08-24T00:49:49+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/tags/macos/</loc>
-    <lastmod>2022-08-24T00:49:49+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/tags/unix/</loc>
     <lastmod>2022-08-24T00:49:49+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/categories/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD/</loc>
@@ -188,10 +197,10 @@
     <loc>https://nolleh.github.io/git/</loc>
     <lastmod>2022-05-29T16:37:55+09:00</lastmod>
   </url><url>
-    <loc>https://nolleh.github.io/tags/subversion/</loc>
+    <loc>https://nolleh.github.io/tags/tool/</loc>
     <lastmod>2022-05-29T16:37:55+09:00</lastmod>
   </url><url>
-    <loc>https://nolleh.github.io/tags/tool/</loc>
+    <loc>https://nolleh.github.io/tags/version-control/</loc>
     <lastmod>2022-05-29T16:37:55+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/git/sub-module/</loc>
@@ -214,12 +223,6 @@
   </url><url>
     <loc>https://nolleh.github.io/qpid/1.4.broker-federation/</loc>
     <lastmod>2020-02-06T13:23:27+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/categories/cheatsheet/</loc>
-    <lastmod>2020-02-06T11:56:11+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/cheatsheet/</loc>
-    <lastmod>2020-02-06T11:56:11+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/tags/network/</loc>
     <lastmod>2020-02-06T11:56:11+09:00</lastmod>
