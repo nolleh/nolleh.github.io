@@ -2,31 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://nolleh.github.io/linux/3.linux-basics-and-system-startup/4.linux-filesystem-basics/</loc>
-    <lastmod>2023-01-08T13:44:22+09:00</lastmod>
+    <loc>https://nolleh.github.io/linux/3.linux-basics-and-system-startup/6.summary/</loc>
+    <lastmod>2023-01-08T15:32:36+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/categories/</loc>
-    <lastmod>2023-01-08T13:44:22+09:00</lastmod>
+    <lastmod>2023-01-08T15:32:36+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/tags/edx/</loc>
-    <lastmod>2023-01-08T13:44:22+09:00</lastmod>
+    <lastmod>2023-01-08T15:32:36+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/categories/edx-linux/</loc>
-    <lastmod>2023-01-08T13:44:22+09:00</lastmod>
+    <lastmod>2023-01-08T15:32:36+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/tags/kernel/</loc>
-    <lastmod>2023-01-08T13:44:22+09:00</lastmod>
+    <lastmod>2023-01-08T15:32:36+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/tags/linux/</loc>
-    <lastmod>2023-01-08T13:44:22+09:00</lastmod>
+    <lastmod>2023-01-08T15:32:36+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/linux/</loc>
-    <lastmod>2023-01-08T13:44:22+09:00</lastmod>
+    <lastmod>2023-01-08T15:32:36+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/tags/</loc>
-    <lastmod>2023-01-08T13:44:22+09:00</lastmod>
+    <lastmod>2023-01-08T15:32:36+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/</loc>
+    <lastmod>2023-01-08T15:32:36+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/linux/3.linux-basics-and-system-startup/5.linux-distribution-installation/</loc>
+    <lastmod>2023-01-08T14:15:48+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/linux/3.linux-basics-and-system-startup/4.linux-filesystem-basics/</loc>
     <lastmod>2023-01-08T13:44:22+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/linux/3.linux-basics-and-system-startup/3.kernel-init-and-services/</loc>

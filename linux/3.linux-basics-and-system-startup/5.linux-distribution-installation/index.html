@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>3-5.linux Distribution Installation | The Computer Programmer, Nolleh</title>
+<meta name="keywords" content="edx, Linux, Kernel">
+<meta name="description" content="Linux Distribution Installation Choosing a Linux Distribution Questions to Ask when Choosing a Distribution What is the main function of the system (server or desktop)? What types of packages are important to the organization? For example, web server, word processing, etc. How much hard disk space is required and how much is available? For example, when installing Linux on an embedded device, space is usually constrained. How often are packages updated?">
+<meta name="author" content="nolleh">
+<link rel="canonical" href="https://nolleh.github.io/linux/3.linux-basics-and-system-startup/5.linux-distribution-installation/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d7fb4cbf980fe688a21621b06a795933c4e6bb2d4070ec940667af1715d84af2.css" integrity="sha256-1/tMv5gP5oiiFiGwanlZM8Tmuy1AcOyUBmevFxXYSvI=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://nolleh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nolleh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-102565363-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="3-5.linux Distribution Installation" />
+<meta property="og:description" content="Linux Distribution Installation Choosing a Linux Distribution Questions to Ask when Choosing a Distribution What is the main function of the system (server or desktop)? What types of packages are important to the organization? For example, web server, word processing, etc. How much hard disk space is required and how much is available? For example, when installing Linux on an embedded device, space is usually constrained. How often are packages updated?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nolleh.github.io/linux/3.linux-basics-and-system-startup/5.linux-distribution-installation/" /><meta property="article:section" content="linux" />
+<meta property="article:published_time" content="2023-01-08T14:15:48&#43;09:00" />
+<meta property="article:modified_time" content="2023-01-08T14:15:48&#43;09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="3-5.linux Distribution Installation"/>
+<meta name="twitter:description" content="Linux Distribution Installation Choosing a Linux Distribution Questions to Ask when Choosing a Distribution What is the main function of the system (server or desktop)? What types of packages are important to the organization? For example, web server, word processing, etc. How much hard disk space is required and how much is available? For example, when installing Linux on an embedded device, space is usually constrained. How often are packages updated?"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Linuxes",
+      "item": "https://nolleh.github.io/linux/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "3-5.linux Distribution Installation",
+      "item": "https://nolleh.github.io/linux/3.linux-basics-and-system-startup/5.linux-distribution-installation/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "3-5.linux Distribution Installation",
+  "name": "3-5.linux Distribution Installation",
+  "description": "Linux Distribution Installation Choosing a Linux Distribution Questions to Ask when Choosing a Distribution What is the main function of the system (server or desktop)? What types of packages are important to the organization? For example, web server, word processing, etc. How much hard disk space is required and how much is available? For example, when installing Linux on an embedded device, space is usually constrained. How often are packages updated?",
+  "keywords": [
+    "edx", "Linux", "Kernel"
+  ],
+  "articleBody": "Linux Distribution Installation Choosing a Linux Distribution Questions to Ask when Choosing a Distribution What is the main function of the system (server or desktop)? What types of packages are important to the organization? For example, web server, word processing, etc. How much hard disk space is required and how much is available? For example, when installing Linux on an embedded device, space is usually constrained. How often are packages updated? How long is the support cycle for each release? For example, LTS releases have long-term support. Do you need kernel customization from the vendor or a third party? What hardware are you running on? For example, it might be X86, ARM, PPC, etc. Do you need long-term stability? Can you accept (or need) a more volatile cutting edge system running the latest software? Linux Installation: Planning the partition layout needs to be decieded at the time of installation. and you can always modify the design later, it is always easier to try and get it right to begin with.\nLinux Installation: Software Choices All installing include the bare minimum software for running a Linux distribution.\nMost installers also provide options for adding categories of software.\nAll installers set up some initial security features on the new system.\nIn some cases (such as Ubuntu), only an initial user is set up; direct root login is not configured and root access requires loggin in first as a normal user and then using sudo.\nLinux Installation: Install Source Many installers can do an installation completely automatically, using a configuration file to specify installation options.\nThis file is called a Kickstart file for Red Hat-based systems, an AutoYAST profile for SUSE-based systems, and Preseed file for Debian-based systems.\n",
+  "wordCount" : "285",
+  "inLanguage": "en",
+  "datePublished": "2023-01-08T14:15:48+09:00",
+  "dateModified": "2023-01-08T14:15:48+09:00",
+  "author":{
+    "@type": "Person",
+    "name": "nolleh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nolleh.github.io/linux/3.linux-basics-and-system-startup/5.linux-distribution-installation/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Computer Programmer, Nolleh",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nolleh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://nolleh.github.io/archives/" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nolleh.github.io/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nolleh.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nolleh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://nolleh.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://nolleh.github.io/linux/">Linuxes</a></div>
+    <h1 class="post-title">
+      3-5.linux Distribution Installation
+    </h1>
+    <div class="post-meta"><span title='2023-01-08 14:15:48 +0900 KST'>January 8, 2023</span>&nbsp;·&nbsp;nolleh
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#linux-distribution-installation" aria-label="Linux Distribution Installation">Linux Distribution Installation</a><ul>
+                        
+                <li>
+                    <a href="#choosing-a-linux-distribution" aria-label="Choosing a Linux Distribution">Choosing a Linux Distribution</a></li>
+                <li>
+                    <a href="#questions-to-ask-when-choosing-a-distribution" aria-label="Questions to Ask when Choosing a Distribution">Questions to Ask when Choosing a Distribution</a></li>
+                <li>
+                    <a href="#linux-installation-planning" aria-label="Linux Installation: Planning">Linux Installation: Planning</a></li>
+                <li>
+                    <a href="#linux-installation-software-choices" aria-label="Linux Installation: Software Choices">Linux Installation: Software Choices</a></li>
+                <li>
+                    <a href="#linux-installation-install-source" aria-label="Linux Installation: Install Source">Linux Installation: Install Source</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h1 id="linux-distribution-installation">Linux Distribution Installation<a hidden class="anchor" aria-hidden="true" href="#linux-distribution-installation">#</a></h1>
+<h2 id="choosing-a-linux-distribution">Choosing a Linux Distribution<a hidden class="anchor" aria-hidden="true" href="#choosing-a-linux-distribution">#</a></h2>
+<p><img loading="lazy" src="https://courses.edx.org/assets/courseware/v1/6eafa3b1170a0c208335ea46ac16945d/asset-v1:LinuxFoundationX&#43;LFS101x&#43;2T2021&#43;type@asset&#43;block/distros.png" alt=""  />
+</p>
+<h2 id="questions-to-ask-when-choosing-a-distribution">Questions to Ask when Choosing a Distribution<a hidden class="anchor" aria-hidden="true" href="#questions-to-ask-when-choosing-a-distribution">#</a></h2>
+<ul>
+<li>What is the main function of the system (server or desktop)?</li>
+<li>What types of packages are important to the organization? For example, web server, word processing, etc.</li>
+<li>How much hard disk space is required and how much is available? For example, when installing Linux on an embedded device, space is usually constrained.</li>
+<li>How often are packages updated?</li>
+<li>How long is the support cycle for each release? For example, LTS releases have long-term support.</li>
+<li>Do you need kernel customization from the vendor or a third party?</li>
+<li>What hardware are you running on? For example, it might be X86, ARM, PPC, etc.</li>
+<li>Do you need long-term stability? Can you accept (or need) a more volatile cutting edge system running the latest software?</li>
+</ul>
+<h2 id="linux-installation-planning">Linux Installation: Planning<a hidden class="anchor" aria-hidden="true" href="#linux-installation-planning">#</a></h2>
+<p>the partition layout needs to be decieded at the time of installation. and you can always modify the design later, it is always easier to try and get it right to begin with.</p>
+<h2 id="linux-installation-software-choices">Linux Installation: Software Choices<a hidden class="anchor" aria-hidden="true" href="#linux-installation-software-choices">#</a></h2>
+<p>All installing include the bare minimum software for running a Linux distribution.<br>
+Most installers also provide options for adding categories of software.</p>
+<p>All installers set up some initial security features on the new system.<br>
+In some cases (such as Ubuntu), only an initial user is set up; direct root login is not configured and root access requires loggin in first as a normal user and then using <strong>sudo</strong>.</p>
+<h2 id="linux-installation-install-source">Linux Installation: Install Source<a hidden class="anchor" aria-hidden="true" href="#linux-installation-install-source">#</a></h2>
+<p>Many installers can do an installation completely automatically, using a configuration file to specify installation options.<br>
+This file is called a Kickstart file for Red Hat-based systems, an AutoYAST profile for SUSE-based systems, and Preseed file for Debian-based systems.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://nolleh.github.io/tags/edx/">edx</a></li>
+      <li><a href="https://nolleh.github.io/tags/linux/">Linux</a></li>
+      <li><a href="https://nolleh.github.io/tags/kernel/">Kernel</a></li>
+    </ul>
+  </footer><div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "nolleh-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
