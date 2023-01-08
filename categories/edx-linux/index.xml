@@ -6,7 +6,29 @@
     <description>Recent content in edx-linux on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Sun, 25 Dec 2022 22:21:34 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/categories/edx-linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Jan 2023 13:44:22 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/categories/edx-linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>3-4.linux Filesystem Basics</title>
+      <link>https://nolleh.github.io/linux/3.linux-basics-and-system-startup/4.linux-filesystem-basics/</link>
+      <pubDate>Sun, 08 Jan 2023 13:44:22 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/linux/3.linux-basics-and-system-startup/4.linux-filesystem-basics/</guid>
+      <description>3-4. Linux FileSystem Basics Linux FileSystem Conventional disk filesystems: ext3, ext4, XFS, Btrfs, JFS, NTFS, vfat, exfat, etc. Flash storage filesystems: ubifs, jffs2, yaffs, etc. Database filesystems Special purpose filesystems: procfs, sysfs, tmpfs, squashfs, debugfs, fuse, etc. Partitions and Filesystems A partition is physically contiguous section of disk, or what appears to be so in some advanced setups.
+A filesystem is a method of storing/finding files on the hard disk (usually in a partition).</description>
+    </item>
+    
+    <item>
+      <title>3.kernel Init and Services</title>
+      <link>https://nolleh.github.io/linux/3.linux-basics-and-system-startup/3.kernel-init-and-services/</link>
+      <pubDate>Sun, 08 Jan 2023 12:25:09 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/linux/3.linux-basics-and-system-startup/3.kernel-init-and-services/</guid>
+      <description>Kernel, init and Services The Linux Kernel boot loader loads kernel and an initial RAM-based file system (initramfs) into memory, so it can be used directly by the kernel.
+kernel loaded, it immediately initializes and configures the computer&amp;rsquo;s memory and also configures all the hardware attached to the system.
+also load user space applications.
+/sbin/init and Services Once kernel has set up all its hardware and mounted the root filesystem, the kernel runs sbin/init.</description>
+    </item>
+    
     <item>
       <title>3-2.the Boot Process</title>
       <link>https://nolleh.github.io/linux/3.linux-basics-and-system-startup/2.the-boot-process/</link>
