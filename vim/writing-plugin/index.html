@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Writing Plugin | The Computer Programmer, Nolleh</title>
+<meta name="keywords" content="env, vim, vim-plugin, cheatsheet">
+<meta name="description" content="Writing Plugin 제목은 거창하게 썼지만, 플러그인이나 rc 파일 작성에 필요한 지식들을 메모해 둘 예정.
+Preview Window :botright pedit { file } :botright pedit Preview Window 에서 라인 출력 function! showInPreview(name, fileType, lines) let l:command = &#34;silent! pedit! &#43;setlocal\\ &#34; . \ &#34;buftype=nofile\\ nobuflisted\\ &#34; . \ &#34;noswapfile\\ nonumber\\ &#34; . \ &#34;filetype=&#34; . a:fileType . &#34; &#34; . a:name exe l:command if has(&#39;nvim&#39;) let l:bufNr = bufnr(a:name) call nvim_buf_set_lines(l:bufNr, 0, -1, 0, a:lines) else call setbufline(a:name, 1, a:lines) endif endfunction stackExchange">
+<meta name="author" content="nolleh">
+<link rel="canonical" href="https://nolleh.github.io/vim/writing-plugin/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d7fb4cbf980fe688a21621b06a795933c4e6bb2d4070ec940667af1715d84af2.css" integrity="sha256-1/tMv5gP5oiiFiGwanlZM8Tmuy1AcOyUBmevFxXYSvI=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://nolleh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nolleh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-102565363-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="Writing Plugin" />
+<meta property="og:description" content="Writing Plugin 제목은 거창하게 썼지만, 플러그인이나 rc 파일 작성에 필요한 지식들을 메모해 둘 예정.
+Preview Window :botright pedit { file } :botright pedit Preview Window 에서 라인 출력 function! showInPreview(name, fileType, lines) let l:command = &#34;silent! pedit! &#43;setlocal\\ &#34; . \ &#34;buftype=nofile\\ nobuflisted\\ &#34; . \ &#34;noswapfile\\ nonumber\\ &#34; . \ &#34;filetype=&#34; . a:fileType . &#34; &#34; . a:name exe l:command if has(&#39;nvim&#39;) let l:bufNr = bufnr(a:name) call nvim_buf_set_lines(l:bufNr, 0, -1, 0, a:lines) else call setbufline(a:name, 1, a:lines) endif endfunction stackExchange" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nolleh.github.io/vim/writing-plugin/" /><meta property="article:section" content="vim" />
+<meta property="article:published_time" content="2023-01-14T14:00:53&#43;09:00" />
+<meta property="article:modified_time" content="2023-01-14T14:00:53&#43;09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Writing Plugin"/>
+<meta name="twitter:description" content="Writing Plugin 제목은 거창하게 썼지만, 플러그인이나 rc 파일 작성에 필요한 지식들을 메모해 둘 예정.
+Preview Window :botright pedit { file } :botright pedit Preview Window 에서 라인 출력 function! showInPreview(name, fileType, lines) let l:command = &#34;silent! pedit! &#43;setlocal\\ &#34; . \ &#34;buftype=nofile\\ nobuflisted\\ &#34; . \ &#34;noswapfile\\ nonumber\\ &#34; . \ &#34;filetype=&#34; . a:fileType . &#34; &#34; . a:name exe l:command if has(&#39;nvim&#39;) let l:bufNr = bufnr(a:name) call nvim_buf_set_lines(l:bufNr, 0, -1, 0, a:lines) else call setbufline(a:name, 1, a:lines) endif endfunction stackExchange"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Vims",
+      "item": "https://nolleh.github.io/vim/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Writing Plugin",
+      "item": "https://nolleh.github.io/vim/writing-plugin/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Writing Plugin",
+  "name": "Writing Plugin",
+  "description": "Writing Plugin 제목은 거창하게 썼지만, 플러그인이나 rc 파일 작성에 필요한 지식들을 메모해 둘 예정.\nPreview Window :botright pedit { file } :botright pedit Preview Window 에서 라인 출력 function! showInPreview(name, fileType, lines) let l:command = \u0026#34;silent! pedit! +setlocal\\\\ \u0026#34; . \\ \u0026#34;buftype=nofile\\\\ nobuflisted\\\\ \u0026#34; . \\ \u0026#34;noswapfile\\\\ nonumber\\\\ \u0026#34; . \\ \u0026#34;filetype=\u0026#34; . a:fileType . \u0026#34; \u0026#34; . a:name exe l:command if has(\u0026#39;nvim\u0026#39;) let l:bufNr = bufnr(a:name) call nvim_buf_set_lines(l:bufNr, 0, -1, 0, a:lines) else call setbufline(a:name, 1, a:lines) endif endfunction stackExchange",
+  "keywords": [
+    "env", "vim", "vim-plugin", "cheatsheet"
+  ],
+  "articleBody": "Writing Plugin 제목은 거창하게 썼지만, 플러그인이나 rc 파일 작성에 필요한 지식들을 메모해 둘 예정.\nPreview Window :botright pedit { file } :botright pedit Preview Window 에서 라인 출력 function! showInPreview(name, fileType, lines) let l:command = \"silent! pedit! +setlocal\\\\ \" . \\ \"buftype=nofile\\\\ nobuflisted\\\\ \" . \\ \"noswapfile\\\\ nonumber\\\\ \" . \\ \"filetype=\" . a:fileType . \" \" . a:name exe l:command if has('nvim') let l:bufNr = bufnr(a:name) call nvim_buf_set_lines(l:bufNr, 0, -1, 0, a:lines) else call setbufline(a:name, 1, a:lines) endif endfunction stackExchange\n이 함수는 프리뷰에 stdin 으로 데이터를 노출할 방법이 없을까 검색하다가 찾은 snippet 인데,\ncall ShowInPreview('this-is-test', 'sql', 'SELECT 0') 와 같은 구문으로 실행해보면 별도 파일없이 프리뷰에 데이터를 출력가능하다. 1번째는 버퍼이름, 두번째는 해당 버퍼에대한 파일 타입 정보를 전달하는 형태로 보여서 해당 펑션을 선언후에 파라미터들은 미리 정해놓고 shortcut 매핑을 해놓고 세번째 ‘내용’ 만 전달하는 형태로 사용하면 꽤 쓸만할 것 같다.\n문제는 그 내용을 유의미한 데이터를 얻어오는건데..\npipe plugin 이 쉘 명령어를 실행하고 이 결과를 프리뷰에 노출하는 형태로 구성되어있다. ANSI color 코드랑 결합하면 왜인지 제대로 동작을안한다. (두번째부터) 사실 그걸 디버그하려고 프리뷰 윈도우에 대해서 찾아보기 시작한건데 잘 안되네.\n삽질기는 To Be Continued…\n",
+  "wordCount" : "178",
+  "inLanguage": "en",
+  "datePublished": "2023-01-14T14:00:53+09:00",
+  "dateModified": "2023-01-14T14:00:53+09:00",
+  "author":{
+    "@type": "Person",
+    "name": "nolleh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nolleh.github.io/vim/writing-plugin/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Computer Programmer, Nolleh",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nolleh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://nolleh.github.io/archives/" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nolleh.github.io/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nolleh.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nolleh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://nolleh.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://nolleh.github.io/vim/">Vims</a></div>
+    <h1 class="post-title">
+      Writing Plugin<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    </h1>
+    <div class="post-meta"><span title='2023-01-14 14:00:53 +0900 KST'>January 14, 2023</span>&nbsp;·&nbsp;nolleh
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#writing-plugin" aria-label="Writing Plugin">Writing Plugin</a><ul>
+                        
+                <li>
+                    <a href="#preview-window" aria-label="Preview Window">Preview Window</a><ul>
+                        
+                <li>
+                    <a href="#preview-window-%ec%97%90%ec%84%9c-%eb%9d%bc%ec%9d%b8-%ec%b6%9c%eb%a0%a5" aria-label="Preview Window 에서 라인 출력">Preview Window 에서 라인 출력</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h1 id="writing-plugin">Writing Plugin<a hidden class="anchor" aria-hidden="true" href="#writing-plugin">#</a></h1>
+<p>제목은 거창하게 썼지만, 플러그인이나 rc 파일 작성에 필요한 지식들을 메모해 둘 예정.</p>
+<h2 id="preview-window">Preview Window<a hidden class="anchor" aria-hidden="true" href="#preview-window">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>:botright pedit <span style="color:#f92672">{</span> file <span style="color:#f92672">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>:botright pedit  
+</span></span></code></pre></div><h3 id="preview-window-에서-라인-출력">Preview Window 에서 라인 출력<a hidden class="anchor" aria-hidden="true" href="#preview-window-에서-라인-출력">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#66d9ef">function</span>! showInPreview<span style="color:#f92672">(</span>name, fileType, lines<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    let l:command <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;silent! pedit! +setlocal\\ &#34;</span> .
+</span></span><span style="display:flex;"><span>                  <span style="color:#ae81ff">\ </span><span style="color:#e6db74">&#34;buftype=nofile\\ nobuflisted\\ &#34;</span> .
+</span></span><span style="display:flex;"><span>                  <span style="color:#ae81ff">\ </span><span style="color:#e6db74">&#34;noswapfile\\ nonumber\\ &#34;</span> .
+</span></span><span style="display:flex;"><span>                  <span style="color:#ae81ff">\ </span><span style="color:#e6db74">&#34;filetype=&#34;</span> . a:fileType . <span style="color:#e6db74">&#34; &#34;</span> . a:name
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    exe l:command
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> has<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;nvim&#39;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        let l:bufNr <span style="color:#f92672">=</span> bufnr<span style="color:#f92672">(</span>a:name<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        call nvim_buf_set_lines<span style="color:#f92672">(</span>l:bufNr, 0, -1, 0, a:lines<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>        call setbufline<span style="color:#f92672">(</span>a:name, 1, a:lines<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    endif
+</span></span><span style="display:flex;"><span>endfunction
+</span></span></code></pre></div><p><a href="https://vi.stackexchange.com/questions/19056/how-to-create-preview-window-to-display-a-string">stackExchange</a></p>
+<p>이 함수는 프리뷰에 stdin 으로 데이터를 노출할 방법이 없을까 검색하다가 찾은 snippet 인데,</p>
+<pre tabindex="0"><code>call ShowInPreview(&#39;this-is-test&#39;, &#39;sql&#39;, &#39;SELECT 0&#39;)
+</code></pre><p>와 같은 구문으로 실행해보면 별도 파일없이 프리뷰에 데이터를 출력가능하다.
+1번째는 버퍼이름, 두번째는 해당 버퍼에대한 파일 타입 정보를 전달하는 형태로 보여서
+해당 펑션을 선언후에 파라미터들은 미리 정해놓고 shortcut 매핑을 해놓고 세번째 &lsquo;내용&rsquo; 만 전달하는 형태로 사용하면
+꽤 쓸만할 것 같다.</p>
+<p>문제는 그 내용을 유의미한 데이터를 얻어오는건데..</p>
+<p>pipe plugin 이 쉘 명령어를 실행하고 이 결과를 프리뷰에 노출하는 형태로 구성되어있다.
+ANSI color 코드랑 결합하면 왜인지 제대로 동작을안한다. (두번째부터)
+사실 그걸 디버그하려고 프리뷰 윈도우에 대해서 찾아보기 시작한건데 잘 안되네.</p>
+<p>삽질기는 To Be Continued&hellip;</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://nolleh.github.io/tags/env/">env</a></li>
+      <li><a href="https://nolleh.github.io/tags/vim/">vim</a></li>
+      <li><a href="https://nolleh.github.io/tags/vim-plugin/">vim-plugin</a></li>
+      <li><a href="https://nolleh.github.io/tags/cheatsheet/">Cheatsheet</a></li>
+    </ul>
+  </footer><div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "nolleh-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

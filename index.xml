@@ -6,7 +6,17 @@
     <description>Recent content on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Sun, 08 Jan 2023 23:02:17 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 14 Jan 2023 14:00:53 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Writing Plugin</title>
+      <link>https://nolleh.github.io/vim/writing-plugin/</link>
+      <pubDate>Sat, 14 Jan 2023 14:00:53 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/vim/writing-plugin/</guid>
+      <description>Writing Plugin 제목은 거창하게 썼지만, 플러그인이나 rc 파일 작성에 필요한 지식들을 메모해 둘 예정.
+Preview Window :botright pedit { file } :botright pedit Preview Window 에서 라인 출력 function! showInPreview(name, fileType, lines) let l:command = &amp;#34;silent! pedit! +setlocal\\ &amp;#34; . \ &amp;#34;buftype=nofile\\ nobuflisted\\ &amp;#34; . \ &amp;#34;noswapfile\\ nonumber\\ &amp;#34; . \ &amp;#34;filetype=&amp;#34; . a:fileType . &amp;#34; &amp;#34; . a:name exe l:command if has(&amp;#39;nvim&amp;#39;) let l:bufNr = bufnr(a:name) call nvim_buf_set_lines(l:bufNr, 0, -1, 0, a:lines) else call setbufline(a:name, 1, a:lines) endif endfunction stackExchange</description>
+    </item>
+    
     <item>
       <title>4-2.graphical Desktop</title>
       <link>https://nolleh.github.io/linux/4.graphical-interface/2.graphical-desktop/</link>

@@ -2,10 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://nolleh.github.io/linux/4.graphical-interface/2.graphical-desktop/</loc>
-    <lastmod>2023-01-08T23:02:17+09:00</lastmod>
-  </url><url>
     <loc>https://nolleh.github.io/categories/</loc>
+    <lastmod>2023-01-14T14:00:53+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/cheatsheet/</loc>
+    <lastmod>2023-01-14T14:00:53+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/env/</loc>
+    <lastmod>2023-01-14T14:00:53+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/</loc>
+    <lastmod>2023-01-14T14:00:53+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/</loc>
+    <lastmod>2023-01-14T14:00:53+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/vim/</loc>
+    <lastmod>2023-01-14T14:00:53+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/categories/vim/</loc>
+    <lastmod>2023-01-14T14:00:53+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/vim-plugin/</loc>
+    <lastmod>2023-01-14T14:00:53+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/vim/</loc>
+    <lastmod>2023-01-14T14:00:53+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/vim/writing-plugin/</loc>
+    <lastmod>2023-01-14T14:00:53+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/linux/4.graphical-interface/2.graphical-desktop/</loc>
     <lastmod>2023-01-08T23:02:17+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/tags/edx/</loc>
@@ -23,12 +50,6 @@
     <loc>https://nolleh.github.io/linux/</loc>
     <lastmod>2023-01-08T23:02:17+09:00</lastmod>
   </url><url>
-    <loc>https://nolleh.github.io/tags/</loc>
-    <lastmod>2023-01-08T23:02:17+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/</loc>
-    <lastmod>2023-01-08T23:02:17+09:00</lastmod>
-  </url><url>
     <loc>https://nolleh.github.io/linux/4.graphical-interface/1.introduction/</loc>
     <lastmod>2023-01-08T23:00:29+09:00</lastmod>
   </url><url>
@@ -43,9 +64,6 @@
   </url><url>
     <loc>https://nolleh.github.io/linux/3.linux-basics-and-system-startup/3.kernel-init-and-services/</loc>
     <lastmod>2023-01-08T12:25:09+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/tags/cheatsheet/</loc>
-    <lastmod>2023-01-01T10:44:05+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/categories/cheatsheet/</loc>
     <lastmod>2023-01-01T10:44:05+09:00</lastmod>
@@ -130,9 +148,6 @@
   </url><url>
     <loc>https://nolleh.github.io/coursera/data-analyst-ibm/week1/note/</loc>
     <lastmod>2022-09-04T13:55:28+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/tags/env/</loc>
-    <lastmod>2022-08-24T00:49:49+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/env/</loc>
     <lastmod>2022-08-24T00:49:49+09:00</lastmod>

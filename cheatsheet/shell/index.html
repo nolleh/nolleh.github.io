@@ -113,8 +113,8 @@ Primitives if statement if [ 10 -gt 20 ]; then echo &#39;gt&#39;; else echo &#39
   "keywords": [
     "Cheatsheet", "unix", "Linux"
   ],
-  "articleBody": "Cheatsheet - Shell 쉘 커맨드들을 자주 까먹곤 해서 자주쓰는것 위주로 생각날때마다 하나씩 등록 예정.\nPrimitives if statement if [ 10 -gt 20 ]; then echo 'gt'; else echo 'lt'; fi; operator desc ! not true -n 문자열의 길이가 0보다 크다 -z 문자열의 길이가 0이다 = 문자열이 같다 -eq 정수가 같다 -gt 정수가 크다 -lt 정수가 작다 -d dir dir 디렉토리가 있다 -e file file 이 있다 for statement for file in *.sh; do echo $file; done echo 로 출력해보면 마지막 값이 나오는것을 보면, file 이라는 변수에 값을 하나씩 할당하고\nfor 문 바깥에서도 유효함 (스코프바깥)이 확인된다.\nFuther strip string let’s say you want to strip ‘sh’\necho ${a/.sh} 궁금해서 이렇게도 돌려봄.\ntest=aaabbb echo ${test/a} 결과는 aabbb recursive 하게 제거하지 않고, first occurrence 를 제거\ncurly brace 내부가 평가되어 rvalue 에 evaluation 될 수 있도록 감싸주는것을 잊지 말자.\nlist all files in directories 조금 재미있는건 이 명령어와\nfor file in ./*; do echo $file; done 이 명령어의 결과가 다르다는 점이다.\nfor file in *; do echo $file; done ls ./* 평가 결과와 ls *의 차이로 봐도 무관할듯.\n어떤 폴더의 결과를 출력할때 상대경로의 유무가 그 결과에도 함께 반영이 된다.\n만약 순수하게 파일명만 가져오고 싶다면 후자를 사용해야할 것.\n",
-  "wordCount" : "194",
+  "articleBody": "Cheatsheet - Shell 쉘 커맨드들을 자주 까먹곤 해서 자주쓰는것 위주로 생각날때마다 하나씩 등록 예정.\nPrimitives if statement if [ 10 -gt 20 ]; then echo 'gt'; else echo 'lt'; fi; operator desc ! not true -n 문자열의 길이가 0보다 크다 -z 문자열의 길이가 0이다 = 문자열이 같다 -eq 정수가 같다 -gt 정수가 크다 -lt 정수가 작다 -d dir dir 디렉토리가 있다 -e file file 이 있다 for statement for file in *.sh; do echo $file; done echo 로 출력해보면 마지막 값이 나오는것을 보면, file 이라는 변수에 값을 하나씩 할당하고\nfor 문 바깥에서도 유효함 (스코프바깥) 이 확인된다.\nheredoc cat \u003e file.txt \u003c",
+  "wordCount" : "236",
   "inLanguage": "en",
   "datePublished": "2023-01-01T10:44:05+09:00",
   "dateModified": "2023-01-01T10:44:05+09:00",
@@ -231,6 +231,8 @@ Primitives if statement if [ 10 -gt 20 ]; then echo &#39;gt&#39;; else echo &#39
                     <a href="#for-statement" aria-label="for statement">for statement</a></li></ul>
                 </li>
                 <li>
+                    <a href="#heredoc" aria-label="heredoc">heredoc</a></li>
+                <li>
                     <a href="#futher" aria-label="Futher">Futher</a><ul>
                         
                 <li>
@@ -301,8 +303,22 @@ Primitives if statement if [ 10 -gt 20 ]; then echo &#39;gt&#39;; else echo &#39
 <h3 id="for-statement">for statement<a hidden class="anchor" aria-hidden="true" href="#for-statement">#</a></h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> file in *.sh; <span style="color:#66d9ef">do</span> echo $file; <span style="color:#66d9ef">done</span>
 </span></span></code></pre></div><p>echo 로 출력해보면 마지막 값이 나오는것을 보면, file 이라는 변수에 값을 하나씩 할당하고<br>
-for 문 바깥에서도 유효함 (스코프바깥)이 확인된다.</p>
-<h2 id="futher">Futher<a hidden class="anchor" aria-hidden="true" href="#futher">#</a></h2>
+for 문 바깥에서도 유효함 (스코프바깥) 이 확인된다.</p>
+<h2 id="heredoc">heredoc<a hidden class="anchor" aria-hidden="true" href="#heredoc">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>cat &gt; file.txt <span style="color:#e6db74">&lt;&lt;EOF
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">hello
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">this is nolleh
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span></code></pre></div><p>표준입력으로부터 파일을 생성하는 구문이다.
+이렇게도 사용할 수 있지만,
+쉘스크립트를 사용할때 아래와 같은 구문을 작성함으로써
+복수의 라인을 변수로 선언하는 형태로도 사용가능하다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>sql<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>cat <span style="color:#e6db74">&lt;&lt;EOF
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">SELECT foo, bar FROM db
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">WHERE foo=&#39;baz&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">)</span>
+</span></span></code></pre></div><h2 id="futher">Futher<a hidden class="anchor" aria-hidden="true" href="#futher">#</a></h2>
 <h3 id="strip-string">strip string<a hidden class="anchor" aria-hidden="true" href="#strip-string">#</a></h3>
 <p>let&rsquo;s say you want to strip &lsquo;sh&rsquo;</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>echo <span style="color:#e6db74">${</span>a/.sh<span style="color:#e6db74">}</span>
