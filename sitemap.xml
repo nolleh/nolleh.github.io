@@ -2,55 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://nolleh.github.io/linux/4.graphical-interface/1.introduction/</loc>
+    <lastmod>2023-01-08T23:00:29+09:00</lastmod>
+  </url><url>
     <loc>https://nolleh.github.io/categories/</loc>
-    <lastmod>2023-01-14T14:00:53+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/tags/cheatsheet/</loc>
-    <lastmod>2023-01-14T14:00:53+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/tags/env/</loc>
-    <lastmod>2023-01-14T14:00:53+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/tags/</loc>
-    <lastmod>2023-01-14T14:00:53+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/</loc>
-    <lastmod>2023-01-14T14:00:53+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/tags/vim/</loc>
-    <lastmod>2023-01-14T14:00:53+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/categories/vim/</loc>
-    <lastmod>2023-01-14T14:00:53+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/tags/vim-plugin/</loc>
-    <lastmod>2023-01-14T14:00:53+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/vim/</loc>
-    <lastmod>2023-01-14T14:00:53+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/vim/writing-plugin/</loc>
-    <lastmod>2023-01-14T14:00:53+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/linux/4.graphical-interface/2.graphical-desktop/</loc>
-    <lastmod>2023-01-08T23:02:17+09:00</lastmod>
+    <lastmod>2023-01-08T23:00:29+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/tags/edx/</loc>
-    <lastmod>2023-01-08T23:02:17+09:00</lastmod>
+    <lastmod>2023-01-08T23:00:29+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/categories/edx-linux/</loc>
-    <lastmod>2023-01-08T23:02:17+09:00</lastmod>
+    <lastmod>2023-01-08T23:00:29+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/tags/kernel/</loc>
-    <lastmod>2023-01-08T23:02:17+09:00</lastmod>
+    <lastmod>2023-01-08T23:00:29+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/tags/linux/</loc>
-    <lastmod>2023-01-08T23:02:17+09:00</lastmod>
+    <lastmod>2023-01-08T23:00:29+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/linux/</loc>
-    <lastmod>2023-01-08T23:02:17+09:00</lastmod>
+    <lastmod>2023-01-08T23:00:29+09:00</lastmod>
   </url><url>
-    <loc>https://nolleh.github.io/linux/4.graphical-interface/1.introduction/</loc>
+    <loc>https://nolleh.github.io/tags/</loc>
+    <lastmod>2023-01-08T23:00:29+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/</loc>
     <lastmod>2023-01-08T23:00:29+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/linux/3.linux-basics-and-system-startup/6.summary/</loc>
@@ -64,6 +40,9 @@
   </url><url>
     <loc>https://nolleh.github.io/linux/3.linux-basics-and-system-startup/3.kernel-init-and-services/</loc>
     <lastmod>2023-01-08T12:25:09+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/cheatsheet/</loc>
+    <lastmod>2023-01-01T10:44:05+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/categories/cheatsheet/</loc>
     <lastmod>2023-01-01T10:44:05+09:00</lastmod>
@@ -143,11 +122,8 @@
     <loc>https://nolleh.github.io/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/</loc>
     <lastmod>2022-09-06T00:20:16+09:00</lastmod>
   </url><url>
-    <loc>https://nolleh.github.io/coursera/</loc>
-    <lastmod>2022-09-04T13:55:28+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/coursera/data-analyst-ibm/week1/note/</loc>
-    <lastmod>2022-09-04T13:55:28+09:00</lastmod>
+    <loc>https://nolleh.github.io/tags/env/</loc>
+    <lastmod>2022-08-24T00:49:49+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/env/</loc>
     <lastmod>2022-08-24T00:49:49+09:00</lastmod>
@@ -179,49 +155,19 @@
     <loc>https://nolleh.github.io/tags/sql/</loc>
     <lastmod>2022-08-06T12:06:41+09:00</lastmod>
   </url><url>
-    <loc>https://nolleh.github.io/mysql/cheatsheet/</loc>
-    <lastmod>2022-08-06T12:05:08+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/tags/cheetsheet/</loc>
-    <lastmod>2022-08-06T12:05:08+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/tags/mysql/</loc>
-    <lastmod>2022-08-06T12:05:08+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/kubernetes/cheatsheet/</loc>
-    <lastmod>2022-08-05T16:22:31+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/tags/devops/</loc>
-    <lastmod>2022-08-05T16:22:31+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/tags/k8s/</loc>
-    <lastmod>2022-08-05T16:22:31+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/tags/kubernetes/</loc>
-    <lastmod>2022-08-05T16:22:31+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/categories/kubernetes/</loc>
-    <lastmod>2022-08-05T16:22:31+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/kubernetes/</loc>
-    <lastmod>2022-08-05T16:22:31+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/distributed-systems/3.time-and-order/</loc>
-    <lastmod>2022-07-23T14:33:45+09:00</lastmod>
+    <loc>https://nolleh.github.io/distributed-systems/2.level-of-abstraction/</loc>
+    <lastmod>2022-06-29T22:15:08+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/tags/distributed-system/</loc>
-    <lastmod>2022-07-23T14:33:45+09:00</lastmod>
+    <lastmod>2022-06-29T22:15:08+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/categories/distributed-system-column/</loc>
-    <lastmod>2022-07-23T14:33:45+09:00</lastmod>
+    <lastmod>2022-06-29T22:15:08+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/distributed-systems/</loc>
-    <lastmod>2022-07-23T14:33:45+09:00</lastmod>
+    <lastmod>2022-06-29T22:15:08+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/tags/%EB%B2%88%EC%97%AD/</loc>
-    <lastmod>2022-07-23T14:33:45+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/distributed-systems/2.level-of-abstraction/</loc>
     <lastmod>2022-06-29T22:15:08+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/categories/git/</loc>
@@ -303,6 +249,9 @@
     <lastmod>2019-03-16T23:02:25+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/tags/coursera/</loc>
+    <lastmod>2019-03-16T23:02:25+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/coursera/</loc>
     <lastmod>2019-03-16T23:02:25+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/tags/google-cloud-service/</loc>

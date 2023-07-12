@@ -150,19 +150,6 @@ if (!doNotTrack) {
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2>Writing Plugin<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Writing Plugin 제목은 거창하게 썼지만, 플러그인이나 rc 파일 작성에 필요한 지식들을 메모해 둘 예정.
-Preview Window :botright pedit { file } :botright pedit Preview Window 에서 라인 출력 function! showInPreview(name, fileType, lines) let l:command = &#34;silent! pedit! &#43;setlocal\\ &#34; . \ &#34;buftype=nofile\\ nobuflisted\\ &#34; . \ &#34;noswapfile\\ nonumber\\ &#34; . \ &#34;filetype=&#34; . a:fileType . &#34; &#34; . a:name exe l:command if has(&#39;nvim&#39;) let l:bufNr = bufnr(a:name) call nvim_buf_set_lines(l:bufNr, 0, -1, 0, a:lines) else call setbufline(a:name, 1, a:lines) endif endfunction stackExchange...</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-01-14 14:00:53 +0900 KST'>January 14, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to Writing Plugin" href="https://nolleh.github.io/vim/writing-plugin/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
     <h2>Shell
     </h2>
   </header>
@@ -194,19 +181,6 @@ home directory 가 분리 되어 있기 때문에 어떤 유저를 위해 설치
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2>Cheatsheet<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>CronJobs 수동 실행
-kubectl create job -n {namespace} --from=cronjob/{name} {job-name} </p>
-  </div>
-  <footer class="entry-footer"><span title='2022-08-05 16:22:31 +0900 KST'>August 5, 2022</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to Cheatsheet" href="https://nolleh.github.io/kubernetes/cheatsheet/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
     <h2>Network
     </h2>
   </header>
@@ -216,11 +190,18 @@ kubectl create job -n {namespace} --from=cronjob/{name} {job-name} </p>
   <footer class="entry-footer"><span title='2020-02-06 11:56:11 +0900 KST'>February 6, 2020</span>&nbsp;·&nbsp;nolleh</footer>
   <a class="entry-link" aria-label="post link to Network" href="https://nolleh.github.io/cheatsheet/network/"></a>
 </article>
-<footer class="page-footer">
-  <nav class="pagination">
-    <a class="next" href="https://nolleh.github.io/tags/cheatsheet/page/2/">Next »</a>
-  </nav>
-</footer>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>Docker
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Docker Cheat Sheet 1. docker conntainer 내부 소켓 상태 확인 $ docker inspect -f &#39;{{.State.Pid}}&#39; cb2939r52s22 5645 [ec2-user@ip-10-100-77-76 ~]$ sudo nsenter -t 5645 -n netstat Active Internet connections (w/o servers) Proto Recv-Q Send-Q Local Address Foreign Address State tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-77-225.ec2.:45104 ESTABLISHED tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-77-225.ec2.:14804 TIME_WAIT tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-76-6:seclayer-tls TIME_WAIT tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-76-65.ec:plethora TIME_WAIT tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-77-225.ec2.:14830 TIME_WAIT tcp 0 0 ip-172-17-0-2....</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-02-06 10:53:37 +0900 KST'>February 6, 2020</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to Docker" href="https://nolleh.github.io/cheatsheet/docker/"></a>
+</article>
     </main>
     
 <footer class="footer">

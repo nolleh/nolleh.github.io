@@ -19,14 +19,5 @@ ORM 을 통해 코드로 넣는 방법도 있지만, 코드 수정하고 코드�
 function 작성 (DB CLIENT) function 실행 (DB CLIENT) 데이터 삽입 결과 확인 (DB CLIENT) 절차는 크게 차이나지 않아보이지만, 화면 이동, 적합한 프로그램 실행등의 과정에서 누적되면 생산성의 차이가 발생한다.</description>
     </item>
     
-    <item>
-      <title>Cheatsheet</title>
-      <link>https://nolleh.github.io/mysql/cheatsheet/</link>
-      <pubDate>Sat, 06 Aug 2022 12:05:08 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/mysql/cheatsheet/</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>

@@ -6,17 +6,7 @@
     <description>Recent content in Cheatsheet on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Sat, 14 Jan 2023 14:00:53 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/cheatsheet/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Writing Plugin</title>
-      <link>https://nolleh.github.io/vim/writing-plugin/</link>
-      <pubDate>Sat, 14 Jan 2023 14:00:53 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/vim/writing-plugin/</guid>
-      <description>Writing Plugin 제목은 거창하게 썼지만, 플러그인이나 rc 파일 작성에 필요한 지식들을 메모해 둘 예정.
-Preview Window :botright pedit { file } :botright pedit Preview Window 에서 라인 출력 function! showInPreview(name, fileType, lines) let l:command = &amp;#34;silent! pedit! +setlocal\\ &amp;#34; . \ &amp;#34;buftype=nofile\\ nobuflisted\\ &amp;#34; . \ &amp;#34;noswapfile\\ nonumber\\ &amp;#34; . \ &amp;#34;filetype=&amp;#34; . a:fileType . &amp;#34; &amp;#34; . a:name exe l:command if has(&amp;#39;nvim&amp;#39;) let l:bufNr = bufnr(a:name) call nvim_buf_set_lines(l:bufNr, 0, -1, 0, a:lines) else call setbufline(a:name, 1, a:lines) endif endfunction stackExchange</description>
-    </item>
-    
+    <lastBuildDate>Sun, 01 Jan 2023 10:44:05 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/cheatsheet/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Shell</title>
       <link>https://nolleh.github.io/cheatsheet/shell/</link>
@@ -40,16 +30,6 @@ home directory 가 분리 되어 있기 때문에 어떤 유저를 위해 설치
 혹은 서로 충돌이 난다거나 하는 불편함들이 생긴다.
 대표적인 예로 brew 에서 이런 문제가 발생하는데,,
 어떤 계정으로 설치한 패키지가 다른 계정에서 권한문제로 접근이 안되게 되면서 엉망이 된다.. (-_&amp;ndash;) dependency 가 있는 다른 패키지 들과도 맞물리게 되면서 내가 설치한 패키지가 아닌 패키지에 대해 데이터를 바꾸려고 하면서 권한 이슈로 연결 되는식.</description>
-    </item>
-    
-    <item>
-      <title>Cheatsheet</title>
-      <link>https://nolleh.github.io/kubernetes/cheatsheet/</link>
-      <pubDate>Fri, 05 Aug 2022 16:22:31 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/kubernetes/cheatsheet/</guid>
-      <description>CronJobs 수동 실행
-kubectl create job -n {namespace} --from=cronjob/{name} {job-name} </description>
     </item>
     
     <item>
