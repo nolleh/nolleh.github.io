@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nvim on The Computer Programmer, Nolleh</title>
+    <link>https://nolleh.github.io/tags/nvim/</link>
+    <description>Recent content in nvim on The Computer Programmer, Nolleh</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <lastBuildDate>Sat, 09 Sep 2023 15:33:49 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/nvim/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Neovim</title>
+      <link>https://nolleh.github.io/ubuntu/neovim/</link>
+      <pubDate>Sat, 09 Sep 2023 15:33:49 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/ubuntu/neovim/</guid>
+      <description>apt-get install neovim 과 같은 방법으로는 최신 버전을 설치 할 수 없다.
+최신버전을 설치하려면, 다음 과정을 거쳐야한다.
+cf.https://github.com/neovim/neovim/wiki/Installing-Neovim
+sudo apt-get install software-properties-common
+이 명령어를 선행해줘야할 수도 있다. sudo apt-get remove neovim -y sudo add-apt-repository ppa:neovim-ppa/stable sudo apt-get update -y sudo apt-get install neovim -y https://launchpad.net/~neovim-ppa/+archive/ubuntu/unstable
+ppa archive 를 살펴보고 원하는 아키텍쳐 / 버전이 없는경우 unstable 버전에서 찾아서 다시 반복해볼 필요가 있다. 다행히 unstable 버전은 ubuntu 23.04 를 지원하는게 있어서 받아서 씀&amp;hellip;</description>
+    </item>
+    
+  </channel>
+</rss>

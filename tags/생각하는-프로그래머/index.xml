@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>생각하는 프로그래머 on The Computer Programmer, Nolleh</title>
     <link>https://nolleh.github.io/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/</link>
@@ -15,6 +15,20 @@
       <guid>https://nolleh.github.io/csharp/dont-lock-on-async-tasks/</guid>
       <description>서론 예전 회사에서나 현 직장에서나, 면접관으로 들어가다가 C# 이 이력서에 적혀있는 경우 Task 와 async/await 관련하여 동기화 관련한 내용에 대해 물어보곤한다. 그리고 이 질문에서 대부분 깊이가 드러나게 된다. (여담이지만, 대부분의 지원자가 자바스택이라, 이런 재미진? 것들을 물어보기가 어렵다. C# 이랑 C++, 실시간 게임서버는 재미진 질문? 들이 많은데.. ㅎㅎㅎㅎ 면접관으로 들어가기위해서 자바스택의 재미진 토픽들도 좀 찾아봐야겠다&amp;hellip;.
 내 경험에서 질문을 도출하려고 스프링의 라이브러리들을 어떻게 구현할 수 있을지 물어볼수는 없으니&amp;hellip;) 물어보다가 나도 생각도 정리하고, 내가 알고 있는 틀린 부분이 없는지 정리하는겸해서 블로그에 기록해 놓는다.</description>
+    </item>
+    
+    <item>
+      <title>3.time and Order</title>
+      <link>https://nolleh.github.io/distributed-systems/3.time-and-order/</link>
+      <pubDate>Sat, 23 Jul 2022 14:33:45 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/distributed-systems/3.time-and-order/</guid>
+      <description>다음에서 발췌 3. Time and Order 순서란 무엇이고, 왜 중요할까요?
+&amp;ldquo;순서란 무엇인가&amp;rdquo; 라는 질문은 무슨 의미 일까요 ?
+애초에 왜 여기에 왜 빠져있는 걸까요? 왜 우리는 A 가 B 이전에 실행되었다는걸 신경 써야할까요? 왜 우리는 다른 주제에는 신경을 안쓸까요 ? 색깔 같은거?
+글쎄, 친구, 일단 이에 답변하기 위해 분산 시스템을 다시 살펴보도록 합시다.
+기억하고 있을지 모르겠는데, 분산프로그래밍을 복수의 컴퓨터를 활용해서 같은 문제를 해결하는 예술이라고 묘사했었습니다.
+이것은, 사실, 순서에 대한 강박(obsession)의 가장주요한 내용입니다.</description>
     </item>
     
     <item>

@@ -1,12 +1,39 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on The Computer Programmer, Nolleh</title>
     <link>https://nolleh.github.io/tags/linux/</link>
     <description>Recent content in Linux on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Sun, 08 Jan 2023 23:00:29 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 09 Sep 2023 15:33:49 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Neovim</title>
+      <link>https://nolleh.github.io/ubuntu/neovim/</link>
+      <pubDate>Sat, 09 Sep 2023 15:33:49 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/ubuntu/neovim/</guid>
+      <description>apt-get install neovim 과 같은 방법으로는 최신 버전을 설치 할 수 없다.
+최신버전을 설치하려면, 다음 과정을 거쳐야한다.
+cf.https://github.com/neovim/neovim/wiki/Installing-Neovim
+sudo apt-get install software-properties-common
+이 명령어를 선행해줘야할 수도 있다. sudo apt-get remove neovim -y sudo add-apt-repository ppa:neovim-ppa/stable sudo apt-get update -y sudo apt-get install neovim -y https://launchpad.net/~neovim-ppa/+archive/ubuntu/unstable
+ppa archive 를 살펴보고 원하는 아키텍쳐 / 버전이 없는경우 unstable 버전에서 찾아서 다시 반복해볼 필요가 있다. 다행히 unstable 버전은 ubuntu 23.04 를 지원하는게 있어서 받아서 씀&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>4-2.graphical Desktop</title>
+      <link>https://nolleh.github.io/linux/4.graphical-interface/2.graphical-desktop/</link>
+      <pubDate>Sun, 08 Jan 2023 23:02:17 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/linux/4.graphical-interface/2.graphical-desktop/</guid>
+      <description>Graphical Desktop Graphical Desktop CLI or GUI.
+GUI is quick and easy.
+for repeated tasks, the CLI is often more efficient, while the GUI is easier to navigate if you do not remember all the details or do something only rarely.
+X Window System X window system is loaded as one of the final steps in boot process. It is often just called X.
+A service called the Display Manager keeps track of displays being provided and loads the X server (so-called, because it provides graphical services to applications, sometimes called X clients.</description>
+    </item>
+    
     <item>
       <title>4-1.introduction</title>
       <link>https://nolleh.github.io/linux/4.graphical-interface/1.introduction/</link>

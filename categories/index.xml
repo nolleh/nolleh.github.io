@@ -1,16 +1,34 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on The Computer Programmer, Nolleh</title>
     <link>https://nolleh.github.io/categories/</link>
     <description>Recent content in Categories on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Sun, 08 Jan 2023 23:00:29 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 09 Sep 2023 15:33:49 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ubuntu</title>
+      <link>https://nolleh.github.io/categories/ubuntu/</link>
+      <pubDate>Sat, 09 Sep 2023 15:33:49 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/categories/ubuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vim</title>
+      <link>https://nolleh.github.io/categories/vim/</link>
+      <pubDate>Sat, 14 Jan 2023 14:00:53 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/categories/vim/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>edx-linux</title>
       <link>https://nolleh.github.io/categories/edx-linux/</link>
-      <pubDate>Sun, 08 Jan 2023 23:00:29 +0900</pubDate>
+      <pubDate>Sun, 08 Jan 2023 23:02:17 +0900</pubDate>
       
       <guid>https://nolleh.github.io/categories/edx-linux/</guid>
       <description></description>
@@ -62,9 +80,18 @@
     </item>
     
     <item>
+      <title>kubernetes</title>
+      <link>https://nolleh.github.io/categories/kubernetes/</link>
+      <pubDate>Fri, 05 Aug 2022 16:22:31 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/categories/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>distributed-system Column</title>
       <link>https://nolleh.github.io/categories/distributed-system-column/</link>
-      <pubDate>Wed, 29 Jun 2022 22:15:08 +0900</pubDate>
+      <pubDate>Sat, 23 Jul 2022 14:33:45 +0900</pubDate>
       
       <guid>https://nolleh.github.io/categories/distributed-system-column/</guid>
       <description></description>
