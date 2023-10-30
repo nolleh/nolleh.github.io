@@ -6,7 +6,44 @@
     <description>Recent content in Linuxes on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Sun, 08 Jan 2023 23:02:17 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 02 Oct 2023 19:56:54 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Searching For Files</title>
+      <link>https://nolleh.github.io/linux/7.command-line-operations/searching-for-files/</link>
+      <pubDate>Mon, 02 Oct 2023 19:56:54 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/linux/7.command-line-operations/searching-for-files/</guid>
+      <description>A special shorthand notation can send anything written to file descriptor 2 (stderr) to the same place as file descriptor 1 (stdout): 2&amp;gt;&amp;amp;1.
+$ do_something &amp;gt; all-output-file 2&amp;gt;&amp;amp;1
+bash permits an easier syntax for the above:
+$ do_something &amp;gt;&amp;amp; all-output-file
+in pipe&amp;hellip; $ command1 | command2 | command3
+The above represents what we often call a pipeline, and allows Linux to combine the actions of several commands into one. This is extraordinarily efficient because command2 and command3 do not have to wait for the previous pipeline commands to complete before they can begin processing at the data in their input streams</description>
+    </item>
+    
+    <item>
+      <title>2.system Display Date and Time Settings</title>
+      <link>https://nolleh.github.io/linux/5.system-configuration-from-the-graphical-interface/2.system-display-date-and-time-settings/</link>
+      <pubDate>Sat, 30 Sep 2023 11:06:13 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/linux/5.system-configuration-from-the-graphical-interface/2.system-display-date-and-time-settings/</guid>
+      <description>the system actually provide display settings, is uses /etc/x11/xorg.conf
+in recent linux, the file usually present in unusal cricumstatnce such as when cirtain Less
+common graphic drivers are in use.
+changing the file is usually for more advanced users.
+Network Time Protocol the Network Time Protocol is most popular and reliable protocol for setting local time by consulting established internet servers.
+student:/tmp&amp;gt; $ xdpyinfo | grep dim dimensions: 3200x1080 pixels (847x286 millimeters) </description>
+    </item>
+    
+    <item>
+      <title>1.learning Objectives</title>
+      <link>https://nolleh.github.io/linux/5.system-configuration-from-the-graphical-interface/1.learning-objectives/</link>
+      <pubDate>Sat, 09 Sep 2023 19:19:58 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/linux/5.system-configuration-from-the-graphical-interface/1.learning-objectives/</guid>
+      <description>apply system, display, timesetting.. track the network settings and manage connections using network manager in linux. install and update software in linux from a graphical interface.</description>
+    </item>
+    
     <item>
       <title>4-2.graphical Desktop</title>
       <link>https://nolleh.github.io/linux/4.graphical-interface/2.graphical-desktop/</link>

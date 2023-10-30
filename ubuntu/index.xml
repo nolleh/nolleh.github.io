@@ -8,16 +8,19 @@
     <language>ko-KR</language>
     <lastBuildDate>Sat, 09 Sep 2023 15:36:52 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/ubuntu/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Internet Speed</title>
-      <link>https://nolleh.github.io/ubuntu/internet-speed/</link>
+      <title>Optimize Speed</title>
+      <link>https://nolleh.github.io/ubuntu/optimize-speed/</link>
       <pubDate>Sat, 09 Sep 2023 15:36:52 +0900</pubDate>
       
-      <guid>https://nolleh.github.io/ubuntu/internet-speed/</guid>
+      <guid>https://nolleh.github.io/ubuntu/optimize-speed/</guid>
       <description>라즈베리파이에서 우분투를 설치해서 사용하고 있는데, 인터넷 속도가 어마하게 느린 이슈가 있다.
 거기서 개선을 위해 시도해본 것들에 대해 기록할 예정.
+##1. iwconfig
 일단 다음은 확실히 효용이 있는 것으로 보임.
 60mb -&amp;gt; 140mb 정도로 개선됨.
-sudo iwconfig wlan0 power off </description>
+sudo iwconfig wlan0 power off ##2. zram
+그리고나서, zswap 대신 zram 을 사용하도록 변경.
+sudo apt install -y linux-modules-extra-raspi sudo apt install -y zram-tools sudo apt autoremove --purge -y zram-config sudo nvim /etc/default/zramswap 에디터는 어떤걸 사용해도 상관없지만, nvim 사용하고 있어서 그걸로 세팅.</description>
     </item>
     
     <item>

@@ -2,19 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://nolleh.github.io/ubuntu/internet-speed/</loc>
-    <lastmod>2023-09-09T15:36:52+09:00</lastmod>
+    <loc>https://nolleh.github.io/linux/</loc>
+    <lastmod>2023-10-02T19:56:54+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/linux/7.command-line-operations/searching-for-files/</loc>
+    <lastmod>2023-10-02T19:56:54+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/</loc>
+    <lastmod>2023-10-02T19:56:54+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/linux/5.system-configuration-from-the-graphical-interface/2.system-display-date-and-time-settings/</loc>
+    <lastmod>2023-09-30T11:06:13+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/linux/5.system-configuration-from-the-graphical-interface/1.learning-objectives/</loc>
+    <lastmod>2023-09-09T19:19:58+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/linux/</loc>
+    <lastmod>2023-09-09T15:36:52+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/ubuntu/optimize-speed/</loc>
+    <lastmod>2023-09-09T15:36:52+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/raspberry-pi/</loc>
+    <lastmod>2023-09-09T15:36:52+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/</loc>
+    <lastmod>2023-09-09T15:36:52+09:00</lastmod>
+  </url><url>
+    <loc>https://nolleh.github.io/tags/ubuntu/</loc>
     <lastmod>2023-09-09T15:36:52+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/ubuntu/</loc>
     <lastmod>2023-09-09T15:36:52+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/categories/</loc>
-    <lastmod>2023-09-09T15:33:49+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/tags/linux/</loc>
     <lastmod>2023-09-09T15:33:49+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/tags/neovim/</loc>
@@ -24,9 +45,6 @@
     <lastmod>2023-09-09T15:33:49+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/tags/nvim/</loc>
-    <lastmod>2023-09-09T15:33:49+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/tags/</loc>
     <lastmod>2023-09-09T15:33:49+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/categories/ubuntu/</loc>
@@ -81,9 +99,6 @@
     <lastmod>2023-01-08T23:02:17+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/tags/kernel/</loc>
-    <lastmod>2023-01-08T23:02:17+09:00</lastmod>
-  </url><url>
-    <loc>https://nolleh.github.io/linux/</loc>
     <lastmod>2023-01-08T23:02:17+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/linux/4.graphical-interface/1.introduction/</loc>
