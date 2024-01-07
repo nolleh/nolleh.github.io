@@ -122,8 +122,8 @@ A service called the Display Manager keeps track of displays being provided and 
   "keywords": [
     "edx", "Linux", "Kernel"
   ],
-  "articleBody": "Graphical Desktop Graphical Desktop CLI or GUI.\nGUI is quick and easy.\nfor repeated tasks, the CLI is often more efficient, while the GUI is easier to navigate if you do not remember all the details or do something only rarely.\nX Window System X window system is loaded as one of the final steps in boot process. It is often just called X.\nA service called the Display Manager keeps track of displays being provided and loads the X server (so-called, because it provides graphical services to applications, sometimes called X clients.)\nthe display manager also handles graphical logins and starts the appropriate desktop environment after a user logs in.\nX is rather old software; A newer system, known as Wayland, is gradually supersending it and is the default display system in Fedora, RHEL 8, and other recent distributions. For the most part, it looks just like X to the user, although under hood it is quite different.\n",
-  "wordCount" : "159",
+  "articleBody": "Graphical Desktop Graphical Desktop CLI or GUI.\nGUI is quick and easy.\nfor repeated tasks, the CLI is often more efficient, while the GUI is easier to navigate if you do not remember all the details or do something only rarely.\nX Window System X window system is loaded as one of the final steps in boot process. It is often just called X.\nA service called the Display Manager keeps track of displays being provided and loads the X server (so-called, because it provides graphical services to applications, sometimes called X clients.)\nthe display manager also handles graphical logins and starts the appropriate desktop environment after a user logs in.\nX is rather old software; A newer system, known as Wayland, is gradually supersending it and is the default display system in Fedora, RHEL 8, and other recent distributions. For the most part, it looks just like X to the user, although under hood it is quite different.\nMore About the Graphical Desktop A desktop environment consists of a session manager, window manager, and A set of utilities.\nif the display manager is not started by default in the default runlevel, you can start the grphical desktop different way, by running startx from the commandline .\nGUI StartUp when you install a desktop env, the display manager starts at the end of the boot process. the default display manager for GNOME is called gdm\nGraphical Desktop Background Each Linux distribution comes with tis own set of desktop backgrounds. you can change the default by choosing a new wallpaper or selecting a custom picture to be set as the desktop background.\nIn addition, you can also change the desktop theme, which changes the look and feel of the Linux system.\n",
+  "wordCount" : "290",
   "inLanguage": "en",
   "datePublished": "2023-01-08T23:02:17+09:00",
   "dateModified": "2023-01-08T23:02:17+09:00",
@@ -216,7 +216,7 @@ A service called the Display Manager keeps track of displays being provided and 
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://nolleh.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://nolleh.github.io/linux/">Linuxes</a></div>
     <h1 class="post-title">
-      4-2.graphical Desktop<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+      4-2.graphical Desktop
     </h1>
     <div class="post-meta"><span title='2023-01-08 23:02:17 +0900 KST'>January 8, 2023</span>&nbsp;·&nbsp;nolleh
 
@@ -234,7 +234,13 @@ A service called the Display Manager keeps track of displays being provided and 
                 <li>
                     <a href="#graphical-desktop-1" aria-label="Graphical Desktop">Graphical Desktop</a></li>
                 <li>
-                    <a href="#x-window-system" aria-label="X Window System">X Window System</a>
+                    <a href="#x-window-system" aria-label="X Window System">X Window System</a></li>
+                <li>
+                    <a href="#more-about-the-graphical-desktop" aria-label="More About the Graphical Desktop">More About the Graphical Desktop</a></li>
+                <li>
+                    <a href="#gui-startup" aria-label="GUI StartUp">GUI StartUp</a></li>
+                <li>
+                    <a href="#graphical-desktop-background" aria-label="Graphical Desktop Background">Graphical Desktop Background</a>
                 </li>
             </ul>
             </li>
@@ -256,6 +262,16 @@ A service called the Display Manager keeps track of displays being provided and 
 A newer system, known as <a href="https://wayland.freedesktop.org/">Wayland</a>, is gradually supersending it and is the default display system in Fedora, RHEL 8, and other recent distributions. For the most part, it looks just like X to the user, although under hood it is quite different.</p>
 <p><img loading="lazy" src="https://courses.edx.org/assets/courseware/v1/44717c86868ff7e9edc71c5747bb84ab/asset-v1:LinuxFoundationX&#43;LFS101x&#43;2T2021&#43;type@asset&#43;block/LFS01_ch03_screen28.jpg" alt=""  />
 </p>
+<h2 id="more-about-the-graphical-desktop">More About the Graphical Desktop<a hidden class="anchor" aria-hidden="true" href="#more-about-the-graphical-desktop">#</a></h2>
+<p>A desktop environment consists of a session manager, window manager,  and A set of utilities.</p>
+<p>if the display manager is not started by default in the default runlevel, you can start the grphical desktop different way, by running <code>startx</code> from the commandline
+.</p>
+<h2 id="gui-startup">GUI StartUp<a hidden class="anchor" aria-hidden="true" href="#gui-startup">#</a></h2>
+<p>when you install a desktop env, the display manager starts at the end of the boot process.
+the default display manager for GNOME is called <code>gdm</code></p>
+<h2 id="graphical-desktop-background">Graphical Desktop Background<a hidden class="anchor" aria-hidden="true" href="#graphical-desktop-background">#</a></h2>
+<p>Each Linux distribution comes with tis own set of desktop backgrounds. you can change the default by choosing a new wallpaper or selecting a custom picture to be set as the desktop background.</p>
+<p>In addition, you can also change the desktop theme, which changes the look and feel of the Linux system.</p>
 
 
   </div>
@@ -290,7 +306,7 @@ A newer system, known as <a href="https://wayland.freedesktop.org/">Wayland</a>,
     </main>
     
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span>
+    <span>&copy; 2024 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

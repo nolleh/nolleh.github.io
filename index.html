@@ -2,7 +2,7 @@
 <html lang="en" dir="auto">
 
 <head>
-	<meta name="generator" content="Hugo 0.110.0"><meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.113.0"><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -160,67 +160,73 @@ if (!doNotTrack) {
 
 <article class="first-entry"> 
   <header class="entry-header">
-    <h2>4-1.introduction
+    <h2>5.securing the Boot Procss and Hardware Resources
     </h2>
   </header>
   <div class="entry-content">
-    <p>Graphical interface Learning Objectives By the end of this chapter, you should be able to:
-Manage graphical interface sessions. Perform basic operations using the graphical interface. Change the graphical desktop to suit your needs. </p>
+    <p>Requiring Boot Loader Passwords You can secure the boot process with a secure epassword to prevent someone from bypassing the user authentication step. This can work in conjunction with password protection for the BIOS. Note that while using a bootloader passwrd laone will stop a user from editing the bootloader configuration during the boot process, it will not prevent a user from booting from and alterantive boot media such as optical disks or pen drives....</p>
   </div>
-  <footer class="entry-footer"><span title='2023-01-08 23:00:29 +0900 KST'>January 8, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 4-1.introduction" href="https://nolleh.github.io/linux/4.graphical-interface/1.introduction/"></a>
+  <footer class="entry-footer"><span title='2024-01-07 12:55:07 +0900 KST'>January 7, 2024</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 5.securing the Boot Procss and Hardware Resources" href="https://nolleh.github.io/linux/18.local-security-principles/5.securing-the-boot-procss-and-hardware-resources/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>3-6.summary
+    <h2>4.working With Passwords
     </h2>
   </header>
   <div class="entry-content">
-    <p>Summary Chapter Summary A partition is a logical part of the disk. A filesystem is a method of storing/finding files on a hard disk. By dividing the hard disk into partitions, data can be grouped and separated as needed. When a failure or mistake occurs, only the data in the affected partition will be damaged, while the data on the other partitions will likely survive. The boot process has multiple steps, starting with BIOS, which triggers the boot loader to start up the Linux kernel....</p>
+    <p>How Passwords Are Stored The system verifies authenticity and identity using user credentials.
+Originally, encrypted passwords wer stored in the /etc/passwd file, which was readable by everyone. this mde it rather easy for passwords to be craked.
+On modern systems. passwords are actually stored in an encrypted format in a secondary file named etc/shadow Onyly those with root access can read or modify this file.
+Password Encrpytion Protecting passwords has became a curucial element of security....</p>
   </div>
-  <footer class="entry-footer"><span title='2023-01-08 15:32:36 +0900 KST'>January 8, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 3-6.summary" href="https://nolleh.github.io/linux/3.linux-basics-and-system-startup/6.summary/"></a>
+  <footer class="entry-footer"><span title='2024-01-07 12:41:06 +0900 KST'>January 7, 2024</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 4.working With Passwords" href="https://nolleh.github.io/linux/18.local-security-principles/4.working-with-passwords/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>3-5.linux Distribution Installation
+    <h2>3.sudo Process Isolation Limiting Hardware Access and Keeping Systems Current
     </h2>
   </header>
   <div class="entry-content">
-    <p>Linux Distribution Installation Choosing a Linux Distribution Questions to Ask when Choosing a Distribution What is the main function of the system (server or desktop)? What types of packages are important to the organization? For example, web server, word processing, etc. How much hard disk space is required and how much is available? For example, when installing Linux on an embedded device, space is usually constrained. How often are packages updated?...</p>
+    <p>The sudoers File /etc/sudoers contains a lot of documentation in it about how to customize. Most Linux distributions now prefer you add a file in the directory etc/sudoers.d with a name the same as user.
+this file contains the individual user’s sudo configuration, and one should leave the main configuration file untouched except for changeds that affect that affect all users.
+sudo commands and any failures are logged in …...</p>
   </div>
-  <footer class="entry-footer"><span title='2023-01-08 14:15:48 +0900 KST'>January 8, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 3-5.linux Distribution Installation" href="https://nolleh.github.io/linux/3.linux-basics-and-system-startup/5.linux-distribution-installation/"></a>
+  <footer class="entry-footer"><span title='2024-01-07 12:11:04 +0900 KST'>January 7, 2024</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 3.sudo Process Isolation Limiting Hardware Access and Keeping Systems Current" href="https://nolleh.github.io/linux/18.local-security-principles/3.sudo-process-isolation-limiting-hardware-access-and-keeping-systems-current/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>3-4.linux Filesystem Basics
+    <h2>2.understanding Linux Security
     </h2>
   </header>
   <div class="entry-content">
-    <p>3-4. Linux FileSystem Basics Linux FileSystem Conventional disk filesystems: ext3, ext4, XFS, Btrfs, JFS, NTFS, vfat, exfat, etc. Flash storage filesystems: ubifs, jffs2, yaffs, etc. Database filesystems Special purpose filesystems: procfs, sysfs, tmpfs, squashfs, debugfs, fuse, etc. Partitions and Filesystems A partition is physically contiguous section of disk, or what appears to be so in some advanced setups.
-A filesystem is a method of storing/finding files on the hard disk (usually in a partition)....</p>
+    <p>User Accounts Linux kernel authenticated users to access files and applications. while each user is identified by a unique integer (the user id or UID), a separate database associates a username with each UID.
+Types of Accounts By default, Linux distinguishes between several account types in order to isolate processes and workloads.
+Linux has fourtypes of accounts:
+root System Normal Network For a safe working env, it is advised to grant minimum privileges possible and necessary to accounts, and remove inactive accounts....</p>
   </div>
-  <footer class="entry-footer"><span title='2023-01-08 13:44:22 +0900 KST'>January 8, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 3-4.linux Filesystem Basics" href="https://nolleh.github.io/linux/3.linux-basics-and-system-startup/4.linux-filesystem-basics/"></a>
+  <footer class="entry-footer"><span title='2024-01-06 16:26:12 +0900 KST'>January 6, 2024</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 2.understanding Linux Security" href="https://nolleh.github.io/linux/18.local-security-principles/2.understanding-linux-security/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>3-3.kernel Init and Services
+    <h2>4.manipulating Postscript and Pdf Files
     </h2>
   </header>
   <div class="entry-content">
-    <p>Kernel, init and Services The Linux Kernel boot loader loads kernel and an initial RAM-based file system (initramfs) into memory, so it can be used directly by the kernel.
-kernel loaded, it immediately initializes and configures the computer’s memory and also configures all the hardware attached to the system.
-also load user space applications.
-/sbin/init and Services Once kernel has set up all its hardware and mounted the root filesystem, the kernel runs sbin/init....</p>
+    <p>Working with PostScript and PDF PostScript is a standard page description language. it effectively manages scalilng of fonts and vector graphics to provide quality printouts.
+The format itself is a language that Adobe developed in the early 1980s to enable the transfer of data to printers.
+Feature of PostScript are:
+it can be used on any printer that is PostScript-compatible, i.e., any modern printer. Any program that understands the PostScript specification can print to it....</p>
   </div>
-  <footer class="entry-footer"><span title='2023-01-08 12:25:09 +0900 KST'>January 8, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 3-3.kernel Init and Services" href="https://nolleh.github.io/linux/3.linux-basics-and-system-startup/3.kernel-init-and-services/"></a>
+  <footer class="entry-footer"><span title='2024-01-06 14:42:02 +0900 KST'>January 6, 2024</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 4.manipulating Postscript and Pdf Files" href="https://nolleh.github.io/linux/17.printing/4.manipulating-postscript-and-pdf-files/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
@@ -230,7 +236,7 @@ also load user space applications.
     </main>
     
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span>
+    <span>&copy; 2024 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
