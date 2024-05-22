@@ -6,7 +6,20 @@
     <description>Recent content on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Sun, 25 Feb 2024 16:59:57 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 22 May 2024 21:37:29 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1.basics</title>
+      <link>https://nolleh.github.io/zeromq/1.basics/</link>
+      <pubDate>Wed, 22 May 2024 21:37:29 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/zeromq/1.basics/</guid>
+      <description>다음 번역 Chapter 1 - Basics Fixing The World 프로그래밍의 물리요, 과학은: 사람들이 쉽게 이해하고 사용할 수 있는 빌딩블록을 만들고 함께 큰 문제를 해결하는 데에 있다.
+우리는 연결되어 있는 세상에 살고 있고 현대의 소프트웨어는 세상을 안내한다.
+하지만 데이터와 지식들은 클라우드와 개인 컴퓨터에 존재하고 인터넷은 &amp;lsquo;연결된&amp;rsquo; 코드의 잠재성을 제안했지만
+현실은 많은 흥미로운 문제들(건강/교육/경제/..)이 코드를 &amp;lsquo;연결&amp;rsquo; 할 방법이 없기 때문에 많은 지식(brain) 을 연결하지 못해 해결되지 못한 채로 남아있다.
+IETF 표준들과같은많은노력으로 코드를 연결하기 위한 시도들이 행해졌다.</description>
+    </item>
+    
     <item>
       <title>struggles to view OTT on UBUNTU X raspberry Pi 5 - A.K.A using Widevinecdm</title>
       <link>https://nolleh.github.io/ubuntu/widevinecdm/</link>
