@@ -160,81 +160,84 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">5.backing Up and Compressing Data
+    <h2 class="entry-hint-parent">Brew Install 이 구버전만 설치할 때
     </h2>
   </header>
   <div class="entry-content">
-    <p>1. Backing Up Data cp &lt;-&gt; rsync
-rsync is more efficient, because it checks if the file being copied already exists. rsync copies only the parts of files that have actually changed, it can be very fast cp can only copy files to and from destinations on the local machine (unless mounted using NFS), rsync can also be used to copy files from one machine to another. someone@host:path 2. Using rsync a very useful way to back up a project directory might be to use the following command....</p>
+    <p>Let’s 사족 처음 회사에 입사 했을 때 자리에는 Mac PC 만이 덩그러니 있었고, Mac 을 사용해본적 없던 꼬꼬마는 자연스럽게 윈도우 CD 를 인사팀에서 받아와서 깔고 있었드랬다.
+“기껏 좋은 컴퓨터 줬더니 넌 뭘하고 있는거니?”
+라는 선배의 말을 듣고 그제야 맥에서도 안드로이드 개발이 되는거구나.. (이때는 현업 안드로이드 개발자였다.)
+하곤 윈도우 설치페이지를 취소하고 다시 맥 OS 를 부팅했었지.
+이때가, Mac OS 와의 첫 만남이었드랬다.
+Brew 뭐 전혀 관계 없는 얘기로 포스트를 열었지만.
+어쨌거나 그때부터 Mac 을 수년간 사용하면서 - 그때 쓰던 회사 Mac 은 여전히 내 사무실 책상의 한켠을 차지하고 있다 -...</p>
   </div>
-  <footer class="entry-footer"><span title='2023-12-24 15:42:26 +0900 KST'>December 24, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 5.backing Up and Compressing Data" href="https://nolleh.github.io/linux/10.file-operations/5.backing-up-and-compressing-data/"></a>
+  <footer class="entry-footer"><span title='2017-07-04 22:31:23 +0900 KST'>July 4, 2017</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to Brew Install 이 구버전만 설치할 때" href="https://nolleh.github.io/env/brew-update/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">4.comparing Files and File Types
+    <h2 class="entry-hint-parent">markDown 문법
     </h2>
   </header>
   <div class="entry-content">
-    <p>3. using the file utility in linux, a file’s extension does not, by default, ategorize its nature the way it might in other operating systems. for example, one cannot assume that a file named “file.txt” is a text file and not an executable program.
-6. Lab10.2: Using diff and patch diff -Naur original modified &gt; original.patch patch original &lt; original.patch </p>
+    <p>마크다운으로 포스팅하는 Git 페이지를 생성하였으니, 자주 사용되는 대표 문법 정리
+마크다운 문법
+Heading ‘#’ 으로 처리하며, 단계별로 더 많은 ‘#’ 을 사용한다.
+# Title ## Heading 1 ### Heading 2 결과
+Title Heading 1 Heading 2 Listing Asterisk (*) 를 사용하여 순서 없는 목록을, 숫자를 사용하여 순서 있는 목록을 나타낸다.
+순서 없는 경우 이거닷 이거 중요해! 순서가 있는 경우 첫번째 순서 두번째~ 셋!! Fonts **Bold** _Italic_ ~~CANCEL_LINE~~ Bold Italic CANCEL_LINE...</p>
   </div>
-  <footer class="entry-footer"><span title='2023-12-24 15:09:57 +0900 KST'>December 24, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 4.comparing Files and File Types" href="https://nolleh.github.io/linux/10.file-operations/4.comparing-files-and-file-types/"></a>
+  <footer class="entry-footer"><span title='2017-07-04 22:13:52 +0900 KST'>July 4, 2017</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to markDown 문법" href="https://nolleh.github.io/env/mark-down-syntax/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Searching For Files
+    <h2 class="entry-hint-parent">C&#43;&#43; CLI 에서 managed 콜백을 unmanaged 로 전달하기
     </h2>
   </header>
   <div class="entry-content">
-    <p>A special shorthand notation can send anything written to file descriptor 2 (stderr) to the same place as file descriptor 1 (stdout): 2&gt;&amp;1.
-$ do_something &gt; all-output-file 2&gt;&amp;1
-bash permits an easier syntax for the above:
-$ do_something &gt;&amp; all-output-file
-in pipe… $ command1 | command2 | command3
-The above represents what we often call a pipeline, and allows Linux to combine the actions of several commands into one. This is extraordinarily efficient because command2 and command3 do not have to wait for the previous pipeline commands to complete before they can begin processing at the data in their input streams...</p>
+    <p>파라미터가 없다면 DelegateToPointer 로 마샬링해서 전달하면되는데,
+이러면 파라미터를 마샬링할 기회가 주어지지 않는다는게 문제다.
+좀 구글링을 해봤는데,
+이런 포스트가 있었다.
+스택오버플로-파라미터와 함께 unmanaged 콜백으로 변환하기
+채택된 답변을 살펴보면 클래스 구조는 대략 다음과 같다.
+클래스 구조 NativeCallbackHandler - msclr::gcroot&lt;OutputManaged^&gt; m_owner (OutputLogManaged) 를 멤버로 보유. OutputLogManaged - native OutputLog* (m_nativeOutputLog) / 1의 Holder 를 보유 (m_nativeHandler)] / 그리고 managed 콜백을 보유 OutputLog - Native Callback 과 void* UserData 를 멤버로 보유. 이해하는데 주요한 클래스는 위 내용 정도인 듯....</p>
   </div>
-  <footer class="entry-footer"><span title='2023-10-02 19:56:54 +0900 KST'>October 2, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to Searching For Files" href="https://nolleh.github.io/linux/7.command-line-operations/searching-for-files/"></a>
+  <footer class="entry-footer"><span title='2017-07-04 00:45:55 +0900 KST'>July 4, 2017</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to C&#43;&#43; CLI 에서 managed 콜백을 unmanaged 로 전달하기" href="https://nolleh.github.io/etc/managed_cb_to_unmanaged/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">2.system Display Date and Time Settings
+    <h2 class="entry-hint-parent">Archive
     </h2>
   </header>
   <div class="entry-content">
-    <p>the system actually provide display settings, is uses /etc/x11/xorg.conf
-in recent linux, the file usually present in unusual cricumstatnce such as when cirtain Less
-common graphic drivers are in use.
-changing the file is usually for more advanced users.
-Network Time Protocol the Network Time Protocol is most popular and reliable protocol for setting local time by consulting established internet servers.
-student:/tmp&gt; $ xdpyinfo | grep dim dimensions: 3200x1080 pixels (847x286 millimeters) </p>
+    <p>archives</p>
   </div>
-  <footer class="entry-footer"><span title='2023-09-30 11:06:13 +0900 KST'>September 30, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 2.system Display Date and Time Settings" href="https://nolleh.github.io/linux/5.system-configuration-from-the-graphical-interface/2.system-display-date-and-time-settings/"></a>
+  <footer class="entry-footer">nolleh</footer>
+  <a class="entry-link" aria-label="post link to Archive" href="https://nolleh.github.io/archives/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">1.learning Objectives
+    <h2 class="entry-hint-parent">Search
     </h2>
   </header>
   <div class="entry-content">
-    <p>apply system, display, timesetting.. track the network settings and manage connections using network manager in linux. install and update software in linux from a graphical interface.</p>
+    <p>search</p>
   </div>
-  <footer class="entry-footer"><span title='2023-09-09 19:19:58 +0900 KST'>September 9, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 1.learning Objectives" href="https://nolleh.github.io/linux/5.system-configuration-from-the-graphical-interface/1.learning-objectives/"></a>
+  <footer class="entry-footer">nolleh</footer>
+  <a class="entry-link" aria-label="post link to Search" href="https://nolleh.github.io/search/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
-    <a class="prev" href="https://nolleh.github.io/page/5/">
+    <a class="prev" href="https://nolleh.github.io/page/20/">
       «&nbsp;Prev&nbsp;
-    </a>
-    <a class="next" href="https://nolleh.github.io/page/7/">Next&nbsp;&nbsp;»
     </a>
   </nav>
 </footer>

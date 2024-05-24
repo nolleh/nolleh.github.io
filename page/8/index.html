@@ -160,71 +160,81 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">3-1.introduction
+    <h2 class="entry-hint-parent">How to Make Package
+      <span class="entry-hint" title="Draft">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
+          <path
+            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+        </svg>
+      </span>
     </h2>
   </header>
   <div class="entry-content">
-    <p>Learning Objectives Identify Linux filesystems. Identify the differences between partitions and filesystems Describe the boot process. Install Linux on a computer. </p>
+    <p>패키지를 만들때 기본 구성
+{ &#34;main&#34;: &#34;./dist/cjs/index.js&#34;, &#34;types&#34;: &#34;./dist/cjs/types/index.d.ts&#34;, &#34;files&#34;: [ &#34;dist/**/*&#34; ], &#34;scripts&#34;: { &#34;clean&#34;: &#34;rm -rf ./dist&#34;, &#34;build&#34;: &#34;pnpm run clean &amp;&amp; pnpm build:esm &amp;&amp; pnpm build:cjs&#34;, &#34;build:esm&#34;: &#34;tsc -p ./tsconfig.esm.json &amp;&amp; mv dist/esm/index.js dist/esm/index.mjs&#34;, &#34;build:cjs&#34;: &#34;tsc -p ./tsconfig.cjs.json&#34;, &#34;prepack&#34;: &#34;pnpm build&#34; }, &#34;repository&#34;: { &#34;type&#34;: &#34;git&#34;, &#34;url&#34;: &#34;https://github.com/nolleh/serialize-interceptor&#34; }, &#34;keywords&#34;: [ &#34;nestjs&#34;, &#34;nest.js&#34;, &#34;serialize&#34;, &#34;deserialize&#34;, &#34;camel&#34;, &#34;snake&#34;, &#34;json&#34;, &#34;dto&#34;, &#34;transform&#34; ], &#34;exports&#34;: { &#34;.&#34;: { &#34;import&#34;: { &#34;types&#34;: &#34;....</p>
   </div>
-  <footer class="entry-footer"><span title='2022-12-25 22:19:08 +0900 KST'>December 25, 2022</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 3-1.introduction" href="https://nolleh.github.io/linux/3.linux-basics-and-system-startup/1.introduction/"></a>
+  <footer class="entry-footer"><span title='2023-07-12 08:29:46 +0900 KST'>July 12, 2023</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to How to Make Package" href="https://nolleh.github.io/npm/how-to-make-package/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">2-6.chapter summary
+    <h2 class="entry-hint-parent">Writing Plugin
+      <span class="entry-hint" title="Draft">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
+          <path
+            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+        </svg>
+      </span>
     </h2>
   </header>
   <div class="entry-content">
-    <p>Chapter Summary Linux boroows heavily from UNIX operating system, with withch its creators were well-versed. LInux accesses many features and services through files and file-like objects. Linux is a fully multi-tasking, multi-user operating system, with built-in networking and service processes known as deamons. Linux is developed by a loose confederation of developers from all over the world, collaborating over the Internet,
-with Linus Torvalds at th head. Technical sill and a desire to contriubte are the only qualifications for participating....</p>
+    <p>Writing Plugin 제목은 거창하게 썼지만, 플러그인이나 rc 파일 작성에 필요한 지식들을 메모해 둘 예정.
+Preview Window :botright pedit { file } :botright pedit Preview Window 에서 라인 출력 function! showInPreview(name, fileType, lines) let l:command = &#34;silent! pedit! &#43;setlocal\\ &#34; . \ &#34;buftype=nofile\\ nobuflisted\\ &#34; . \ &#34;noswapfile\\ nonumber\\ &#34; . \ &#34;filetype=&#34; . a:fileType . &#34; &#34; . a:name exe l:command if has(&#39;nvim&#39;) let l:bufNr = bufnr(a:name) call nvim_buf_set_lines(l:bufNr, 0, -1, 0, a:lines) else call setbufline(a:name, 1, a:lines) endif endfunction stackExchange...</p>
   </div>
-  <footer class="entry-footer"><span title='2022-12-25 22:02:31 +0900 KST'>December 25, 2022</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 2-6.chapter summary" href="https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/6.chapter-summary/"></a>
+  <footer class="entry-footer"><span title='2023-01-14 14:00:53 +0900 KST'>January 14, 2023</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to Writing Plugin" href="https://nolleh.github.io/vim/writing-plugin/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">2-5.linux Distribution
+    <h2 class="entry-hint-parent">4-2.graphical Desktop
     </h2>
   </header>
   <div class="entry-content">
-    <p>Linux Distribution Overview making sure that project works properly on the most widely used Linux distributions. To accomplish this, you need to learn amout the different components, services, and configurations associated with each distribution.</p>
+    <p>Graphical Desktop Graphical Desktop CLI or GUI.
+GUI is quick and easy.
+for repeated tasks, the CLI is often more efficient, while the GUI is easier to navigate if you do not remember all the details or do something only rarely.
+X Window System X window system is loaded as one of the final steps in boot process. It is often just called X.
+A service called the Display Manager keeps track of displays being provided and loads the X server (so-called, because it provides graphical services to applications, sometimes called X clients....</p>
   </div>
-  <footer class="entry-footer"><span title='2022-12-25 21:38:28 +0900 KST'>December 25, 2022</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 2-5.linux Distribution" href="https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/5.linux-distribution/"></a>
+  <footer class="entry-footer"><span title='2023-01-08 23:02:17 +0900 KST'>January 8, 2023</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 4-2.graphical Desktop" href="https://nolleh.github.io/linux/4.graphical-interface/2.graphical-desktop/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">2-4.linux Terminology Overview
+    <h2 class="entry-hint-parent">4-1.introduction
     </h2>
   </header>
   <div class="entry-content">
-    <p>Video: Linux Terminology Kernel: Glue between hardware and applications
-Ditribution: Collection of software making up a Linux-based OS
-BootLoader: Program that boots the operating system
-Service: Program that runs as a background process
-Filesystem: Method for sotring and organizing files
-X window System: toolkit and protocol to build graphical subsystem
-Shell: command line interpreter</p>
+    <p>Graphical interface Learning Objectives By the end of this chapter, you should be able to:
+Manage graphical interface sessions. Perform basic operations using the graphical interface. Change the graphical desktop to suit your needs. </p>
   </div>
-  <footer class="entry-footer"><span title='2022-12-25 21:27:09 +0900 KST'>December 25, 2022</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 2-4.linux Terminology Overview" href="https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/4.linux-terminology-overview/"></a>
+  <footer class="entry-footer"><span title='2023-01-08 23:00:29 +0900 KST'>January 8, 2023</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 4-1.introduction" href="https://nolleh.github.io/linux/4.graphical-interface/1.introduction/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">2-3.linux Philosophy
+    <h2 class="entry-hint-parent">3-6.summary
     </h2>
   </header>
   <div class="entry-content">
-    <p>Linux Philosophy Overview Linux is constantly enhanced and maintained by a network of developers from all over the world collaborating over the internet, with Linus Torvalds at the head.
-Linux Philosophy Linux borrows heavily from the well-established UNIX operating system. it was written to be a free and open source system to be used in place of UNIX,
-which at the time was designed for computers much more powerful than PCs and was quite expensive....</p>
+    <p>Summary Chapter Summary A partition is a logical part of the disk. A filesystem is a method of storing/finding files on a hard disk. By dividing the hard disk into partitions, data can be grouped and separated as needed. When a failure or mistake occurs, only the data in the affected partition will be damaged, while the data on the other partitions will likely survive. The boot process has multiple steps, starting with BIOS, which triggers the boot loader to start up the Linux kernel....</p>
   </div>
-  <footer class="entry-footer"><span title='2022-12-25 14:37:33 +0900 KST'>December 25, 2022</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 2-3.linux Philosophy" href="https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/3.linux-philosophy/"></a>
+  <footer class="entry-footer"><span title='2023-01-08 15:32:36 +0900 KST'>January 8, 2023</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 3-6.summary" href="https://nolleh.github.io/linux/3.linux-basics-and-system-startup/6.summary/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

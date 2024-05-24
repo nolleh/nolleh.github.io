@@ -160,73 +160,70 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">2-2.linux History
+    <h2 class="entry-hint-parent">3-5.linux Distribution Installation
     </h2>
   </header>
   <div class="entry-content">
-    <p>Linux History Overview initially developed on and for intel x86-based personal computers.
-Linux History Linus Torvalds was a student in Helsinki, Finland, in 1991, when he started a project: writing his own operating system kernal. collected together and/or developed the other essential ingredients required to construct an entire operating system with his kernel at the center.
-In 1992, Linux was re-licensed using General Public License (GPL) by GNU (a project of the Free Software Foundation or FSF, which promotes freely available software),...</p>
+    <p>Linux Distribution Installation Choosing a Linux Distribution Questions to Ask when Choosing a Distribution What is the main function of the system (server or desktop)? What types of packages are important to the organization? For example, web server, word processing, etc. How much hard disk space is required and how much is available? For example, when installing Linux on an embedded device, space is usually constrained. How often are packages updated?...</p>
   </div>
-  <footer class="entry-footer"><span title='2022-12-11 23:42:16 +0900 KST'>December 11, 2022</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 2-2.linux History" href="https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/2.linux-history/"></a>
+  <footer class="entry-footer"><span title='2023-01-08 14:15:48 +0900 KST'>January 8, 2023</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 3-5.linux Distribution Installation" href="https://nolleh.github.io/linux/3.linux-basics-and-system-startup/5.linux-distribution-installation/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">2-1.introduction
+    <h2 class="entry-hint-parent">3-4.linux Filesystem Basics
     </h2>
   </header>
   <div class="entry-content">
-    <p>The Power of Linux Three Important Pieces of Context Things change in Linux
-Linux is contantly evolving. no matter how hard to make up-to-date as possible, Course &lt;-/-&gt; Linux
-We have repeated some things in the class meterial
-We have tried to avoid holy wars
-there are many areas where there are strong preference disagreements in the Linux (and wider open source) community. examples include the best editor: emacs vs. vi; GNOME vs....</p>
+    <p>3-4. Linux FileSystem Basics Linux FileSystem Conventional disk filesystems: ext3, ext4, XFS, Btrfs, JFS, NTFS, vfat, exfat, etc. Flash storage filesystems: ubifs, jffs2, yaffs, etc. Database filesystems Special purpose filesystems: procfs, sysfs, tmpfs, squashfs, debugfs, fuse, etc. Partitions and Filesystems A partition is physically contiguous section of disk, or what appears to be so in some advanced setups.
+A filesystem is a method of storing/finding files on the hard disk (usually in a partition)....</p>
   </div>
-  <footer class="entry-footer"><span title='2022-12-11 23:23:50 +0900 KST'>December 11, 2022</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 2-1.introduction" href="https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/1.introduction/"></a>
+  <footer class="entry-footer"><span title='2023-01-08 13:44:22 +0900 KST'>January 8, 2023</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 3-4.linux Filesystem Basics" href="https://nolleh.github.io/linux/3.linux-basics-and-system-startup/4.linux-filesystem-basics/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">1-3.course Linux Requirements
+    <h2 class="entry-hint-parent">3-3.kernel Init and Services
     </h2>
   </header>
   <div class="entry-content">
-    <p>Course Software Requirements to fully benefit from this course, at least one linux distribution installed.
-you will learn some more details about many available Linux distributions and the failies thy can be considered to belong to.
-focus on 3 major distribution families.
-Focus on Three Major Linux Distribution Families The Red Hat Family Red Hat Enterprise Linux (RHEL) heads the family that includes CentOS, CentOS Stream, Fedora and Oracle Linux....</p>
+    <p>Kernel, init and Services The Linux Kernel boot loader loads kernel and an initial RAM-based file system (initramfs) into memory, so it can be used directly by the kernel.
+kernel loaded, it immediately initializes and configures the computer’s memory and also configures all the hardware attached to the system.
+also load user space applications.
+/sbin/init and Services Once kernel has set up all its hardware and mounted the root filesystem, the kernel runs sbin/init....</p>
   </div>
-  <footer class="entry-footer"><span title='2022-12-11 22:23:30 +0900 KST'>December 11, 2022</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 1-3.course Linux Requirements" href="https://nolleh.github.io/linux/1.the-linux-foundation/3.course-linux-requirements/"></a>
+  <footer class="entry-footer"><span title='2023-01-08 12:25:09 +0900 KST'>January 8, 2023</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 3-3.kernel Init and Services" href="https://nolleh.github.io/linux/3.linux-basics-and-system-startup/3.kernel-init-and-services/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">1-2.the Linux Foundation
+    <h2 class="entry-hint-parent">Shell
     </h2>
   </header>
   <div class="entry-content">
-    <p>founded in 2000, supported by more than 1,000 members and is the world’s leading home for collaboration on open source software.
-the foundation hosts hundreds of world’s most important open source projects including linux, kubernetes, Node.js, Hyperledger, ONAP… and many more.</p>
+    <p>Cheatsheet - Shell 쉘 커맨드들을 자주 까먹곤 해서 자주쓰는것 위주로 생각날때마다 하나씩 등록 예정.
+Primitives if statement if [ 10 -gt 20 ]; then echo &#39;gt&#39;; else echo &#39;lt&#39;; fi; operator desc ! not true -n 문자열의 길이가 0보다 크다 -z 문자열의 길이가 0이다 = 문자열이 같다 -eq 정수가 같다 -gt 정수가 크다 -lt 정수가 작다 -d dir dir 디렉토리가 있다 -e file file 이 있다 for statement for file in *....</p>
   </div>
-  <footer class="entry-footer"><span title='2022-12-11 21:55:34 +0900 KST'>December 11, 2022</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 1-2.the Linux Foundation" href="https://nolleh.github.io/linux/1.the-linux-foundation/2.the-linux-foundation/"></a>
+  <footer class="entry-footer"><span title='2023-01-01 10:44:05 +0900 KST'>January 1, 2023</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to Shell" href="https://nolleh.github.io/cheatsheet/shell/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">1-1.Introduction
+    <h2 class="entry-hint-parent">3-2.the Boot Process
     </h2>
   </header>
   <div class="entry-content">
-    <p>we will learn…
-linux foundation logistics of this online course choosing a linux distribution that’s right for you </p>
+    <p>The Boot Process The Linux boot process is the procedure for initializing the system.
+from when the computer power is first swithced on until the user interface is fully operational.
+having a good understanding of the steps in the boot process may help you with troubleshooting problems, as well as with tailoring the computer’s performance to your needs.
+On the other hand, the boot process can be rather technical, and you can start using Linux without knowing all the details....</p>
   </div>
-  <footer class="entry-footer"><span title='2022-12-11 21:55:20 +0900 KST'>December 11, 2022</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 1-1.Introduction" href="https://nolleh.github.io/linux/1.the-linux-foundation/1.introduction/"></a>
+  <footer class="entry-footer"><span title='2022-12-25 22:21:34 +0900 KST'>December 25, 2022</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 3-2.the Boot Process" href="https://nolleh.github.io/linux/3.linux-basics-and-system-startup/2.the-boot-process/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

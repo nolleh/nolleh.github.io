@@ -160,69 +160,105 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">3-6.summary
+    <h2 class="entry-hint-parent">Optimize Speed
     </h2>
   </header>
   <div class="entry-content">
-    <p>Summary Chapter Summary A partition is a logical part of the disk. A filesystem is a method of storing/finding files on a hard disk. By dividing the hard disk into partitions, data can be grouped and separated as needed. When a failure or mistake occurs, only the data in the affected partition will be damaged, while the data on the other partitions will likely survive. The boot process has multiple steps, starting with BIOS, which triggers the boot loader to start up the Linux kernel....</p>
+    <p>라즈베리파이에서 우분투를 설치해서 사용하고 있는데, 인터넷 속도가 어마하게 느린 이슈가 있다.
+거기서 개선을 위해 시도해본 것들에 대해 기록할 예정.
+##1. iwconfig
+일단 다음은 확실히 효용이 있는 것으로 보임.
+60mb -&gt; 140mb 정도로 개선됨.
+sudo iwconfig wlan0 power off ##2. zram
+그리고나서, zswap 대신 zram 을 사용하도록 변경.
+sudo apt install -y linux-modules-extra-raspi sudo apt install -y zram-tools sudo apt autoremove --purge -y zram-config sudo nvim /etc/default/zramswap 에디터는 어떤걸 사용해도 상관없지만, nvim 사용하고 있어서 그걸로 세팅....</p>
   </div>
-  <footer class="entry-footer"><span title='2023-01-08 15:32:36 +0900 KST'>January 8, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 3-6.summary" href="https://nolleh.github.io/linux/3.linux-basics-and-system-startup/6.summary/"></a>
+  <footer class="entry-footer"><span title='2023-09-09 15:36:52 +0900 KST'>September 9, 2023</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to Optimize Speed" href="https://nolleh.github.io/ubuntu/optimize-speed/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">3-5.linux Distribution Installation
+    <h2 class="entry-hint-parent">Neovim
+      <span class="entry-hint" title="Draft">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
+          <path
+            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+        </svg>
+      </span>
     </h2>
   </header>
   <div class="entry-content">
-    <p>Linux Distribution Installation Choosing a Linux Distribution Questions to Ask when Choosing a Distribution What is the main function of the system (server or desktop)? What types of packages are important to the organization? For example, web server, word processing, etc. How much hard disk space is required and how much is available? For example, when installing Linux on an embedded device, space is usually constrained. How often are packages updated?...</p>
+    <p>apt-get install neovim 과 같은 방법으로는 최신 버전을 설치 할 수 없다.
+최신버전을 설치하려면, 다음 과정을 거쳐야한다.
+cf.https://github.com/neovim/neovim/wiki/Installing-Neovim
+sudo apt-get install software-properties-common
+이 명령어를 선행해줘야할 수도 있다. sudo apt-get remove neovim -y sudo add-apt-repository ppa:neovim-ppa/stable sudo apt-get update -y sudo apt-get install neovim -y https://launchpad.net/~neovim-ppa/&#43;archive/ubuntu/unstable
+ppa archive 를 살펴보고 원하는 아키텍쳐 / 버전이 없는경우 unstable 버전에서 찾아서 다시 반복해볼 필요가 있다. 다행히 unstable 버전은 ubuntu 23.04 를 지원하는게 있어서 받아서 씀…...</p>
   </div>
-  <footer class="entry-footer"><span title='2023-01-08 14:15:48 +0900 KST'>January 8, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 3-5.linux Distribution Installation" href="https://nolleh.github.io/linux/3.linux-basics-and-system-startup/5.linux-distribution-installation/"></a>
+  <footer class="entry-footer"><span title='2023-09-09 15:33:49 +0900 KST'>September 9, 2023</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to Neovim" href="https://nolleh.github.io/ubuntu/neovim/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">3-4.linux Filesystem Basics
+    <h2 class="entry-hint-parent">Kblayout
+      <span class="entry-hint" title="Draft">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
+          <path
+            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+        </svg>
+      </span>
     </h2>
   </header>
   <div class="entry-content">
-    <p>3-4. Linux FileSystem Basics Linux FileSystem Conventional disk filesystems: ext3, ext4, XFS, Btrfs, JFS, NTFS, vfat, exfat, etc. Flash storage filesystems: ubifs, jffs2, yaffs, etc. Database filesystems Special purpose filesystems: procfs, sysfs, tmpfs, squashfs, debugfs, fuse, etc. Partitions and Filesystems A partition is physically contiguous section of disk, or what appears to be so in some advanced setups.
-A filesystem is a method of storing/finding files on the hard disk (usually in a partition)....</p>
+    <p>/etc/default/keyboard
+Option	“XkbModel”	“kr106” Option	“XkbLayout”	“kr”</p>
   </div>
-  <footer class="entry-footer"><span title='2023-01-08 13:44:22 +0900 KST'>January 8, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 3-4.linux Filesystem Basics" href="https://nolleh.github.io/linux/3.linux-basics-and-system-startup/4.linux-filesystem-basics/"></a>
+  <footer class="entry-footer"><span title='2023-08-12 17:26:22 +0900 KST'>August 12, 2023</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to Kblayout" href="https://nolleh.github.io/ubuntu-set/kblayout/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">3-3.kernel Init and Services
+    <h2 class="entry-hint-parent">Diskutil
+      <span class="entry-hint" title="Draft">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
+          <path
+            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+        </svg>
+      </span>
     </h2>
   </header>
   <div class="entry-content">
-    <p>Kernel, init and Services The Linux Kernel boot loader loads kernel and an initial RAM-based file system (initramfs) into memory, so it can be used directly by the kernel.
-kernel loaded, it immediately initializes and configures the computer’s memory and also configures all the hardware attached to the system.
-also load user space applications.
-/sbin/init and Services Once kernel has set up all its hardware and mounted the root filesystem, the kernel runs sbin/init....</p>
+    <p>mac 에서는, diskutil 과 dd 를 사용해서 microSD 카드를(disk) 포멧 할 수 있다.
+disk utility 라는 GUI 툴도 있는데, 파티셔닝 되어있던 애를 이걸 통해서 지웠더니 뭔갈 잘못한건지 절반정도의 디스크용량이 날아가 버렸다 ㅡㅡ;;;
+32GB 짜리 SD 카드가 반토막 난 격이라;; dd 와 fdisk 를 활용해서 뭔가 다시 복구하려는 삽질기가 되시겠다…
+$ diskutil list output
+/dev/disk5 (external, physical): #: TYPE NAME SIZE IDENTIFIER 0: *15.9 GB disk5 format 하려면
+$ diskutil umount $ sudo dd if=/dev/zero of=/dev/{dev-name} bs=1M status=progress ## this is really long term work 되-게 오래 걸리는 작업이라서, 잊지 말고status=progress 옵션을 사용하는 것을 권장 한다....</p>
   </div>
-  <footer class="entry-footer"><span title='2023-01-08 12:25:09 +0900 KST'>January 8, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 3-3.kernel Init and Services" href="https://nolleh.github.io/linux/3.linux-basics-and-system-startup/3.kernel-init-and-services/"></a>
+  <footer class="entry-footer"><span title='2023-08-05 16:14:33 +0900 KST'>August 5, 2023</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to Diskutil" href="https://nolleh.github.io/cli/diskutil/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">3-2.the Boot Process
+    <h2 class="entry-hint-parent">Indexing Strategies
+      <span class="entry-hint" title="Draft">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
+          <path
+            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+        </svg>
+      </span>
     </h2>
   </header>
   <div class="entry-content">
-    <p>The Boot Process The Linux boot process is the procedure for initializing the system.
-from when the computer power is first swithced on until the user interface is fully operational.
-having a good understanding of the steps in the boot process may help you with troubleshooting problems, as well as with tailoring the computer’s performance to your needs.
-On the other hand, the boot process can be rather technical, and you can start using Linux without knowing all the details....</p>
+    <p>Overview in data driven application’s poorly designed indexes and a lack of indexes are primary sources bottlenecks. As databases grow in size, finding efficient ways to retrieve and manipluate data becomes increasingly important. Basics of Indexing a database index serves a similar purporse in that of book, speeding up data retrieval without needing to scan every row in a database table
+the structure of a database index includes an ordered list of values, with each value connected to pointers leading to data pages where these alues reside....</p>
   </div>
-  <footer class="entry-footer"><span title='2022-12-25 22:21:34 +0900 KST'>December 25, 2022</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 3-2.the Boot Process" href="https://nolleh.github.io/linux/3.linux-basics-and-system-startup/2.the-boot-process/"></a>
+  <footer class="entry-footer"><span title='2023-07-24 08:44:12 +0900 KST'>July 24, 2023</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to Indexing Strategies" href="https://nolleh.github.io/mysql/indexing-strategies/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
