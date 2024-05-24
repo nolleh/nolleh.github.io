@@ -4,14 +4,14 @@
     <title>Nancy on The Computer Programmer, Nolleh</title>
     <link>https://nolleh.github.io/categories/nancy/</link>
     <description>Recent content in Nancy on The Computer Programmer, Nolleh</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.113.0</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Tue, 24 Apr 2018 21:43:04 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/categories/nancy/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 24 Apr 2018 21:43:04 +0900</lastBuildDate>
+    <atom:link href="https://nolleh.github.io/categories/nancy/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Nancy Introduction</title>
       <link>https://nolleh.github.io/nancy/introduction/</link>
       <pubDate>Tue, 24 Apr 2018 21:43:04 +0900</pubDate>
-      
       <guid>https://nolleh.github.io/nancy/introduction/</guid>
       <description>Nancy 에 대한 문서 번역 #1. By Nolleh
 Introduction 가장 먼저, Nancy 의 세계에 온것을 환영합니다!
@@ -20,6 +20,5 @@ NancyFx 의 Fx 에 대해 많은 사람들이 궁금해하여 여기에 붙입�
 NancyFx 는 모든 컴포넌트들을 포함하는 umbrella project 입니다. (#역자주: 우산효과의 우산처럼, 포괄적인 프로젝트라는 의미로 쓴게 아닐까? )
 이 가이드는 앞으로 개괄적이고 빠르게 Nancy 의 특징들을 살펴 독자 스스로 Nancy 의 세계를 탐험해 볼 수 있는 시야를 제공할겁니다.</description>
     </item>
-    
   </channel>
 </rss>

@@ -4,23 +4,21 @@
     <title>Cryptos on The Computer Programmer, Nolleh</title>
     <link>https://nolleh.github.io/crypto/</link>
     <description>Recent content in Cryptos on The Computer Programmer, Nolleh</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.113.0</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Thu, 30 Jan 2020 18:29:58 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/crypto/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 30 Jan 2020 18:29:58 +0900</lastBuildDate>
+    <atom:link href="https://nolleh.github.io/crypto/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SSL</title>
       <link>https://nolleh.github.io/crypto/ssl/</link>
       <pubDate>Thu, 30 Jan 2020 18:29:58 +0900</pubDate>
-      
       <guid>https://nolleh.github.io/crypto/ssl/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>ECDSA</title>
       <link>https://nolleh.github.io/crypto/ecdsa/</link>
       <pubDate>Thu, 30 Jan 2020 18:28:50 +0900</pubDate>
-      
       <guid>https://nolleh.github.io/crypto/ecdsa/</guid>
       <description>ECDSA ref. https://m.blog.naver.com/aepkoreanet/221178375642
 ec (타원곡선) 을 이용한 기술들의 집합 - ECC,
@@ -30,6 +28,5 @@ Terms 유한체
 원소의 개수가 p 인 유한체 F 는 Fp 혹은 GF(p) 로 표기 유한체 상에 정의된 타원 곡선
 E(Fp) 암호학에서 사용되는 유한체 - Prime Field 원소의 개수가 소수 ECC 사용시 타원 곡선을 정의하는 domain parameter 를 정의해야함. (p, a, b, G, n, h) 를 정의해야하는건데, 여러 표준단체에서 Field Size 에 맞는 타원곡선에 대한 파라미터 발표.</description>
     </item>
-    
   </channel>
 </rss>

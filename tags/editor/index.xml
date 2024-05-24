@@ -4,26 +4,23 @@
     <title>Editor on The Computer Programmer, Nolleh</title>
     <link>https://nolleh.github.io/tags/editor/</link>
     <description>Recent content in Editor on The Computer Programmer, Nolleh</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.113.0</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Fri, 07 Jul 2017 21:22:50 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/editor/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 07 Jul 2017 21:22:50 +0900</lastBuildDate>
+    <atom:link href="https://nolleh.github.io/tags/editor/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How To Make Git Page</title>
       <link>https://nolleh.github.io/env/how-to-make-git-page/</link>
       <pubDate>Fri, 07 Jul 2017 21:22:50 +0900</pubDate>
-      
       <guid>https://nolleh.github.io/env/how-to-make-git-page/</guid>
       <description>Making Git Page</description>
     </item>
-    
     <item>
       <title>markDown 문법</title>
       <link>https://nolleh.github.io/env/mark-down-syntax/</link>
       <pubDate>Tue, 04 Jul 2017 22:13:52 +0900</pubDate>
-      
       <guid>https://nolleh.github.io/env/mark-down-syntax/</guid>
       <description>mark down 문법</description>
     </item>
-    
   </channel>
 </rss>

@@ -4,422 +4,338 @@
     <title>Tags on The Computer Programmer, Nolleh</title>
     <link>https://nolleh.github.io/tags/</link>
     <description>Recent content in Tags on The Computer Programmer, Nolleh</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.113.0</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Sun, 07 Jan 2024 12:55:07 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>edx</title>
-      <link>https://nolleh.github.io/tags/edx/</link>
-      <pubDate>Sun, 07 Jan 2024 12:55:07 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/edx/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Kernel</title>
-      <link>https://nolleh.github.io/tags/kernel/</link>
-      <pubDate>Sun, 07 Jan 2024 12:55:07 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/kernel/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>https://nolleh.github.io/tags/linux/</link>
-      <pubDate>Sun, 07 Jan 2024 12:55:07 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>raspberry pi</title>
-      <link>https://nolleh.github.io/tags/raspberry-pi/</link>
-      <pubDate>Sat, 09 Sep 2023 15:36:52 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/raspberry-pi/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ubuntu</title>
-      <link>https://nolleh.github.io/tags/ubuntu/</link>
-      <pubDate>Sat, 09 Sep 2023 15:36:52 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/ubuntu/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>neovim</title>
-      <link>https://nolleh.github.io/tags/neovim/</link>
-      <pubDate>Sat, 09 Sep 2023 15:33:49 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/neovim/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>nvim</title>
-      <link>https://nolleh.github.io/tags/nvim/</link>
-      <pubDate>Sat, 09 Sep 2023 15:33:49 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/nvim/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Cheatsheet</title>
-      <link>https://nolleh.github.io/tags/cheatsheet/</link>
-      <pubDate>Sat, 14 Jan 2023 14:00:53 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/cheatsheet/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>env</title>
-      <link>https://nolleh.github.io/tags/env/</link>
-      <pubDate>Sat, 14 Jan 2023 14:00:53 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/env/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>vim</title>
-      <link>https://nolleh.github.io/tags/vim/</link>
-      <pubDate>Sat, 14 Jan 2023 14:00:53 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/vim/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>vim-plugin</title>
-      <link>https://nolleh.github.io/tags/vim-plugin/</link>
-      <pubDate>Sat, 14 Jan 2023 14:00:53 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/vim-plugin/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>unix</title>
-      <link>https://nolleh.github.io/tags/unix/</link>
-      <pubDate>Sun, 01 Jan 2023 10:44:05 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/unix/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>FE</title>
-      <link>https://nolleh.github.io/tags/fe/</link>
-      <pubDate>Tue, 11 Oct 2022 23:34:14 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/fe/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>async-await</title>
-      <link>https://nolleh.github.io/tags/async-await/</link>
-      <pubDate>Tue, 06 Sep 2022 00:20:16 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/async-await/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>concurrent</title>
-      <link>https://nolleh.github.io/tags/concurrent/</link>
-      <pubDate>Tue, 06 Sep 2022 00:20:16 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/concurrent/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>생각하는 프로그래머</title>
-      <link>https://nolleh.github.io/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/</link>
-      <pubDate>Tue, 06 Sep 2022 00:20:16 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>MacOS</title>
-      <link>https://nolleh.github.io/tags/macos/</link>
-      <pubDate>Wed, 24 Aug 2022 00:49:49 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/macos/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Database</title>
-      <link>https://nolleh.github.io/tags/database/</link>
-      <pubDate>Sat, 06 Aug 2022 12:06:41 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/database/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>RDB</title>
-      <link>https://nolleh.github.io/tags/rdb/</link>
-      <pubDate>Sat, 06 Aug 2022 12:06:41 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/rdb/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>SQL</title>
-      <link>https://nolleh.github.io/tags/sql/</link>
-      <pubDate>Sat, 06 Aug 2022 12:06:41 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/sql/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>cheetsheet</title>
-      <link>https://nolleh.github.io/tags/cheetsheet/</link>
-      <pubDate>Sat, 06 Aug 2022 12:05:08 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/cheetsheet/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mysql</title>
-      <link>https://nolleh.github.io/tags/mysql/</link>
-      <pubDate>Sat, 06 Aug 2022 12:05:08 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/mysql/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>devops</title>
-      <link>https://nolleh.github.io/tags/devops/</link>
-      <pubDate>Fri, 05 Aug 2022 16:22:31 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/devops/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>k8s</title>
-      <link>https://nolleh.github.io/tags/k8s/</link>
-      <pubDate>Fri, 05 Aug 2022 16:22:31 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/k8s/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kubernetes</title>
-      <link>https://nolleh.github.io/tags/kubernetes/</link>
-      <pubDate>Fri, 05 Aug 2022 16:22:31 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/kubernetes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>distributed system</title>
-      <link>https://nolleh.github.io/tags/distributed-system/</link>
-      <pubDate>Sat, 23 Jul 2022 14:33:45 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/distributed-system/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>번역</title>
-      <link>https://nolleh.github.io/tags/%EB%B2%88%EC%97%AD/</link>
-      <pubDate>Sat, 23 Jul 2022 14:33:45 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/%EB%B2%88%EC%97%AD/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tool</title>
-      <link>https://nolleh.github.io/tags/tool/</link>
-      <pubDate>Sun, 29 May 2022 16:37:55 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/tool/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>version control</title>
-      <link>https://nolleh.github.io/tags/version-control/</link>
-      <pubDate>Sun, 29 May 2022 16:37:55 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/tags/version-control/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Wed, 22 May 2024 21:37:29 +0900</lastBuildDate>
+    <atom:link href="https://nolleh.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MQ</title>
       <link>https://nolleh.github.io/tags/mq/</link>
-      <pubDate>Thu, 06 Feb 2020 14:47:47 +0900</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/mq/</guid>
       <description></description>
     </item>
-    
+    <item>
+      <title>zeromq</title>
+      <link>https://nolleh.github.io/tags/zeromq/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://nolleh.github.io/tags/zeromq/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>edx</title>
+      <link>https://nolleh.github.io/tags/edx/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://nolleh.github.io/tags/edx/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kernel</title>
+      <link>https://nolleh.github.io/tags/kernel/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://nolleh.github.io/tags/kernel/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux</title>
+      <link>https://nolleh.github.io/tags/linux/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://nolleh.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>raspberry pi</title>
+      <link>https://nolleh.github.io/tags/raspberry-pi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://nolleh.github.io/tags/raspberry-pi/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ubuntu</title>
+      <link>https://nolleh.github.io/tags/ubuntu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://nolleh.github.io/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>neovim</title>
+      <link>https://nolleh.github.io/tags/neovim/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://nolleh.github.io/tags/neovim/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>nvim</title>
+      <link>https://nolleh.github.io/tags/nvim/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://nolleh.github.io/tags/nvim/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cheatsheet</title>
+      <link>https://nolleh.github.io/tags/cheatsheet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://nolleh.github.io/tags/cheatsheet/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>env</title>
+      <link>https://nolleh.github.io/tags/env/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://nolleh.github.io/tags/env/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>vim</title>
+      <link>https://nolleh.github.io/tags/vim/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://nolleh.github.io/tags/vim/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>vim-plugin</title>
+      <link>https://nolleh.github.io/tags/vim-plugin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://nolleh.github.io/tags/vim-plugin/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>unix</title>
+      <link>https://nolleh.github.io/tags/unix/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://nolleh.github.io/tags/unix/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>FE</title>
+      <link>https://nolleh.github.io/tags/fe/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://nolleh.github.io/tags/fe/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>async-await</title>
+      <link>https://nolleh.github.io/tags/async-await/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://nolleh.github.io/tags/async-await/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>concurrent</title>
+      <link>https://nolleh.github.io/tags/concurrent/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://nolleh.github.io/tags/concurrent/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>생각하는 프로그래머</title>
+      <link>https://nolleh.github.io/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://nolleh.github.io/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>MacOS</title>
+      <link>https://nolleh.github.io/tags/macos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://nolleh.github.io/tags/macos/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Database</title>
+      <link>https://nolleh.github.io/tags/database/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://nolleh.github.io/tags/database/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>RDB</title>
+      <link>https://nolleh.github.io/tags/rdb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://nolleh.github.io/tags/rdb/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SQL</title>
+      <link>https://nolleh.github.io/tags/sql/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://nolleh.github.io/tags/sql/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>cheetsheet</title>
+      <link>https://nolleh.github.io/tags/cheetsheet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://nolleh.github.io/tags/cheetsheet/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mysql</title>
+      <link>https://nolleh.github.io/tags/mysql/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://nolleh.github.io/tags/mysql/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>devops</title>
+      <link>https://nolleh.github.io/tags/devops/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://nolleh.github.io/tags/devops/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>k8s</title>
+      <link>https://nolleh.github.io/tags/k8s/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://nolleh.github.io/tags/k8s/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>kubernetes</title>
+      <link>https://nolleh.github.io/tags/kubernetes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://nolleh.github.io/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>distributed system</title>
+      <link>https://nolleh.github.io/tags/distributed-system/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://nolleh.github.io/tags/distributed-system/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>번역</title>
+      <link>https://nolleh.github.io/tags/%EB%B2%88%EC%97%AD/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://nolleh.github.io/tags/%EB%B2%88%EC%97%AD/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>tool</title>
+      <link>https://nolleh.github.io/tags/tool/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://nolleh.github.io/tags/tool/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>version control</title>
+      <link>https://nolleh.github.io/tags/version-control/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://nolleh.github.io/tags/version-control/</guid>
+      <description></description>
+    </item>
     <item>
       <title>qpid</title>
       <link>https://nolleh.github.io/tags/qpid/</link>
-      <pubDate>Thu, 06 Feb 2020 14:47:47 +0900</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/qpid/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>network</title>
       <link>https://nolleh.github.io/tags/network/</link>
-      <pubDate>Thu, 06 Feb 2020 11:56:11 +0900</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/network/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Docker</title>
       <link>https://nolleh.github.io/tags/docker/</link>
-      <pubDate>Thu, 06 Feb 2020 10:53:37 +0900</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/docker/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>RabbitMQ</title>
       <link>https://nolleh.github.io/tags/rabbitmq/</link>
-      <pubDate>Wed, 05 Feb 2020 18:44:37 +0900</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/rabbitmq/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>CRYPTO</title>
       <link>https://nolleh.github.io/tags/crypto/</link>
-      <pubDate>Thu, 30 Jan 2020 18:29:58 +0900</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/crypto/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>암호학</title>
       <link>https://nolleh.github.io/tags/%EC%95%94%ED%98%B8%ED%95%99/</link>
-      <pubDate>Thu, 30 Jan 2020 18:29:58 +0900</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/%EC%95%94%ED%98%B8%ED%95%99/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Coursera</title>
       <link>https://nolleh.github.io/tags/coursera/</link>
-      <pubDate>Sat, 16 Mar 2019 23:02:25 +0900</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/coursera/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Google Cloud Service</title>
       <link>https://nolleh.github.io/tags/google-cloud-service/</link>
-      <pubDate>Sat, 16 Mar 2019 23:02:25 +0900</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/google-cloud-service/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>block-chain</title>
       <link>https://nolleh.github.io/tags/block-chain/</link>
-      <pubDate>Wed, 23 Jan 2019 20:32:59 +0900</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/block-chain/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>EOSIO</title>
       <link>https://nolleh.github.io/tags/eosio/</link>
-      <pubDate>Wed, 23 Jan 2019 20:32:59 +0900</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/eosio/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>C#</title>
       <link>https://nolleh.github.io/tags/c#/</link>
-      <pubDate>Fri, 21 Dec 2018 22:02:13 +0900</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/c#/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Web Server</title>
       <link>https://nolleh.github.io/tags/web-server/</link>
-      <pubDate>Tue, 24 Apr 2018 21:43:04 +0900</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/web-server/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Spring</title>
       <link>https://nolleh.github.io/tags/spring/</link>
-      <pubDate>Wed, 26 Jul 2017 23:11:14 +0900</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/spring/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Editor</title>
       <link>https://nolleh.github.io/tags/editor/</link>
-      <pubDate>Fri, 07 Jul 2017 21:22:50 +0900</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/editor/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>GitHub-Page</title>
       <link>https://nolleh.github.io/tags/github-page/</link>
-      <pubDate>Fri, 07 Jul 2017 21:22:50 +0900</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/github-page/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>C&#43;&#43; CLI</title>
       <link>https://nolleh.github.io/tags/c&#43;&#43;-cli/</link>
-      <pubDate>Tue, 04 Jul 2017 00:45:55 +0900</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/c&#43;&#43;-cli/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

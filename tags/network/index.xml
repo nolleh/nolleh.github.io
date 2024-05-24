@@ -4,17 +4,16 @@
     <title>network on The Computer Programmer, Nolleh</title>
     <link>https://nolleh.github.io/tags/network/</link>
     <description>Recent content in network on The Computer Programmer, Nolleh</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.113.0</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Thu, 06 Feb 2020 11:56:11 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/network/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 06 Feb 2020 11:56:11 +0900</lastBuildDate>
+    <atom:link href="https://nolleh.github.io/tags/network/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Network</title>
       <link>https://nolleh.github.io/cheatsheet/network/</link>
       <pubDate>Thu, 06 Feb 2020 11:56:11 +0900</pubDate>
-      
       <guid>https://nolleh.github.io/cheatsheet/network/</guid>
       <description>time_wait 종료 시간 확인 : ndd -get /dev/tcp tcp_time_wait_interval time_wait 종료 시간 30초로 설정 : ndd -set /dev/tcp tcp_time_wait_interval 30000 fin_wait_2 타임 아웃 시간 확인 : ndd -get /dev/tcp tcp_fin_wait_2_timeout fin_wait_2 타임 아웃 시간 5분으로 설정 : ndd -set /dev/tcp tcp_fin_wait_2_timeout 300000 출처: https://hyeonstorage.tistory.com/287 [개발이 하고 싶어요]</description>
     </item>
-    
   </channel>
 </rss>

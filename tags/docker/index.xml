@@ -4,17 +4,16 @@
     <title>Docker on The Computer Programmer, Nolleh</title>
     <link>https://nolleh.github.io/tags/docker/</link>
     <description>Recent content in Docker on The Computer Programmer, Nolleh</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.113.0</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Thu, 06 Feb 2020 10:53:37 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 06 Feb 2020 10:53:37 +0900</lastBuildDate>
+    <atom:link href="https://nolleh.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker</title>
       <link>https://nolleh.github.io/cheatsheet/docker/</link>
       <pubDate>Thu, 06 Feb 2020 10:53:37 +0900</pubDate>
-      
       <guid>https://nolleh.github.io/cheatsheet/docker/</guid>
       <description>Docker Cheat Sheet 1. docker conntainer 내부 소켓 상태 확인 $ docker inspect -f &amp;#39;{{.State.Pid}}&amp;#39; cb2939r52s22 5645 [ec2-user@ip-10-100-77-76 ~]$ sudo nsenter -t 5645 -n netstat Active Internet connections (w/o servers) Proto Recv-Q Send-Q Local Address Foreign Address State tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-77-225.ec2.:45104 ESTABLISHED tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-77-225.ec2.:14804 TIME_WAIT tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-76-6:seclayer-tls TIME_WAIT tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-76-65.ec:plethora TIME_WAIT tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-77-225.ec2.:14830 TIME_WAIT tcp 0 0 ip-172-17-0-2.</description>
     </item>
-    
   </channel>
 </rss>

@@ -4,14 +4,14 @@
     <title>번역 on The Computer Programmer, Nolleh</title>
     <link>https://nolleh.github.io/tags/%EB%B2%88%EC%97%AD/</link>
     <description>Recent content in 번역 on The Computer Programmer, Nolleh</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.113.0</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Sat, 23 Jul 2022 14:33:45 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/%EB%B2%88%EC%97%AD/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 23 Jul 2022 14:33:45 +0900</lastBuildDate>
+    <atom:link href="https://nolleh.github.io/tags/%EB%B2%88%EC%97%AD/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>3.time and Order</title>
       <link>https://nolleh.github.io/distributed-systems/3.time-and-order/</link>
       <pubDate>Sat, 23 Jul 2022 14:33:45 +0900</pubDate>
-      
       <guid>https://nolleh.github.io/distributed-systems/3.time-and-order/</guid>
       <description>다음에서 발췌 3. Time and Order 순서란 무엇이고, 왜 중요할까요?
 &amp;ldquo;순서란 무엇인가&amp;rdquo; 라는 질문은 무슨 의미 일까요 ?
@@ -20,29 +20,24 @@
 기억하고 있을지 모르겠는데, 분산프로그래밍을 복수의 컴퓨터를 활용해서 같은 문제를 해결하는 예술이라고 묘사했었습니다.
 이것은, 사실, 순서에 대한 강박(obsession)의 가장주요한 내용입니다.</description>
     </item>
-    
     <item>
       <title>2.level of Abstraction</title>
       <link>https://nolleh.github.io/distributed-systems/2.level-of-abstraction/</link>
       <pubDate>Wed, 29 Jun 2022 22:15:08 +0900</pubDate>
-      
       <guid>https://nolleh.github.io/distributed-systems/2.level-of-abstraction/</guid>
       <description>다음에서 발췌 http://book.mixu.net/distsys/abstractions.html
 2. Up and down the level of abstraction 이 챕터에서는, 추상화의 레벨을 여행할 것이며, 몇가지 불가능한 결과를 보고, (CAP 와 FLP), 그리고 나서 성능에 대한 항해를 할 것 입니다.
 만약 어떤 프로그래밍을 완료했다면, 추상화. 수준에 대한 개념은 당신에게 익숙할 겁니다. 당신은 이미 추상화와 함께 했고, 어떤 API 를 통해 더 낮은 레이어와 인터페이싱하고 있을 것이며, 더 높은 레이어에 API 나 인터페이스를 제공하고있을 겁니다. OSI 네트워크 7 계층이 좋은 예죠.</description>
     </item>
-    
     <item>
       <title>1. Distributed systems at a highlevel</title>
       <link>https://nolleh.github.io/distributed-systems/1.highlevel/</link>
       <pubDate>Mon, 21 Jan 2019 22:58:23 +0900</pubDate>
-      
       <guid>https://nolleh.github.io/distributed-systems/1.highlevel/</guid>
       <description>다음에서 발췌 http://book.mixu.net/distsys/intro.html
 1. Distributed systems at a highlevel 분산 프로그래밍은 같은 문제를 하나의 컴퓨터에서 해결할 수 있는 문제를 여러 컴퓨터에서 해결하는 예술이다. 컴퓨터 시스템이라면 해결해야 하는 두개의 문제가 있습니다.
 저장소 연산 분산 프로그래밍은 하나의 컴퓨터에서 해결할 수 있는 문제를 여러 컴퓨터를 통해 해결하는 예술입니다. 보통 하나의 컴퓨터에서 해결하기에는 적합하지 않은 문제를 위해서입니다.
 실세계에서의 어떤것도 분산시스템을 요구하지는 않습니다. 무한한 돈과 무한한 실시간 연구 시간이 있다면, 분산시스템은 필요없습니다. 모든 연산과 모든 저장소는 매직박스 안에서 실행 될 수 있습니다 - 하나의, 믿을 수 없을정도로 빠르고, 믿을 수 없을정도로 신뢰할 수 있는 시스템은 누군가에게 돈을 지불하거나 당신이 직접 디자인할 필요가 있겟죠.</description>
     </item>
-    
   </channel>
 </rss>

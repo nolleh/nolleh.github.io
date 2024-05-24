@@ -4,17 +4,16 @@
     <title>mysql on The Computer Programmer, Nolleh</title>
     <link>https://nolleh.github.io/tags/mysql/</link>
     <description>Recent content in mysql on The Computer Programmer, Nolleh</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.113.0</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Sat, 06 Aug 2022 12:05:08 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 06 Aug 2022 12:05:08 +0900</lastBuildDate>
+    <atom:link href="https://nolleh.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cheatsheet</title>
       <link>https://nolleh.github.io/mysql/cheatsheet/</link>
       <pubDate>Sat, 06 Aug 2022 12:05:08 +0900</pubDate>
-      
       <guid>https://nolleh.github.io/mysql/cheatsheet/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

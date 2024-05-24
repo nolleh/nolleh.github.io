@@ -4,14 +4,14 @@
     <title>Clis on The Computer Programmer, Nolleh</title>
     <link>https://nolleh.github.io/cli/</link>
     <description>Recent content in Clis on The Computer Programmer, Nolleh</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.113.0</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Sat, 05 Aug 2023 16:14:33 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/cli/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 05 Aug 2023 16:14:33 +0900</lastBuildDate>
+    <atom:link href="https://nolleh.github.io/cli/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Diskutil</title>
       <link>https://nolleh.github.io/cli/diskutil/</link>
       <pubDate>Sat, 05 Aug 2023 16:14:33 +0900</pubDate>
-      
       <guid>https://nolleh.github.io/cli/diskutil/</guid>
       <description>mac 에서는, diskutil 과 dd 를 사용해서 microSD 카드를(disk) 포멧 할 수 있다.
 disk utility 라는 GUI 툴도 있는데, 파티셔닝 되어있던 애를 이걸 통해서 지웠더니 뭔갈 잘못한건지 절반정도의 디스크용량이 날아가 버렸다 ㅡㅡ;;;
@@ -20,6 +20,5 @@ $ diskutil list output
 /dev/disk5 (external, physical): #: TYPE NAME SIZE IDENTIFIER 0: *15.9 GB disk5 format 하려면
 $ diskutil umount $ sudo dd if=/dev/zero of=/dev/{dev-name} bs=1M status=progress ## this is really long term work 되-게 오래 걸리는 작업이라서, 잊지 말고status=progress 옵션을 사용하는 것을 권장 한다.</description>
     </item>
-    
   </channel>
 </rss>

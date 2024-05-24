@@ -4,14 +4,14 @@
     <title>Unix Network Programming on The Computer Programmer, Nolleh</title>
     <link>https://nolleh.github.io/categories/unix-network-programming/</link>
     <description>Recent content in Unix Network Programming on The Computer Programmer, Nolleh</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.113.0</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Tue, 01 Aug 2017 22:54:19 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/categories/unix-network-programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Aug 2017 22:54:19 +0900</lastBuildDate>
+    <atom:link href="https://nolleh.github.io/categories/unix-network-programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Unix 01 Intro</title>
       <link>https://nolleh.github.io/network/unix-01-intro/</link>
       <pubDate>Tue, 01 Aug 2017 22:54:19 +0900</pubDate>
-      
       <guid>https://nolleh.github.io/network/unix-01-intro/</guid>
       <description>네트워킹의 바이블이라 할 수 있는 Unix Network Programming 의 내용 정리
 Books Introduction Socket 을 통해 통신하는 프로그램을 작성하는 개발자를 위해 쓰여진 책.
@@ -20,6 +20,5 @@ Books Introduction Socket 을 통해 통신하는 프로그램을 작성하는 �
 실제 텍스트들은 유닉스 시스템에서 구동가능하나, OS 에 독립적인 socket api 를 지원하는 다른 OS 에서도, 본문에서 제안하는 일반적인 개념을 활용가능하다.
 많은 OS 는 셀수 없이 많은 네트워크 응용프로그램을 제공하고 있으며 - 예컨데 웹브라우저, email.</description>
     </item>
-    
   </channel>
 </rss>

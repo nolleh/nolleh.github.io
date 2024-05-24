@@ -13,9 +13,7 @@
 Task Task void - 비동기 이벤트 처리기 작성 GetAwaiter 포함 모든 기타 형식 await 을 만나면 yield 함 (호출자로 제어가 돌아감) 이때, Task 가 호출자에게 반환되고 이는 언젠가 다운로드된 문자열의 길이가 반환된다는 약속 (future) 을 의미한다. await 전에 작업이 완료된다면 제어가 돌아가지 않는다. 스레드 비동기 메서드의 await 식은 대기한 작업이 실행되는 동안 현재 스레드를 차단하지 않는다.">
 <meta name="author" content="nolleh">
 <link rel="canonical" href="https://nolleh.github.io/csharp/async-await-msdn/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.d7fb4cbf980fe688a21621b06a795933c4e6bb2d4070ec940667af1715d84af2.css" integrity="sha256-1/tMv5gP5oiiFiGwanlZM8Tmuy1AcOyUBmevFxXYSvI=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://nolleh.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
@@ -40,7 +38,7 @@ Task Task void - 비동기 이벤트 처리기 작성 GetAwaiter 포함 모든 �
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -78,8 +76,8 @@ if (!doNotTrack) {
 Task Task void - 비동기 이벤트 처리기 작성 GetAwaiter 포함 모든 기타 형식 await 을 만나면 yield 함 (호출자로 제어가 돌아감) 이때, Task 가 호출자에게 반환되고 이는 언젠가 다운로드된 문자열의 길이가 반환된다는 약속 (future) 을 의미한다. await 전에 작업이 완료된다면 제어가 돌아가지 않는다. 스레드 비동기 메서드의 await 식은 대기한 작업이 실행되는 동안 현재 스레드를 차단하지 않는다." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://nolleh.github.io/csharp/async-await-msdn/" /><meta property="article:section" content="csharp" />
-<meta property="article:published_time" content="2018-12-21T21:41:08&#43;09:00" />
-<meta property="article:modified_time" content="2018-12-21T21:41:08&#43;09:00" />
+<meta property="article:published_time" content="2018-12-21T21:41:08+09:00" />
+<meta property="article:modified_time" content="2018-12-21T21:41:08+09:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Async Await 을 사용한 비동기 프로그래밍"/>
@@ -162,12 +160,12 @@ Task Task void - 비동기 이벤트 처리기 작성 GetAwaiter 포함 모든 �
             <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -212,7 +210,7 @@ Task Task void - 비동기 이벤트 처리기 작성 GetAwaiter 포함 모든 �
 <article class="post-single">
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://nolleh.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://nolleh.github.io/csharp/">Csharps</a></div>
-    <h1 class="post-title">
+    <h1 class="post-title entry-hint-parent">
       Async Await 을 사용한 비동기 프로그래밍
     </h1>
     <div class="post-meta"><span title='2018-12-21 21:41:08 +0900 KST'>December 21, 2018</span>&nbsp;·&nbsp;nolleh
@@ -307,7 +305,8 @@ Task Task void - 비동기 이벤트 처리기 작성 GetAwaiter 포함 모든 �
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span>
+        <span>&copy; 2024 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
