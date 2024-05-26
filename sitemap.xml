@@ -131,6 +131,9 @@
     <loc>https://nolleh.github.io/linux/5.system-configuration-from-the-graphical-interface/1.learning-objectives/</loc>
     <lastmod>2023-09-09T19:19:58+09:00</lastmod>
   </url><url>
+    <loc>https://nolleh.github.io/tags/linux/</loc>
+    <lastmod>2023-09-09T15:36:52+09:00</lastmod>
+  </url><url>
     <loc>https://nolleh.github.io/ubuntu/optimize-speed/</loc>
     <lastmod>2023-09-09T15:36:52+09:00</lastmod>
   </url><url>
@@ -347,10 +350,10 @@
     <loc>https://nolleh.github.io/tags/kubernetes/</loc>
     <lastmod>2022-08-05T16:22:31+09:00</lastmod>
   </url><url>
-    <loc>https://nolleh.github.io/categories/kubernetes/</loc>
+    <loc>https://nolleh.github.io/kubernetes/</loc>
     <lastmod>2022-08-05T16:22:31+09:00</lastmod>
   </url><url>
-    <loc>https://nolleh.github.io/kubernetes/</loc>
+    <loc>https://nolleh.github.io/categories/kubernetes/</loc>
     <lastmod>2022-08-05T16:22:31+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/distributed-systems/3.time-and-order/</loc>
@@ -521,7 +524,7 @@
     <loc>https://nolleh.github.io/block-chain/1.1-introduction/</loc>
     <lastmod>2019-01-01T14:41:42+09:00</lastmod>
   </url><url>
-    <loc>https://nolleh.github.io/tags/c#/</loc>
+    <loc>https://nolleh.github.io/tags/c</loc>
     <lastmod>2018-12-21T22:02:13+09:00</lastmod>
   </url><url>
     <loc>https://nolleh.github.io/csharp/async-control-flow-msdn/</loc>

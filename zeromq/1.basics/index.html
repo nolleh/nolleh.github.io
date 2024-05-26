@@ -22,6 +22,7 @@ IETF 표준들과같은 많은 노력으로 코드를 연결하기 위한 시도
 <link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://nolleh.github.io/zeromq/1.basics/">
 <noscript>
     <style>
         #theme-toggle,
@@ -59,7 +60,7 @@ IETF 표준들과같은 많은 노력으로 코드를 연결하기 위한 시도
 
     </style>
 </noscript>
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -120,8 +121,8 @@ IETF 표준들과같은 많은 노력으로 코드를 연결하기 위한 시도
   "keywords": [
     "MQ", "zeromq"
   ],
-  "articleBody": "다음 번역 Chapter 1 - Basics Fixing The World 프로그래밍의 물리요, 과학은: 사람들이 쉽게 이해하고 사용할 수 있는 빌딩블록을 만들고 함께 큰 문제를 해결하는 데에 있다.\n우리는 연결되어 있는 세상에 살고 있고 현대의 소프트웨어는 세상을 안내한다.\n하지만 데이터와 지식들은 클라우드와 개인 컴퓨터에 존재하고 인터넷은 ‘연결된’ 코드의 잠재성을 제안했지만\n현실은 많은 흥미로운 문제들(건강/교육/경제/..)이 코드를 ‘연결’ 할 방법이 없기 때문에 많은 지식(brain) 을 연결하지 못해 해결되지 못한 채로 남아있다.\nIETF 표준들과같은 많은 노력으로 코드를 연결하기 위한 시도들이 행해졌다. 어플리케이션 개발자들은 HTTP 를 하나의 솔루션으로 사용하여 ‘간단한’ 문제에는 활용할 수 있겠지만\n이것은 개발자들과 아키텍트들이 큰서버를 생각하고 멍청한 클라이언트들을 구성하도록 격려하면서 문제를 더 악화했다.\n그래서, 현재의 사람들은 여전히 raw UDP 와 raw TCP를 사용한다. 이는 고통스럽고, 느리고, 확장하기 어려우며 중앙화가 필수적이다. 분산P2P 아키텍쳐는 업무를 위해서가아니라대부분 play 를 위해 사용된다. 스카이프나 비트토렌트를 데이터를 교환하기위해 사용하는 어플리케이션이 몇이나 되겠는가?\n이는 다시 프로그래밍의 과학을 다시우리에게 들이민다. 세상을 고치기위해 우리는 두가지가 필요하다.\n아무 코드를 어느 곳에나 있는 아무 코드로 연결할 방법 이를 가능한한 간단한 빌딩 블럭으로 만들어 유저들이 쉽게 이해하고 사용할 수 있어야 할 것 말도 안되게 간단해 보인다. 그리고 어쩌면 그럴 것도 같다. 이게 요점의 전부다.\nStarting Assumptions version: 3.2 zeromq.\nyou can read C code.\nwe write constants like PUSH or SUBSCRIBE, you can imagine they are really called ZMQ_PUSH or ZMQ_SUBSCRIBE if the programming language needs it.\nAsk and Ye Shall Receive 먼저 코드로 시작해보자. 물론 Hello World 예제부터. 클라이언트와 서버를 만든다. 클라이언트는 “Hello” 를 서버에 전송, “World” 라고 응답 받을 것이다.\n// // Hello World server in C++ // Binds REP socket to tcp://*:5555 // Expects \"Hello\" from client, replies with \"World\" // #include #include #include #ifndef _WIN32 #include #else #include #define sleep(n)\tSleep(n) #endif int main () { // Prepare our context and socket zmq::context_t context (2); zmq::socket_t socket (context, zmq::socket_type::rep); socket.bind (\"tcp://*:5555\"); while (true) { zmq::message_t request; // Wait for next request from client socket.recv (request, zmq::recv_flags::none); std::cout \u003c\u003c \"Received Hello\" \u003c\u003c std::endl; // Do some 'work' sleep(1); // Send reply back to client zmq::message_t reply (5); memcpy (reply.data (), \"World\", 5); socket.send (reply, zmq::send_flags::none); } return 0; } REQ-REP 소켓쌍은 시작점이다. 클라이언트는 zmq_send() 이후 zmq_recv() 를 하나의 루프에서 실행한다. 이 외의 어떤 다른 시퀀스(한번에 메시지를두번보낸다거나)\n는 응답값이-1 로 반환된다. 유사하게, 서비스는 zmq_recv() 이후 zmq_send() 를 보통 필요한 것처럼 순서대로 발행 한다.\n다른 언어에서도 유사하게 사용된다.\npackage guide; // // Hello World server in Java // Binds REP socket to tcp://*:5555 // Expects \"Hello\" from client, replies with \"World\" // import org.zeromq.SocketType; import org.zeromq.ZMQ; import org.zeromq.ZContext; public class hwserver { public static void main(String[] args) throws Exception { try (ZContext context = new ZContext()) { // Socket to talk to clients ZMQ.Socket socket = context.createSocket(SocketType.REP); socket.bind(\"tcp://*:5555\"); while (!Thread.currentThread().isInterrupted()) { byte[] reply = socket.recv(0); System.out.println( \"Received \" + \": [\" + new String(reply, ZMQ.CHARSET) + \"]\" ); Thread.sleep(1000); // Do some 'work' String response = \"world\"; socket.send(response.getBytes(ZMQ.CHARSET), 0); } } } } ",
-  "wordCount" : "474",
+  "articleBody": "다음 번역 Chapter 1 - Basics Fixing The World 프로그래밍의 물리요, 과학은: 사람들이 쉽게 이해하고 사용할 수 있는 빌딩블록을 만들고 함께 큰 문제를 해결하는 데에 있다.\n우리는 연결되어 있는 세상에 살고 있고 현대의 소프트웨어는 세상을 안내한다.\n하지만 데이터와 지식들은 클라우드와 개인 컴퓨터에 존재하고 인터넷은 ‘연결된’ 코드의 잠재성을 제안했지만\n현실은 많은 흥미로운 문제들(건강/교육/경제/..)이 코드를 ‘연결’ 할 방법이 없기 때문에 많은 지식(brain) 을 연결하지 못해 해결되지 못한 채로 남아있다.\nIETF 표준들과같은 많은 노력으로 코드를 연결하기 위한 시도들이 행해졌다. 어플리케이션 개발자들은 HTTP 를 하나의 솔루션으로 사용하여 ‘간단한’ 문제에는 활용할 수 있겠지만\n이것은 개발자들과 아키텍트들이 큰서버를 생각하고 멍청한 클라이언트들을 구성하도록 격려하면서 문제를 더 악화했다.\n그래서, 현재의 사람들은 여전히 raw UDP 와 raw TCP를 사용한다. 이는 고통스럽고, 느리고, 확장하기 어려우며 중앙화가 필수적이다. 분산P2P 아키텍쳐는 업무를 위해서가아니라대부분 play 를 위해 사용된다. 스카이프나 비트토렌트를 데이터를 교환하기위해 사용하는 어플리케이션이 몇이나 되겠는가?\n이는 다시 프로그래밍의 과학을 다시우리에게 들이민다. 세상을 고치기위해 우리는 두가지가 필요하다.\n아무 코드를 어느 곳에나 있는 아무 코드로 연결할 방법 이를 가능한한 간단한 빌딩 블럭으로 만들어 유저들이 쉽게 이해하고 사용할 수 있어야 할 것 말도 안되게 간단해 보인다. 그리고 어쩌면 그럴 것도 같다. 이게 요점의 전부다.\nStarting Assumptions version: 3.2 zeromq.\nyou can read C code.\nwe write constants like PUSH or SUBSCRIBE, you can imagine they are really called ZMQ_PUSH or ZMQ_SUBSCRIBE if the programming language needs it.\nAsk and Ye Shall Receive 먼저 코드로 시작해보자. 물론 Hello World 예제부터. 클라이언트와 서버를 만든다. 클라이언트는 “Hello” 를 서버에 전송, “World” 라고 응답 받을 것이다.\n// // Hello World server in C++ // Binds REP socket to tcp://*:5555 // Expects \"Hello\" from client, replies with \"World\" // #include #include #include #ifndef _WIN32 #include #else #include #define sleep(n)\tSleep(n) #endif int main () { // Prepare our context and socket zmq::context_t context (2); zmq::socket_t socket (context, zmq::socket_type::rep); socket.bind (\"tcp://*:5555\"); while (true) { zmq::message_t request; // Wait for next request from client socket.recv (request, zmq::recv_flags::none); std::cout \u003c\u003c \"Received Hello\" \u003c\u003c std::endl; // Do some 'work' sleep(1); // Send reply back to client zmq::message_t reply (5); memcpy (reply.data (), \"World\", 5); socket.send (reply, zmq::send_flags::none); } return 0; } REQ-REP 소켓쌍은 시작점이다. 클라이언트는 zmq_send() 이후 zmq_recv() 를 하나의 루프에서 실행한다. 이 외의 어떤 다른 시퀀스(한번에 메시지를두번보낸다거나)\n는 응답값이-1 로 반환된다. 유사하게, 서비스는 zmq_recv() 이후 zmq_send() 를 보통 필요한 것처럼 순서대로 발행 한다.\n다른 언어에서도 유사하게 사용된다.\npackage guide; // // Hello World server in Java // Binds REP socket to tcp://*:5555 // Expects \"Hello\" from client, replies with \"World\" // import org.zeromq.SocketType; import org.zeromq.ZMQ; import org.zeromq.ZContext; public class hwserver { public static void main(String[] args) throws Exception { try (ZContext context = new ZContext()) { // Socket to talk to clients ZMQ.Socket socket = context.createSocket(SocketType.REP); socket.bind(\"tcp://*:5555\"); while (!Thread.currentThread().isInterrupted()) { byte[] reply = socket.recv(0); System.out.println( \"Received \" + \": [\" + new String(reply, ZMQ.CHARSET) + \"]\" ); Thread.sleep(1000); // Do some 'work' String response = \"world\"; socket.send(response.getBytes(ZMQ.CHARSET), 0); } } } } 클라이언트 코드는 다음과 같다.\n// Hello World client #include #include #include #include int main (void) { printf (\"Connecting to hello world server...\\n\"); void *context = zmq_ctx_new (); void *requester = zmq_socket (context, ZMQ_REQ); zmq_connect (requester, \"tcp://localhost:5555\"); int request_nbr; for (request_nbr = 0; request_nbr != 10; request_nbr++) { char buffer [10]; printf (\"Sending Hello %d...\\n\", request_nbr); zmq_send (requester, \"Hello\", 5, 0); zmq_recv (requester, buffer, 10, 0); printf (\"Received World %d\\n\", request_nbr); } zmq_close (requester); zmq_ctx_destroy (context); return 0; } 실제라고 보기에는 너무 간단해보이지만, ZeroMQ 소켓은 이미 이전에 배운것처럼 슈퍼파워를 가지고있다.\n수천의 클라이언트를 한번에 붙여도 여전히 행복하게 빠르게 동작할 것이다.\n서버를 kill 하고 나서 다시재시작 해보면, 클라이언트는 정상적으로 회복하지 못할 것이다.\n크래쉬 프로세스에서 다시 회복 하는것, 쉬운 일이 아니다. 신뢰성 있는 요청 응답 플로우를 구현하는 것은\n너무 복잡하기 때문에 여기서 다루지않고 ch4에서 다룬다.\nA Minor Note on Strings C 와 같은 언어에서는 문자열을 전송할 때 null character 가 붙지만 그렇지 않은 언어들도 있음.\n두 언어 사이에서 통신할 때 이때문에 비정상 동작할 수 있음. 그래서 C 기반의 언어에서는 항상 /0 로 종료됨을 단순히 믿을 수 없기때문에 별도의 버퍼를할당하고\n추가 바이트를할당해서 문자열을 복사 해야 한다.\n그래서, 다음과 같은 룰을 정립하자. ZeroMQ 문자열은 길이 지정이 되어 있고 뒤따르는 null 이 없는 것으로 한다.\n하나의 zeroMQ 문자열은 zeroMQ 메시지프레임으로 간결하게 매핑될 수 있으며 아래와 같은 형태가 된다.\nC 에서는, 문자열을 수신 후 다음과 같은 작업을 한다.\n// Receive ZeroMQ string from socket and convert into C string // Chops string at 255 chars, if it's longer static char * s_recv (void *socket) { char buffer [256]; int size = zmq_recv (socket, buffer, 255, 0); if (size == -1) return NULL; if (size \u003e 255) size = 255; buffer [size] = '\\0'; /* use strndup(buffer, sizeof(buffer)-1) in *nix */ return strdup (buffer); } 이 헬퍼 함수는 다음에 재활용하기 편하게 만들며, 헤더 파일에 패키지해서 사용하면 된다.\n그 결과가 zhelpers.h 이며, 더 달달하고 짧은 C zeroMQ 어플리케이션을 만드는데 도움 줄 것이다.\n이 헤더파일은 C 개발자들만을 위한 부분이기 때문에 여유시간에 읽어보시라.\nA Note on the Naming Convention s_ prefix 는 static method, variables을 나타낸다.\nVersions // Report 0MQ version #include int main (void) { s_version(); return EXIT_SUCCESS; } Getting The Message Out 두 번째 흔한 패턴은 일방향 데이터 분배이다.\n// // Weather update server in C++ // Binds PUB socket to tcp://*:5556 // Publishes random weather updates // #include #include #include #include #if (defined (WIN32)) #include #endif #define within(num) (int) ((float) num * random () / (RAND_MAX + 1.0)) int main () { // Prepare our context and publisher zmq::context_t context (1); zmq::socket_t publisher (context, zmq::socket_type::pub); publisher.bind(\"tcp://*:5556\"); publisher.bind(\"ipc://weather.ipc\");\t// Not usable on Windows. // Initialize random number generator srandom ((unsigned) time (NULL)); while (1) { int zipcode, temperature, relhumidity; // Get values that will fool the boss zipcode = within (100000); temperature = within (215) - 80; relhumidity = within (50) + 10; // Send message to all subscribers zmq::message_t message(20); snprintf ((char *) message.data(), 20 , \"%05d %d %d\", zipcode, temperature, relhumidity); publisher.send(message, zmq::send_flags::none); } return 0; } // // Weather update client in C++ // Connects SUB socket to tcp://localhost:5556 // Collects weather updates and finds avg temp in zipcode // #include #include #include int main (int argc, char *argv[]) { zmq::context_t context (1); // Socket to talk to server std::cout \u003c\u003c \"Collecting updates from weather server...\\n\" \u003c\u003c std::endl; zmq::socket_t subscriber (context, zmq::socket_type::sub); subscriber.connect(\"tcp://localhost:5556\"); // Subscribe to zipcode, default is NYC, 10001 const char *filter = (argc \u003e 1)? argv [1]: \"10001 \"; subscriber.set(zmq::sockopt::subscribe, filter); // Process 100 updates int update_nbr; long total_temp = 0; for (update_nbr = 0; update_nbr \u003c 100; update_nbr++) { zmq::message_t update; int zipcode, temperature, relhumidity; subscriber.recv(update, zmq::recv_flags::none); std::istringstream iss(static_cast\u003cchar*\u003e(update.data())); iss \u003e\u003e zipcode \u003e\u003e temperature \u003e\u003e relhumidity ; total_temp += temperature; } std::cout \u003c\u003c \"Average temperature for zipcode '\"\u003c\u003c filter \u003c\u003c\"' was \"\u003c\u003c(int) (total_temp / update_nbr) \u003c\u003c\"F\" \u003c\u003c std::endl; return 0; } SUB 소켓은 zmq_setsockopt() 를 사용하여 구독을 등록 후에 SUBSCRIBE 해야만 한다. 어떤 구독도 등록하지 않는다면 어떤 메시지도 수신할 수 없다.\n구독자는 여러명이 될 수 있으며, 업데이트가 ANY 구독자에게라도 매치가 되면, 그 구독자가 수신하게 된다. 구독자는 또 특정 구독을 취소할 수도 있다.\n하나의 구독은 보통, 하지만 항상 그런것은 아니고, 문자 열로 출력할 수 있다. zmq_setsockopt() 를 참조하시라.\nZeroMQ 소켓의 이론에서, 누가 연결을 끊고 누가 바인드를 끊는지는 관계가 없다. 그러나, 실세계에서 문서화 되지 않은 차이가 있으므로, 이건 나중에 다루겠다. 일단 지금은, PUB 을 바인드 하고 SUB 에서 연결하자. (당신의 네트워크 디자인이 허락하는 한)\nPUB-SUB 소켓에 대해 한가지 더 중요히 생각할게 있다.: 구독자가 언제 구독을 시작할지 모른다는 것이다.구독자를 실행 하였더라도, 일정 시간 기다리고 나서 발행자를 실행하여도, 구독자는 항상 발행자가 보내는 첫번째 메시지를 놓칠 것이다. 이건 구독자가 퍼블리셔에 연결할때, 퍼블리셔는 메시지를 이미 보냈을 수 있기 때문이다.\n이 “늦은 참석” 증상은 충분히 많은 사람들을 고통스럽게 하기 때문에, 자세한 사항을 다룰 예정이다. ZeroMQ 는 백그라운드에서 비동기 I/O 를 수행함을 기억하라.\n다음 순서대로 작업을 처리하는 두 노드가 있다고 하자.\n구독자는 엔드포인트에 연결하여 메시지를 받고 센다. 발행자는 엔드포인트에 바인드하여 그 즉시 1000 메시지를 보낸다. 이러면 구독자는 거의 항상 아무것도 받지 못한다. 당신은 눈을 깜박이며 필터를 체크하고 다시 확인할테지만, 구독자는 여전히 아무것도 받지 못할 것이다.\nTCP 연결을 맺고 핸드쉐이킹을 맺는데 얼마간의 밀리초가 네트워크상태 (피어사이의 홉의 수에 의존해서)에 따라 소요 된다. 이 시간동안, ZeroMQ는 많은 메시지들을 송신할 수 있다. 5msecs 가 연결을 맺는데 소요한다고 가정하고, 그리고 같은 링크가 1M 메시지를 1초에 다룰 수 있다고 하자. 이 5mses 동안, 발행자는 1K message 를 보내기위해 1mesc 만이 필요하다.\nCh2-Sockets and Patterns 에서 이를 어떻게 동기화하고 구독자가 실제로 연결하여 준비 되기 전까지 메시지를 발행하지 않기 위한 방법을 소개한다.\n동기화의 다른 대안은, 데이터 스트림은 무한하고 시작점도, 끝점도 없다고 가정하는 것이다. (위의 날씨 방송 예제가 그 예)\npub-sub 패턴에서 몇가지 포인트:\n구독자 들은 하나이상의 발행자에 한번의 connect 콜만으로 연결할 수 있다. 데이터는 이후 전송되어 인터리브되고, 하나의 발행자가 다른것들을 drown 시키지 않는다. 만약 발행자에게 구독자가 없으면, 모든 메시지를 드랍한다. 만약 TCP 연결을 사용하고 구독자가 느리다면, 발행자에게 메시지가 큐잉된다. 발행자를 이로부터 보호하기 위한 “high-water mark” 기법은 이후 살펴본다. ZeroMQ v3.x 부터, filtering 은 (tcp:@\u003c\u003e@ or ipc:@\u003c\u003e@) 를 사용하는 경우 발행자 측에서 일어난다. epgm:@\u003c//\u003e@ 프로토콜을 사용하는 경우, filtering 은 구독자 사이드에서 일어난다. ZeroMQ v2.x 에서, 모든 filtering 은 구독자 사이드에서 일어난다. 다음은 10M 메시지를 filter 하고 받는 데 얼마나 걸리는지 2011-era Intel i5 labtop 에서 측정한 결과이나, 다른 이후 장비에서도 큰 차이는 없을 것이다.:\n$ time wuclient Collecting updates from weather server... Average temperature for zipcode '10001 ' was 28F real 0m4.470s user 0m0.000s sys 0m0.008s ",
+  "wordCount" : "1523",
   "inLanguage": "en",
   "datePublished": "2024-05-22T21:37:29+09:00",
   "dateModified": "2024-05-22T21:37:29+09:00",
@@ -240,7 +241,15 @@ IETF 표준들과같은 많은 노력으로 코드를 연결하기 위한 시도
                 <li>
                     <a href="#starting-assumptions" aria-label="Starting Assumptions">Starting Assumptions</a></li>
                 <li>
-                    <a href="#ask-and-ye-shall-receive" aria-label="Ask and Ye Shall Receive">Ask and Ye Shall Receive</a>
+                    <a href="#ask-and-ye-shall-receive" aria-label="Ask and Ye Shall Receive">Ask and Ye Shall Receive</a></li>
+                <li>
+                    <a href="#a-minor-note-on-strings" aria-label="A Minor Note on Strings">A Minor Note on Strings</a></li>
+                <li>
+                    <a href="#a-note-on-the-naming-convention" aria-label="A Note on the Naming Convention">A Note on the Naming Convention</a></li>
+                <li>
+                    <a href="#versions" aria-label="Versions">Versions</a></li>
+                <li>
+                    <a href="#getting-the-message-out" aria-label="Getting The Message Out">Getting The Message Out</a>
                 </li>
             </ul>
             </li>
@@ -318,41 +327,231 @@ we write constants like PUSH or SUBSCRIBE, you can imagine they are really calle
 <p>REQ-REP 소켓쌍은 시작점이다. 클라이언트는 <code>zmq_send()</code> 이후 <code>zmq_recv</code>() 를 하나의 루프에서 실행한다. 이 외의 어떤 다른 시퀀스(한번에 메시지를두번보낸다거나)<br>
 는 응답값이-1 로 반환된다. 유사하게, 서비스는 <code>zmq_recv()</code> 이후 <code>zmq_send()</code> 를 보통 필요한 것처럼 순서대로 발행 한다.</p>
 <p>다른 언어에서도 유사하게 사용된다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> guide<span style="color:#f92672">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> guide;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//  Hello World server in Java
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//  Binds REP socket to tcp://*:5555
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//  Expects &#34;Hello&#34; from client, replies with &#34;World&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.zeromq.SocketType<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.zeromq.ZMQ<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.zeromq.ZContext<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//  Hello World server in Java</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//  Binds REP socket to tcp://*:5555</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//  Expects &#34;Hello&#34; from client, replies with &#34;World&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.zeromq.SocketType;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.zeromq.ZMQ;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.zeromq.ZContext;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">hwserver</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> <span style="color:#f92672">(</span>ZContext context <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ZContext<span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Socket to talk to clients
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            ZMQ<span style="color:#f92672">.</span><span style="color:#a6e22e">Socket</span> socket <span style="color:#f92672">=</span> context<span style="color:#f92672">.</span><span style="color:#a6e22e">createSocket</span><span style="color:#f92672">(</span>SocketType<span style="color:#f92672">.</span><span style="color:#a6e22e">REP</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>            socket<span style="color:#f92672">.</span><span style="color:#a6e22e">bind</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;tcp://*:5555&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) <span style="color:#66d9ef">throws</span> Exception
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> (ZContext context <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ZContext()) {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// Socket to talk to clients</span>
+</span></span><span style="display:flex;"><span>            ZMQ.<span style="color:#a6e22e">Socket</span> socket <span style="color:#f92672">=</span> context.<span style="color:#a6e22e">createSocket</span>(SocketType.<span style="color:#a6e22e">REP</span>);
+</span></span><span style="display:flex;"><span>            socket.<span style="color:#a6e22e">bind</span>(<span style="color:#e6db74">&#34;tcp://*:5555&#34;</span>);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">while</span> <span style="color:#f92672">(!</span>Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">().</span><span style="color:#a6e22e">isInterrupted</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> reply <span style="color:#f92672">=</span> socket<span style="color:#f92672">.</span><span style="color:#a6e22e">recv</span><span style="color:#f92672">(</span>0<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;Received &#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;: [&#34;</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">(</span>reply<span style="color:#f92672">,</span> ZMQ<span style="color:#f92672">.</span><span style="color:#a6e22e">CHARSET</span><span style="color:#f92672">)</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;]&#34;</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">while</span> (<span style="color:#f92672">!</span>Thread.<span style="color:#a6e22e">currentThread</span>().<span style="color:#a6e22e">isInterrupted</span>()) {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> reply <span style="color:#f92672">=</span> socket.<span style="color:#a6e22e">recv</span>(0);
+</span></span><span style="display:flex;"><span>                System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;Received &#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;: [&#34;</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">new</span> String(reply, ZMQ.<span style="color:#a6e22e">CHARSET</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;]&#34;</span>
+</span></span><span style="display:flex;"><span>                );
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">sleep</span><span style="color:#f92672">(</span>1000<span style="color:#f92672">);</span> <span style="color:#75715e">//  Do some &#39;work&#39;
+</span></span><span style="display:flex;"><span>                Thread.<span style="color:#a6e22e">sleep</span>(1000); <span style="color:#75715e">//  Do some &#39;work&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                String response <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;world&#34;</span>;
+</span></span><span style="display:flex;"><span>                socket.<span style="color:#a6e22e">send</span>(response.<span style="color:#a6e22e">getBytes</span>(ZMQ.<span style="color:#a6e22e">CHARSET</span>), 0);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>클라이언트 코드는 다음과 같다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">//  Hello World client
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;zmq.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span>                String response <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;world&#34;</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>                socket<span style="color:#f92672">.</span><span style="color:#a6e22e">send</span><span style="color:#f92672">(</span>response<span style="color:#f92672">.</span><span style="color:#a6e22e">getBytes</span><span style="color:#f92672">(</span>ZMQ<span style="color:#f92672">.</span><span style="color:#a6e22e">CHARSET</span><span style="color:#f92672">),</span> 0<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> (<span style="color:#66d9ef">void</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    printf (<span style="color:#e6db74">&#34;Connecting to hello world server...</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>context <span style="color:#f92672">=</span> zmq_ctx_new ();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>requester <span style="color:#f92672">=</span> zmq_socket (context, ZMQ_REQ);
+</span></span><span style="display:flex;"><span>    zmq_connect (requester, <span style="color:#e6db74">&#34;tcp://localhost:5555&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> request_nbr;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (request_nbr <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; request_nbr <span style="color:#f92672">!=</span> <span style="color:#ae81ff">10</span>; request_nbr<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">char</span> buffer [<span style="color:#ae81ff">10</span>];
+</span></span><span style="display:flex;"><span>        printf (<span style="color:#e6db74">&#34;Sending Hello %d...</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, request_nbr);
+</span></span><span style="display:flex;"><span>        zmq_send (requester, <span style="color:#e6db74">&#34;Hello&#34;</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>        zmq_recv (requester, buffer, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>        printf (<span style="color:#e6db74">&#34;Received World %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, request_nbr);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    zmq_close (requester);
+</span></span><span style="display:flex;"><span>    zmq_ctx_destroy (context);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>실제라고 보기에는 너무 간단해보이지만, ZeroMQ 소켓은 이미 이전에 배운것처럼 슈퍼파워를 가지고있다.<br>
+수천의 클라이언트를 한번에 붙여도 여전히 행복하게 빠르게 동작할 것이다.</p>
+<p>서버를 kill 하고 나서 다시재시작 해보면, 클라이언트는 정상적으로 회복하지 못할 것이다.<br>
+크래쉬 프로세스에서 다시 회복 하는것, 쉬운 일이 아니다. 신뢰성 있는 요청 응답 플로우를 구현하는 것은<br>
+너무 복잡하기 때문에 여기서 다루지않고 ch4에서 다룬다.</p>
+<h2 id="a-minor-note-on-strings">A Minor Note on Strings<a hidden class="anchor" aria-hidden="true" href="#a-minor-note-on-strings">#</a></h2>
+<p>C 와 같은 언어에서는 문자열을 전송할 때 null character 가 붙지만 그렇지 않은 언어들도 있음.<br>
+두 언어 사이에서 통신할 때 이때문에 비정상 동작할 수 있음. 그래서 C 기반의 언어에서는 항상 /0 로 종료됨을 단순히 믿을 수 없기때문에 별도의 버퍼를할당하고<br>
+추가 바이트를할당해서 문자열을 복사 해야 한다.</p>
+<p>그래서, 다음과 같은 룰을 정립하자.  <strong>ZeroMQ 문자열은 길이 지정이 되어 있고 뒤따르는 null 이 없는 것으로 한다.</strong><br>
+하나의 zeroMQ 문자열은 zeroMQ 메시지프레임으로 간결하게 매핑될 수 있으며 아래와 같은 형태가 된다.</p>
+<p><img loading="lazy" src="https://zguide.zeromq.org/images/fig3.png" alt=""  />
+</p>
+<p>C 에서는, 문자열을 수신 후 다음과 같은 작업을 한다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">//  Receive ZeroMQ string from socket and convert into C string
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//  Chops string at 255 chars, if it&#39;s longer
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">s_recv</span> (<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>socket) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> buffer [<span style="color:#ae81ff">256</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> size <span style="color:#f92672">=</span> <span style="color:#a6e22e">zmq_recv</span> (socket, buffer, <span style="color:#ae81ff">255</span>, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (size <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> NULL;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (size <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">255</span>)
+</span></span><span style="display:flex;"><span>        size <span style="color:#f92672">=</span> <span style="color:#ae81ff">255</span>;
+</span></span><span style="display:flex;"><span>    buffer [size] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;\0&#39;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* use strndup(buffer, sizeof(buffer)-1) in *nix */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">strdup</span> (buffer);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>이 헬퍼 함수는 다음에 재활용하기 편하게 만들며, 헤더 파일에 패키지해서 사용하면 된다.<br>
+그 결과가 zhelpers.h  이며, 더 달달하고 짧은 C zeroMQ 어플리케이션을 만드는데 도움 줄 것이다.<br>
+이 헤더파일은 C 개발자들만을 위한 부분이기 때문에 <a href="https://github.com/imatix/zguide/blob/master/examples/C/zhelpers.h">여유시간에 읽어보시라</a>.</p>
+<h2 id="a-note-on-the-naming-convention">A Note on the Naming Convention<a hidden class="anchor" aria-hidden="true" href="#a-note-on-the-naming-convention">#</a></h2>
+<p>s_ prefix 는 static method, variables을 나타낸다.</p>
+<h2 id="versions">Versions<a hidden class="anchor" aria-hidden="true" href="#versions">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">//  Report 0MQ version
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;zhelpers.hpp&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> (<span style="color:#66d9ef">void</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    s_version();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> EXIT_SUCCESS;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="getting-the-message-out">Getting The Message Out<a hidden class="anchor" aria-hidden="true" href="#getting-the-message-out">#</a></h2>
+<p>두 번째 흔한 패턴은 일방향 데이터 분배이다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//  Weather update server in C++
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//  Binds PUB socket to tcp://*:5556
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//  Publishes random weather updates
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;zmq.hpp&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;time.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#if (defined (WIN32))
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;zhelpers.hpp&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#endif
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#define within(num) (int) ((float) num * random () / (RAND_MAX + 1.0))
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//  Prepare our context and publisher
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    zmq<span style="color:#f92672">::</span>context_t context (<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    zmq<span style="color:#f92672">::</span>socket_t publisher (context, zmq<span style="color:#f92672">::</span>socket_type<span style="color:#f92672">::</span>pub);
+</span></span><span style="display:flex;"><span>    publisher.bind(<span style="color:#e6db74">&#34;tcp://*:5556&#34;</span>);
+</span></span><span style="display:flex;"><span>    publisher.bind(<span style="color:#e6db74">&#34;ipc://weather.ipc&#34;</span>);				<span style="color:#75715e">// Not usable on Windows.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//  Initialize random number generator
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    srandom ((<span style="color:#66d9ef">unsigned</span>) time (NULL));
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (<span style="color:#ae81ff">1</span>) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> zipcode, temperature, relhumidity;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//  Get values that will fool the boss
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        zipcode     <span style="color:#f92672">=</span> within (<span style="color:#ae81ff">100000</span>);
+</span></span><span style="display:flex;"><span>        temperature <span style="color:#f92672">=</span> within (<span style="color:#ae81ff">215</span>) <span style="color:#f92672">-</span> <span style="color:#ae81ff">80</span>;
+</span></span><span style="display:flex;"><span>        relhumidity <span style="color:#f92672">=</span> within (<span style="color:#ae81ff">50</span>) <span style="color:#f92672">+</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//  Send message to all subscribers
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        zmq<span style="color:#f92672">::</span>message_t message(<span style="color:#ae81ff">20</span>);
+</span></span><span style="display:flex;"><span>        snprintf ((<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>) message.data(), <span style="color:#ae81ff">20</span> ,
+</span></span><span style="display:flex;"><span>        	<span style="color:#e6db74">&#34;%05d %d %d&#34;</span>, zipcode, temperature, relhumidity);
+</span></span><span style="display:flex;"><span>        publisher.send(message, zmq<span style="color:#f92672">::</span>send_flags<span style="color:#f92672">::</span>none);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//  Weather update client in C++
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//  Connects SUB socket to tcp://localhost:5556
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//  Collects weather updates and finds avg temp in zipcode
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;zmq.hpp&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sstream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> (<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[])
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    zmq<span style="color:#f92672">::</span>context_t context (<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//  Socket to talk to server
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Collecting updates from weather server...</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>    zmq<span style="color:#f92672">::</span>socket_t subscriber (context, zmq<span style="color:#f92672">::</span>socket_type<span style="color:#f92672">::</span>sub);
+</span></span><span style="display:flex;"><span>    subscriber.connect(<span style="color:#e6db74">&#34;tcp://localhost:5556&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//  Subscribe to zipcode, default is NYC, 10001
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>filter <span style="color:#f92672">=</span> (argc <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>)<span style="color:#f92672">?</span> argv [<span style="color:#ae81ff">1</span>]<span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;10001 &#34;</span>;
+</span></span><span style="display:flex;"><span>    subscriber.set(zmq<span style="color:#f92672">::</span>sockopt<span style="color:#f92672">::</span>subscribe, filter);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//  Process 100 updates
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> update_nbr;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> total_temp <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (update_nbr <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; update_nbr <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">100</span>; update_nbr<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        zmq<span style="color:#f92672">::</span>message_t update;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> zipcode, temperature, relhumidity;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        subscriber.recv(update, zmq<span style="color:#f92672">::</span>recv_flags<span style="color:#f92672">::</span>none);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>istringstream iss(<span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">char</span><span style="color:#f92672">*&gt;</span>(update.data()));
+</span></span><span style="display:flex;"><span>		iss <span style="color:#f92672">&gt;&gt;</span> zipcode <span style="color:#f92672">&gt;&gt;</span> temperature <span style="color:#f92672">&gt;&gt;</span> relhumidity ;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		total_temp <span style="color:#f92672">+=</span> temperature;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout 	<span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Average temperature for zipcode &#39;&#34;</span><span style="color:#f92672">&lt;&lt;</span> filter
+</span></span><span style="display:flex;"><span>    			<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;&#39; was &#34;</span><span style="color:#f92672">&lt;&lt;</span>(<span style="color:#66d9ef">int</span>) (total_temp <span style="color:#f92672">/</span> update_nbr) <span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;F&#34;</span>
+</span></span><span style="display:flex;"><span>    			<span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><img loading="lazy" src="https://zguide.zeromq.org/images/fig4.png" alt=""  />
+</p>
+<p>SUB 소켓은 <code>zmq_setsockopt()</code> 를 사용하여 구독을 등록 후에 SUBSCRIBE 해야만 한다. 어떤 구독도 등록하지 않는다면 어떤 메시지도 수신할 수 없다.<br>
+구독자는 여러명이 될 수 있으며, 업데이트가 ANY 구독자에게라도 매치가 되면, 그 구독자가 수신하게 된다. 구독자는 또 특정 구독을 취소할 수도 있다.<br>
+하나의 구독은 보통, 하지만 항상 그런것은 아니고, 문자 열로 출력할 수 있다.  <a href="http://api.zeromq.org/master:zmq_setsockopt">zmq_setsockopt()</a> 를 참조하시라.</p>
+<p>ZeroMQ 소켓의 이론에서, 누가 연결을 끊고 누가 바인드를 끊는지는 관계가 없다. 그러나, 실세계에서 문서화 되지 않은 차이가 있으므로, 이건 나중에 다루겠다. 일단 지금은, PUB 을 바인드 하고 SUB 에서 연결하자. (당신의 네트워크 디자인이 허락하는 한)</p>
+<p>PUB-SUB 소켓에 대해 한가지 더 중요히 생각할게 있다.: 구독자가 언제 구독을 시작할지 모른다는 것이다.구독자를 실행 하였더라도, 일정 시간 기다리고 나서 발행자를 실행하여도, 구독자는 항상 발행자가 보내는 첫번째 메시지를 놓칠 것이다. 이건 구독자가 퍼블리셔에 연결할때, 퍼블리셔는 메시지를 이미 보냈을 수 있기 때문이다.</p>
+<p>이 &ldquo;늦은 참석&rdquo; 증상은 충분히 많은 사람들을 고통스럽게 하기 때문에, 자세한 사항을 다룰 예정이다. ZeroMQ 는 백그라운드에서 비동기 I/O 를 수행함을 기억하라.<br>
+다음 순서대로 작업을 처리하는 두 노드가 있다고 하자.</p>
+<ul>
+<li>구독자는 엔드포인트에 연결하여 메시지를 받고 센다.</li>
+<li>발행자는 엔드포인트에 바인드하여 그 즉시 1000 메시지를 보낸다.</li>
+</ul>
+<p>이러면 구독자는 거의 항상 아무것도 받지 못한다. 당신은 눈을 깜박이며 필터를 체크하고 다시 확인할테지만, 구독자는 여전히 아무것도 받지 못할 것이다.</p>
+<p>TCP 연결을 맺고 핸드쉐이킹을 맺는데 얼마간의 밀리초가 네트워크상태 (피어사이의 홉의 수에 의존해서)에 따라 소요 된다. 이 시간동안, ZeroMQ는 많은 메시지들을 송신할 수 있다. 5msecs 가 연결을 맺는데 소요한다고 가정하고, 그리고 같은 링크가 1M 메시지를 1초에 다룰 수 있다고 하자. 이 5mses 동안, 발행자는 1K message 를 보내기위해 1mesc 만이 필요하다.</p>
+<p>Ch2-Sockets and Patterns 에서 이를 어떻게 동기화하고 구독자가 실제로 연결하여 준비 되기 전까지 메시지를 발행하지 않기 위한 방법을 소개한다.</p>
+<p>동기화의 다른 대안은, 데이터 스트림은 무한하고 시작점도, 끝점도 없다고 가정하는 것이다. (위의 날씨 방송 예제가 그 예)</p>
+<p>pub-sub 패턴에서 몇가지 포인트:</p>
+<ul>
+<li>구독자 들은 하나이상의 발행자에 한번의 connect 콜만으로 연결할 수 있다. 데이터는 이후 전송되어 인터리브되고, 하나의 발행자가 다른것들을 drown 시키지 않는다.</li>
+<li>만약 발행자에게 구독자가 없으면, 모든 메시지를 드랍한다.</li>
+<li>만약 TCP 연결을 사용하고 구독자가 느리다면, 발행자에게 메시지가 큐잉된다. 발행자를 이로부터 보호하기 위한 &ldquo;high-water mark&rdquo; 기법은 이후 살펴본다.</li>
+<li>ZeroMQ v3.x 부터, filtering 은 (tcp:@&lt;&gt;@ or ipc:@&lt;&gt;@) 를 사용하는 경우 발행자 측에서 일어난다. epgm:@&lt;//&gt;@ 프로토콜을 사용하는 경우, filtering 은 구독자 사이드에서 일어난다. ZeroMQ v2.x 에서, 모든 filtering 은 구독자 사이드에서 일어난다.</li>
+</ul>
+<p>다음은 10M 메시지를 filter 하고 받는 데 얼마나 걸리는지 2011-era Intel i5 labtop 에서 측정한 결과이나, 다른 이후 장비에서도 큰 차이는 없을 것이다.:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ time wuclient
+</span></span><span style="display:flex;"><span>Collecting updates from weather server...
+</span></span><span style="display:flex;"><span>Average temperature <span style="color:#66d9ef">for</span> zipcode <span style="color:#e6db74">&#39;10001 &#39;</span> was 28F
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>real    0m4.470s
+</span></span><span style="display:flex;"><span>user    0m0.000s
+</span></span><span style="display:flex;"><span>sys     0m0.008s
 </span></span></code></pre></div>
 
   </div>
@@ -360,11 +559,11 @@ we write constants like PUSH or SUBSCRIBE, you can imagine they are really calle
   <footer class="post-footer">
     <ul class="post-tags">
       <li><a href="https://nolleh.github.io/tags/mq/">MQ</a></li>
-      <li><a href="https://nolleh.github.io/tags/zeromq/">zeromq</a></li>
+      <li><a href="https://nolleh.github.io/tags/zeromq/">Zeromq</a></li>
     </ul>
   </footer>
 <div id="disqus_thread"></div>
-<script type="application/javascript">
+<script>
     window.disqus_config = function () {
     
     

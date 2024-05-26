@@ -19,6 +19,7 @@ Spring Bean 객체 스프링에서 생성하여 관리하여 주는 스프링 �
 <link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://nolleh.github.io/web/fund-spring/">
 <noscript>
     <style>
         #theme-toggle,
@@ -56,7 +57,7 @@ Spring Bean 객체 스프링에서 생성하여 관리하여 주는 스프링 �
 
     </style>
 </noscript>
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -296,17 +297,17 @@ res/applicationContext.xml 에 <!-- raw HTML omitted --> 태그로 선언할 수
 <p>메서드의 리턴값을 빈 객체로 사용함을 의미</p>
 <h4 id="example">example<a hidden class="anchor" aria-hidden="true" href="#example">#</a></h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@configuration</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Config</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Config</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Bean</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> User <span style="color:#a6e22e">user1</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;nolleh&#34;</span><span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> User <span style="color:#a6e22e">user1</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> User(<span style="color:#e6db74">&#34;nolleh&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>요렇게 선언하고</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>AnnotationConfigApplicationContext ctx <span style="color:#f92672">=</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">new</span> AnnotationConfigApplicationContext<span style="color:#f92672">(</span>Config<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">new</span> AnnotationConfigApplicationContext(Config.<span style="color:#a6e22e">class</span>);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>User user1 <span style="color:#f92672">=</span> ctx<span style="color:#f92672">.</span><span style="color:#a6e22e">getBean</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;user1&#34;</span><span style="color:#f92672">,</span> User<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>User user1 <span style="color:#f92672">=</span> ctx.<span style="color:#a6e22e">getBean</span>(<span style="color:#e6db74">&#34;user1&#34;</span>, User.<span style="color:#a6e22e">class</span>);
 </span></span></code></pre></div><p>요렇게 쓴다.<br>
 생성자나 프로퍼티 값 설정시 직접 호출하면 된다.</p>
 <p>set{프로퍼티}(..);</p>
@@ -322,7 +323,7 @@ res/applicationContext.xml 에 <!-- raw HTML omitted --> 태그로 선언할 수
     </ul>
   </footer>
 <div id="disqus_thread"></div>
-<script type="application/javascript">
+<script>
     window.disqus_config = function () {
     
     

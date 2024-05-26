@@ -4,7 +4,7 @@
     <title>Tags on The Computer Programmer, Nolleh</title>
     <link>https://nolleh.github.io/tags/</link>
     <description>Recent content in Tags on The Computer Programmer, Nolleh</description>
-    <generator>Hugo -- 0.113.0</generator>
+    <generator>Hugo -- 0.123.7</generator>
     <language>ko-KR</language>
     <lastBuildDate>Wed, 22 May 2024 21:37:29 +0900</lastBuildDate>
     <atom:link href="https://nolleh.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
@@ -16,14 +16,14 @@
       <description></description>
     </item>
     <item>
-      <title>zeromq</title>
+      <title>Zeromq</title>
       <link>https://nolleh.github.io/tags/zeromq/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/zeromq/</guid>
       <description></description>
     </item>
     <item>
-      <title>edx</title>
+      <title>Edx</title>
       <link>https://nolleh.github.io/tags/edx/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/edx/</guid>
@@ -44,28 +44,35 @@
       <description></description>
     </item>
     <item>
-      <title>raspberry pi</title>
+      <title>Linux&#39;</title>
+      <link>https://nolleh.github.io/tags/linux/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://nolleh.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Raspberry Pi</title>
       <link>https://nolleh.github.io/tags/raspberry-pi/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/raspberry-pi/</guid>
       <description></description>
     </item>
     <item>
-      <title>ubuntu</title>
+      <title>Ubuntu</title>
       <link>https://nolleh.github.io/tags/ubuntu/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/ubuntu/</guid>
       <description></description>
     </item>
     <item>
-      <title>neovim</title>
+      <title>Neovim</title>
       <link>https://nolleh.github.io/tags/neovim/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/neovim/</guid>
       <description></description>
     </item>
     <item>
-      <title>nvim</title>
+      <title>Nvim</title>
       <link>https://nolleh.github.io/tags/nvim/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/nvim/</guid>
@@ -79,28 +86,28 @@
       <description></description>
     </item>
     <item>
-      <title>env</title>
+      <title>Env</title>
       <link>https://nolleh.github.io/tags/env/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/env/</guid>
       <description></description>
     </item>
     <item>
-      <title>vim</title>
+      <title>Vim</title>
       <link>https://nolleh.github.io/tags/vim/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/vim/</guid>
       <description></description>
     </item>
     <item>
-      <title>vim-plugin</title>
+      <title>Vim-Plugin</title>
       <link>https://nolleh.github.io/tags/vim-plugin/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/vim-plugin/</guid>
       <description></description>
     </item>
     <item>
-      <title>unix</title>
+      <title>Unix</title>
       <link>https://nolleh.github.io/tags/unix/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/unix/</guid>
@@ -114,14 +121,14 @@
       <description></description>
     </item>
     <item>
-      <title>async-await</title>
+      <title>Async-Await</title>
       <link>https://nolleh.github.io/tags/async-await/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/async-await/</guid>
       <description></description>
     </item>
     <item>
-      <title>concurrent</title>
+      <title>Concurrent</title>
       <link>https://nolleh.github.io/tags/concurrent/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/concurrent/</guid>
@@ -163,42 +170,42 @@
       <description></description>
     </item>
     <item>
-      <title>cheetsheet</title>
+      <title>Cheetsheet</title>
       <link>https://nolleh.github.io/tags/cheetsheet/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/cheetsheet/</guid>
       <description></description>
     </item>
     <item>
-      <title>mysql</title>
+      <title>Mysql</title>
       <link>https://nolleh.github.io/tags/mysql/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/mysql/</guid>
       <description></description>
     </item>
     <item>
-      <title>devops</title>
+      <title>Devops</title>
       <link>https://nolleh.github.io/tags/devops/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/devops/</guid>
       <description></description>
     </item>
     <item>
-      <title>k8s</title>
+      <title>K8s</title>
       <link>https://nolleh.github.io/tags/k8s/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/k8s/</guid>
       <description></description>
     </item>
     <item>
-      <title>kubernetes</title>
+      <title>Kubernetes</title>
       <link>https://nolleh.github.io/tags/kubernetes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/kubernetes/</guid>
       <description></description>
     </item>
     <item>
-      <title>distributed system</title>
+      <title>Distributed System</title>
       <link>https://nolleh.github.io/tags/distributed-system/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/distributed-system/</guid>
@@ -212,28 +219,28 @@
       <description></description>
     </item>
     <item>
-      <title>tool</title>
+      <title>Tool</title>
       <link>https://nolleh.github.io/tags/tool/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/tool/</guid>
       <description></description>
     </item>
     <item>
-      <title>version control</title>
+      <title>Version Control</title>
       <link>https://nolleh.github.io/tags/version-control/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/version-control/</guid>
       <description></description>
     </item>
     <item>
-      <title>qpid</title>
+      <title>Qpid</title>
       <link>https://nolleh.github.io/tags/qpid/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/qpid/</guid>
       <description></description>
     </item>
     <item>
-      <title>network</title>
+      <title>Network</title>
       <link>https://nolleh.github.io/tags/network/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/network/</guid>
@@ -282,7 +289,7 @@
       <description></description>
     </item>
     <item>
-      <title>block-chain</title>
+      <title>Block-Chain</title>
       <link>https://nolleh.github.io/tags/block-chain/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://nolleh.github.io/tags/block-chain/</guid>
@@ -297,9 +304,9 @@
     </item>
     <item>
       <title>C#</title>
-      <link>https://nolleh.github.io/tags/c#/</link>
+      <link>https://nolleh.github.io/tags/c</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://nolleh.github.io/tags/c#/</guid>
+      <guid>https://nolleh.github.io/tags/c</guid>
       <description></description>
     </item>
     <item>
