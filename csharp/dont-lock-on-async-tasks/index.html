@@ -11,7 +11,9 @@
 내 경험에서 질문을 도출하려고 스프링의 라이브러리들을 어떻게 구현할 수 있을지 물어볼수는 없으니&hellip;) 물어보다가 나도 생각도 정리하고, 내가 알고 있는 틀린 부분이 없는지 정리하는겸해서 블로그에 기록해 놓는다.">
 <meta name="author" content="nolleh">
 <link rel="canonical" href="https://nolleh.github.io/csharp/dont-lock-on-async-tasks/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d7fb4cbf980fe688a21621b06a795933c4e6bb2d4070ec940667af1715d84af2.css" integrity="sha256-1/tMv5gP5oiiFiGwanlZM8Tmuy1AcOyUBmevFxXYSvI=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://nolleh.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
@@ -37,7 +39,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
+                --hljs-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -57,24 +59,19 @@
 
     </style>
 </noscript>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-102565363-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script><meta property="og:title" content="Dont Lock on Async Tasks" />
+  
+    
+      
+    
+  
+
+<meta property="og:title" content="Dont Lock on Async Tasks" />
 <meta property="og:description" content="서론 예전 회사에서나 현 직장에서나, 면접관으로 들어가다가 C# 이 이력서에 적혀있는 경우 Task 와 async/await 관련하여 동기화 관련한 내용에 대해 물어보곤한다. 그리고 이 질문에서 대부분 깊이가 드러나게 된다. (여담이지만, 대부분의 지원자가 자바스택이라, 이런 재미진? 것들을 물어보기가 어렵다. C# 이랑 C&#43;&#43;, 실시간 게임서버는 재미진 질문? 들이 많은데.. ㅎㅎㅎㅎ 면접관으로 들어가기위해서 자바스택의 재미진 토픽들도 좀 찾아봐야겠다&hellip;.
 내 경험에서 질문을 도출하려고 스프링의 라이브러리들을 어떻게 구현할 수 있을지 물어볼수는 없으니&hellip;) 물어보다가 나도 생각도 정리하고, 내가 알고 있는 틀린 부분이 없는지 정리하는겸해서 블로그에 기록해 놓는다." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://nolleh.github.io/csharp/dont-lock-on-async-tasks/" /><meta property="article:section" content="csharp" />
-<meta property="article:published_time" content="2022-09-06T00:20:16+09:00" />
-<meta property="article:modified_time" content="2022-09-06T00:20:16+09:00" />
+<meta property="article:published_time" content="2022-09-06T00:20:16&#43;09:00" />
+<meta property="article:modified_time" content="2022-09-06T00:20:16&#43;09:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Dont Lock on Async Tasks"/>
@@ -155,12 +152,12 @@ if (!doNotTrack) {
             <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -174,6 +171,8 @@ if (!doNotTrack) {
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -205,10 +204,10 @@ if (!doNotTrack) {
 <article class="post-single">
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://nolleh.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://nolleh.github.io/csharp/">Csharps</a></div>
-    <h1 class="post-title entry-hint-parent">
+    <h1 class="post-title">
       Dont Lock on Async Tasks
     </h1>
-    <div class="post-meta"><span title='2022-09-06 00:20:16 +0900 KST'>September 6, 2022</span>&nbsp;·&nbsp;nolleh
+    <div class="post-meta">&lt;span title=&#39;2022-09-06 00:20:16 &#43;0900 KST&#39;&gt;September 6, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;nolleh
 
 </div>
   </header> <div class="toc">
@@ -316,8 +315,7 @@ C# 이랑 C++, 실시간 게임서버는 재미진 질문? 들이 많은데.. �
       <li><a href="https://nolleh.github.io/tags/concurrent/">Concurrent</a></li>
       <li><a href="https://nolleh.github.io/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/">생각하는 프로그래머</a></li>
     </ul>
-  </footer>
-<div id="disqus_thread"></div>
+  </footer><div id="disqus_thread"></div>
 <script>
     window.disqus_config = function () {
     
@@ -341,8 +339,7 @@ C# 이랑 C++, 실시간 게임서버는 재미진 질문? 들이 많은데.. �
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span> · 
-
+    <span>&copy; 2024 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

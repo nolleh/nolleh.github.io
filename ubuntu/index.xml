@@ -4,30 +4,14 @@
     <title>Ubuntus on The Computer Programmer, Nolleh</title>
     <link>https://nolleh.github.io/ubuntu/</link>
     <description>Recent content in Ubuntus on The Computer Programmer, Nolleh</description>
-    <generator>Hugo -- 0.123.7</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Sun, 25 Feb 2024 16:59:57 +0900</lastBuildDate>
-    <atom:link href="https://nolleh.github.io/ubuntu/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>struggles to view OTT on UBUNTU X raspberry Pi 5 - A.K.A using Widevinecdm</title>
-      <link>https://nolleh.github.io/ubuntu/widevinecdm/</link>
-      <pubDate>Sun, 25 Feb 2024 16:59:57 +0900</pubDate>
-      <guid>https://nolleh.github.io/ubuntu/widevinecdm/</guid>
-      <description>라즈베리파이5 * Ubuntu 에서DRM 스트리밍서비스 (OTT) 를 이용하려고 여러 글들을 살펴봄.
-https://github.com/brave/brave-browser/issues/28903
-https://support.brave.com/hc/en-us/articles/23881756488717-How-do-I-enable-Widevine-DRM-on-Linux
-https://forum.radxa.com/t/lets-get-widevine-working/15391
-https://github.com/raspberrypi/Raspberry-Pi-OS-64bit/issues/248
-음 다안된다. 구글에서 제공하는 widevinecdm 컴포넌트/라이브러리가 필요한 모양인데 대략 해석해보면 구글에서 공식적으로 지원하는 aacrch 용은 없는 모양이고 일부 오픈소스에서 chrome OS 용으로 제공하는 python 스크립트로 라이브러리를 좀 변조하는 형태로 시도한 내용들이 보이는데
-vivaldi 브라우저에서 컴포턴트가 드디어 노출되는건 확인했지만
-해당 라이브러리가 정상적으로 동작하지는 않는모양.
-그냥 라즈베리파이에서는 공식 제공하는 라즈비안OS 를 사용하는 게 그냥 마음 편할듯.
-다만 난 우분투를 계속 가지고 놀 작정이라 일단 OTT 는 그냥 포기해야하겠다.</description>
-    </item>
+    <lastBuildDate>Sat, 09 Sep 2023 15:36:52 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/ubuntu/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Optimize Speed</title>
       <link>https://nolleh.github.io/ubuntu/optimize-speed/</link>
       <pubDate>Sat, 09 Sep 2023 15:36:52 +0900</pubDate>
+      
       <guid>https://nolleh.github.io/ubuntu/optimize-speed/</guid>
       <description>라즈베리파이에서 우분투를 설치해서 사용하고 있는데, 인터넷 속도가 어마하게 느린 이슈가 있다.
 거기서 개선을 위해 시도해본 것들에 대해 기록할 예정.
@@ -38,10 +22,12 @@ sudo iwconfig wlan0 power off ##2. zram
 그리고나서, zswap 대신 zram 을 사용하도록 변경.
 sudo apt install -y linux-modules-extra-raspi sudo apt install -y zram-tools sudo apt autoremove --purge -y zram-config sudo nvim /etc/default/zramswap 에디터는 어떤걸 사용해도 상관없지만, nvim 사용하고 있어서 그걸로 세팅.</description>
     </item>
+    
     <item>
       <title>Neovim</title>
       <link>https://nolleh.github.io/ubuntu/neovim/</link>
       <pubDate>Sat, 09 Sep 2023 15:33:49 +0900</pubDate>
+      
       <guid>https://nolleh.github.io/ubuntu/neovim/</guid>
       <description>apt-get install neovim 과 같은 방법으로는 최신 버전을 설치 할 수 없다.
 최신버전을 설치하려면, 다음 과정을 거쳐야한다.
@@ -50,5 +36,6 @@ sudo apt-get install software-properties-common
 이 명령어를 선행해줘야할 수도 있다. sudo apt-get remove neovim -y sudo add-apt-repository ppa:neovim-ppa/stable sudo apt-get update -y sudo apt-get install neovim -y https://launchpad.net/~neovim-ppa/+archive/ubuntu/unstable
 ppa archive 를 살펴보고 원하는 아키텍쳐 / 버전이 없는경우 unstable 버전에서 찾아서 다시 반복해볼 필요가 있다. 다행히 unstable 버전은 ubuntu 23.04 를 지원하는게 있어서 받아서 씀&amp;hellip;</description>
     </item>
+    
   </channel>
 </rss>

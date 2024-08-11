@@ -10,7 +10,7 @@
 <meta name="description" content="">
 <meta name="author" content="nolleh">
 <link rel="canonical" href="https://nolleh.github.io/categories/distributed-system-column/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d7fb4cbf980fe688a21621b06a795933c4e6bb2d4070ec940667af1715d84af2.css" integrity="sha256-1/tMv5gP5oiiFiGwanlZM8Tmuy1AcOyUBmevFxXYSvI=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://nolleh.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
@@ -37,7 +37,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
+                --hljs-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -57,18 +57,13 @@
 
     </style>
 </noscript>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-102565363-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script><meta property="og:title" content="Distributed-System Column" />
+  
+    
+      
+    
+  
+
+<meta property="og:title" content="Distributed-System Column" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://nolleh.github.io/categories/distributed-system-column/" />
@@ -97,12 +92,12 @@ if (!doNotTrack) {
             <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -116,6 +111,8 @@ if (!doNotTrack) {
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -151,13 +148,7 @@ if (!doNotTrack) {
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">3.time and Order
-      <span class="entry-hint" title="Draft">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
-          <path
-            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
-        </svg>
-      </span>
+    <h2>3.time and Order<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h2>
   </header>
   <div class="entry-content">
@@ -168,13 +159,13 @@ if (!doNotTrack) {
 기억하고 있을지 모르겠는데, 분산프로그래밍을 복수의 컴퓨터를 활용해서 같은 문제를 해결하는 예술이라고 묘사했었습니다.
 이것은, 사실, 순서에 대한 강박(obsession)의 가장주요한 내용입니다....</p>
   </div>
-  <footer class="entry-footer"><span title='2022-07-23 14:33:45 +0900 KST'>July 23, 2022</span>&nbsp;·&nbsp;nolleh</footer>
+  <footer class="entry-footer">&lt;span title=&#39;2022-07-23 14:33:45 &#43;0900 KST&#39;&gt;July 23, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;nolleh</footer>
   <a class="entry-link" aria-label="post link to 3.time and Order" href="https://nolleh.github.io/distributed-systems/3.time-and-order/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">2.level of Abstraction
+    <h2>2.level of Abstraction
     </h2>
   </header>
   <div class="entry-content">
@@ -182,13 +173,13 @@ if (!doNotTrack) {
 2. Up and down the level of abstraction 이 챕터에서는, 추상화의 레벨을 여행할 것이며, 몇가지 불가능한 결과를 보고, (CAP 와 FLP), 그리고 나서 성능에 대한 항해를 할 것 입니다.
 만약 어떤 프로그래밍을 완료했다면, 추상화. 수준에 대한 개념은 당신에게 익숙할 겁니다. 당신은 이미 추상화와 함께 했고, 어떤 API 를 통해 더 낮은 레이어와 인터페이싱하고 있을 것이며, 더 높은 레이어에 API 나 인터페이스를 제공하고있을 겁니다. OSI 네트워크 7 계층이 좋은 예죠....</p>
   </div>
-  <footer class="entry-footer"><span title='2022-06-29 22:15:08 +0900 KST'>June 29, 2022</span>&nbsp;·&nbsp;nolleh</footer>
+  <footer class="entry-footer">&lt;span title=&#39;2022-06-29 22:15:08 &#43;0900 KST&#39;&gt;June 29, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;nolleh</footer>
   <a class="entry-link" aria-label="post link to 2.level of Abstraction" href="https://nolleh.github.io/distributed-systems/2.level-of-abstraction/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">1. Distributed systems at a highlevel
+    <h2>1. Distributed systems at a highlevel
     </h2>
   </header>
   <div class="entry-content">
@@ -197,14 +188,13 @@ if (!doNotTrack) {
 저장소 연산 분산 프로그래밍은 하나의 컴퓨터에서 해결할 수 있는 문제를 여러 컴퓨터를 통해 해결하는 예술입니다. 보통 하나의 컴퓨터에서 해결하기에는 적합하지 않은 문제를 위해서입니다.
 실세계에서의 어떤것도 분산시스템을 요구하지는 않습니다. 무한한 돈과 무한한 실시간 연구 시간이 있다면, 분산시스템은 필요없습니다. 모든 연산과 모든 저장소는 매직박스 안에서 실행 될 수 있습니다 - 하나의, 믿을 수 없을정도로 빠르고, 믿을 수 없을정도로 신뢰할 수 있는 시스템은 누군가에게 돈을 지불하거나 당신이 직접 디자인할 필요가 있겟죠....</p>
   </div>
-  <footer class="entry-footer"><span title='2019-01-21 22:58:23 +0900 KST'>January 21, 2019</span>&nbsp;·&nbsp;nolleh</footer>
+  <footer class="entry-footer">&lt;span title=&#39;2019-01-21 22:58:23 &#43;0900 KST&#39;&gt;January 21, 2019&lt;/span&gt;&amp;nbsp;·&amp;nbsp;nolleh</footer>
   <a class="entry-link" aria-label="post link to 1. Distributed systems at a highlevel" href="https://nolleh.github.io/distributed-systems/1.highlevel/"></a>
 </article>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span> · 
-
+    <span>&copy; 2024 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

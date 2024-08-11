@@ -2,7 +2,7 @@
 <html lang="en" dir="auto">
 
 <head>
-	<meta name="generator" content="Hugo 0.123.7"><meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.127.0"><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -11,7 +11,7 @@
 <meta name="description" content="">
 <meta name="author" content="nolleh">
 <link rel="canonical" href="https://nolleh.github.io/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d7fb4cbf980fe688a21621b06a795933c4e6bb2d4070ec940667af1715d84af2.css" integrity="sha256-1/tMv5gP5oiiFiGwanlZM8Tmuy1AcOyUBmevFxXYSvI=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://nolleh.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
@@ -39,7 +39,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
+                --hljs-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -59,18 +59,13 @@
 
     </style>
 </noscript>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-102565363-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script><meta property="og:title" content="The Computer Programmer, Nolleh" />
+  
+    
+      
+    
+  
+
+<meta property="og:title" content="The Computer Programmer, Nolleh" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://nolleh.github.io/" />
@@ -112,12 +107,12 @@ if (!doNotTrack) {
             <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -131,6 +126,8 @@ if (!doNotTrack) {
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -161,95 +158,88 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">4.sed and Awk
+    <h2>Searching For Files<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h2>
   </header>
   <div class="entry-content">
-    <p>introduction to sed and awk many Linux users and administrators will write scripts using comprehensive scripting languages such as Python and perl,
-rather than use sed and awk. However, the utilitites that are described here are much lighter;i.e. they use fewer system resources,
-and execute faster.
-sed abbreviation for stream editor.
-data from an input source/file (or stream) is taken and moved to a working space.
-the entire list of operations/modifications is applied over the data in the working space and...</p>
+    <p>A special shorthand notation can send anything written to file descriptor 2 (stderr) to the same place as file descriptor 1 (stdout): 2&gt;&amp;1.
+$ do_something &gt; all-output-file 2&gt;&amp;1
+bash permits an easier syntax for the above:
+$ do_something &gt;&amp; all-output-file
+in pipe… $ command1 | command2 | command3
+The above represents what we often call a pipeline, and allows Linux to combine the actions of several commands into one. This is extraordinarily efficient because command2 and command3 do not have to wait for the previous pipeline commands to complete before they can begin processing at the data in their input streams...</p>
   </div>
-  <footer class="entry-footer"><span title='2023-12-25 14:39:39 +0900 KST'>December 25, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 4.sed and Awk" href="https://nolleh.github.io/linux/13.manipluating-text/4.sed-and-awk/"></a>
+  <footer class="entry-footer">&lt;span title=&#39;2023-10-02 19:56:54 &#43;0900 KST&#39;&gt;October 2, 2023&lt;/span&gt;&amp;nbsp;·&amp;nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to Searching For Files" href="https://nolleh.github.io/linux/7.command-line-operations/searching-for-files/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">3.working With Large and Compressed Files
+    <h2>2.system Display Date and Time Settings<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h2>
   </header>
   <div class="entry-content">
-    <p>working with large files directly opening the file in an editor will probably be inefficient (due to high memory utilization) because most text editors usually try to read the whole file into memory first.
-instead, one can use less to view the contents of such a large file, scrolling up and down page by page, without the system having to place the entire file in memory before starting.
-less somefile cat somefile | less head reads the first few lines...</p>
+    <p>the system actually provide display settings, is uses /etc/x11/xorg.conf
+in recent linux, the file usually present in unusal cricumstatnce such as when cirtain Less
+common graphic drivers are in use.
+changing the file is usually for more advanced users.
+Network Time Protocol the Network Time Protocol is most popular and reliable protocol for setting local time by consulting established internet servers.
+student:/tmp&gt; $ xdpyinfo | grep dim dimensions: 3200x1080 pixels (847x286 millimeters) </p>
   </div>
-  <footer class="entry-footer"><span title='2023-12-25 14:29:53 +0900 KST'>December 25, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 3.working With Large and Compressed Files" href="https://nolleh.github.io/linux/13.manipluating-text/3.working-with-large-and-compressed-files/"></a>
+  <footer class="entry-footer">&lt;span title=&#39;2023-09-30 11:06:13 &#43;0900 KST&#39;&gt;September 30, 2023&lt;/span&gt;&amp;nbsp;·&amp;nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 2.system Display Date and Time Settings" href="https://nolleh.github.io/linux/5.system-configuration-from-the-graphical-interface/2.system-display-date-and-time-settings/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">2.cat and Echo
+    <h2>1.learning Objectives
     </h2>
   </header>
   <div class="entry-content">
-    <p>cat cat
-read / write / concatenate tac prints the lines of a file in reverse order. each line remains the same, but the order of lines is inverted. cat &gt; file cat » file (any subsequenet lines are appended to the file, until CTRL-D is typed)
-using cat interactively echo -e option, along with the following switches, is used to enable special character sequences,
-such as the newline character or horizontal tab</p>
+    <p>apply system, display, timesetting.. track the network settings and manage connections using network manager in linux. install and update software in linux from a graphical interface.</p>
   </div>
-  <footer class="entry-footer"><span title='2023-12-25 14:12:57 +0900 KST'>December 25, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 2.cat and Echo" href="https://nolleh.github.io/linux/13.manipluating-text/2.cat-and-echo/"></a>
+  <footer class="entry-footer">&lt;span title=&#39;2023-09-09 19:19:58 &#43;0900 KST&#39;&gt;September 9, 2023&lt;/span&gt;&amp;nbsp;·&amp;nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 1.learning Objectives" href="https://nolleh.github.io/linux/5.system-configuration-from-the-graphical-interface/1.learning-objectives/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">2.accounts,users and groups
-      <span class="entry-hint" title="Draft">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
-          <path
-            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
-        </svg>
-      </span>
+    <h2>4-2.graphical Desktop
     </h2>
   </header>
   <div class="entry-content">
-    <p>elevating to root account sudo configuration files are stored in the /tec/sudoers file and in the /etc/sudoers.d directory. by default, the sudoers.d directory is empty</p>
+    <p>Graphical Desktop Graphical Desktop CLI or GUI.
+GUI is quick and easy.
+for repeated tasks, the CLI is often more efficient, while the GUI is easier to navigate if you do not remember all the details or do something only rarely.
+X Window System X window system is loaded as one of the final steps in boot process. It is often just called X.
+A service called the Display Manager keeps track of displays being provided and loads the X server (so-called, because it provides graphical services to applications, sometimes called X clients....</p>
   </div>
-  <footer class="entry-footer"><span title='2023-12-24 18:05:04 +0900 KST'>December 24, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 2.accounts,users and groups" href="https://nolleh.github.io/linux/12.user-environment/2.accounts-users-and-groups/"></a>
+  <footer class="entry-footer">&lt;span title=&#39;2023-01-08 23:02:17 &#43;0900 KST&#39;&gt;January 8, 2023&lt;/span&gt;&amp;nbsp;·&amp;nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 4-2.graphical Desktop" href="https://nolleh.github.io/linux/4.graphical-interface/2.graphical-desktop/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">7.summary
+    <h2>4-1.introduction
     </h2>
   </header>
   <div class="entry-content">
-    <p>filesystems lick /proc are called pseudo filesystems because they exist only in memory
-/var may be put in its own filesystem so that growth can be contained and not fatally affect the ststem
-/boot contains the basic files needed to boot the system</p>
+    <p>Graphical interface Learning Objectives By the end of this chapter, you should be able to:
+Manage graphical interface sessions. Perform basic operations using the graphical interface. Change the graphical desktop to suit your needs. </p>
   </div>
-  <footer class="entry-footer"><span title='2023-12-24 16:46:33 +0900 KST'>December 24, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 7.summary" href="https://nolleh.github.io/linux/10.file-operations/7.summary/"></a>
+  <footer class="entry-footer">&lt;span title=&#39;2023-01-08 23:00:29 &#43;0900 KST&#39;&gt;January 8, 2023&lt;/span&gt;&amp;nbsp;·&amp;nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 4-1.introduction" href="https://nolleh.github.io/linux/4.graphical-interface/1.introduction/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
-    <a class="prev" href="https://nolleh.github.io/page/4/">
-      «&nbsp;Prev&nbsp;
-    </a>
-    <a class="next" href="https://nolleh.github.io/page/6/">Next&nbsp;&nbsp;»
-    </a>
+    <a class="prev" href="https://nolleh.github.io/page/4/">« Prev</a>
+    <a class="next" href="https://nolleh.github.io/page/6/">Next »</a>
   </nav>
 </footer>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span> · 
-
+    <span>&copy; 2024 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

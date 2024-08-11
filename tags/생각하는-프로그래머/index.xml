@@ -4,22 +4,24 @@
     <title>생각하는 프로그래머 on The Computer Programmer, Nolleh</title>
     <link>https://nolleh.github.io/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/</link>
     <description>Recent content in 생각하는 프로그래머 on The Computer Programmer, Nolleh</description>
-    <generator>Hugo -- 0.123.7</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Tue, 06 Sep 2022 00:20:16 +0900</lastBuildDate>
-    <atom:link href="https://nolleh.github.io/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Sep 2022 00:20:16 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Dont Lock on Async Tasks</title>
       <link>https://nolleh.github.io/csharp/dont-lock-on-async-tasks/</link>
       <pubDate>Tue, 06 Sep 2022 00:20:16 +0900</pubDate>
+      
       <guid>https://nolleh.github.io/csharp/dont-lock-on-async-tasks/</guid>
       <description>서론 예전 회사에서나 현 직장에서나, 면접관으로 들어가다가 C# 이 이력서에 적혀있는 경우 Task 와 async/await 관련하여 동기화 관련한 내용에 대해 물어보곤한다. 그리고 이 질문에서 대부분 깊이가 드러나게 된다. (여담이지만, 대부분의 지원자가 자바스택이라, 이런 재미진? 것들을 물어보기가 어렵다. C# 이랑 C++, 실시간 게임서버는 재미진 질문? 들이 많은데.. ㅎㅎㅎㅎ 면접관으로 들어가기위해서 자바스택의 재미진 토픽들도 좀 찾아봐야겠다&amp;hellip;.
 내 경험에서 질문을 도출하려고 스프링의 라이브러리들을 어떻게 구현할 수 있을지 물어볼수는 없으니&amp;hellip;) 물어보다가 나도 생각도 정리하고, 내가 알고 있는 틀린 부분이 없는지 정리하는겸해서 블로그에 기록해 놓는다.</description>
     </item>
+    
     <item>
       <title>3.time and Order</title>
       <link>https://nolleh.github.io/distributed-systems/3.time-and-order/</link>
       <pubDate>Sat, 23 Jul 2022 14:33:45 +0900</pubDate>
+      
       <guid>https://nolleh.github.io/distributed-systems/3.time-and-order/</guid>
       <description>다음에서 발췌 3. Time and Order 순서란 무엇이고, 왜 중요할까요?
 &amp;ldquo;순서란 무엇인가&amp;rdquo; 라는 질문은 무슨 의미 일까요 ?
@@ -28,39 +30,47 @@
 기억하고 있을지 모르겠는데, 분산프로그래밍을 복수의 컴퓨터를 활용해서 같은 문제를 해결하는 예술이라고 묘사했었습니다.
 이것은, 사실, 순서에 대한 강박(obsession)의 가장주요한 내용입니다.</description>
     </item>
+    
     <item>
       <title>2.level of Abstraction</title>
       <link>https://nolleh.github.io/distributed-systems/2.level-of-abstraction/</link>
       <pubDate>Wed, 29 Jun 2022 22:15:08 +0900</pubDate>
+      
       <guid>https://nolleh.github.io/distributed-systems/2.level-of-abstraction/</guid>
       <description>다음에서 발췌 http://book.mixu.net/distsys/abstractions.html
 2. Up and down the level of abstraction 이 챕터에서는, 추상화의 레벨을 여행할 것이며, 몇가지 불가능한 결과를 보고, (CAP 와 FLP), 그리고 나서 성능에 대한 항해를 할 것 입니다.
 만약 어떤 프로그래밍을 완료했다면, 추상화. 수준에 대한 개념은 당신에게 익숙할 겁니다. 당신은 이미 추상화와 함께 했고, 어떤 API 를 통해 더 낮은 레이어와 인터페이싱하고 있을 것이며, 더 높은 레이어에 API 나 인터페이스를 제공하고있을 겁니다. OSI 네트워크 7 계층이 좋은 예죠.</description>
     </item>
+    
     <item>
       <title>1. Distributed systems at a highlevel</title>
       <link>https://nolleh.github.io/distributed-systems/1.highlevel/</link>
       <pubDate>Mon, 21 Jan 2019 22:58:23 +0900</pubDate>
+      
       <guid>https://nolleh.github.io/distributed-systems/1.highlevel/</guid>
       <description>다음에서 발췌 http://book.mixu.net/distsys/intro.html
 1. Distributed systems at a highlevel 분산 프로그래밍은 같은 문제를 하나의 컴퓨터에서 해결할 수 있는 문제를 여러 컴퓨터에서 해결하는 예술이다. 컴퓨터 시스템이라면 해결해야 하는 두개의 문제가 있습니다.
 저장소 연산 분산 프로그래밍은 하나의 컴퓨터에서 해결할 수 있는 문제를 여러 컴퓨터를 통해 해결하는 예술입니다. 보통 하나의 컴퓨터에서 해결하기에는 적합하지 않은 문제를 위해서입니다.
 실세계에서의 어떤것도 분산시스템을 요구하지는 않습니다. 무한한 돈과 무한한 실시간 연구 시간이 있다면, 분산시스템은 필요없습니다. 모든 연산과 모든 저장소는 매직박스 안에서 실행 될 수 있습니다 - 하나의, 믿을 수 없을정도로 빠르고, 믿을 수 없을정도로 신뢰할 수 있는 시스템은 누군가에게 돈을 지불하거나 당신이 직접 디자인할 필요가 있겟죠.</description>
     </item>
+    
     <item>
       <title>Async Await 을 사용한 비동기 프로그래밍</title>
       <link>https://nolleh.github.io/csharp/async-await-msdn/</link>
       <pubDate>Fri, 21 Dec 2018 21:41:08 +0900</pubDate>
+      
       <guid>https://nolleh.github.io/csharp/async-await-msdn/</guid>
       <description>개요 다음에서 발췌 MSDN
 반응성을 향상시키는 비동기 잠재적인 차단 작업 완료 될때까지 다른 작업을 게속 수행
 작성이 간편한 비동기 메서드 반환 형식은 다음 중 하나
 Task Task void - 비동기 이벤트 처리기 작성 GetAwaiter 포함 모든 기타 형식 await 을 만나면 yield 함 (호출자로 제어가 돌아감) 이때, Task 가 호출자에게 반환되고 이는 언젠가 다운로드된 문자열의 길이가 반환된다는 약속 (future) 을 의미한다. await 전에 작업이 완료된다면 제어가 돌아가지 않는다. 스레드 비동기 메서드의 await 식은 대기한 작업이 실행되는 동안 현재 스레드를 차단하지 않는다.</description>
     </item>
+    
     <item>
       <title>Async Await</title>
       <link>https://nolleh.github.io/csharp/async-await/</link>
       <pubDate>Tue, 18 Dec 2018 13:47:33 +0900</pubDate>
+      
       <guid>https://nolleh.github.io/csharp/async-await/</guid>
       <description>NeoSmart.AsyncLock 라이브러리에 관하여 다음에서 발췌, 번역 - Neosmart Docs.
 개요 semaporeslim 은 reentrance 를 지원하지 않는다. 따라서, recursion 에서 적절히 사용되지 않으면 데드락이 발생한다.
@@ -70,10 +80,12 @@ asynclock 은 reentrance 기능을 semaphoreslim 에 추가한거.
 async / await 의 가장 기본적인 목적인 ui 의 불필요한 블럭킹 없이 작업의 완료를 기다린다는 문제를 그대로 안고 있다.
 await 코드를 넣어도 다른 코드가 실행 될 수 없다.</description>
     </item>
+    
     <item>
       <title>Unix 01 Intro</title>
       <link>https://nolleh.github.io/network/unix-01-intro/</link>
       <pubDate>Tue, 01 Aug 2017 22:54:19 +0900</pubDate>
+      
       <guid>https://nolleh.github.io/network/unix-01-intro/</guid>
       <description>네트워킹의 바이블이라 할 수 있는 Unix Network Programming 의 내용 정리
 Books Introduction Socket 을 통해 통신하는 프로그램을 작성하는 개발자를 위해 쓰여진 책.
@@ -82,10 +94,12 @@ Books Introduction Socket 을 통해 통신하는 프로그램을 작성하는 �
 실제 텍스트들은 유닉스 시스템에서 구동가능하나, OS 에 독립적인 socket api 를 지원하는 다른 OS 에서도, 본문에서 제안하는 일반적인 개념을 활용가능하다.
 많은 OS 는 셀수 없이 많은 네트워크 응용프로그램을 제공하고 있으며 - 예컨데 웹브라우저, email.</description>
     </item>
+    
     <item>
       <title>Concurrent Idiom 1 - Stack</title>
       <link>https://nolleh.github.io/concurrency/concurrent-idiom-1-stack/</link>
       <pubDate>Mon, 10 Jul 2017 22:57:57 +0900</pubDate>
+      
       <guid>https://nolleh.github.io/concurrency/concurrent-idiom-1-stack/</guid>
       <description>concurrent 프로그램을 작성할 때 고려해야할 몇가지 사항. 그리고 idiom.
 여러 서적에서 발췌하였으며, 정리 차원에서 작성한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.
@@ -94,5 +108,6 @@ Concurrent ISSUE - Stack 이번엔 스택.
 if (!s.empty()) { item = s.top(); s.pop(); } 인터페이스상의 문제이기 때문에 empty 와 top 사이의 safety 를 보장할 수 없다.
 top() / pop() 도 마찬가지 -&amp;raquo; 조회되지 못하는 아이템이 있을 수 있다.</description>
     </item>
+    
   </channel>
 </rss>

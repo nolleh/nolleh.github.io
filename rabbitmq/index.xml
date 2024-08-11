@@ -4,18 +4,19 @@
     <title>Rabbitmqs on The Computer Programmer, Nolleh</title>
     <link>https://nolleh.github.io/rabbitmq/</link>
     <description>Recent content in Rabbitmqs on The Computer Programmer, Nolleh</description>
-    <generator>Hugo -- 0.123.7</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Wed, 05 Feb 2020 18:44:37 +0900</lastBuildDate>
-    <atom:link href="https://nolleh.github.io/rabbitmq/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 05 Feb 2020 18:44:37 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/rabbitmq/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Clustering Guide</title>
       <link>https://nolleh.github.io/rabbitmq/clustering-guide/</link>
       <pubDate>Wed, 05 Feb 2020 18:44:37 +0900</pubDate>
+      
       <guid>https://nolleh.github.io/rabbitmq/clustering-guide/</guid>
       <description>한개 이상의 노드들의 논리적인 그룹을 의미하며, 각각은 유저와, 가상 호스트, 큐, exchanges, bindings 을 공유한다.
 Cluster Formation 다음 방법들로 구성 가능
 Declaratively by listing cluster nodes in config file Declaratively using DNS-based discovery Declaratively using AWS (EC2) instance discovery (via a plugin) Declaratively using Kubernetes discovery (via a plugin) Declaratively using Consul-based discovery (via a plugin) Declaratively using etcd-based discovery (via a plugin) Manually with rabbitmqctl 구성은 동적으로 변경 될수 있고, 모든 RabbitMQ 브로커는 하나의 노드로부터 시작해서 클러스터에 참여시키거나, 다시 개별의 브로커로 돌아갈 수 있다.</description>
     </item>
+    
   </channel>
 </rss>

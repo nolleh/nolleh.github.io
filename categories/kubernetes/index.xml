@@ -4,17 +4,18 @@
     <title>Kubernetes on The Computer Programmer, Nolleh</title>
     <link>https://nolleh.github.io/categories/kubernetes/</link>
     <description>Recent content in Kubernetes on The Computer Programmer, Nolleh</description>
-    <generator>Hugo -- 0.123.7</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Fri, 05 Aug 2022 16:22:31 +0900</lastBuildDate>
-    <atom:link href="https://nolleh.github.io/categories/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 05 Aug 2022 16:22:31 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/categories/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cheatsheet</title>
       <link>https://nolleh.github.io/kubernetes/cheatsheet/</link>
       <pubDate>Fri, 05 Aug 2022 16:22:31 +0900</pubDate>
+      
       <guid>https://nolleh.github.io/kubernetes/cheatsheet/</guid>
       <description>CronJobs 수동 실행
 kubectl create job -n {namespace} --from=cronjob/{name} {job-name} </description>
     </item>
+    
   </channel>
 </rss>
