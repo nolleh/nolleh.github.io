@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>7.miscellaneous Text Utilities | The Computer Programmer, Nolleh</title>
-<meta name="keywords" content="">
+<meta name="keywords" content="edx, Linux, Kernel">
 <meta name="description" content="tr the tr utility is used to translate specified characters into other characters or to delete them.
 tr [options] set1 [set2] set1: to be replaced or removed set2: to be substituted for the characters listed in the first argument.
 tr &lsquo;{}&rsquo; &lsquo;()&rsquo; &lt; inputfile &gt; outputfile
@@ -116,7 +116,7 @@ translate white-space to tabs echo &ldquo;This is for testing&rdquo; | tr -s [:s
   "name": "7.miscellaneous Text Utilities",
   "description": "tr the tr utility is used to translate specified characters into other characters or to delete them.\ntr [options] set1 [set2] set1: to be replaced or removed set2: to be substituted for the characters listed in the first argument.\ntr \u0026lsquo;{}\u0026rsquo; \u0026lsquo;()\u0026rsquo; \u0026lt; inputfile \u0026gt; outputfile\ntranslate braces into parenthesis echo \u0026quot; \u0026hellip; \u0026quot; | tr [:space:] \u0026lsquo;\\t\u0026rsquo;\ntranslate white-space to tabs echo \u0026ldquo;This is for testing\u0026rdquo; | tr -s [:space:]",
   "keywords": [
-    
+    "edx", "Linux", "Kernel"
   ],
   "articleBody": "tr the tr utility is used to translate specified characters into other characters or to delete them.\ntr [options] set1 [set2] set1: to be replaced or removed set2: to be substituted for the characters listed in the first argument.\ntr ‘{}’ ‘()’ \u003c inputfile \u003e outputfile\ntranslate braces into parenthesis echo \" … \" | tr [:space:] ‘\\t’\ntranslate white-space to tabs echo “This is for testing” | tr -s [:space:]\nsqueeze repetition of characters using -s echo “the geek stuff” | tr -d ’t’\ndelete specified characters using -d option echo “my username is 432234” | tr -cd [:digit:]\ncomplement the sets using -c option tr -cd [:print:] \u003c file.txt\nremove all non-printable character from a file tr -s ‘\\n’ ’ ’ \u003c file.txt\njoin all the lines in a file into a single file tee tee takes the output from any command, and, while sending it to standard output, it also saves it to a file. in other words, it tees the output stream from the command: one stream is displayed on the standard output and the other is saved to a file.\nwc wc -l: line wc -c: bytes wc -w: words\ncut cut -d\" \" -f3\n",
   "wordCount" : "200",
@@ -287,6 +287,9 @@ wc -w: words</p>
 
   <footer class="post-footer">
     <ul class="post-tags">
+      <li><a href="https://nolleh.github.io/tags/edx/">Edx</a></li>
+      <li><a href="https://nolleh.github.io/tags/linux/">Linux</a></li>
+      <li><a href="https://nolleh.github.io/tags/kernel/">Kernel</a></li>
     </ul>
   </footer><div id="disqus_thread"></div>
 <script>

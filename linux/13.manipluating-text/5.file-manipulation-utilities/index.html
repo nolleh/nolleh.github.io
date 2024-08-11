@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>5.file Manipulation Utilities | The Computer Programmer, Nolleh</title>
-<meta name="keywords" content="">
+<meta name="keywords" content="edx, Linux, Kernel">
 <meta name="description" content="sort sort -k 3 sort the lines by the 3rd field on each line instead of the beginning sort -u equivalent to run uniq after sort
 uniq uniq removes duplicate consecutive lines in a text file and is useful for simplifying the text display uniq requires that the duplicate entries must be consecutive, one often runs sort first and then pipes the output into uniq;
 to count the number of duplicate entries, use the following command:">
@@ -110,7 +110,7 @@ to count the number of duplicate entries, use the following command:"/>
   "name": "5.file Manipulation Utilities",
   "description": "sort sort -k 3 sort the lines by the 3rd field on each line instead of the beginning sort -u equivalent to run uniq after sort\nuniq uniq removes duplicate consecutive lines in a text file and is useful for simplifying the text display uniq requires that the duplicate entries must be consecutive, one often runs sort first and then pipes the output into uniq;\nto count the number of duplicate entries, use the following command:",
   "keywords": [
-    
+    "edx", "Linux", "Kernel"
   ],
   "articleBody": "sort sort -k 3 sort the lines by the 3rd field on each line instead of the beginning sort -u equivalent to run uniq after sort\nuniq uniq removes duplicate consecutive lines in a text file and is useful for simplifying the text display uniq requires that the duplicate entries must be consecutive, one often runs sort first and then pipes the output into uniq;\nto count the number of duplicate entries, use the following command:\nuniq -c filename\npaste the different columns are identified based on delimiters (spacing used to separated two fields).\npaste accepts the following options:\nd delimiters, which specify a list of delimiters to be used instead of tabs for separating consecutive values on a single line.\nEach delimiter is used in turn; when the list has been exhuasted, paste begins again at the first delimiters -s, which causes paste to append the data in series rather than in parallel; that is, in a horizon rather than vertical fashion. classDiagram note \"Robert Norton\\nTed Yelsky\" note \"E001 834-677-1367\\nE002 831-936-5892\" note \"Robert Norton E001 834-677-1367\\nTed Yelsky E002 831-936-5892\" join can be used to combine the files without repeating the data of common columns.\nit first checks whether the files share common fields, such as names or phone numbers, and then joins the lines in two files based on a common field.\nsplit split is sued to break up (or split) a file into equal-sized segments for easier viewing and mnipulation, and is generally used only on relatively large files.\nregular expressions and search patterns pattern usage . any single char a|z a or z $ end of a line ^ beginning of a line * preceding item 0 or more times lab awk -F: '{print $7}' /etc/passwd | sort -u ",
   "wordCount" : "292",
@@ -309,6 +309,9 @@ it first checks whether the files share common fields, such as names or phone nu
 
   <footer class="post-footer">
     <ul class="post-tags">
+      <li><a href="https://nolleh.github.io/tags/edx/">Edx</a></li>
+      <li><a href="https://nolleh.github.io/tags/linux/">Linux</a></li>
+      <li><a href="https://nolleh.github.io/tags/kernel/">Kernel</a></li>
     </ul>
   </footer><div id="disqus_thread"></div>
 <script>

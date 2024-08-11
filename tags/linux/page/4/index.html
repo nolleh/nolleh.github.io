@@ -148,81 +148,80 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2>2-1.introduction
+    <h2>7.miscellaneous Text Utilities
     </h2>
   </header>
   <div class="entry-content">
-    <p>The Power of Linux Three Important Pieces of Context Things change in Linux
-Linux is contantly evolving. no matter how hard to make up-to-date as possible, Course &lt;-/-&gt; Linux
-We have repeated some things in the class meterial
-We have tried to avoid holy wars
-there are many areas where there are strong preference disagreements in the Linux (and wider open source) community. examples include the best editor: emacs vs. vi; GNOME vs....</p>
+    <p>tr the tr utility is used to translate specified characters into other characters or to delete them.
+tr [options] set1 [set2] set1: to be replaced or removed set2: to be substituted for the characters listed in the first argument.
+tr ‘{}’ ‘()’ &lt; inputfile &gt; outputfile
+translate braces into parenthesis echo &#34; … &#34; | tr [:space:] ‘\t’
+translate white-space to tabs echo “This is for testing” | tr -s [:space:]...</p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2022-12-11 23:23:50 &#43;0900 KST&#39;&gt;December 11, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 2-1.introduction" href="https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/1.introduction/"></a>
+  <footer class="entry-footer">&lt;span title=&#39;2023-12-25 17:36:43 &#43;0900 KST&#39;&gt;December 25, 2023&lt;/span&gt;&amp;nbsp;·&amp;nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 7.miscellaneous Text Utilities" href="https://nolleh.github.io/linux/13.manipluating-text/7.miscellaneous-text-utilities/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2>1-3.course Linux Requirements
+    <h2>6.grep
     </h2>
   </header>
   <div class="entry-content">
-    <p>Course Software Requirements to fully benefit from this course, at least one linux distribution installed.
-you will learn some more details about many available Linux distributions and the failies thy can be considered to belong to.
-focus on 3 major distribution families.
-Focus on Three Major Linux Distribution Families The Red Hat Family Red Hat Enterprise Linux (RHEL) heads the family that includes CentOS, CentOS Stream, Fedora and Oracle Linux....</p>
+    <p>grep grep [0-9] print the lines that contain the numbers 0 through 9 grep -C 3 [pattern] print context of lines (specified number of lines above and below the pattern) for matching the pattern. Here, the number of lines is specified as 3 strings strings is used to extract all character strings found in the file or files given as arguments. it is useful in locating human-readable content embedded in binary files; for text files one can just use grep...</p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2022-12-11 22:23:30 &#43;0900 KST&#39;&gt;December 11, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 1-3.course Linux Requirements" href="https://nolleh.github.io/linux/1.the-linux-foundation/3.course-linux-requirements/"></a>
+  <footer class="entry-footer">&lt;span title=&#39;2023-12-25 17:19:18 &#43;0900 KST&#39;&gt;December 25, 2023&lt;/span&gt;&amp;nbsp;·&amp;nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 6.grep" href="https://nolleh.github.io/linux/13.manipluating-text/6.grep/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2>1-2.the Linux Foundation
+    <h2>5.file Manipulation Utilities
     </h2>
   </header>
   <div class="entry-content">
-    <p>founded in 2000, supported by more than 1,000 members and is the world’s leading home for collaboration on open source software.
-the foundation hosts hundreds of world’s most important open source projects including linux, kubernetes, Node.js, Hyperledger, ONAP… and many more.</p>
+    <p>sort sort -k 3 sort the lines by the 3rd field on each line instead of the beginning sort -u equivalent to run uniq after sort
+uniq uniq removes duplicate consecutive lines in a text file and is useful for simplifying the text display uniq requires that the duplicate entries must be consecutive, one often runs sort first and then pipes the output into uniq;
+to count the number of duplicate entries, use the following command:...</p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2022-12-11 21:55:34 &#43;0900 KST&#39;&gt;December 11, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 1-2.the Linux Foundation" href="https://nolleh.github.io/linux/1.the-linux-foundation/2.the-linux-foundation/"></a>
+  <footer class="entry-footer">&lt;span title=&#39;2023-12-25 15:20:05 &#43;0900 KST&#39;&gt;December 25, 2023&lt;/span&gt;&amp;nbsp;·&amp;nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 5.file Manipulation Utilities" href="https://nolleh.github.io/linux/13.manipluating-text/5.file-manipulation-utilities/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2>1-1.Introduction
+    <h2>4.sed and Awk
     </h2>
   </header>
   <div class="entry-content">
-    <p>we will learn…
-linux foundation logistics of this online course choosing a linux distribution that’s right for you </p>
+    <p>introduction to sed and awk many Linux users and administrators will write scripts using comprehensive scripting languages such as Python and perl,
+rather than use sed and awk. However, the utilitites that are described here are much lighter;i.e. they use fewer system resources,
+and execute faster.
+sed abbreviation for stream editor.
+data from an input source/file (or stream) is taken and moved to a working space.
+the entire list of operations/modifications is applied over the data in the working space and...</p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2022-12-11 21:55:20 &#43;0900 KST&#39;&gt;December 11, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 1-1.Introduction" href="https://nolleh.github.io/linux/1.the-linux-foundation/1.introduction/"></a>
+  <footer class="entry-footer">&lt;span title=&#39;2023-12-25 14:39:39 &#43;0900 KST&#39;&gt;December 25, 2023&lt;/span&gt;&amp;nbsp;·&amp;nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 4.sed and Awk" href="https://nolleh.github.io/linux/13.manipluating-text/4.sed-and-awk/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2>Mac 터미널에서 복수의 유저 사용하기
+    <h2>3.working With Large and Compressed Files
     </h2>
   </header>
   <div class="entry-content">
-    <p>복수의 유저 사용하기 맥터미널에서 복수의 유저를 사용하려면 몇가지 신경써야할 부분들이 생긴다.
-home directory 가 분리 되어 있기 때문에 어떤 유저를 위해 설치한 데이터들은
-다른 유저에서는 사용못할수도 있고 (그러는게 맞고, 그럴려고 격리한거니)
-그러다보니 양쪽에서 같은 데이터를 설치해야하나 ?
-혹은 서로 충돌이 난다거나 하는 불편함들이 생긴다.
-대표적인 예로 brew 에서 이런 문제가 발생하는데,,
-어떤 계정으로 설치한 패키지가 다른 계정에서 권한문제로 접근이 안되게 되면서 엉망이 된다.. (-_–) dependency 가 있는 다른 패키지 들과도 맞물리게 되면서 내가 설치한 패키지가 아닌 패키지에 대해 데이터를 바꾸려고 하면서 권한 이슈로 연결 되는식....</p>
+    <p>working with large files directly opening the file in an editor will probably be inefficient (due to high memory utilization) because most text editors usually try to read the whole file into memory first.
+instead, one can use less to view the contents of such a large file, scrolling up and down page by page, without the system having to place the entire file in memory before starting.
+less somefile cat somefile | less head reads the first few lines...</p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2022-08-24 00:49:49 &#43;0900 KST&#39;&gt;August 24, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to Mac 터미널에서 복수의 유저 사용하기" href="https://nolleh.github.io/env/mac-terminal-multiple-user/"></a>
+  <footer class="entry-footer">&lt;span title=&#39;2023-12-25 14:29:53 &#43;0900 KST&#39;&gt;December 25, 2023&lt;/span&gt;&amp;nbsp;·&amp;nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 3.working With Large and Compressed Files" href="https://nolleh.github.io/linux/13.manipluating-text/3.working-with-large-and-compressed-files/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="https://nolleh.github.io/tags/linux/page/3/">« Prev</a>
+    <a class="next" href="https://nolleh.github.io/tags/linux/page/5/">Next »</a>
   </nav>
 </footer>
     </main>

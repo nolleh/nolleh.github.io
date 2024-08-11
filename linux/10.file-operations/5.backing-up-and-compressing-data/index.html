@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>5.backing Up and Compressing Data | The Computer Programmer, Nolleh</title>
-<meta name="keywords" content="">
+<meta name="keywords" content="edx, Linux, Kernel">
 <meta name="description" content="1. Backing Up Data cp &lt;-&gt; rsync
 rsync is more efficient, because it checks if the file being copied already exists. rsync copies only the parts of files that have actually changed, it can be very fast cp can only copy files to and from destinations on the local machine (unless mounted using NFS), rsync can also be used to copy files from one machine to another. someone@host:path 2. Using rsync a very useful way to back up a project directory might be to use the following command.">
 <meta name="author" content="nolleh">
@@ -107,7 +107,7 @@ rsync is more efficient, because it checks if the file being copied already exis
   "name": "5.backing Up and Compressing Data",
   "description": "1. Backing Up Data cp \u0026lt;-\u0026gt; rsync\nrsync is more efficient, because it checks if the file being copied already exists. rsync copies only the parts of files that have actually changed, it can be very fast cp can only copy files to and from destinations on the local machine (unless mounted using NFS), rsync can also be used to copy files from one machine to another. someone@host:path 2. Using rsync a very useful way to back up a project directory might be to use the following command.",
   "keywords": [
-    
+    "edx", "Linux", "Kernel"
   ],
   "articleBody": "1. Backing Up Data cp \u003c-\u003e rsync\nrsync is more efficient, because it checks if the file being copied already exists. rsync copies only the parts of files that have actually changed, it can be very fast cp can only copy files to and from destinations on the local machine (unless mounted using NFS), rsync can also be used to copy files from one machine to another. someone@host:path 2. Using rsync a very useful way to back up a project directory might be to use the following command.\nrsync -r project-X archive-machine:archives/project-X 3. Compressing Data command usage gzip bzip2 produces files significantly smaller than those produced by gzip xz the most space-efficient compression utility used in Linux zip is often required to examine and decompress archives from other operating systems tar utility is often used to group files in an archive and then compress the whole archive at once.\ntar Jczf mydir.tar.xz mydir tar xvf mydir.tar.xz 10. Disk-to-Disk Copying (dd) first 512 byte sector on the disk that contains a table describing the partitions on that disk.\ndd if=/dev/sda of=sda.mbr bs=512 count=1 ",
   "wordCount" : "182",
@@ -284,6 +284,9 @@ rsync is more efficient, because it checks if the file being copied already exis
 
   <footer class="post-footer">
     <ul class="post-tags">
+      <li><a href="https://nolleh.github.io/tags/edx/">Edx</a></li>
+      <li><a href="https://nolleh.github.io/tags/linux/">Linux</a></li>
+      <li><a href="https://nolleh.github.io/tags/kernel/">Kernel</a></li>
     </ul>
   </footer><div id="disqus_thread"></div>
 <script>

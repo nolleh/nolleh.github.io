@@ -6,7 +6,25 @@
     <description>Recent content in Categories on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Sat, 09 Sep 2023 15:33:49 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 22 May 2024 21:37:29 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Zeromq</title>
+      <link>https://nolleh.github.io/categories/zeromq/</link>
+      <pubDate>Wed, 22 May 2024 21:37:29 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/categories/zeromq/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Edx-Linux</title>
+      <link>https://nolleh.github.io/categories/edx-linux/</link>
+      <pubDate>Sun, 07 Jan 2024 12:55:07 +0900</pubDate>
+      
+      <guid>https://nolleh.github.io/categories/edx-linux/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Ubuntu</title>
       <link>https://nolleh.github.io/categories/ubuntu/</link>
@@ -22,15 +40,6 @@
       <pubDate>Sat, 14 Jan 2023 14:00:53 +0900</pubDate>
       
       <guid>https://nolleh.github.io/categories/vim/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Edx-Linux</title>
-      <link>https://nolleh.github.io/categories/edx-linux/</link>
-      <pubDate>Sun, 08 Jan 2023 23:02:17 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/categories/edx-linux/</guid>
       <description></description>
     </item>
     

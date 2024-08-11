@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>2.configuration | The Computer Programmer, Nolleh</title>
-<meta name="keywords" content="">
+<meta name="keywords" content="edx, Linux, Kernel">
 <meta name="description" content="Printing on Linux printing itself requires software that converts information from application you are using to a language your printer can understand.
 The Linux standard for printing software is the Common UNIX Printing System (CUPS)
 Modern Linux desktop systems make installing and administering printers simple and intuitive.
@@ -116,10 +116,10 @@ CUPS Overview CUPS interprets page descriptions produced by your application (pu
   "name": "2.configuration",
   "description": "Printing on Linux printing itself requires software that converts information from application you are using to a language your printer can understand.\nThe Linux standard for printing software is the Common UNIX Printing System (CUPS)\nModern Linux desktop systems make installing and administering printers simple and intuitive.\nNevertheless, it is instructive to understand the underpinnings of how it is done in Linux.\nCUPS Overview CUPS interprets page descriptions produced by your application (put a paragraph here, draw a line there, and so forth) and then sends the information to the printer.",
   "keywords": [
-    
+    "edx", "Linux", "Kernel"
   ],
-  "articleBody": "Printing on Linux printing itself requires software that converts information from application you are using to a language your printer can understand.\nThe Linux standard for printing software is the Common UNIX Printing System (CUPS)\nModern Linux desktop systems make installing and administering printers simple and intuitive.\nNevertheless, it is instructive to understand the underpinnings of how it is done in Linux.\nCUPS Overview CUPS interprets page descriptions produced by your application (put a paragraph here, draw a line there, and so forth) and then sends the information to the printer. it acts as a print server for both local and network printers.\nPrinters manufactured by different companies may use thire own particular print lnagues and formats. CUPS uses a modular printing system that accommodates a wide variety printers and also processes various data formats.\n",
-  "wordCount" : "135",
+  "articleBody": "Printing on Linux printing itself requires software that converts information from application you are using to a language your printer can understand.\nThe Linux standard for printing software is the Common UNIX Printing System (CUPS)\nModern Linux desktop systems make installing and administering printers simple and intuitive.\nNevertheless, it is instructive to understand the underpinnings of how it is done in Linux.\nCUPS Overview CUPS interprets page descriptions produced by your application (put a paragraph here, draw a line there, and so forth) and then sends the information to the printer. it acts as a print server for both local and network printers.\nPrinters manufactured by different companies may use thire own particular print lnagues and formats. CUPS uses a modular printing system that accommodates a wide variety printers and also processes various data formats.\nConfiguration Files cupsd.conf and printers.conf\nall other CUPS-related configuration files are stored under the /etc/cups\ncupsd.conf is where most system-wide settings are located. it does not contain any printer-specific details.\nmost of the settings available in this file relate to network security\nprinters.conf is where you will find the printer-specific settings.\nJob Files /var/spool/cups commonly known as print queues\nLog Files /var/log/cups/ directory contains logfile that is used by scheduler to record activities that have taken place.\nFilters, Printer Drivers, and Backends CUPS uses filters to convert job file formats to printable formats. Printer drivers contain descriptions for currently connected / configured printers,\nand are usually store under /etc/cups/ppd/.\nThe print data is then sent to the printer through a filter, and via backend that helps to locate devices connected to the system.\n",
+  "wordCount" : "268",
   "inLanguage": "en",
   "datePublished": "2024-01-05T22:23:34+09:00",
   "dateModified": "2024-01-05T22:23:34+09:00",
@@ -229,7 +229,15 @@ CUPS Overview CUPS interprets page descriptions produced by your application (pu
                 <li>
                     <a href="#printing-on-linux" aria-label="Printing on Linux">Printing on Linux</a></li>
                 <li>
-                    <a href="#cups-overview" aria-label="CUPS Overview">CUPS Overview</a>
+                    <a href="#cups-overview" aria-label="CUPS Overview">CUPS Overview</a></li>
+                <li>
+                    <a href="#configuration-files" aria-label="Configuration Files">Configuration Files</a></li>
+                <li>
+                    <a href="#job-files" aria-label="Job Files">Job Files</a></li>
+                <li>
+                    <a href="#log-files" aria-label="Log Files">Log Files</a></li>
+                <li>
+                    <a href="#filters-printer-drivers-and-backends" aria-label="Filters, Printer Drivers, and Backends">Filters, Printer Drivers, and Backends</a>
                 </li>
             </ul>
         </div>
@@ -244,12 +252,29 @@ Nevertheless, it is instructive to understand the underpinnings of how it is don
 <h2 id="cups-overview">CUPS Overview<a hidden class="anchor" aria-hidden="true" href="#cups-overview">#</a></h2>
 <p><code>CUPS</code> interprets page descriptions produced by your application (put a paragraph here, draw a line there, and so forth) and then sends the information to the printer. it acts as a print server for both local and network printers.</p>
 <p>Printers manufactured by different companies may use thire own particular print lnagues and formats. CUPS uses a modular printing system that accommodates a wide variety printers and also processes various data formats.</p>
+<h2 id="configuration-files">Configuration Files<a hidden class="anchor" aria-hidden="true" href="#configuration-files">#</a></h2>
+<p>cupsd.conf and printers.conf</p>
+<p>all other CUPS-related configuration files are stored under the <code>/etc/cups</code></p>
+<p>cupsd.conf is where most system-wide settings are located. it does not contain any printer-specific details.<br>
+most of the settings available in this file relate to network security</p>
+<p>printers.conf is where you will find the printer-specific settings.</p>
+<h2 id="job-files">Job Files<a hidden class="anchor" aria-hidden="true" href="#job-files">#</a></h2>
+<p><code>/var/spool/cups</code> commonly known as print queues</p>
+<h2 id="log-files">Log Files<a hidden class="anchor" aria-hidden="true" href="#log-files">#</a></h2>
+<p><code>/var/log/cups/</code> directory contains logfile that is used by scheduler to record activities that have taken place.</p>
+<h2 id="filters-printer-drivers-and-backends">Filters, Printer Drivers, and Backends<a hidden class="anchor" aria-hidden="true" href="#filters-printer-drivers-and-backends">#</a></h2>
+<p>CUPS uses filters to convert job file formats to printable formats. <code>Printer drivers</code> contain descriptions for currently connected / configured printers,<br>
+and are usually store under /etc/cups/ppd/.</p>
+<p>The print data is then sent to the printer through a filter, and via <code>backend</code> that helps to locate devices connected to the system.</p>
 
 
   </div>
 
   <footer class="post-footer">
     <ul class="post-tags">
+      <li><a href="https://nolleh.github.io/tags/edx/">Edx</a></li>
+      <li><a href="https://nolleh.github.io/tags/linux/">Linux</a></li>
+      <li><a href="https://nolleh.github.io/tags/kernel/">Kernel</a></li>
     </ul>
   </footer><div id="disqus_thread"></div>
 <script>

@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>4.sed and Awk | The Computer Programmer, Nolleh</title>
-<meta name="keywords" content="">
+<meta name="keywords" content="edx, Linux, Kernel">
 <meta name="description" content="introduction to sed and awk many Linux users and administrators will write scripts using comprehensive scripting languages such as Python and perl,
 rather than use sed and awk. However, the utilitites that are described here are much lighter;i.e. they use fewer system resources,
 and execute faster.
@@ -119,7 +119,7 @@ the entire list of operations/modifications is applied over the data in the work
   "name": "4.sed and Awk",
   "description": "introduction to sed and awk many Linux users and administrators will write scripts using comprehensive scripting languages such as Python and perl,\nrather than use sed and awk. However, the utilitites that are described here are much lighter;i.e. they use fewer system resources,\nand execute faster.\nsed abbreviation for stream editor.\ndata from an input source/file (or stream) is taken and moved to a working space.\nthe entire list of operations/modifications is applied over the data in the working space and",
   "keywords": [
-    
+    "edx", "Linux", "Kernel"
   ],
   "articleBody": "introduction to sed and awk many Linux users and administrators will write scripts using comprehensive scripting languages such as Python and perl,\nrather than use sed and awk. However, the utilitites that are described here are much lighter;i.e. they use fewer system resources,\nand execute faster.\nsed abbreviation for stream editor.\ndata from an input source/file (or stream) is taken and moved to a working space.\nthe entire list of operations/modifications is applied over the data in the working space and\nthe final contents are moved to the standard output space(or stream)\nsed command syntax command usage sed -e command specify editing commands at the command line, process input from ad file, and put the output on standard out sed -f scriptfile specify a script file containing sed commands, operate on file, and put output on standard out echo “I hate you” | sed s/hate/love/ usd sed to filter standard input, putting output on standard out the - e option allows you to specify multiple editing commands simultaneously at the command line.\nsed basic operations sed 1,3s/parttern/replace_string/g file\nsubstitute all string occurrences in a range of lines sed -i s/pattern/replace_string/g file\nsave changes for string substitution in the same file sed -e 's/01/JAN/' \\ -e 's/02/FEB/' \\ .... can change delimiter.\nsed s:/sbin/nologin:/bin/bash:g /etc/passwd awk awk is used to extract and then print specific contents of a file and is often used to construct reports.\nit is a powerful utility and interpreted programming language. it is used to manipulate data files, and for retrieving and processing text. it works well with fields (containing a single piece of data, essentially a column) and records (a collection of fields, essentially a line in a file) head - 10 /etc/passwd awk -F: '{print \"name: \"$1 shell: \" $7}' /etc/passwd | head -10 the input file is read on line at a time, and, for each line, awk matches the given pattern in the given order and performs the requested action. the =F option allows you to specify a particulaar field separator characotr.\n",
   "wordCount" : "339",
@@ -309,6 +309,9 @@ the =F option allows you to specify a particulaar field separator characotr.</p>
 
   <footer class="post-footer">
     <ul class="post-tags">
+      <li><a href="https://nolleh.github.io/tags/edx/">Edx</a></li>
+      <li><a href="https://nolleh.github.io/tags/linux/">Linux</a></li>
+      <li><a href="https://nolleh.github.io/tags/kernel/">Kernel</a></li>
     </ul>
   </footer><div id="disqus_thread"></div>
 <script>

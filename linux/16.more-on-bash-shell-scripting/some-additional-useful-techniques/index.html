@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>Some Additional Useful Techniques | The Computer Programmer, Nolleh</title>
-<meta name="keywords" content="">
+<meta name="keywords" content="edx, Linux, Kernel">
 <meta name="description" content="$RANDOM: environment variable for
 performing security-related tasks Reinitializing storage devices Erasing and/or obscuring existing data Generating meaningless data to be used for tests How the Kernel Generates Random Numbers Some servers have hardware random number generators that take as input different types of noise signals, such as thermal noise and photoelectric effect. A transducer converts this noise into an electric signal, which is again converted into a digital number by an A-D converter.">
 <meta name="author" content="nolleh">
@@ -107,7 +107,7 @@ performing security-related tasks Reinitializing storage devices Erasing and/or 
   "name": "Some Additional Useful Techniques",
   "description": "$RANDOM: environment variable for\nperforming security-related tasks Reinitializing storage devices Erasing and/or obscuring existing data Generating meaningless data to be used for tests How the Kernel Generates Random Numbers Some servers have hardware random number generators that take as input different types of noise signals, such as thermal noise and photoelectric effect. A transducer converts this noise into an electric signal, which is again converted into a digital number by an A-D converter.",
   "keywords": [
-    
+    "edx", "Linux", "Kernel"
   ],
   "articleBody": "$RANDOM: environment variable for\nperforming security-related tasks Reinitializing storage devices Erasing and/or obscuring existing data Generating meaningless data to be used for tests How the Kernel Generates Random Numbers Some servers have hardware random number generators that take as input different types of noise signals, such as thermal noise and photoelectric effect. A transducer converts this noise into an electric signal, which is again converted into a digital number by an A-D converter.\nflowchart LR noise[\"noise signal(thermal noise, photoelectric effect)\"]--\u003e|transducer|electric[electric signal]--\u003e|A-D converter|digit[digital number] However,most common computers do not contain such specialized hardware and,\ninstead, rely on events created during booting to create the raw data needed.\nRegardless of which of these tow sources is used, the system maintains a so-called entropy pool of these diginal numbers/randoms bits.\nrandom numbers created from this entropy pool\nLinux kernel offers…\n/dev/random /dev/urandom which draw on the entropy pool to provide random numbers which are drawn from the estimated number of bits of noise in the entropy pool.\n/dev/urandom is faster compared with /dev/random which is used where very high-quality randomness is required (such as a one-time pad or key generation)\n/dev/random is blocked and does not generate any number until additional environmental noise is gathered when the entropy pool is empty, whereas /dev/urandom reuses the internal pool to produce more pseudo-random bits\n",
   "wordCount" : "219",
@@ -255,6 +255,9 @@ random numbers created from this entropy pool</p>
 
   <footer class="post-footer">
     <ul class="post-tags">
+      <li><a href="https://nolleh.github.io/tags/edx/">Edx</a></li>
+      <li><a href="https://nolleh.github.io/tags/linux/">Linux</a></li>
+      <li><a href="https://nolleh.github.io/tags/kernel/">Kernel</a></li>
     </ul>
   </footer><div id="disqus_thread"></div>
 <script>

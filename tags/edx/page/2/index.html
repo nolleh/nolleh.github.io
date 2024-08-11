@@ -148,69 +148,68 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2>3-3.kernel Init and Services
+    <h2>2.configuration
     </h2>
   </header>
   <div class="entry-content">
-    <p>Kernel, init and Services The Linux Kernel boot loader loads kernel and an initial RAM-based file system (initramfs) into memory, so it can be used directly by the kernel.
-kernel loaded, it immediately initializes and configures the computer’s memory and also configures all the hardware attached to the system.
-also load user space applications.
-/sbin/init and Services Once kernel has set up all its hardware and mounted the root filesystem, the kernel runs sbin/init....</p>
+    <p>Printing on Linux printing itself requires software that converts information from application you are using to a language your printer can understand.
+The Linux standard for printing software is the Common UNIX Printing System (CUPS)
+Modern Linux desktop systems make installing and administering printers simple and intuitive.
+Nevertheless, it is instructive to understand the underpinnings of how it is done in Linux.
+CUPS Overview CUPS interprets page descriptions produced by your application (put a paragraph here, draw a line there, and so forth) and then sends the information to the printer....</p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2023-01-08 12:25:09 &#43;0900 KST&#39;&gt;January 8, 2023&lt;/span&gt;&amp;nbsp;·&amp;nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 3-3.kernel Init and Services" href="https://nolleh.github.io/linux/3.linux-basics-and-system-startup/3.kernel-init-and-services/"></a>
+  <footer class="entry-footer">&lt;span title=&#39;2024-01-05 22:23:34 &#43;0900 KST&#39;&gt;January 5, 2024&lt;/span&gt;&amp;nbsp;·&amp;nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 2.configuration" href="https://nolleh.github.io/linux/17.printing/2.configuration/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2>3-2.the Boot Process
+    <h2>Some Additional Useful Techniques
     </h2>
   </header>
   <div class="entry-content">
-    <p>The Boot Process The Linux boot process is the procedure for initializing the system.
-from when the computer power is first swithced on until the user interface is fully operational.
-having a good understanding of the steps in the boot process may help you with troubleshooting problems, as well as with tailoring the computer’s performance to your needs.
-On the other hand, the boot process can be rather technical, and you can start using Linux without knowing all the details....</p>
+    <p>$RANDOM: environment variable for
+performing security-related tasks Reinitializing storage devices Erasing and/or obscuring existing data Generating meaningless data to be used for tests How the Kernel Generates Random Numbers Some servers have hardware random number generators that take as input different types of noise signals, such as thermal noise and photoelectric effect. A transducer converts this noise into an electric signal, which is again converted into a digital number by an A-D converter....</p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2022-12-25 22:21:34 &#43;0900 KST&#39;&gt;December 25, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 3-2.the Boot Process" href="https://nolleh.github.io/linux/3.linux-basics-and-system-startup/2.the-boot-process/"></a>
+  <footer class="entry-footer">&lt;span title=&#39;2024-01-04 21:38:12 &#43;0900 KST&#39;&gt;January 4, 2024&lt;/span&gt;&amp;nbsp;·&amp;nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to Some Additional Useful Techniques" href="https://nolleh.github.io/linux/16.more-on-bash-shell-scripting/some-additional-useful-techniques/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2>3-1.introduction
+    <h2>3.syntax
     </h2>
   </header>
   <div class="entry-content">
-    <p>Learning Objectives Identify Linux filesystems. Identify the differences between partitions and filesystems Describe the boot process. Install Linux on a computer. </p>
+    <p>Basic Syntax and Special Characters Character Description # comment, shebang, # \ nextline, escapecode ; used to interpret what follows as a new command to be executed $ environment variable &gt; redirect output » Append output &lt; Redirect input | pipe the result into next command Putting Multiple Commands on a Single Line # run consequent command whether or not preceding one succeeded. $ make ; make install ; make clean # proceed next command only when preceding one succeeded....</p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2022-12-25 22:19:08 &#43;0900 KST&#39;&gt;December 25, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 3-1.introduction" href="https://nolleh.github.io/linux/3.linux-basics-and-system-startup/1.introduction/"></a>
+  <footer class="entry-footer">&lt;span title=&#39;2023-12-26 22:19:46 &#43;0900 KST&#39;&gt;December 26, 2023&lt;/span&gt;&amp;nbsp;·&amp;nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 3.syntax" href="https://nolleh.github.io/linux/15.the-bash-shell-and-basic-scripting/3.syntax/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2>2-6.chapter summary
+    <h2>2.features and Capabilities
     </h2>
   </header>
   <div class="entry-content">
-    <p>Chapter Summary Linux boroows heavily from UNIX operating system, with withch its creators were well-versed. LInux accesses many features and services through files and file-like objects. Linux is a fully multi-tasking, multi-user operating system, with built-in networking and service processes known as deamons. Linux is developed by a loose confederation of developers from all over the world, collaborating over the Internet,
-with Linus Torvalds at th head. Technical sill and a desire to contriubte are the only qualifications for participating....</p>
+    <p>script’s return value is stored in the environment variable represented by $?:
+echo $? </p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2022-12-25 22:02:31 &#43;0900 KST&#39;&gt;December 25, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 2-6.chapter summary" href="https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/6.chapter-summary/"></a>
+  <footer class="entry-footer">&lt;span title=&#39;2023-12-25 23:17:13 &#43;0900 KST&#39;&gt;December 25, 2023&lt;/span&gt;&amp;nbsp;·&amp;nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 2.features and Capabilities" href="https://nolleh.github.io/linux/15.the-bash-shell-and-basic-scripting/2.features-and-capabilities/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2>2-5.linux Distribution
+    <h2>1.introduction
     </h2>
   </header>
   <div class="entry-content">
-    <p>Linux Distribution Overview making sure that project works properly on the most widely used Linux distributions. To accomplish this, you need to learn amout the different components, services, and configurations associated with each distribution.</p>
+    <p> Explain the features and capabilities of bash shell scripting. Know the basic syntax of scripting statements. Be famailiar with various methods and constructs used. Test for properties and existence of files and other objects. Use conditional statements, such as if-then-else blocks. Perform arithmetic operations using scripting language. </p>
   </div>
-  <footer class="entry-footer">&lt;span title=&#39;2022-12-25 21:38:28 &#43;0900 KST&#39;&gt;December 25, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 2-5.linux Distribution" href="https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/5.linux-distribution/"></a>
+  <footer class="entry-footer">&lt;span title=&#39;2023-12-25 22:57:05 &#43;0900 KST&#39;&gt;December 25, 2023&lt;/span&gt;&amp;nbsp;·&amp;nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 1.introduction" href="https://nolleh.github.io/linux/15.the-bash-shell-and-basic-scripting/1.introduction/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
