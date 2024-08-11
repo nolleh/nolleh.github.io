@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>7.miscellaneous Text Utilities | The Computer Programmer, Nolleh</title>
 <meta name="keywords" content="edx, Linux, Kernel">
 <meta name="description" content="tr the tr utility is used to translate specified characters into other characters or to delete them.
@@ -13,18 +13,16 @@ tr &lsquo;{}&rsquo; &lsquo;()&rsquo; &lt; inputfile &gt; outputfile
 translate braces into parenthesis echo &quot; &hellip; &quot; | tr [:space:] &lsquo;\t&rsquo;
 translate white-space to tabs echo &ldquo;This is for testing&rdquo; | tr -s [:space:]">
 <meta name="author" content="nolleh">
-<link rel="canonical" href="https://nolleh.github.io/linux/13.manipluating-text/7.miscellaneous-text-utilities/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.d7fb4cbf980fe688a21621b06a795933c4e6bb2d4070ec940667af1715d84af2.css" integrity="sha256-1/tMv5gP5oiiFiGwanlZM8Tmuy1AcOyUBmevFxXYSvI=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://nolleh.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://nolleh.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
+<link rel="canonical" href="http://localhost:1313/linux/13.manipluating-text/7.miscellaneous-text-utilities/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://nolleh.github.io/linux/13.manipluating-text/7.miscellaneous-text-utilities/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/linux/13.manipluating-text/7.miscellaneous-text-utilities/">
 <noscript>
     <style>
         #theme-toggle,
@@ -42,7 +40,7 @@ translate white-space to tabs echo &ldquo;This is for testing&rdquo; | tr -s [:s
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -62,85 +60,6 @@ translate white-space to tabs echo &ldquo;This is for testing&rdquo; | tr -s [:s
 
     </style>
 </noscript>
-  
-    
-      
-    
-  
-
-<meta property="og:title" content="7.miscellaneous Text Utilities" />
-<meta property="og:description" content="tr the tr utility is used to translate specified characters into other characters or to delete them.
-tr [options] set1 [set2] set1: to be replaced or removed set2: to be substituted for the characters listed in the first argument.
-tr &lsquo;{}&rsquo; &lsquo;()&rsquo; &lt; inputfile &gt; outputfile
-translate braces into parenthesis echo &quot; &hellip; &quot; | tr [:space:] &lsquo;\t&rsquo;
-translate white-space to tabs echo &ldquo;This is for testing&rdquo; | tr -s [:space:]" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://nolleh.github.io/linux/13.manipluating-text/7.miscellaneous-text-utilities/" /><meta property="article:section" content="linux" />
-<meta property="article:published_time" content="2023-12-25T17:36:43&#43;09:00" />
-<meta property="article:modified_time" content="2023-12-25T17:36:43&#43;09:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="7.miscellaneous Text Utilities"/>
-<meta name="twitter:description" content="tr the tr utility is used to translate specified characters into other characters or to delete them.
-tr [options] set1 [set2] set1: to be replaced or removed set2: to be substituted for the characters listed in the first argument.
-tr &lsquo;{}&rsquo; &lsquo;()&rsquo; &lt; inputfile &gt; outputfile
-translate braces into parenthesis echo &quot; &hellip; &quot; | tr [:space:] &lsquo;\t&rsquo;
-translate white-space to tabs echo &ldquo;This is for testing&rdquo; | tr -s [:space:]"/>
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Linuxes",
-      "item": "https://nolleh.github.io/linux/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "7.miscellaneous Text Utilities",
-      "item": "https://nolleh.github.io/linux/13.manipluating-text/7.miscellaneous-text-utilities/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "7.miscellaneous Text Utilities",
-  "name": "7.miscellaneous Text Utilities",
-  "description": "tr the tr utility is used to translate specified characters into other characters or to delete them.\ntr [options] set1 [set2] set1: to be replaced or removed set2: to be substituted for the characters listed in the first argument.\ntr \u0026lsquo;{}\u0026rsquo; \u0026lsquo;()\u0026rsquo; \u0026lt; inputfile \u0026gt; outputfile\ntranslate braces into parenthesis echo \u0026quot; \u0026hellip; \u0026quot; | tr [:space:] \u0026lsquo;\\t\u0026rsquo;\ntranslate white-space to tabs echo \u0026ldquo;This is for testing\u0026rdquo; | tr -s [:space:]",
-  "keywords": [
-    "edx", "Linux", "Kernel"
-  ],
-  "articleBody": "tr the tr utility is used to translate specified characters into other characters or to delete them.\ntr [options] set1 [set2] set1: to be replaced or removed set2: to be substituted for the characters listed in the first argument.\ntr ‘{}’ ‘()’ \u003c inputfile \u003e outputfile\ntranslate braces into parenthesis echo \" … \" | tr [:space:] ‘\\t’\ntranslate white-space to tabs echo “This is for testing” | tr -s [:space:]\nsqueeze repetition of characters using -s echo “the geek stuff” | tr -d ’t’\ndelete specified characters using -d option echo “my username is 432234” | tr -cd [:digit:]\ncomplement the sets using -c option tr -cd [:print:] \u003c file.txt\nremove all non-printable character from a file tr -s ‘\\n’ ’ ’ \u003c file.txt\njoin all the lines in a file into a single file tee tee takes the output from any command, and, while sending it to standard output, it also saves it to a file. in other words, it tees the output stream from the command: one stream is displayed on the standard output and the other is saved to a file.\nwc wc -l: line wc -c: bytes wc -w: words\ncut cut -d\" \" -f3\n",
-  "wordCount" : "200",
-  "inLanguage": "en",
-  "datePublished": "2023-12-25T17:36:43+09:00",
-  "dateModified": "2023-12-25T17:36:43+09:00",
-  "author":{
-    "@type": "Person",
-    "name": "nolleh"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://nolleh.github.io/linux/13.manipluating-text/7.miscellaneous-text-utilities/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "The Computer Programmer, Nolleh",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://nolleh.github.io/favicon.ico"
-    }
-  }
-}
-</script>
 </head>
 
 <body class="" id="top">
@@ -158,15 +77,15 @@ translate white-space to tabs echo &ldquo;This is for testing&rdquo; | tr -s [:s
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
+            <a href="http://localhost:1313/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -180,28 +99,26 @@ translate white-space to tabs echo &ldquo;This is for testing&rdquo; | tr -s [:s
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://nolleh.github.io/archives/" title="Archive">
+                <a href="http://localhost:1313/archives/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="https://nolleh.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://nolleh.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://nolleh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -212,11 +129,11 @@ translate white-space to tabs echo &ldquo;This is for testing&rdquo; | tr -s [:s
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://nolleh.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://nolleh.github.io/linux/">Linuxes</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/linux/">Linuxes</a></div>
+    <h1 class="post-title entry-hint-parent">
       7.miscellaneous Text Utilities
     </h1>
-    <div class="post-meta">&lt;span title=&#39;2023-12-25 17:36:43 &#43;0900 KST&#39;&gt;December 25, 2023&lt;/span&gt;&amp;nbsp;·&amp;nbsp;nolleh
+    <div class="post-meta"><span title='2023-12-25 17:36:43 +0900 KST'>December 25, 2023</span>&nbsp;·&nbsp;nolleh
 
 </div>
   </header> <div class="toc">
@@ -287,11 +204,12 @@ wc -w: words</p>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://nolleh.github.io/tags/edx/">Edx</a></li>
-      <li><a href="https://nolleh.github.io/tags/linux/">Linux</a></li>
-      <li><a href="https://nolleh.github.io/tags/kernel/">Kernel</a></li>
+      <li><a href="http://localhost:1313/tags/edx/">Edx</a></li>
+      <li><a href="http://localhost:1313/tags/linux/">Linux</a></li>
+      <li><a href="http://localhost:1313/tags/kernel/">Kernel</a></li>
     </ul>
-  </footer><div id="disqus_thread"></div>
+  </footer>
+<div id="disqus_thread"></div>
 <script>
     window.disqus_config = function () {
     
@@ -315,7 +233,8 @@ wc -w: words</p>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">The Computer Programmer, Nolleh</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

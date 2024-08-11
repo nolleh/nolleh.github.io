@@ -2,40 +2,36 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>C# on The Computer Programmer, Nolleh</title>
-    <link>https://nolleh.github.io/tags/c%23/</link>
+    <link>http://localhost:1313/tags/c%23/</link>
     <description>Recent content in C# on The Computer Programmer, Nolleh</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.127.0</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Fri, 21 Dec 2018 22:02:13 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/c%23/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 21 Dec 2018 22:02:13 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/c%23/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>비동기 프로그램의 제어 흐름</title>
-      <link>https://nolleh.github.io/csharp/async-control-flow-msdn/</link>
+      <link>http://localhost:1313/csharp/async-control-flow-msdn/</link>
       <pubDate>Fri, 21 Dec 2018 22:02:13 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/csharp/async-control-flow-msdn/</guid>
+      <guid>http://localhost:1313/csharp/async-control-flow-msdn/</guid>
       <description>개요 다음에서 발췌
 비동기 프로그램의 제어 흐름
 코드 public partial class MainWindow : Window { // . . . private async void startButton_Click(object sender, RoutedEventArgs e) { // ONE Task&amp;lt;int&amp;gt; getLengthTask = AccessTheWebAsync(); // FOUR int contentLength = await getLengthTask; // SIX resultsTextBox.Text += $&amp;#34;\r\nLength of the downloaded string: {contentLength}.\r\n&amp;#34;; } async Task&amp;lt;int&amp;gt; AccessTheWebAsync() { // TWO HttpClient client = new HttpClient(); Task&amp;lt;string&amp;gt; getStringTask = client.GetStringAsync(&amp;#34;https://msdn.microsoft.com&amp;#34;); // THREE string urlContents = await getStringTask; // FIVE return urlContents.</description>
     </item>
-    
     <item>
       <title>Async Await 을 사용한 비동기 프로그래밍</title>
-      <link>https://nolleh.github.io/csharp/async-await-msdn/</link>
+      <link>http://localhost:1313/csharp/async-await-msdn/</link>
       <pubDate>Fri, 21 Dec 2018 21:41:08 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/csharp/async-await-msdn/</guid>
+      <guid>http://localhost:1313/csharp/async-await-msdn/</guid>
       <description>개요 다음에서 발췌 MSDN
 반응성을 향상시키는 비동기 잠재적인 차단 작업 완료 될때까지 다른 작업을 게속 수행
 작성이 간편한 비동기 메서드 반환 형식은 다음 중 하나
 Task Task void - 비동기 이벤트 처리기 작성 GetAwaiter 포함 모든 기타 형식 await 을 만나면 yield 함 (호출자로 제어가 돌아감) 이때, Task 가 호출자에게 반환되고 이는 언젠가 다운로드된 문자열의 길이가 반환된다는 약속 (future) 을 의미한다. await 전에 작업이 완료된다면 제어가 돌아가지 않는다. 스레드 비동기 메서드의 await 식은 대기한 작업이 실행되는 동안 현재 스레드를 차단하지 않는다.</description>
     </item>
-    
     <item>
       <title>Dispose</title>
-      <link>https://nolleh.github.io/csharp/dispose/</link>
+      <link>http://localhost:1313/csharp/dispose/</link>
       <pubDate>Wed, 19 Dec 2018 10:18:25 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/csharp/dispose/</guid>
+      <guid>http://localhost:1313/csharp/dispose/</guid>
       <description>Dispose 에 대한 여러가지 MSDN Implementing a Dispose method
 threadSafety stackoverflow dispose 의 threadsafety
 많은 경우 어떤 스레드든지 다른 스레드가 dispose 를 시작했을때 오브젝트에 대해 작업을 하고 있을 수 있기 때문에, interlocked.Exchange 를 통해 배제하는게 옳아 보인다.
@@ -43,13 +39,11 @@ threadSafety stackoverflow dispose 의 threadsafety
 (champareExchange가 base class 에 봉인됨으로써 derived class 에서 private 한 disposed flag 를 사용하는 것을 피해야한다.)
 하지만 불행히도, dispose 가 정확히 어떤것을 하는지 생각해보면 문제는 좀 더 복잡해진다.</description>
     </item>
-    
     <item>
       <title>Async Await</title>
-      <link>https://nolleh.github.io/csharp/async-await/</link>
+      <link>http://localhost:1313/csharp/async-await/</link>
       <pubDate>Tue, 18 Dec 2018 13:47:33 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/csharp/async-await/</guid>
+      <guid>http://localhost:1313/csharp/async-await/</guid>
       <description>NeoSmart.AsyncLock 라이브러리에 관하여 다음에서 발췌, 번역 - Neosmart Docs.
 개요 semaporeslim 은 reentrance 를 지원하지 않는다. 따라서, recursion 에서 적절히 사용되지 않으면 데드락이 발생한다.
 asynclock 은 reentrance 기능을 semaphoreslim 에 추가한거.
@@ -58,13 +52,11 @@ asynclock 은 reentrance 기능을 semaphoreslim 에 추가한거.
 async / await 의 가장 기본적인 목적인 ui 의 불필요한 블럭킹 없이 작업의 완료를 기다린다는 문제를 그대로 안고 있다.
 await 코드를 넣어도 다른 코드가 실행 될 수 없다.</description>
     </item>
-    
     <item>
       <title>Nancy Introduction</title>
-      <link>https://nolleh.github.io/nancy/introduction/</link>
+      <link>http://localhost:1313/nancy/introduction/</link>
       <pubDate>Tue, 24 Apr 2018 21:43:04 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/nancy/introduction/</guid>
+      <guid>http://localhost:1313/nancy/introduction/</guid>
       <description>Nancy 에 대한 문서 번역 #1. By Nolleh
 Introduction 가장 먼저, Nancy 의 세계에 온것을 환영합니다!
 루비의 sinatra 프레임워크에 영감을 받아 Nancy 라는 이름을 붙이게 되었습니다. (Frank Sinatra 의 딸이름이 Nancy 니까요!)
@@ -72,6 +64,5 @@ NancyFx 의 Fx 에 대해 많은 사람들이 궁금해하여 여기에 붙입�
 NancyFx 는 모든 컴포넌트들을 포함하는 umbrella project 입니다. (#역자주: 우산효과의 우산처럼, 포괄적인 프로젝트라는 의미로 쓴게 아닐까? )
 이 가이드는 앞으로 개괄적이고 빠르게 Nancy 의 특징들을 살펴 독자 스스로 Nancy 의 세계를 탐험해 볼 수 있는 시야를 제공할겁니다.</description>
     </item>
-    
   </channel>
 </rss>

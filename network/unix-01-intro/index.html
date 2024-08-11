@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>Unix 01 Intro | The Computer Programmer, Nolleh</title>
 <meta name="keywords" content="생각하는 프로그래머, Unix">
 <meta name="description" content="네트워킹의 바이블이라 할 수 있는 Unix Network Programming 의 내용 정리
@@ -14,18 +14,16 @@ Books Introduction Socket 을 통해 통신하는 프로그램을 작성하는 �
 실제 텍스트들은 유닉스 시스템에서 구동가능하나, OS 에 독립적인 socket api 를 지원하는 다른 OS 에서도, 본문에서 제안하는 일반적인 개념을 활용가능하다.
 많은 OS 는 셀수 없이 많은 네트워크 응용프로그램을 제공하고 있으며 - 예컨데 웹브라우저, email.">
 <meta name="author" content="nolleh">
-<link rel="canonical" href="https://nolleh.github.io/network/unix-01-intro/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.d7fb4cbf980fe688a21621b06a795933c4e6bb2d4070ec940667af1715d84af2.css" integrity="sha256-1/tMv5gP5oiiFiGwanlZM8Tmuy1AcOyUBmevFxXYSvI=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://nolleh.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://nolleh.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
+<link rel="canonical" href="http://localhost:1313/network/unix-01-intro/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://nolleh.github.io/network/unix-01-intro/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/network/unix-01-intro/">
 <noscript>
     <style>
         #theme-toggle,
@@ -43,7 +41,7 @@ Books Introduction Socket 을 통해 통신하는 프로그램을 작성하는 �
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -63,87 +61,6 @@ Books Introduction Socket 을 통해 통신하는 프로그램을 작성하는 �
 
     </style>
 </noscript>
-  
-    
-      
-    
-  
-
-<meta property="og:title" content="Unix 01 Intro" />
-<meta property="og:description" content="네트워킹의 바이블이라 할 수 있는 Unix Network Programming 의 내용 정리
-Books Introduction Socket 을 통해 통신하는 프로그램을 작성하는 개발자를 위해 쓰여진 책.
-시작하는 사람에게나, 프로페셔널에게나 유용한 책.
-물론 유지보수를 하거나, 새로 작성하는 사람, 네트워크 시스템 함수를 이해하는 모두에게 유용하다.
-실제 텍스트들은 유닉스 시스템에서 구동가능하나, OS 에 독립적인 socket api 를 지원하는 다른 OS 에서도, 본문에서 제안하는 일반적인 개념을 활용가능하다.
-많은 OS 는 셀수 없이 많은 네트워크 응용프로그램을 제공하고 있으며 - 예컨데 웹브라우저, email." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://nolleh.github.io/network/unix-01-intro/" /><meta property="article:section" content="network" />
-<meta property="article:published_time" content="2017-08-01T22:54:19&#43;09:00" />
-<meta property="article:modified_time" content="2017-08-01T22:54:19&#43;09:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Unix 01 Intro"/>
-<meta name="twitter:description" content="네트워킹의 바이블이라 할 수 있는 Unix Network Programming 의 내용 정리
-Books Introduction Socket 을 통해 통신하는 프로그램을 작성하는 개발자를 위해 쓰여진 책.
-시작하는 사람에게나, 프로페셔널에게나 유용한 책.
-물론 유지보수를 하거나, 새로 작성하는 사람, 네트워크 시스템 함수를 이해하는 모두에게 유용하다.
-실제 텍스트들은 유닉스 시스템에서 구동가능하나, OS 에 독립적인 socket api 를 지원하는 다른 OS 에서도, 본문에서 제안하는 일반적인 개념을 활용가능하다.
-많은 OS 는 셀수 없이 많은 네트워크 응용프로그램을 제공하고 있으며 - 예컨데 웹브라우저, email."/>
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Networks",
-      "item": "https://nolleh.github.io/network/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "Unix 01 Intro",
-      "item": "https://nolleh.github.io/network/unix-01-intro/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Unix 01 Intro",
-  "name": "Unix 01 Intro",
-  "description": "네트워킹의 바이블이라 할 수 있는 Unix Network Programming 의 내용 정리\nBooks Introduction Socket 을 통해 통신하는 프로그램을 작성하는 개발자를 위해 쓰여진 책.\n시작하는 사람에게나, 프로페셔널에게나 유용한 책.\n물론 유지보수를 하거나, 새로 작성하는 사람, 네트워크 시스템 함수를 이해하는 모두에게 유용하다.\n실제 텍스트들은 유닉스 시스템에서 구동가능하나, OS 에 독립적인 socket api 를 지원하는 다른 OS 에서도, 본문에서 제안하는 일반적인 개념을 활용가능하다.\n많은 OS 는 셀수 없이 많은 네트워크 응용프로그램을 제공하고 있으며 - 예컨데 웹브라우저, email.",
-  "keywords": [
-    "생각하는 프로그래머", "Unix"
-  ],
-  "articleBody": " 네트워킹의 바이블이라 할 수 있는 Unix Network Programming 의 내용 정리\nBooks Introduction Socket 을 통해 통신하는 프로그램을 작성하는 개발자를 위해 쓰여진 책.\n시작하는 사람에게나, 프로페셔널에게나 유용한 책.\n물론 유지보수를 하거나, 새로 작성하는 사람, 네트워크 시스템 함수를 이해하는 모두에게 유용하다.\n실제 텍스트들은 유닉스 시스템에서 구동가능하나, OS 에 독립적인 socket api 를 지원하는 다른 OS 에서도, 본문에서 제안하는 일반적인 개념을 활용가능하다.\n많은 OS 는 셀수 없이 많은 네트워크 응용프로그램을 제공하고 있으며 - 예컨데 웹브라우저, email.. 이 프로그램들을 클라이언트와 / 서버로 분류하여 언급할 것이다.\nUsing This Book 초심자와 전문 프로그래머 모두 활용가능하다. 튜토리얼이 목적이라면 Part2 에 포커스를 맞추면 좋으며, 여기서 TCP 와 UDP, SCTP 모두에 대한 소켓 함수를 다루고 I/O multiplexing, socket options, basic name, address conversion 등을 다룬다.\nSection 1.4 에서는 본문 전체에서 다루는 래퍼펑션들이 소개된다.\nPart 3 에서는 “진화된 소켓” 에 대해 다루므로 아무나 읽어도 된다.\n소스코드는, 여기\nunpbook\n",
-  "wordCount" : "139",
-  "inLanguage": "en",
-  "datePublished": "2017-08-01T22:54:19+09:00",
-  "dateModified": "2017-08-01T22:54:19+09:00",
-  "author":{
-    "@type": "Person",
-    "name": "nolleh"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://nolleh.github.io/network/unix-01-intro/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "The Computer Programmer, Nolleh",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://nolleh.github.io/favicon.ico"
-    }
-  }
-}
-</script>
 </head>
 
 <body class="" id="top">
@@ -161,15 +78,15 @@ Books Introduction Socket 을 통해 통신하는 프로그램을 작성하는 �
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
+            <a href="http://localhost:1313/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -183,28 +100,26 @@ Books Introduction Socket 을 통해 통신하는 프로그램을 작성하는 �
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://nolleh.github.io/archives/" title="Archive">
+                <a href="http://localhost:1313/archives/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="https://nolleh.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://nolleh.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://nolleh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -215,11 +130,11 @@ Books Introduction Socket 을 통해 통신하는 프로그램을 작성하는 �
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://nolleh.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://nolleh.github.io/network/">Networks</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/network/">Networks</a></div>
+    <h1 class="post-title entry-hint-parent">
       Unix 01 Intro
     </h1>
-    <div class="post-meta">&lt;span title=&#39;2017-08-01 22:54:19 &#43;0900 KST&#39;&gt;August 1, 2017&lt;/span&gt;&amp;nbsp;·&amp;nbsp;nolleh
+    <div class="post-meta"><span title='2017-08-01 22:54:19 +0900 KST'>August 1, 2017</span>&nbsp;·&nbsp;nolleh
 
 </div>
   </header> <div class="toc">
@@ -261,10 +176,11 @@ Part 3 에서는 &ldquo;진화된 소켓&rdquo; 에 대해 다루므로 아무�
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://nolleh.github.io/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/">생각하는 프로그래머</a></li>
-      <li><a href="https://nolleh.github.io/tags/unix/">Unix</a></li>
+      <li><a href="http://localhost:1313/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/">생각하는 프로그래머</a></li>
+      <li><a href="http://localhost:1313/tags/unix/">Unix</a></li>
     </ul>
-  </footer><div id="disqus_thread"></div>
+  </footer>
+<div id="disqus_thread"></div>
 <script>
     window.disqus_config = function () {
     
@@ -288,7 +204,8 @@ Part 3 에서는 &ldquo;진화된 소켓&rdquo; 에 대해 다루므로 아무�
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">The Computer Programmer, Nolleh</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>MQ on The Computer Programmer, Nolleh</title>
-    <link>https://nolleh.github.io/tags/mq/</link>
+    <link>http://localhost:1313/tags/mq/</link>
     <description>Recent content in MQ on The Computer Programmer, Nolleh</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.127.0</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Wed, 22 May 2024 21:37:29 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/mq/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 22 May 2024 21:37:29 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/mq/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>1.basics</title>
-      <link>https://nolleh.github.io/zeromq/1.basics/</link>
+      <link>http://localhost:1313/zeromq/1.basics/</link>
       <pubDate>Wed, 22 May 2024 21:37:29 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/zeromq/1.basics/</guid>
+      <guid>http://localhost:1313/zeromq/1.basics/</guid>
       <description>다음 번역 zguide
 Chapter 1 - Basics Fixing The World 프로그래밍의 물리요, 과학은: 사람들이 쉽게 이해하고 사용할 수 있는 빌딩블록을 만들고 함께 큰 문제를 해결하는 데에 있다.
 우리는 연결되어 있는 세상에 살고 있고 현대의 소프트웨어는 세상을 안내한다.
@@ -20,25 +20,21 @@ Chapter 1 - Basics Fixing The World 프로그래밍의 물리요, 과학은: 사
 현실은 많은 흥미로운 문제들(건강/교육/경제/..)이 코드를 &amp;lsquo;연결&amp;rsquo; 할 방법이 없기 때문에 많은 지식(brain) 을 연결하지 못해 해결되지 못한 채로 남아있다.
 IETF 표준들과같은 많은 노력으로 코드를 연결하기 위한 시도들이 행해졌다.</description>
     </item>
-    
     <item>
       <title>Active Passive Messaging Clusters</title>
-      <link>https://nolleh.github.io/qpid/1.12.active-passive-messaging-clusters/</link>
+      <link>http://localhost:1313/qpid/1.12.active-passive-messaging-clusters/</link>
       <pubDate>Thu, 06 Feb 2020 14:47:47 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/qpid/1.12.active-passive-messaging-clusters/</guid>
+      <guid>http://localhost:1313/qpid/1.12.active-passive-messaging-clusters/</guid>
       <description>1.12. Active-Passive Messaging Clusters 1.12.1 Overview HA 모듈은 active-passive, hot-standby 메시징 클러스터들을 장애에 tolerent 하도록 제공한다.
 active-passive 클러스터는 하나의 브로커만 존재하며, 이를 프라이머리라고 부르며, 액티브 하고 클라이언트를 serving 한다. 다른 브로커들은 백업을 위해 존재한다. 프라이머리의 변경은 모든 백업들에 반영되므로, 백업들은 최신상태이거나 &amp;lsquo;hot&amp;rsquo; 상태이다. 백업 브로커들은 클라이언트의 연결을 거부하며, 클라이언트들은 프라이머리에 연결해야한다.
 만약 프라이머리가 실패하는 경우, 백업중의 하나가 새로운 프라이머리가 되기위해 자리를 차지한다. 클라이언트는 새로운 프라이머리에 자동으로 연결한다.
 만약 복수개의 백업이 있다면, 다른 백업들은 새로운 프라이머리의 백업이 되도록 장애처리를 진행한다.</description>
     </item>
-    
     <item>
       <title>Broker Federation</title>
-      <link>https://nolleh.github.io/qpid/1.4.broker-federation/</link>
+      <link>http://localhost:1313/qpid/1.4.broker-federation/</link>
       <pubDate>Thu, 06 Feb 2020 13:23:27 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/qpid/1.4.broker-federation/</guid>
+      <guid>http://localhost:1313/qpid/1.4.broker-federation/</guid>
       <description>1.4 Broker Federation 메시지 라우트를 정의하여 하나의 브로커에서 다른 브로커로 자동으로 전달하게 한다.
 일반적으로 일방향이며, 라우트는 durable 하고 tansient 한다.
 연결이 소실되면 메시지는 누적되다가 재연결이 되면 다시 전송한다.
@@ -48,17 +44,14 @@ pull 은 dest 에서.
 push 는 src 에서 설정함
 queue &amp;lt;-&amp;gt; exchage exchange &amp;lt;-&amp;gt; exchange excg &amp;lt;-&amp;gt; excg 는 다음과 같은 라우트를 가질 수 있다.</description>
     </item>
-    
     <item>
       <title>Clustering Guide</title>
-      <link>https://nolleh.github.io/rabbitmq/clustering-guide/</link>
+      <link>http://localhost:1313/rabbitmq/clustering-guide/</link>
       <pubDate>Wed, 05 Feb 2020 18:44:37 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/rabbitmq/clustering-guide/</guid>
+      <guid>http://localhost:1313/rabbitmq/clustering-guide/</guid>
       <description>한개 이상의 노드들의 논리적인 그룹을 의미하며, 각각은 유저와, 가상 호스트, 큐, exchanges, bindings 을 공유한다.
 Cluster Formation 다음 방법들로 구성 가능
 Declaratively by listing cluster nodes in config file Declaratively using DNS-based discovery Declaratively using AWS (EC2) instance discovery (via a plugin) Declaratively using Kubernetes discovery (via a plugin) Declaratively using Consul-based discovery (via a plugin) Declaratively using etcd-based discovery (via a plugin) Manually with rabbitmqctl 구성은 동적으로 변경 될수 있고, 모든 RabbitMQ 브로커는 하나의 노드로부터 시작해서 클러스터에 참여시키거나, 다시 개별의 브로커로 돌아갈 수 있다.</description>
     </item>
-    
   </channel>
 </rss>

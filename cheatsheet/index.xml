@@ -2,38 +2,33 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Cheatsheets on The Computer Programmer, Nolleh</title>
-    <link>https://nolleh.github.io/cheatsheet/</link>
+    <link>http://localhost:1313/cheatsheet/</link>
     <description>Recent content in Cheatsheets on The Computer Programmer, Nolleh</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.127.0</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Sun, 01 Jan 2023 10:44:05 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/cheatsheet/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 Jan 2023 10:44:05 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/cheatsheet/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Shell</title>
-      <link>https://nolleh.github.io/cheatsheet/shell/</link>
+      <link>http://localhost:1313/cheatsheet/shell/</link>
       <pubDate>Sun, 01 Jan 2023 10:44:05 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/cheatsheet/shell/</guid>
+      <guid>http://localhost:1313/cheatsheet/shell/</guid>
       <description>Cheatsheet - Shell 쉘 커맨드들을 자주 까먹곤 해서 자주쓰는것 위주로 생각날때마다 하나씩 등록 예정.
 Primitives if statement if [ 10 -gt 20 ]; then echo &amp;#39;gt&amp;#39;; else echo &amp;#39;lt&amp;#39;; fi; operator desc ! not true -n 문자열의 길이가 0보다 크다 -z 문자열의 길이가 0이다 = 문자열이 같다 -eq 정수가 같다 -gt 정수가 크다 -lt 정수가 작다 -d dir dir 디렉토리가 있다 -e file file 이 있다 for statement for file in *.</description>
     </item>
-    
     <item>
       <title>Network</title>
-      <link>https://nolleh.github.io/cheatsheet/network/</link>
+      <link>http://localhost:1313/cheatsheet/network/</link>
       <pubDate>Thu, 06 Feb 2020 11:56:11 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/cheatsheet/network/</guid>
+      <guid>http://localhost:1313/cheatsheet/network/</guid>
       <description>time_wait 종료 시간 확인 : ndd -get /dev/tcp tcp_time_wait_interval time_wait 종료 시간 30초로 설정 : ndd -set /dev/tcp tcp_time_wait_interval 30000 fin_wait_2 타임 아웃 시간 확인 : ndd -get /dev/tcp tcp_fin_wait_2_timeout fin_wait_2 타임 아웃 시간 5분으로 설정 : ndd -set /dev/tcp tcp_fin_wait_2_timeout 300000 출처: https://hyeonstorage.tistory.com/287 [개발이 하고 싶어요]</description>
     </item>
-    
     <item>
       <title>Docker</title>
-      <link>https://nolleh.github.io/cheatsheet/docker/</link>
+      <link>http://localhost:1313/cheatsheet/docker/</link>
       <pubDate>Thu, 06 Feb 2020 10:53:37 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/cheatsheet/docker/</guid>
+      <guid>http://localhost:1313/cheatsheet/docker/</guid>
       <description>Docker Cheat Sheet 1. docker conntainer 내부 소켓 상태 확인 $ docker inspect -f &amp;#39;{{.State.Pid}}&amp;#39; cb2939r52s22 5645 [ec2-user@ip-10-100-77-76 ~]$ sudo nsenter -t 5645 -n netstat Active Internet connections (w/o servers) Proto Recv-Q Send-Q Local Address Foreign Address State tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-77-225.ec2.:45104 ESTABLISHED tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-77-225.ec2.:14804 TIME_WAIT tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-76-6:seclayer-tls TIME_WAIT tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-76-65.ec:plethora TIME_WAIT tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-77-225.ec2.:14830 TIME_WAIT tcp 0 0 ip-172-17-0-2.</description>
     </item>
-    
   </channel>
 </rss>

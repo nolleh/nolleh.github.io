@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Ubuntus on The Computer Programmer, Nolleh</title>
-    <link>https://nolleh.github.io/ubuntu/</link>
+    <link>http://localhost:1313/ubuntu/</link>
     <description>Recent content in Ubuntus on The Computer Programmer, Nolleh</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.127.0</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Sun, 25 Feb 2024 16:59:57 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 25 Feb 2024 16:59:57 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/ubuntu/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>struggles to view OTT on UBUNTU X raspberry Pi 5 - A.K.A using Widevinecdm</title>
-      <link>https://nolleh.github.io/ubuntu/widevinecdm/</link>
+      <link>http://localhost:1313/ubuntu/widevinecdm/</link>
       <pubDate>Sun, 25 Feb 2024 16:59:57 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/ubuntu/widevinecdm/</guid>
+      <guid>http://localhost:1313/ubuntu/widevinecdm/</guid>
       <description>라즈베리파이5 * Ubuntu 에서DRM 스트리밍서비스 (OTT) 를 이용하려고 여러 글들을 살펴봄.
 https://github.com/brave/brave-browser/issues/28903
 https://support.brave.com/hc/en-us/articles/23881756488717-How-do-I-enable-Widevine-DRM-on-Linux
@@ -24,13 +24,11 @@ vivaldi 브라우저에서 컴포턴트가 드디어 노출되는건 확인했�
 그냥 라즈베리파이에서는 공식 제공하는 라즈비안OS 를 사용하는 게 그냥 마음 편할듯.
 다만 난 우분투를 계속 가지고 놀 작정이라 일단 OTT 는 그냥 포기해야하겠다.</description>
     </item>
-    
     <item>
       <title>Optimize Speed</title>
-      <link>https://nolleh.github.io/ubuntu/optimize-speed/</link>
+      <link>http://localhost:1313/ubuntu/optimize-speed/</link>
       <pubDate>Sat, 09 Sep 2023 15:36:52 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/ubuntu/optimize-speed/</guid>
+      <guid>http://localhost:1313/ubuntu/optimize-speed/</guid>
       <description>라즈베리파이에서 우분투를 설치해서 사용하고 있는데, 인터넷 속도가 어마하게 느린 이슈가 있다.
 거기서 개선을 위해 시도해본 것들에 대해 기록할 예정.
 ##1. iwconfig
@@ -40,13 +38,11 @@ sudo iwconfig wlan0 power off ##2. zram
 그리고나서, zswap 대신 zram 을 사용하도록 변경.
 sudo apt install -y linux-modules-extra-raspi sudo apt install -y zram-tools sudo apt autoremove --purge -y zram-config sudo nvim /etc/default/zramswap 에디터는 어떤걸 사용해도 상관없지만, nvim 사용하고 있어서 그걸로 세팅.</description>
     </item>
-    
     <item>
       <title>Neovim</title>
-      <link>https://nolleh.github.io/ubuntu/neovim/</link>
+      <link>http://localhost:1313/ubuntu/neovim/</link>
       <pubDate>Sat, 09 Sep 2023 15:33:49 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/ubuntu/neovim/</guid>
+      <guid>http://localhost:1313/ubuntu/neovim/</guid>
       <description>apt-get install neovim 과 같은 방법으로는 최신 버전을 설치 할 수 없다.
 최신버전을 설치하려면, 다음 과정을 거쳐야한다.
 cf.https://github.com/neovim/neovim/wiki/Installing-Neovim
@@ -54,6 +50,5 @@ sudo apt-get install software-properties-common
 이 명령어를 선행해줘야할 수도 있다. sudo apt-get remove neovim -y sudo add-apt-repository ppa:neovim-ppa/stable sudo apt-get update -y sudo apt-get install neovim -y https://launchpad.net/~neovim-ppa/+archive/ubuntu/unstable
 ppa archive 를 살펴보고 원하는 아키텍쳐 / 버전이 없는경우 unstable 버전에서 찾아서 다시 반복해볼 필요가 있다. 다행히 unstable 버전은 ubuntu 23.04 를 지원하는게 있어서 받아서 씀&amp;hellip;</description>
     </item>
-    
   </channel>
 </rss>

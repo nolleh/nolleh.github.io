@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>Overview | The Computer Programmer, Nolleh</title>
 <meta name="keywords" content="FE">
 <meta name="description" content="서론 react, vue, angluar 가 장악하던 FE 진영에서 떠오르고 있는 프레임워크. 주요 철학은 svelte 의 메인 화면에서 보여주고 있는것처럼 &lsquo;보다 짧은 코드&rsquo;, &lsquo;No Virtual DOM&rsquo;, &lsquo;Truely reactive&rsquo; 인 듯하다. 지만 나는 어디까지나 BE 개발자이기 때문에 아직 어떤 의미인지 자세하게는 모르겠고(&hellip;)
 스벨트 컬럼을 새로 생성하며 블로그에 정리를 결심한 것은 어디까지나 호기심이 충만한 나의 심심풀이 변덕이다. (더 정확히는, 팀 내 주니어 개발자와의 원활한 의사 소통을 위해..) 심심할 때 더 자세히 살펴보고 정리할 것.">
 <meta name="author" content="nolleh">
-<link rel="canonical" href="https://nolleh.github.io/svelte/overview/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.d7fb4cbf980fe688a21621b06a795933c4e6bb2d4070ec940667af1715d84af2.css" integrity="sha256-1/tMv5gP5oiiFiGwanlZM8Tmuy1AcOyUBmevFxXYSvI=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://nolleh.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://nolleh.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
+<link rel="canonical" href="http://localhost:1313/svelte/overview/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://nolleh.github.io/svelte/overview/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/svelte/overview/">
 <noscript>
     <style>
         #theme-toggle,
@@ -39,7 +37,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -59,79 +57,6 @@
 
     </style>
 </noscript>
-  
-    
-      
-    
-  
-
-<meta property="og:title" content="Overview" />
-<meta property="og:description" content="서론 react, vue, angluar 가 장악하던 FE 진영에서 떠오르고 있는 프레임워크. 주요 철학은 svelte 의 메인 화면에서 보여주고 있는것처럼 &lsquo;보다 짧은 코드&rsquo;, &lsquo;No Virtual DOM&rsquo;, &lsquo;Truely reactive&rsquo; 인 듯하다. 지만 나는 어디까지나 BE 개발자이기 때문에 아직 어떤 의미인지 자세하게는 모르겠고(&hellip;)
-스벨트 컬럼을 새로 생성하며 블로그에 정리를 결심한 것은 어디까지나 호기심이 충만한 나의 심심풀이 변덕이다. (더 정확히는, 팀 내 주니어 개발자와의 원활한 의사 소통을 위해..) 심심할 때 더 자세히 살펴보고 정리할 것." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://nolleh.github.io/svelte/overview/" /><meta property="article:section" content="svelte" />
-<meta property="article:published_time" content="2022-10-11T23:34:14&#43;09:00" />
-<meta property="article:modified_time" content="2022-10-11T23:34:14&#43;09:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Overview"/>
-<meta name="twitter:description" content="서론 react, vue, angluar 가 장악하던 FE 진영에서 떠오르고 있는 프레임워크. 주요 철학은 svelte 의 메인 화면에서 보여주고 있는것처럼 &lsquo;보다 짧은 코드&rsquo;, &lsquo;No Virtual DOM&rsquo;, &lsquo;Truely reactive&rsquo; 인 듯하다. 지만 나는 어디까지나 BE 개발자이기 때문에 아직 어떤 의미인지 자세하게는 모르겠고(&hellip;)
-스벨트 컬럼을 새로 생성하며 블로그에 정리를 결심한 것은 어디까지나 호기심이 충만한 나의 심심풀이 변덕이다. (더 정확히는, 팀 내 주니어 개발자와의 원활한 의사 소통을 위해..) 심심할 때 더 자세히 살펴보고 정리할 것."/>
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Sveltes",
-      "item": "https://nolleh.github.io/svelte/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "Overview",
-      "item": "https://nolleh.github.io/svelte/overview/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Overview",
-  "name": "Overview",
-  "description": "서론 react, vue, angluar 가 장악하던 FE 진영에서 떠오르고 있는 프레임워크. 주요 철학은 svelte 의 메인 화면에서 보여주고 있는것처럼 \u0026lsquo;보다 짧은 코드\u0026rsquo;, \u0026lsquo;No Virtual DOM\u0026rsquo;, \u0026lsquo;Truely reactive\u0026rsquo; 인 듯하다. 지만 나는 어디까지나 BE 개발자이기 때문에 아직 어떤 의미인지 자세하게는 모르겠고(\u0026hellip;)\n스벨트 컬럼을 새로 생성하며 블로그에 정리를 결심한 것은 어디까지나 호기심이 충만한 나의 심심풀이 변덕이다. (더 정확히는, 팀 내 주니어 개발자와의 원활한 의사 소통을 위해..) 심심할 때 더 자세히 살펴보고 정리할 것.",
-  "keywords": [
-    "FE"
-  ],
-  "articleBody": "서론 react, vue, angluar 가 장악하던 FE 진영에서 떠오르고 있는 프레임워크. 주요 철학은 svelte 의 메인 화면에서 보여주고 있는것처럼 ‘보다 짧은 코드’, ‘No Virtual DOM’, ‘Truely reactive’ 인 듯하다. 지만 나는 어디까지나 BE 개발자이기 때문에 아직 어떤 의미인지 자세하게는 모르겠고(…)\n스벨트 컬럼을 새로 생성하며 블로그에 정리를 결심한 것은 어디까지나 호기심이 충만한 나의 심심풀이 변덕이다. (더 정확히는, 팀 내 주니어 개발자와의 원활한 의사 소통을 위해..) 심심할 때 더 자세히 살펴보고 정리할 것. 본문에서는, 단순히 스벨트 프로젝트를 만들고 실행해보는 정도로 정리하겠다.\n시작하기 사용하는 패키지 매니져의 create 명령어(starter kit 을 통해 정의된 프로젝트 생성)\n➜ workspace_github pnpm create vite@latest svelte-test -- -- template svelte Packages: +1 + Packages are hard linked from the content-addressable store to the virtual store. Content-addressable store is at: /Users/nolleh/.pnpm-store/v3 Virtual store is at: node_modules/.pnpm /private/var/folders/97/vks5483s2yn95dxdpdspjsgw0000gq/T/dlx-31846/5: + create-vite 3.1.0 Progress: resolved 1, reused 0, downloaded 1, added 1, done ╭──────────────────────────────────────────────────────────────────╮ │ │ │ Update available! 6.32.3 → 7.13.4. │ │ Changelog: https://github.com/pnpm/pnpm/releases/tag/v7.13.4 │ │ Run pnpm add -g pnpm to update. │ │ │ │ Follow @pnpmjs for updates: https://twitter.com/pnpmjs │ │ │ ╰──────────────────────────────────────────────────────────────────╯ ✔ Select a framework: › Svelte ✔ Select a variant: › TypeScript Scaffolding project in /Users/nolleh/Documents/workspace_github/svelte-test... Done. Now run: cd svelte-test pnpm install pnpm run dev 위 명령은 다음과 같은 폴더들을 생성한다.\n➜ svelte-test l total 128 drwxr-xr-x 15 nolleh staff 480B Oct 11 23:30 . drwxr-xr-x 22 nolleh staff 704B Oct 11 23:29 .. -rw-r--r-- 1 nolleh staff 253B Oct 11 23:29 .gitignore drwxr-xr-x 3 nolleh staff 96B Oct 11 23:29 .vscode -rw-r--r-- 1 nolleh staff 3.1K Oct 11 23:29 README.md -rw-r--r-- 1 nolleh staff 365B Oct 11 23:29 index.html drwxr-xr-x 15 nolleh staff 480B Oct 11 23:30 node_modules -rw-r--r-- 1 nolleh staff 511B Oct 11 23:29 package.json -rw-r--r-- 1 nolleh staff 28K Oct 11 23:29 pnpm-lock.yaml drwxr-xr-x 3 nolleh staff 96B Oct 11 23:29 public drwxr-xr-x 8 nolleh staff 256B Oct 11 23:29 src -rw-r--r-- 1 nolleh staff 207B Oct 11 23:29 svelte.config.js -rw-r--r-- 1 nolleh staff 658B Oct 11 23:29 tsconfig.json -rw-r--r-- 1 nolleh staff 142B Oct 11 23:29 tsconfig.node.json -rw-r--r-- 1 nolleh staff 176B Oct 11 23:29 vite.config.ts ➜ svelte-test 으음 .vscode 폴더도 생성하네, 친절하다. (난 vscode 로 실행할 생각이 없지만) 제일 중요할 package.json 의 내용은 다음과 같음.\n{ \"name\": \"svelte-test\", \"private\": true, \"version\": \"0.0.0\", \"type\": \"module\", \"scripts\": { \"dev\": \"vite\", \"build\": \"vite build\", \"preview\": \"vite preview\", \"check\": \"svelte-check --tsconfig ./tsconfig.json\" }, \"devDependencies\": { \"@sveltejs/vite-plugin-svelte\": \"^1.0.2\", \"@tsconfig/svelte\": \"^3.0.0\", \"svelte\": \"^3.49.0\", \"svelte-check\": \"^2.8.1\", \"svelte-preprocess\": \"^4.10.7\", \"tslib\": \"^2.4.0\", \"typescript\": \"^4.6.4\", \"vite\": \"^3.1.0\" } } vite 라는 패키지를 이용해서 빌드하고 실행하도록 구성되어 있고, check 를 통해 lint 체크등이 일어나는 모양. svelte package 등도 프로젝트 별로 버전을 관리하는 형태로 구성되었다. 모든 dependency 는 devDependency 에 정의되어있으므로, 모든 패키지는 런타임엔 하는 역할이 없다고 봐도 무방.\n생성된 app.svelte 는 대충 이런모양\n\u003cscript lang=\"ts\"\u003e import svelteLogo from './assets/svelte.svg' import Counter from './lib/Counter.svelte' \u003c/script\u003e \u003cmain\u003e \u003cdiv\u003e \u003ca href=\"https://vitejs.dev\" target=\"_blank\"\u003e \u003cimg src=\"/vite.svg\" class=\"logo\" alt=\"Vite Logo\" /\u003e \u003c/a\u003e \u003cmain\u003e \u003cstyle\u003e .logo { height: 6em; padding: 1.5em; will-change: filter; } .logo:hover { filter: drop-shadow(0 0 2em #646cffaa); } .logo.svelte:hover { filter: drop-shadow(0 0 2em #ff3e00aa); } .read-the-docs { color: #888; } \u003c/style\u003e 즉 다음과 같은 골격을 가지고 있다.\n",
-  "wordCount" : "776",
-  "inLanguage": "en",
-  "datePublished": "2022-10-11T23:34:14+09:00",
-  "dateModified": "2022-10-11T23:34:14+09:00",
-  "author":{
-    "@type": "Person",
-    "name": "nolleh"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://nolleh.github.io/svelte/overview/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "The Computer Programmer, Nolleh",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://nolleh.github.io/favicon.ico"
-    }
-  }
-}
-</script>
 </head>
 
 <body class="" id="top">
@@ -149,15 +74,15 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
+            <a href="http://localhost:1313/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -171,28 +96,26 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://nolleh.github.io/archives/" title="Archive">
+                <a href="http://localhost:1313/archives/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="https://nolleh.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://nolleh.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://nolleh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -203,11 +126,11 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://nolleh.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://nolleh.github.io/svelte/">Sveltes</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/svelte/">Sveltes</a></div>
+    <h1 class="post-title entry-hint-parent">
       Overview
     </h1>
-    <div class="post-meta">&lt;span title=&#39;2022-10-11 23:34:14 &#43;0900 KST&#39;&gt;October 11, 2022&lt;/span&gt;&amp;nbsp;·&amp;nbsp;nolleh
+    <div class="post-meta"><span title='2022-10-11 23:34:14 +0900 KST'>October 11, 2022</span>&nbsp;·&nbsp;nolleh
 
 </div>
   </header> <div class="toc">
@@ -412,9 +335,10 @@ vite 라는 녀석이 serving 을 해주는 것 같은데, 뭐하는 놈인지 �
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://nolleh.github.io/tags/fe/">FE</a></li>
+      <li><a href="http://localhost:1313/tags/fe/">FE</a></li>
     </ul>
-  </footer><div id="disqus_thread"></div>
+  </footer>
+<div id="disqus_thread"></div>
 <script>
     window.disqus_config = function () {
     
@@ -438,7 +362,8 @@ vite 라는 녀석이 serving 을 해주는 것 같은데, 뭐하는 놈인지 �
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">The Computer Programmer, Nolleh</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

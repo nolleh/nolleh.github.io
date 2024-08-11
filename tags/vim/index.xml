@@ -2,20 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Vim on The Computer Programmer, Nolleh</title>
-    <link>https://nolleh.github.io/tags/vim/</link>
+    <link>http://localhost:1313/tags/vim/</link>
     <description>Recent content in Vim on The Computer Programmer, Nolleh</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.127.0</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Sat, 14 Jan 2023 14:00:53 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 14 Jan 2023 14:00:53 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/vim/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Writing Plugin</title>
-      <link>https://nolleh.github.io/vim/writing-plugin/</link>
+      <link>http://localhost:1313/vim/writing-plugin/</link>
       <pubDate>Sat, 14 Jan 2023 14:00:53 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/vim/writing-plugin/</guid>
+      <guid>http://localhost:1313/vim/writing-plugin/</guid>
       <description>Writing Plugin 제목은 거창하게 썼지만, 플러그인이나 rc 파일 작성에 필요한 지식들을 메모해 둘 예정.
 Preview Window :botright pedit { file } :botright pedit Preview Window 에서 라인 출력 function! showInPreview(name, fileType, lines) let l:command = &amp;#34;silent! pedit! +setlocal\\ &amp;#34; . \ &amp;#34;buftype=nofile\\ nobuflisted\\ &amp;#34; . \ &amp;#34;noswapfile\\ nonumber\\ &amp;#34; . \ &amp;#34;filetype=&amp;#34; . a:fileType . &amp;#34; &amp;#34; . a:name exe l:command if has(&amp;#39;nvim&amp;#39;) let l:bufNr = bufnr(a:name) call nvim_buf_set_lines(l:bufNr, 0, -1, 0, a:lines) else call setbufline(a:name, 1, a:lines) endif endfunction stackExchange</description>
     </item>
-    
   </channel>
 </rss>

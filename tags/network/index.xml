@@ -2,19 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Network on The Computer Programmer, Nolleh</title>
-    <link>https://nolleh.github.io/tags/network/</link>
+    <link>http://localhost:1313/tags/network/</link>
     <description>Recent content in Network on The Computer Programmer, Nolleh</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.127.0</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Thu, 06 Feb 2020 11:56:11 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/network/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 06 Feb 2020 11:56:11 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/network/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Network</title>
-      <link>https://nolleh.github.io/cheatsheet/network/</link>
+      <link>http://localhost:1313/cheatsheet/network/</link>
       <pubDate>Thu, 06 Feb 2020 11:56:11 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/cheatsheet/network/</guid>
+      <guid>http://localhost:1313/cheatsheet/network/</guid>
       <description>time_wait 종료 시간 확인 : ndd -get /dev/tcp tcp_time_wait_interval time_wait 종료 시간 30초로 설정 : ndd -set /dev/tcp tcp_time_wait_interval 30000 fin_wait_2 타임 아웃 시간 확인 : ndd -get /dev/tcp tcp_fin_wait_2_timeout fin_wait_2 타임 아웃 시간 5분으로 설정 : ndd -set /dev/tcp tcp_fin_wait_2_timeout 300000 출처: https://hyeonstorage.tistory.com/287 [개발이 하고 싶어요]</description>
     </item>
-    
   </channel>
 </rss>

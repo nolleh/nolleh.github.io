@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Web Server on The Computer Programmer, Nolleh</title>
-    <link>https://nolleh.github.io/tags/web-server/</link>
+    <link>http://localhost:1313/tags/web-server/</link>
     <description>Recent content in Web Server on The Computer Programmer, Nolleh</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.127.0</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Tue, 24 Apr 2018 21:43:04 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/web-server/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 24 Apr 2018 21:43:04 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/web-server/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Nancy Introduction</title>
-      <link>https://nolleh.github.io/nancy/introduction/</link>
+      <link>http://localhost:1313/nancy/introduction/</link>
       <pubDate>Tue, 24 Apr 2018 21:43:04 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/nancy/introduction/</guid>
+      <guid>http://localhost:1313/nancy/introduction/</guid>
       <description>Nancy 에 대한 문서 번역 #1. By Nolleh
 Introduction 가장 먼저, Nancy 의 세계에 온것을 환영합니다!
 루비의 sinatra 프레임워크에 영감을 받아 Nancy 라는 이름을 붙이게 되었습니다. (Frank Sinatra 의 딸이름이 Nancy 니까요!)
@@ -20,16 +20,13 @@ NancyFx 의 Fx 에 대해 많은 사람들이 궁금해하여 여기에 붙입�
 NancyFx 는 모든 컴포넌트들을 포함하는 umbrella project 입니다. (#역자주: 우산효과의 우산처럼, 포괄적인 프로젝트라는 의미로 쓴게 아닐까? )
 이 가이드는 앞으로 개괄적이고 빠르게 Nancy 의 특징들을 살펴 독자 스스로 Nancy 의 세계를 탐험해 볼 수 있는 시야를 제공할겁니다.</description>
     </item>
-    
     <item>
       <title>스프링 기본 용어/정리</title>
-      <link>https://nolleh.github.io/web/fund-spring/</link>
+      <link>http://localhost:1313/web/fund-spring/</link>
       <pubDate>Wed, 26 Jul 2017 23:11:14 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/web/fund-spring/</guid>
+      <guid>http://localhost:1313/web/fund-spring/</guid>
       <description>어쩌다보니 그동안 손댈 일이 없던 웹서버에 좀 손을 대게 되서 (게임서버, 클라이언트, 그리고 웹서버..정녕 풀스택 개발자가 되는것인가..ㅋ), 예전 선배님이 버리고 간(?) 스프링 책을 꺼내서 읽어 보며 정리한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.
 Spring Bean 객체 스프링에서 생성하여 관리하여 주는 스프링 빈 객체 혹은 빈 객체라고 부른다. res/applicationContext.xml 에 태그로 선언할 수도 있다. 이렇게 선언한경우, 리플렉션을 활용하여 bean id 클래스의 인스턴스를 지정한 세부 태그의 속성으로 메서드를 호출하여 객체를 초기화한다.</description>
     </item>
-    
   </channel>
 </rss>

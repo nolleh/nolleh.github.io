@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>MacOS on The Computer Programmer, Nolleh</title>
-    <link>https://nolleh.github.io/tags/macos/</link>
+    <link>http://localhost:1313/tags/macos/</link>
     <description>Recent content in MacOS on The Computer Programmer, Nolleh</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.127.0</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Wed, 24 Aug 2022 00:49:49 +0900</lastBuildDate><atom:link href="https://nolleh.github.io/tags/macos/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 Aug 2022 00:49:49 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/macos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mac 터미널에서 복수의 유저 사용하기</title>
-      <link>https://nolleh.github.io/env/mac-terminal-multiple-user/</link>
+      <link>http://localhost:1313/env/mac-terminal-multiple-user/</link>
       <pubDate>Wed, 24 Aug 2022 00:49:49 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/env/mac-terminal-multiple-user/</guid>
+      <guid>http://localhost:1313/env/mac-terminal-multiple-user/</guid>
       <description>복수의 유저 사용하기 맥터미널에서 복수의 유저를 사용하려면 몇가지 신경써야할 부분들이 생긴다.
 home directory 가 분리 되어 있기 때문에 어떤 유저를 위해 설치한 데이터들은
 다른 유저에서는 사용못할수도 있고 (그러는게 맞고, 그럴려고 격리한거니)
@@ -21,15 +21,12 @@ home directory 가 분리 되어 있기 때문에 어떤 유저를 위해 설치
 대표적인 예로 brew 에서 이런 문제가 발생하는데,,
 어떤 계정으로 설치한 패키지가 다른 계정에서 권한문제로 접근이 안되게 되면서 엉망이 된다.. (-_&amp;ndash;) dependency 가 있는 다른 패키지 들과도 맞물리게 되면서 내가 설치한 패키지가 아닌 패키지에 대해 데이터를 바꾸려고 하면서 권한 이슈로 연결 되는식.</description>
     </item>
-    
     <item>
       <title>Brew Install 이 구버전만 설치할 때</title>
-      <link>https://nolleh.github.io/env/brew-update/</link>
+      <link>http://localhost:1313/env/brew-update/</link>
       <pubDate>Tue, 04 Jul 2017 22:31:23 +0900</pubDate>
-      
-      <guid>https://nolleh.github.io/env/brew-update/</guid>
+      <guid>http://localhost:1313/env/brew-update/</guid>
       <description>개발 환경 - Brew</description>
     </item>
-    
   </channel>
 </rss>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>1.basics | The Computer Programmer, Nolleh</title>
 <meta name="keywords" content="MQ, zeromq">
 <meta name="description" content="다음 번역 zguide
@@ -14,18 +14,16 @@ Chapter 1 - Basics Fixing The World 프로그래밍의 물리요, 과학은: 사
 현실은 많은 흥미로운 문제들(건강/교육/경제/..)이 코드를 &lsquo;연결&rsquo; 할 방법이 없기 때문에 많은 지식(brain) 을 연결하지 못해 해결되지 못한 채로 남아있다.
 IETF 표준들과같은 많은 노력으로 코드를 연결하기 위한 시도들이 행해졌다.">
 <meta name="author" content="nolleh">
-<link rel="canonical" href="https://nolleh.github.io/zeromq/1.basics/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.d7fb4cbf980fe688a21621b06a795933c4e6bb2d4070ec940667af1715d84af2.css" integrity="sha256-1/tMv5gP5oiiFiGwanlZM8Tmuy1AcOyUBmevFxXYSvI=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://nolleh.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://nolleh.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
+<link rel="canonical" href="http://localhost:1313/zeromq/1.basics/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://nolleh.github.io/zeromq/1.basics/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/zeromq/1.basics/">
 <noscript>
     <style>
         #theme-toggle,
@@ -43,7 +41,7 @@ IETF 표준들과같은 많은 노력으로 코드를 연결하기 위한 시도
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -63,87 +61,6 @@ IETF 표준들과같은 많은 노력으로 코드를 연결하기 위한 시도
 
     </style>
 </noscript>
-  
-    
-      
-    
-  
-
-<meta property="og:title" content="1.basics" />
-<meta property="og:description" content="다음 번역 zguide
-Chapter 1 - Basics Fixing The World 프로그래밍의 물리요, 과학은: 사람들이 쉽게 이해하고 사용할 수 있는 빌딩블록을 만들고 함께 큰 문제를 해결하는 데에 있다.
-우리는 연결되어 있는 세상에 살고 있고 현대의 소프트웨어는 세상을 안내한다.
-하지만 데이터와 지식들은 클라우드와 개인 컴퓨터에 존재하고 인터넷은 &lsquo;연결된&rsquo; 코드의 잠재성을 제안했지만
-현실은 많은 흥미로운 문제들(건강/교육/경제/..)이 코드를 &lsquo;연결&rsquo; 할 방법이 없기 때문에 많은 지식(brain) 을 연결하지 못해 해결되지 못한 채로 남아있다.
-IETF 표준들과같은 많은 노력으로 코드를 연결하기 위한 시도들이 행해졌다." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://nolleh.github.io/zeromq/1.basics/" /><meta property="article:section" content="zeromq" />
-<meta property="article:published_time" content="2024-05-22T21:37:29&#43;09:00" />
-<meta property="article:modified_time" content="2024-05-22T21:37:29&#43;09:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="1.basics"/>
-<meta name="twitter:description" content="다음 번역 zguide
-Chapter 1 - Basics Fixing The World 프로그래밍의 물리요, 과학은: 사람들이 쉽게 이해하고 사용할 수 있는 빌딩블록을 만들고 함께 큰 문제를 해결하는 데에 있다.
-우리는 연결되어 있는 세상에 살고 있고 현대의 소프트웨어는 세상을 안내한다.
-하지만 데이터와 지식들은 클라우드와 개인 컴퓨터에 존재하고 인터넷은 &lsquo;연결된&rsquo; 코드의 잠재성을 제안했지만
-현실은 많은 흥미로운 문제들(건강/교육/경제/..)이 코드를 &lsquo;연결&rsquo; 할 방법이 없기 때문에 많은 지식(brain) 을 연결하지 못해 해결되지 못한 채로 남아있다.
-IETF 표준들과같은 많은 노력으로 코드를 연결하기 위한 시도들이 행해졌다."/>
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Zeromqs",
-      "item": "https://nolleh.github.io/zeromq/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "1.basics",
-      "item": "https://nolleh.github.io/zeromq/1.basics/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "1.basics",
-  "name": "1.basics",
-  "description": "다음 번역 zguide\nChapter 1 - Basics Fixing The World 프로그래밍의 물리요, 과학은: 사람들이 쉽게 이해하고 사용할 수 있는 빌딩블록을 만들고 함께 큰 문제를 해결하는 데에 있다.\n우리는 연결되어 있는 세상에 살고 있고 현대의 소프트웨어는 세상을 안내한다.\n하지만 데이터와 지식들은 클라우드와 개인 컴퓨터에 존재하고 인터넷은 \u0026lsquo;연결된\u0026rsquo; 코드의 잠재성을 제안했지만\n현실은 많은 흥미로운 문제들(건강/교육/경제/..)이 코드를 \u0026lsquo;연결\u0026rsquo; 할 방법이 없기 때문에 많은 지식(brain) 을 연결하지 못해 해결되지 못한 채로 남아있다.\nIETF 표준들과같은 많은 노력으로 코드를 연결하기 위한 시도들이 행해졌다.",
-  "keywords": [
-    "MQ", "zeromq"
-  ],
-  "articleBody": "다음 번역 zguide\nChapter 1 - Basics Fixing The World 프로그래밍의 물리요, 과학은: 사람들이 쉽게 이해하고 사용할 수 있는 빌딩블록을 만들고 함께 큰 문제를 해결하는 데에 있다.\n우리는 연결되어 있는 세상에 살고 있고 현대의 소프트웨어는 세상을 안내한다.\n하지만 데이터와 지식들은 클라우드와 개인 컴퓨터에 존재하고 인터넷은 ‘연결된’ 코드의 잠재성을 제안했지만\n현실은 많은 흥미로운 문제들(건강/교육/경제/..)이 코드를 ‘연결’ 할 방법이 없기 때문에 많은 지식(brain) 을 연결하지 못해 해결되지 못한 채로 남아있다.\nIETF 표준들과같은 많은 노력으로 코드를 연결하기 위한 시도들이 행해졌다. 어플리케이션 개발자들은 HTTP 를 하나의 솔루션으로 사용하여 ‘간단한’ 문제에는 활용할 수 있겠지만\n이것은 개발자들과 아키텍트들이 큰서버를 생각하고 멍청한 클라이언트들을 구성하도록 격려하면서 문제를 더 악화했다.\n그래서, 현재의 사람들은 여전히 raw UDP 와 raw TCP를 사용한다. 이는 고통스럽고, 느리고, 확장하기 어려우며 중앙화가 필수적이다. 분산P2P 아키텍쳐는 업무를 위해서가 아니라 대부분 play 를 위해 사용된다. 스카이프나 비트토렌트를 데이터를 교환하기 위해 사용하는 어플리케이션이 몇이나 되겠는가?\n이는 다시 프로그래밍의 과학을 다시우리에게 들이민다. 세상을 고치기 위해 우리는 두가지가 필요하다.\n아무 코드를 어느 곳에나 있는 아무 코드로 연결할 방법 이를 가능한한 간단한 빌딩 블럭으로 만들어 유저들이 쉽게 이해하고 사용할 수 있어야 할 것 말도 안되게 간단해 보인다. 그리고 어쩌면 그럴 것도 같다. 이게 요점의 전부다.\nStarting Assumptions version: 3.2 zeromq.\nyou can read C code.\nwe write constants like PUSH or SUBSCRIBE, you can imagine they are really called ZMQ_PUSH or ZMQ_SUBSCRIBE if the programming language needs it.\nAsk and Ye Shall Receive 먼저 코드로 시작해보자. 물론 Hello World 예제부터. 클라이언트와 서버를 만든다. 클라이언트는 “Hello” 를 서버에 전송, “World” 라고 응답 받을 것이다.\n// // Hello World server in C++ // Binds REP socket to tcp://*:5555 // Expects \"Hello\" from client, replies with \"World\" // #include #include #include #ifndef _WIN32 #include #else #include #define sleep(n)\tSleep(n) #endif int main () { // Prepare our context and socket zmq::context_t context (2); zmq::socket_t socket (context, zmq::socket_type::rep); socket.bind (\"tcp://*:5555\"); while (true) { zmq::message_t request; // Wait for next request from client socket.recv (request, zmq::recv_flags::none); std::cout \u003c\u003c \"Received Hello\" \u003c\u003c std::endl; // Do some 'work' sleep(1); // Send reply back to client zmq::message_t reply (5); memcpy (reply.data (), \"World\", 5); socket.send (reply, zmq::send_flags::none); } return 0; } REQ-REP 소켓쌍은 시작점이다. 클라이언트는 zmq_send() 이후 zmq_recv() 를 하나의 루프에서 실행한다. 이 외의 어떤 다른 시퀀스(한번에 메시지를두번보낸다거나)\n는 응답값이-1 로 반환된다. 유사하게, 서비스는 zmq_recv() 이후 zmq_send() 를 보통 필요한 것처럼 순서대로 발행 한다.\n다른 언어에서도 유사하게 사용된다.\npackage guide; // // Hello World server in Java // Binds REP socket to tcp://*:5555 // Expects \"Hello\" from client, replies with \"World\" // import org.zeromq.SocketType; import org.zeromq.ZMQ; import org.zeromq.ZContext; public class hwserver { public static void main(String[] args) throws Exception { try (ZContext context = new ZContext()) { // Socket to talk to clients ZMQ.Socket socket = context.createSocket(SocketType.REP); socket.bind(\"tcp://*:5555\"); while (!Thread.currentThread().isInterrupted()) { byte[] reply = socket.recv(0); System.out.println( \"Received \" + \": [\" + new String(reply, ZMQ.CHARSET) + \"]\" ); Thread.sleep(1000); // Do some 'work' String response = \"world\"; socket.send(response.getBytes(ZMQ.CHARSET), 0); } } } } 클라이언트 코드는 다음과 같다.\n// Hello World client #include #include #include #include int main (void) { printf (\"Connecting to hello world server...\\n\"); void *context = zmq_ctx_new (); void *requester = zmq_socket (context, ZMQ_REQ); zmq_connect (requester, \"tcp://localhost:5555\"); int request_nbr; for (request_nbr = 0; request_nbr != 10; request_nbr++) { char buffer [10]; printf (\"Sending Hello %d...\\n\", request_nbr); zmq_send (requester, \"Hello\", 5, 0); zmq_recv (requester, buffer, 10, 0); printf (\"Received World %d\\n\", request_nbr); } zmq_close (requester); zmq_ctx_destroy (context); return 0; } 실제라고 보기에는 너무 간단해보이지만, ZeroMQ 소켓은 이미 이전에 배운것처럼 슈퍼파워를 가지고있다.\n수천의 클라이언트를 한번에 붙여도 여전히 행복하게 빠르게 동작할 것이다.\n서버를 kill 하고 나서 다시재시작 해보면, 클라이언트는 정상적으로 회복하지 못할 것이다.\n크래쉬 프로세스에서 다시 회복 하는것, 쉬운 일이 아니다. 신뢰성 있는 요청 응답 플로우를 구현하는 것은\n너무 복잡하기 때문에 여기서 다루지않고 ch4에서 다룬다.\nA Minor Note on Strings C 와 같은 언어에서는 문자열을 전송할 때 null character 가 붙지만 그렇지 않은 언어들도 있음.\n두 언어 사이에서 통신할 때 이때문에 비정상 동작할 수 있음. 그래서 C 기반의 언어에서는 항상 /0 로 종료됨을 단순히 믿을 수 없기때문에 별도의 버퍼를할당하고\n추가 바이트를할당해서 문자열을 복사 해야 한다.\n그래서, 다음과 같은 룰을 정립하자. ZeroMQ 문자열은 길이 지정이 되어 있고 뒤따르는 null 이 없는 것으로 한다.\n하나의 zeroMQ 문자열은 zeroMQ 메시지프레임으로 간결하게 매핑될 수 있으며 아래와 같은 형태가 된다.\nC 에서는, 문자열을 수신 후 다음과 같은 작업을 한다.\n// Receive ZeroMQ string from socket and convert into C string // Chops string at 255 chars, if it's longer static char * s_recv (void *socket) { char buffer [256]; int size = zmq_recv (socket, buffer, 255, 0); if (size == -1) return NULL; if (size \u003e 255) size = 255; buffer [size] = '\\0'; /* use strndup(buffer, sizeof(buffer)-1) in *nix */ return strdup (buffer); } 이 헬퍼 함수는 다음에 재활용하기 편하게 만들며, 헤더 파일에 패키지해서 사용하면 된다.\n그 결과가 zhelpers.h 이며, 더 달달하고 짧은 C zeroMQ 어플리케이션을 만드는데 도움 줄 것이다.\n이 헤더파일은 C 개발자들만을 위한 부분이기 때문에 여유시간에 읽어보시라.\nA Note on the Naming Convention s_ prefix 는 static method, variables을 나타낸다.\nVersions // Report 0MQ version #include int main (void) { s_version(); return EXIT_SUCCESS; } Getting The Message Out 두 번째 흔한 패턴은 일방향 데이터 분배이다.\n// // Weather update server in C++ // Binds PUB socket to tcp://*:5556 // Publishes random weather updates // #include #include #include #include #if (defined (WIN32)) #include #endif #define within(num) (int) ((float) num * random () / (RAND_MAX + 1.0)) int main () { // Prepare our context and publisher zmq::context_t context (1); zmq::socket_t publisher (context, zmq::socket_type::pub); publisher.bind(\"tcp://*:5556\"); publisher.bind(\"ipc://weather.ipc\");\t// Not usable on Windows. // Initialize random number generator srandom ((unsigned) time (NULL)); while (1) { int zipcode, temperature, relhumidity; // Get values that will fool the boss zipcode = within (100000); temperature = within (215) - 80; relhumidity = within (50) + 10; // Send message to all subscribers zmq::message_t message(20); snprintf ((char *) message.data(), 20 , \"%05d %d %d\", zipcode, temperature, relhumidity); publisher.send(message, zmq::send_flags::none); } return 0; } // // Weather update client in C++ // Connects SUB socket to tcp://localhost:5556 // Collects weather updates and finds avg temp in zipcode // #include #include #include int main (int argc, char *argv[]) { zmq::context_t context (1); // Socket to talk to server std::cout \u003c\u003c \"Collecting updates from weather server...\\n\" \u003c\u003c std::endl; zmq::socket_t subscriber (context, zmq::socket_type::sub); subscriber.connect(\"tcp://localhost:5556\"); // Subscribe to zipcode, default is NYC, 10001 const char *filter = (argc \u003e 1)? argv [1]: \"10001 \"; subscriber.set(zmq::sockopt::subscribe, filter); // Process 100 updates int update_nbr; long total_temp = 0; for (update_nbr = 0; update_nbr \u003c 100; update_nbr++) { zmq::message_t update; int zipcode, temperature, relhumidity; subscriber.recv(update, zmq::recv_flags::none); std::istringstream iss(static_cast\u003cchar*\u003e(update.data())); iss \u003e\u003e zipcode \u003e\u003e temperature \u003e\u003e relhumidity ; total_temp += temperature; } std::cout \u003c\u003c \"Average temperature for zipcode '\"\u003c\u003c filter \u003c\u003c\"' was \"\u003c\u003c(int) (total_temp / update_nbr) \u003c\u003c\"F\" \u003c\u003c std::endl; return 0; } SUB 소켓은 zmq_setsockopt() 를 사용하여 구독을 등록 후에 SUBSCRIBE 해야만 한다. 어떤 구독도 등록하지 않는다면 어떤 메시지도 수신할 수 없다.\n구독자는 여러명이 될 수 있으며, 업데이트가 ANY 구독자에게라도 매치가 되면, 그 구독자가 수신하게 된다. 구독자는 또 특정 구독을 취소할 수도 있다.\n하나의 구독은 보통, 하지만 항상 그런것은 아니고, 문자 열로 출력할 수 있다. zmq_setsockopt() 를 참조하시라.\nZeroMQ 소켓의 이론에서, 누가 연결을 끊고 누가 바인드를 끊는지는 관계가 없다. 그러나, 실세계에서 문서화 되지 않은 차이가 있으므로, 이건 나중에 다루겠다. 일단 지금은, PUB 을 바인드 하고 SUB 에서 연결하자. (당신의 네트워크 디자인이 허락하는 한)\nPUB-SUB 소켓에 대해 한가지 더 중요히 생각할게 있다.: 구독자가 언제 구독을 시작할지 모른다는 것이다.구독자를 실행 하였더라도, 일정 시간 기다리고 나서 발행자를 실행하여도, 구독자는 항상 발행자가 보내는 첫번째 메시지를 놓칠 것이다. 이건 구독자가 퍼블리셔에 연결할때, 퍼블리셔는 메시지를 이미 보냈을 수 있기 때문이다.\n이 “늦은 참석” 증상은 충분히 많은 사람들을 고통스럽게 하기 때문에, 자세한 사항을 다룰 예정이다. ZeroMQ 는 백그라운드에서 비동기 I/O 를 수행함을 기억하라.\n다음 순서대로 작업을 처리하는 두 노드가 있다고 하자.\n구독자는 엔드포인트에 연결하여 메시지를 받고 센다. 발행자는 엔드포인트에 바인드하여 그 즉시 1000 메시지를 보낸다. 이러면 구독자는 거의 항상 아무것도 받지 못한다. 당신은 눈을 깜박이며 필터를 체크하고 다시 확인할테지만, 구독자는 여전히 아무것도 받지 못할 것이다.\nTCP 연결을 맺고 핸드쉐이킹을 맺는데 얼마간의 밀리초가 네트워크상태 (피어사이의 홉의 수에 의존해서)에 따라 소요 된다. 이 시간동안, ZeroMQ는 많은 메시지들을 송신할 수 있다. 5msecs 가 연결을 맺는데 소요한다고 가정하고, 그리고 같은 링크가 1M 메시지를 1초에 다룰 수 있다고 하자. 이 5mses 동안, 발행자는 1K message 를 보내기위해 1mesc 만이 필요하다.\nCh2-Sockets and Patterns 에서 이를 어떻게 동기화하고 구독자가 실제로 연결하여 준비 되기 전까지 메시지를 발행하지 않기 위한 방법을 소개한다.\n동기화의 다른 대안은, 데이터 스트림은 무한하고 시작점도, 끝점도 없다고 가정하는 것이다. (위의 날씨 방송 예제가 그 예)\npub-sub 패턴에서 몇가지 포인트:\n구독자 들은 하나이상의 발행자에 한번의 connect 콜만으로 연결할 수 있다. 데이터는 이후 전송되어 인터리브되고, 하나의 발행자가 다른것들을 drown 시키지 않는다. 만약 발행자에게 구독자가 없으면, 모든 메시지를 드랍한다. 만약 TCP 연결을 사용하고 구독자가 느리다면, 발행자에게 메시지가 큐잉된다. 발행자를 이로부터 보호하기 위한 “high-water mark” 기법은 이후 살펴본다. ZeroMQ v3.x 부터, filtering 은 (tcp:@\u003c\u003e@ or ipc:@\u003c\u003e@) 를 사용하는 경우 발행자 측에서 일어난다. epgm:@\u003c//\u003e@ 프로토콜을 사용하는 경우, filtering 은 구독자 사이드에서 일어난다. ZeroMQ v2.x 에서, 모든 filtering 은 구독자 사이드에서 일어난다. 다음은 10M 메시지를 filter 하고 받는 데 얼마나 걸리는지 2011-era Intel i5 labtop 에서 측정한 결과이나, 다른 이후 장비에서도 큰 차이는 없을 것이다.:\n$ time wuclient Collecting updates from weather server... Average temperature for zipcode '10001 ' was 28F real 0m4.470s user 0m0.000s sys 0m0.008s Divide and Conquer 마지막 예제는 다시 철학적인 논의로 돌아와 보자.\n워커로 task 를 전송하여 취합하는 예제.\nventilator 는 병렬로 처리될 수 있는 tasks 를 생성한다. worker 의 집합은 task를 처리한다. sink 는 워커 프로세스로부터 결과를 취합한다. 현실에서는 GPU 를 사용하거나 하는 복잡한 작업을 수행하겠지만, 여기서는 sleep 하는 100 task 를 생성하는 예제이다.\n// // Task ventilator in C++ // Binds PUSH socket to tcp://localhost:5557 // Sends batch of tasks to workers via that socket // #include #include #include #include #include #define within(num) (int) ((float) num * random () / (RAND_MAX + 1.0)) int main (int argc, char *argv[]) { zmq::context_t context (1); // Socket to send messages on zmq::socket_t sender(context, ZMQ_PUSH); sender.bind(\"tcp://*:5557\"); std::cout \u003c\u003c \"Press Enter when the workers are ready: \" \u003c\u003c std::endl; getchar (); std::cout \u003c\u003c \"Sending tasks to workers...\\n\" \u003c\u003c std::endl; // The first message is \"0\" and signals start of batch zmq::socket_t sink(context, ZMQ_PUSH); sink.connect(\"tcp://localhost:5558\"); zmq::message_t message(2); memcpy(message.data(), \"0\", 1); sink.send(message); // Initialize random number generator srandom ((unsigned) time (NULL)); // Send 100 tasks int task_nbr; int total_msec = 0; // Total expected cost in msecs for (task_nbr = 0; task_nbr \u003c 100; task_nbr++) { int workload; // Random workload from 1 to 100msecs workload = within (100) + 1; total_msec += workload; message.rebuild(10); memset(message.data(), '\\0', 10); sprintf ((char *) message.data(), \"%d\", workload); sender.send(message); } std::cout \u003c\u003c \"Total expected cost: \" \u003c\u003c total_msec \u003c\u003c \" msec\" \u003c\u003c std::endl; sleep (1); // Give 0MQ time to deliver return 0; } worker 는 메시지를 받아 sleep 하고, 끝났을때 시그널을 보낸다.\n// // Task worker in C++ // Connects PULL socket to tcp://localhost:5557 // Collects workloads from ventilator via that socket // Connects PUSH socket to tcp://localhost:5558 // Sends results to sink via that socket // #include \"zhelpers.hpp\" #include int main (int argc, char *argv[]) { zmq::context_t context(1); // Socket to receive messages on zmq::socket_t receiver(context, ZMQ_PULL); receiver.connect(\"tcp://localhost:5557\"); // Socket to send messages to zmq::socket_t sender(context, ZMQ_PUSH); sender.connect(\"tcp://localhost:5558\"); // Process tasks forever while (1) { zmq::message_t message; int workload; // Workload in msecs receiver.recv(\u0026message); std::string smessage(static_cast\u003cchar*\u003e(message.data()), message.size()); std::istringstream iss(smessage); iss \u003e\u003e workload; // Do the work s_sleep(workload); // Send results to sink message.rebuild(); sender.send(message); // Simple progress indicator for the viewer std::cout \u003c\u003c \".\" \u003c\u003c std::flush; } return 0; } sink 에서는 100 tasks 를 취합, 전체 프로세스가 얼마나 걸릴지 연산하기 때문에, 워커가 실제로 병렬로 처리되고 있는지 확인 할 수 있다.\n// // Task sink in C++ // Binds PULL socket to tcp://localhost:5558 // Collects results from workers via that socket // #include #include #include #include int main (int argc, char *argv[]) { // Prepare our context and socket zmq::context_t context(1); zmq::socket_t receiver(context,ZMQ_PULL); receiver.bind(\"tcp://*:5558\"); // Wait for start of batch zmq::message_t message; receiver.recv(\u0026message); // Start our clock now struct timeval tstart; gettimeofday (\u0026tstart, NULL); // Process 100 confirmations int task_nbr; int total_msec = 0; // Total calculated cost in msecs for (task_nbr = 0; task_nbr \u003c 100; task_nbr++) { receiver.recv(\u0026message); if (task_nbr % 10 == 0) std::cout \u003c\u003c \":\" \u003c\u003c std::flush; else std::cout \u003c\u003c \".\" \u003c\u003c std::flush; } // Calculate and report duration of batch struct timeval tend, tdiff; gettimeofday (\u0026tend, NULL); if (tend.tv_usec \u003c tstart.tv_usec) { tdiff.tv_sec = tend.tv_sec - tstart.tv_sec - 1; tdiff.tv_usec = 1000000 + tend.tv_usec - tstart.tv_usec; } else { tdiff.tv_sec = tend.tv_sec - tstart.tv_sec; tdiff.tv_usec = tend.tv_usec - tstart.tv_usec; } total_msec = tdiff.tv_sec * 1000 + tdiff.tv_usec / 1000; std::cout \u003c\u003c \"\\nTotal elapsed time: \" \u003c\u003c total_msec \u003c\u003c \" msec\\n\" \u003c\u003c std::endl; return 0; } 하나의 배치는 평균적으로 5초를 소요한다. 1, 2, or 4 개의 워커를 수행했을때, 다음과 같은 결과가 나온다.\n1 worker: total elapsed time: 5034 msecs. 2 workers: total elapsed time: 2421 msecs. 4 workers: total elapsed time: 1018 msecs.\n이 코드에서 짚고 넘어가 볼 디테일들:\n워커는 ventilator 를 upstream 으로 하여 연결하고, downstream 으로 sink 를 연결한다. 이것은 임의의 워커를 추가할 수 있음을 의미한다. 만약 워커가 그들의 엔드포인트에 묶여 있다면, (a) 의 추가 엔드포인트들을 (b) 에 연결할때마다 ventilator 와 siny 양쪽을 수정해야할 필요가 있다. ventilaotr 와 sink 가 우리 아키텍쳐에서 stable 하다고 이야기할 수 있으며 worker 파츠를 dynamic 하다고 이야기 할 수있다.\nbatch 의 시작점을 모든 워커들이 실행되고 구동되기까지로 동기화 해야한다. 이건 ZeroMQ 에서 꽤 흔한 문제(fairly common gotcha) 인데, 쉬운 솔루션은 없다. zmq_connect 메소드는 특정 시간을 소요하게 된다. 따라서 워커 집합이 ventilaotr 에 붙고, 첫번째가 성공적으로 연결하면 모든 메시지의 로드를 짧은 시간내에 다른 애들이 연결하는 중에 받아버릴 수 있다. 만약 배치의 시작점을 동기화 하지 않는다면, 시스템은 전혀 병렬로 처리되지 않을것이다. wait 을 ventilator 에서 제거하고 어떤일이 발생하는지 확인해보시라.\nventilor 의 PUSH 소켓은 task 를 워커들로 고르게 분배한다. (시작하기전에 모두 연결되었다고 가정하자) 이 동작을 로드밸런싱 이라 하며, 다시 자세히 다룰 것이다.\nsink 의 PULL 소켓은 워커들로부터 고르게 수집한다. 이를 fair-queuing 이라 한다.\n이 파이프라인 패턴은 또 “느린 참여” 신드롬을 노출하는데, PUSH 소켓이 로드밸런싱을 적절히 하지 못하는 문제로 연결된다. 만약 PUSH / PULL 을 사용한다면, 먼저 참여한 하나의 워커가 다른 것에 비해 많은 메시지를 받게 된다. 올바른 로드 밸런싱을 하고 싶다면, 다음을 읽어보는 것이 도움이 될 것이다. Chapter 3- Advanced Request-Replay Patterns\nProgramming with ZeroMQ 다음의 기본적인 조언을 살펴보라.\nZeroMQ 를 단계별로 익히기. 하나의 단순한 Api 도 세상의 가능성을 많이 숨기고 있음. 변수명들을 의미 있게 정하는 것과 같이 나이스한 코드를 작성하기. 만들었을때 테스트하기. 동작을 제대로 하지 않을때, 코드를 부분으로 나누고 각각을 테스트하기. 함수/클래스등으로 추상화를 하기. 많은 코드를 복사/붙여넣기를 하면 에러도 함께 복사/붙여넣기 하는것이다. Getting the Context Right 항상 컨텍스트를 먼저 만들어줘야하는데, 프로세스에서 정확히 하나의 컨텍스트를 생성해야한다. 기술적으로, 컨텍스트는 하나의 프로세스에서의 모든 소켓을 관리하는 컨테이너 로서 동작하며, 하나의 프로세스에서 스레드를 연결하는데 가장 빠른 방법인 inproc 소켓에서는 transport 로서 동작한다. 하나의 프로세스에서 두개의 컨텍스트를 사용하는 것은ZeroMQ 인스턴스를 분리하는 것과 같다. 만약 그걸 원하는 거라면 그렇게 사용해도 괜찮지만 다음을 기억하라.\nzmq_ctx_new() 를 프로세스를 시작할때 한번, zmq_ctx_destroy 를 끝날때 한번 호출하기\nsystem call fork() 를 사용하는 경우 zmq_ctx_new() 는 fork 이후에 child process 에서 한번 호출하자. 일반적으로, 흥미로운(ZeroMQ) 것들은 children 에서 사용하길 원할것이며, 지루한 프로세스 관리는 parent 에서 처리할 것이다.\nMaking a Clean Exit 잡을 끝낼때마다 항상 클린업하라. ZeroMQ 를 python 같은 언어에서 사용할때, 자동으로 처리가 될 것이나, C 같은 곳에서는 사용이 끝났을때 free 해주지 않으면 메모리 릭으로 연결되며, 불안정한 어플리케이션이 될 것이다.\n메모리릭은 한가지 지만, ZeroMQ 는 어플리케이션을 종료할때 꽤 까다롭다. 그 이유는 기술적이고 고통스럽지만, upshot 은 어떤 소켓이라도 연결된 상태로 떠나면, zmq_ctx_destroy() 함수는 영원히 hang 상태에 머무를 것이다. 그리고 모든 소켓을 종료하여도 pending connects 나 send 가 있고 LINGER 를 zero 로 세팅해 놓으면 zmq_ctx_destroy() 는 기본적으로 영원히 기다릴 것이다.\nZeroMQ 객체에 대해, message, socket, context 를 신경써야한다. 다행히 간단한 프로그램에서는 꽤 단순하다.\n가능하다면 zmq_send() 와 zmq_recv() 를 사용하여 zmq_msg_t 객체를 사용하지 않도록 한다. zmq_msg_recv() 를 사용한다면, 메시지를 사용한 뒤에는 항상 zmq_msg_close() 호출하여 반환한다. 많은 소켓을 열고 닫는다면, 어플리케이션을 다시 디자인 할 필요가 있음을 시사한다. 어떤 케이스에는 컨텍스트를 파괴하기 전까지 소켓이 free 되지 않을 수도 있다. 프로그램을 종료할때, 소켓을 닫고 zmq_ctx_destroy() 를 호출하라. 이것이 컨텍스트를 파괴한다. 멀티스레드 워크를 할때, 더 복잡해진다. 다음 챕터에서 멀티스레딩에 대해 다룰테지만, 여러분들중 일부는 경고에도 불구하고 안전하게 걷기전에 달리고 싶어할것이므로, 아래에멀티스레드 어플리케이션에서 clean exit 를 위한 빠르고 지저분한 가이드를 소개한다.\n먼저, 멀티스레드에서 같은 소켓을 사용하지 말아라. 왜 당신이 이걸 사용하면 좋은지 설명하려고 하지 말고, 그냥 하지말아달라. 다음으로, 진행중인 요청을 갖고 있는 각각의 소켓들에 대해 shutdown 할 필요가 있다. 적합한 방법은 낮은 LINGER value (1sec) 를 세팅하는 것이다. 만약 당신이 바인딩한 언어가 컨텍스트를 자동으로 파괴해주지 않는다면, patch 를 제안하라.\n마지막으로, 컨텍스트를 파괴하라. 이것은 어떤 블러킹 수신이나 poll, send 가 스레드에 붙어있더라도(i.e, 같은 컨텍스트를 공유함) 에러를 반환하도록 해준다. 에러를 캐치해서, linger 를 세팅하고, 그 스레드에서 소켓을 close 하라. 같은 컨텍스트를 두번 파괴하지 마라. zmq_ctx_destroy 가 메인스레드에서 호출된다면 모든 소켓이 안전하게 종료 될 때까지 블럭할 것이다.\n짜잔!(Voila!) 충분히 복잡하고 고통스러운 작업이기 때문에, 어떤 언어든 가치있는 바인딩 제작자는 (worth his or her salt) 이걸 자동으로 수행하도록 작업해두었을것이므로, 직접 만들 필요는 없을 것이다.\n",
-  "wordCount" : "2796",
-  "inLanguage": "en",
-  "datePublished": "2024-05-22T21:37:29+09:00",
-  "dateModified": "2024-05-22T21:37:29+09:00",
-  "author":{
-    "@type": "Person",
-    "name": "nolleh"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://nolleh.github.io/zeromq/1.basics/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "The Computer Programmer, Nolleh",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://nolleh.github.io/favicon.ico"
-    }
-  }
-}
-</script>
 </head>
 
 <body class="" id="top">
@@ -161,15 +78,15 @@ IETF 표준들과같은 많은 노력으로 코드를 연결하기 위한 시도
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
+            <a href="http://localhost:1313/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -183,28 +100,26 @@ IETF 표준들과같은 많은 노력으로 코드를 연결하기 위한 시도
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://nolleh.github.io/archives/" title="Archive">
+                <a href="http://localhost:1313/archives/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="https://nolleh.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://nolleh.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://nolleh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -215,11 +130,17 @@ IETF 표준들과같은 많은 노력으로 코드를 연결하기 위한 시도
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://nolleh.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://nolleh.github.io/zeromq/">Zeromqs</a></div>
-    <h1 class="post-title">
-      1.basics<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/zeromq/">Zeromqs</a></div>
+    <h1 class="post-title entry-hint-parent">
+      1.basics
+      <span class="entry-hint" title="Draft">
+        <svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 -960 960 960" fill="currentColor">
+          <path
+            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+        </svg>
+      </span>
     </h1>
-    <div class="post-meta">&lt;span title=&#39;2024-05-22 21:37:29 &#43;0900 KST&#39;&gt;May 22, 2024&lt;/span&gt;&amp;nbsp;·&amp;nbsp;nolleh
+    <div class="post-meta"><span title='2024-05-22 21:37:29 +0900 KST'>May 22, 2024</span>&nbsp;·&nbsp;nolleh
 
 </div>
   </header> <div class="toc">
@@ -782,10 +703,11 @@ we write constants like PUSH or SUBSCRIBE, you can imagine they are really calle
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://nolleh.github.io/tags/mq/">MQ</a></li>
-      <li><a href="https://nolleh.github.io/tags/zeromq/">Zeromq</a></li>
+      <li><a href="http://localhost:1313/tags/mq/">MQ</a></li>
+      <li><a href="http://localhost:1313/tags/zeromq/">Zeromq</a></li>
     </ul>
-  </footer><div id="disqus_thread"></div>
+  </footer>
+<div id="disqus_thread"></div>
 <script>
     window.disqus_config = function () {
     
@@ -809,7 +731,8 @@ we write constants like PUSH or SUBSCRIBE, you can imagine they are really calle
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">The Computer Programmer, Nolleh</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

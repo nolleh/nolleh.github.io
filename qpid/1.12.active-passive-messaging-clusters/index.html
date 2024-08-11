@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>Active Passive Messaging Clusters | The Computer Programmer, Nolleh</title>
 <meta name="keywords" content="MQ, qpid">
 <meta name="description" content="1.12. Active-Passive Messaging Clusters 1.12.1 Overview HA 모듈은 active-passive, hot-standby 메시징 클러스터들을 장애에 tolerent 하도록 제공한다.
@@ -12,18 +12,16 @@ active-passive 클러스터는 하나의 브로커만 존재하며, 이를 프�
 만약 프라이머리가 실패하는 경우, 백업중의 하나가 새로운 프라이머리가 되기위해 자리를 차지한다. 클라이언트는 새로운 프라이머리에 자동으로 연결한다.
 만약 복수개의 백업이 있다면, 다른 백업들은 새로운 프라이머리의 백업이 되도록 장애처리를 진행한다.">
 <meta name="author" content="nolleh">
-<link rel="canonical" href="https://nolleh.github.io/qpid/1.12.active-passive-messaging-clusters/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.d7fb4cbf980fe688a21621b06a795933c4e6bb2d4070ec940667af1715d84af2.css" integrity="sha256-1/tMv5gP5oiiFiGwanlZM8Tmuy1AcOyUBmevFxXYSvI=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://nolleh.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://nolleh.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
+<link rel="canonical" href="http://localhost:1313/qpid/1.12.active-passive-messaging-clusters/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://nolleh.github.io/qpid/1.12.active-passive-messaging-clusters/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/qpid/1.12.active-passive-messaging-clusters/">
 <noscript>
     <style>
         #theme-toggle,
@@ -41,7 +39,7 @@ active-passive 클러스터는 하나의 브로커만 존재하며, 이를 프�
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -61,83 +59,6 @@ active-passive 클러스터는 하나의 브로커만 존재하며, 이를 프�
 
     </style>
 </noscript>
-  
-    
-      
-    
-  
-
-<meta property="og:title" content="Active Passive Messaging Clusters" />
-<meta property="og:description" content="1.12. Active-Passive Messaging Clusters 1.12.1 Overview HA 모듈은 active-passive, hot-standby 메시징 클러스터들을 장애에 tolerent 하도록 제공한다.
-active-passive 클러스터는 하나의 브로커만 존재하며, 이를 프라이머리라고 부르며, 액티브 하고 클라이언트를 serving 한다. 다른 브로커들은 백업을 위해 존재한다. 프라이머리의 변경은 모든 백업들에 반영되므로, 백업들은 최신상태이거나 &lsquo;hot&rsquo; 상태이다. 백업 브로커들은 클라이언트의 연결을 거부하며, 클라이언트들은 프라이머리에 연결해야한다.
-만약 프라이머리가 실패하는 경우, 백업중의 하나가 새로운 프라이머리가 되기위해 자리를 차지한다. 클라이언트는 새로운 프라이머리에 자동으로 연결한다.
-만약 복수개의 백업이 있다면, 다른 백업들은 새로운 프라이머리의 백업이 되도록 장애처리를 진행한다." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://nolleh.github.io/qpid/1.12.active-passive-messaging-clusters/" /><meta property="article:section" content="qpid" />
-<meta property="article:published_time" content="2020-02-06T14:47:47&#43;09:00" />
-<meta property="article:modified_time" content="2020-02-06T14:47:47&#43;09:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Active Passive Messaging Clusters"/>
-<meta name="twitter:description" content="1.12. Active-Passive Messaging Clusters 1.12.1 Overview HA 모듈은 active-passive, hot-standby 메시징 클러스터들을 장애에 tolerent 하도록 제공한다.
-active-passive 클러스터는 하나의 브로커만 존재하며, 이를 프라이머리라고 부르며, 액티브 하고 클라이언트를 serving 한다. 다른 브로커들은 백업을 위해 존재한다. 프라이머리의 변경은 모든 백업들에 반영되므로, 백업들은 최신상태이거나 &lsquo;hot&rsquo; 상태이다. 백업 브로커들은 클라이언트의 연결을 거부하며, 클라이언트들은 프라이머리에 연결해야한다.
-만약 프라이머리가 실패하는 경우, 백업중의 하나가 새로운 프라이머리가 되기위해 자리를 차지한다. 클라이언트는 새로운 프라이머리에 자동으로 연결한다.
-만약 복수개의 백업이 있다면, 다른 백업들은 새로운 프라이머리의 백업이 되도록 장애처리를 진행한다."/>
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Qpids",
-      "item": "https://nolleh.github.io/qpid/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "Active Passive Messaging Clusters",
-      "item": "https://nolleh.github.io/qpid/1.12.active-passive-messaging-clusters/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Active Passive Messaging Clusters",
-  "name": "Active Passive Messaging Clusters",
-  "description": "1.12. Active-Passive Messaging Clusters 1.12.1 Overview HA 모듈은 active-passive, hot-standby 메시징 클러스터들을 장애에 tolerent 하도록 제공한다.\nactive-passive 클러스터는 하나의 브로커만 존재하며, 이를 프라이머리라고 부르며, 액티브 하고 클라이언트를 serving 한다. 다른 브로커들은 백업을 위해 존재한다. 프라이머리의 변경은 모든 백업들에 반영되므로, 백업들은 최신상태이거나 \u0026lsquo;hot\u0026rsquo; 상태이다. 백업 브로커들은 클라이언트의 연결을 거부하며, 클라이언트들은 프라이머리에 연결해야한다.\n만약 프라이머리가 실패하는 경우, 백업중의 하나가 새로운 프라이머리가 되기위해 자리를 차지한다. 클라이언트는 새로운 프라이머리에 자동으로 연결한다.\n만약 복수개의 백업이 있다면, 다른 백업들은 새로운 프라이머리의 백업이 되도록 장애처리를 진행한다.",
-  "keywords": [
-    "MQ", "qpid"
-  ],
-  "articleBody": "1.12. Active-Passive Messaging Clusters 1.12.1 Overview HA 모듈은 active-passive, hot-standby 메시징 클러스터들을 장애에 tolerent 하도록 제공한다.\nactive-passive 클러스터는 하나의 브로커만 존재하며, 이를 프라이머리라고 부르며, 액티브 하고 클라이언트를 serving 한다. 다른 브로커들은 백업을 위해 존재한다. 프라이머리의 변경은 모든 백업들에 반영되므로, 백업들은 최신상태이거나 ‘hot’ 상태이다. 백업 브로커들은 클라이언트의 연결을 거부하며, 클라이언트들은 프라이머리에 연결해야한다.\n만약 프라이머리가 실패하는 경우, 백업중의 하나가 새로운 프라이머리가 되기위해 자리를 차지한다. 클라이언트는 새로운 프라이머리에 자동으로 연결한다.\n만약 복수개의 백업이 있다면, 다른 백업들은 새로운 프라이머리의 백업이 되도록 장애처리를 진행한다.\n이 접근은 외부의 클러스터 리소스 매니저가 장애를 탐지하고, 새로운 프라이머리를 선택하며, 네트워크 파티션을 핸들링하는 것을 믿는것이다. rgmanager 는 이를 기본적으로 지원하며, 다른 것들은 미래에 제공될 것이다.\n1.12.1.1. Avoiding message loss 메시지가 모든 백업 브로커들에 대해 복제되는 것을 대기하거나 프라이머리 큐에서 consumed 되고 클라이언트로 응답(acknowledgement) 을 줌으로써 메시지의 유실을 회피한다.\n이것은 응답이 돌아온 모든 메시지들은 ‘safe’ 하다는 것을 보장한다. : consumed 되거나, 다른 모든 브로커로 복제 되었음을. 복제 되기전에 consumed 된 메시지들은 복제가 될 필요가 없다. 액티브한 컨슈머가 있는 큐에 복제하는 부담을 줄여준다.\nprimary 에 의해 응답을 받기 전까지 버퍼에 미응답상태의 메시지를 보관해야한다. 만약 프라이머리가 실패하면, 클라이언트는 새로운 프라이머리에 연결하고 다시 메시지를 전송하는 장애처리를 수행해야한다.\n만약 프라이머리에 크래쉬가 발생하는 경우, 모든 응답을 받은 메시지들은 백업에 의해 가용하고, 이중에 새로운 프라이머리가 있을 것이다. 그래서 유실은 발생하지 않는다.\n하나 알아두어야 할것은, 메시지가 중복되서 전송될 수 있다는 것이다. 장애 발생시에 새로운 프라이머리에 의해 클라이언트로 다시 메시지를 전송하는 것이 가능하다. 이를 감지하고 중복을 제거하는 것은 어플리케이션의 몫이다.\n프라이머리가 새로 승격하는경우, 처음에 “recovering” 모드에 진입한다. 이 모드에서는, 모든 백업들이 프라이머리에 성공적으로 연결할때까지 메시지들에 대한 응답들을 지연한다.\n백업브로커에 모든 메시지가 복제될 필요는 없다. 만약 메시지가 consumed 되고 응답을 받은경우 복제될 필요는 없다.\nHA Broker State\nStand-alone cluster 의 일부가 아니다 Joining 새로 시작된 브로커이고, 어떤 프라이머리에도 아직 연결되지 않았다. Catch-up 프라이머리에 연결되었고, 상태를 다운로드 받는 중이다 (queues, messages.. ) Ready catch-up 을 완료했고 프라이머리가 될 준비가 되었다. Recovering 새로 승격한 프라이머리이며, 백업들이 연결하여 catchup 하도록 기다리고 있다. 클라이언트들은 연결할 수 있지만 프라이머리가 액티브 상태가 될때까지 엔진을 멈춘다. Active 모든 백업들이 연결되고 캐치업된 프라이머리 브로커 1.12.1.2. Limitations 현재 구현상 알려진 제한이 있다. 새 버전에서는 수정될 것.\n",
-  "wordCount" : "337",
-  "inLanguage": "en",
-  "datePublished": "2020-02-06T14:47:47+09:00",
-  "dateModified": "2020-02-06T14:47:47+09:00",
-  "author":{
-    "@type": "Person",
-    "name": "nolleh"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://nolleh.github.io/qpid/1.12.active-passive-messaging-clusters/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "The Computer Programmer, Nolleh",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://nolleh.github.io/favicon.ico"
-    }
-  }
-}
-</script>
 </head>
 
 <body class="" id="top">
@@ -155,15 +76,15 @@ active-passive 클러스터는 하나의 브로커만 존재하며, 이를 프�
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
+            <a href="http://localhost:1313/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -177,28 +98,26 @@ active-passive 클러스터는 하나의 브로커만 존재하며, 이를 프�
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://nolleh.github.io/archives/" title="Archive">
+                <a href="http://localhost:1313/archives/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="https://nolleh.github.io/categories/" title="Categories">
+                <a href="http://localhost:1313/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="https://nolleh.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://nolleh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -209,11 +128,11 @@ active-passive 클러스터는 하나의 브로커만 존재하며, 이를 프�
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://nolleh.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://nolleh.github.io/qpid/">Qpids</a></div>
-    <h1 class="post-title">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/qpid/">Qpids</a></div>
+    <h1 class="post-title entry-hint-parent">
       Active Passive Messaging Clusters
     </h1>
-    <div class="post-meta">&lt;span title=&#39;2020-02-06 14:47:47 &#43;0900 KST&#39;&gt;February 6, 2020&lt;/span&gt;&amp;nbsp;·&amp;nbsp;nolleh
+    <div class="post-meta"><span title='2020-02-06 14:47:47 +0900 KST'>February 6, 2020</span>&nbsp;·&nbsp;nolleh
 
 </div>
   </header> <div class="toc">
@@ -301,10 +220,11 @@ active-passive 클러스터는 하나의 브로커만 존재하며, 이를 프�
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://nolleh.github.io/tags/mq/">MQ</a></li>
-      <li><a href="https://nolleh.github.io/tags/qpid/">Qpid</a></li>
+      <li><a href="http://localhost:1313/tags/mq/">MQ</a></li>
+      <li><a href="http://localhost:1313/tags/qpid/">Qpid</a></li>
     </ul>
-  </footer><div id="disqus_thread"></div>
+  </footer>
+<div id="disqus_thread"></div>
 <script>
     window.disqus_config = function () {
     
@@ -328,7 +248,8 @@ active-passive 클러스터는 하나의 브로커만 존재하며, 이를 프�
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span>
+        <span>&copy; 2024 <a href="http://localhost:1313/">The Computer Programmer, Nolleh</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
