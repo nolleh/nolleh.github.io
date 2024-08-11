@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Unix on The Computer Programmer, Nolleh</title>
-    <link>http://localhost:1313/tags/unix/</link>
+    <link>https://nolleh.github.io/tags/unix/</link>
     <description>Recent content in Unix on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- 0.127.0</generator>
     <language>ko-KR</language>
     <lastBuildDate>Sun, 01 Jan 2023 10:44:05 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/unix/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nolleh.github.io/tags/unix/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Shell</title>
-      <link>http://localhost:1313/cheatsheet/shell/</link>
+      <link>https://nolleh.github.io/cheatsheet/shell/</link>
       <pubDate>Sun, 01 Jan 2023 10:44:05 +0900</pubDate>
-      <guid>http://localhost:1313/cheatsheet/shell/</guid>
+      <guid>https://nolleh.github.io/cheatsheet/shell/</guid>
       <description>Cheatsheet - Shell 쉘 커맨드들을 자주 까먹곤 해서 자주쓰는것 위주로 생각날때마다 하나씩 등록 예정.
 Primitives if statement if [ 10 -gt 20 ]; then echo &amp;#39;gt&amp;#39;; else echo &amp;#39;lt&amp;#39;; fi; operator desc ! not true -n 문자열의 길이가 0보다 크다 -z 문자열의 길이가 0이다 = 문자열이 같다 -eq 정수가 같다 -gt 정수가 크다 -lt 정수가 작다 -d dir dir 디렉토리가 있다 -e file file 이 있다 for statement for file in *.</description>
     </item>
     <item>
       <title>Mac 터미널에서 복수의 유저 사용하기</title>
-      <link>http://localhost:1313/env/mac-terminal-multiple-user/</link>
+      <link>https://nolleh.github.io/env/mac-terminal-multiple-user/</link>
       <pubDate>Wed, 24 Aug 2022 00:49:49 +0900</pubDate>
-      <guid>http://localhost:1313/env/mac-terminal-multiple-user/</guid>
+      <guid>https://nolleh.github.io/env/mac-terminal-multiple-user/</guid>
       <description>복수의 유저 사용하기 맥터미널에서 복수의 유저를 사용하려면 몇가지 신경써야할 부분들이 생긴다.
 home directory 가 분리 되어 있기 때문에 어떤 유저를 위해 설치한 데이터들은
 다른 유저에서는 사용못할수도 있고 (그러는게 맞고, 그럴려고 격리한거니)
@@ -31,9 +31,9 @@ home directory 가 분리 되어 있기 때문에 어떤 유저를 위해 설치
     </item>
     <item>
       <title>Unix 01 Intro</title>
-      <link>http://localhost:1313/network/unix-01-intro/</link>
+      <link>https://nolleh.github.io/network/unix-01-intro/</link>
       <pubDate>Tue, 01 Aug 2017 22:54:19 +0900</pubDate>
-      <guid>http://localhost:1313/network/unix-01-intro/</guid>
+      <guid>https://nolleh.github.io/network/unix-01-intro/</guid>
       <description>네트워킹의 바이블이라 할 수 있는 Unix Network Programming 의 내용 정리
 Books Introduction Socket 을 통해 통신하는 프로그램을 작성하는 개발자를 위해 쓰여진 책.
 시작하는 사람에게나, 프로페셔널에게나 유용한 책.

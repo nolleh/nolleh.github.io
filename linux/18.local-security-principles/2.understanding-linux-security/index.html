@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>2.understanding Linux Security | The Computer Programmer, Nolleh</title>
 <meta name="keywords" content="edx, Linux, Kernel">
 <meta name="description" content="User Accounts Linux kernel authenticated users to access files and applications. while each user is identified by a unique integer (the user id or UID), a separate database associates a username with each UID.
@@ -12,16 +12,16 @@ Types of Accounts By default, Linux distinguishes between several account types 
 Linux has fourtypes of accounts:
 root System Normal Network For a safe working env, it is advised to grant minimum privileges possible and necessary to accounts, and remove inactive accounts.">
 <meta name="author" content="nolleh">
-<link rel="canonical" href="http://localhost:1313/linux/18.local-security-principles/2.understanding-linux-security/">
+<link rel="canonical" href="https://nolleh.github.io/linux/18.local-security-principles/2.understanding-linux-security/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://nolleh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nolleh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/linux/18.local-security-principles/2.understanding-linux-security/">
+<link rel="alternate" hreflang="en" href="https://nolleh.github.io/linux/18.local-security-principles/2.understanding-linux-security/">
 <noscript>
     <style>
         #theme-toggle,
@@ -59,6 +59,83 @@ root System Normal Network For a safe working env, it is advised to grant minimu
 
     </style>
 </noscript>
+  
+    
+      
+    
+  
+
+<meta property="og:title" content="2.understanding Linux Security" />
+<meta property="og:description" content="User Accounts Linux kernel authenticated users to access files and applications. while each user is identified by a unique integer (the user id or UID), a separate database associates a username with each UID.
+Types of Accounts By default, Linux distinguishes between several account types in order to isolate processes and workloads.
+Linux has fourtypes of accounts:
+root System Normal Network For a safe working env, it is advised to grant minimum privileges possible and necessary to accounts, and remove inactive accounts." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nolleh.github.io/linux/18.local-security-principles/2.understanding-linux-security/" /><meta property="article:section" content="linux" />
+<meta property="article:published_time" content="2024-01-06T16:26:12+09:00" />
+<meta property="article:modified_time" content="2024-01-06T16:26:12+09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="2.understanding Linux Security"/>
+<meta name="twitter:description" content="User Accounts Linux kernel authenticated users to access files and applications. while each user is identified by a unique integer (the user id or UID), a separate database associates a username with each UID.
+Types of Accounts By default, Linux distinguishes between several account types in order to isolate processes and workloads.
+Linux has fourtypes of accounts:
+root System Normal Network For a safe working env, it is advised to grant minimum privileges possible and necessary to accounts, and remove inactive accounts."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Linuxes",
+      "item": "https://nolleh.github.io/linux/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "2.understanding Linux Security",
+      "item": "https://nolleh.github.io/linux/18.local-security-principles/2.understanding-linux-security/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "2.understanding Linux Security",
+  "name": "2.understanding Linux Security",
+  "description": "User Accounts Linux kernel authenticated users to access files and applications. while each user is identified by a unique integer (the user id or UID), a separate database associates a username with each UID.\nTypes of Accounts By default, Linux distinguishes between several account types in order to isolate processes and workloads.\nLinux has fourtypes of accounts:\nroot System Normal Network For a safe working env, it is advised to grant minimum privileges possible and necessary to accounts, and remove inactive accounts.",
+  "keywords": [
+    "edx", "Linux", "Kernel"
+  ],
+  "articleBody": "User Accounts Linux kernel authenticated users to access files and applications. while each user is identified by a unique integer (the user id or UID), a separate database associates a username with each UID.\nTypes of Accounts By default, Linux distinguishes between several account types in order to isolate processes and workloads.\nLinux has fourtypes of accounts:\nroot System Normal Network For a safe working env, it is advised to grant minimum privileges possible and necessary to accounts, and remove inactive accounts.\nThe last utiltiy, which shows the last time each user logged into the system, can be used to help identify potentially inactive accounts which are candidates for system removal.\n",
+  "wordCount" : "111",
+  "inLanguage": "en",
+  "datePublished": "2024-01-06T16:26:12+09:00",
+  "dateModified": "2024-01-06T16:26:12+09:00",
+  "author":{
+    "@type": "Person",
+    "name": "nolleh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nolleh.github.io/linux/18.local-security-principles/2.understanding-linux-security/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Computer Programmer, Nolleh",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nolleh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -76,7 +153,7 @@ root System Normal Network For a safe working env, it is advised to grant minimu
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
+            <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -102,22 +179,22 @@ root System Normal Network For a safe working env, it is advised to grant minimu
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/archives/" title="Archive">
+                <a href="https://nolleh.github.io/archives/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/categories/" title="Categories">
+                <a href="https://nolleh.github.io/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags/" title="Tags">
+                <a href="https://nolleh.github.io/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://nolleh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -128,7 +205,7 @@ root System Normal Network For a safe working env, it is advised to grant minimu
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/linux/">Linuxes</a></div>
+    <div class="breadcrumbs"><a href="https://nolleh.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://nolleh.github.io/linux/">Linuxes</a></div>
     <h1 class="post-title entry-hint-parent">
       2.understanding Linux Security
     </h1>
@@ -172,9 +249,9 @@ The <code>last</code> utiltiy, which shows the last time each user logged into t
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/edx/">Edx</a></li>
-      <li><a href="http://localhost:1313/tags/linux/">Linux</a></li>
-      <li><a href="http://localhost:1313/tags/kernel/">Kernel</a></li>
+      <li><a href="https://nolleh.github.io/tags/edx/">Edx</a></li>
+      <li><a href="https://nolleh.github.io/tags/linux/">Linux</a></li>
+      <li><a href="https://nolleh.github.io/tags/kernel/">Kernel</a></li>
     </ul>
   </footer>
 <div id="disqus_thread"></div>
@@ -201,7 +278,7 @@ The <code>last</code> utiltiy, which shows the last time each user logged into t
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="http://localhost:1313/">The Computer Programmer, Nolleh</a></span> · 
+        <span>&copy; 2024 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span> · 
 
     <span>
         Powered by

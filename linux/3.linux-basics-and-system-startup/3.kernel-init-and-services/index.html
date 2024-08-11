@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>3-3.kernel Init and Services | The Computer Programmer, Nolleh</title>
 <meta name="keywords" content="edx, Linux, Kernel">
 <meta name="description" content="Kernel, init and Services The Linux Kernel boot loader loads kernel and an initial RAM-based file system (initramfs) into memory, so it can be used directly by the kernel.
@@ -12,16 +12,16 @@ kernel loaded, it immediately initializes and configures the computer&rsquo;s me
 also load user space applications.
 /sbin/init and Services Once kernel has set up all its hardware and mounted the root filesystem, the kernel runs sbin/init.">
 <meta name="author" content="nolleh">
-<link rel="canonical" href="http://localhost:1313/linux/3.linux-basics-and-system-startup/3.kernel-init-and-services/">
+<link rel="canonical" href="https://nolleh.github.io/linux/3.linux-basics-and-system-startup/3.kernel-init-and-services/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://nolleh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nolleh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/linux/3.linux-basics-and-system-startup/3.kernel-init-and-services/">
+<link rel="alternate" hreflang="en" href="https://nolleh.github.io/linux/3.linux-basics-and-system-startup/3.kernel-init-and-services/">
 <noscript>
     <style>
         #theme-toggle,
@@ -59,6 +59,83 @@ also load user space applications.
 
     </style>
 </noscript>
+  
+    
+      
+    
+  
+
+<meta property="og:title" content="3-3.kernel Init and Services" />
+<meta property="og:description" content="Kernel, init and Services The Linux Kernel boot loader loads kernel and an initial RAM-based file system (initramfs) into memory, so it can be used directly by the kernel.
+kernel loaded, it immediately initializes and configures the computer&rsquo;s memory and also configures all the hardware attached to the system.
+also load user space applications.
+/sbin/init and Services Once kernel has set up all its hardware and mounted the root filesystem, the kernel runs sbin/init." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nolleh.github.io/linux/3.linux-basics-and-system-startup/3.kernel-init-and-services/" /><meta property="article:section" content="linux" />
+<meta property="article:published_time" content="2023-01-08T12:25:09+09:00" />
+<meta property="article:modified_time" content="2023-01-08T12:25:09+09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="3-3.kernel Init and Services"/>
+<meta name="twitter:description" content="Kernel, init and Services The Linux Kernel boot loader loads kernel and an initial RAM-based file system (initramfs) into memory, so it can be used directly by the kernel.
+kernel loaded, it immediately initializes and configures the computer&rsquo;s memory and also configures all the hardware attached to the system.
+also load user space applications.
+/sbin/init and Services Once kernel has set up all its hardware and mounted the root filesystem, the kernel runs sbin/init."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Linuxes",
+      "item": "https://nolleh.github.io/linux/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "3-3.kernel Init and Services",
+      "item": "https://nolleh.github.io/linux/3.linux-basics-and-system-startup/3.kernel-init-and-services/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "3-3.kernel Init and Services",
+  "name": "3-3.kernel Init and Services",
+  "description": "Kernel, init and Services The Linux Kernel boot loader loads kernel and an initial RAM-based file system (initramfs) into memory, so it can be used directly by the kernel.\nkernel loaded, it immediately initializes and configures the computer\u0026rsquo;s memory and also configures all the hardware attached to the system.\nalso load user space applications.\n/sbin/init and Services Once kernel has set up all its hardware and mounted the root filesystem, the kernel runs sbin/init.",
+  "keywords": [
+    "edx", "Linux", "Kernel"
+  ],
+  "articleBody": "Kernel, init and Services The Linux Kernel boot loader loads kernel and an initial RAM-based file system (initramfs) into memory, so it can be used directly by the kernel.\nkernel loaded, it immediately initializes and configures the computer’s memory and also configures all the hardware attached to the system.\nalso load user space applications.\n/sbin/init and Services Once kernel has set up all its hardware and mounted the root filesystem, the kernel runs sbin/init.\nthis then becomes the initial process, which then starts other processes to get the system running.\nMost other processes on the system trace their origin ultimately to init; exceptions include the so-called kernel processes.\nBesides starting the system, init is responsible for keeping the system running and for shutting it down cleanly.\nthis serial process had the system passing through a sequence of runlevels containing collections of scripts that start and stop services.\nEach runlevel supported a different mode of running the system.\nhowever, all major distributions have moved away from this sequential runlevel method of system initialization,\nalthough they usually emulate many System V utilities for compatibility purposes.\nNext, we discuss the new methods, of witch systemd has become dominant.\nStartup Alternatives SysVinit viewed things as a serial process, devided into a series of sequential stages.\nstartup did not easily take advantage of the parallel processing that could be done on multiple processors or cores. (each stage required completion before the next could proceed)\nfurthermore, shutdown and reboot was seen as a relatively rare event; exactly how long it took was not considered important. (this is no longer true)\nsome modern methods, such as use of containers, can require almost instantaneous startup times. Thus, systems now require methods with faster and enhanced capabilities.\nfinally, the older methods required rather complicated startup scripts, which were difficult to keep universal across distribution versions, kernel versions, architectures, and type of systems.\nThe two main alternatives developed were:\nUpstart\ndeveloped by Ubuntu and first included in 2006 Adopted in Fedora 9 (in 2008) and RHEL 6 and its clones systemd\nAdopted by Fedora first (in 2011) Adopted by RHEL 7 and SUSE Replaced Upstart in Ubuntu 16.04 while the migration to systemd was rather controversial, it has been adopted by all major distributions, and so we will not discuss the older System V method or Upstart.\nsystemd Features systemd replaced serialized set of steps with aggressive parallelization techniques, which make this faster largely.\ncomplicated shell script are replaced with simpler configuration files, which enumerates …\npreprocess for services how to execute service startup indicate conditions of the service should be accomplished when startup is finished /sbin/init now just points to /lib/systemd/systemd\n",
+  "wordCount" : "442",
+  "inLanguage": "en",
+  "datePublished": "2023-01-08T12:25:09+09:00",
+  "dateModified": "2023-01-08T12:25:09+09:00",
+  "author":{
+    "@type": "Person",
+    "name": "nolleh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nolleh.github.io/linux/3.linux-basics-and-system-startup/3.kernel-init-and-services/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Computer Programmer, Nolleh",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nolleh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -76,7 +153,7 @@ also load user space applications.
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
+            <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -102,22 +179,22 @@ also load user space applications.
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/archives/" title="Archive">
+                <a href="https://nolleh.github.io/archives/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/categories/" title="Categories">
+                <a href="https://nolleh.github.io/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags/" title="Tags">
+                <a href="https://nolleh.github.io/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://nolleh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -128,7 +205,7 @@ also load user space applications.
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/linux/">Linuxes</a></div>
+    <div class="breadcrumbs"><a href="https://nolleh.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://nolleh.github.io/linux/">Linuxes</a></div>
     <h1 class="post-title entry-hint-parent">
       3-3.kernel Init and Services
     </h1>
@@ -214,9 +291,9 @@ The two main alternatives developed were:</p>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/edx/">Edx</a></li>
-      <li><a href="http://localhost:1313/tags/linux/">Linux</a></li>
-      <li><a href="http://localhost:1313/tags/kernel/">Kernel</a></li>
+      <li><a href="https://nolleh.github.io/tags/edx/">Edx</a></li>
+      <li><a href="https://nolleh.github.io/tags/linux/">Linux</a></li>
+      <li><a href="https://nolleh.github.io/tags/kernel/">Kernel</a></li>
     </ul>
   </footer>
 <div id="disqus_thread"></div>
@@ -243,7 +320,7 @@ The two main alternatives developed were:</p>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="http://localhost:1313/">The Computer Programmer, Nolleh</a></span> · 
+        <span>&copy; 2024 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span> · 
 
     <span>
         Powered by

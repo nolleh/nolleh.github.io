@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Concurrent on The Computer Programmer, Nolleh</title>
-    <link>http://localhost:1313/tags/concurrent/</link>
+    <link>https://nolleh.github.io/tags/concurrent/</link>
     <description>Recent content in Concurrent on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- 0.127.0</generator>
     <language>ko-KR</language>
     <lastBuildDate>Tue, 06 Sep 2022 00:20:16 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/concurrent/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nolleh.github.io/tags/concurrent/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Dont Lock on Async Tasks</title>
-      <link>http://localhost:1313/csharp/dont-lock-on-async-tasks/</link>
+      <link>https://nolleh.github.io/csharp/dont-lock-on-async-tasks/</link>
       <pubDate>Tue, 06 Sep 2022 00:20:16 +0900</pubDate>
-      <guid>http://localhost:1313/csharp/dont-lock-on-async-tasks/</guid>
+      <guid>https://nolleh.github.io/csharp/dont-lock-on-async-tasks/</guid>
       <description>서론 예전 회사에서나 현 직장에서나, 면접관으로 들어가다가 C# 이 이력서에 적혀있는 경우 Task 와 async/await 관련하여 동기화 관련한 내용에 대해 물어보곤한다. 그리고 이 질문에서 대부분 깊이가 드러나게 된다. (여담이지만, 대부분의 지원자가 자바스택이라, 이런 재미진? 것들을 물어보기가 어렵다. C# 이랑 C++, 실시간 게임서버는 재미진 질문? 들이 많은데.. ㅎㅎㅎㅎ 면접관으로 들어가기위해서 자바스택의 재미진 토픽들도 좀 찾아봐야겠다&amp;hellip;.
 내 경험에서 질문을 도출하려고 스프링의 라이브러리들을 어떻게 구현할 수 있을지 물어볼수는 없으니&amp;hellip;) 물어보다가 나도 생각도 정리하고, 내가 알고 있는 틀린 부분이 없는지 정리하는겸해서 블로그에 기록해 놓는다.</description>
     </item>
     <item>
       <title>Concurrent Idiom 1 - Stack</title>
-      <link>http://localhost:1313/concurrency/concurrent-idiom-1-stack/</link>
+      <link>https://nolleh.github.io/concurrency/concurrent-idiom-1-stack/</link>
       <pubDate>Mon, 10 Jul 2017 22:57:57 +0900</pubDate>
-      <guid>http://localhost:1313/concurrency/concurrent-idiom-1-stack/</guid>
+      <guid>https://nolleh.github.io/concurrency/concurrent-idiom-1-stack/</guid>
       <description>concurrent 프로그램을 작성할 때 고려해야할 몇가지 사항. 그리고 idiom.
 여러 서적에서 발췌하였으며, 정리 차원에서 작성한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.
 어쩌면 작성자의 부사수를 위한 자재가 될지도 모르겠&amp;hellip;(..)

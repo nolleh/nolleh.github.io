@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Operating-Systems on The Computer Programmer, Nolleh</title>
-    <link>http://localhost:1313/operating-system/</link>
+    <link>https://nolleh.github.io/operating-system/</link>
     <description>Recent content in Operating-Systems on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- 0.127.0</generator>
     <language>ko-KR</language>
     <lastBuildDate>Mon, 17 Jul 2017 00:25:28 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/operating-system/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nolleh.github.io/operating-system/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>파일 버퍼링</title>
-      <link>http://localhost:1313/operating-system/file-buffering/</link>
+      <link>https://nolleh.github.io/operating-system/file-buffering/</link>
       <pubDate>Mon, 17 Jul 2017 00:25:28 +0900</pubDate>
-      <guid>http://localhost:1313/operating-system/file-buffering/</guid>
+      <guid>https://nolleh.github.io/operating-system/file-buffering/</guid>
       <description>다음에서 발췌, 번역
 https://msdn.microsoft.com/en-gb/library/windows/desktop/cc644950(v=vs.85).aspx File Buffering 파일버퍼링 - unbuffered file I/O.
 본문에선 시스템에 의해 캐싱되지 않는 (buffered) 데이터를

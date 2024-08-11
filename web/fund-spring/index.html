@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>스프링 기본 용어/정리 | The Computer Programmer, Nolleh</title>
 <meta name="keywords" content="Spring, Web Server">
 <meta name="description" content="어쩌다보니 그동안 손댈 일이 없던 웹서버에 좀 손을 대게 되서 (게임서버, 클라이언트, 그리고 웹서버..정녕 풀스택 개발자가 되는것인가..ㅋ), 예전 선배님이 버리고 간(?) 스프링 책을 꺼내서 읽어 보며 정리한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.
 Spring Bean 객체 스프링에서 생성하여 관리하여 주는 스프링 빈 객체 혹은 빈 객체라고 부른다. res/applicationContext.xml 에 태그로 선언할 수도 있다. 이렇게 선언한경우, 리플렉션을 활용하여 bean id 클래스의 인스턴스를 지정한 세부 태그의 속성으로 메서드를 호출하여 객체를 초기화한다.">
 <meta name="author" content="nolleh">
-<link rel="canonical" href="http://localhost:1313/web/fund-spring/">
+<link rel="canonical" href="https://nolleh.github.io/web/fund-spring/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://nolleh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nolleh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/web/fund-spring/">
+<link rel="alternate" hreflang="en" href="https://nolleh.github.io/web/fund-spring/">
 <noscript>
     <style>
         #theme-toggle,
@@ -57,6 +57,79 @@ Spring Bean 객체 스프링에서 생성하여 관리하여 주는 스프링 �
 
     </style>
 </noscript>
+  
+    
+      
+    
+  
+
+<meta property="og:title" content="스프링 기본 용어/정리" />
+<meta property="og:description" content="어쩌다보니 그동안 손댈 일이 없던 웹서버에 좀 손을 대게 되서 (게임서버, 클라이언트, 그리고 웹서버..정녕 풀스택 개발자가 되는것인가..ㅋ), 예전 선배님이 버리고 간(?) 스프링 책을 꺼내서 읽어 보며 정리한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.
+Spring Bean 객체 스프링에서 생성하여 관리하여 주는 스프링 빈 객체 혹은 빈 객체라고 부른다. res/applicationContext.xml 에 태그로 선언할 수도 있다. 이렇게 선언한경우, 리플렉션을 활용하여 bean id 클래스의 인스턴스를 지정한 세부 태그의 속성으로 메서드를 호출하여 객체를 초기화한다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nolleh.github.io/web/fund-spring/" /><meta property="article:section" content="web" />
+<meta property="article:published_time" content="2017-07-26T23:11:14+09:00" />
+<meta property="article:modified_time" content="2017-07-26T23:11:14+09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="스프링 기본 용어/정리"/>
+<meta name="twitter:description" content="어쩌다보니 그동안 손댈 일이 없던 웹서버에 좀 손을 대게 되서 (게임서버, 클라이언트, 그리고 웹서버..정녕 풀스택 개발자가 되는것인가..ㅋ), 예전 선배님이 버리고 간(?) 스프링 책을 꺼내서 읽어 보며 정리한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.
+Spring Bean 객체 스프링에서 생성하여 관리하여 주는 스프링 빈 객체 혹은 빈 객체라고 부른다. res/applicationContext.xml 에 태그로 선언할 수도 있다. 이렇게 선언한경우, 리플렉션을 활용하여 bean id 클래스의 인스턴스를 지정한 세부 태그의 속성으로 메서드를 호출하여 객체를 초기화한다."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Webs",
+      "item": "https://nolleh.github.io/web/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "스프링 기본 용어/정리",
+      "item": "https://nolleh.github.io/web/fund-spring/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "스프링 기본 용어/정리",
+  "name": "스프링 기본 용어\/정리",
+  "description": "어쩌다보니 그동안 손댈 일이 없던 웹서버에 좀 손을 대게 되서 (게임서버, 클라이언트, 그리고 웹서버..정녕 풀스택 개발자가 되는것인가..ㅋ), 예전 선배님이 버리고 간(?) 스프링 책을 꺼내서 읽어 보며 정리한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.\nSpring Bean 객체 스프링에서 생성하여 관리하여 주는 스프링 빈 객체 혹은 빈 객체라고 부른다. res/applicationContext.xml 에 태그로 선언할 수도 있다. 이렇게 선언한경우, 리플렉션을 활용하여 bean id 클래스의 인스턴스를 지정한 세부 태그의 속성으로 메서드를 호출하여 객체를 초기화한다.",
+  "keywords": [
+    "Spring", "Web Server"
+  ],
+  "articleBody": " 어쩌다보니 그동안 손댈 일이 없던 웹서버에 좀 손을 대게 되서 (게임서버, 클라이언트, 그리고 웹서버..정녕 풀스택 개발자가 되는것인가..ㅋ), 예전 선배님이 버리고 간(?) 스프링 책을 꺼내서 읽어 보며 정리한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.\nSpring Bean 객체 스프링에서 생성하여 관리하여 주는 스프링 빈 객체 혹은 빈 객체라고 부른다. res/applicationContext.xml 에 태그로 선언할 수도 있다. 이렇게 선언한경우, 리플렉션을 활용하여 bean id 클래스의 인스턴스를 지정한 세부 태그의 속성으로 메서드를 호출하여 객체를 초기화한다.\nApplicationContext 스프링에서 제공하는 인터페이스. 컨테이너가 제공해야할 기본 기능 정의. BeanFactory 인터페이스를 상위에 두고 있다.\nApplicationContext::getBean 인자는 이름/타입. 이를 통해 빈객체를 얻어올 수 있다.\nSpring DI 설명이 장황한데, 여기서의 의존은 (composite 패턴으로) 다른 객체를 요할때를 의미한다.\n생성자를 통해 객체를 받거나 다른 멤버메서드를 통해 객체를 받거나 DI 의존성을 주입하는 방식으로, 외부로부터 의존객체를 전달 받는 구현 방식을 의미한다.\n스프링은, 결국 DI 컨테이너다.\nXML 을 통한 DI 설정 ",
+  "wordCount" : "231",
+  "inLanguage": "en",
+  "datePublished": "2017-07-26T23:11:14+09:00",
+  "dateModified": "2017-07-26T23:11:14+09:00",
+  "author":{
+    "@type": "Person",
+    "name": "nolleh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nolleh.github.io/web/fund-spring/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Computer Programmer, Nolleh",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nolleh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -74,7 +147,7 @@ Spring Bean 객체 스프링에서 생성하여 관리하여 주는 스프링 �
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
+            <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -100,22 +173,22 @@ Spring Bean 객체 스프링에서 생성하여 관리하여 주는 스프링 �
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/archives/" title="Archive">
+                <a href="https://nolleh.github.io/archives/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/categories/" title="Categories">
+                <a href="https://nolleh.github.io/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags/" title="Tags">
+                <a href="https://nolleh.github.io/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://nolleh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -126,7 +199,7 @@ Spring Bean 객체 스프링에서 생성하여 관리하여 주는 스프링 �
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/web/">Webs</a></div>
+    <div class="breadcrumbs"><a href="https://nolleh.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://nolleh.github.io/web/">Webs</a></div>
     <h1 class="post-title entry-hint-parent">
       스프링 기본 용어/정리
     </h1>
@@ -240,8 +313,8 @@ res/applicationContext.xml 에 <!-- raw HTML omitted --> 태그로 선언할 수
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/spring/">Spring</a></li>
-      <li><a href="http://localhost:1313/tags/web-server/">Web Server</a></li>
+      <li><a href="https://nolleh.github.io/tags/spring/">Spring</a></li>
+      <li><a href="https://nolleh.github.io/tags/web-server/">Web Server</a></li>
     </ul>
   </footer>
 <div id="disqus_thread"></div>
@@ -268,7 +341,7 @@ res/applicationContext.xml 에 <!-- raw HTML omitted --> 태그로 선언할 수
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="http://localhost:1313/">The Computer Programmer, Nolleh</a></span> · 
+        <span>&copy; 2024 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span> · 
 
     <span>
         Powered by

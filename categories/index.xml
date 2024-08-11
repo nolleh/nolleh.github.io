@@ -2,178 +2,178 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Categories on The Computer Programmer, Nolleh</title>
-    <link>http://localhost:1313/categories/</link>
+    <link>https://nolleh.github.io/categories/</link>
     <description>Recent content in Categories on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- 0.127.0</generator>
     <language>ko-KR</language>
     <lastBuildDate>Wed, 22 May 2024 21:37:29 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nolleh.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Zeromq</title>
-      <link>http://localhost:1313/categories/zeromq/</link>
+      <link>https://nolleh.github.io/categories/zeromq/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/zeromq/</guid>
+      <guid>https://nolleh.github.io/categories/zeromq/</guid>
       <description></description>
     </item>
     <item>
       <title>Edx-Linux</title>
-      <link>http://localhost:1313/categories/edx-linux/</link>
+      <link>https://nolleh.github.io/categories/edx-linux/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/edx-linux/</guid>
+      <guid>https://nolleh.github.io/categories/edx-linux/</guid>
       <description></description>
     </item>
     <item>
       <title>Ubuntu</title>
-      <link>http://localhost:1313/categories/ubuntu/</link>
+      <link>https://nolleh.github.io/categories/ubuntu/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/ubuntu/</guid>
+      <guid>https://nolleh.github.io/categories/ubuntu/</guid>
       <description></description>
     </item>
     <item>
       <title>Vim</title>
-      <link>http://localhost:1313/categories/vim/</link>
+      <link>https://nolleh.github.io/categories/vim/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/vim/</guid>
+      <guid>https://nolleh.github.io/categories/vim/</guid>
       <description></description>
     </item>
     <item>
       <title>Cheatsheet</title>
-      <link>http://localhost:1313/categories/cheatsheet/</link>
+      <link>https://nolleh.github.io/categories/cheatsheet/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/cheatsheet/</guid>
+      <guid>https://nolleh.github.io/categories/cheatsheet/</guid>
       <description></description>
     </item>
     <item>
       <title>Svelte</title>
-      <link>http://localhost:1313/categories/svelte/</link>
+      <link>https://nolleh.github.io/categories/svelte/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/svelte/</guid>
+      <guid>https://nolleh.github.io/categories/svelte/</guid>
       <description></description>
     </item>
     <item>
       <title>Csharp</title>
-      <link>http://localhost:1313/categories/csharp/</link>
+      <link>https://nolleh.github.io/categories/csharp/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/csharp/</guid>
+      <guid>https://nolleh.github.io/categories/csharp/</guid>
       <description></description>
     </item>
     <item>
       <title>개발환경</title>
-      <link>http://localhost:1313/categories/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD/</link>
+      <link>https://nolleh.github.io/categories/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD/</guid>
+      <guid>https://nolleh.github.io/categories/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD/</guid>
       <description></description>
     </item>
     <item>
       <title>Mysql</title>
-      <link>http://localhost:1313/categories/mysql/</link>
+      <link>https://nolleh.github.io/categories/mysql/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/mysql/</guid>
+      <guid>https://nolleh.github.io/categories/mysql/</guid>
       <description></description>
     </item>
     <item>
       <title>Kubernetes</title>
-      <link>http://localhost:1313/categories/kubernetes/</link>
+      <link>https://nolleh.github.io/categories/kubernetes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/kubernetes/</guid>
+      <guid>https://nolleh.github.io/categories/kubernetes/</guid>
       <description></description>
     </item>
     <item>
       <title>Distributed-System Column</title>
-      <link>http://localhost:1313/categories/distributed-system-column/</link>
+      <link>https://nolleh.github.io/categories/distributed-system-column/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/distributed-system-column/</guid>
+      <guid>https://nolleh.github.io/categories/distributed-system-column/</guid>
       <description></description>
     </item>
     <item>
       <title>Git</title>
-      <link>http://localhost:1313/categories/git/</link>
+      <link>https://nolleh.github.io/categories/git/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/git/</guid>
+      <guid>https://nolleh.github.io/categories/git/</guid>
       <description></description>
     </item>
     <item>
       <title>Qpid</title>
-      <link>http://localhost:1313/categories/qpid/</link>
+      <link>https://nolleh.github.io/categories/qpid/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/qpid/</guid>
+      <guid>https://nolleh.github.io/categories/qpid/</guid>
       <description></description>
     </item>
     <item>
       <title>RabbitMQ</title>
-      <link>http://localhost:1313/categories/rabbitmq/</link>
+      <link>https://nolleh.github.io/categories/rabbitmq/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/rabbitmq/</guid>
+      <guid>https://nolleh.github.io/categories/rabbitmq/</guid>
       <description></description>
     </item>
     <item>
       <title>암호학</title>
-      <link>http://localhost:1313/categories/%EC%95%94%ED%98%B8%ED%95%99/</link>
+      <link>https://nolleh.github.io/categories/%EC%95%94%ED%98%B8%ED%95%99/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/%EC%95%94%ED%98%B8%ED%95%99/</guid>
+      <guid>https://nolleh.github.io/categories/%EC%95%94%ED%98%B8%ED%95%99/</guid>
       <description></description>
     </item>
     <item>
       <title>Google Cloud Service</title>
-      <link>http://localhost:1313/categories/google-cloud-service/</link>
+      <link>https://nolleh.github.io/categories/google-cloud-service/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/google-cloud-service/</guid>
+      <guid>https://nolleh.github.io/categories/google-cloud-service/</guid>
       <description></description>
     </item>
     <item>
       <title>Block-Chain-Concept</title>
-      <link>http://localhost:1313/categories/block-chain-concept/</link>
+      <link>https://nolleh.github.io/categories/block-chain-concept/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/block-chain-concept/</guid>
+      <guid>https://nolleh.github.io/categories/block-chain-concept/</guid>
       <description></description>
     </item>
     <item>
       <title>EOSIO</title>
-      <link>http://localhost:1313/categories/eosio/</link>
+      <link>https://nolleh.github.io/categories/eosio/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/eosio/</guid>
+      <guid>https://nolleh.github.io/categories/eosio/</guid>
       <description></description>
     </item>
     <item>
       <title>Nancy</title>
-      <link>http://localhost:1313/categories/nancy/</link>
+      <link>https://nolleh.github.io/categories/nancy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/nancy/</guid>
+      <guid>https://nolleh.github.io/categories/nancy/</guid>
       <description></description>
     </item>
     <item>
       <title>Unix Network Programming</title>
-      <link>http://localhost:1313/categories/unix-network-programming/</link>
+      <link>https://nolleh.github.io/categories/unix-network-programming/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/unix-network-programming/</guid>
+      <guid>https://nolleh.github.io/categories/unix-network-programming/</guid>
       <description></description>
     </item>
     <item>
       <title>Spring</title>
-      <link>http://localhost:1313/categories/spring/</link>
+      <link>https://nolleh.github.io/categories/spring/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/spring/</guid>
+      <guid>https://nolleh.github.io/categories/spring/</guid>
       <description></description>
     </item>
     <item>
       <title>OS</title>
-      <link>http://localhost:1313/categories/os/</link>
+      <link>https://nolleh.github.io/categories/os/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/os/</guid>
+      <guid>https://nolleh.github.io/categories/os/</guid>
       <description></description>
     </item>
     <item>
       <title>서버개발지식</title>
-      <link>http://localhost:1313/categories/%EC%84%9C%EB%B2%84%EA%B0%9C%EB%B0%9C%EC%A7%80%EC%8B%9D/</link>
+      <link>https://nolleh.github.io/categories/%EC%84%9C%EB%B2%84%EA%B0%9C%EB%B0%9C%EC%A7%80%EC%8B%9D/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/%EC%84%9C%EB%B2%84%EA%B0%9C%EB%B0%9C%EC%A7%80%EC%8B%9D/</guid>
+      <guid>https://nolleh.github.io/categories/%EC%84%9C%EB%B2%84%EA%B0%9C%EB%B0%9C%EC%A7%80%EC%8B%9D/</guid>
       <description></description>
     </item>
     <item>
       <title>C&#43;&#43; CLI</title>
-      <link>http://localhost:1313/categories/c&#43;&#43;-cli/</link>
+      <link>https://nolleh.github.io/categories/c&#43;&#43;-cli/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/c&#43;&#43;-cli/</guid>
+      <guid>https://nolleh.github.io/categories/c&#43;&#43;-cli/</guid>
       <description></description>
     </item>
   </channel>

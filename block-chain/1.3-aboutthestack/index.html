@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>EOSIO - 1.3/스택에 대해 | The Computer Programmer, Nolleh</title>
 <meta name="keywords" content="block-chain, EOSIO">
 <meta name="description" content="발췌 - EOSIO - 1.3 About The Stack
@@ -13,16 +13,16 @@ nodeos (node &#43; eos = nodeos) - 노드를 실행하기 위한 플러그인들
 cleos (cli &#43; eos = cleos) - 블록 체인과 상호작용하고 wallet 을 관리하기위한 커맨드 라인 인터페이스.
 keosd (key &#43; eos = keosd) - wallet 안의 EOSIO key 를 안전하게 저장 하기 위한 컴포넌트">
 <meta name="author" content="nolleh">
-<link rel="canonical" href="http://localhost:1313/block-chain/1.3-aboutthestack/">
+<link rel="canonical" href="https://nolleh.github.io/block-chain/1.3-aboutthestack/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://nolleh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nolleh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/block-chain/1.3-aboutthestack/">
+<link rel="alternate" hreflang="en" href="https://nolleh.github.io/block-chain/1.3-aboutthestack/">
 <noscript>
     <style>
         #theme-toggle,
@@ -60,6 +60,85 @@ keosd (key &#43; eos = keosd) - wallet 안의 EOSIO key 를 안전하게 저장 
 
     </style>
 </noscript>
+  
+    
+      
+    
+  
+
+<meta property="og:title" content="EOSIO - 1.3/스택에 대해" />
+<meta property="og:description" content="발췌 - EOSIO - 1.3 About The Stack
+방금 설치한 툴들을 시작하기 전에, 각각의 컴포넌트들이 어떻게 상호작용하는지 이해하는게 좋다.
+nodeos (node &#43; eos = nodeos) - 노드를 실행하기 위한 플러그인들로 설정될 수 있는 Core EOSIO 데몬. 예제는 로컬개발과 API 종단점을 위해 블록제품을 사용한다.
+cleos (cli &#43; eos = cleos) - 블록 체인과 상호작용하고 wallet 을 관리하기위한 커맨드 라인 인터페이스.
+keosd (key &#43; eos = keosd) - wallet 안의 EOSIO key 를 안전하게 저장 하기 위한 컴포넌트" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nolleh.github.io/block-chain/1.3-aboutthestack/" /><meta property="article:section" content="block-chain" />
+<meta property="article:published_time" content="2019-01-01T15:56:51+09:00" />
+<meta property="article:modified_time" content="2019-01-01T15:56:51+09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="EOSIO - 1.3/스택에 대해"/>
+<meta name="twitter:description" content="발췌 - EOSIO - 1.3 About The Stack
+방금 설치한 툴들을 시작하기 전에, 각각의 컴포넌트들이 어떻게 상호작용하는지 이해하는게 좋다.
+nodeos (node &#43; eos = nodeos) - 노드를 실행하기 위한 플러그인들로 설정될 수 있는 Core EOSIO 데몬. 예제는 로컬개발과 API 종단점을 위해 블록제품을 사용한다.
+cleos (cli &#43; eos = cleos) - 블록 체인과 상호작용하고 wallet 을 관리하기위한 커맨드 라인 인터페이스.
+keosd (key &#43; eos = keosd) - wallet 안의 EOSIO key 를 안전하게 저장 하기 위한 컴포넌트"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Block-Chains",
+      "item": "https://nolleh.github.io/block-chain/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "EOSIO - 1.3/스택에 대해",
+      "item": "https://nolleh.github.io/block-chain/1.3-aboutthestack/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "EOSIO - 1.3/스택에 대해",
+  "name": "EOSIO - 1.3\/스택에 대해",
+  "description": "발췌 - EOSIO - 1.3 About The Stack\n방금 설치한 툴들을 시작하기 전에, 각각의 컴포넌트들이 어떻게 상호작용하는지 이해하는게 좋다.\nnodeos (node + eos = nodeos) - 노드를 실행하기 위한 플러그인들로 설정될 수 있는 Core EOSIO 데몬. 예제는 로컬개발과 API 종단점을 위해 블록제품을 사용한다.\ncleos (cli + eos = cleos) - 블록 체인과 상호작용하고 wallet 을 관리하기위한 커맨드 라인 인터페이스.\nkeosd (key + eos = keosd) - wallet 안의 EOSIO key 를 안전하게 저장 하기 위한 컴포넌트",
+  "keywords": [
+    "block-chain", "EOSIO"
+  ],
+  "articleBody": " 발췌 - EOSIO - 1.3 About The Stack\n방금 설치한 툴들을 시작하기 전에, 각각의 컴포넌트들이 어떻게 상호작용하는지 이해하는게 좋다.\nnodeos (node + eos = nodeos) - 노드를 실행하기 위한 플러그인들로 설정될 수 있는 Core EOSIO 데몬. 예제는 로컬개발과 API 종단점을 위해 블록제품을 사용한다.\ncleos (cli + eos = cleos) - 블록 체인과 상호작용하고 wallet 을 관리하기위한 커맨드 라인 인터페이스.\nkeosd (key + eos = keosd) - wallet 안의 EOSIO key 를 안전하게 저장 하기 위한 컴포넌트\neosio-cpp - eosio.cdt 의 일부로, C++ 코드를 WASM 로 컴파일하고 ABI 들을 생성한다.\n",
+  "wordCount" : "89",
+  "inLanguage": "en",
+  "datePublished": "2019-01-01T15:56:51+09:00",
+  "dateModified": "2019-01-01T15:56:51+09:00",
+  "author":{
+    "@type": "Person",
+    "name": "nolleh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nolleh.github.io/block-chain/1.3-aboutthestack/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Computer Programmer, Nolleh",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nolleh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -77,7 +156,7 @@ keosd (key &#43; eos = keosd) - wallet 안의 EOSIO key 를 안전하게 저장 
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
+            <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -103,22 +182,22 @@ keosd (key &#43; eos = keosd) - wallet 안의 EOSIO key 를 안전하게 저장 
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/archives/" title="Archive">
+                <a href="https://nolleh.github.io/archives/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/categories/" title="Categories">
+                <a href="https://nolleh.github.io/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags/" title="Tags">
+                <a href="https://nolleh.github.io/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://nolleh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -129,7 +208,7 @@ keosd (key &#43; eos = keosd) - wallet 안의 EOSIO key 를 안전하게 저장 
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/block-chain/">Block-Chains</a></div>
+    <div class="breadcrumbs"><a href="https://nolleh.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://nolleh.github.io/block-chain/">Block-Chains</a></div>
     <h1 class="post-title entry-hint-parent">
       EOSIO - 1.3/스택에 대해
     </h1>
@@ -164,8 +243,8 @@ keosd (key &#43; eos = keosd) - wallet 안의 EOSIO key 를 안전하게 저장 
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/block-chain/">Block-Chain</a></li>
-      <li><a href="http://localhost:1313/tags/eosio/">EOSIO</a></li>
+      <li><a href="https://nolleh.github.io/tags/block-chain/">Block-Chain</a></li>
+      <li><a href="https://nolleh.github.io/tags/eosio/">EOSIO</a></li>
     </ul>
   </footer>
 <div id="disqus_thread"></div>
@@ -192,7 +271,7 @@ keosd (key &#43; eos = keosd) - wallet 안의 EOSIO key 를 안전하게 저장 
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="http://localhost:1313/">The Computer Programmer, Nolleh</a></span> · 
+        <span>&copy; 2024 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span> · 
 
     <span>
         Powered by

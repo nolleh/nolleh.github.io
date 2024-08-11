@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Google Cloud Service on The Computer Programmer, Nolleh</title>
-    <link>http://localhost:1313/categories/google-cloud-service/</link>
+    <link>https://nolleh.github.io/categories/google-cloud-service/</link>
     <description>Recent content in Google Cloud Service on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- 0.127.0</generator>
     <language>ko-KR</language>
     <lastBuildDate>Sat, 16 Mar 2019 23:02:25 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/google-cloud-service/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nolleh.github.io/categories/google-cloud-service/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>6. DataStorage</title>
-      <link>http://localhost:1313/coursera/gcp/6.datastorage/</link>
+      <link>https://nolleh.github.io/coursera/gcp/6.datastorage/</link>
       <pubDate>Sat, 16 Mar 2019 23:02:25 +0900</pubDate>
-      <guid>http://localhost:1313/coursera/gcp/6.datastorage/</guid>
+      <guid>https://nolleh.github.io/coursera/gcp/6.datastorage/</guid>
       <description>Best Practices for Using Cloud Storage 버킷에 변화가 있을때 반응하게 할 수 있다. https://cloud.google.com/storage/docs/pubsub-notifications
 Demo coldline 은 일년에 한번 접근하는것과 같은 문제발생시 복구하는 용도로 사용하면 좋다..
 https://cloud.google.com/storage/docs/managing-lifecycles
@@ -23,25 +23,25 @@ Best Practices for cloud Storage request rate 가 초당 1000 쓰기 요청 이�
     </item>
     <item>
       <title>5. Cloud DataStore Concepts and Indexes</title>
-      <link>http://localhost:1313/coursera/gcp/5.datastore/</link>
+      <link>https://nolleh.github.io/coursera/gcp/5.datastore/</link>
       <pubDate>Sat, 16 Mar 2019 11:34:29 +0900</pubDate>
-      <guid>http://localhost:1313/coursera/gcp/5.datastore/</guid>
+      <guid>https://nolleh.github.io/coursera/gcp/5.datastore/</guid>
       <description>Cloud Datastore Concepts and Indexes Cloud Data Store concepts 데이터 오브젝트는 엔터티라고 불림 엔터티들은 하나이상의 프로퍼티로 구성됨 프로퍼티들은 하나이상의 값(values) 를 가질수 있음 각각의 엔터티는 구분되는 하나의 키를 가지고 있는데, 다음으로 구성 된다. 네임스페이스 엔터티 Kind 식별자 (스트링 or 숫자) 부모 ID 하나 이상의 엔터티에 대한 동작은 트랜잭션으로 불린다. Datastore has two types of indexes Built-in indexes Composite indexes 각각의 엔터티 Kind의 각각의 프로퍼티에 대해 자동으로 정의 인덱싱된 엔터티에 대해 다중의 프로퍼티 값을 인덱스함 간단한 쿼리에 적합 컴플렉스 쿼리에 적합 인덱스 설정파일에 정의 concept cloud datastore relational database 오브젝트 카테고리 Kind Table 한개 오브젝트 entity row 하나의 오브젝트를 위한 개별 데이터 프로퍼티 field 유니크 ID Key PrimaryKey Design Considerations &amp;amp; Sharding Design Your application for scale 엔터티 그룹에 대한 최대 쓰기율은 1/초 사전적으로 가까운 키에 대한 읽기와 쓰기를 너무 자주하지 말것.</description>
     </item>
     <item>
       <title>4.Cloud Storage, Cloud Datastore, Cloud Bigtable, Cloud SQL, and Cloud Spanner</title>
-      <link>http://localhost:1313/coursera/gcp/4.db-overview/</link>
+      <link>https://nolleh.github.io/coursera/gcp/4.db-overview/</link>
       <pubDate>Sat, 16 Mar 2019 11:33:59 +0900</pubDate>
-      <guid>http://localhost:1313/coursera/gcp/4.db-overview/</guid>
+      <guid>https://nolleh.github.io/coursera/gcp/4.db-overview/</guid>
       <description>Cloud Storage 크고 자주 사용되지 않은 비구조화된 데이터
 Overview ideal for 완전히 관리되고 고 신뢰가능 이미지와 비디오 비용절감. 확장가능한 오브젝트/블롭 저장 오브젝트와 블롭 http 로 접근 구조화되어있지 않은 데이터 오브젝트 이름이 키 정적 웹사이트 호스팅 Ideal for Cloud Datastore 관계형이나 데이터 분석에는 적합하지 않고 GAE 앱이나 구조화된 순수 제공 사용례에 적합한 구조화된 제공을 위한 스케일러블 저장소.
 OverView ideal for NoSQL 도큐먼트 데이터베이스 세미구조의 어플리케이션 데이터 확장가능 내구성이 필요한 키 밸류 데이터 계층구조 데이터 복수 인덱스 매니징 트랜잭션 Cloud Bigtable 고구조화 / 트랜잭셔널 데이터에는 적합하지 않고, flat 하고 많은 read/write 연산이나 분석을 위한 데이터에 적합한 큰 용량의 저지연 데이터베이스.</description>
     </item>
     <item>
       <title>3.SDK</title>
-      <link>http://localhost:1313/coursera/gcp/3.sdk/</link>
+      <link>https://nolleh.github.io/coursera/gcp/3.sdk/</link>
       <pubDate>Tue, 12 Mar 2019 23:37:51 +0900</pubDate>
-      <guid>http://localhost:1313/coursera/gcp/3.sdk/</guid>
+      <guid>https://nolleh.github.io/coursera/gcp/3.sdk/</guid>
       <description>What are the Google Cloud Client Libraries? 관용적인 코드를 각각의 랭귀지에 대해 제공 gRPC 에서 성능 효과를 보는 라이브러리도 있다.
 github repo
 gcloud - 커맨드 라인툴, gcp를 위한.
@@ -55,26 +55,26 @@ Module Review Api Explore: google cloud api 를 테스트하기위한 샌드박�
     </item>
     <item>
       <title>1-1. 계정관리를 위한 12 tips</title>
-      <link>http://localhost:1313/coursera/gcp/1-1.12-tips/</link>
+      <link>https://nolleh.github.io/coursera/gcp/1-1.12-tips/</link>
       <pubDate>Tue, 12 Mar 2019 21:52:58 +0900</pubDate>
-      <guid>http://localhost:1313/coursera/gcp/1-1.12-tips/</guid>
+      <guid>https://nolleh.github.io/coursera/gcp/1-1.12-tips/</guid>
       <description>12 Best Practices for user saccount https://cloud.google.com/blog/products/gcp/12-best-practices-for-user-account GCP 에서는 유저 계정에 대한 안전한 핸들링과 인증을 위한 툴을 게공한다. 웹사이트가 구글 쿠버네티스엔진에 호스트 되는 웹사이트를 담당하든, apigee 의 api 를 담당하든, firebase 를 사용하든, 어떤 다른 서비스를 통해 유저를 인증하든, 이 포스트는 좋은 연습을 제공해서, 안전하고 확장가능하고 쓸만한 계정 인증 시스템을 사용할 수 있게 도와줄 것이다.
 1. 패스워드를 해시하라. 패스워드를 포함해서, 예민한 개인정보를 어떻게 저장할 것인가가 계정관리의 가장 중요한 규칙이다. 이 데이터를 신성하게 다뤄야한다.</description>
     </item>
     <item>
       <title>2.Security-Reliability-Migration</title>
-      <link>http://localhost:1313/coursera/gcp/2.security-reliability-migration/</link>
+      <link>https://nolleh.github.io/coursera/gcp/2.security-reliability-migration/</link>
       <pubDate>Tue, 12 Mar 2019 21:52:02 +0900</pubDate>
-      <guid>http://localhost:1313/coursera/gcp/2.security-reliability-migration/</guid>
+      <guid>https://nolleh.github.io/coursera/gcp/2.security-reliability-migration/</guid>
       <description>3. Security, Reliablitiy, and Migration Use federated identity management firebase authentication~ 외부의 identity provider 를 통해 ..
 Implement health-check endpoint Stackdriver monitoring (helth monitoring agent) -&amp;gt; /health upcheck. 어디에 ? storage / database, network connection, 다른 의존들 .. 실패하면 자동으로 알림을 준다.
 로깅과 모니터를 어플리케이션의 성능에 대해 두라. 로그를 이벤트 스트림으로 취급하라. 어플리케이션에서는 건들지 말고 stdout 등으로 노출되는 데이터를 다른애가 후처리 해라 . 구글의 스택드라이버를 통해 어플리케이션을 디버그할 수 있고, 에러 모니터링을 설정할 수 있다.</description>
     </item>
     <item>
       <title>1.MSA and ApiGateway</title>
-      <link>http://localhost:1313/coursera/gcp/1.msaandapigateway/</link>
+      <link>https://nolleh.github.io/coursera/gcp/1.msaandapigateway/</link>
       <pubDate>Tue, 12 Mar 2019 21:51:32 +0900</pubDate>
-      <guid>http://localhost:1313/coursera/gcp/1.msaandapigateway/</guid>
+      <guid>https://nolleh.github.io/coursera/gcp/1.msaandapigateway/</guid>
       <description>Loosely Coupled Microservices and API gateway 모놀리틱에서는 기본 코드가 부풀게 되서, 어디를 고쳐야하는지 알기가 어렵다. 패키지들의 의존성들이 얼키고 설킨다.
 작은 기본 코드를 고쳐도 전체 프로그램이 배포되어 테스트될 필요가 있다.
 원격지에 의한 제어는 비동기 처리를 하자.

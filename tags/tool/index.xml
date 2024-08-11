@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tool on The Computer Programmer, Nolleh</title>
-    <link>http://localhost:1313/tags/tool/</link>
+    <link>https://nolleh.github.io/tags/tool/</link>
     <description>Recent content in Tool on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- 0.127.0</generator>
     <language>ko-KR</language>
     <lastBuildDate>Sun, 29 May 2022 16:37:55 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/tool/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nolleh.github.io/tags/tool/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>서브 모듈 추가하기</title>
-      <link>http://localhost:1313/git/sub-module/</link>
+      <link>https://nolleh.github.io/git/sub-module/</link>
       <pubDate>Sun, 29 May 2022 16:37:55 +0900</pubDate>
-      <guid>http://localhost:1313/git/sub-module/</guid>
+      <guid>https://nolleh.github.io/git/sub-module/</guid>
       <description>자주 사용하는 서브 모듈 명령어.
 add submodule git submodule add {remote-repo} update git submodule init
 git 에서 서브모듈을 관리하기위한 설정파일, gitmodules 를 설정한다. git submodule update remote 저장소로부터 업데이트 내용을 가져와서 적용한다. git submodule update --init remove submodule git submodule deinit -f {path} rm -rf .git/modules/{path} git rm -f {path} </description>

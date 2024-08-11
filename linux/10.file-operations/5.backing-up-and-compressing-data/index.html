@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>5.backing Up and Compressing Data | The Computer Programmer, Nolleh</title>
 <meta name="keywords" content="edx, Linux, Kernel">
 <meta name="description" content="1. Backing Up Data cp &lt;-&gt; rsync
 rsync is more efficient, because it checks if the file being copied already exists. rsync copies only the parts of files that have actually changed, it can be very fast cp can only copy files to and from destinations on the local machine (unless mounted using NFS), rsync can also be used to copy files from one machine to another. someone@host:path 2. Using rsync a very useful way to back up a project directory might be to use the following command.">
 <meta name="author" content="nolleh">
-<link rel="canonical" href="http://localhost:1313/linux/10.file-operations/5.backing-up-and-compressing-data/">
+<link rel="canonical" href="https://nolleh.github.io/linux/10.file-operations/5.backing-up-and-compressing-data/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://nolleh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nolleh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/linux/10.file-operations/5.backing-up-and-compressing-data/">
+<link rel="alternate" hreflang="en" href="https://nolleh.github.io/linux/10.file-operations/5.backing-up-and-compressing-data/">
 <noscript>
     <style>
         #theme-toggle,
@@ -57,6 +57,79 @@ rsync is more efficient, because it checks if the file being copied already exis
 
     </style>
 </noscript>
+  
+    
+      
+    
+  
+
+<meta property="og:title" content="5.backing Up and Compressing Data" />
+<meta property="og:description" content="1. Backing Up Data cp &lt;-&gt; rsync
+rsync is more efficient, because it checks if the file being copied already exists. rsync copies only the parts of files that have actually changed, it can be very fast cp can only copy files to and from destinations on the local machine (unless mounted using NFS), rsync can also be used to copy files from one machine to another. someone@host:path 2. Using rsync a very useful way to back up a project directory might be to use the following command." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nolleh.github.io/linux/10.file-operations/5.backing-up-and-compressing-data/" /><meta property="article:section" content="linux" />
+<meta property="article:published_time" content="2023-12-24T15:42:26+09:00" />
+<meta property="article:modified_time" content="2023-12-24T15:42:26+09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="5.backing Up and Compressing Data"/>
+<meta name="twitter:description" content="1. Backing Up Data cp &lt;-&gt; rsync
+rsync is more efficient, because it checks if the file being copied already exists. rsync copies only the parts of files that have actually changed, it can be very fast cp can only copy files to and from destinations on the local machine (unless mounted using NFS), rsync can also be used to copy files from one machine to another. someone@host:path 2. Using rsync a very useful way to back up a project directory might be to use the following command."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Linuxes",
+      "item": "https://nolleh.github.io/linux/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "5.backing Up and Compressing Data",
+      "item": "https://nolleh.github.io/linux/10.file-operations/5.backing-up-and-compressing-data/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "5.backing Up and Compressing Data",
+  "name": "5.backing Up and Compressing Data",
+  "description": "1. Backing Up Data cp \u0026lt;-\u0026gt; rsync\nrsync is more efficient, because it checks if the file being copied already exists. rsync copies only the parts of files that have actually changed, it can be very fast cp can only copy files to and from destinations on the local machine (unless mounted using NFS), rsync can also be used to copy files from one machine to another. someone@host:path 2. Using rsync a very useful way to back up a project directory might be to use the following command.",
+  "keywords": [
+    "edx", "Linux", "Kernel"
+  ],
+  "articleBody": "1. Backing Up Data cp \u003c-\u003e rsync\nrsync is more efficient, because it checks if the file being copied already exists. rsync copies only the parts of files that have actually changed, it can be very fast cp can only copy files to and from destinations on the local machine (unless mounted using NFS), rsync can also be used to copy files from one machine to another. someone@host:path 2. Using rsync a very useful way to back up a project directory might be to use the following command.\nrsync -r project-X archive-machine:archives/project-X 3. Compressing Data command usage gzip bzip2 produces files significantly smaller than those produced by gzip xz the most space-efficient compression utility used in Linux zip is often required to examine and decompress archives from other operating systems tar utility is often used to group files in an archive and then compress the whole archive at once.\ntar Jczf mydir.tar.xz mydir tar xvf mydir.tar.xz 10. Disk-to-Disk Copying (dd) first 512 byte sector on the disk that contains a table describing the partitions on that disk.\ndd if=/dev/sda of=sda.mbr bs=512 count=1 ",
+  "wordCount" : "182",
+  "inLanguage": "en",
+  "datePublished": "2023-12-24T15:42:26+09:00",
+  "dateModified": "2023-12-24T15:42:26+09:00",
+  "author":{
+    "@type": "Person",
+    "name": "nolleh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nolleh.github.io/linux/10.file-operations/5.backing-up-and-compressing-data/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Computer Programmer, Nolleh",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nolleh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -74,7 +147,7 @@ rsync is more efficient, because it checks if the file being copied already exis
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
+            <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -100,22 +173,22 @@ rsync is more efficient, because it checks if the file being copied already exis
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/archives/" title="Archive">
+                <a href="https://nolleh.github.io/archives/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/categories/" title="Categories">
+                <a href="https://nolleh.github.io/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags/" title="Tags">
+                <a href="https://nolleh.github.io/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://nolleh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -126,7 +199,7 @@ rsync is more efficient, because it checks if the file being copied already exis
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/linux/">Linuxes</a></div>
+    <div class="breadcrumbs"><a href="https://nolleh.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://nolleh.github.io/linux/">Linuxes</a></div>
     <h1 class="post-title entry-hint-parent">
       5.backing Up and Compressing Data
     </h1>
@@ -207,9 +280,9 @@ rsync is more efficient, because it checks if the file being copied already exis
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/edx/">Edx</a></li>
-      <li><a href="http://localhost:1313/tags/linux/">Linux</a></li>
-      <li><a href="http://localhost:1313/tags/kernel/">Kernel</a></li>
+      <li><a href="https://nolleh.github.io/tags/edx/">Edx</a></li>
+      <li><a href="https://nolleh.github.io/tags/linux/">Linux</a></li>
+      <li><a href="https://nolleh.github.io/tags/kernel/">Kernel</a></li>
     </ul>
   </footer>
 <div id="disqus_thread"></div>
@@ -236,7 +309,7 @@ rsync is more efficient, because it checks if the file being copied already exis
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="http://localhost:1313/">The Computer Programmer, Nolleh</a></span> · 
+        <span>&copy; 2024 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span> · 
 
     <span>
         Powered by

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>Mac 터미널에서 복수의 유저 사용하기 | The Computer Programmer, Nolleh</title>
 <meta name="keywords" content="env, MacOS, unix, linux, cheatsheet">
 <meta name="description" content="복수의 유저 사용하기 맥터미널에서 복수의 유저를 사용하려면 몇가지 신경써야할 부분들이 생긴다.
@@ -15,16 +15,16 @@ home directory 가 분리 되어 있기 때문에 어떤 유저를 위해 설치
 대표적인 예로 brew 에서 이런 문제가 발생하는데,,
 어떤 계정으로 설치한 패키지가 다른 계정에서 권한문제로 접근이 안되게 되면서 엉망이 된다.. (-_&ndash;) dependency 가 있는 다른 패키지 들과도 맞물리게 되면서 내가 설치한 패키지가 아닌 패키지에 대해 데이터를 바꾸려고 하면서 권한 이슈로 연결 되는식.">
 <meta name="author" content="nolleh">
-<link rel="canonical" href="http://localhost:1313/env/mac-terminal-multiple-user/">
+<link rel="canonical" href="https://nolleh.github.io/env/mac-terminal-multiple-user/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://nolleh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nolleh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/env/mac-terminal-multiple-user/">
+<link rel="alternate" hreflang="en" href="https://nolleh.github.io/env/mac-terminal-multiple-user/">
 <noscript>
     <style>
         #theme-toggle,
@@ -62,6 +62,89 @@ home directory 가 분리 되어 있기 때문에 어떤 유저를 위해 설치
 
     </style>
 </noscript>
+  
+    
+      
+    
+  
+
+<meta property="og:title" content="Mac 터미널에서 복수의 유저 사용하기" />
+<meta property="og:description" content="복수의 유저 사용하기 맥터미널에서 복수의 유저를 사용하려면 몇가지 신경써야할 부분들이 생긴다.
+home directory 가 분리 되어 있기 때문에 어떤 유저를 위해 설치한 데이터들은
+다른 유저에서는 사용못할수도 있고 (그러는게 맞고, 그럴려고 격리한거니)
+그러다보니 양쪽에서 같은 데이터를 설치해야하나 ?
+혹은 서로 충돌이 난다거나 하는 불편함들이 생긴다.
+대표적인 예로 brew 에서 이런 문제가 발생하는데,,
+어떤 계정으로 설치한 패키지가 다른 계정에서 권한문제로 접근이 안되게 되면서 엉망이 된다.. (-_&ndash;) dependency 가 있는 다른 패키지 들과도 맞물리게 되면서 내가 설치한 패키지가 아닌 패키지에 대해 데이터를 바꾸려고 하면서 권한 이슈로 연결 되는식." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nolleh.github.io/env/mac-terminal-multiple-user/" /><meta property="article:section" content="env" />
+<meta property="article:published_time" content="2022-08-24T00:49:49+09:00" />
+<meta property="article:modified_time" content="2022-08-24T00:49:49+09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Mac 터미널에서 복수의 유저 사용하기"/>
+<meta name="twitter:description" content="복수의 유저 사용하기 맥터미널에서 복수의 유저를 사용하려면 몇가지 신경써야할 부분들이 생긴다.
+home directory 가 분리 되어 있기 때문에 어떤 유저를 위해 설치한 데이터들은
+다른 유저에서는 사용못할수도 있고 (그러는게 맞고, 그럴려고 격리한거니)
+그러다보니 양쪽에서 같은 데이터를 설치해야하나 ?
+혹은 서로 충돌이 난다거나 하는 불편함들이 생긴다.
+대표적인 예로 brew 에서 이런 문제가 발생하는데,,
+어떤 계정으로 설치한 패키지가 다른 계정에서 권한문제로 접근이 안되게 되면서 엉망이 된다.. (-_&ndash;) dependency 가 있는 다른 패키지 들과도 맞물리게 되면서 내가 설치한 패키지가 아닌 패키지에 대해 데이터를 바꾸려고 하면서 권한 이슈로 연결 되는식."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Envs",
+      "item": "https://nolleh.github.io/env/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Mac 터미널에서 복수의 유저 사용하기",
+      "item": "https://nolleh.github.io/env/mac-terminal-multiple-user/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Mac 터미널에서 복수의 유저 사용하기",
+  "name": "Mac 터미널에서 복수의 유저 사용하기",
+  "description": "복수의 유저 사용하기 맥터미널에서 복수의 유저를 사용하려면 몇가지 신경써야할 부분들이 생긴다.\nhome directory 가 분리 되어 있기 때문에 어떤 유저를 위해 설치한 데이터들은\n다른 유저에서는 사용못할수도 있고 (그러는게 맞고, 그럴려고 격리한거니)\n그러다보니 양쪽에서 같은 데이터를 설치해야하나 ?\n혹은 서로 충돌이 난다거나 하는 불편함들이 생긴다.\n대표적인 예로 brew 에서 이런 문제가 발생하는데,,\n어떤 계정으로 설치한 패키지가 다른 계정에서 권한문제로 접근이 안되게 되면서 엉망이 된다.. (-_\u0026ndash;) dependency 가 있는 다른 패키지 들과도 맞물리게 되면서 내가 설치한 패키지가 아닌 패키지에 대해 데이터를 바꾸려고 하면서 권한 이슈로 연결 되는식.",
+  "keywords": [
+    "env", "MacOS", "unix", "linux", "cheatsheet"
+  ],
+  "articleBody": "복수의 유저 사용하기 맥터미널에서 복수의 유저를 사용하려면 몇가지 신경써야할 부분들이 생긴다.\nhome directory 가 분리 되어 있기 때문에 어떤 유저를 위해 설치한 데이터들은\n다른 유저에서는 사용못할수도 있고 (그러는게 맞고, 그럴려고 격리한거니)\n그러다보니 양쪽에서 같은 데이터를 설치해야하나 ?\n혹은 서로 충돌이 난다거나 하는 불편함들이 생긴다.\n대표적인 예로 brew 에서 이런 문제가 발생하는데,,\n어떤 계정으로 설치한 패키지가 다른 계정에서 권한문제로 접근이 안되게 되면서 엉망이 된다.. (-_–) dependency 가 있는 다른 패키지 들과도 맞물리게 되면서 내가 설치한 패키지가 아닌 패키지에 대해 데이터를 바꾸려고 하면서 권한 이슈로 연결 되는식.\n트러블 슈팅 진행하면서 겪은 해결책들을 여기에 기록하고자한다.\n1.brew 첫번째(유저그룹변경) / 두번째 (별도 brew 생성) 방법이 있는데 용량 아껴볼려고 첫번째 방법으로 고통받아봤는데,\n잘 해결은 안됐기 때문에 개인적으로 두번째 방법을 추천한다.\nstackoverflow\n1-1. 유저그룹으로 권한 설정 example. brew\necho $(brew --prefix) echo $(groups $(whoami)) sudo dseditgroup -o edit -a $(whoami) -t user admin sudo chgrp -R admin $(brew --prefix) sudo chmod -R g+rwX $(brew --prefix) ls -lah $(brew --prefix) 순서대로,\nbrew install path 확인하고 내 그룹 확인하고. 2에서 어드민 그룹에 없다면 어드민 그룹에 넣고 어드민 그룹으로 폴더 recursive 하게 소유권 변경 어드민 그룹에 있는 유저들에 대해 읽기,쓰기,실행 권한 부여 권한 확인 1-2. 공식 문서 제안법 하나도 사용하지 않거나, 하나의 글로벌 brew 설치를 하고, 모든 다른 유저들에서 지역 버전을 사용하는것이 공식 제안 법.\ncd $HOME git clone https://github.com/Homebrew/brew.git ./brew/bin/brew tap homebrew/core export PATH=$HOME/brew/bin:$PATH \u003e\u003e ~/.zshrc # or ~/.bashrc exec $SHELL which brew ",
+  "wordCount" : "224",
+  "inLanguage": "en",
+  "datePublished": "2022-08-24T00:49:49+09:00",
+  "dateModified": "2022-08-24T00:49:49+09:00",
+  "author":{
+    "@type": "Person",
+    "name": "nolleh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nolleh.github.io/env/mac-terminal-multiple-user/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Computer Programmer, Nolleh",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nolleh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -79,7 +162,7 @@ home directory 가 분리 되어 있기 때문에 어떤 유저를 위해 설치
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
+            <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -105,22 +188,22 @@ home directory 가 분리 되어 있기 때문에 어떤 유저를 위해 설치
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/archives/" title="Archive">
+                <a href="https://nolleh.github.io/archives/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/categories/" title="Categories">
+                <a href="https://nolleh.github.io/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags/" title="Tags">
+                <a href="https://nolleh.github.io/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://nolleh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -131,7 +214,7 @@ home directory 가 분리 되어 있기 때문에 어떤 유저를 위해 설치
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/env/">Envs</a></div>
+    <div class="breadcrumbs"><a href="https://nolleh.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://nolleh.github.io/env/">Envs</a></div>
     <h1 class="post-title entry-hint-parent">
       Mac 터미널에서 복수의 유저 사용하기
     </h1>
@@ -211,11 +294,11 @@ which brew
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/env/">Env</a></li>
-      <li><a href="http://localhost:1313/tags/macos/">MacOS</a></li>
-      <li><a href="http://localhost:1313/tags/unix/">Unix</a></li>
-      <li><a href="http://localhost:1313/tags/linux/">Linux</a></li>
-      <li><a href="http://localhost:1313/tags/cheatsheet/">Cheatsheet</a></li>
+      <li><a href="https://nolleh.github.io/tags/env/">Env</a></li>
+      <li><a href="https://nolleh.github.io/tags/macos/">MacOS</a></li>
+      <li><a href="https://nolleh.github.io/tags/unix/">Unix</a></li>
+      <li><a href="https://nolleh.github.io/tags/linux/">Linux</a></li>
+      <li><a href="https://nolleh.github.io/tags/cheatsheet/">Cheatsheet</a></li>
     </ul>
   </footer>
 <div id="disqus_thread"></div>
@@ -242,7 +325,7 @@ which brew
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="http://localhost:1313/">The Computer Programmer, Nolleh</a></span> · 
+        <span>&copy; 2024 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span> · 
 
     <span>
         Powered by

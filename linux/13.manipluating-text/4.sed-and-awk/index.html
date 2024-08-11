@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>4.sed and Awk | The Computer Programmer, Nolleh</title>
 <meta name="keywords" content="edx, Linux, Kernel">
 <meta name="description" content="introduction to sed and awk many Linux users and administrators will write scripts using comprehensive scripting languages such as Python and perl,
@@ -14,16 +14,16 @@ sed abbreviation for stream editor.
 data from an input source/file (or stream) is taken and moved to a working space.
 the entire list of operations/modifications is applied over the data in the working space and">
 <meta name="author" content="nolleh">
-<link rel="canonical" href="http://localhost:1313/linux/13.manipluating-text/4.sed-and-awk/">
+<link rel="canonical" href="https://nolleh.github.io/linux/13.manipluating-text/4.sed-and-awk/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://nolleh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nolleh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/linux/13.manipluating-text/4.sed-and-awk/">
+<link rel="alternate" hreflang="en" href="https://nolleh.github.io/linux/13.manipluating-text/4.sed-and-awk/">
 <noscript>
     <style>
         #theme-toggle,
@@ -61,6 +61,87 @@ the entire list of operations/modifications is applied over the data in the work
 
     </style>
 </noscript>
+  
+    
+      
+    
+  
+
+<meta property="og:title" content="4.sed and Awk" />
+<meta property="og:description" content="introduction to sed and awk many Linux users and administrators will write scripts using comprehensive scripting languages such as Python and perl,
+rather than use sed and awk. However, the utilitites that are described here are much lighter;i.e. they use fewer system resources,
+and execute faster.
+sed abbreviation for stream editor.
+data from an input source/file (or stream) is taken and moved to a working space.
+the entire list of operations/modifications is applied over the data in the working space and" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nolleh.github.io/linux/13.manipluating-text/4.sed-and-awk/" /><meta property="article:section" content="linux" />
+<meta property="article:published_time" content="2023-12-25T14:39:39+09:00" />
+<meta property="article:modified_time" content="2023-12-25T14:39:39+09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="4.sed and Awk"/>
+<meta name="twitter:description" content="introduction to sed and awk many Linux users and administrators will write scripts using comprehensive scripting languages such as Python and perl,
+rather than use sed and awk. However, the utilitites that are described here are much lighter;i.e. they use fewer system resources,
+and execute faster.
+sed abbreviation for stream editor.
+data from an input source/file (or stream) is taken and moved to a working space.
+the entire list of operations/modifications is applied over the data in the working space and"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Linuxes",
+      "item": "https://nolleh.github.io/linux/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "4.sed and Awk",
+      "item": "https://nolleh.github.io/linux/13.manipluating-text/4.sed-and-awk/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "4.sed and Awk",
+  "name": "4.sed and Awk",
+  "description": "introduction to sed and awk many Linux users and administrators will write scripts using comprehensive scripting languages such as Python and perl,\nrather than use sed and awk. However, the utilitites that are described here are much lighter;i.e. they use fewer system resources,\nand execute faster.\nsed abbreviation for stream editor.\ndata from an input source/file (or stream) is taken and moved to a working space.\nthe entire list of operations/modifications is applied over the data in the working space and",
+  "keywords": [
+    "edx", "Linux", "Kernel"
+  ],
+  "articleBody": "introduction to sed and awk many Linux users and administrators will write scripts using comprehensive scripting languages such as Python and perl,\nrather than use sed and awk. However, the utilitites that are described here are much lighter;i.e. they use fewer system resources,\nand execute faster.\nsed abbreviation for stream editor.\ndata from an input source/file (or stream) is taken and moved to a working space.\nthe entire list of operations/modifications is applied over the data in the working space and\nthe final contents are moved to the standard output space(or stream)\nsed command syntax command usage sed -e command specify editing commands at the command line, process input from ad file, and put the output on standard out sed -f scriptfile specify a script file containing sed commands, operate on file, and put output on standard out echo “I hate you” | sed s/hate/love/ usd sed to filter standard input, putting output on standard out the - e option allows you to specify multiple editing commands simultaneously at the command line.\nsed basic operations sed 1,3s/parttern/replace_string/g file\nsubstitute all string occurrences in a range of lines sed -i s/pattern/replace_string/g file\nsave changes for string substitution in the same file sed -e 's/01/JAN/' \\ -e 's/02/FEB/' \\ .... can change delimiter.\nsed s:/sbin/nologin:/bin/bash:g /etc/passwd awk awk is used to extract and then print specific contents of a file and is often used to construct reports.\nit is a powerful utility and interpreted programming language. it is used to manipulate data files, and for retrieving and processing text. it works well with fields (containing a single piece of data, essentially a column) and records (a collection of fields, essentially a line in a file) head - 10 /etc/passwd awk -F: '{print \"name: \"$1 shell: \" $7}' /etc/passwd | head -10 the input file is read on line at a time, and, for each line, awk matches the given pattern in the given order and performs the requested action. the =F option allows you to specify a particulaar field separator characotr.\n",
+  "wordCount" : "339",
+  "inLanguage": "en",
+  "datePublished": "2023-12-25T14:39:39+09:00",
+  "dateModified": "2023-12-25T14:39:39+09:00",
+  "author":{
+    "@type": "Person",
+    "name": "nolleh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nolleh.github.io/linux/13.manipluating-text/4.sed-and-awk/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Computer Programmer, Nolleh",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nolleh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -78,7 +159,7 @@ the entire list of operations/modifications is applied over the data in the work
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
+            <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -104,22 +185,22 @@ the entire list of operations/modifications is applied over the data in the work
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/archives/" title="Archive">
+                <a href="https://nolleh.github.io/archives/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/categories/" title="Categories">
+                <a href="https://nolleh.github.io/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags/" title="Tags">
+                <a href="https://nolleh.github.io/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://nolleh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -130,7 +211,7 @@ the entire list of operations/modifications is applied over the data in the work
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/linux/">Linuxes</a></div>
+    <div class="breadcrumbs"><a href="https://nolleh.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://nolleh.github.io/linux/">Linuxes</a></div>
     <h1 class="post-title entry-hint-parent">
       4.sed and Awk
     </h1>
@@ -224,9 +305,9 @@ the =F option allows you to specify a particulaar field separator characotr.</p>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/edx/">Edx</a></li>
-      <li><a href="http://localhost:1313/tags/linux/">Linux</a></li>
-      <li><a href="http://localhost:1313/tags/kernel/">Kernel</a></li>
+      <li><a href="https://nolleh.github.io/tags/edx/">Edx</a></li>
+      <li><a href="https://nolleh.github.io/tags/linux/">Linux</a></li>
+      <li><a href="https://nolleh.github.io/tags/kernel/">Kernel</a></li>
     </ul>
   </footer>
 <div id="disqus_thread"></div>
@@ -253,7 +334,7 @@ the =F option allows you to specify a particulaar field separator characotr.</p>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="http://localhost:1313/">The Computer Programmer, Nolleh</a></span> · 
+        <span>&copy; 2024 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span> · 
 
     <span>
         Powered by

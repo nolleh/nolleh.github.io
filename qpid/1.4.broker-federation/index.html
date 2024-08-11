@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>Broker Federation | The Computer Programmer, Nolleh</title>
 <meta name="keywords" content="MQ, qpid">
 <meta name="description" content="1.4 Broker Federation 메시지 라우트를 정의하여 하나의 브로커에서 다른 브로커로 자동으로 전달하게 한다.
@@ -16,16 +16,16 @@ pull 은 dest 에서.
 push 는 src 에서 설정함
 queue &lt;-&gt; exchage exchange &lt;-&gt; exchange excg &lt;-&gt; excg 는 다음과 같은 라우트를 가질 수 있다.">
 <meta name="author" content="nolleh">
-<link rel="canonical" href="http://localhost:1313/qpid/1.4.broker-federation/">
+<link rel="canonical" href="https://nolleh.github.io/qpid/1.4.broker-federation/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://nolleh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nolleh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/qpid/1.4.broker-federation/">
+<link rel="alternate" hreflang="en" href="https://nolleh.github.io/qpid/1.4.broker-federation/">
 <noscript>
     <style>
         #theme-toggle,
@@ -63,6 +63,91 @@ queue &lt;-&gt; exchage exchange &lt;-&gt; exchange excg &lt;-&gt; excg 는 다�
 
     </style>
 </noscript>
+  
+    
+      
+    
+  
+
+<meta property="og:title" content="Broker Federation" />
+<meta property="og:description" content="1.4 Broker Federation 메시지 라우트를 정의하여 하나의 브로커에서 다른 브로커로 자동으로 전달하게 한다.
+일반적으로 일방향이며, 라우트는 durable 하고 tansient 한다.
+연결이 소실되면 메시지는 누적되다가 재연결이 되면 다시 전송한다.
+라우팅에 사용되는 룰은 서버가 변경됨에 따라 동적으로 변경할 수 있으며, 변경의 책임은 다른 변경조건에 맞게 반영된다,.
+1.4.1 Message Routes pull / push 방식이 있음.
+pull 은 dest 에서.
+push 는 src 에서 설정함
+queue &lt;-&gt; exchage exchange &lt;-&gt; exchange excg &lt;-&gt; excg 는 다음과 같은 라우트를 가질 수 있다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nolleh.github.io/qpid/1.4.broker-federation/" /><meta property="article:section" content="qpid" />
+<meta property="article:published_time" content="2020-02-06T13:23:27+09:00" />
+<meta property="article:modified_time" content="2020-02-06T13:23:27+09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Broker Federation"/>
+<meta name="twitter:description" content="1.4 Broker Federation 메시지 라우트를 정의하여 하나의 브로커에서 다른 브로커로 자동으로 전달하게 한다.
+일반적으로 일방향이며, 라우트는 durable 하고 tansient 한다.
+연결이 소실되면 메시지는 누적되다가 재연결이 되면 다시 전송한다.
+라우팅에 사용되는 룰은 서버가 변경됨에 따라 동적으로 변경할 수 있으며, 변경의 책임은 다른 변경조건에 맞게 반영된다,.
+1.4.1 Message Routes pull / push 방식이 있음.
+pull 은 dest 에서.
+push 는 src 에서 설정함
+queue &lt;-&gt; exchage exchange &lt;-&gt; exchange excg &lt;-&gt; excg 는 다음과 같은 라우트를 가질 수 있다."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Qpids",
+      "item": "https://nolleh.github.io/qpid/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Broker Federation",
+      "item": "https://nolleh.github.io/qpid/1.4.broker-federation/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Broker Federation",
+  "name": "Broker Federation",
+  "description": "1.4 Broker Federation 메시지 라우트를 정의하여 하나의 브로커에서 다른 브로커로 자동으로 전달하게 한다.\n일반적으로 일방향이며, 라우트는 durable 하고 tansient 한다.\n연결이 소실되면 메시지는 누적되다가 재연결이 되면 다시 전송한다.\n라우팅에 사용되는 룰은 서버가 변경됨에 따라 동적으로 변경할 수 있으며, 변경의 책임은 다른 변경조건에 맞게 반영된다,.\n1.4.1 Message Routes pull / push 방식이 있음.\npull 은 dest 에서.\npush 는 src 에서 설정함\nqueue \u0026lt;-\u0026gt; exchage exchange \u0026lt;-\u0026gt; exchange excg \u0026lt;-\u0026gt; excg 는 다음과 같은 라우트를 가질 수 있다.",
+  "keywords": [
+    "MQ", "qpid"
+  ],
+  "articleBody": "1.4 Broker Federation 메시지 라우트를 정의하여 하나의 브로커에서 다른 브로커로 자동으로 전달하게 한다.\n일반적으로 일방향이며, 라우트는 durable 하고 tansient 한다.\n연결이 소실되면 메시지는 누적되다가 재연결이 되면 다시 전송한다.\n라우팅에 사용되는 룰은 서버가 변경됨에 따라 동적으로 변경할 수 있으며, 변경의 책임은 다른 변경조건에 맞게 반영된다,.\n1.4.1 Message Routes pull / push 방식이 있음.\npull 은 dest 에서.\npush 는 src 에서 설정함\nqueue \u003c-\u003e exchage exchange \u003c-\u003e exchange excg \u003c-\u003e excg 는 다음과 같은 라우트를 가질 수 있다.\n1.4.1.1 Queue Routes 모든 메시지를 src 에서 dest 로.\n1.4.1.2 Exchange Routes 바인딩키에 따라 라우트함\n실제로는 내부적으로 큐가 (auto-delete, exclusive) 만들어지고, 이를 통해 연결하는 것.\n1.4.1.3 Dynamic Exchange Routes 클라이언트가 바인딩을 맺고, 이 exchange 만이 아니라 dynamic exchange route 를 통해 생성된 다른 exchange 도 수신한다. 바인딩 변경시, 이 exhcange 와 관련한 다른 exchange routes 또한 변경한다.\nsource 에 연결 된 모든 dest exchange 에 대해 적용되는데, 하나의 메시지라도 매치가 되면 dest 에 라우트되도록한다. dest 에서 바인딩들이 추가되거나 삭제되는경우, 이 변화는 DER 에 적용이 된다. dest 브로커가 바인딩을 주어진 바인딩키를 만들경우 라우트에 반영이되고 바인딩키를 제거할 경우 라우트는 더이상 메시지를 브로커들에게 전달하는 오버헤드를 갖지 않는다. 만약 두 excg 가 der 을 서로에 대해 갖는경우, 각각의 excg 에 대한 모든 바인딩은 der 에 반영된다. DER 에서, source 와 destination exchages 들은 같은 excage 타입을 가지고 있어야하고, 같은 이름을 가져야 한다. 내부적으로 dynamic exchage routes 는 exchage 라우트와 동일하게 구현되어 있는데, 다른점은 DEST Excg 에 바인딩이 있는 경우 DER 을 구현하는데 사용한 바인딩들이 수정됐다는것. (? except that the bindings used to implement dynamic exchange routes are modified if the bindings in the destination exchange change.)\nDER 은 항상 pull route 형식이다.\n1.4.2 Federation Topolpogies 보통 이 네트워크는 트리구조, 스타구조, 선형, 양방향 링크, 로 구성된다. 링 형태도 가능하지만, 이때는 단방향링크들만 사용하여야 한다.\n메시지를 빨리 전달 받기 위해서는 브로커 사이 홉을 줄이는 것이 중요. 그래서 대부분의 경우 트리나 스타 토폴로지가 최고다.\nA, B 가 있다고 할 때 서로를 연결하는 경로는 하나만이 있어야 할 것.\n만약 하나 이상의 경로가 있으면 중복된 메시지 전송을 야기하고 네트워크의 홍수를 일으킬 것.\n1.4.3 Federation among High Availablity Message Clusters fedration 은 일반적으로 High Availability Message Clusters 와 사용이 되는데, 클러스터들이 각각의 LAN 에 대해 고 안정성을 얻게끔한다.\n메시지 상태가 클러스터에서 복제 되기 때문에,\n같은 클러스터의 다른 브로커 사이에서 메시지 라우트를 정의하는 작은 개념을 만들어 준다.\n두 클러스터 사이에서 메시지를 생성하기 위해, 첫번째 클러스터에서 다른 클러스터의 브로커로 라우터를 만들어주면된다.\n1.4.4 The qpid-route Utility $ qpid-route [OPTIONS] dynamic add $ qpid-route [OPTIONS] dynamic del $ qpid-route [OPTIONS] route add $ qpid-route [OPTIONS] route del $ qpid-route [OPTIONS] queue add $ qpid-route [OPTIONS] queue del $ qpid-route [OPTIONS] list [] $ qpid-route [OPTIONS] flush [] $ qpid-route [OPTIONS] map [] $ qpid-route [OPTIONS] list connections [] The syntax for broker, dest-broker, and src-broker is as follows:\n[username/password@] hostname | ip-address [:] The following are all valid examples of the above syntax: localhost, 10.1.1.7:10000, broker-host:10000, guest/guest@localhost.\nTable 1.9. qpid-route options\n-v Verbose output. -q Quiet output, will not print duplicate warnings. -d Make the route durable. –timeout N Maximum time to wait when qpid-route connects to a broker, in seconds. Default is 10 seconds. –ack N Acknowledge transfers of routed messages in batches of N. Default is 0 (no acknowledgements). Setting to 1 or greater enables acknowledgements; when using acknowledgements, values of N greater than 1 can significnantly improve performance, especially if there is significant network latency between the two brokers. -s [ –src-local ] Configure the route in the source broker (create a push route). -t [ --transport ] Transport protocol to be used for the route. _ tcp (default) _ ssl * rdma 1.4.4.1. Creating and Deleting Queue Routes $ qpid-route [OPTIONS] queue add $ qpid-route [OPTIONS] queue del 1.4.4.2. Exchange Routes ",
+  "wordCount" : "638",
+  "inLanguage": "en",
+  "datePublished": "2020-02-06T13:23:27+09:00",
+  "dateModified": "2020-02-06T13:23:27+09:00",
+  "author":{
+    "@type": "Person",
+    "name": "nolleh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nolleh.github.io/qpid/1.4.broker-federation/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Computer Programmer, Nolleh",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nolleh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -80,7 +165,7 @@ queue &lt;-&gt; exchage exchange &lt;-&gt; exchange excg &lt;-&gt; excg 는 다�
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
+            <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -106,22 +191,22 @@ queue &lt;-&gt; exchage exchange &lt;-&gt; exchange excg &lt;-&gt; excg 는 다�
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/archives/" title="Archive">
+                <a href="https://nolleh.github.io/archives/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/categories/" title="Categories">
+                <a href="https://nolleh.github.io/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags/" title="Tags">
+                <a href="https://nolleh.github.io/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://nolleh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -132,7 +217,7 @@ queue &lt;-&gt; exchage exchange &lt;-&gt; exchange excg &lt;-&gt; excg 는 다�
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/qpid/">Qpids</a></div>
+    <div class="breadcrumbs"><a href="https://nolleh.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://nolleh.github.io/qpid/">Qpids</a></div>
     <h1 class="post-title entry-hint-parent">
       Broker Federation
     </h1>
@@ -293,8 +378,8 @@ $ qpid-route [OPTIONS] list connections [&lt;broker&gt;]
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/mq/">MQ</a></li>
-      <li><a href="http://localhost:1313/tags/qpid/">Qpid</a></li>
+      <li><a href="https://nolleh.github.io/tags/mq/">MQ</a></li>
+      <li><a href="https://nolleh.github.io/tags/qpid/">Qpid</a></li>
     </ul>
   </footer>
 <div id="disqus_thread"></div>
@@ -321,7 +406,7 @@ $ qpid-route [OPTIONS] list connections [&lt;broker&gt;]
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="http://localhost:1313/">The Computer Programmer, Nolleh</a></span> · 
+        <span>&copy; 2024 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span> · 
 
     <span>
         Powered by

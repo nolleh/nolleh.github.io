@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>Dont Lock on Async Tasks | The Computer Programmer, Nolleh</title>
 <meta name="keywords" content="async-await, concurrent, 생각하는 프로그래머">
 <meta name="description" content="서론 예전 회사에서나 현 직장에서나, 면접관으로 들어가다가 C# 이 이력서에 적혀있는 경우 Task 와 async/await 관련하여 동기화 관련한 내용에 대해 물어보곤한다. 그리고 이 질문에서 대부분 깊이가 드러나게 된다. (여담이지만, 대부분의 지원자가 자바스택이라, 이런 재미진? 것들을 물어보기가 어렵다. C# 이랑 C&#43;&#43;, 실시간 게임서버는 재미진 질문? 들이 많은데.. ㅎㅎㅎㅎ 면접관으로 들어가기위해서 자바스택의 재미진 토픽들도 좀 찾아봐야겠다&hellip;.
 내 경험에서 질문을 도출하려고 스프링의 라이브러리들을 어떻게 구현할 수 있을지 물어볼수는 없으니&hellip;) 물어보다가 나도 생각도 정리하고, 내가 알고 있는 틀린 부분이 없는지 정리하는겸해서 블로그에 기록해 놓는다.">
 <meta name="author" content="nolleh">
-<link rel="canonical" href="http://localhost:1313/csharp/dont-lock-on-async-tasks/">
+<link rel="canonical" href="https://nolleh.github.io/csharp/dont-lock-on-async-tasks/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://nolleh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nolleh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/csharp/dont-lock-on-async-tasks/">
+<link rel="alternate" hreflang="en" href="https://nolleh.github.io/csharp/dont-lock-on-async-tasks/">
 <noscript>
     <style>
         #theme-toggle,
@@ -57,6 +57,79 @@
 
     </style>
 </noscript>
+  
+    
+      
+    
+  
+
+<meta property="og:title" content="Dont Lock on Async Tasks" />
+<meta property="og:description" content="서론 예전 회사에서나 현 직장에서나, 면접관으로 들어가다가 C# 이 이력서에 적혀있는 경우 Task 와 async/await 관련하여 동기화 관련한 내용에 대해 물어보곤한다. 그리고 이 질문에서 대부분 깊이가 드러나게 된다. (여담이지만, 대부분의 지원자가 자바스택이라, 이런 재미진? 것들을 물어보기가 어렵다. C# 이랑 C&#43;&#43;, 실시간 게임서버는 재미진 질문? 들이 많은데.. ㅎㅎㅎㅎ 면접관으로 들어가기위해서 자바스택의 재미진 토픽들도 좀 찾아봐야겠다&hellip;.
+내 경험에서 질문을 도출하려고 스프링의 라이브러리들을 어떻게 구현할 수 있을지 물어볼수는 없으니&hellip;) 물어보다가 나도 생각도 정리하고, 내가 알고 있는 틀린 부분이 없는지 정리하는겸해서 블로그에 기록해 놓는다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nolleh.github.io/csharp/dont-lock-on-async-tasks/" /><meta property="article:section" content="csharp" />
+<meta property="article:published_time" content="2022-09-06T00:20:16+09:00" />
+<meta property="article:modified_time" content="2022-09-06T00:20:16+09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Dont Lock on Async Tasks"/>
+<meta name="twitter:description" content="서론 예전 회사에서나 현 직장에서나, 면접관으로 들어가다가 C# 이 이력서에 적혀있는 경우 Task 와 async/await 관련하여 동기화 관련한 내용에 대해 물어보곤한다. 그리고 이 질문에서 대부분 깊이가 드러나게 된다. (여담이지만, 대부분의 지원자가 자바스택이라, 이런 재미진? 것들을 물어보기가 어렵다. C# 이랑 C&#43;&#43;, 실시간 게임서버는 재미진 질문? 들이 많은데.. ㅎㅎㅎㅎ 면접관으로 들어가기위해서 자바스택의 재미진 토픽들도 좀 찾아봐야겠다&hellip;.
+내 경험에서 질문을 도출하려고 스프링의 라이브러리들을 어떻게 구현할 수 있을지 물어볼수는 없으니&hellip;) 물어보다가 나도 생각도 정리하고, 내가 알고 있는 틀린 부분이 없는지 정리하는겸해서 블로그에 기록해 놓는다."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Csharps",
+      "item": "https://nolleh.github.io/csharp/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Dont Lock on Async Tasks",
+      "item": "https://nolleh.github.io/csharp/dont-lock-on-async-tasks/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Dont Lock on Async Tasks",
+  "name": "Dont Lock on Async Tasks",
+  "description": "서론 예전 회사에서나 현 직장에서나, 면접관으로 들어가다가 C# 이 이력서에 적혀있는 경우 Task 와 async/await 관련하여 동기화 관련한 내용에 대해 물어보곤한다. 그리고 이 질문에서 대부분 깊이가 드러나게 된다. (여담이지만, 대부분의 지원자가 자바스택이라, 이런 재미진? 것들을 물어보기가 어렵다. C# 이랑 C++, 실시간 게임서버는 재미진 질문? 들이 많은데.. ㅎㅎㅎㅎ 면접관으로 들어가기위해서 자바스택의 재미진 토픽들도 좀 찾아봐야겠다\u0026hellip;.\n내 경험에서 질문을 도출하려고 스프링의 라이브러리들을 어떻게 구현할 수 있을지 물어볼수는 없으니\u0026hellip;) 물어보다가 나도 생각도 정리하고, 내가 알고 있는 틀린 부분이 없는지 정리하는겸해서 블로그에 기록해 놓는다.",
+  "keywords": [
+    "async-await", "concurrent", "생각하는 프로그래머"
+  ],
+  "articleBody": "서론 예전 회사에서나 현 직장에서나, 면접관으로 들어가다가 C# 이 이력서에 적혀있는 경우 Task 와 async/await 관련하여 동기화 관련한 내용에 대해 물어보곤한다. 그리고 이 질문에서 대부분 깊이가 드러나게 된다. (여담이지만, 대부분의 지원자가 자바스택이라, 이런 재미진? 것들을 물어보기가 어렵다. C# 이랑 C++, 실시간 게임서버는 재미진 질문? 들이 많은데.. ㅎㅎㅎㅎ 면접관으로 들어가기위해서 자바스택의 재미진 토픽들도 좀 찾아봐야겠다….\n내 경험에서 질문을 도출하려고 스프링의 라이브러리들을 어떻게 구현할 수 있을지 물어볼수는 없으니…) 물어보다가 나도 생각도 정리하고, 내가 알고 있는 틀린 부분이 없는지 정리하는겸해서 블로그에 기록해 놓는다.\n내용 출처 - Don’t Lock On Async Tasks\n다음과 같이 일반적으로 락을 건다고 하자.\npublic class LockTest{ private readonly object objLock = new object(); public void RecordSuccess(int batchId){ lock(objLock){ // Record a success in database var success = GetCurrentSuccessCountFromDB(); SaveSuccessCountToDB(success+1); } } public void RecordFailure(int batchId){ lock(objLock){ // Record a failure in database var success = GetCurrentFailureCountFromDB(); SaveFailureCountToDB(success+1); } } } 락을 거는 것의 목적은 동시에 해당 영역에 두개이상의 스레드들이 접근 불가하도록 하는것인데, 10 개의 스레드가 락을 얻으려고 한다고 가정할때 순차적으로 락을 얻게 된다.\ntask 와 async/await 으로 위와 같은 코드를 작성하는 경우 async/await 의 이점을 제대로 누리지 못하고 스레드들이 잠기게 될것이다. (it ain’t async over here)\n때문에, 컴파일조차 안되게끔 컴파일러에서 막고있다. (이건 nolleh 의 경험상 적은 문구.) 그럼 어떻게 async 하게 wait 할수있을까? 이걸 위해 semapore 와 semaporeslim 이 있음.\n세마포어는 IPC 에서 사용할수 있고 세마포어 슬림은 어플리케이션 레벨에서 사용할 수 있다.\n-\u003e 이제 blocking 에서, suspended 된다. 요렇게 사용하면 됨.\npublic class LockTest{ private readonly SemaphoreSlim _lock= new SemaphoreSlim(1, 1); public async Task RecordSuccess(int batchId){ await _lock.WaitAsync(); try{ // Record a success in database var success = GetCurrentSuccessCountFromDB(); SaveSuccessCountToDB(success+1); } finally{ _lock.Release(); } } public async Task RecordFailure(int batchId){ await _lock.WaitAsync(); try{ // Record a failure in database var success = GetCurrentFailureCountFromDB(); SaveFailureCountToDB(success+1); } finally{ _lock.Release(); } } } nolleh 의 경험상, 여기에서 추가로 더 알아 둬야할 게 있는데, (reentrance 관련) 해당 컬럼은 본 블로그의 같은 카테고리-다음글-에서 찾아볼수 있다. 이어보기 - NeoSmart.AsyncLock 라이브러리에 관하여\n",
+  "wordCount" : "316",
+  "inLanguage": "en",
+  "datePublished": "2022-09-06T00:20:16+09:00",
+  "dateModified": "2022-09-06T00:20:16+09:00",
+  "author":{
+    "@type": "Person",
+    "name": "nolleh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nolleh.github.io/csharp/dont-lock-on-async-tasks/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Computer Programmer, Nolleh",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nolleh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -74,7 +147,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
+            <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -100,22 +173,22 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/archives/" title="Archive">
+                <a href="https://nolleh.github.io/archives/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/categories/" title="Categories">
+                <a href="https://nolleh.github.io/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags/" title="Tags">
+                <a href="https://nolleh.github.io/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://nolleh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -126,7 +199,7 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/csharp/">Csharps</a></div>
+    <div class="breadcrumbs"><a href="https://nolleh.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://nolleh.github.io/csharp/">Csharps</a></div>
     <h1 class="post-title entry-hint-parent">
       Dont Lock on Async Tasks
     </h1>
@@ -234,9 +307,9 @@ C# 이랑 C++, 실시간 게임서버는 재미진 질문? 들이 많은데.. �
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/async-await/">Async-Await</a></li>
-      <li><a href="http://localhost:1313/tags/concurrent/">Concurrent</a></li>
-      <li><a href="http://localhost:1313/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/">생각하는 프로그래머</a></li>
+      <li><a href="https://nolleh.github.io/tags/async-await/">Async-Await</a></li>
+      <li><a href="https://nolleh.github.io/tags/concurrent/">Concurrent</a></li>
+      <li><a href="https://nolleh.github.io/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/">생각하는 프로그래머</a></li>
     </ul>
   </footer>
 <div id="disqus_thread"></div>
@@ -263,7 +336,7 @@ C# 이랑 C++, 실시간 게임서버는 재미진 질문? 들이 많은데.. �
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="http://localhost:1313/">The Computer Programmer, Nolleh</a></span> · 
+        <span>&copy; 2024 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span> · 
 
     <span>
         Powered by

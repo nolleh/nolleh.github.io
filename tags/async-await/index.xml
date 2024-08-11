@@ -2,34 +2,34 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Async-Await on The Computer Programmer, Nolleh</title>
-    <link>http://localhost:1313/tags/async-await/</link>
+    <link>https://nolleh.github.io/tags/async-await/</link>
     <description>Recent content in Async-Await on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- 0.127.0</generator>
     <language>ko-KR</language>
     <lastBuildDate>Tue, 06 Sep 2022 00:20:16 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/async-await/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nolleh.github.io/tags/async-await/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Dont Lock on Async Tasks</title>
-      <link>http://localhost:1313/csharp/dont-lock-on-async-tasks/</link>
+      <link>https://nolleh.github.io/csharp/dont-lock-on-async-tasks/</link>
       <pubDate>Tue, 06 Sep 2022 00:20:16 +0900</pubDate>
-      <guid>http://localhost:1313/csharp/dont-lock-on-async-tasks/</guid>
+      <guid>https://nolleh.github.io/csharp/dont-lock-on-async-tasks/</guid>
       <description>서론 예전 회사에서나 현 직장에서나, 면접관으로 들어가다가 C# 이 이력서에 적혀있는 경우 Task 와 async/await 관련하여 동기화 관련한 내용에 대해 물어보곤한다. 그리고 이 질문에서 대부분 깊이가 드러나게 된다. (여담이지만, 대부분의 지원자가 자바스택이라, 이런 재미진? 것들을 물어보기가 어렵다. C# 이랑 C++, 실시간 게임서버는 재미진 질문? 들이 많은데.. ㅎㅎㅎㅎ 면접관으로 들어가기위해서 자바스택의 재미진 토픽들도 좀 찾아봐야겠다&amp;hellip;.
 내 경험에서 질문을 도출하려고 스프링의 라이브러리들을 어떻게 구현할 수 있을지 물어볼수는 없으니&amp;hellip;) 물어보다가 나도 생각도 정리하고, 내가 알고 있는 틀린 부분이 없는지 정리하는겸해서 블로그에 기록해 놓는다.</description>
     </item>
     <item>
       <title>비동기 프로그램의 제어 흐름</title>
-      <link>http://localhost:1313/csharp/async-control-flow-msdn/</link>
+      <link>https://nolleh.github.io/csharp/async-control-flow-msdn/</link>
       <pubDate>Fri, 21 Dec 2018 22:02:13 +0900</pubDate>
-      <guid>http://localhost:1313/csharp/async-control-flow-msdn/</guid>
+      <guid>https://nolleh.github.io/csharp/async-control-flow-msdn/</guid>
       <description>개요 다음에서 발췌
 비동기 프로그램의 제어 흐름
 코드 public partial class MainWindow : Window { // . . . private async void startButton_Click(object sender, RoutedEventArgs e) { // ONE Task&amp;lt;int&amp;gt; getLengthTask = AccessTheWebAsync(); // FOUR int contentLength = await getLengthTask; // SIX resultsTextBox.Text += $&amp;#34;\r\nLength of the downloaded string: {contentLength}.\r\n&amp;#34;; } async Task&amp;lt;int&amp;gt; AccessTheWebAsync() { // TWO HttpClient client = new HttpClient(); Task&amp;lt;string&amp;gt; getStringTask = client.GetStringAsync(&amp;#34;https://msdn.microsoft.com&amp;#34;); // THREE string urlContents = await getStringTask; // FIVE return urlContents.</description>
     </item>
     <item>
       <title>Async Await 을 사용한 비동기 프로그래밍</title>
-      <link>http://localhost:1313/csharp/async-await-msdn/</link>
+      <link>https://nolleh.github.io/csharp/async-await-msdn/</link>
       <pubDate>Fri, 21 Dec 2018 21:41:08 +0900</pubDate>
-      <guid>http://localhost:1313/csharp/async-await-msdn/</guid>
+      <guid>https://nolleh.github.io/csharp/async-await-msdn/</guid>
       <description>개요 다음에서 발췌 MSDN
 반응성을 향상시키는 비동기 잠재적인 차단 작업 완료 될때까지 다른 작업을 게속 수행
 작성이 간편한 비동기 메서드 반환 형식은 다음 중 하나
@@ -37,9 +37,9 @@ Task Task void - 비동기 이벤트 처리기 작성 GetAwaiter 포함 모든 �
     </item>
     <item>
       <title>Async Await</title>
-      <link>http://localhost:1313/csharp/async-await/</link>
+      <link>https://nolleh.github.io/csharp/async-await/</link>
       <pubDate>Tue, 18 Dec 2018 13:47:33 +0900</pubDate>
-      <guid>http://localhost:1313/csharp/async-await/</guid>
+      <guid>https://nolleh.github.io/csharp/async-await/</guid>
       <description>NeoSmart.AsyncLock 라이브러리에 관하여 다음에서 발췌, 번역 - Neosmart Docs.
 개요 semaporeslim 은 reentrance 를 지원하지 않는다. 따라서, recursion 에서 적절히 사용되지 않으면 데드락이 발생한다.
 asynclock 은 reentrance 기능을 semaphoreslim 에 추가한거.

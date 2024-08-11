@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Neovim on The Computer Programmer, Nolleh</title>
-    <link>http://localhost:1313/tags/neovim/</link>
+    <link>https://nolleh.github.io/tags/neovim/</link>
     <description>Recent content in Neovim on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- 0.127.0</generator>
     <language>ko-KR</language>
     <lastBuildDate>Sat, 09 Sep 2023 15:33:49 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/neovim/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nolleh.github.io/tags/neovim/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Neovim</title>
-      <link>http://localhost:1313/ubuntu/neovim/</link>
+      <link>https://nolleh.github.io/ubuntu/neovim/</link>
       <pubDate>Sat, 09 Sep 2023 15:33:49 +0900</pubDate>
-      <guid>http://localhost:1313/ubuntu/neovim/</guid>
+      <guid>https://nolleh.github.io/ubuntu/neovim/</guid>
       <description>apt-get install neovim 과 같은 방법으로는 최신 버전을 설치 할 수 없다.
 최신버전을 설치하려면, 다음 과정을 거쳐야한다.
 cf.https://github.com/neovim/neovim/wiki/Installing-Neovim

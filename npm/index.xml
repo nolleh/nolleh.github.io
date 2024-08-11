@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Npms on The Computer Programmer, Nolleh</title>
-    <link>http://localhost:1313/npm/</link>
+    <link>https://nolleh.github.io/npm/</link>
     <description>Recent content in Npms on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- 0.127.0</generator>
     <language>ko-KR</language>
     <lastBuildDate>Wed, 12 Jul 2023 08:29:46 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/npm/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nolleh.github.io/npm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to Make Package</title>
-      <link>http://localhost:1313/npm/how-to-make-package/</link>
+      <link>https://nolleh.github.io/npm/how-to-make-package/</link>
       <pubDate>Wed, 12 Jul 2023 08:29:46 +0900</pubDate>
-      <guid>http://localhost:1313/npm/how-to-make-package/</guid>
+      <guid>https://nolleh.github.io/npm/how-to-make-package/</guid>
       <description>패키지를 만들때 기본 구성
 { &amp;#34;main&amp;#34;: &amp;#34;./dist/cjs/index.js&amp;#34;, &amp;#34;types&amp;#34;: &amp;#34;./dist/cjs/types/index.d.ts&amp;#34;, &amp;#34;files&amp;#34;: [ &amp;#34;dist/**/*&amp;#34; ], &amp;#34;scripts&amp;#34;: { &amp;#34;clean&amp;#34;: &amp;#34;rm -rf ./dist&amp;#34;, &amp;#34;build&amp;#34;: &amp;#34;pnpm run clean &amp;amp;&amp;amp; pnpm build:esm &amp;amp;&amp;amp; pnpm build:cjs&amp;#34;, &amp;#34;build:esm&amp;#34;: &amp;#34;tsc -p ./tsconfig.esm.json &amp;amp;&amp;amp; mv dist/esm/index.js dist/esm/index.mjs&amp;#34;, &amp;#34;build:cjs&amp;#34;: &amp;#34;tsc -p ./tsconfig.cjs.json&amp;#34;, &amp;#34;prepack&amp;#34;: &amp;#34;pnpm build&amp;#34; }, &amp;#34;repository&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;git&amp;#34;, &amp;#34;url&amp;#34;: &amp;#34;https://github.com/nolleh/serialize-interceptor&amp;#34; }, &amp;#34;keywords&amp;#34;: [ &amp;#34;nestjs&amp;#34;, &amp;#34;nest.js&amp;#34;, &amp;#34;serialize&amp;#34;, &amp;#34;deserialize&amp;#34;, &amp;#34;camel&amp;#34;, &amp;#34;snake&amp;#34;, &amp;#34;json&amp;#34;, &amp;#34;dto&amp;#34;, &amp;#34;transform&amp;#34; ], &amp;#34;exports&amp;#34;: { &amp;#34;.&amp;#34;: { &amp;#34;import&amp;#34;: { &amp;#34;types&amp;#34;: &amp;#34;.</description>
     </item>

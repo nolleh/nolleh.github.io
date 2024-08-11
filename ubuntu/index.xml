@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Ubuntus on The Computer Programmer, Nolleh</title>
-    <link>http://localhost:1313/ubuntu/</link>
+    <link>https://nolleh.github.io/ubuntu/</link>
     <description>Recent content in Ubuntus on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- 0.127.0</generator>
     <language>ko-KR</language>
     <lastBuildDate>Sun, 25 Feb 2024 16:59:57 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nolleh.github.io/ubuntu/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>struggles to view OTT on UBUNTU X raspberry Pi 5 - A.K.A using Widevinecdm</title>
-      <link>http://localhost:1313/ubuntu/widevinecdm/</link>
+      <link>https://nolleh.github.io/ubuntu/widevinecdm/</link>
       <pubDate>Sun, 25 Feb 2024 16:59:57 +0900</pubDate>
-      <guid>http://localhost:1313/ubuntu/widevinecdm/</guid>
+      <guid>https://nolleh.github.io/ubuntu/widevinecdm/</guid>
       <description>라즈베리파이5 * Ubuntu 에서DRM 스트리밍서비스 (OTT) 를 이용하려고 여러 글들을 살펴봄.
 https://github.com/brave/brave-browser/issues/28903
 https://support.brave.com/hc/en-us/articles/23881756488717-How-do-I-enable-Widevine-DRM-on-Linux
@@ -26,9 +26,9 @@ vivaldi 브라우저에서 컴포턴트가 드디어 노출되는건 확인했�
     </item>
     <item>
       <title>Optimize Speed</title>
-      <link>http://localhost:1313/ubuntu/optimize-speed/</link>
+      <link>https://nolleh.github.io/ubuntu/optimize-speed/</link>
       <pubDate>Sat, 09 Sep 2023 15:36:52 +0900</pubDate>
-      <guid>http://localhost:1313/ubuntu/optimize-speed/</guid>
+      <guid>https://nolleh.github.io/ubuntu/optimize-speed/</guid>
       <description>라즈베리파이에서 우분투를 설치해서 사용하고 있는데, 인터넷 속도가 어마하게 느린 이슈가 있다.
 거기서 개선을 위해 시도해본 것들에 대해 기록할 예정.
 ##1. iwconfig
@@ -40,9 +40,9 @@ sudo apt install -y linux-modules-extra-raspi sudo apt install -y zram-tools sud
     </item>
     <item>
       <title>Neovim</title>
-      <link>http://localhost:1313/ubuntu/neovim/</link>
+      <link>https://nolleh.github.io/ubuntu/neovim/</link>
       <pubDate>Sat, 09 Sep 2023 15:33:49 +0900</pubDate>
-      <guid>http://localhost:1313/ubuntu/neovim/</guid>
+      <guid>https://nolleh.github.io/ubuntu/neovim/</guid>
       <description>apt-get install neovim 과 같은 방법으로는 최신 버전을 설치 할 수 없다.
 최신버전을 설치하려면, 다음 과정을 거쳐야한다.
 cf.https://github.com/neovim/neovim/wiki/Installing-Neovim

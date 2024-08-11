@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Etcs on The Computer Programmer, Nolleh</title>
-    <link>http://localhost:1313/etc/</link>
+    <link>https://nolleh.github.io/etc/</link>
     <description>Recent content in Etcs on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- 0.127.0</generator>
     <language>ko-KR</language>
     <lastBuildDate>Tue, 04 Jul 2017 00:45:55 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/etc/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nolleh.github.io/etc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>C&#43;&#43; CLI 에서 managed 콜백을 unmanaged 로 전달하기</title>
-      <link>http://localhost:1313/etc/managed_cb_to_unmanaged/</link>
+      <link>https://nolleh.github.io/etc/managed_cb_to_unmanaged/</link>
       <pubDate>Tue, 04 Jul 2017 00:45:55 +0900</pubDate>
-      <guid>http://localhost:1313/etc/managed_cb_to_unmanaged/</guid>
+      <guid>https://nolleh.github.io/etc/managed_cb_to_unmanaged/</guid>
       <description>파라미터가 없다면 DelegateToPointer 로 마샬링해서 전달하면되는데,
 이러면 파라미터를 마샬링할 기회가 주어지지 않는다는게 문제다.
 좀 구글링을 해봤는데,

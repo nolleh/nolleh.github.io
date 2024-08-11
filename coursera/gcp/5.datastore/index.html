@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>5. Cloud DataStore Concepts and Indexes | The Computer Programmer, Nolleh</title>
 <meta name="keywords" content="Coursera, Google Cloud Service">
 <meta name="description" content="Cloud Datastore Concepts and Indexes Cloud Data Store concepts 데이터 오브젝트는 엔터티라고 불림 엔터티들은 하나이상의 프로퍼티로 구성됨 프로퍼티들은 하나이상의 값(values) 를 가질수 있음 각각의 엔터티는 구분되는 하나의 키를 가지고 있는데, 다음으로 구성 된다. 네임스페이스 엔터티 Kind 식별자 (스트링 or 숫자) 부모 ID 하나 이상의 엔터티에 대한 동작은 트랜잭션으로 불린다. Datastore has two types of indexes Built-in indexes Composite indexes 각각의 엔터티 Kind의 각각의 프로퍼티에 대해 자동으로 정의 인덱싱된 엔터티에 대해 다중의 프로퍼티 값을 인덱스함 간단한 쿼리에 적합 컴플렉스 쿼리에 적합 인덱스 설정파일에 정의 concept cloud datastore relational database 오브젝트 카테고리 Kind Table 한개 오브젝트 entity row 하나의 오브젝트를 위한 개별 데이터 프로퍼티 field 유니크 ID Key PrimaryKey Design Considerations &amp; Sharding Design Your application for scale 엔터티 그룹에 대한 최대 쓰기율은 1/초 사전적으로 가까운 키에 대한 읽기와 쓰기를 너무 자주하지 말것.">
 <meta name="author" content="nolleh">
-<link rel="canonical" href="http://localhost:1313/coursera/gcp/5.datastore/">
+<link rel="canonical" href="https://nolleh.github.io/coursera/gcp/5.datastore/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://nolleh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nolleh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/coursera/gcp/5.datastore/">
+<link rel="alternate" hreflang="en" href="https://nolleh.github.io/coursera/gcp/5.datastore/">
 <noscript>
     <style>
         #theme-toggle,
@@ -56,6 +56,77 @@
 
     </style>
 </noscript>
+  
+    
+      
+    
+  
+
+<meta property="og:title" content="5. Cloud DataStore Concepts and Indexes" />
+<meta property="og:description" content="Cloud Datastore Concepts and Indexes Cloud Data Store concepts 데이터 오브젝트는 엔터티라고 불림 엔터티들은 하나이상의 프로퍼티로 구성됨 프로퍼티들은 하나이상의 값(values) 를 가질수 있음 각각의 엔터티는 구분되는 하나의 키를 가지고 있는데, 다음으로 구성 된다. 네임스페이스 엔터티 Kind 식별자 (스트링 or 숫자) 부모 ID 하나 이상의 엔터티에 대한 동작은 트랜잭션으로 불린다. Datastore has two types of indexes Built-in indexes Composite indexes 각각의 엔터티 Kind의 각각의 프로퍼티에 대해 자동으로 정의 인덱싱된 엔터티에 대해 다중의 프로퍼티 값을 인덱스함 간단한 쿼리에 적합 컴플렉스 쿼리에 적합 인덱스 설정파일에 정의 concept cloud datastore relational database 오브젝트 카테고리 Kind Table 한개 오브젝트 entity row 하나의 오브젝트를 위한 개별 데이터 프로퍼티 field 유니크 ID Key PrimaryKey Design Considerations &amp; Sharding Design Your application for scale 엔터티 그룹에 대한 최대 쓰기율은 1/초 사전적으로 가까운 키에 대한 읽기와 쓰기를 너무 자주하지 말것." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nolleh.github.io/coursera/gcp/5.datastore/" /><meta property="article:section" content="coursera" />
+<meta property="article:published_time" content="2019-03-16T11:34:29+09:00" />
+<meta property="article:modified_time" content="2019-03-16T11:34:29+09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="5. Cloud DataStore Concepts and Indexes"/>
+<meta name="twitter:description" content="Cloud Datastore Concepts and Indexes Cloud Data Store concepts 데이터 오브젝트는 엔터티라고 불림 엔터티들은 하나이상의 프로퍼티로 구성됨 프로퍼티들은 하나이상의 값(values) 를 가질수 있음 각각의 엔터티는 구분되는 하나의 키를 가지고 있는데, 다음으로 구성 된다. 네임스페이스 엔터티 Kind 식별자 (스트링 or 숫자) 부모 ID 하나 이상의 엔터티에 대한 동작은 트랜잭션으로 불린다. Datastore has two types of indexes Built-in indexes Composite indexes 각각의 엔터티 Kind의 각각의 프로퍼티에 대해 자동으로 정의 인덱싱된 엔터티에 대해 다중의 프로퍼티 값을 인덱스함 간단한 쿼리에 적합 컴플렉스 쿼리에 적합 인덱스 설정파일에 정의 concept cloud datastore relational database 오브젝트 카테고리 Kind Table 한개 오브젝트 entity row 하나의 오브젝트를 위한 개별 데이터 프로퍼티 field 유니크 ID Key PrimaryKey Design Considerations &amp; Sharding Design Your application for scale 엔터티 그룹에 대한 최대 쓰기율은 1/초 사전적으로 가까운 키에 대한 읽기와 쓰기를 너무 자주하지 말것."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Coursera",
+      "item": "https://nolleh.github.io/coursera/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "5. Cloud DataStore Concepts and Indexes",
+      "item": "https://nolleh.github.io/coursera/gcp/5.datastore/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "5. Cloud DataStore Concepts and Indexes",
+  "name": "5. Cloud DataStore Concepts and Indexes",
+  "description": "Cloud Datastore Concepts and Indexes Cloud Data Store concepts 데이터 오브젝트는 엔터티라고 불림 엔터티들은 하나이상의 프로퍼티로 구성됨 프로퍼티들은 하나이상의 값(values) 를 가질수 있음 각각의 엔터티는 구분되는 하나의 키를 가지고 있는데, 다음으로 구성 된다. 네임스페이스 엔터티 Kind 식별자 (스트링 or 숫자) 부모 ID 하나 이상의 엔터티에 대한 동작은 트랜잭션으로 불린다. Datastore has two types of indexes Built-in indexes Composite indexes 각각의 엔터티 Kind의 각각의 프로퍼티에 대해 자동으로 정의 인덱싱된 엔터티에 대해 다중의 프로퍼티 값을 인덱스함 간단한 쿼리에 적합 컴플렉스 쿼리에 적합 인덱스 설정파일에 정의 concept cloud datastore relational database 오브젝트 카테고리 Kind Table 한개 오브젝트 entity row 하나의 오브젝트를 위한 개별 데이터 프로퍼티 field 유니크 ID Key PrimaryKey Design Considerations \u0026amp; Sharding Design Your application for scale 엔터티 그룹에 대한 최대 쓰기율은 1/초 사전적으로 가까운 키에 대한 읽기와 쓰기를 너무 자주하지 말것.",
+  "keywords": [
+    "Coursera", "Google Cloud Service"
+  ],
+  "articleBody": "Cloud Datastore Concepts and Indexes Cloud Data Store concepts 데이터 오브젝트는 엔터티라고 불림 엔터티들은 하나이상의 프로퍼티로 구성됨 프로퍼티들은 하나이상의 값(values) 를 가질수 있음 각각의 엔터티는 구분되는 하나의 키를 가지고 있는데, 다음으로 구성 된다. 네임스페이스 엔터티 Kind 식별자 (스트링 or 숫자) 부모 ID 하나 이상의 엔터티에 대한 동작은 트랜잭션으로 불린다. Datastore has two types of indexes Built-in indexes Composite indexes 각각의 엔터티 Kind의 각각의 프로퍼티에 대해 자동으로 정의 인덱싱된 엔터티에 대해 다중의 프로퍼티 값을 인덱스함 간단한 쿼리에 적합 컴플렉스 쿼리에 적합 인덱스 설정파일에 정의 concept cloud datastore relational database 오브젝트 카테고리 Kind Table 한개 오브젝트 entity row 하나의 오브젝트를 위한 개별 데이터 프로퍼티 field 유니크 ID Key PrimaryKey Design Considerations \u0026 Sharding Design Your application for scale 엔터티 그룹에 대한 최대 쓰기율은 1/초 사전적으로 가까운 키에 대한 읽기와 쓰기를 너무 자주하지 말것. 구글의 noSQL 데이터베이스 Bigtable 을 이용해서 구현되어있는데 확장할때 로우들을 별도 테이블로 샤딩하는데 이 로우들이 키에 대해 사전적으로 정렬되어있기 때문. 점진적으로 ramp up traffic 을 새로운 클라우드 데이터 스토어에.. 빅테이블이 테이블을 분리하기에 충분할 시간을 주도록.. 클라우드 데이터스토어의 엔터티를 적은 범위의 키로 삭제하는 동작을 피해라 컴팩션(삭제된 엔트리를 제거하고 데이터를 재구성하여 읽기와 쓰기가 더 효율적으로 동작하도록 주기적으로 테이블을 다시쓰는 작업) 타임스탬프가 비슷해서 함께 있을 엔터티들을 많이 삭제하면, 이에 대한 쿼리가 컴팩션이 완료되기 전까지 늦을 수 있다. 핫 클라우드 데이터 스토어 키들에 대해 : use sharding, 쓰기가 빈번한 키 range 에. use replication, 읽기가 빈번한 키 range. When sharding, remember: 트랜잭션 스루풋은 1 write/sec per entity group 복수의 kinds 에 걸쳐 자주 업데이트 되는 엔터티는 분리하라. Shared counters to avoid contention with high writes contention 을 줄이기 위해:\nsharded counter 를 구축하라 (카운터를 N 개의 다른 카운터로 쪼개라) - 카운터를 올리기 위해 임의의 샤드를 선택하여 올린다 - 전체 카운트를 알기위해, 모든 샤드카운터를 읽어서 더해라. 샤드의 넘버를 올리는 것은 스루풋을 올리는 것.. increasing the number of shards will increase the throughput you will have for increments on you counter. Replicaion, Query Types, Transactions, and Handling Errors Use replication to read a portion of the key range 읽기 비율이 높은데에 사용. 엔터티에 대한 사본을 N 개에 대해 두면, 읽기 연산에 대해 N 배 빠르다.\nDevices -\u003e Cloud Load Balance -\u003e Front end App (AppEngine - auto scailiing)\nUse qurey types based on your needs Keys-only Projection (엔터티에서 프로퍼티를 얻어옴.) Ancester - 쿼리의 강한 일관성을 요할때. select * from task where __key__ has ancestor key(TaskList, ‘default’) Entity select * from task where done = FALSE Improve Your query latency by using cursors instead of offsets Demo: Use Cloud Dataflow to bulk-load data into Cloud data store pip install apache-beam\nlab git clone https://github.com/GoogleCloudPlatform/training-data-analyst\nSummary 조상을 지정하는 것으로 엔터티 그룹을 설정할수 있다.\n이렇게 해서 모든 관계된 엔터티들이 하나의 트랜잭션으로 업데이트 될 수 있다. 트래픽 램프업을 위해 555 룰을 따라라. 처음엔 초당 500 정도를 쓰다가 5분마다 50퍼센트씩 증가 시키는 것.\n",
+  "wordCount" : "452",
+  "inLanguage": "en",
+  "datePublished": "2019-03-16T11:34:29+09:00",
+  "dateModified": "2019-03-16T11:34:29+09:00",
+  "author":{
+    "@type": "Person",
+    "name": "nolleh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nolleh.github.io/coursera/gcp/5.datastore/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Computer Programmer, Nolleh",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nolleh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -73,7 +144,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
+            <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -99,22 +170,22 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/archives/" title="Archive">
+                <a href="https://nolleh.github.io/archives/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/categories/" title="Categories">
+                <a href="https://nolleh.github.io/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags/" title="Tags">
+                <a href="https://nolleh.github.io/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://nolleh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -125,7 +196,7 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/coursera/">Coursera</a></div>
+    <div class="breadcrumbs"><a href="https://nolleh.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://nolleh.github.io/coursera/">Coursera</a></div>
     <h1 class="post-title entry-hint-parent">
       5. Cloud DataStore Concepts and Indexes
     </h1>
@@ -314,8 +385,8 @@ select * from task where done = FALSE</li>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/coursera/">Coursera</a></li>
-      <li><a href="http://localhost:1313/tags/google-cloud-service/">Google Cloud Service</a></li>
+      <li><a href="https://nolleh.github.io/tags/coursera/">Coursera</a></li>
+      <li><a href="https://nolleh.github.io/tags/google-cloud-service/">Google Cloud Service</a></li>
     </ul>
   </footer>
 <div id="disqus_thread"></div>
@@ -342,7 +413,7 @@ select * from task where done = FALSE</li>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="http://localhost:1313/">The Computer Programmer, Nolleh</a></span> · 
+        <span>&copy; 2024 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span> · 
 
     <span>
         Powered by

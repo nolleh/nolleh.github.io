@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Block-Chain-Youtubes on The Computer Programmer, Nolleh</title>
-    <link>http://localhost:1313/block-chain-youtube/</link>
+    <link>https://nolleh.github.io/block-chain-youtube/</link>
     <description>Recent content in Block-Chain-Youtubes on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- 0.127.0</generator>
     <language>ko-KR</language>
     <lastBuildDate>Wed, 23 Jan 2019 20:32:59 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/block-chain-youtube/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nolleh.github.io/block-chain-youtube/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Building Distributed App</title>
-      <link>http://localhost:1313/block-chain-youtube/building-distributed-app/</link>
+      <link>https://nolleh.github.io/block-chain-youtube/building-distributed-app/</link>
       <pubDate>Wed, 23 Jan 2019 20:32:59 +0900</pubDate>
-      <guid>http://localhost:1313/block-chain-youtube/building-distributed-app/</guid>
+      <guid>https://nolleh.github.io/block-chain-youtube/building-distributed-app/</guid>
       <description>다음에서 발췌 ()[]
 Smart Contract 블록은 트랜잭션을 포함한다. 트랜잭션은 액션의 기록이다. 액션은 컨트랙트의 동작이다. 스마트컨트랙트의 사용
 eos.io 의 컨트랙트는 abi 로 표현된다. 어플리케이션 코드는 json data 를 이용한 http 를 통해 contract 를 트리거 한다. EOS.IO 는 컨트랙트를 간단히 스크립팅하거나 테스팅하기위한 커맨드라인 인터페이스를 제공한다. Intro Smart Contracts EOS.IO 스마트 컨트랙트는 WebAssembly 로 구동된다. (WASM)

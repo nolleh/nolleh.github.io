@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Envs on The Computer Programmer, Nolleh</title>
-    <link>http://localhost:1313/env/</link>
+    <link>https://nolleh.github.io/env/</link>
     <description>Recent content in Envs on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- 0.127.0</generator>
     <language>ko-KR</language>
     <lastBuildDate>Wed, 24 Aug 2022 00:49:49 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/env/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nolleh.github.io/env/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mac 터미널에서 복수의 유저 사용하기</title>
-      <link>http://localhost:1313/env/mac-terminal-multiple-user/</link>
+      <link>https://nolleh.github.io/env/mac-terminal-multiple-user/</link>
       <pubDate>Wed, 24 Aug 2022 00:49:49 +0900</pubDate>
-      <guid>http://localhost:1313/env/mac-terminal-multiple-user/</guid>
+      <guid>https://nolleh.github.io/env/mac-terminal-multiple-user/</guid>
       <description>복수의 유저 사용하기 맥터미널에서 복수의 유저를 사용하려면 몇가지 신경써야할 부분들이 생긴다.
 home directory 가 분리 되어 있기 때문에 어떤 유저를 위해 설치한 데이터들은
 다른 유저에서는 사용못할수도 있고 (그러는게 맞고, 그럴려고 격리한거니)
@@ -23,23 +23,23 @@ home directory 가 분리 되어 있기 때문에 어떤 유저를 위해 설치
     </item>
     <item>
       <title>How To Make Git Page</title>
-      <link>http://localhost:1313/env/how-to-make-git-page/</link>
+      <link>https://nolleh.github.io/env/how-to-make-git-page/</link>
       <pubDate>Fri, 07 Jul 2017 21:22:50 +0900</pubDate>
-      <guid>http://localhost:1313/env/how-to-make-git-page/</guid>
+      <guid>https://nolleh.github.io/env/how-to-make-git-page/</guid>
       <description>Making Git Page</description>
     </item>
     <item>
       <title>Brew Install 이 구버전만 설치할 때</title>
-      <link>http://localhost:1313/env/brew-update/</link>
+      <link>https://nolleh.github.io/env/brew-update/</link>
       <pubDate>Tue, 04 Jul 2017 22:31:23 +0900</pubDate>
-      <guid>http://localhost:1313/env/brew-update/</guid>
+      <guid>https://nolleh.github.io/env/brew-update/</guid>
       <description>개발 환경 - Brew</description>
     </item>
     <item>
       <title>markDown 문법</title>
-      <link>http://localhost:1313/env/mark-down-syntax/</link>
+      <link>https://nolleh.github.io/env/mark-down-syntax/</link>
       <pubDate>Tue, 04 Jul 2017 22:13:52 +0900</pubDate>
-      <guid>http://localhost:1313/env/mark-down-syntax/</guid>
+      <guid>https://nolleh.github.io/env/mark-down-syntax/</guid>
       <description>mark down 문법</description>
     </item>
   </channel>

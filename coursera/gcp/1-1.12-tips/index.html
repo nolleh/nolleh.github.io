@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>1-1. 계정관리를 위한 12 tips | The Computer Programmer, Nolleh</title>
 <meta name="keywords" content="Coursera, Google Cloud Service">
 <meta name="description" content="12 Best Practices for user saccount https://cloud.google.com/blog/products/gcp/12-best-practices-for-user-account GCP 에서는 유저 계정에 대한 안전한 핸들링과 인증을 위한 툴을 게공한다. 웹사이트가 구글 쿠버네티스엔진에 호스트 되는 웹사이트를 담당하든, apigee 의 api 를 담당하든, firebase 를 사용하든, 어떤 다른 서비스를 통해 유저를 인증하든, 이 포스트는 좋은 연습을 제공해서, 안전하고 확장가능하고 쓸만한 계정 인증 시스템을 사용할 수 있게 도와줄 것이다.
 1. 패스워드를 해시하라. 패스워드를 포함해서, 예민한 개인정보를 어떻게 저장할 것인가가 계정관리의 가장 중요한 규칙이다. 이 데이터를 신성하게 다뤄야한다.">
 <meta name="author" content="nolleh">
-<link rel="canonical" href="http://localhost:1313/coursera/gcp/1-1.12-tips/">
+<link rel="canonical" href="https://nolleh.github.io/coursera/gcp/1-1.12-tips/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://nolleh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nolleh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/coursera/gcp/1-1.12-tips/">
+<link rel="alternate" hreflang="en" href="https://nolleh.github.io/coursera/gcp/1-1.12-tips/">
 <noscript>
     <style>
         #theme-toggle,
@@ -57,6 +57,79 @@
 
     </style>
 </noscript>
+  
+    
+      
+    
+  
+
+<meta property="og:title" content="1-1. 계정관리를 위한 12 tips" />
+<meta property="og:description" content="12 Best Practices for user saccount https://cloud.google.com/blog/products/gcp/12-best-practices-for-user-account GCP 에서는 유저 계정에 대한 안전한 핸들링과 인증을 위한 툴을 게공한다. 웹사이트가 구글 쿠버네티스엔진에 호스트 되는 웹사이트를 담당하든, apigee 의 api 를 담당하든, firebase 를 사용하든, 어떤 다른 서비스를 통해 유저를 인증하든, 이 포스트는 좋은 연습을 제공해서, 안전하고 확장가능하고 쓸만한 계정 인증 시스템을 사용할 수 있게 도와줄 것이다.
+1. 패스워드를 해시하라. 패스워드를 포함해서, 예민한 개인정보를 어떻게 저장할 것인가가 계정관리의 가장 중요한 규칙이다. 이 데이터를 신성하게 다뤄야한다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nolleh.github.io/coursera/gcp/1-1.12-tips/" /><meta property="article:section" content="coursera" />
+<meta property="article:published_time" content="2019-03-12T21:52:58+09:00" />
+<meta property="article:modified_time" content="2019-03-12T21:52:58+09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="1-1. 계정관리를 위한 12 tips"/>
+<meta name="twitter:description" content="12 Best Practices for user saccount https://cloud.google.com/blog/products/gcp/12-best-practices-for-user-account GCP 에서는 유저 계정에 대한 안전한 핸들링과 인증을 위한 툴을 게공한다. 웹사이트가 구글 쿠버네티스엔진에 호스트 되는 웹사이트를 담당하든, apigee 의 api 를 담당하든, firebase 를 사용하든, 어떤 다른 서비스를 통해 유저를 인증하든, 이 포스트는 좋은 연습을 제공해서, 안전하고 확장가능하고 쓸만한 계정 인증 시스템을 사용할 수 있게 도와줄 것이다.
+1. 패스워드를 해시하라. 패스워드를 포함해서, 예민한 개인정보를 어떻게 저장할 것인가가 계정관리의 가장 중요한 규칙이다. 이 데이터를 신성하게 다뤄야한다."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Coursera",
+      "item": "https://nolleh.github.io/coursera/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "1-1. 계정관리를 위한 12 tips",
+      "item": "https://nolleh.github.io/coursera/gcp/1-1.12-tips/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "1-1. 계정관리를 위한 12 tips",
+  "name": "1-1. 계정관리를 위한 12 tips",
+  "description": "12 Best Practices for user saccount https://cloud.google.com/blog/products/gcp/12-best-practices-for-user-account GCP 에서는 유저 계정에 대한 안전한 핸들링과 인증을 위한 툴을 게공한다. 웹사이트가 구글 쿠버네티스엔진에 호스트 되는 웹사이트를 담당하든, apigee 의 api 를 담당하든, firebase 를 사용하든, 어떤 다른 서비스를 통해 유저를 인증하든, 이 포스트는 좋은 연습을 제공해서, 안전하고 확장가능하고 쓸만한 계정 인증 시스템을 사용할 수 있게 도와줄 것이다.\n1. 패스워드를 해시하라. 패스워드를 포함해서, 예민한 개인정보를 어떻게 저장할 것인가가 계정관리의 가장 중요한 규칙이다. 이 데이터를 신성하게 다뤄야한다.",
+  "keywords": [
+    "Coursera", "Google Cloud Service"
+  ],
+  "articleBody": "12 Best Practices for user saccount https://cloud.google.com/blog/products/gcp/12-best-practices-for-user-account GCP 에서는 유저 계정에 대한 안전한 핸들링과 인증을 위한 툴을 게공한다. 웹사이트가 구글 쿠버네티스엔진에 호스트 되는 웹사이트를 담당하든, apigee 의 api 를 담당하든, firebase 를 사용하든, 어떤 다른 서비스를 통해 유저를 인증하든, 이 포스트는 좋은 연습을 제공해서, 안전하고 확장가능하고 쓸만한 계정 인증 시스템을 사용할 수 있게 도와줄 것이다.\n1. 패스워드를 해시하라. 패스워드를 포함해서, 예민한 개인정보를 어떻게 저장할 것인가가 계정관리의 가장 중요한 규칙이다. 이 데이터를 신성하게 다뤄야한다. 다시 reverse 될 수 없는 강력한 해쉬로되어야한다. 예를들면, PBKDF2, Argon2, Scripy, Bcrypt .. 또한, 이 해쉬는 salted 되어야 한다. MD5 나 SHA1 같은 deprecate 된 해쉬기술은 사용하면 안되며, revirsiable 될 수 있는 인크립션을 사용해야하는 상황은 어디에도 없으며, 직접 해쉬 알고리즘을 개발할 필요도 없다. 라고 생각하자.\n2. 서드파티 식별 제공자를 허락하자. 믿을수 있게한다. 구글, 페이스북, 트위터등이 흔히 사용된다. firebase Auth 시스템을 통해 인증처리를 할 수도 있다. -다른 사례들을 보면, 반나절만에 적용하고 그렇다. fabulas?\n3. 유저 식별의 개념을 유저 계정의 개념과 분리하라. 유저는 이메일 어드레스도, 핸드폰 번호도, OAUTH 응답의 unique ID 도 아니다. 유저 유저는 유일성의 최고점에 있으며, 당신 서비스의 개인화된 데이터와 경험이다. 잘 디자인된 유저관리 체계는 low 커플링 되어있으며, 고수준으로 응집되어있다.\n유저 계정과 보안을 분리하는 개념을 고수하는 것은 서드파티의 식별제공자를 구현하는 과정을 크게 단순화 할 수 있다. 유저는 유저 이름이나 다중의 정체성을 하나의 유저 계정에 연결 할 수도 있게 된다. 실제 용어로 옮기면, 내부의 전역 식별자를 모든 유저와 그들의 프로필과, 인증에 연결할 수도 있다.\n4. 하나의 계정에 복수의 정체성을 허용할 수 있도록 제공하라. 한 유저는 유저명과 패스워드를 사용하여 인증한후에, 이 과정이 계정을 생성할 수 있는지 모르고 구글 사이닝을 선택할 수있다. 유사하게, 어떤 유저는 복수의 이메일 주서를 당신의 서비스에 연결할 이유가 있었을 수도 있습니다. 만약 유저 식별과 인증을 분리해 두었다면, 하나의 유저에 대해 다양한 식별 정보를 연결하는게 간단하다.\n사용자가 기존 계정에 연결되지 않은 서드파티 아이디를 사용하고 있다는 것을 깨닫기전에 새로 가입하는 프로세스를 수행할 수 있는 가능성을 고려해야 한다. 흔한 식별 정보를 제공하도록 묻는것 만으로도 해결될 수 있다. 이메일어드레스, 폰이나 유저명 등.. 시스템에 존재한다면, 인증 후 새로운 아이디를 존재하는 계정에 연결하자.\n5. 길거나 복잡한 패스워드를 막지 말자. NIST 는 최근에 패스워드 복잡도와 강인함에 대해 가이드라인을 제공했다. 패스워드 길이를 막아서 얻을 수 있는건 POST 사이즈 뿐.. (끽해봐야 1MB?)\n해쉬된 패스워드는 알려진 적은 ASCII문자의 선택으로 압축될 수 있고, 그렇지 않으면 그냥 바이너리 해쉬를 Base64 로 변경해도 된다.\n6. user name 에 타당치 않은 규칙을 강요하지 마라 ",
+  "wordCount" : "374",
+  "inLanguage": "en",
+  "datePublished": "2019-03-12T21:52:58+09:00",
+  "dateModified": "2019-03-12T21:52:58+09:00",
+  "author":{
+    "@type": "Person",
+    "name": "nolleh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nolleh.github.io/coursera/gcp/1-1.12-tips/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Computer Programmer, Nolleh",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nolleh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -74,7 +147,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
+            <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -100,22 +173,22 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/archives/" title="Archive">
+                <a href="https://nolleh.github.io/archives/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/categories/" title="Categories">
+                <a href="https://nolleh.github.io/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags/" title="Tags">
+                <a href="https://nolleh.github.io/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://nolleh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -126,7 +199,7 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/coursera/">Coursera</a></div>
+    <div class="breadcrumbs"><a href="https://nolleh.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://nolleh.github.io/coursera/">Coursera</a></div>
     <h1 class="post-title entry-hint-parent">
       1-1. 계정관리를 위한 12 tips
     </h1>
@@ -191,8 +264,8 @@ GCP 에서는 유저 계정에 대한 안전한 핸들링과 인증을 위한 �
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/coursera/">Coursera</a></li>
-      <li><a href="http://localhost:1313/tags/google-cloud-service/">Google Cloud Service</a></li>
+      <li><a href="https://nolleh.github.io/tags/coursera/">Coursera</a></li>
+      <li><a href="https://nolleh.github.io/tags/google-cloud-service/">Google Cloud Service</a></li>
     </ul>
   </footer>
 <div id="disqus_thread"></div>
@@ -219,7 +292,7 @@ GCP 에서는 유저 계정에 대한 안전한 핸들링과 인증을 위한 �
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="http://localhost:1313/">The Computer Programmer, Nolleh</a></span> · 
+        <span>&copy; 2024 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span> · 
 
     <span>
         Powered by

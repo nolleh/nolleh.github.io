@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Zeromq on The Computer Programmer, Nolleh</title>
-    <link>http://localhost:1313/categories/zeromq/</link>
+    <link>https://nolleh.github.io/categories/zeromq/</link>
     <description>Recent content in Zeromq on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- 0.127.0</generator>
     <language>ko-KR</language>
     <lastBuildDate>Wed, 22 May 2024 21:37:29 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/zeromq/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nolleh.github.io/categories/zeromq/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>1.basics</title>
-      <link>http://localhost:1313/zeromq/1.basics/</link>
+      <link>https://nolleh.github.io/zeromq/1.basics/</link>
       <pubDate>Wed, 22 May 2024 21:37:29 +0900</pubDate>
-      <guid>http://localhost:1313/zeromq/1.basics/</guid>
+      <guid>https://nolleh.github.io/zeromq/1.basics/</guid>
       <description>다음 번역 zguide
 Chapter 1 - Basics Fixing The World 프로그래밍의 물리요, 과학은: 사람들이 쉽게 이해하고 사용할 수 있는 빌딩블록을 만들고 함께 큰 문제를 해결하는 데에 있다.
 우리는 연결되어 있는 세상에 살고 있고 현대의 소프트웨어는 세상을 안내한다.

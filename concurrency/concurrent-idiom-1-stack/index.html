@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>Concurrent Idiom 1 - Stack | The Computer Programmer, Nolleh</title>
 <meta name="keywords" content="concurrent, 생각하는 프로그래머">
 <meta name="description" content="concurrent 프로그램을 작성할 때 고려해야할 몇가지 사항. 그리고 idiom.
@@ -14,16 +14,16 @@ Concurrent ISSUE - Stack 이번엔 스택.
 if (!s.empty()) { item = s.top(); s.pop(); } 인터페이스상의 문제이기 때문에 empty 와 top 사이의 safety 를 보장할 수 없다.
 top() / pop() 도 마찬가지 -&raquo; 조회되지 못하는 아이템이 있을 수 있다.">
 <meta name="author" content="nolleh">
-<link rel="canonical" href="http://localhost:1313/concurrency/concurrent-idiom-1-stack/">
+<link rel="canonical" href="https://nolleh.github.io/concurrency/concurrent-idiom-1-stack/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://nolleh.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nolleh.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nolleh.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nolleh.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nolleh.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/concurrency/concurrent-idiom-1-stack/">
+<link rel="alternate" hreflang="en" href="https://nolleh.github.io/concurrency/concurrent-idiom-1-stack/">
 <noscript>
     <style>
         #theme-toggle,
@@ -61,6 +61,87 @@ top() / pop() 도 마찬가지 -&raquo; 조회되지 못하는 아이템이 있�
 
     </style>
 </noscript>
+  
+    
+      
+    
+  
+
+<meta property="og:title" content="Concurrent Idiom 1 - Stack" />
+<meta property="og:description" content="concurrent 프로그램을 작성할 때 고려해야할 몇가지 사항. 그리고 idiom.
+여러 서적에서 발췌하였으며, 정리 차원에서 작성한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.
+어쩌면 작성자의 부사수를 위한 자재가 될지도 모르겠&hellip;(..)
+Concurrent ISSUE - Stack 이번엔 스택.
+if (!s.empty()) { item = s.top(); s.pop(); } 인터페이스상의 문제이기 때문에 empty 와 top 사이의 safety 를 보장할 수 없다.
+top() / pop() 도 마찬가지 -&raquo; 조회되지 못하는 아이템이 있을 수 있다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nolleh.github.io/concurrency/concurrent-idiom-1-stack/" /><meta property="article:section" content="concurrency" />
+<meta property="article:published_time" content="2017-07-10T22:57:57+09:00" />
+<meta property="article:modified_time" content="2017-07-10T22:57:57+09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Concurrent Idiom 1 - Stack"/>
+<meta name="twitter:description" content="concurrent 프로그램을 작성할 때 고려해야할 몇가지 사항. 그리고 idiom.
+여러 서적에서 발췌하였으며, 정리 차원에서 작성한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.
+어쩌면 작성자의 부사수를 위한 자재가 될지도 모르겠&hellip;(..)
+Concurrent ISSUE - Stack 이번엔 스택.
+if (!s.empty()) { item = s.top(); s.pop(); } 인터페이스상의 문제이기 때문에 empty 와 top 사이의 safety 를 보장할 수 없다.
+top() / pop() 도 마찬가지 -&raquo; 조회되지 못하는 아이템이 있을 수 있다."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Concurrencies",
+      "item": "https://nolleh.github.io/concurrency/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Concurrent Idiom 1 - Stack",
+      "item": "https://nolleh.github.io/concurrency/concurrent-idiom-1-stack/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Concurrent Idiom 1 - Stack",
+  "name": "Concurrent Idiom 1 - Stack",
+  "description": "concurrent 프로그램을 작성할 때 고려해야할 몇가지 사항. 그리고 idiom.\n여러 서적에서 발췌하였으며, 정리 차원에서 작성한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.\n어쩌면 작성자의 부사수를 위한 자재가 될지도 모르겠\u0026hellip;(..)\nConcurrent ISSUE - Stack 이번엔 스택.\nif (!s.empty()) { item = s.top(); s.pop(); } 인터페이스상의 문제이기 때문에 empty 와 top 사이의 safety 를 보장할 수 없다.\ntop() / pop() 도 마찬가지 -\u0026raquo; 조회되지 못하는 아이템이 있을 수 있다.",
+  "keywords": [
+    "concurrent", "생각하는 프로그래머"
+  ],
+  "articleBody": " concurrent 프로그램을 작성할 때 고려해야할 몇가지 사항. 그리고 idiom.\n여러 서적에서 발췌하였으며, 정리 차원에서 작성한 내용이므로 본 글을 처음 접한 사람이 이해하기에 많은 내용을 담지 않을 수 있음.\n어쩌면 작성자의 부사수를 위한 자재가 될지도 모르겠…(..)\nConcurrent ISSUE - Stack 이번엔 스택.\nif (!s.empty()) { item = s.top(); s.pop(); } 인터페이스상의 문제이기 때문에 empty 와 top 사이의 safety 를 보장할 수 없다.\ntop() / pop() 도 마찬가지 -» 조회되지 못하는 아이템이 있을 수 있다. (생각해보자.)\n해결을 위해 ?? -\u003e Returning Pop ? –» 역시, 생각해보자. (Hint. Exception)\nOptions Reference 호출전 인스턴스 생성 필요. 생성자의 인자가 항상 제공 가능한 경우가 아닐때도.\n그리고 assign 필요. (Q. 이것이 무엇을 의미하는가? - C++ 개발지식이 있다면 대답할 수 있어야 한다.)\nMove Exception 만이 문제라면 이 선택으로 회피 가능할 수 있지 않은가.\n하지만.. 위와 마찬가지. (Q. 역시, 대답할 수 있어야 한다. )\nPointer 유저에게 메모리 관리 작업을 맡기는 것. (Q. 이게 문제라면, 어떻게 해결할 수 있겠는가?) 간단한 타입에 대해서는 오버헤드.\nCompounded Options 말그대로, 결합.\n끝\n",
+  "wordCount" : "158",
+  "inLanguage": "en",
+  "datePublished": "2017-07-10T22:57:57+09:00",
+  "dateModified": "2017-07-10T22:57:57+09:00",
+  "author":{
+    "@type": "Person",
+    "name": "nolleh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nolleh.github.io/concurrency/concurrent-idiom-1-stack/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Computer Programmer, Nolleh",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nolleh.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -78,7 +159,7 @@ top() / pop() 도 마찬가지 -&raquo; 조회되지 못하는 아이템이 있�
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
+            <a href="https://nolleh.github.io/" accesskey="h" title="The Computer Programmer, Nolleh (Alt + H)">The Computer Programmer, Nolleh</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -104,22 +185,22 @@ top() / pop() 도 마찬가지 -&raquo; 조회되지 못하는 아이템이 있�
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/archives/" title="Archive">
+                <a href="https://nolleh.github.io/archives/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/categories/" title="Categories">
+                <a href="https://nolleh.github.io/categories/" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags/" title="Tags">
+                <a href="https://nolleh.github.io/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://nolleh.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -130,7 +211,7 @@ top() / pop() 도 마찬가지 -&raquo; 조회되지 못하는 아이템이 있�
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/concurrency/">Concurrencies</a></div>
+    <div class="breadcrumbs"><a href="https://nolleh.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://nolleh.github.io/concurrency/">Concurrencies</a></div>
     <h1 class="post-title entry-hint-parent">
       Concurrent Idiom 1 - Stack
     </h1>
@@ -201,8 +282,8 @@ top() / pop() 도 마찬가지 -&raquo; 조회되지 못하는 아이템이 있�
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/concurrent/">Concurrent</a></li>
-      <li><a href="http://localhost:1313/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/">생각하는 프로그래머</a></li>
+      <li><a href="https://nolleh.github.io/tags/concurrent/">Concurrent</a></li>
+      <li><a href="https://nolleh.github.io/tags/%EC%83%9D%EA%B0%81%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8/">생각하는 프로그래머</a></li>
     </ul>
   </footer>
 <div id="disqus_thread"></div>
@@ -229,7 +310,7 @@ top() / pop() 도 마찬가지 -&raquo; 조회되지 못하는 아이템이 있�
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="http://localhost:1313/">The Computer Programmer, Nolleh</a></span> · 
+        <span>&copy; 2024 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span> · 
 
     <span>
         Powered by

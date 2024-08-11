@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Qpid on The Computer Programmer, Nolleh</title>
-    <link>http://localhost:1313/tags/qpid/</link>
+    <link>https://nolleh.github.io/tags/qpid/</link>
     <description>Recent content in Qpid on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- 0.127.0</generator>
     <language>ko-KR</language>
     <lastBuildDate>Thu, 06 Feb 2020 14:47:47 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/qpid/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nolleh.github.io/tags/qpid/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Active Passive Messaging Clusters</title>
-      <link>http://localhost:1313/qpid/1.12.active-passive-messaging-clusters/</link>
+      <link>https://nolleh.github.io/qpid/1.12.active-passive-messaging-clusters/</link>
       <pubDate>Thu, 06 Feb 2020 14:47:47 +0900</pubDate>
-      <guid>http://localhost:1313/qpid/1.12.active-passive-messaging-clusters/</guid>
+      <guid>https://nolleh.github.io/qpid/1.12.active-passive-messaging-clusters/</guid>
       <description>1.12. Active-Passive Messaging Clusters 1.12.1 Overview HA 모듈은 active-passive, hot-standby 메시징 클러스터들을 장애에 tolerent 하도록 제공한다.
 active-passive 클러스터는 하나의 브로커만 존재하며, 이를 프라이머리라고 부르며, 액티브 하고 클라이언트를 serving 한다. 다른 브로커들은 백업을 위해 존재한다. 프라이머리의 변경은 모든 백업들에 반영되므로, 백업들은 최신상태이거나 &amp;lsquo;hot&amp;rsquo; 상태이다. 백업 브로커들은 클라이언트의 연결을 거부하며, 클라이언트들은 프라이머리에 연결해야한다.
 만약 프라이머리가 실패하는 경우, 백업중의 하나가 새로운 프라이머리가 되기위해 자리를 차지한다. 클라이언트는 새로운 프라이머리에 자동으로 연결한다.
@@ -20,9 +20,9 @@ active-passive 클러스터는 하나의 브로커만 존재하며, 이를 프�
     </item>
     <item>
       <title>Broker Federation</title>
-      <link>http://localhost:1313/qpid/1.4.broker-federation/</link>
+      <link>https://nolleh.github.io/qpid/1.4.broker-federation/</link>
       <pubDate>Thu, 06 Feb 2020 13:23:27 +0900</pubDate>
-      <guid>http://localhost:1313/qpid/1.4.broker-federation/</guid>
+      <guid>https://nolleh.github.io/qpid/1.4.broker-federation/</guid>
       <description>1.4 Broker Federation 메시지 라우트를 정의하여 하나의 브로커에서 다른 브로커로 자동으로 전달하게 한다.
 일반적으로 일방향이며, 라우트는 durable 하고 tansient 한다.
 연결이 소실되면 메시지는 누적되다가 재연결이 되면 다시 전송한다.
