@@ -56,13 +56,18 @@
 
     </style>
 </noscript>
-  
-    
-      
-    
-  
-
-<meta property="og:title" content="5. Cloud DataStore Concepts and Indexes" />
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-102565363-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="5. Cloud DataStore Concepts and Indexes" />
 <meta property="og:description" content="Cloud Datastore Concepts and Indexes Cloud Data Store concepts 데이터 오브젝트는 엔터티라고 불림 엔터티들은 하나이상의 프로퍼티로 구성됨 프로퍼티들은 하나이상의 값(values) 를 가질수 있음 각각의 엔터티는 구분되는 하나의 키를 가지고 있는데, 다음으로 구성 된다. 네임스페이스 엔터티 Kind 식별자 (스트링 or 숫자) 부모 ID 하나 이상의 엔터티에 대한 동작은 트랜잭션으로 불린다. Datastore has two types of indexes Built-in indexes Composite indexes 각각의 엔터티 Kind의 각각의 프로퍼티에 대해 자동으로 정의 인덱싱된 엔터티에 대해 다중의 프로퍼티 값을 인덱스함 간단한 쿼리에 적합 컴플렉스 쿼리에 적합 인덱스 설정파일에 정의 concept cloud datastore relational database 오브젝트 카테고리 Kind Table 한개 오브젝트 entity row 하나의 오브젝트를 위한 개별 데이터 프로퍼티 field 유니크 ID Key PrimaryKey Design Considerations &amp; Sharding Design Your application for scale 엔터티 그룹에 대한 최대 쓰기율은 1/초 사전적으로 가까운 키에 대한 읽기와 쓰기를 너무 자주하지 말것." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://nolleh.github.io/coursera/gcp/5.datastore/" /><meta property="article:section" content="coursera" />

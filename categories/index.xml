@@ -4,10 +4,24 @@
     <title>Categories on The Computer Programmer, Nolleh</title>
     <link>https://nolleh.github.io/categories/</link>
     <description>Recent content in Categories on The Computer Programmer, Nolleh</description>
-    <generator>Hugo -- 0.127.0</generator>
+    <generator>Hugo -- 0.123.7</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Wed, 22 May 2024 21:37:29 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 09 Dec 2024 23:39:00 +0900</lastBuildDate>
     <atom:link href="https://nolleh.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Raspberry Pi</title>
+      <link>https://nolleh.github.io/categories/raspberry-pi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://nolleh.github.io/categories/raspberry-pi/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading Log</title>
+      <link>https://nolleh.github.io/categories/reading-log/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://nolleh.github.io/categories/reading-log/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Zeromq</title>
       <link>https://nolleh.github.io/categories/zeromq/</link>

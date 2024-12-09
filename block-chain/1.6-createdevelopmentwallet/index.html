@@ -60,13 +60,18 @@ Creating wallet: default Save password to use in the future to unlock this walle
 
     </style>
 </noscript>
-  
-    
-      
-    
-  
-
-<meta property="og:title" content="EOSIO - 1.6/개발 Wallet 생성하기" />
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-102565363-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="EOSIO - 1.6/개발 Wallet 생성하기" />
 <meta property="og:description" content="Step 1: Wallet 생성하기 먼저 wallet 을 생성한다. cleos wallet create 를 통해 기본 wallet 을 --to-console 옵션을 사용하여 간단하게 생성한다.
 cleos 를 production 환경에서 사용한다면, 대신 --to-file 옵션을 사용하여 wallet 의 패스워드를 배쉬 기록에 남지않도록 한다.
 개발 목적으로 사용하는 production 환경의 키가 아니기때문에 &ndash;to-console 으로 보안 위협없이 사용할 수 있다.

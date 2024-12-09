@@ -2,7 +2,7 @@
 <html lang="en" dir="auto">
 
 <head>
-	<meta name="generator" content="Hugo 0.127.0"><meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.123.7"><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -59,13 +59,18 @@
 
     </style>
 </noscript>
-  
-    
-      
-    
-  
-
-<meta property="og:title" content="The Computer Programmer, Nolleh" />
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-102565363-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="The Computer Programmer, Nolleh" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://nolleh.github.io/" />
@@ -156,6 +161,48 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">2.introduction to Networking
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>IPv4 and IPv6 IPv4 uses 32-bits for addresses;there are only 4.3 bilion unique addresses available.
+IPv6 uses 128-bits for addresses; this allows for 3.4 * 10^38 unique addresses.
+One reason IPv4 has not disappeared is there are widely-used ways t o effectively make many more addresses available by methods such as NAT(Network Address Translation). NAT enables sharing one IP address among many locally connected computers, each of which has a unique address only seen on the local network....</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-12-25 18:10:12 +0900 KST'>December 25, 2023</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 2.introduction to Networking" href="https://nolleh.github.io/linux/14.network-operations/2.network-addresses-and-dns/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">1.introduction
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> Explain basic networking concepts, including types of networks and addressing issues. Configure network interfaces and use basic networking utilities, such as ifconfig, ip, ping, route and traceroute Use grphical and non-graphical browsers, such as Lynx, w3m, Firefox, Chrome and Epiphany. Transfer files to and from clients and servers using both graphical and text mode applications, such as scp, ftp, sftp, curl and wget. </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-12-25 18:07:03 +0900 KST'>December 25, 2023</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 1.introduction" href="https://nolleh.github.io/linux/14.network-operations/1.introduction/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">7.miscellaneous Text Utilities
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>tr the tr utility is used to translate specified characters into other characters or to delete them.
+tr [options] set1 [set2] set1: to be replaced or removed set2: to be substituted for the characters listed in the first argument.
+tr ‘{}’ ‘()’ &lt; inputfile &gt; outputfile
+translate braces into parenthesis echo &#34; … &#34; | tr [:space:] ‘\t’
+translate white-space to tabs echo “This is for testing” | tr -s [:space:]...</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-12-25 17:36:43 +0900 KST'>December 25, 2023</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 7.miscellaneous Text Utilities" href="https://nolleh.github.io/linux/13.manipluating-text/7.miscellaneous-text-utilities/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">6.grep
     </h2>
   </header>
@@ -178,52 +225,6 @@ to count the number of duplicate entries, use the following command:...</p>
   </div>
   <footer class="entry-footer"><span title='2023-12-25 15:20:05 +0900 KST'>December 25, 2023</span>&nbsp;·&nbsp;nolleh</footer>
   <a class="entry-link" aria-label="post link to 5.file Manipulation Utilities" href="https://nolleh.github.io/linux/13.manipluating-text/5.file-manipulation-utilities/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">4.sed and Awk
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>introduction to sed and awk many Linux users and administrators will write scripts using comprehensive scripting languages such as Python and perl,
-rather than use sed and awk. However, the utilitites that are described here are much lighter;i.e. they use fewer system resources,
-and execute faster.
-sed abbreviation for stream editor.
-data from an input source/file (or stream) is taken and moved to a working space.
-the entire list of operations/modifications is applied over the data in the working space and...</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-12-25 14:39:39 +0900 KST'>December 25, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 4.sed and Awk" href="https://nolleh.github.io/linux/13.manipluating-text/4.sed-and-awk/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">3.working With Large and Compressed Files
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>working with large files directly opening the file in an editor will probably be inefficient (due to high memory utilization) because most text editors usually try to read the whole file into memory first.
-instead, one can use less to view the contents of such a large file, scrolling up and down page by page, without the system having to place the entire file in memory before starting.
-less somefile cat somefile | less head reads the first few lines...</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-12-25 14:29:53 +0900 KST'>December 25, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 3.working With Large and Compressed Files" href="https://nolleh.github.io/linux/13.manipluating-text/3.working-with-large-and-compressed-files/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">2.cat and Echo
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>cat cat
-read / write / concatenate tac prints the lines of a file in reverse order. each line remains the same, but the order of lines is inverted. cat &gt; file cat » file (any subsequenet lines are appended to the file, until CTRL-D is typed)
-using cat interactively echo -e option, along with the following switches, is used to enable special character sequences,
-such as the newline character or horizontal tab</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-12-25 14:12:57 +0900 KST'>December 25, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 2.cat and Echo" href="https://nolleh.github.io/linux/13.manipluating-text/2.cat-and-echo/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

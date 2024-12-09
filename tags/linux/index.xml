@@ -4,10 +4,36 @@
     <title>Linux on The Computer Programmer, Nolleh</title>
     <link>https://nolleh.github.io/tags/linux/</link>
     <description>Recent content in Linux on The Computer Programmer, Nolleh</description>
-    <generator>Hugo -- 0.127.0</generator>
+    <generator>Hugo -- 0.123.7</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Sun, 07 Jan 2024 12:55:07 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 09 Dec 2024 23:39:00 +0900</lastBuildDate>
     <atom:link href="https://nolleh.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>전원 공급까지 한번에, 싱글보드 컴퓨터와 잘 맞는 디스플레이, CrowView</title>
+      <link>https://nolleh.github.io/ubuntu/crowview/</link>
+      <pubDate>Mon, 09 Dec 2024 23:39:00 +0900</pubDate>
+      <guid>https://nolleh.github.io/ubuntu/crowview/</guid>
+      <description>Overview 상당히 광고스러운 제목이지만.. 제목이 좀 정보를 포함했으면 좋겠어서 쓰다보니 그렇게 됐다..
+내 돈 내산으로, PreOrder? Early Bird? 로 주문해두었던 crowview 가 주문해놓고 한달 정도 잊고 있었는데, 저번 토요일에 (24.12.07) 도착했다!
+구매하려고 정보 알아봤을때 한국 구매자가 있다는 내용은 보기 어려웠고, 구매도 오로지 공식 사이트에서만 신청 주기 별로 발송하는것 같아 공급수량이 많아 보이진 않았던 거 보면, 아마 한국에서는 최초..?로 구매한 걸 수도 있겠다.
+Youtube 에서 관련영상은 하나 있었던거같고, 해당 영상을 통해 사야겠다 싶어서 구매했던 건데,</description>
+    </item>
+    <item>
+      <title>struggles to view OTT on UBUNTU X raspberry Pi 5 - A.K.A using Widevinecdm</title>
+      <link>https://nolleh.github.io/ubuntu/widevinecdm/</link>
+      <pubDate>Sun, 25 Feb 2024 16:59:57 +0900</pubDate>
+      <guid>https://nolleh.github.io/ubuntu/widevinecdm/</guid>
+      <description>라즈베리파이5 * Ubuntu 에서DRM 스트리밍서비스 (OTT) 를 이용하려고 여러 글들을 살펴봄.
+https://github.com/brave/brave-browser/issues/28903
+https://support.brave.com/hc/en-us/articles/23881756488717-How-do-I-enable-Widevine-DRM-on-Linux
+https://forum.radxa.com/t/lets-get-widevine-working/15391
+https://github.com/raspberrypi/Raspberry-Pi-OS-64bit/issues/248
+음 다안된다. 구글에서 제공하는 widevinecdm 컴포넌트/라이브러리가 필요한 모양인데 대략 해석해보면 구글에서 공식적으로 지원하는 aacrch 용은 없는 모양이고 일부 오픈소스에서 chrome OS 용으로 제공하는 python 스크립트로 라이브러리를 좀 변조하는 형태로 시도한 내용들이 보이는데
+vivaldi 브라우저에서 컴포턴트가 드디어 노출되는건 확인했지만
+해당 라이브러리가 정상적으로 동작하지는 않는모양.
+그냥 라즈베리파이에서는 공식 제공하는 라즈비안OS 를 사용하는 게 그냥 마음 편할듯.
+다만 난 우분투를 계속 가지고 놀 작정이라 일단 OTT 는 그냥 포기해야하겠다.</description>
+    </item>
     <item>
       <title>5.securing the Boot Procss and Hardware Resources</title>
       <link>https://nolleh.github.io/linux/18.local-security-principles/5.securing-the-boot-procss-and-hardware-resources/</link>
@@ -272,6 +298,14 @@ cf.https://github.com/neovim/neovim/wiki/Installing-Neovim
 sudo apt-get install software-properties-common
 이 명령어를 선행해줘야할 수도 있다. sudo apt-get remove neovim -y sudo add-apt-repository ppa:neovim-ppa/stable sudo apt-get update -y sudo apt-get install neovim -y https://launchpad.net/~neovim-ppa/+archive/ubuntu/unstable
 ppa archive 를 살펴보고 원하는 아키텍쳐 / 버전이 없는경우 unstable 버전에서 찾아서 다시 반복해볼 필요가 있다. 다행히 unstable 버전은 ubuntu 23.04 를 지원하는게 있어서 받아서 씀&amp;hellip;</description>
+    </item>
+    <item>
+      <title>Kblayout</title>
+      <link>https://nolleh.github.io/ubuntu/kblayout/</link>
+      <pubDate>Sat, 12 Aug 2023 17:26:22 +0900</pubDate>
+      <guid>https://nolleh.github.io/ubuntu/kblayout/</guid>
+      <description>/etc/default/keyboard
+Option	&amp;ldquo;XkbModel&amp;rdquo;	&amp;ldquo;kr106&amp;rdquo; Option	&amp;ldquo;XkbLayout&amp;rdquo;	&amp;ldquo;kr&amp;rdquo;</description>
     </item>
     <item>
       <title>4-2.graphical Desktop</title>

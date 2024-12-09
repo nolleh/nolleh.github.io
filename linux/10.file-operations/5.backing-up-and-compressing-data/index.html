@@ -57,13 +57,18 @@ rsync is more efficient, because it checks if the file being copied already exis
 
     </style>
 </noscript>
-  
-    
-      
-    
-  
-
-<meta property="og:title" content="5.backing Up and Compressing Data" />
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-102565363-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="5.backing Up and Compressing Data" />
 <meta property="og:description" content="1. Backing Up Data cp &lt;-&gt; rsync
 rsync is more efficient, because it checks if the file being copied already exists. rsync copies only the parts of files that have actually changed, it can be very fast cp can only copy files to and from destinations on the local machine (unless mounted using NFS), rsync can also be used to copy files from one machine to another. someone@host:path 2. Using rsync a very useful way to back up a project directory might be to use the following command." />
 <meta property="og:type" content="article" />

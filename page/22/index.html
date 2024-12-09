@@ -2,7 +2,7 @@
 <html lang="en" dir="auto">
 
 <head>
-	<meta name="generator" content="Hugo 0.127.0"><meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.123.7"><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -59,13 +59,18 @@
 
     </style>
 </noscript>
-  
-    
-      
-    
-  
-
-<meta property="og:title" content="The Computer Programmer, Nolleh" />
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-102565363-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="The Computer Programmer, Nolleh" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://nolleh.github.io/" />
@@ -153,6 +158,59 @@
     </nav>
 </header>
 <main class="main"> 
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Brew Install 이 구버전만 설치할 때
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Let’s 사족 처음 회사에 입사 했을 때 자리에는 Mac PC 만이 덩그러니 있었고, Mac 을 사용해본적 없던 꼬꼬마는 자연스럽게 윈도우 CD 를 인사팀에서 받아와서 깔고 있었드랬다.
+“기껏 좋은 컴퓨터 줬더니 넌 뭘하고 있는거니?”
+라는 선배의 말을 듣고 그제야 맥에서도 안드로이드 개발이 되는거구나.. (이때는 현업 안드로이드 개발자였다.)
+하곤 윈도우 설치페이지를 취소하고 다시 맥 OS 를 부팅했었지.
+이때가, Mac OS 와의 첫 만남이었드랬다.
+Brew 뭐 전혀 관계 없는 얘기로 포스트를 열었지만.
+어쨌거나 그때부터 Mac 을 수년간 사용하면서 - 그때 쓰던 회사 Mac 은 여전히 내 사무실 책상의 한켠을 차지하고 있다 -...</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-07-04 22:31:23 +0900 KST'>July 4, 2017</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to Brew Install 이 구버전만 설치할 때" href="https://nolleh.github.io/env/brew-update/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">markDown 문법
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>마크다운으로 포스팅하는 Git 페이지를 생성하였으니, 자주 사용되는 대표 문법 정리
+마크다운 문법
+Heading ‘#’ 으로 처리하며, 단계별로 더 많은 ‘#’ 을 사용한다.
+# Title ## Heading 1 ### Heading 2 결과
+Title Heading 1 Heading 2 Listing Asterisk (*) 를 사용하여 순서 없는 목록을, 숫자를 사용하여 순서 있는 목록을 나타낸다.
+순서 없는 경우 이거닷 이거 중요해! 순서가 있는 경우 첫번째 순서 두번째~ 셋!! Fonts **Bold** _Italic_ ~~CANCEL_LINE~~ Bold Italic CANCEL_LINE...</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-07-04 22:13:52 +0900 KST'>July 4, 2017</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to markDown 문법" href="https://nolleh.github.io/env/mark-down-syntax/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">C&#43;&#43; CLI 에서 managed 콜백을 unmanaged 로 전달하기
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>파라미터가 없다면 DelegateToPointer 로 마샬링해서 전달하면되는데,
+이러면 파라미터를 마샬링할 기회가 주어지지 않는다는게 문제다.
+좀 구글링을 해봤는데,
+이런 포스트가 있었다.
+스택오버플로-파라미터와 함께 unmanaged 콜백으로 변환하기
+채택된 답변을 살펴보면 클래스 구조는 대략 다음과 같다.
+클래스 구조 NativeCallbackHandler - msclr::gcroot&lt;OutputManaged^&gt; m_owner (OutputLogManaged) 를 멤버로 보유. OutputLogManaged - native OutputLog* (m_nativeOutputLog) / 1의 Holder 를 보유 (m_nativeHandler)] / 그리고 managed 콜백을 보유 OutputLog - Native Callback 과 void* UserData 를 멤버로 보유. 이해하는데 주요한 클래스는 위 내용 정도인 듯....</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-07-04 00:45:55 +0900 KST'>July 4, 2017</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to C&#43;&#43; CLI 에서 managed 콜백을 unmanaged 로 전달하기" href="https://nolleh.github.io/etc/managed_cb_to_unmanaged/"></a>
+</article>
 
 <article class="post-entry"> 
   <header class="entry-header">

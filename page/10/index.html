@@ -2,7 +2,7 @@
 <html lang="en" dir="auto">
 
 <head>
-	<meta name="generator" content="Hugo 0.127.0"><meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.123.7"><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -59,13 +59,18 @@
 
     </style>
 </noscript>
-  
-    
-      
-    
-  
-
-<meta property="og:title" content="The Computer Programmer, Nolleh" />
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-102565363-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="The Computer Programmer, Nolleh" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://nolleh.github.io/" />
@@ -156,6 +161,46 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">3-5.linux Distribution Installation
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Linux Distribution Installation Choosing a Linux Distribution Questions to Ask when Choosing a Distribution What is the main function of the system (server or desktop)? What types of packages are important to the organization? For example, web server, word processing, etc. How much hard disk space is required and how much is available? For example, when installing Linux on an embedded device, space is usually constrained. How often are packages updated?...</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-01-08 14:15:48 +0900 KST'>January 8, 2023</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 3-5.linux Distribution Installation" href="https://nolleh.github.io/linux/3.linux-basics-and-system-startup/5.linux-distribution-installation/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">3-4.linux Filesystem Basics
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>3-4. Linux FileSystem Basics Linux FileSystem Conventional disk filesystems: ext3, ext4, XFS, Btrfs, JFS, NTFS, vfat, exfat, etc. Flash storage filesystems: ubifs, jffs2, yaffs, etc. Database filesystems Special purpose filesystems: procfs, sysfs, tmpfs, squashfs, debugfs, fuse, etc. Partitions and Filesystems A partition is physically contiguous section of disk, or what appears to be so in some advanced setups.
+A filesystem is a method of storing/finding files on the hard disk (usually in a partition)....</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-01-08 13:44:22 +0900 KST'>January 8, 2023</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 3-4.linux Filesystem Basics" href="https://nolleh.github.io/linux/3.linux-basics-and-system-startup/4.linux-filesystem-basics/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">3-3.kernel Init and Services
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Kernel, init and Services The Linux Kernel boot loader loads kernel and an initial RAM-based file system (initramfs) into memory, so it can be used directly by the kernel.
+kernel loaded, it immediately initializes and configures the computer’s memory and also configures all the hardware attached to the system.
+also load user space applications.
+/sbin/init and Services Once kernel has set up all its hardware and mounted the root filesystem, the kernel runs sbin/init....</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-01-08 12:25:09 +0900 KST'>January 8, 2023</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 3-3.kernel Init and Services" href="https://nolleh.github.io/linux/3.linux-basics-and-system-startup/3.kernel-init-and-services/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Shell
     </h2>
   </header>
@@ -180,43 +225,6 @@ On the other hand, the boot process can be rather technical, and you can start u
   </div>
   <footer class="entry-footer"><span title='2022-12-25 22:21:34 +0900 KST'>December 25, 2022</span>&nbsp;·&nbsp;nolleh</footer>
   <a class="entry-link" aria-label="post link to 3-2.the Boot Process" href="https://nolleh.github.io/linux/3.linux-basics-and-system-startup/2.the-boot-process/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">3-1.introduction
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Learning Objectives Identify Linux filesystems. Identify the differences between partitions and filesystems Describe the boot process. Install Linux on a computer. </p>
-  </div>
-  <footer class="entry-footer"><span title='2022-12-25 22:19:08 +0900 KST'>December 25, 2022</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 3-1.introduction" href="https://nolleh.github.io/linux/3.linux-basics-and-system-startup/1.introduction/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">2-6.chapter summary
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Chapter Summary Linux boroows heavily from UNIX operating system, with withch its creators were well-versed. LInux accesses many features and services through files and file-like objects. Linux is a fully multi-tasking, multi-user operating system, with built-in networking and service processes known as deamons. Linux is developed by a loose confederation of developers from all over the world, collaborating over the Internet,
-with Linus Torvalds at th head. Technical sill and a desire to contriubte are the only qualifications for participating....</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-12-25 22:02:31 +0900 KST'>December 25, 2022</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 2-6.chapter summary" href="https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/6.chapter-summary/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">2-5.linux Distribution
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Linux Distribution Overview making sure that project works properly on the most widely used Linux distributions. To accomplish this, you need to learn amout the different components, services, and configurations associated with each distribution.</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-12-25 21:38:28 +0900 KST'>December 25, 2022</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 2-5.linux Distribution" href="https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/5.linux-distribution/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

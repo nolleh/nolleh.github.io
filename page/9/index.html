@@ -2,7 +2,7 @@
 <html lang="en" dir="auto">
 
 <head>
-	<meta name="generator" content="Hugo 0.127.0"><meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.123.7"><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -59,13 +59,18 @@
 
     </style>
 </noscript>
-  
-    
-      
-    
-  
-
-<meta property="og:title" content="The Computer Programmer, Nolleh" />
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-102565363-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="The Computer Programmer, Nolleh" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://nolleh.github.io/" />
@@ -156,6 +161,60 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">How to Make Package
+      <span class="entry-hint" title="Draft">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
+          <path
+            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+        </svg>
+      </span>
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>패키지를 만들때 기본 구성
+{ &#34;main&#34;: &#34;./dist/cjs/index.js&#34;, &#34;types&#34;: &#34;./dist/cjs/types/index.d.ts&#34;, &#34;files&#34;: [ &#34;dist/**/*&#34; ], &#34;scripts&#34;: { &#34;clean&#34;: &#34;rm -rf ./dist&#34;, &#34;build&#34;: &#34;pnpm run clean &amp;&amp; pnpm build:esm &amp;&amp; pnpm build:cjs&#34;, &#34;build:esm&#34;: &#34;tsc -p ./tsconfig.esm.json &amp;&amp; mv dist/esm/index.js dist/esm/index.mjs&#34;, &#34;build:cjs&#34;: &#34;tsc -p ./tsconfig.cjs.json&#34;, &#34;prepack&#34;: &#34;pnpm build&#34; }, &#34;repository&#34;: { &#34;type&#34;: &#34;git&#34;, &#34;url&#34;: &#34;https://github.com/nolleh/serialize-interceptor&#34; }, &#34;keywords&#34;: [ &#34;nestjs&#34;, &#34;nest.js&#34;, &#34;serialize&#34;, &#34;deserialize&#34;, &#34;camel&#34;, &#34;snake&#34;, &#34;json&#34;, &#34;dto&#34;, &#34;transform&#34; ], &#34;exports&#34;: { &#34;.&#34;: { &#34;import&#34;: { &#34;types&#34;: &#34;....</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-07-12 08:29:46 +0900 KST'>July 12, 2023</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to How to Make Package" href="https://nolleh.github.io/npm/how-to-make-package/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Writing Plugin
+      <span class="entry-hint" title="Draft">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
+          <path
+            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+        </svg>
+      </span>
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Writing Plugin 제목은 거창하게 썼지만, 플러그인이나 rc 파일 작성에 필요한 지식들을 메모해 둘 예정.
+Preview Window :botright pedit { file } :botright pedit Preview Window 에서 라인 출력 function! showInPreview(name, fileType, lines) let l:command = &#34;silent! pedit! &#43;setlocal\\ &#34; . \ &#34;buftype=nofile\\ nobuflisted\\ &#34; . \ &#34;noswapfile\\ nonumber\\ &#34; . \ &#34;filetype=&#34; . a:fileType . &#34; &#34; . a:name exe l:command if has(&#39;nvim&#39;) let l:bufNr = bufnr(a:name) call nvim_buf_set_lines(l:bufNr, 0, -1, 0, a:lines) else call setbufline(a:name, 1, a:lines) endif endfunction stackExchange...</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-01-14 14:00:53 +0900 KST'>January 14, 2023</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to Writing Plugin" href="https://nolleh.github.io/vim/writing-plugin/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">4-2.graphical Desktop
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Graphical Desktop Graphical Desktop CLI or GUI.
+GUI is quick and easy.
+for repeated tasks, the CLI is often more efficient, while the GUI is easier to navigate if you do not remember all the details or do something only rarely.
+X Window System X window system is loaded as one of the final steps in boot process. It is often just called X.
+A service called the Display Manager keeps track of displays being provided and loads the X server (so-called, because it provides graphical services to applications, sometimes called X clients....</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-01-08 23:02:17 +0900 KST'>January 8, 2023</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 4-2.graphical Desktop" href="https://nolleh.github.io/linux/4.graphical-interface/2.graphical-desktop/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">4-1.introduction
     </h2>
   </header>
@@ -177,46 +236,6 @@ Manage graphical interface sessions. Perform basic operations using the graphica
   </div>
   <footer class="entry-footer"><span title='2023-01-08 15:32:36 +0900 KST'>January 8, 2023</span>&nbsp;·&nbsp;nolleh</footer>
   <a class="entry-link" aria-label="post link to 3-6.summary" href="https://nolleh.github.io/linux/3.linux-basics-and-system-startup/6.summary/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">3-5.linux Distribution Installation
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Linux Distribution Installation Choosing a Linux Distribution Questions to Ask when Choosing a Distribution What is the main function of the system (server or desktop)? What types of packages are important to the organization? For example, web server, word processing, etc. How much hard disk space is required and how much is available? For example, when installing Linux on an embedded device, space is usually constrained. How often are packages updated?...</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-01-08 14:15:48 +0900 KST'>January 8, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 3-5.linux Distribution Installation" href="https://nolleh.github.io/linux/3.linux-basics-and-system-startup/5.linux-distribution-installation/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">3-4.linux Filesystem Basics
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>3-4. Linux FileSystem Basics Linux FileSystem Conventional disk filesystems: ext3, ext4, XFS, Btrfs, JFS, NTFS, vfat, exfat, etc. Flash storage filesystems: ubifs, jffs2, yaffs, etc. Database filesystems Special purpose filesystems: procfs, sysfs, tmpfs, squashfs, debugfs, fuse, etc. Partitions and Filesystems A partition is physically contiguous section of disk, or what appears to be so in some advanced setups.
-A filesystem is a method of storing/finding files on the hard disk (usually in a partition)....</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-01-08 13:44:22 +0900 KST'>January 8, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 3-4.linux Filesystem Basics" href="https://nolleh.github.io/linux/3.linux-basics-and-system-startup/4.linux-filesystem-basics/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">3-3.kernel Init and Services
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Kernel, init and Services The Linux Kernel boot loader loads kernel and an initial RAM-based file system (initramfs) into memory, so it can be used directly by the kernel.
-kernel loaded, it immediately initializes and configures the computer’s memory and also configures all the hardware attached to the system.
-also load user space applications.
-/sbin/init and Services Once kernel has set up all its hardware and mounted the root filesystem, the kernel runs sbin/init....</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-01-08 12:25:09 +0900 KST'>January 8, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 3-3.kernel Init and Services" href="https://nolleh.github.io/linux/3.linux-basics-and-system-startup/3.kernel-init-and-services/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

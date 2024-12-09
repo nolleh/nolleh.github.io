@@ -57,13 +57,18 @@
 
     </style>
 </noscript>
-  
-    
-      
-    
-  
-
-<meta property="og:title" content="Linux" />
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-102565363-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="Linux" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://nolleh.github.io/tags/linux/" />
@@ -146,6 +151,37 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">4.sed and Awk
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>introduction to sed and awk many Linux users and administrators will write scripts using comprehensive scripting languages such as Python and perl,
+rather than use sed and awk. However, the utilitites that are described here are much lighter;i.e. they use fewer system resources,
+and execute faster.
+sed abbreviation for stream editor.
+data from an input source/file (or stream) is taken and moved to a working space.
+the entire list of operations/modifications is applied over the data in the working space and...</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-12-25 14:39:39 +0900 KST'>December 25, 2023</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 4.sed and Awk" href="https://nolleh.github.io/linux/13.manipluating-text/4.sed-and-awk/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">3.working With Large and Compressed Files
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>working with large files directly opening the file in an editor will probably be inefficient (due to high memory utilization) because most text editors usually try to read the whole file into memory first.
+instead, one can use less to view the contents of such a large file, scrolling up and down page by page, without the system having to place the entire file in memory before starting.
+less somefile cat somefile | less head reads the first few lines...</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-12-25 14:29:53 +0900 KST'>December 25, 2023</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 3.working With Large and Compressed Files" href="https://nolleh.github.io/linux/13.manipluating-text/3.working-with-large-and-compressed-files/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">2.cat and Echo
     </h2>
   </header>
@@ -189,32 +225,6 @@ such as the newline character or horizontal tab</p>
   </div>
   <footer class="entry-footer"><span title='2023-12-24 16:46:33 +0900 KST'>December 24, 2023</span>&nbsp;·&nbsp;nolleh</footer>
   <a class="entry-link" aria-label="post link to 7.summary" href="https://nolleh.github.io/linux/10.file-operations/7.summary/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">5.backing Up and Compressing Data
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>1. Backing Up Data cp &lt;-&gt; rsync
-rsync is more efficient, because it checks if the file being copied already exists. rsync copies only the parts of files that have actually changed, it can be very fast cp can only copy files to and from destinations on the local machine (unless mounted using NFS), rsync can also be used to copy files from one machine to another. someone@host:path 2. Using rsync a very useful way to back up a project directory might be to use the following command....</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-12-24 15:42:26 +0900 KST'>December 24, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 5.backing Up and Compressing Data" href="https://nolleh.github.io/linux/10.file-operations/5.backing-up-and-compressing-data/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">4.comparing Files and File Types
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>3. using the file utility in linux, a file’s extension does not, by default, ategorize its nature the way it might in other operating systems. for example, one cannot assume that a file named “file.txt” is a text file and not an executable program.
-6. Lab10.2: Using diff and patch diff -Naur original modified &gt; original.patch patch original &lt; original.patch </p>
-  </div>
-  <footer class="entry-footer"><span title='2023-12-24 15:09:57 +0900 KST'>December 24, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 4.comparing Files and File Types" href="https://nolleh.github.io/linux/10.file-operations/4.comparing-files-and-file-types/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

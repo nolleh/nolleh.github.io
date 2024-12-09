@@ -59,13 +59,18 @@ active-passive 클러스터는 하나의 브로커만 존재하며, 이를 프�
 
     </style>
 </noscript>
-  
-    
-      
-    
-  
-
-<meta property="og:title" content="Active Passive Messaging Clusters" />
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-102565363-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="Active Passive Messaging Clusters" />
 <meta property="og:description" content="1.12. Active-Passive Messaging Clusters 1.12.1 Overview HA 모듈은 active-passive, hot-standby 메시징 클러스터들을 장애에 tolerent 하도록 제공한다.
 active-passive 클러스터는 하나의 브로커만 존재하며, 이를 프라이머리라고 부르며, 액티브 하고 클라이언트를 serving 한다. 다른 브로커들은 백업을 위해 존재한다. 프라이머리의 변경은 모든 백업들에 반영되므로, 백업들은 최신상태이거나 &lsquo;hot&rsquo; 상태이다. 백업 브로커들은 클라이언트의 연결을 거부하며, 클라이언트들은 프라이머리에 연결해야한다.
 만약 프라이머리가 실패하는 경우, 백업중의 하나가 새로운 프라이머리가 되기위해 자리를 차지한다. 클라이언트는 새로운 프라이머리에 자동으로 연결한다.

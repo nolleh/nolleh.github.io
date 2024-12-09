@@ -2,7 +2,7 @@
 <html lang="en" dir="auto">
 
 <head>
-	<meta name="generator" content="Hugo 0.127.0"><meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.123.7"><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -59,13 +59,18 @@
 
     </style>
 </noscript>
-  
-    
-      
-    
-  
-
-<meta property="og:title" content="The Computer Programmer, Nolleh" />
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-102565363-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="The Computer Programmer, Nolleh" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://nolleh.github.io/" />
@@ -156,6 +161,61 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Optimize Speed
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>라즈베리파이에서 우분투를 설치해서 사용하고 있는데, 인터넷 속도가 어마하게 느린 이슈가 있다.
+거기서 개선을 위해 시도해본 것들에 대해 기록할 예정.
+##1. iwconfig
+일단 다음은 확실히 효용이 있는 것으로 보임.
+60mb -&gt; 140mb 정도로 개선됨.
+sudo iwconfig wlan0 power off ##2. zram
+그리고나서, zswap 대신 zram 을 사용하도록 변경.
+sudo apt install -y linux-modules-extra-raspi sudo apt install -y zram-tools sudo apt autoremove --purge -y zram-config sudo nvim /etc/default/zramswap 에디터는 어떤걸 사용해도 상관없지만, nvim 사용하고 있어서 그걸로 세팅....</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-09-09 15:36:52 +0900 KST'>September 9, 2023</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to Optimize Speed" href="https://nolleh.github.io/ubuntu/optimize-speed/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Neovim
+      <span class="entry-hint" title="Draft">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
+          <path
+            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+        </svg>
+      </span>
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>apt-get install neovim 과 같은 방법으로는 최신 버전을 설치 할 수 없다.
+최신버전을 설치하려면, 다음 과정을 거쳐야한다.
+cf.https://github.com/neovim/neovim/wiki/Installing-Neovim
+sudo apt-get install software-properties-common
+이 명령어를 선행해줘야할 수도 있다. sudo apt-get remove neovim -y sudo add-apt-repository ppa:neovim-ppa/stable sudo apt-get update -y sudo apt-get install neovim -y https://launchpad.net/~neovim-ppa/&#43;archive/ubuntu/unstable
+ppa archive 를 살펴보고 원하는 아키텍쳐 / 버전이 없는경우 unstable 버전에서 찾아서 다시 반복해볼 필요가 있다. 다행히 unstable 버전은 ubuntu 23.04 를 지원하는게 있어서 받아서 씀…...</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-09-09 15:33:49 +0900 KST'>September 9, 2023</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to Neovim" href="https://nolleh.github.io/ubuntu/neovim/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Kblayout
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>/etc/default/keyboard
+Option	“XkbModel”	“kr106” Option	“XkbLayout”	“kr”</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-08-12 17:26:22 +0900 KST'>August 12, 2023</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to Kblayout" href="https://nolleh.github.io/ubuntu/kblayout/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Diskutil
       <span class="entry-hint" title="Draft">
         <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
@@ -194,60 +254,6 @@ the structure of a database index includes an ordered list of values, with each 
   </div>
   <footer class="entry-footer"><span title='2023-07-24 08:44:12 +0900 KST'>July 24, 2023</span>&nbsp;·&nbsp;nolleh</footer>
   <a class="entry-link" aria-label="post link to Indexing Strategies" href="https://nolleh.github.io/mysql/indexing-strategies/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">How to Make Package
-      <span class="entry-hint" title="Draft">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
-          <path
-            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
-        </svg>
-      </span>
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>패키지를 만들때 기본 구성
-{ &#34;main&#34;: &#34;./dist/cjs/index.js&#34;, &#34;types&#34;: &#34;./dist/cjs/types/index.d.ts&#34;, &#34;files&#34;: [ &#34;dist/**/*&#34; ], &#34;scripts&#34;: { &#34;clean&#34;: &#34;rm -rf ./dist&#34;, &#34;build&#34;: &#34;pnpm run clean &amp;&amp; pnpm build:esm &amp;&amp; pnpm build:cjs&#34;, &#34;build:esm&#34;: &#34;tsc -p ./tsconfig.esm.json &amp;&amp; mv dist/esm/index.js dist/esm/index.mjs&#34;, &#34;build:cjs&#34;: &#34;tsc -p ./tsconfig.cjs.json&#34;, &#34;prepack&#34;: &#34;pnpm build&#34; }, &#34;repository&#34;: { &#34;type&#34;: &#34;git&#34;, &#34;url&#34;: &#34;https://github.com/nolleh/serialize-interceptor&#34; }, &#34;keywords&#34;: [ &#34;nestjs&#34;, &#34;nest.js&#34;, &#34;serialize&#34;, &#34;deserialize&#34;, &#34;camel&#34;, &#34;snake&#34;, &#34;json&#34;, &#34;dto&#34;, &#34;transform&#34; ], &#34;exports&#34;: { &#34;.&#34;: { &#34;import&#34;: { &#34;types&#34;: &#34;....</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-07-12 08:29:46 +0900 KST'>July 12, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to How to Make Package" href="https://nolleh.github.io/npm/how-to-make-package/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Writing Plugin
-      <span class="entry-hint" title="Draft">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
-          <path
-            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
-        </svg>
-      </span>
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Writing Plugin 제목은 거창하게 썼지만, 플러그인이나 rc 파일 작성에 필요한 지식들을 메모해 둘 예정.
-Preview Window :botright pedit { file } :botright pedit Preview Window 에서 라인 출력 function! showInPreview(name, fileType, lines) let l:command = &#34;silent! pedit! &#43;setlocal\\ &#34; . \ &#34;buftype=nofile\\ nobuflisted\\ &#34; . \ &#34;noswapfile\\ nonumber\\ &#34; . \ &#34;filetype=&#34; . a:fileType . &#34; &#34; . a:name exe l:command if has(&#39;nvim&#39;) let l:bufNr = bufnr(a:name) call nvim_buf_set_lines(l:bufNr, 0, -1, 0, a:lines) else call setbufline(a:name, 1, a:lines) endif endfunction stackExchange...</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-01-14 14:00:53 +0900 KST'>January 14, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to Writing Plugin" href="https://nolleh.github.io/vim/writing-plugin/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">4-2.graphical Desktop
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Graphical Desktop Graphical Desktop CLI or GUI.
-GUI is quick and easy.
-for repeated tasks, the CLI is often more efficient, while the GUI is easier to navigate if you do not remember all the details or do something only rarely.
-X Window System X window system is loaded as one of the final steps in boot process. It is often just called X.
-A service called the Display Manager keeps track of displays being provided and loads the X server (so-called, because it provides graphical services to applications, sometimes called X clients....</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-01-08 23:02:17 +0900 KST'>January 8, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 4-2.graphical Desktop" href="https://nolleh.github.io/linux/4.graphical-interface/2.graphical-desktop/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

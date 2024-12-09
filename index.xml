@@ -4,10 +4,37 @@
     <title>The Computer Programmer, Nolleh</title>
     <link>https://nolleh.github.io/</link>
     <description>Recent content on The Computer Programmer, Nolleh</description>
-    <generator>Hugo -- 0.127.0</generator>
+    <generator>Hugo -- 0.123.7</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Sun, 11 Aug 2024 12:56:38 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 09 Dec 2024 23:39:00 +0900</lastBuildDate>
     <atom:link href="https://nolleh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>전원 공급까지 한번에, 싱글보드 컴퓨터와 잘 맞는 디스플레이, CrowView</title>
+      <link>https://nolleh.github.io/ubuntu/crowview/</link>
+      <pubDate>Mon, 09 Dec 2024 23:39:00 +0900</pubDate>
+      <guid>https://nolleh.github.io/ubuntu/crowview/</guid>
+      <description>Overview 상당히 광고스러운 제목이지만.. 제목이 좀 정보를 포함했으면 좋겠어서 쓰다보니 그렇게 됐다..
+내 돈 내산으로, PreOrder? Early Bird? 로 주문해두었던 crowview 가 주문해놓고 한달 정도 잊고 있었는데, 저번 토요일에 (24.12.07) 도착했다!
+구매하려고 정보 알아봤을때 한국 구매자가 있다는 내용은 보기 어려웠고, 구매도 오로지 공식 사이트에서만 신청 주기 별로 발송하는것 같아 공급수량이 많아 보이진 않았던 거 보면, 아마 한국에서는 최초..?로 구매한 걸 수도 있겠다.
+Youtube 에서 관련영상은 하나 있었던거같고, 해당 영상을 통해 사야겠다 싶어서 구매했던 건데,</description>
+    </item>
+    <item>
+      <title>2024 10 18</title>
+      <link>https://nolleh.github.io/reading-log/2024-10-18/</link>
+      <pubDate>Mon, 09 Dec 2024 21:14:50 +0900</pubDate>
+      <guid>https://nolleh.github.io/reading-log/2024-10-18/</guid>
+      <description>1. 대출기간 2024-10-18 ~ 2024-11-XX
+2. 도서 서명 완독 여부 (세상에서 가장 쉬운) 세계사 펼쳐보지도 못함 이솝 우화로 읽는 철학 이야기 상동 3. 기타 &amp;hellip; 이때는 그래도 그렇게 바쁘진 않았을텐데&amp;hellip; 인문학 견문을 좀 넓히면 좋겠다 싶어서 대출한 책인데..
+이 책들은 조만간 다시 도전하려함&amp;hellip;</description>
+    </item>
+    <item>
+      <title>2024 08 11</title>
+      <link>https://nolleh.github.io/reading-log/2024-08-11/</link>
+      <pubDate>Mon, 09 Dec 2024 20:52:50 +0900</pubDate>
+      <guid>https://nolleh.github.io/reading-log/2024-08-11/</guid>
+      <description>1. 대출기간 2024-08-11 ~ 2024-09-XX
+2. 도서 서명 완독 여부 (세상에서 가장 쉬운) 양자 역학 수업 펼쳐보지도 못함 설득이 필요한 순간 v 3. 기타 한창 바쁠때라.. 일부 책은 펼쳐보지도 못하고 반납&amp;hellip;. 설득이 필요한 순간은 저자의 커리어 내용이 대부분을 차지해서, 정작 보고 알고싶었던 내용은 많이 다루고 있지 않았던것 같아 아쉬움.</description>
+    </item>
     <item>
       <title>2024 07 28</title>
       <link>https://nolleh.github.io/reading-log/2024-07-28/</link>
@@ -334,9 +361,9 @@ ppa archive 를 살펴보고 원하는 아키텍쳐 / 버전이 없는경우 uns
     </item>
     <item>
       <title>Kblayout</title>
-      <link>https://nolleh.github.io/ubuntu-set/kblayout/</link>
+      <link>https://nolleh.github.io/ubuntu/kblayout/</link>
       <pubDate>Sat, 12 Aug 2023 17:26:22 +0900</pubDate>
-      <guid>https://nolleh.github.io/ubuntu-set/kblayout/</guid>
+      <guid>https://nolleh.github.io/ubuntu/kblayout/</guid>
       <description>/etc/default/keyboard
 Option	&amp;ldquo;XkbModel&amp;rdquo;	&amp;ldquo;kr106&amp;rdquo; Option	&amp;ldquo;XkbLayout&amp;rdquo;	&amp;ldquo;kr&amp;rdquo;</description>
     </item>
