@@ -161,6 +161,23 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">1.MSA and ApiGateway
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Loosely Coupled Microservices and API gateway 모놀리틱에서는 기본 코드가 부풀게 되서, 어디를 고쳐야하는지 알기가 어렵다. 패키지들의 의존성들이 얼키고 설킨다.
+작은 기본 코드를 고쳐도 전체 프로그램이 배포되어 테스트될 필요가 있다.
+원격지에 의한 제어는 비동기 처리를 하자.
+가능한한 이벤트 드리븐 처리를 하자. -&gt; 예를들어 구글 클라우드서비스에 이미지를 업데이트하고~ 이 이벤트에 반응하여 동작하는 어플리케이션을 만들 수 있다.
+커플링을 줄이기 위해 메시지 큐 등을 사용할 수 있다. 토픽에 대해 발송, 받아 처리.
+Cache content 반응성을 위해 컨텐츠를 캐싱해서, TTL 이 지나기전의 캐쉬 데이터를 준다....</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-03-12 21:51:32 +0900 KST'>March 12, 2019</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 1.MSA and ApiGateway" href="https://nolleh.github.io/coursera/gcp/1.msaandapigateway/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Building Distributed App
     </h2>
   </header>
@@ -220,22 +237,6 @@ What is an account? 블록체인에 저장되어 송신자와 수신자를 구�
   <footer class="entry-footer"><span title='2019-01-01 20:02:35 +0900 KST'>January 1, 2019</span>&nbsp;·&nbsp;nolleh</footer>
   <a class="entry-link" aria-label="post link to EOSIO - 1.7/Test 계정 생성하기" href="https://nolleh.github.io/block-chain/1.7-createtestaccount/"></a>
 </article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">EOSIO - 1.6/개발 Wallet 생성하기
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Step 1: Wallet 생성하기 먼저 wallet 을 생성한다. cleos wallet create 를 통해 기본 wallet 을 --to-console 옵션을 사용하여 간단하게 생성한다.
-cleos 를 production 환경에서 사용한다면, 대신 --to-file 옵션을 사용하여 wallet 의 패스워드를 배쉬 기록에 남지않도록 한다.
-개발 목적으로 사용하는 production 환경의 키가 아니기때문에 –to-console 으로 보안 위협없이 사용할 수 있다.
-cleos wallet create --to-console cleos 는 패스워드를 반환하며, 이 패스워드를 다음 튜토리얼에서 이용할 수 있도록 저장하자.
-Creating wallet: default Save password to use in the future to unlock this wallet....</p>
-  </div>
-  <footer class="entry-footer"><span title='2019-01-01 17:10:57 +0900 KST'>January 1, 2019</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to EOSIO - 1.6/개발 Wallet 생성하기" href="https://nolleh.github.io/block-chain/1.6-createdevelopmentwallet/"></a>
-</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="https://nolleh.github.io/page/17/">
@@ -248,7 +249,7 @@ Creating wallet: default Save password to use in the future to unlock this walle
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span> · 
+        <span>&copy; 2025 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span> · 
 
     <span>
         Powered by

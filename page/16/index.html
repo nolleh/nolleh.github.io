@@ -161,6 +161,18 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Docker
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Docker Cheat Sheet 1. docker conntainer 내부 소켓 상태 확인 $ docker inspect -f &#39;{{.State.Pid}}&#39; cb2939r52s22 5645 [ec2-user@ip-10-100-77-76 ~]$ sudo nsenter -t 5645 -n netstat Active Internet connections (w/o servers) Proto Recv-Q Send-Q Local Address Foreign Address State tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-77-225.ec2.:45104 ESTABLISHED tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-77-225.ec2.:14804 TIME_WAIT tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-76-6:seclayer-tls TIME_WAIT tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-76-65.ec:plethora TIME_WAIT tcp 0 0 ip-172-17-0-2.ec2.:webcache ip-10-100-77-225.ec2.:14830 TIME_WAIT tcp 0 0 ip-172-17-0-2....</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-02-06 10:53:37 +0900 KST'>February 6, 2020</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to Docker" href="https://nolleh.github.io/cheatsheet/docker/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Clustering Guide
     </h2>
   </header>
@@ -220,18 +232,6 @@ Best Practices for cloud Storage request rate 가 초당 1000 쓰기 요청 이�
   <footer class="entry-footer"><span title='2019-03-16 23:02:25 +0900 KST'>March 16, 2019</span>&nbsp;·&nbsp;nolleh</footer>
   <a class="entry-link" aria-label="post link to 6. DataStorage" href="https://nolleh.github.io/coursera/gcp/6.datastorage/"></a>
 </article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">5. Cloud DataStore Concepts and Indexes
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Cloud Datastore Concepts and Indexes Cloud Data Store concepts 데이터 오브젝트는 엔터티라고 불림 엔터티들은 하나이상의 프로퍼티로 구성됨 프로퍼티들은 하나이상의 값(values) 를 가질수 있음 각각의 엔터티는 구분되는 하나의 키를 가지고 있는데, 다음으로 구성 된다. 네임스페이스 엔터티 Kind 식별자 (스트링 or 숫자) 부모 ID 하나 이상의 엔터티에 대한 동작은 트랜잭션으로 불린다. Datastore has two types of indexes Built-in indexes Composite indexes 각각의 엔터티 Kind의 각각의 프로퍼티에 대해 자동으로 정의 인덱싱된 엔터티에 대해 다중의 프로퍼티 값을 인덱스함 간단한 쿼리에 적합 컴플렉스 쿼리에 적합 인덱스 설정파일에 정의 concept cloud datastore relational database 오브젝트 카테고리 Kind Table 한개 오브젝트 entity row 하나의 오브젝트를 위한 개별 데이터 프로퍼티 field 유니크 ID Key PrimaryKey Design Considerations &amp; Sharding Design Your application for scale 엔터티 그룹에 대한 최대 쓰기율은 1/초 사전적으로 가까운 키에 대한 읽기와 쓰기를 너무 자주하지 말것....</p>
-  </div>
-  <footer class="entry-footer"><span title='2019-03-16 11:34:29 +0900 KST'>March 16, 2019</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 5. Cloud DataStore Concepts and Indexes" href="https://nolleh.github.io/coursera/gcp/5.datastore/"></a>
-</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="https://nolleh.github.io/page/15/">
@@ -244,7 +244,7 @@ Best Practices for cloud Storage request rate 가 초당 1000 쓰기 요청 이�
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span> · 
+        <span>&copy; 2025 <a href="https://nolleh.github.io/">The Computer Programmer, Nolleh</a></span> · 
 
     <span>
         Powered by
