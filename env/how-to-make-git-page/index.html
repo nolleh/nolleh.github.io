@@ -363,14 +363,14 @@ html 을 작성하는게 잘 권장? 되어있는거 같고,</p>
 <p>@DEPRECATED</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>$ sudo hugo server --baseUrl<span style="color:#f92672">=</span>https://nolleh.github.io --destination<span style="color:#f92672">=</span>public/ --port<span style="color:#f92672">=</span><span style="color:#ae81ff">80</span> --appendPort<span style="color:#f92672">=</span>false
 </span></span></code></pre></div><blockquote>
-<p>edited. 휴고 특정버전(?)부터,  다음과 같이 generate 하도록 변경되었다.<br>
+<p>edited. 휴고 특정버전(?)부터, 다음과 같이 generate 하도록 변경되었다.<br>
 -D 옵션은 draft (작성중) 파일의 포함 여부.</p>
 </blockquote>
 <pre tabindex="0"><code class="language-Base" data-lang="Base">$ hugo -D
 </code></pre><h3 id="deploy">Deploy<a hidden class="anchor" aria-hidden="true" href="#deploy">#</a></h3>
 <p>Generate 할때, destination 을 public 으로 지정하였으므로 public 디렉토리에 생성된다.
 이 폴더 전체를 다시 github repo 를 생성해서 올려두자.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>this/is/my/github/repo/public$ git init 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>this/is/my/github/repo/public$ git init
 </span></span><span style="display:flex;"><span>this/is/my/github/repo/public$ git add -A
 </span></span><span style="display:flex;"><span>this/is/my/github/repo/public$ git commit -m <span style="color:#e6db74">&#34;my awesome site&#34;</span>
 </span></span><span style="display:flex;"><span>this/is/my/github/repo/public$ git push ...

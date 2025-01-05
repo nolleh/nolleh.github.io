@@ -161,6 +161,23 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">2.system Display Date and Time Settings
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>the system actually provide display settings, is uses /etc/x11/xorg.conf
+in recent linux, the file usually present in unusual cricumstatnce such as when cirtain Less
+common graphic drivers are in use.
+changing the file is usually for more advanced users.
+Network Time Protocol the Network Time Protocol is most popular and reliable protocol for setting local time by consulting established internet servers.
+student:/tmp&gt; $ xdpyinfo | grep dim dimensions: 3200x1080 pixels (847x286 millimeters) </p>
+  </div>
+  <footer class="entry-footer"><span title='2023-09-30 11:06:13 +0900 KST'>September 30, 2023</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 2.system Display Date and Time Settings" href="https://nolleh.github.io/linux/5.system-configuration-from-the-graphical-interface/2.system-display-date-and-time-settings/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">1.learning Objectives
     </h2>
   </header>
@@ -220,33 +237,10 @@ ppa archive 를 살펴보고 원하는 아키텍쳐 / 버전이 없는경우 uns
   </header>
   <div class="entry-content">
     <p>/etc/default/keyboard
-Option	“XkbModel”	“kr106” Option	“XkbLayout”	“kr”</p>
+Option “XkbModel” “kr106” Option “XkbLayout” “kr”</p>
   </div>
   <footer class="entry-footer"><span title='2023-08-12 17:26:22 +0900 KST'>August 12, 2023</span>&nbsp;·&nbsp;nolleh</footer>
   <a class="entry-link" aria-label="post link to Kblayout" href="https://nolleh.github.io/ubuntu/kblayout/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Diskutil
-      <span class="entry-hint" title="Draft">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
-          <path
-            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
-        </svg>
-      </span>
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>mac 에서는, diskutil 과 dd 를 사용해서 microSD 카드를(disk) 포멧 할 수 있다.
-disk utility 라는 GUI 툴도 있는데, 파티셔닝 되어있던 애를 이걸 통해서 지웠더니 뭔갈 잘못한건지 절반정도의 디스크용량이 날아가 버렸다 ㅡㅡ;;;
-32GB 짜리 SD 카드가 반토막 난 격이라;; dd 와 fdisk 를 활용해서 뭔가 다시 복구하려는 삽질기가 되시겠다…
-$ diskutil list output
-/dev/disk5 (external, physical): #: TYPE NAME SIZE IDENTIFIER 0: *15.9 GB disk5 format 하려면
-$ diskutil umount $ sudo dd if=/dev/zero of=/dev/{dev-name} bs=1M status=progress ## this is really long term work 되-게 오래 걸리는 작업이라서, 잊지 말고status=progress 옵션을 사용하는 것을 권장 한다....</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-08-05 16:14:33 +0900 KST'>August 5, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to Diskutil" href="https://nolleh.github.io/cli/diskutil/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

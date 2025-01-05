@@ -275,7 +275,7 @@ rsync is more efficient, because it checks if the file being copied already exis
 </table>
 <p>tar utility is often used to group files in an archive and then compress the whole archive at once.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tar Jczf mydir.tar.xz mydir
-</span></span><span style="display:flex;"><span>tar xvf mydir.tar.xz 
+</span></span><span style="display:flex;"><span>tar xvf mydir.tar.xz
 </span></span></code></pre></div><h2 id="10-disk-to-disk-copying-dd">10. Disk-to-Disk Copying (dd)<a hidden class="anchor" aria-hidden="true" href="#10-disk-to-disk-copying-dd">#</a></h2>
 <p>first 512 byte sector on the disk that contains a table describing the partitions on that disk.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>/dev/sda of<span style="color:#f92672">=</span>sda.mbr bs<span style="color:#f92672">=</span><span style="color:#ae81ff">512</span> count<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>

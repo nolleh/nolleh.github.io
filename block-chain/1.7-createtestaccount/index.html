@@ -239,14 +239,14 @@ What is an account? 블록체인에 저장되어 송신자와 수신자를 구�
 </blockquote>
 <h1 id="what-is-an-account">What is an account?<a hidden class="anchor" aria-hidden="true" href="#what-is-an-account">#</a></h1>
 <hr>
-<p>블록체인에 저장되어 송신자와 수신자를 구분하는데 사용되는 승인의 집합체라 할 수 있다.  유연한 권한 승인 구조를 가질 수 있는데, 권한이 어떻게 설정되느냐에 따른 개인이나 그룹에 의해 소유될 수 있다.<br>
+<p>블록체인에 저장되어 송신자와 수신자를 구분하는데 사용되는 승인의 집합체라 할 수 있다. 유연한 권한 승인 구조를 가질 수 있는데, 권한이 어떻게 설정되느냐에 따른 개인이나 그룹에 의해 소유될 수 있다.<br>
 하나의 계정은 블록체인의 트랜잭션을 보내거나 받기 위해 요구된다.</p>
-<p>이 튜토리얼에서는 두개의 user 계정, bob 과 alice, 그리고 설정을 위한 기본 eosio 계정을 사용한다.  추가로 계정들은 다양한 contracts 를 위해 이 튜토리얼 시리즈에서 만들어 질 수 있다.</p>
+<p>이 튜토리얼에서는 두개의 user 계정, bob 과 alice, 그리고 설정을 위한 기본 eosio 계정을 사용한다. 추가로 계정들은 다양한 contracts 를 위해 이 튜토리얼 시리즈에서 만들어 질 수 있다.</p>
 <h1 id="step-1-create-test-accounts">Step 1: Create Test Accounts<a hidden class="anchor" aria-hidden="true" href="#step-1-create-test-accounts">#</a></h1>
 <hr>
 <p>이전 단계에서, wallet 과 개발키 쌍을 생성하였다. form 에 public key 를 지정하도록 요청받았지만, 이 단계를 넘기거나 쿠키를 사용하지 않도록 설정하였을 수있다. 생성된 publickey 를 YOUR_PUBLIC_KEY 에 기입하여 진행하자.</p>
 <p>이 튜토리얼동안 유저 bob 가 alice 가 사용된다. 두 계정은 cleos create accounts 를 통해 생성된다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cleos create account eosio bob YOUR_PUBLIC_KEY 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cleos create account eosio bob YOUR_PUBLIC_KEY
 </span></span><span style="display:flex;"><span>cleos create account eosio alice YOUR_PUBLIC_KEY
 </span></span></code></pre></div><p>트랜잭션이 발송 되었음을 나타내는 다음과 같은 메시지가 노출된다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>executed transaction: 40c605006de...  <span style="color:#ae81ff">200</span> bytes  <span style="color:#ae81ff">153</span> us

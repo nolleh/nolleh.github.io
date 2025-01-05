@@ -325,7 +325,7 @@ svelte package 등도 프로젝트 별로 버전을 관리하는 형태로 구�
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">main</span>&gt;
 </span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://vitejs.dev&#34;</span> <span style="color:#a6e22e">target</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;_blank&#34;</span>&gt; 
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://vitejs.dev&#34;</span> <span style="color:#a6e22e">target</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;_blank&#34;</span>&gt;
 </span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/vite.svg&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;logo&#34;</span> <span style="color:#a6e22e">alt</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Vite Logo&#34;</span> /&gt;
 </span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">a</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">main</span>&gt;
@@ -356,14 +356,14 @@ svelte package 등도 프로젝트 별로 버전을 관리하는 형태로 구�
 </blockquote>
 <p>이는 vue 에서도 유사한 형태를 가지고 있던것 같다. (@nolleh 의 기억에 의존) 따라서 크게 의아한 점은 없는듯.
 해당 app.svelte 를 렌더링하는 부분은 main.ts 인데, 다음과 같이 구성되어 있다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;./app.css&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">App</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;./App.svelte&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#34;./app.css&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">App</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;./App.svelte&#34;</span>;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">App</span>({
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">target</span>: <span style="color:#66d9ef">document.getElementById</span>(<span style="color:#e6db74">&#39;app&#39;</span>)
-</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">target</span>: <span style="color:#66d9ef">document.getElementById</span>(<span style="color:#e6db74">&#34;app&#34;</span>),
+</span></span><span style="display:flex;"><span>});
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">app</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">app</span>;
 </span></span></code></pre></div><p>역시 vue.js 와 유사한 골격이다.
 상대경로에서 필요한 파일들을 가져와서 .svelte 파일에서 생성되는 App 클래스로 인스턴스를 생성하고 export 한다.
 (이건 좀 신기하다. extends 구문도 없고, 클래스를 정의하는 부분도 없는데 App 이라는 클래스명으로 지정이 된다.<br>

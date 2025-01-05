@@ -6,8 +6,19 @@
     <description>Recent content on The Computer Programmer, Nolleh</description>
     <generator>Hugo -- 0.123.7</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Sat, 04 Jan 2025 20:35:45 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 05 Jan 2025 19:31:17 +0900</lastBuildDate>
     <atom:link href="https://nolleh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2025 01 04</title>
+      <link>https://nolleh.github.io/reading-log/2025-01-04/</link>
+      <pubDate>Sun, 05 Jan 2025 19:31:17 +0900</pubDate>
+      <guid>https://nolleh.github.io/reading-log/2025-01-04/</guid>
+      <description>1. 독서 기간 일반 서적 2025-01-04 ~ 2025-01-05 2. 도서 분류 서명 완독 여부 일반 소년이 온다 v 3. 기타 동문 예술 거리의 홍지 서림에서 구매. 괜히 노벨 문학상을 받은게 아니다&amp;hellip;
+각 장마다 다른 화자가 이야기하는 구성인데 각 갈래들이 이어지는 과정에서 정확하게 전달되는 표현들이, 감정들이
+읽는 내내 먹먹하게 했다.
+5.18 에 대해 다룬 많은 책들과 영화들이 계엄군의 잔혹함에 대한 기억을 남겨 왔다면
+이번 한강의 책은 그때의 광주시민들의 가슴에 생긴 상처들과 상흔들을 문학적으로 승화시켰다.</description>
+    </item>
     <item>
       <title>2024 12 10</title>
       <link>https://nolleh.github.io/reading-log/2024-12-10/</link>
@@ -119,7 +130,8 @@ sudo commands and any failures are logged in &amp;hellip;</description>
       <link>https://nolleh.github.io/linux/18.local-security-principles/2.understanding-linux-security/</link>
       <pubDate>Sat, 06 Jan 2024 16:26:12 +0900</pubDate>
       <guid>https://nolleh.github.io/linux/18.local-security-principles/2.understanding-linux-security/</guid>
-      <description>User Accounts Linux kernel authenticated users to access files and applications. while each user is identified by a unique integer (the user id or UID), a separate database associates a username with each UID.
+      <description>User Accounts Linux kernel authenticated users to access files and applications.
+while each user is identified by a unique integer (the user id or UID), a separate database associates a username with each UID.
 Types of Accounts By default, Linux distinguishes between several account types in order to isolate processes and workloads.
 Linux has fourtypes of accounts:
 root System Normal Network For a safe working env, it is advised to grant minimum privileges possible and necessary to accounts, and remove inactive accounts.</description>
@@ -373,7 +385,7 @@ ppa archive 를 살펴보고 원하는 아키텍쳐 / 버전이 없는경우 uns
       <pubDate>Sat, 12 Aug 2023 17:26:22 +0900</pubDate>
       <guid>https://nolleh.github.io/ubuntu/kblayout/</guid>
       <description>/etc/default/keyboard
-Option	&amp;ldquo;XkbModel&amp;rdquo;	&amp;ldquo;kr106&amp;rdquo; Option	&amp;ldquo;XkbLayout&amp;rdquo;	&amp;ldquo;kr&amp;rdquo;</description>
+Option &amp;ldquo;XkbModel&amp;rdquo; &amp;ldquo;kr106&amp;rdquo; Option &amp;ldquo;XkbLayout&amp;rdquo; &amp;ldquo;kr&amp;rdquo;</description>
     </item>
     <item>
       <title>Diskutil</title>
@@ -401,7 +413,7 @@ the structure of a database index includes an ordered list of values, with each 
       <pubDate>Wed, 12 Jul 2023 08:29:46 +0900</pubDate>
       <guid>https://nolleh.github.io/npm/how-to-make-package/</guid>
       <description>패키지를 만들때 기본 구성
-{ &amp;#34;main&amp;#34;: &amp;#34;./dist/cjs/index.js&amp;#34;, &amp;#34;types&amp;#34;: &amp;#34;./dist/cjs/types/index.d.ts&amp;#34;, &amp;#34;files&amp;#34;: [ &amp;#34;dist/**/*&amp;#34; ], &amp;#34;scripts&amp;#34;: { &amp;#34;clean&amp;#34;: &amp;#34;rm -rf ./dist&amp;#34;, &amp;#34;build&amp;#34;: &amp;#34;pnpm run clean &amp;amp;&amp;amp; pnpm build:esm &amp;amp;&amp;amp; pnpm build:cjs&amp;#34;, &amp;#34;build:esm&amp;#34;: &amp;#34;tsc -p ./tsconfig.esm.json &amp;amp;&amp;amp; mv dist/esm/index.js dist/esm/index.mjs&amp;#34;, &amp;#34;build:cjs&amp;#34;: &amp;#34;tsc -p ./tsconfig.cjs.json&amp;#34;, &amp;#34;prepack&amp;#34;: &amp;#34;pnpm build&amp;#34; }, &amp;#34;repository&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;git&amp;#34;, &amp;#34;url&amp;#34;: &amp;#34;https://github.com/nolleh/serialize-interceptor&amp;#34; }, &amp;#34;keywords&amp;#34;: [ &amp;#34;nestjs&amp;#34;, &amp;#34;nest.js&amp;#34;, &amp;#34;serialize&amp;#34;, &amp;#34;deserialize&amp;#34;, &amp;#34;camel&amp;#34;, &amp;#34;snake&amp;#34;, &amp;#34;json&amp;#34;, &amp;#34;dto&amp;#34;, &amp;#34;transform&amp;#34; ], &amp;#34;exports&amp;#34;: { &amp;#34;.&amp;#34;: { &amp;#34;import&amp;#34;: { &amp;#34;types&amp;#34;: &amp;#34;.</description>
+{ &amp;#34;main&amp;#34;: &amp;#34;./dist/cjs/index.js&amp;#34;, &amp;#34;types&amp;#34;: &amp;#34;./dist/cjs/types/index.d.ts&amp;#34;, &amp;#34;files&amp;#34;: [&amp;#34;dist/**/*&amp;#34;], &amp;#34;scripts&amp;#34;: { &amp;#34;clean&amp;#34;: &amp;#34;rm -rf ./dist&amp;#34;, &amp;#34;build&amp;#34;: &amp;#34;pnpm run clean &amp;amp;&amp;amp; pnpm build:esm &amp;amp;&amp;amp; pnpm build:cjs&amp;#34;, &amp;#34;build:esm&amp;#34;: &amp;#34;tsc -p ./tsconfig.esm.json &amp;amp;&amp;amp; mv dist/esm/index.js dist/esm/index.mjs&amp;#34;, &amp;#34;build:cjs&amp;#34;: &amp;#34;tsc -p ./tsconfig.cjs.json&amp;#34;, &amp;#34;prepack&amp;#34;: &amp;#34;pnpm build&amp;#34; }, &amp;#34;repository&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;git&amp;#34;, &amp;#34;url&amp;#34;: &amp;#34;https://github.com/nolleh/serialize-interceptor&amp;#34; }, &amp;#34;keywords&amp;#34;: [ &amp;#34;nestjs&amp;#34;, &amp;#34;nest.js&amp;#34;, &amp;#34;serialize&amp;#34;, &amp;#34;deserialize&amp;#34;, &amp;#34;camel&amp;#34;, &amp;#34;snake&amp;#34;, &amp;#34;json&amp;#34;, &amp;#34;dto&amp;#34;, &amp;#34;transform&amp;#34; ], &amp;#34;exports&amp;#34;: { &amp;#34;.&amp;#34;: { &amp;#34;import&amp;#34;: { &amp;#34;types&amp;#34;: &amp;#34;./dist/esm/types/index.d.ts&amp;#34;, &amp;#34;default&amp;#34;: &amp;#34;.</description>
     </item>
     <item>
       <title>Writing Plugin</title>
@@ -539,9 +551,7 @@ In 1992, Linux was re-licensed using General Public License (GPL) by GNU (a proj
       <pubDate>Sun, 11 Dec 2022 23:23:50 +0900</pubDate>
       <guid>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/1.introduction/</guid>
       <description>The Power of Linux Three Important Pieces of Context Things change in Linux
-Linux is contantly evolving. no matter how hard to make up-to-date as possible, Course &amp;lt;-/-&amp;gt; Linux
-We have repeated some things in the class meterial
-We have tried to avoid holy wars
+Linux is contantly evolving. no matter how hard to make up-to-date as possible, Course &amp;lt;-/-&amp;gt; Linux We have repeated some things in the class meterial We have tried to avoid holy wars
 there are many areas where there are strong preference disagreements in the Linux (and wider open source) community. examples include the best editor: emacs vs. vi; GNOME vs.</description>
     </item>
     <item>

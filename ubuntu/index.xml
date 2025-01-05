@@ -66,7 +66,7 @@ ppa archive 를 살펴보고 원하는 아키텍쳐 / 버전이 없는경우 uns
       <pubDate>Sat, 12 Aug 2023 17:26:22 +0900</pubDate>
       <guid>https://nolleh.github.io/ubuntu/kblayout/</guid>
       <description>/etc/default/keyboard
-Option	&amp;ldquo;XkbModel&amp;rdquo;	&amp;ldquo;kr106&amp;rdquo; Option	&amp;ldquo;XkbLayout&amp;rdquo;	&amp;ldquo;kr&amp;rdquo;</description>
+Option &amp;ldquo;XkbModel&amp;rdquo; &amp;ldquo;kr106&amp;rdquo; Option &amp;ldquo;XkbLayout&amp;rdquo; &amp;ldquo;kr&amp;rdquo;</description>
     </item>
   </channel>
 </rss>

@@ -65,7 +65,8 @@ sudo commands and any failures are logged in &amp;hellip;</description>
       <link>https://nolleh.github.io/linux/18.local-security-principles/2.understanding-linux-security/</link>
       <pubDate>Sat, 06 Jan 2024 16:26:12 +0900</pubDate>
       <guid>https://nolleh.github.io/linux/18.local-security-principles/2.understanding-linux-security/</guid>
-      <description>User Accounts Linux kernel authenticated users to access files and applications. while each user is identified by a unique integer (the user id or UID), a separate database associates a username with each UID.
+      <description>User Accounts Linux kernel authenticated users to access files and applications.
+while each user is identified by a unique integer (the user id or UID), a separate database associates a username with each UID.
 Types of Accounts By default, Linux distinguishes between several account types in order to isolate processes and workloads.
 Linux has fourtypes of accounts:
 root System Normal Network For a safe working env, it is advised to grant minimum privileges possible and necessary to accounts, and remove inactive accounts.</description>
@@ -305,7 +306,7 @@ ppa archive 를 살펴보고 원하는 아키텍쳐 / 버전이 없는경우 uns
       <pubDate>Sat, 12 Aug 2023 17:26:22 +0900</pubDate>
       <guid>https://nolleh.github.io/ubuntu/kblayout/</guid>
       <description>/etc/default/keyboard
-Option	&amp;ldquo;XkbModel&amp;rdquo;	&amp;ldquo;kr106&amp;rdquo; Option	&amp;ldquo;XkbLayout&amp;rdquo;	&amp;ldquo;kr&amp;rdquo;</description>
+Option &amp;ldquo;XkbModel&amp;rdquo; &amp;ldquo;kr106&amp;rdquo; Option &amp;ldquo;XkbLayout&amp;rdquo; &amp;ldquo;kr&amp;rdquo;</description>
     </item>
     <item>
       <title>4-2.graphical Desktop</title>
@@ -435,9 +436,7 @@ In 1992, Linux was re-licensed using General Public License (GPL) by GNU (a proj
       <pubDate>Sun, 11 Dec 2022 23:23:50 +0900</pubDate>
       <guid>https://nolleh.github.io/linux/2.linux-philosophy-and-concepts/1.introduction/</guid>
       <description>The Power of Linux Three Important Pieces of Context Things change in Linux
-Linux is contantly evolving. no matter how hard to make up-to-date as possible, Course &amp;lt;-/-&amp;gt; Linux
-We have repeated some things in the class meterial
-We have tried to avoid holy wars
+Linux is contantly evolving. no matter how hard to make up-to-date as possible, Course &amp;lt;-/-&amp;gt; Linux We have repeated some things in the class meterial We have tried to avoid holy wars
 there are many areas where there are strong preference disagreements in the Linux (and wider open source) community. examples include the best editor: emacs vs. vi; GNOME vs.</description>
     </item>
     <item>

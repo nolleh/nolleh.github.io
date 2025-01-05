@@ -272,7 +272,7 @@ dependency 가 있는 다른 패키지 들과도 맞물리게 되면서 내가 �
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#66d9ef">$(</span>brew --prefix<span style="color:#66d9ef">)</span>
 </span></span><span style="display:flex;"><span>echo <span style="color:#66d9ef">$(</span>groups <span style="color:#66d9ef">$(</span>whoami<span style="color:#66d9ef">))</span>
 </span></span><span style="display:flex;"><span>sudo dseditgroup -o edit -a <span style="color:#66d9ef">$(</span>whoami<span style="color:#66d9ef">)</span> -t user admin
-</span></span><span style="display:flex;"><span>sudo chgrp -R admin <span style="color:#66d9ef">$(</span>brew --prefix<span style="color:#66d9ef">)</span> 
+</span></span><span style="display:flex;"><span>sudo chgrp -R admin <span style="color:#66d9ef">$(</span>brew --prefix<span style="color:#66d9ef">)</span>
 </span></span><span style="display:flex;"><span>sudo chmod -R g+rwX <span style="color:#66d9ef">$(</span>brew --prefix<span style="color:#66d9ef">)</span>
 </span></span><span style="display:flex;"><span>ls -lah <span style="color:#66d9ef">$(</span>brew --prefix<span style="color:#66d9ef">)</span>
 </span></span></code></pre></div><p>순서대로,</p>

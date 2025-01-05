@@ -259,8 +259,8 @@ Note 파일에 대해 Seeking 과 위치포인터, offsets 의 개념을 사용�
 <p>FILE_FLAG_NO_BUFFERING 플래그를 통해 CreateFile 을 Open 하면,<br>
 파일을 읽거나 쓸때 시스템의 캐싱을 비활성화 하도록 제어할 수 있다.<br>
 I/O 버퍼링을 사용한것과 같은 효과를 내려면, 데이터 alignment 가 반드시 고려되어야 한다.</p>
-<pre><code>Note 파일에 대해 Seeking 과 위치포인터,  
-offsets 의 개념을 사용하는 파일에 대해 alignment 정보가 고려될 필요가 있다. 
+<pre><code>Note 파일에 대해 Seeking 과 위치포인터,
+offsets 의 개념을 사용하는 파일에 대해 alignment 정보가 고려될 필요가 있다.
 </code></pre>
 <p>물리 디스크와 파일 시스템 저장소의 계층에서 write 연산은 alignment 기준을 맞추지 못한다면 실패 할 것이다.</p>
 <h1 id="alignment-and-file-access-requirement">Alignment and File Access Requirement<a hidden class="anchor" aria-hidden="true" href="#alignment-and-file-access-requirement">#</a></h1>
@@ -284,7 +284,7 @@ offsets 의 개념을 사용하는 파일에 대해 alignment 정보가 고려�
 IOCTL_STORAGE_QUERY_PROPERTY 제어코드와<br>
 STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR 구조체의<br>
 BytesPerPhysicalSector 멤버의 사용을 통해 물리 섹터 사이즈를 구할 수 있다.</p>
-<pre><code>Windows Server 2003 과 XP 에서는  
+<pre><code>Windows Server 2003 과 XP 에서는
 STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR 가 지원되지 않는다.
 </code></pre>
 <p>섹터 align 버퍼를 얻기 위해 VirtualAlloc 함수를 사용할 수 있다.</p>
