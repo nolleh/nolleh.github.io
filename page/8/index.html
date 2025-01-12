@@ -161,6 +161,23 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Searching For Files
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>A special shorthand notation can send anything written to file descriptor 2 (stderr) to the same place as file descriptor 1 (stdout): 2&gt;&amp;1.
+$ do_something &gt; all-output-file 2&gt;&amp;1
+bash permits an easier syntax for the above:
+$ do_something &gt;&amp; all-output-file
+in pipe… $ command1 | command2 | command3
+The above represents what we often call a pipeline, and allows Linux to combine the actions of several commands into one. This is extraordinarily efficient because command2 and command3 do not have to wait for the previous pipeline commands to complete before they can begin processing at the data in their input streams...</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-10-02 19:56:54 +0900 KST'>October 2, 2023</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to Searching For Files" href="https://nolleh.github.io/linux/7.command-line-operations/searching-for-files/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">2.system Display Date and Time Settings
     </h2>
   </header>
@@ -228,19 +245,6 @@ ppa archive 를 살펴보고 원하는 아키텍쳐 / 버전이 없는경우 uns
   </div>
   <footer class="entry-footer"><span title='2023-09-09 15:33:49 +0900 KST'>September 9, 2023</span>&nbsp;·&nbsp;nolleh</footer>
   <a class="entry-link" aria-label="post link to Neovim" href="https://nolleh.github.io/ubuntu/neovim/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Kblayout
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>/etc/default/keyboard
-Option “XkbModel” “kr106” Option “XkbLayout” “kr”</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-08-12 17:26:22 +0900 KST'>August 12, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to Kblayout" href="https://nolleh.github.io/ubuntu/kblayout/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

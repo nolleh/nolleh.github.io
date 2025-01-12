@@ -161,6 +161,19 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">1-1. 계정관리를 위한 12 tips
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>12 Best Practices for user saccount https://cloud.google.com/blog/products/gcp/12-best-practices-for-user-account GCP 에서는 유저 계정에 대한 안전한 핸들링과 인증을 위한 툴을 게공한다. 웹사이트가 구글 쿠버네티스엔진에 호스트 되는 웹사이트를 담당하든, apigee 의 api 를 담당하든, firebase 를 사용하든, 어떤 다른 서비스를 통해 유저를 인증하든, 이 포스트는 좋은 연습을 제공해서, 안전하고 확장가능하고 쓸만한 계정 인증 시스템을 사용할 수 있게 도와줄 것이다.
+1. 패스워드를 해시하라. 패스워드를 포함해서, 예민한 개인정보를 어떻게 저장할 것인가가 계정관리의 가장 중요한 규칙이다. 이 데이터를 신성하게 다뤄야한다....</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-03-12 21:52:58 +0900 KST'>March 12, 2019</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 1-1. 계정관리를 위한 12 tips" href="https://nolleh.github.io/coursera/gcp/1-1.12-tips/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">2.Security-Reliability-Migration
     </h2>
   </header>
@@ -218,23 +231,6 @@ web 표준으로 떠오르는중 c/c&#43;&#43; 로부터 clang/llvm 을 통해 �
   </div>
   <footer class="entry-footer"><span title='2019-01-21 22:58:23 +0900 KST'>January 21, 2019</span>&nbsp;·&nbsp;nolleh</footer>
   <a class="entry-link" aria-label="post link to 1. Distributed systems at a highlevel" href="https://nolleh.github.io/distributed-systems/1.highlevel/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">EOSIO - 2.1/Hello World!
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>hello 라는 이름의 디렉토리를 contracts directory 에 생성하자.
-cd CONTRACTS_DIR mkdir hello cd hello hello.cpp 를 생성하고 에디터로 열자.
-touch hello.cpp 필요한 라이브러리를 이 파일에 include 한다.
-#include &lt;eosiolib/eosio.hpp&gt; #include &lt;eosiolib/print.hpp&gt; 코드를 간결하게 해줄 eosio 네임스페이스를 contract 에 추가한다.
-using namespace eosio; eosiolib/eosio.hpp 가 EOSIO C 와 C&#43;&#43; API 를 당신의 contract 스코프에 로드한다. 표준 C&#43;&#43;11 클래스를 생성한다. 이 contract class 는 eosio::contract 를 확장해야한다.
-#include &lt;eosiolib/eosio.hpp&gt; #include &lt;eosiolib/print.hpp&gt; using namespace eosio; class hello : public contract {}; 비어있는 contract 는 좋지 않으니, public 접근 지정자와 using 선언을 추가하자....</p>
-  </div>
-  <footer class="entry-footer"><span title='2019-01-01 20:17:59 +0900 KST'>January 1, 2019</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to EOSIO - 2.1/Hello World!" href="https://nolleh.github.io/block-chain/2.1-helloworld/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

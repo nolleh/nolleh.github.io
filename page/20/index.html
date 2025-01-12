@@ -161,6 +161,22 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">EOSIO - 1.3/스택에 대해
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>발췌 - EOSIO - 1.3 About The Stack
+방금 설치한 툴들을 시작하기 전에, 각각의 컴포넌트들이 어떻게 상호작용하는지 이해하는게 좋다.
+nodeos (node &#43; eos = nodeos) - 노드를 실행하기 위한 플러그인들로 설정될 수 있는 Core EOSIO 데몬. 예제는 로컬개발과 API 종단점을 위해 블록제품을 사용한다.
+cleos (cli &#43; eos = cleos) - 블록 체인과 상호작용하고 wallet 을 관리하기위한 커맨드 라인 인터페이스.
+keosd (key &#43; eos = keosd) - wallet 안의 EOSIO key 를 안전하게 저장 하기 위한 컴포넌트...</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-01-01 15:56:51 +0900 KST'>January 1, 2019</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to EOSIO - 1.3/스택에 대해" href="https://nolleh.github.io/block-chain/1.3-aboutthestack/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">EOSIO - 1.2/시작하기 전에
     </h2>
   </header>
@@ -217,23 +233,6 @@ Task Task void - 비동기 이벤트 처리기 작성 GetAwaiter 포함 모든 �
   </div>
   <footer class="entry-footer"><span title='2018-12-21 21:41:08 +0900 KST'>December 21, 2018</span>&nbsp;·&nbsp;nolleh</footer>
   <a class="entry-link" aria-label="post link to Async Await 을 사용한 비동기 프로그래밍" href="https://nolleh.github.io/csharp/async-await-msdn/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Dispose
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Dispose 에 대한 여러가지 MSDN Implementing a Dispose method
-threadSafety stackoverflow dispose 의 threadsafety
-많은 경우 어떤 스레드든지 다른 스레드가 dispose 를 시작했을때 오브젝트에 대해 작업을 하고 있을 수 있기 때문에, interlocked.Exchange 를 통해 배제하는게 옳아 보인다.
-물론, 좋은 생각이고 표준 dispose 패턴의 일부가 되어야 한다고 생각한다.
-(champareExchange가 base class 에 봉인됨으로써 derived class 에서 private 한 disposed flag 를 사용하는 것을 피해야한다.)
-하지만 불행히도, dispose 가 정확히 어떤것을 하는지 생각해보면 문제는 좀 더 복잡해진다....</p>
-  </div>
-  <footer class="entry-footer"><span title='2018-12-19 10:18:25 +0900 KST'>December 19, 2018</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to Dispose" href="https://nolleh.github.io/csharp/dispose/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

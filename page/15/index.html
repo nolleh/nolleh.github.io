@@ -161,6 +161,25 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Cheatsheet
+      <span class="entry-hint" title="Draft">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
+          <path
+            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+        </svg>
+      </span>
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>CronJobs 수동 실행
+kubectl create job -n {namespace} --from=cronjob/{name} {job-name} </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-08-05 16:22:31 +0900 KST'>August 5, 2022</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to Cheatsheet" href="https://nolleh.github.io/kubernetes/cheatsheet/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">3.time and Order
       <span class="entry-hint" title="Draft">
         <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
@@ -223,25 +242,6 @@ active-passive 클러스터는 하나의 브로커만 존재하며, 이를 프�
   </div>
   <footer class="entry-footer"><span title='2020-02-06 14:47:47 +0900 KST'>February 6, 2020</span>&nbsp;·&nbsp;nolleh</footer>
   <a class="entry-link" aria-label="post link to Active Passive Messaging Clusters" href="https://nolleh.github.io/qpid/1.12.active-passive-messaging-clusters/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Broker Federation
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>1.4 Broker Federation 메시지 라우트를 정의하여 하나의 브로커에서 다른 브로커로 자동으로 전달하게 한다.
-일반적으로 일방향이며, 라우트는 durable 하고 tansient 한다.
-연결이 소실되면 메시지는 누적되다가 재연결이 되면 다시 전송한다.
-라우팅에 사용되는 룰은 서버가 변경됨에 따라 동적으로 변경할 수 있으며, 변경의 책임은 다른 변경조건에 맞게 반영된다,.
-1.4.1 Message Routes pull / push 방식이 있음.
-pull 은 dest 에서.
-push 는 src 에서 설정함
-queue &lt;-&gt; exchage exchange &lt;-&gt; exchange excg &lt;-&gt; excg 는 다음과 같은 라우트를 가질 수 있다....</p>
-  </div>
-  <footer class="entry-footer"><span title='2020-02-06 13:23:27 +0900 KST'>February 6, 2020</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to Broker Federation" href="https://nolleh.github.io/qpid/1.4.broker-federation/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
