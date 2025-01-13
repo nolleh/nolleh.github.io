@@ -161,6 +161,20 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">3.working With Large and Compressed Files
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>working with large files directly opening the file in an editor will probably be inefficient (due to high memory utilization) because most text editors usually try to read the whole file into memory first.
+instead, one can use less to view the contents of such a large file, scrolling up and down page by page, without the system having to place the entire file in memory before starting.
+less somefile cat somefile | less head reads the first few lines...</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-12-25 14:29:53 +0900 KST'>December 25, 2023</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to 3.working With Large and Compressed Files" href="https://nolleh.github.io/linux/13.manipluating-text/3.working-with-large-and-compressed-files/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">2.cat and Echo
     </h2>
   </header>
@@ -217,19 +231,6 @@ rsync is more efficient, because it checks if the file being copied already exis
   </div>
   <footer class="entry-footer"><span title='2023-12-24 15:42:26 +0900 KST'>December 24, 2023</span>&nbsp;·&nbsp;nolleh</footer>
   <a class="entry-link" aria-label="post link to 5.backing Up and Compressing Data" href="https://nolleh.github.io/linux/10.file-operations/5.backing-up-and-compressing-data/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">4.comparing Files and File Types
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>3. using the file utility in linux, a file’s extension does not, by default, ategorize its nature the way it might in other operating systems. for example, one cannot assume that a file named “file.txt” is a text file and not an executable program.
-6. Lab10.2: Using diff and patch diff -Naur original modified &gt; original.patch patch original &lt; original.patch </p>
-  </div>
-  <footer class="entry-footer"><span title='2023-12-24 15:09:57 +0900 KST'>December 24, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 4.comparing Files and File Types" href="https://nolleh.github.io/linux/10.file-operations/4.comparing-files-and-file-types/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

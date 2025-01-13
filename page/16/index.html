@@ -161,6 +161,21 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Active Passive Messaging Clusters
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1.12. Active-Passive Messaging Clusters 1.12.1 Overview HA 모듈은 active-passive, hot-standby 메시징 클러스터들을 장애에 tolerent 하도록 제공한다.
+active-passive 클러스터는 하나의 브로커만 존재하며, 이를 프라이머리라고 부르며, 액티브 하고 클라이언트를 serving 한다. 다른 브로커들은 백업을 위해 존재한다. 프라이머리의 변경은 모든 백업들에 반영되므로, 백업들은 최신상태이거나 ‘hot’ 상태이다. 백업 브로커들은 클라이언트의 연결을 거부하며, 클라이언트들은 프라이머리에 연결해야한다.
+만약 프라이머리가 실패하는 경우, 백업중의 하나가 새로운 프라이머리가 되기위해 자리를 차지한다. 클라이언트는 새로운 프라이머리에 자동으로 연결한다.
+만약 복수개의 백업이 있다면, 다른 백업들은 새로운 프라이머리의 백업이 되도록 장애처리를 진행한다....</p>
+  </div>
+  <footer class="entry-footer"><span title='2020-02-06 14:47:47 +0900 KST'>February 6, 2020</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to Active Passive Messaging Clusters" href="https://nolleh.github.io/qpid/1.12.active-passive-messaging-clusters/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Broker Federation
     </h2>
   </header>
@@ -214,18 +229,6 @@ Declaratively by listing cluster nodes in config file Declaratively using DNS-ba
   </div>
   <footer class="entry-footer"><span title='2020-02-05 18:44:37 +0900 KST'>February 5, 2020</span>&nbsp;·&nbsp;nolleh</footer>
   <a class="entry-link" aria-label="post link to Clustering Guide" href="https://nolleh.github.io/rabbitmq/clustering-guide/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">SSL
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p></p>
-  </div>
-  <footer class="entry-footer"><span title='2020-01-30 18:29:58 +0900 KST'>January 30, 2020</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to SSL" href="https://nolleh.github.io/crypto/ssl/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

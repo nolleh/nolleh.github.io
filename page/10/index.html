@@ -161,6 +161,25 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Writing Plugin
+      <span class="entry-hint" title="Draft">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
+          <path
+            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+        </svg>
+      </span>
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Writing Plugin 제목은 거창하게 썼지만, 플러그인이나 rc 파일 작성에 필요한 지식들을 메모해 둘 예정.
+Preview Window :botright pedit { file } :botright pedit Preview Window 에서 라인 출력 function! showInPreview(name, fileType, lines) let l:command = &#34;silent! pedit! &#43;setlocal\\ &#34; . \ &#34;buftype=nofile\\ nobuflisted\\ &#34; . \ &#34;noswapfile\\ nonumber\\ &#34; . \ &#34;filetype=&#34; . a:fileType . &#34; &#34; . a:name exe l:command if has(&#39;nvim&#39;) let l:bufNr = bufnr(a:name) call nvim_buf_set_lines(l:bufNr, 0, -1, 0, a:lines) else call setbufline(a:name, 1, a:lines) endif endfunction stackExchange...</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-01-14 14:00:53 +0900 KST'>January 14, 2023</span>&nbsp;·&nbsp;nolleh</footer>
+  <a class="entry-link" aria-label="post link to Writing Plugin" href="https://nolleh.github.io/vim/writing-plugin/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">4-2.graphical Desktop
     </h2>
   </header>
@@ -210,19 +229,6 @@ Manage graphical interface sessions. Perform basic operations using the graphica
   </div>
   <footer class="entry-footer"><span title='2023-01-08 14:15:48 +0900 KST'>January 8, 2023</span>&nbsp;·&nbsp;nolleh</footer>
   <a class="entry-link" aria-label="post link to 3-5.linux Distribution Installation" href="https://nolleh.github.io/linux/3.linux-basics-and-system-startup/5.linux-distribution-installation/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">3-4.linux Filesystem Basics
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>3-4. Linux FileSystem Basics Linux FileSystem Conventional disk filesystems: ext3, ext4, XFS, Btrfs, JFS, NTFS, vfat, exfat, etc. Flash storage filesystems: ubifs, jffs2, yaffs, etc. Database filesystems Special purpose filesystems: procfs, sysfs, tmpfs, squashfs, debugfs, fuse, etc. Partitions and Filesystems A partition is physically contiguous section of disk, or what appears to be so in some advanced setups.
-A filesystem is a method of storing/finding files on the hard disk (usually in a partition)....</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-01-08 13:44:22 +0900 KST'>January 8, 2023</span>&nbsp;·&nbsp;nolleh</footer>
-  <a class="entry-link" aria-label="post link to 3-4.linux Filesystem Basics" href="https://nolleh.github.io/linux/3.linux-basics-and-system-startup/4.linux-filesystem-basics/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
